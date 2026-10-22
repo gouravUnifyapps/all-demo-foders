@@ -1,0 +1,6 @@
+# One folder per POC, named by its POC Studio row id. Only each folder's studio/ is kept:
+# Nebula's own folders (.nebula, .sessions, specs, plans, docs, records, entities,
+# entity-manifests, CLAUDE.md, memory.md) rebuild from the tenant on every run, and a
+# code app checkout (<appId>/) is a git repository of its own whose source Code Builder keeps.
+/*/*
+!/*/studio/

@@ -25,7 +25,7 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 | t1 | automation | Delivery Command · Send executive summary |  | done | 1 |
 | t2 | deploy | Delivery Command · Send executive summary | t1 | done | 1 |
 | t3 | automation | Delivery Command · Weekly executive email schedule | t2 | done | 1 |
-| t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | running | 1 |
+| t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | done | 1 |
 | t5 | ai-agent | Delivery Command · Copilot |  | running | 1 |
 | t6 | publish | Delivery Command · Copilot | t5 | pending | 0 |
 | t7 | automation | Delivery Command · Ask Copilot | t6 | pending | 0 |
@@ -112,6 +112,12 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Weekly executive email schedule deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adbacd6f3cd5f19ed8a543a"}
+Read back: Delivery Command · Weekly executive email schedule 6adbacd6f3cd5f19ed8a543a: before deploy search_workflows showed version 0 (the version t3 saved and tested), deployment null.
+Read back: Delivery Command · Weekly executive email schedule 6adbacd6f3cd5f19ed8a543a: deploy_workflow ok:true, 'Deployed version 0', deployedVersion 1, paused false, deploymentNotes 'ClickUp Delivery Command demo v1: Delivery Command · Weekly executive email schedule'.
+Read back: Delivery Command · Weekly executive email schedule 6adbacd6f3cd5f19ed8a543a: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1792781599045, savedAfterDeploy: false} — definitionVersion 0 equals the saved version 0.
+Unverified: The first scheduled firing that calls Send executive summary is Sunday 2026-10-25 23:00 UTC (Japan, Monday 08:00 JST); check: list deployed runs of 6adbacd6f3cd5f19ed8a543a after that hour and read the Executive email rows with status preview.
+Note: Deploy approved by Answer from the person: 'yes, deploy Delivery Command · Weekly executive email schedule. The spec the person accepted names it under Ready when, so it is already approved' (the plan's approval).
 
 ### t5 · Build AI agent Delivery Command · Copilot
 

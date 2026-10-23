@@ -44,7 +44,7 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | object | `Delivery Command · Role permission` | OBJ_dcmd_role_permission | 0 | no |
 | object | `Delivery Command · Upload` | OBJ_dcmd_upload | 0 | no |
 | object | `Delivery Command · Executive email` | OBJ_dcmd_exec_email | 0 | no |
-| ai-agent |  | e_6adbabd2925d282255cee62b |  | yes |
+| ai-agent | `Delivery Command · Copilot` | e_6adbabd2925d282255cee62b | 5 | no |
 
 ## Wiring
 
@@ -131,4 +131,4 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 ## Not checked
 
-- ai-agent `e_6adbabd2925d282255cee62b` (e_6adbabd2925d282255cee62b): entity-not-cached
+- ai-agent `Delivery Command · Copilot` (e_6adbabd2925d282255cee62b): its tools are not in the cache (get_agent)

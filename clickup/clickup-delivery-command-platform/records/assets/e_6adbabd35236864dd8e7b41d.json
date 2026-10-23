@@ -9,10 +9,10 @@
   "modifiedTime": 1792781267803,
   "ownerUserId": 66770,
   "properties": {
+    "asset_class": "ai_agent",
     "asset_id": "e_6adbabd2925d282255cee62b",
     "state": "COMPLETED",
-    "solution_id": "e_6adb4b845236864dd8b18935",
-    "asset_class": "ai_agent"
+    "solution_id": "e_6adb4b845236864dd8b18935"
   },
   "standard": false,
   "version": 0

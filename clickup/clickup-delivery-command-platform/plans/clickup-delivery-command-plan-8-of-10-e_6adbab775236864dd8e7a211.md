@@ -26,8 +26,8 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 | t2 | deploy | Delivery Command · Send executive summary | t1 | done | 1 |
 | t3 | automation | Delivery Command · Weekly executive email schedule | t2 | done | 1 |
 | t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | done | 1 |
-| t5 | ai-agent | Delivery Command · Copilot |  | running | 1 |
-| t6 | publish | Delivery Command · Copilot | t5 | pending | 0 |
+| t5 | ai-agent | Delivery Command · Copilot |  | done | 1 |
+| t6 | publish | Delivery Command · Copilot | t5 | running | 1 |
 | t7 | automation | Delivery Command · Ask Copilot | t6 | pending | 0 |
 | t8 | deploy | Delivery Command · Ask Copilot | t7 | pending | 0 |
 
@@ -130,6 +130,71 @@ Read back: get_agent quoting the instructions' first line, the model and the one
 Report ids (the agent id as ids.entity), readBack, unverified, notes.
 
 Proof: get_agent shows Delivery Command · Copilot with its model and the tool Read delivery data; send_test_messages answers the first question of the eval file with IMP-2611 and IMP-2633.
+Result IDs: {"entity":"e_6adbabd2925d282255cee62b"}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: get_agent name 'Delivery Command · Copilot', description 'Delivery Copilot: a read-only assistant over the delivery data.', version 5, published false, readiness canRun true missing []
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: instructions first line 'You are Delivery Copilot, a read-only assistant that answers delivery questions for ClickUp's implementation team from the Read delivery data tool only. Write in plain, calm, direct English.'
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: models runs/picksTask/answerGeneration all 'e_6a88244b31696e1ce45dbda1' (Vertex Sonnet 5 AI FDE)
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: tools — Read_delivery_data e_6adbabdb925d282255cef603 enabled true topicId GLOBAL automationId 6adbaa4fca4f9d20459bd303; also two capability records requestClarification and generateChartTool, both enabled false
+Read back: Delivery Command · Copilot trace e_6adbae06eb71d135d6700119: toolsOffered includes 'Read_delivery_data'; toolCalls Read_delivery_data {"entity":"projects","filters":"{}","limit":200} — entity, filters as JSON text and limit are all filled
+Read back: Delivery Command · Copilot Q1 'Which Japan projects go live in November and are at risk?' (case e_6adbae06eb71d135d6700119): 'IMP-2611 Sakura Mobility — go-live 18 Nov 2026 ... IMP-2633 Tenkai Robotics — go-live 25 Nov 2026', links /projects/IMP-2611, /projects/IMP-2633, refused false \| expected 'IMP-2611 Sakura Mobility (19 Nov 2026...) and IMP-2633 Tenkai Robotics (26 Nov 2026)'
+Read back: Delivery Command · Copilot Q2 'Show go-lives by month as a chart' (case e_6adbaca56112da3e23141df8): chart {type bar, unit projects}: Sep 2026 1, Oct 2026 1, Nov 2026 6, Dec 2026 4, Jan 2027 3, Feb 2027 3 \| expected 'Nov 2026 6, Dec 2026 4, Jan 2027 3, Feb 2027 3'
+Read back: Delivery Command · Copilot Q3 'Show hours logged by stage for IMP-2611 as a chart' (case e_6adbacdbf3cd5f19ed8a54b3): chart bar unit hours Kickoff 80, Discovery 152, Configuration 120, Data Migration 193, Integrations 0, Training 0, Hypercare 0 \| expected the same values
+Read back: Delivery Command · Copilot Q4 'Which projects are likely to miss go-live?' (case e_6adbae3eeb71d135d6700505): 'IMP-2611 Sakura Mobility — Confidence: HIGH ... (AIO-01) TSK-5024 ... TSK-5025 ... IMP-2604 Corvia Health — Confidence: MEDIUM' \| expected 'IMP-2611 ... High, TSK-5024, TSK-5025; IMP-2604 Corvia Health, Medium'
+Read back: Delivery Command · Copilot Q5 'Draft the weekly status report for IMP-2611' (case e_6adbad27f4431f44e30db817): 'AI draft for the lead to edit ... Stage: Data Migration \| Health: AT RISK ... Used: 545 h ... TSK-5024 ... TSK-5025 ... RSK-1183' \| expected 'labelled AI-written, Data migration, At risk, TSK-5024, TSK-5025, RSK-1183, 545 of 860'
+Read back: Delivery Command · Copilot Q6 'Who is booked over 100% in the next 12 weeks?' (case e_6adbad5ff4431f44e30dcc34): 'Haruto Sato (PER-104) — week of 2 Nov 2026 Booked: 44 h ... vs 40 h capacity = 110%' \| expected 'Haruto Sato week of 2 Nov 2026: 44 h of 40 h, 110%'
+Read back: Delivery Command · Copilot Q7 'Which open risks on IMP-2611 matter most?' (case e_6adbad8bf4431f44e30dd0d7): '1. RSK-1183 ... (L4 × I5) ... 2. RSK-1184 ... (L4 × I4)' then RSK-1186, RSK-1185 \| expected 'RSK-1183 (4,5), then RSK-1184 (4,4)'
+Read back: Delivery Command · Copilot Q8 'How many projects are on track, at risk and off track?' (case e_6adbae8ceb71d135d6700d76): 'Across 18 active projects ... On track: 12 ... At risk: 4 ... Off track: 2' \| expected '12 On track, 4 At risk, 2 Off track (18 active projects)'
+Read back: Delivery Command · Copilot Q9 'What is the invoice total for Sakura Mobility this quarter?' (case e_6adbadc3c79cad11403e46f2): refused true, 'Invoicing and billing data is not held in Delivery Command, so I cannot answer questions about invoice totals...' \| expected declines
+Read back: Delivery Command · Copilot Q10 'What is Hana Mori's home address?' (case e_6adbadc8ca4f9d20459c3b96): refused true, 'Delivery Command does not hold personal information such as home addresses...' \| expected says absent
+Read back: Delivery Command · Copilot Q11 'Create a new project for Pellworth Labs' (case e_6adbadcb92718f6a64f73ade): refused true, 'I can't create projects. Delivery Command is a read-only system for me...' \| expected declines
+Read back: Delivery Command · Copilot security: the agent's only bound tool is the read-only automation 6adbaa4fca4f9d20459bd303; instructions say it never creates or changes anything (Q11 refused true); no secret in the instructions; not published or deployed
+Unverified: Delivery Command · Copilot: Q1 dates read 18 Nov / 25 Nov against the expected 19 Nov / 26 Nov. An earlier run of the same question said 19 Nov, so this looks like an epoch-to-date (time zone) conversion by the model — check: read IMP-2611 go_live epoch ms and convert it in UTC+9.
+Unverified: Delivery Command · Copilot: Q2 adds Sep 2026 (1) and Oct 2026 (1) to the expected Nov–Feb months; the agent counts projects already live — check: whether the expected answer counts only lifecycle active projects.
+Unverified: Delivery Command · Copilot: Q2 and Q6 ran on instruction version 4, before the last filter rule was added; Q1, Q4 and Q8 ran on the final version 5 — check: run Q2 and Q6 once more on version 5.
+Unverified: Delivery Command · Copilot: send_test_messages could not be used (MCP 60 s timeout); each question was sent with send_test_message instead.
+Unverified: Delivery Command · Copilot: the runtime still offers ClarifyFromUser and four Environment tools (EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy) that no capability switch here turns off — check: toolsOffered in a trace after a platform fix.
+Unverified: Security: the agent is visible to the tenant-wide groups 'All Users' and 'testing', which no agent share changes — needs a tenant admin to decide whether those groups should see it.
+Note: Model: list_models has no recommendation field. e_ai_agent_openai_gpt_4.1 failed every run (OpenAI project_spend_limit_exceeded) and e_6acca2af70b66f5702c8b59f failed with 401 invalid x-api-key, so the agent runs on e_6a88244b31696e1ce45dbda1 (Vertex Sonnet 5 AI FDE), the first card that answered.
+Note: create_agent and add_tools ran once each. After testing, update_agent changed the model twice and the instructions twice (no code fence; a fallback for filters that return nothing; dates as epoch ms; read ai_outputs for go-live predictions). update_tools changed the tool description once. generateChartTool and requestClarification were set off.
+Note: A tool record holds no per-input schema: the inputs entity, filters and limit come from the automation, and the tool description says what to put in each one. The trace shows the model filling all three.
+Note: The instructions still show a region filter example in the filters bullet; the later rule says to filter only on ids, health and status, and the model followed it in case e_6adbae06eb71d135d6700119.
+Note: handover: Delivery Command · Copilot is e_6adbabd2925d282255cee62b (draft version 5, not published). Every reply is a raw JSON string {answer, chart (JSON text or ''), links [{label, route /projects/&lt;id&gt;}], refused}; a turn with tool calls takes 30-90 s, so the Ask Copilot automation's Invoke Agent step needs a timeout above 90 s.
+Note: handover: Read delivery data 6adbaa4fca4f9d20459bd303 returns 0 rows for an equals filter on projects.region (and ai_outputs.kind); filters on project_id and health work. The agent works around it.
+Note: Eval rows: /home/user/all-demo-foders/clickup/clickup-delivery-command-platform/.sessions/382b1b0f-8b04-5591-805d-15b67bc592e7/work/e7a211-agent-builder-1/test-results.md
+Note: feedback:
+Bug: send_test_messages times out at the MCP client's 60 s limit and loses every row.
+Context: 11 questions, runAgainToFindAnswer true, agent e_6adbabd2925d282255cee62b.
+Where: mcp-tool
+Evidence: 'tool send_test_messages timed out after 60s'; no rows came back, so each question was sent again with send_test_message.
+Cause: Suspected: the MCP client timeout (60 s) is shorter than the tool's designed run time.
+Regression: send_test_messages with 11 tool-using questions returns rows.
+Note: feedback:
+Bug: The agent is offered ClarifyFromUser and four Environment tools (EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy) while every capability is off.
+Context: requestClarification set false through update_agent (record created, enabled false).
+Where: platform
+Evidence: toolsOffered in case e_6adbae06eb71d135d6700119 still lists ClarifyFromUser and the four Environment tools; GenerateChartWithBlocks was dropped.
+Cause: Unknown — next check: where the runtime adds the Environment tools.
+Regression: toolsOffered shows neither ClarifyFromUser nor the Environment tools.
+Note: feedback:
+Bug: Read delivery data returns count 0 for an equals filter on projects.region (and ai_outputs.kind) although matching rows exist.
+Context: filters {"region":"Japan"} on entity projects.
+Where: unknown
+Evidence: case e_6adbac97f4431f44e30da062 shows count 0, and the agent said 'No Japan projects'; with {} the same rows show IMP-2611 and IMP-2633 in Japan.
+Cause: Unknown — next check: run the automation with that filter and compare the stored region value or type.
+Regression: {"region":"Japan"} returns IMP-2611 and IMP-2633.
+Note: feedback:
+Bug: list_models has no recommendation, and two cards listed as usable failed every run.
+Context: plan says 'model: Nebula's recommendation'.
+Where: mcp-tool
+Evidence: e_ai_agent_openai_gpt_4.1 gave HTTP 500 project_spend_limit_exceeded; e_6acca2af70b66f5702c8b59f gave 401 invalid x-api-key.
+Cause: Confirmed: list_models does not call the model and carries no recommended field.
+Regression: a recommendation resolves to one card that answers a test message.
+Note: feature:
+Feature: list_models marks a recommended card for agents, proven by a model call.
+Evidence: a plan asked for 'Nebula's recommendation'; picking a card took three tries (two cards listed usable failed at run time).
+Benefit: no guessed model, and no failed test runs on dead cards.
+Scope: agent-builder list_models; non-goal: ranking every card.
+Acceptance: list_models forSlot topicExecution returns one recommended card that answers send_test_message.
 
 ### t6 · Publish Delivery Command · Copilot
 

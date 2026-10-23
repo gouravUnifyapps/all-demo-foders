@@ -1,0 +1,19 @@
+{
+  "createdTime": 1792778089229,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6adb9f690881d2257aa30510",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1792778089229,
+  "modifiedTime": 1792778089229,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_class": "ENTITY_TYPE",
+    "asset_id": "OBJ_dcmd_exec_email",
+    "state": "COMPLETED",
+    "solution_id": "e_6adb4b845236864dd8b18935"
+  },
+  "standard": false,
+  "version": 0
+}

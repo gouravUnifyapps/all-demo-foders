@@ -26,6 +26,7 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | object | `Delivery Command · Weekly metric` | OBJ_dcmd_weekly_metric | 0 | no |
 | object | `Delivery Command · Role permission` | OBJ_dcmd_role_permission | 0 | no |
 | object | `Delivery Command · Upload` | OBJ_dcmd_upload | 0 | no |
+| object | `Delivery Command · Executive email` | OBJ_dcmd_exec_email | 0 | no |
 
 ## Wiring
 

@@ -22,4 +22,5 @@ flowchart LR
   n18["object Delivery Command · Weekly metric · OBJ_dcmd_weekly_metric"]
   n19["object Delivery Command · Role permission · OBJ_dcmd_role_permission"]
   n20["object Delivery Command · Upload · OBJ_dcmd_upload"]
+  n21["object Delivery Command · Executive email · OBJ_dcmd_exec_email"]
 ```

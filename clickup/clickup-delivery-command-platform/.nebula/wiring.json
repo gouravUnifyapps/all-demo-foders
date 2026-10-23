@@ -139,6 +139,13 @@
       "name": "Delivery Command · Upload",
       "version": 0,
       "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_exec_email",
+      "name": "Delivery Command · Executive email",
+      "version": 0,
+      "stale": false
     }
   ],
   "edges": [],

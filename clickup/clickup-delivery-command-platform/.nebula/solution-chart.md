@@ -17,83 +17,89 @@ flowchart LR
   n13["automation Delivery Command · Save view · 6adba9aef3cd5f19ed89eaec"]
   n14["automation Delivery Command · Update project settings · 6adba9def3cd5f19ed89ef7d"]
   n15["automation Delivery Command · Read delivery data · 6adbaa4fca4f9d20459bd303"]
-  n16["object Delivery Command · Task · OBJ_dcmd_task"]
-  n17["object Delivery Command · Project · OBJ_dcmd_project"]
-  n18["object Delivery Command · RAID item · OBJ_dcmd_raid"]
-  n19["object Delivery Command · Booking · OBJ_dcmd_booking"]
-  n20["object Delivery Command · Time entry · OBJ_dcmd_time_entry"]
-  n21["object Delivery Command · Person · OBJ_dcmd_person"]
-  n22["object Delivery Command · Change request · OBJ_dcmd_change_request"]
-  n23["object Delivery Command · Document · OBJ_dcmd_document"]
-  n24["object Delivery Command · Session slot · OBJ_dcmd_session_slot"]
-  n25["object Delivery Command · Activity · OBJ_dcmd_activity"]
-  n26["object Delivery Command · Sign-off · OBJ_dcmd_signoff"]
-  n27["object Delivery Command · Checklist item · OBJ_dcmd_checklist_item"]
-  n28["object Delivery Command · Notification · OBJ_dcmd_notification"]
-  n29["object Delivery Command · Integration · OBJ_dcmd_integration"]
-  n30["object Delivery Command · Saved view · OBJ_dcmd_saved_view"]
-  n31["object Delivery Command · AI output · OBJ_dcmd_ai_output"]
-  n32["object Delivery Command · Weekly snapshot · OBJ_dcmd_weekly_snapshot"]
-  n33["object Delivery Command · Weekly metric · OBJ_dcmd_weekly_metric"]
-  n34["object Delivery Command · Role permission · OBJ_dcmd_role_permission"]
-  n35["object Delivery Command · Upload · OBJ_dcmd_upload"]
-  n36["object Delivery Command · Executive email · OBJ_dcmd_exec_email"]
-  n37["AI agent e_6adbabd2925d282255cee62b · e_6adbabd2925d282255cee62b"]
-  n1 -->|storage read| n16
-  n1 -->|storage write| n16
-  n1 -->|storage write| n25
-  n2 -->|storage read| n16
+  n16["automation Delivery Command · Send executive summary · 6adbac23eb71d135d65f4715"]
+  n17["object Delivery Command · Task · OBJ_dcmd_task"]
+  n18["object Delivery Command · Project · OBJ_dcmd_project"]
+  n19["object Delivery Command · RAID item · OBJ_dcmd_raid"]
+  n20["object Delivery Command · Booking · OBJ_dcmd_booking"]
+  n21["object Delivery Command · Time entry · OBJ_dcmd_time_entry"]
+  n22["object Delivery Command · Person · OBJ_dcmd_person"]
+  n23["object Delivery Command · Change request · OBJ_dcmd_change_request"]
+  n24["object Delivery Command · Document · OBJ_dcmd_document"]
+  n25["object Delivery Command · Session slot · OBJ_dcmd_session_slot"]
+  n26["object Delivery Command · Activity · OBJ_dcmd_activity"]
+  n27["object Delivery Command · Sign-off · OBJ_dcmd_signoff"]
+  n28["object Delivery Command · Checklist item · OBJ_dcmd_checklist_item"]
+  n29["object Delivery Command · Notification · OBJ_dcmd_notification"]
+  n30["object Delivery Command · Integration · OBJ_dcmd_integration"]
+  n31["object Delivery Command · Saved view · OBJ_dcmd_saved_view"]
+  n32["object Delivery Command · AI output · OBJ_dcmd_ai_output"]
+  n33["object Delivery Command · Weekly snapshot · OBJ_dcmd_weekly_snapshot"]
+  n34["object Delivery Command · Weekly metric · OBJ_dcmd_weekly_metric"]
+  n35["object Delivery Command · Role permission · OBJ_dcmd_role_permission"]
+  n36["object Delivery Command · Upload · OBJ_dcmd_upload"]
+  n37["object Delivery Command · Executive email · OBJ_dcmd_exec_email"]
+  n38["AI agent e_6adbabd2925d282255cee62b · e_6adbabd2925d282255cee62b"]
+  n1 -->|storage read| n17
+  n1 -->|storage write| n17
+  n1 -->|storage write| n26
   n2 -->|storage read| n17
-  n2 -->|storage write| n16
+  n2 -->|storage read| n18
   n2 -->|storage write| n17
-  n2 -->|storage write| n25
-  n3 -->|storage read| n21
-  n3 -->|storage read| n17
-  n3 -->|storage read| n19
-  n3 -->|storage write| n19
-  n3 -->|storage write| n25
-  n4 -->|storage write| n20
-  n4 -->|storage write| n25
-  n5 -->|storage read| n16
-  n5 -->|storage read| n21
-  n5 -->|storage write| n20
-  n5 -->|storage write| n16
-  n5 -->|storage write| n25
-  n6 -->|storage read| n24
-  n6 -->|storage write| n24
-  n7 -->|storage write| n31
-  n7 -->|storage write| n25
-  n8 -->|storage read| n26
-  n8 -->|storage read| n17
+  n2 -->|storage write| n18
+  n2 -->|storage write| n26
+  n3 -->|storage read| n22
+  n3 -->|storage read| n18
+  n3 -->|storage read| n20
+  n3 -->|storage write| n20
+  n3 -->|storage write| n26
+  n4 -->|storage write| n21
+  n4 -->|storage write| n26
+  n5 -->|storage read| n17
+  n5 -->|storage read| n22
+  n5 -->|storage write| n21
+  n5 -->|storage write| n17
+  n5 -->|storage write| n26
+  n6 -->|storage read| n25
+  n6 -->|storage write| n25
+  n7 -->|storage write| n32
+  n7 -->|storage write| n26
+  n8 -->|storage read| n27
+  n8 -->|storage read| n18
+  n8 -->|storage write| n27
   n8 -->|storage write| n26
-  n8 -->|storage write| n25
-  n8 -->|storage write| n28
-  n9 -->|storage read| n31
-  n9 -->|storage read| n17
-  n9 -->|storage write| n16
-  n9 -->|storage write| n31
-  n10 -->|storage read| n22
-  n10 -->|storage read| n17
-  n10 -->|storage write| n22
-  n10 -->|storage write| n25
-  n10 -->|storage write| n16
+  n8 -->|storage write| n29
+  n9 -->|storage read| n32
+  n9 -->|storage read| n18
+  n9 -->|storage write| n17
+  n9 -->|storage write| n32
+  n10 -->|storage read| n23
+  n10 -->|storage read| n18
+  n10 -->|storage write| n23
+  n10 -->|storage write| n26
   n10 -->|storage write| n17
-  n11 -->|storage read| n28
-  n11 -->|storage write| n28
-  n12 -->|storage read| n17
-  n12 -->|storage write| n35
-  n12 -->|storage write| n25
-  n13 -->|storage write| n30
-  n14 -->|storage read| n17
-  n14 -->|storage write| n17
-  n14 -->|storage write| n25
-  n15 -->|storage read| n17
-  n15 -->|storage read| n16
+  n10 -->|storage write| n18
+  n11 -->|storage read| n29
+  n11 -->|storage write| n29
+  n12 -->|storage read| n18
+  n12 -->|storage write| n36
+  n12 -->|storage write| n26
+  n13 -->|storage write| n31
+  n14 -->|storage read| n18
+  n14 -->|storage write| n18
+  n14 -->|storage write| n26
   n15 -->|storage read| n18
+  n15 -->|storage read| n17
   n15 -->|storage read| n19
-  n15 -->|storage read| n21
   n15 -->|storage read| n20
-  n15 -->|storage read| n26
-  n15 -->|storage read| n31
+  n15 -->|storage read| n22
+  n15 -->|storage read| n21
+  n15 -->|storage read| n27
   n15 -->|storage read| n32
+  n15 -->|storage read| n33
+  n16 -->|storage read| n34
+  n16 -->|storage read| n33
+  n16 -->|storage read| n18
+  n16 -->|storage read| n26
+  n16 -->|storage write| n37
 ```

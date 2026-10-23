@@ -106,6 +106,13 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adbac23eb71d135d65f4715",
+      "name": "Delivery Command · Send executive summary",
+      "version": 0,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_dcmd_task",
       "name": "Delivery Command · Task",
@@ -1339,6 +1346,81 @@
         "name": "Delivery Command · Weekly snapshot"
       },
       "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary",
+        "part": "node Latest weekly metric"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_weekly_metric",
+        "name": "Delivery Command · Weekly metric"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary",
+        "part": "node Latest weekly snapshot"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_weekly_snapshot",
+        "name": "Delivery Command · Weekly snapshot"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary",
+        "part": "node Active projects in the region"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary",
+        "part": "node Activity of the last 7 days"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary",
+        "part": "node Save the email as a preview (no mail connection is named)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_exec_email",
+        "name": "Delivery Command · Executive email"
+      },
+      "via": "storage write",
       "fields": []
     }
   ],

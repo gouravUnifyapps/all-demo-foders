@@ -22,9 +22,9 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Delivery Command · Send executive summary |  | running | 1 |
-| t2 | deploy | Delivery Command · Send executive summary | t1 | pending | 0 |
-| t3 | automation | Delivery Command · Weekly executive email schedule | t2 | pending | 0 |
+| t1 | automation | Delivery Command · Send executive summary |  | done | 1 |
+| t2 | deploy | Delivery Command · Send executive summary | t1 | running | 1 |
+| t3 | automation | Delivery Command · Weekly executive email schedule | t2 | running | 1 |
 | t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | pending | 0 |
 | t5 | ai-agent | Delivery Command · Copilot |  | running | 1 |
 | t6 | publish | Delivery Command · Copilot | t5 | pending | 0 |
@@ -42,6 +42,25 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Send executive summary with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adbac23eb71d135d65f4715"}
+Read back: Delivery Command · Send executive summary 6adbac23eb71d135d65f4715: compile_and_save_workflow created:true version 0; open_workflow summary: trigger CALLABLE callables/callables_from_automation, 12 nodes (4x storage fetch_records, code_by_unifyapps_groovy, storage create_record, 2 IF_ELSE, 3 returns), deployment null (not deployed, as the task says).
+Read back: Delivery Command · Send executive summary 6adbac23eb71d135d65f4715: describe_callable_workflow parameters region string required:true, recipient string required:false.
+Read back: Delivery Command · Send executive summary 6adbac23eb71d135d65f4715: result schema in open_workflow: email_id string, status string, refused boolean, message string.
+Read back: Delivery Command · Send executive summary test run 6adbac2af3cd5f19ed8a4413 ({region:japan, recipient:demo-test-exec@example.com}) COMPLETED, response {email_id:'DEMO-TEST-EML-JAPAN-20261023-5f19ed8a4413', status:'preview', refused:false, message:''}; fetches returned 1 weekly metric, 1 snapshot, 6 Japan active projects, 27 activity rows.
+Read back: Delivery Command · Send executive summary: get_records OBJ_dcmd_exec_email DEMO-TEST-EML-JAPAN-20261023-5f19ed8a4413 reads region japan, status preview, recipient demo-test-exec@example.com, send_at 1792781355122, subject 'ClickUp Delivery Command - Japan executive summary, week of 19 Oct 2026', html with the ClickUp logo img (data:image/svg+xml;base64 of logo.svg), six tiles (Active projects 18, Go-lives this month 1, Projects at risk 6, Avg days to go-live 59.8, Utilisation 72%, Value awaiting Q4 $4.47M), bridge $5.50M +$185K -$659K -$410K -$150K = $4.47M, and five movers led by IMP-2611 Sakura Mobility (At risk, +7 days vs baseline) and IMP-2633 Tenkai Robotics.
+Read back: Delivery Command · Send executive summary test run 6adbac2cc79cad11403e2a42 (all-blank {}) COMPLETED, response {email_id:'', status:'refused', refused:true, message:'region must be one of north_america, europe, japan'}; only the trigger, condition and return ran (nothing written).
+Read back: Delivery Command · Send executive summary test run 6adbac2df4431f44e30d8e92 ({region:europe, recipient:'not-an-email'}) COMPLETED, response {email_id:'', status:'refused', refused:true, message:'recipient must be a valid email address'}; nothing written.
+Read back: Delivery Command · Send executive summary security: identity not involved (no per-user data); rule 4: the Executive email write sets only email_id, region, send_at, recipient, subject, html, status, error; rule 5: no secret anywhere (no send step, no connection); rule 6: every record value in the html goes through an HTML escape in the Groovy node.
+Unverified: The ClickUp logo is embedded as an SVG data URI; many mail clients (Gmail, Outlook) do not render data-URI or SVG images. Irrelevant while status is preview; check by sending one email once a mail connection is named, or host the logo as a PNG URL.
+Unverified: Not deployed (task says do not deploy); callers hit nothing until the deploy task runs. Check: search_workflows deployment after the deploy task.
+Note: Built with no send step: no mail connection is named, so every successful run stores the Executive email row with status preview and answers status preview.
+Note: assumed: the result also carries refused (boolean) and message (text) besides email_id and status, per the task's refusal rule; a refusal answers status 'refused', refused true, email_id ''.
+Note: assumed: recipient is optional; blank or missing is accepted (row stored with empty recipient); a non-blank value that is not an email address is refused. Region is required and must be north_america, europe or japan.
+Note: assumed: Weekly metric and Weekly snapshot hold no region field, so the six headline numbers, the health line and the bridge are portfolio-wide (latest week by week_start); only the five movers are per region.
+Note: assumed: the five biggest movers are the region's active projects (DEMO-TEST projects excluded), ranked by days the go-live moved from baseline, then health severity, then Activity rows in the last 7 days, then contract value.
+Note: email_id is EML-&lt;REGION&gt;-&lt;yyyyMMdd&gt;-&lt;last 12 of execution id&gt;; in a test run (RUN.workflowRunTimeType TEST) it is prefixed DEMO-TEST-. send_at is RUN.currentTime (epoch ms). Activity is only read; this automation writes no Activity row.
+Note: DEMO-TEST rows left in place: OBJ_dcmd_exec_email: DEMO-TEST-EML-JAPAN-20261023-5f19ed8a4413. No other object was written.
+Note: handover: Send executive summary 6adbac23eb71d135d65f4715 takes parameters region (required, north_america\|europe\|japan) and recipient (optional email); it answers {email_id, status, refused, message} at the top level (read n_X.outputs.status, not .result.status).
 
 ### t2 · Deploy Delivery Command · Send executive summary
 

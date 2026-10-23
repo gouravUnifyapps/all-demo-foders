@@ -16,6 +16,11 @@ createdAt: "2026-10-23T18:06:06.399Z"
 runningAt: "2026-10-23T18:06:10.124Z"
 runner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"382b1b0f-8b04-5591-805d-15b67bc592e7"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · plan 5 of 10
@@ -23,15 +28,15 @@ Goal: ClickUp Delivery Command · plan 5 of 10
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Delivery Command · Move task |  | done | 1 |
-| t2 | deploy | Delivery Command · Move task | t1 | running | 1 |
+| t2 | deploy | Delivery Command · Move task | t1 | done | 1 |
 | t3 | automation | Delivery Command · Reschedule task |  | done | 1 |
-| t4 | deploy | Delivery Command · Reschedule task | t3 | running | 1 |
+| t4 | deploy | Delivery Command · Reschedule task | t3 | done | 1 |
 | t5 | automation | Delivery Command · Book consultant |  | done | 1 |
-| t6 | deploy | Delivery Command · Book consultant | t5 | running | 1 |
+| t6 | deploy | Delivery Command · Book consultant | t5 | done | 1 |
 | t7 | automation | Delivery Command · Review timesheets |  | done | 1 |
-| t8 | deploy | Delivery Command · Review timesheets | t7 | running | 1 |
+| t8 | deploy | Delivery Command · Review timesheets | t7 | done | 1 |
 | t9 | automation | Delivery Command · Log time |  | done | 1 |
-| t10 | deploy | Delivery Command · Log time | t9 | running | 1 |
+| t10 | deploy | Delivery Command · Log time | t9 | done | 1 |
 
 ### t1 · Build automation Delivery Command · Move task
 
@@ -70,6 +75,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Move task deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba2ac92718f6a64f34bc5"}
+Read back: Delivery Command · Move task 6adba2ac92718f6a64f34bc5: search_workflows before deploy showed version 1, deployment null (matches the logic task's saved version 1)
+Read back: Delivery Command · Move task 6adba2ac92718f6a64f34bc5: deploy_workflow returned ok:true, storedVersion 1, paused false
+Read back: Delivery Command · Move task 6adba2ac92718f6a64f34bc5: search_workflows deployment status "DEPLOYED", definitionVersion 1, deployedAt 1792779443943, savedAfterDeploy false
+Note: Deployed under the plan's approval: yes, deploy Delivery Command · Move task. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t3 · Build automation Delivery Command · Reschedule task
 
@@ -115,6 +125,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Reschedule task deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba3266112da3e23fcf133"}
+Read back: Delivery Command · Reschedule task 6adba3266112da3e23fcf133: search_workflows before deploy showed version 1, deployment null (matches the logic task's saved version 1)
+Read back: Delivery Command · Reschedule task 6adba3266112da3e23fcf133: deploy_workflow returned ok:true, storedVersion 1, paused false
+Read back: Delivery Command · Reschedule task 6adba3266112da3e23fcf133: search_workflows deployment status "DEPLOYED", definitionVersion 1, deployedAt 1792779445371, savedAfterDeploy false
+Note: Deployed under the plan's approval: yes, deploy Delivery Command · Reschedule task. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t5 · Build automation Delivery Command · Book consultant
 
@@ -151,6 +166,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Book consultant deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba3b292718f6a64f39440"}
+Read back: Delivery Command · Book consultant 6adba3b292718f6a64f39440: search_workflows before deploy showed version 1, deployment null (matches the logic task's saved version 1)
+Read back: Delivery Command · Book consultant 6adba3b292718f6a64f39440: deploy_workflow returned ok:true, storedVersion 1, paused false
+Read back: Delivery Command · Book consultant 6adba3b292718f6a64f39440: search_workflows deployment status "DEPLOYED", definitionVersion 1, deployedAt 1792779446185, savedAfterDeploy false
+Note: Deployed under the plan's approval: yes, deploy Delivery Command · Book consultant. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t7 · Build automation Delivery Command · Review timesheets
 
@@ -187,6 +207,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Review timesheets deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba402f4431f44e30943f1"}
+Read back: Delivery Command · Review timesheets 6adba402f4431f44e30943f1: search_workflows before deploy showed version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Review timesheets 6adba402f4431f44e30943f1: deploy_workflow returned ok:true, storedVersion 0, paused false
+Read back: Delivery Command · Review timesheets 6adba402f4431f44e30943f1: search_workflows deployment status "DEPLOYED", definitionVersion 0, deployedAt 1792779446907, savedAfterDeploy false
+Note: Deployed under the plan's approval: yes, deploy Delivery Command · Review timesheets. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t9 · Build automation Delivery Command · Log time
 
@@ -223,4 +248,9 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Log time deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba405ca4f9d2045858cfc"}
+Read back: Delivery Command · Log time 6adba405ca4f9d2045858cfc: search_workflows before deploy showed version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Log time 6adba405ca4f9d2045858cfc: deploy_workflow returned ok:true, storedVersion 0, paused false
+Read back: Delivery Command · Log time 6adba405ca4f9d2045858cfc: search_workflows deployment status "DEPLOYED", definitionVersion 0, deployedAt 1792779447798, savedAfterDeploy false
+Note: Deployed under the plan's approval: yes, deploy Delivery Command · Log time. The spec the person accepted names it under Ready when, so it is already approved.
 

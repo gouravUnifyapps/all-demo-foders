@@ -1,0 +1,5 @@
+# Rebuilt by kit/setup.sh, or private: never committed
+models/
+node_modules/
+auth/
+build/

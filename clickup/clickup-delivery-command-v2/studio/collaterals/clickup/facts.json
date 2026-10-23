@@ -1,0 +1,256 @@
+[
+ {
+  "id": "projects_total",
+  "value": 20,
+  "phrases": [],
+  "source": "data.rows Project: 20 (live OBJ_cudc_project, total 20)"
+ },
+ {
+  "id": "on_track",
+  "value": 14,
+  "phrases": [],
+  "source": "Project rows health=on_track, live read: 14 of 20; beats 1"
+ },
+ {
+  "id": "at_risk_now",
+  "value": 4,
+  "phrases": [],
+  "source": "Project rows health=at_risk: IMP-2611, 2615, 2621, 2628; beats 1"
+ },
+ {
+  "id": "off_track_now",
+  "value": 2,
+  "phrases": [],
+  "source": "Project rows health=off_track: IMP-2618, 2625; beats 1"
+ },
+ {
+  "id": "europe_at_risk_rows",
+  "value": 2,
+  "phrases": [],
+  "source": "beats 1: Region Europe + Health At risk gives 2 of 20 (verify beat 1)"
+ },
+ {
+  "id": "trend_now",
+  "value": 70,
+  "phrases": [],
+  "source": "Weekly metric trend week 2026-10-19 = 70 (data.rows; build_contract seed)"
+ },
+ {
+  "id": "rsk1183_likelihood",
+  "value": 4,
+  "phrases": [],
+  "source": "RAID item RSK-1183 likelihood 4 (build_contract seed; beats story row)"
+ },
+ {
+  "id": "halden_hours_used",
+  "value": 512,
+  "phrases": [
+   "of 640 budget hours"
+  ],
+  "source": "Project IMP-2611 budget_hours_used 512 (live)"
+ },
+ {
+  "id": "halden_hours_planned",
+  "value": 640,
+  "phrases": [],
+  "source": "Project IMP-2611 budget_hours_planned 640 (live)"
+ },
+ {
+  "id": "halden_open_raid",
+  "value": 5,
+  "phrases": [],
+  "source": "beats 2 and verify beat 1/previous_open: Open RAID items 5"
+ },
+ {
+  "id": "migration_column",
+  "value": 16,
+  "phrases": [],
+  "source": "Task seed: 16 of 20 in Migration; column limit 15 (beats 2)"
+ },
+ {
+  "id": "column_limit",
+  "value": 15,
+  "phrases": [],
+  "source": "beats 2: column limit warning over 15"
+ },
+ {
+  "id": "halden_go_live",
+  "value": "27 Nov 2026",
+  "phrases": [],
+  "source": "Project IMP-2611 go_live_date 1795737600000 = 2026-11-27 (live)"
+ },
+ {
+  "id": "halden_contract",
+  "value": 312000,
+  "phrases": [],
+  "source": "Project IMP-2611 contract_value 312,000 EUR (live)"
+ },
+ {
+  "id": "halden_seats",
+  "value": 4800,
+  "phrases": [],
+  "source": "Project IMP-2611 seats 4,800 (live)"
+ },
+ {
+  "id": "tomas_nov2_pct",
+  "value": 120,
+  "phrases": [
+   "percent in the week of November 2"
+  ],
+  "source": "Booking BKG-001 24 h + BKG-002 16 h + 8 h new = 48 of 40 h (live rows, Consultant seed 40 h); beats 3"
+ },
+ {
+  "id": "tomas_nov9_pct",
+  "value": 105,
+  "phrases": [
+   "percent in the week of November 9"
+  ],
+  "source": "Booking BKG-003 24 h + BKG-004 10 h + 8 h new = 42 of 40 h (live rows); beats 3"
+ },
+ {
+  "id": "booking_hours",
+  "value": 8,
+  "phrases": [
+   "hours a week"
+  ],
+  "source": "beats 3: 8 h in the weeks of 2 and 9 Nov"
+ },
+ {
+  "id": "cr_hours",
+  "value": 48,
+  "phrases": [
+   "extra hours"
+  ],
+  "source": "beats 4: CR +48 h"
+ },
+ {
+  "id": "cr_cost",
+  "value": 7200,
+  "phrases": [],
+  "source": "beats 4: +EUR 7,200"
+ },
+ {
+  "id": "cr_days",
+  "value": 7,
+  "phrases": [
+   "days to the go-live"
+  ],
+  "source": "beats 4: go-live +7 days"
+ },
+ {
+  "id": "cr_threshold",
+  "value": 40,
+  "phrases": [
+   "hours or more"
+  ],
+  "source": "build_contract business rule: 40 h or more needs director then finance partner"
+ },
+ {
+  "id": "cr_new_go_live",
+  "value": "4 Dec 2026",
+  "phrases": [],
+  "source": "beats 4: the plan moves to 4 Dec (27 Nov + 7 days)"
+ },
+ {
+  "id": "signoff_due",
+  "value": "28.10.2026",
+  "phrases": [],
+  "source": "Deliverable D-2611-2 due_date 1793145600000 = 2026-10-28 (live); beats 5"
+ },
+ {
+  "id": "weekly_at_risk",
+  "value": 6,
+  "phrases": [],
+  "source": "Weekly metric HL-03 value 6, last week 4 (live)"
+ },
+ {
+  "id": "weekly_tiles",
+  "value": 6,
+  "phrases": [
+   "headline numbers"
+  ],
+  "source": "Weekly metric: 6 headline rows (live)"
+ },
+ {
+  "id": "bridge_start",
+  "value": 4.05,
+  "phrases": [
+   "million at the start"
+  ],
+  "source": "HL-06 last_week_value 4,050,000 USD (live); bridge seed start"
+ },
+ {
+  "id": "bridge_end",
+  "value": 4.21,
+  "phrases": [
+   "million at the end"
+  ],
+  "source": "HL-06 value 4,210,000 USD (live); bridge seed end"
+ },
+ {
+  "id": "weekly_top",
+  "value": 5,
+  "phrases": [
+   "projects that changed most"
+  ],
+  "source": "beats 6: five projects that changed most (Weekly summary)"
+ },
+ {
+  "id": "copilot_suggestions",
+  "value": 3,
+  "phrases": [
+   "suggested questions"
+  ],
+  "source": "build_contract ai-agent: three suggested questions"
+ },
+ {
+  "id": "report_target_min",
+  "value": 10,
+  "phrases": [
+   "minute target"
+  ],
+  "source": "A3 / A108: weekly status report under 10 minutes"
+ },
+ {
+  "id": "weekly_at_risk_up",
+  "value": 2,
+  "phrases": [],
+  "source": "Weekly metric HL-03 value 6 vs last_week_value 4 (live)"
+ },
+ {
+  "id": "tomas_over_nov2",
+  "value": 8,
+  "phrases": [],
+  "source": "beats 3: week of 2 Nov 8 h over (48 of 40 h)"
+ },
+ {
+  "id": "tomas_over_nov9",
+  "value": 2,
+  "phrases": [],
+  "source": "beats 3: week of 9 Nov 2 h over (42 of 40 h)"
+ },
+ {
+  "id": "capacity_limit",
+  "value": 100,
+  "phrases": [],
+  "source": "build_contract business rule: over 100% of weekly capacity is refused"
+ },
+ {
+  "id": "jira_failed_since",
+  "value": "06:40",
+  "phrases": [],
+  "source": "Activity seed: Jira sync failed since 06:40 (beats 1)"
+ },
+ {
+  "id": "draft_seconds",
+  "value": 39,
+  "phrases": [],
+  "source": "verify beat 7 and query 2: the AI-written draft in 39 s in the panel"
+ },
+ {
+  "id": "usd_million",
+  "value": 1000000,
+  "phrases": [],
+  "source": "Weekly metric HL-06 and bridge figures are in millions of USD (4,050,000 and 4,210,000)"
+ }
+]

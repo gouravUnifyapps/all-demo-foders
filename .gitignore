@@ -1,6 +1,22 @@
-# One folder per POC, named by its POC Studio row id. Only each folder's studio/ is kept:
-# Nebula's own folders (.nebula, .sessions, specs, plans, docs, records, entities,
-# entity-manifests, CLAUDE.md, memory.md) rebuild from the tenant on every run, and a
-# code app checkout (<appId>/) is a git repository of its own whose source Code Builder keeps.
-/*/*
-!/*/studio/
+# One folder per client and use case: <client-slug>/<use-case-slug>/, the Nebula working folder
+# every cloud session for that use case loads at its start and pushes back at its end.
+# Kept: Demo Studio's studio/ (state, profile, documents, solution.json), Nebula's specs/, plans/,
+# docs/, records/ (records/solution.json binds the folder to its solution), .nebula/, memory.md,
+# CLAUDE.md. Left out: caches Nebula rebuilds from the tenant (entities/, entity-manifests/),
+# session scratch (.sessions/), a code app checkout (<appId>/, a git repository of its own whose
+# source Code Builder keeps), and anything else, such as the collateral kit's tools.
+/*/*/*
+!/*/*/studio/
+!/*/*/specs/
+!/*/*/plans/
+!/*/*/docs/
+!/*/*/records/
+!/*/*/.nebula/
+!/*/*/memory.md
+!/*/*/CLAUDE.md
+# Large media stays out of git: the files are uploaded to the tenant and Slack.
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.onnx

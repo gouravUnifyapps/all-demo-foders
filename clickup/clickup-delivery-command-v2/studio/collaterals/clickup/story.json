@@ -1,0 +1,462 @@
+{
+ "title": "Catch Halden Freight *before it slips*.",
+ "opening": {
+  "eyebrow": "ClickUp · Delivery Command · Proof of concept",
+  "subtitle": "One Monday in ClickUp delivery: portfolio, project, staffing, scope change, customer sign-off, weekly summary and an AI status report, all on one record.",
+  "seconds": 4
+ },
+ "closing": {
+  "title": "Plan, staff and report *every rollout in one place*.",
+  "subtitle": "Delivery Command, built on UnifyApps for ClickUp's delivery team.",
+  "cta": "Next: agree the pilot scope with ClickUp delivery",
+  "seconds": 5
+ },
+ "acts": [
+  {
+   "id": "A",
+   "title": "See the risk",
+   "card": "See the portfolio, *find the risk*.",
+   "goal": "The delivery director spots Halden Freight at risk and opens it.",
+   "persona": "delivery",
+   "start": "/portfolio",
+   "scenes": [
+    {
+     "id": "a1",
+     "title": "Portfolio",
+     "lane": "Delivery director",
+     "covers": [
+      "A1",
+      "A8",
+      "A10",
+      "A16",
+      "A22",
+      "A23",
+      "A24",
+      "A25",
+      "A26",
+      "A49",
+      "A66",
+      "A67",
+      "A70",
+      "A73",
+      "A78",
+      "A79",
+      "A80",
+      "A81",
+      "A82",
+      "A83",
+      "A85",
+      "A90",
+      "A96",
+      "A100",
+      "A101",
+      "A106"
+     ],
+     "mode": "live (Storage reads); the risk card is seeded and marked AI-written",
+     "narration": "Monday morning. Ines Moreau, the delivery director, opens Portfolio: 14 on track, 4 at risk, up one, and 2 off track, up one, since last week. A risk card, marked AI-written, flags Halden Freight with high confidence and shows its evidence. On the risk grid, the migration risk sits at likelihood 4 and impact 4, and the trend has fallen to 70 percent on track. She filters to Europe and At risk: 2 of 20 projects. A note says the Jira sync has failed since 06:40.",
+     "actions": [
+      {
+       "do": "highlight",
+       "target": {
+        "text": "since last week"
+       },
+       "say": "Point out the On track, At risk and Off track tiles",
+       "at": "14 on track"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "RISK PREDICTION"
+       },
+       "say": "Point out the AI-written risk card for Halden Freight",
+       "at": "A risk card"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Open risks"
+       },
+       "say": "Point out RSK-1183 in the likelihood 4 by impact 4 cell",
+       "at": "On the risk grid"
+      },
+      {
+       "do": "click",
+       "target": {
+        "text": "Region"
+       },
+       "say": "Add the Region Europe and Health At risk chips to the project table",
+       "at": "She filters"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Jira sync failed"
+       },
+       "say": "Point out the Jira sync failed note",
+       "at": "A note says"
+      }
+     ]
+    },
+    {
+     "id": "a2",
+     "title": "Project overview",
+     "lane": "Implementation lead",
+     "covers": [
+      "A6",
+      "A15",
+      "A28",
+      "A29",
+      "A34",
+      "A71",
+      "A99"
+     ],
+     "mode": "live (ClickUp DC · Move task)",
+     "narration": "She opens Halden Freight. The seven-stage path stands at Migration, with go-live on November 27, 512 of 640 budget hours used, 5 open RAID items, and Migration plan v2 due on October 28. The Migration column holds 16 tasks against a 15 task limit, and says so. Mira Castell, the lead, moves Validate pilot batch on to Training from the card's menu, the keyboard path. The move is recorded, and the task detail opens beside the board.",
+     "actions": [
+      {
+       "do": "click",
+       "target": {
+        "text": "Open project"
+       },
+       "say": "Click Open project on the risk card",
+       "pre": true,
+       "nav": true
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Over the 15-task limit by 1"
+       },
+       "say": "Point out the Migration column's over-limit warning",
+       "at": "The Migration column"
+      },
+      {
+       "do": "click",
+       "target": {
+        "text": "T-2611-09"
+       },
+       "say": "Open the Validate pilot batch card menu and choose Move to stage, Training",
+       "at": "moves Validate pilot batch"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Validate pilot batch"
+       },
+       "say": "The task detail opens beside the board",
+       "at": "the task detail opens"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "Staff and change",
+   "card": "Staff the work, *change the plan with approval*.",
+   "goal": "A booking that would overload a consultant is refused; a scope change routes to the right approvers.",
+   "persona": "delivery",
+   "start": "/resourcing",
+   "scenes": [
+    {
+     "id": "b1",
+     "title": "The refusal: over capacity",
+     "lane": "Resource manager",
+     "covers": [
+      "A4",
+      "A12",
+      "A17",
+      "A35",
+      "A36",
+      "A72",
+      "A91",
+      "A98",
+      "A109"
+     ],
+     "mode": "live (ClickUp DC · Book consultant)",
+     "narration": "As resource manager, she books Tomas Brandt onto Halden Freight for 8 hours a week in the weeks of November 2 and November 9, from a form, with no dragging. The app refuses before anything is saved. Over capacity: Tomas would be at 120 percent in the week of November 2, eight hours over, and 105 percent in the week of November 9, two hours over. She filters the skills matrix to data migration, finds Lena Vogt, and books her instead.",
+     "actions": [
+      {
+       "do": "click",
+       "target": {
+        "text": "Choose a consultant"
+       },
+       "say": "Choose Tomas Brandt, Halden Freight, weeks Nov 2 and Nov 9, 8 hours, then Book",
+       "at": "she books Tomas Brandt"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Over capacity"
+       },
+       "say": "Point out the Over capacity refusal naming who, which weeks and by how much",
+       "at": "Over capacity:"
+      },
+      {
+       "do": "click",
+       "target": {
+        "text": "Skills"
+       },
+       "say": "Open Skills, filter to Data migration, then book Lena Vogt",
+       "at": "She filters the skills matrix"
+      }
+     ]
+    },
+    {
+     "id": "b2",
+     "title": "Change request",
+     "lane": "Implementation lead",
+     "covers": [
+      "A33",
+      "A40",
+      "A41",
+      "A42",
+      "A43"
+     ],
+     "mode": "live (ClickUp DC · Submit change request, ClickUp DC · Decide change request)",
+     "narration": "To protect the date, Mira raises a change request: a third migration batch, 48 extra hours, 7,200 euros of cost, and 7 days to the go-live. Before submitting, she sees the plan before and after, side by side, with the differences marked. At 40 hours or more, it routes to Ines Moreau, the delivery director, then Raj Patel, the finance partner. Both approve, and Halden Freight's go-live moves to December 4.",
+     "actions": [
+      {
+       "do": "type",
+       "target": {
+        "label": "Reason"
+       },
+       "text": "Third migration batch (Warehouses)",
+       "say": "Fill reason, work added, 48 hours, EUR 7,200, go-live +7 days",
+       "at": "Mira raises a change request"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Before"
+       },
+       "say": "Point out the before and after plans with the differences marked",
+       "at": "the plan before and after"
+      },
+      {
+       "do": "click",
+       "target": {
+        "role": "button",
+        "name": "Submit"
+       },
+       "say": "Submit; the approval path names the director, then the finance partner",
+       "at": "it routes to Ines Moreau"
+      },
+      {
+       "do": "click",
+       "target": {
+        "role": "button",
+        "name": "Approve"
+       },
+       "say": "Approve as the director, then as the finance partner",
+       "at": "Both approve"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "The customer signs off",
+   "card": "The customer signs off, *in their own language*.",
+   "goal": "The sponsor sees only her project, in German, and signs off.",
+   "persona": "sponsor",
+   "start": "/portal/home",
+   "scenes": [
+    {
+     "id": "c1",
+     "title": "Customer portal",
+     "lane": "Customer sponsor",
+     "covers": [
+      "A5",
+      "A13",
+      "A19",
+      "A50",
+      "A51",
+      "A55",
+      "A68",
+      "A74",
+      "A77",
+      "A84",
+      "A97",
+      "A110"
+     ],
+     "mode": "live (ClickUp DC · Sign off deliverable)",
+     "narration": "Now the customer's side. Katrin Albers, Halden Freight's sponsor, opens the portal in German. She sees only her own project: stage, milestones, sessions, open actions and shared documents, with no internal health score, and dates written the German way, like 28.10.2026. Under Freigaben, she signs off Migration plan v2. The sign-off records who approved and when, and lands in the project's activity feed.",
+     "actions": [
+      {
+       "do": "click",
+       "target": {
+        "role": "button",
+        "name": "Deutsch"
+       },
+       "say": "Switch the portal to Deutsch",
+       "pre": true
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "28.10.2026"
+       },
+       "say": "Point out the German date format",
+       "at": "dates written the German way"
+      },
+      {
+       "do": "click",
+       "target": {
+        "text": "Freigaben"
+       },
+       "say": "Open Freigaben and click Freigeben on Migration plan v2",
+       "at": "Under Freigaben"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "Lead and report",
+   "card": "Read the week, *draft the report with AI*.",
+   "goal": "The VP reads the Monday summary; the lead drafts and publishes a status report with Delivery Copilot.",
+   "persona": "delivery",
+   "start": "/summary/weekly",
+   "scenes": [
+    {
+     "id": "d1",
+     "title": "Weekly summary",
+     "lane": "VP of customer success",
+     "covers": [
+      "A20",
+      "A56",
+      "A57",
+      "A58",
+      "A59",
+      "A111"
+     ],
+     "mode": "seeded (snapshot rows, not presented as AI); the email is mocked as a preview",
+     "narration": "Every Monday, the VP of customer success reads one page. Six headline numbers show their change from last week, coloured by whether it is good or bad for the business: 6 projects at risk, 2 more than last week, shown as bad. The contract value bridge runs from 4.05 million at the start to 4.21 million at the end, in US dollars. Below sit the 5 projects that changed most, each with its reason, and a sample of the 08:00 Monday email for each region, shown here, not sent. In this demo, the summary is a seeded weekly snapshot.",
+     "actions": [
+      {
+       "do": "highlight",
+       "target": {
+        "text": "PROJECTS AT RISK"
+       },
+       "say": "Point out Projects at risk, 6, +2 shown as bad",
+       "at": "6 projects at risk"
+      },
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Contract value bridge"
+       },
+       "say": "Point out the contract value bridge",
+       "at": "The contract value bridge"
+      },
+      {
+       "do": "scroll",
+       "to": {
+        "text": "Monday 08:00 email"
+       },
+       "say": "Scroll to the five projects and the Monday email sample",
+       "at": "Below sit"
+      }
+     ]
+    },
+    {
+     "id": "d2",
+     "title": "Delivery Copilot and the status report",
+     "lane": "Implementation lead",
+     "covers": [
+      "A2",
+      "A3",
+      "A7",
+      "A9",
+      "A21",
+      "A44",
+      "A45",
+      "A46",
+      "A88",
+      "A89",
+      "A107",
+      "A108"
+     ],
+     "mode": "live (the agent and ClickUp DC · Publish status report)",
+     "narration": "Back on Halden Freight, Mira opens Delivery Copilot, a read-only AI agent, with 3 suggested questions. She asks which Europe projects go live in November and are at risk. The panel shows the step it is working on, then answers Halden Freight, with a link to the project. Then she asks for this week's status report. The AI-written draft cites the late migration tasks, the migration risk, and 512 of 640 budget hours. She brings it into the report, edits one line and publishes, well inside the 10 minute target.",
+     "actions": [
+      {
+       "do": "click",
+       "target": {
+        "text": "Which Europe projects go live in November and are at risk?"
+       },
+       "say": "Click the suggested question: Which Europe projects go live in November and are at risk?",
+       "at": "She asks which Europe"
+      },
+      {
+       "do": "click",
+       "target": {
+        "text": "Draft this week's status report for Halden Freight"
+       },
+       "say": "Click: Draft this week's status report for Halden Freight",
+       "at": "Then she asks"
+      },
+      {
+       "do": "click",
+       "target": {
+        "role": "button",
+        "name": "Publish"
+       },
+       "say": "Put the draft in the report editor, edit one line, click Publish",
+       "at": "She brings it into the report"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "Under the hood",
+   "card": "Under the hood: *rules and an agent you can read*.",
+   "goal": "The capacity rule on the automation canvas, and the Copilot's set-up in the agent builder.",
+   "persona": "builder",
+   "start": "/",
+   "scenes": [
+    {
+     "id": "e1",
+     "title": "Book consultant on the canvas",
+     "lane": "UnifyApps",
+     "covers": [],
+     "mode": "live",
+     "narration": "Under the hood, the refusal came from one automation, Book consultant. On its canvas, it reads the consultant, the project and every booking, adds the new hours week by week against weekly capacity, and refuses any week over 100 percent without writing anything.",
+     "actions": [
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Read every booking"
+       },
+       "say": "Open ClickUp DC · Book consultant on the automation canvas; point out its steps",
+       "at": "it reads the consultant"
+      }
+     ]
+    },
+    {
+     "id": "e2",
+     "title": "Delivery Copilot in the agent builder",
+     "lane": "UnifyApps",
+     "covers": [],
+     "mode": "live",
+     "narration": "The Copilot is set up in the agent builder: plain instructions, one tool that reads delivery data, and a chart tool. It has no tool that writes, so it drafts and explains, and people decide and publish.",
+     "actions": [
+      {
+       "do": "highlight",
+       "target": {
+        "text": "Instructions"
+       },
+       "say": "Open ClickUp Delivery Copilot in the agent builder; point out instructions and tools",
+       "at": "plain instructions"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

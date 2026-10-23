@@ -1,0 +1,7 @@
+role,view_portfolio,edit_project,move_tasks,book_consultants,approve_timesheets,raise_change,approve_change,view_internal_health,sign_off_deliverables,admin
+Delivery director,true,true,true,true,true,true,true,true,false,true
+Implementation lead,true,true,true,false,false,true,false,true,false,false
+Consultant,false,false,true,false,false,false,false,true,false,false
+Resource manager,true,false,false,true,true,false,false,true,false,false
+Finance partner,true,false,false,false,false,false,true,true,false,false
+Customer sponsor,false,false,false,false,false,false,false,false,true,false

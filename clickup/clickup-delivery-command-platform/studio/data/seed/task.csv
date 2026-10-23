@@ -1,0 +1,97 @@
+task_id,project_id,title,stage,status,assignee,start,end,depends_on,critical,hours_planned,hours_logged,description,ai_proposed
+TSK-5001,IMP-2611,Kickoff meeting with Sakura sponsors,Kickoff,done,Mei Takahashi,2026-07-06,2026-07-10,,false,24,24,Kickoff meeting with Sakura sponsors.,false
+TSK-5002,IMP-2611,Confirm project charter,Kickoff,done,Mei Takahashi,2026-07-10,2026-07-14,,false,16,16,Confirm project charter.,false
+TSK-5003,IMP-2611,Set up shared workspace,Kickoff,done,Mei Takahashi,2026-07-14,2026-07-18,,false,32,32,Set up shared workspace.,false
+TSK-5004,IMP-2611,Agree governance cadence,Kickoff,done,Mei Takahashi,2026-07-18,2026-07-22,,false,8,8,Agree governance cadence.,false
+TSK-5005,IMP-2611,Current tool audit,Discovery,done,Mei Takahashi,2026-07-22,2026-07-26,,false,32,32,Current tool audit.,false
+TSK-5006,IMP-2611,Workflow interviews (operations),Discovery,done,Mei Takahashi,2026-07-26,2026-07-30,,false,16,16,Workflow interviews (operations).,false
+TSK-5007,IMP-2611,Workflow interviews (sales),Discovery,done,Mei Takahashi,2026-07-30,2026-08-03,,false,32,32,Workflow interviews (sales).,false
+TSK-5008,IMP-2611,Permissions model draft,Discovery,done,Mei Takahashi,2026-08-03,2026-08-07,,false,8,8,Permissions model draft.,false
+TSK-5009,IMP-2611,Data inventory,Discovery,done,Mei Takahashi,2026-08-07,2026-08-11,,false,32,32,Data inventory.,false
+TSK-5010,IMP-2611,Discovery sign-off pack,Discovery,done,Mei Takahashi,2026-08-11,2026-08-15,,false,32,32,Discovery sign-off pack.,false
+TSK-5011,IMP-2611,Spaces and folders build,Configuration,done,Yui Nakamura,2026-08-15,2026-08-19,,false,8,8,Spaces and folders build.,false
+TSK-5012,IMP-2611,Custom fields set-up,Configuration,done,Yui Nakamura,2026-08-19,2026-08-23,,false,16,16,Custom fields set-up.,false
+TSK-5013,IMP-2611,Automations set-up,Configuration,done,Yui Nakamura,2026-08-23,2026-08-27,,false,24,24,Automations set-up.,false
+TSK-5014,IMP-2611,Dashboards build,Configuration,done,Yui Nakamura,2026-08-27,2026-08-31,,false,12,12,Dashboards build.,false
+TSK-5015,IMP-2611,Templates build,Configuration,done,Yui Nakamura,2026-08-31,2026-09-04,,false,24,24,Templates build.,false
+TSK-5016,IMP-2611,Views per team,Configuration,done,Yui Nakamura,2026-09-04,2026-09-08,,false,8,8,Views per team.,false
+TSK-5017,IMP-2611,Admin roles set-up,Configuration,done,Yui Nakamura,2026-09-08,2026-09-12,,false,24,24,Admin roles set-up.,false
+TSK-5018,IMP-2611,Configuration walkthrough,Configuration,in_progress,Yui Nakamura,2026-10-17,2026-11-01,,false,16,4,Configuration walkthrough.,false
+TSK-5019,IMP-2611,Export legacy projects,Data migration,done,Aiko Tanaka,2026-09-12,2026-09-16,,false,32,32,Export legacy projects.,false
+TSK-5020,IMP-2611,Map statuses,Data migration,done,Aiko Tanaka,2026-09-16,2026-09-20,,false,8,8,Map statuses.,false
+TSK-5021,IMP-2611,Map custom fields,Data migration,done,Aiko Tanaka,2026-09-20,2026-09-24,,false,32,32,Map custom fields.,false
+TSK-5022,IMP-2611,Migrate user list (batch 1),Data migration,done,Aiko Tanaka,2026-09-24,2026-09-28,,false,24,24,Migrate user list (batch 1).,false
+TSK-5023,IMP-2611,Migration rehearsal 1,Data migration,done,Aiko Tanaka,2026-09-28,2026-10-02,,false,24,24,Migration rehearsal 1.,false
+TSK-5024,IMP-2611,Migrate user list (batch 2),Data migration,in_progress,Aiko Tanaka,2026-10-12,2026-10-20,,true,32,9,Migrate user list (batch 2).,false
+TSK-5025,IMP-2611,Validate custom fields mapping,Data migration,in_progress,Aiko Tanaka,2026-10-14,2026-10-21,TSK-5024,true,24,12,Validate custom fields mapping.,false
+TSK-5026,IMP-2611,Migrate attachments,Data migration,in_progress,Haruto Sato,2026-10-15,2026-10-28,,false,12,8,Migrate attachments.,false
+TSK-5027,IMP-2611,Migrate comments,Data migration,in_progress,Haruto Sato,2026-10-16,2026-10-29,,false,16,11,Migrate comments.,false
+TSK-5028,IMP-2611,Migrate time history,Data migration,in_progress,Aiko Tanaka,2026-10-17,2026-10-30,,false,16,4,Migrate time history.,false
+TSK-5029,IMP-2611,Fix rehearsal defects,Data migration,in_progress,Aiko Tanaka,2026-10-18,2026-10-31,,false,8,4,Fix rehearsal defects.,false
+TSK-5030,IMP-2611,Migration plan v2,Data migration,in_progress,Mei Takahashi,2026-10-19,2026-11-01,,false,8,2,Migration plan v2.,false
+TSK-5031,IMP-2611,Migration rehearsal 2,Data migration,not_started,Aiko Tanaka,2026-10-26,2026-10-28,TSK-5025,true,24,0,Migration rehearsal 2.,false
+TSK-5032,IMP-2611,Data reconciliation report,Data migration,not_started,Aiko Tanaka,2026-10-27,2026-10-29,TSK-5031,true,8,0,Data reconciliation report.,false
+TSK-5033,IMP-2611,Cut-over runbook,Data migration,not_started,Aiko Tanaka,2026-10-28,2026-10-30,TSK-5032,true,8,0,Cut-over runbook.,false
+TSK-5034,IMP-2611,Legacy API rate limit workaround,Data migration,blocked,Aiko Tanaka,2026-10-13,2026-10-30,,false,24,7,Legacy API rate limit workaround.,false
+TSK-5035,IMP-2611,SSO user mapping,Data migration,blocked,Aiko Tanaka,2026-10-13,2026-10-30,,false,24,16,SSO user mapping.,false
+TSK-5036,IMP-2611,Salesforce sync set-up,Integrations,not_started,Haruto Sato,2026-10-29,2026-10-31,,false,16,0,Salesforce sync set-up.,false
+TSK-5037,IMP-2611,Slack channel set-up,Integrations,not_started,Haruto Sato,2026-10-30,2026-11-01,,false,8,0,Slack channel set-up.,false
+TSK-5038,IMP-2611,Google Drive link-up,Integrations,not_started,Haruto Sato,2026-10-31,2026-11-02,,false,32,0,Google Drive link-up.,false
+TSK-5039,IMP-2611,Integration testing,Integrations,not_started,Haruto Sato,2026-11-01,2026-11-03,TSK-5033,true,12,0,Integration testing.,false
+TSK-5040,IMP-2611,Integration sign-off,Integrations,not_started,Haruto Sato,2026-11-02,2026-11-04,TSK-5039,true,12,0,Integration sign-off.,false
+TSK-5041,IMP-2611,Admin training (Japanese),Training,not_started,Yui Nakamura,2026-11-03,2026-11-05,TSK-5040,true,8,0,Admin training (Japanese).,false
+TSK-5042,IMP-2611,Team lead training,Training,not_started,Yui Nakamura,2026-11-04,2026-11-06,,false,24,0,Team lead training.,false
+TSK-5043,IMP-2611,End-user sessions,Training,not_started,Yui Nakamura,2026-11-05,2026-11-07,TSK-5041,true,16,0,End-user sessions.,false
+TSK-5044,IMP-2611,Go-live day support,Hypercare,not_started,Mei Takahashi,2026-11-19,2026-11-19,TSK-5043,true,32,0,Go-live day support.,false
+TSK-5045,IMP-2611,Hypercare review,Hypercare,not_started,Mei Takahashi,2026-11-20,2026-12-04,,false,12,0,Hypercare review.,false
+TSK-5046,IMP-2633,Data migration checkpoint 1,Data migration,done,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,16,Data migration checkpoint 1.,false
+TSK-5047,IMP-2633,Integrations checkpoint 2,Integrations,in_progress,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,8,Integrations checkpoint 2.,false
+TSK-5048,IMP-2633,Training checkpoint 3,Training,not_started,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,0,Training checkpoint 3.,false
+TSK-5049,IMP-2629,Integrations checkpoint 1,Integrations,done,Mei Takahashi,2026-10-19,2026-10-30,,false,16,16,Integrations checkpoint 1.,false
+TSK-5050,IMP-2629,Training checkpoint 2,Training,in_progress,Mei Takahashi,2026-10-19,2026-10-30,,false,16,8,Training checkpoint 2.,false
+TSK-5051,IMP-2629,Hypercare checkpoint 3,Hypercare,not_started,Mei Takahashi,2026-10-19,2026-10-30,,false,16,0,Hypercare checkpoint 3.,false
+TSK-5052,IMP-2640,Kickoff checkpoint 1,Kickoff,done,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,16,Kickoff checkpoint 1.,false
+TSK-5053,IMP-2640,Discovery checkpoint 2,Discovery,in_progress,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,8,Discovery checkpoint 2.,false
+TSK-5054,IMP-2640,Configuration checkpoint 3,Configuration,not_started,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,0,Configuration checkpoint 3.,false
+TSK-5055,IMP-2646,Discovery checkpoint 1,Discovery,done,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,16,Discovery checkpoint 1.,false
+TSK-5056,IMP-2646,Configuration checkpoint 2,Configuration,in_progress,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,8,Configuration checkpoint 2.,false
+TSK-5057,IMP-2646,Data migration checkpoint 3,Data migration,not_started,Kenji Arakawa,2026-10-19,2026-10-30,,false,16,0,Data migration checkpoint 3.,false
+TSK-5058,IMP-2598,Training checkpoint 1,Training,done,Lena Fischer,2026-10-19,2026-10-30,,false,16,16,Training checkpoint 1.,false
+TSK-5059,IMP-2598,Hypercare checkpoint 2,Hypercare,in_progress,Lena Fischer,2026-10-19,2026-10-30,,false,16,8,Hypercare checkpoint 2.,false
+TSK-5060,IMP-2598,Hypercare checkpoint 3,Hypercare,in_progress,Lena Fischer,2026-10-19,2026-10-30,,false,16,8,Hypercare checkpoint 3.,false
+TSK-5061,IMP-2607,Discovery checkpoint 1,Discovery,done,Sophie Laurent,2026-10-19,2026-10-30,,false,16,16,Discovery checkpoint 1.,false
+TSK-5062,IMP-2607,Configuration checkpoint 2,Configuration,in_progress,Sophie Laurent,2026-10-19,2026-10-30,,false,16,8,Configuration checkpoint 2.,false
+TSK-5063,IMP-2607,Data migration checkpoint 3,Data migration,not_started,Sophie Laurent,2026-10-19,2026-10-30,,false,16,0,Data migration checkpoint 3.,false
+TSK-5064,IMP-2622,Configuration checkpoint 1,Configuration,done,Lena Fischer,2026-10-19,2026-10-30,,false,16,16,Configuration checkpoint 1.,false
+TSK-5065,IMP-2622,Data migration checkpoint 2,Data migration,in_progress,Lena Fischer,2026-10-19,2026-10-30,,false,16,8,Data migration checkpoint 2.,false
+TSK-5066,IMP-2622,Integrations checkpoint 3,Integrations,not_started,Lena Fischer,2026-10-19,2026-10-30,,false,16,0,Integrations checkpoint 3.,false
+TSK-5067,IMP-2631,Data migration checkpoint 1,Data migration,done,Sophie Laurent,2026-10-19,2026-10-30,,false,16,16,Data migration checkpoint 1.,false
+TSK-5068,IMP-2631,Integrations checkpoint 2,Integrations,in_progress,Sophie Laurent,2026-10-19,2026-10-30,,false,16,8,Integrations checkpoint 2.,false
+TSK-5069,IMP-2631,Training checkpoint 3,Training,not_started,Sophie Laurent,2026-10-19,2026-10-30,,false,16,0,Training checkpoint 3.,false
+TSK-5070,IMP-2637,Kickoff checkpoint 1,Kickoff,in_progress,Lena Fischer,2026-10-19,2026-10-30,,false,16,8,Kickoff checkpoint 1.,false
+TSK-5071,IMP-2637,Kickoff checkpoint 2,Kickoff,in_progress,Lena Fischer,2026-10-19,2026-10-30,,false,16,8,Kickoff checkpoint 2.,false
+TSK-5072,IMP-2637,Discovery checkpoint 3,Discovery,not_started,Lena Fischer,2026-10-19,2026-10-30,,false,16,0,Discovery checkpoint 3.,false
+TSK-5073,IMP-2644,Kickoff checkpoint 1,Kickoff,done,Sophie Laurent,2026-10-19,2026-10-30,,false,16,16,Kickoff checkpoint 1.,false
+TSK-5074,IMP-2644,Discovery checkpoint 2,Discovery,in_progress,Sophie Laurent,2026-10-19,2026-10-30,,false,16,8,Discovery checkpoint 2.,false
+TSK-5075,IMP-2644,Configuration checkpoint 3,Configuration,not_started,Sophie Laurent,2026-10-19,2026-10-30,,false,16,0,Configuration checkpoint 3.,false
+TSK-5076,IMP-2604,Configuration checkpoint 1,Configuration,done,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,16,Configuration checkpoint 1.,false
+TSK-5077,IMP-2604,Data migration checkpoint 2,Data migration,blocked,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,8,Data migration checkpoint 2.,false
+TSK-5078,IMP-2604,Integrations checkpoint 3,Integrations,not_started,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,0,Integrations checkpoint 3.,false
+TSK-5079,IMP-2615,Data migration checkpoint 1,Data migration,done,Rachel Kim,2026-10-19,2026-10-30,,false,16,16,Data migration checkpoint 1.,false
+TSK-5080,IMP-2615,Integrations checkpoint 2,Integrations,in_progress,Rachel Kim,2026-10-19,2026-10-30,,false,16,8,Integrations checkpoint 2.,false
+TSK-5081,IMP-2615,Training checkpoint 3,Training,not_started,Rachel Kim,2026-10-19,2026-10-30,,false,16,0,Training checkpoint 3.,false
+TSK-5082,IMP-2620,Integrations checkpoint 1,Integrations,done,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,16,Integrations checkpoint 1.,false
+TSK-5083,IMP-2620,Training checkpoint 2,Training,in_progress,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,8,Training checkpoint 2.,false
+TSK-5084,IMP-2620,Hypercare checkpoint 3,Hypercare,not_started,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,0,Hypercare checkpoint 3.,false
+TSK-5085,IMP-2626,Kickoff checkpoint 1,Kickoff,done,Rachel Kim,2026-10-19,2026-10-30,,false,16,16,Kickoff checkpoint 1.,false
+TSK-5086,IMP-2626,Discovery checkpoint 2,Discovery,in_progress,Rachel Kim,2026-10-19,2026-10-30,,false,16,8,Discovery checkpoint 2.,false
+TSK-5087,IMP-2626,Configuration checkpoint 3,Configuration,not_started,Rachel Kim,2026-10-19,2026-10-30,,false,16,0,Configuration checkpoint 3.,false
+TSK-5088,IMP-2635,Discovery checkpoint 1,Discovery,done,Rachel Kim,2026-10-19,2026-10-30,,false,16,16,Discovery checkpoint 1.,false
+TSK-5089,IMP-2635,Configuration checkpoint 2,Configuration,in_progress,Rachel Kim,2026-10-19,2026-10-30,,false,16,8,Configuration checkpoint 2.,false
+TSK-5090,IMP-2635,Data migration checkpoint 3,Data migration,not_started,Rachel Kim,2026-10-19,2026-10-30,,false,16,0,Data migration checkpoint 3.,false
+TSK-5091,IMP-2642,Kickoff checkpoint 1,Kickoff,in_progress,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,8,Kickoff checkpoint 1.,false
+TSK-5092,IMP-2642,Kickoff checkpoint 2,Kickoff,in_progress,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,8,Kickoff checkpoint 2.,false
+TSK-5093,IMP-2642,Discovery checkpoint 3,Discovery,not_started,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,0,Discovery checkpoint 3.,false
+TSK-5094,IMP-2601,Training checkpoint 1,Training,done,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,16,Training checkpoint 1.,false
+TSK-5095,IMP-2601,Hypercare checkpoint 2,Hypercare,in_progress,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,8,Hypercare checkpoint 2.,false
+TSK-5096,IMP-2601,Hypercare checkpoint 3,Hypercare,in_progress,Daniel Ortiz,2026-10-19,2026-10-30,,false,16,8,Hypercare checkpoint 3.,false

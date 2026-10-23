@@ -1,0 +1,21 @@
+activity_id,at,actor,project_id,action,target,detail,source
+ACT-0001,2026-10-19T09:12:00+09:00,Aiko Tanaka,IMP-2611,task_moved,TSK-5026,"Moved ""Migrate attachments"" from Not started to In progress",app
+ACT-0002,2026-10-19T14:05:00+09:00,Mei Takahashi,IMP-2611,raid_updated,RSK-1183,Raised likelihood from 3 to 4,app
+ACT-0003,2026-10-20T10:30:00+09:00,Hana Mori,IMP-2611,signoff_recorded,SGN-301,"Signed off ""Configuration design""",app
+ACT-0004,2026-10-20T18:00:00+09:00,Haruto Sato,IMP-2611,task_blocked,TSK-5034,"Marked ""Legacy API rate limit workaround"" Blocked",app
+ACT-0005,2026-10-21T09:00:00+09:00,Mei Takahashi,IMP-2611,document_added,DOC-12,"Added ""Migration plan v1""",app
+ACT-0006,2026-10-21T11:20:00+09:00,Mei Takahashi,IMP-2611,health_changed,IMP-2611,Health changed from On track to At risk,app
+ACT-0007,2026-10-22T08:15:00+09:00,Delivery Copilot,IMP-2611,ai_flag,AIO-01,"Flagged go-live risk, confidence High",ai
+ACT-0008,2026-10-22T16:40:00+09:00,Aiko Tanaka,IMP-2611,time_logged,TSK-5024,"Logged 7 h on ""Migrate user list (batch 2)""",app
+ACT-0009,2026-10-23T09:05:00+09:00,Mei Takahashi,IMP-2611,meeting_summarised,AIO-03,"Summarised ""Weekly sync with Sakura Mobility, 22 Oct""",ai
+ACT-0010,2026-10-12T15:00:00+09:00,Kenji Arakawa,IMP-2646,project_created,IMP-2646,"Project created from won Salesforce deal (contract value ¥28,000,000, 500 seats)",salesforce
+ACT-0011,2026-10-14T10:00:00-05:00,Elena Brooks,IMP-2633,cr_approved,CR-0452,"Approved CR-0452 (16 h); delivery director only, under 40 h",app
+ACT-0012,2026-10-09T13:00:00-05:00,Tomás Herrera,IMP-2604,cr_rejected,CR-0449,"Rejected CR-0449: ""Budget for Q4 is closed; resubmit in January.""",app
+ACT-0013,2026-10-02T09:00:00+02:00,Lena Fischer,IMP-2598,went_live,IMP-2598,Halden Freight went live,app
+ACT-0014,2026-10-21T12:00:00-05:00,Daniel Ortiz,IMP-2604,golive_changed,IMP-2604,Go-live moved from 18 Nov 2026 to 3 Dec 2026,app
+ACT-0015,2026-10-20T09:30:00+02:00,Sophie Laurent,IMP-2631,golive_changed,IMP-2631,Go-live moved from 25 Nov 2026 to 9 Dec 2026,app
+ACT-0016,2026-10-22T10:10:00-07:00,Rachel Kim,IMP-2615,health_changed,IMP-2615,Health stays At risk: Salesforce sandbox access pending,app
+ACT-0017,2026-10-09T16:00:00-05:00,Elena Brooks,IMP-2590,project_cancelled,IMP-2590,"Pellworth Labs cancelled before kickoff (USD 150,000)",app
+ACT-0018,2026-10-20T15:00:00-05:00,Rachel Kim,IMP-2626,golive_changed,IMP-2626,Go-live moved from 17 Dec 2026 to 28 Jan 2027 at the customer's request,app
+ACT-0019,2026-10-23T06:40:00Z,Integration monitor,,sync_failed,Jira,Jira sync failed: token expired,automation
+ACT-0020,2026-10-22T11:00:00-07:00,Grace Liu,IMP-2611,booking_added,BKG-0029,"Booked Aiko Tanaka 16 h on IMP-2611, week of 9 Nov",app

@@ -1,0 +1,3 @@
+cr_id,project_id,raised_by,reason,work_added,work_removed,hours_delta,cost_delta,currency,golive_before,golive_after,route,step1_status,step1_by,step1_at,step2_status,step2_by,step2_at,next_approver,status,reject_reason
+CR-0452,IMP-2633,Kenji Arakawa,Customer asked for a second telemetry dashboard,Build telemetry dashboard 2,,16,480000,JPY,2026-11-26,2026-11-26,director,approved,Elena Brooks,2026-10-14T10:00:00-05:00,not_needed,,,,approved,
+CR-0449,IMP-2604,Daniel Ortiz,Add archive migration for 2019 records,Migrate 2019 archive; extra reconciliation,,64,11520,USD,2026-11-18,2026-12-01,director_finance,approved,Elena Brooks,2026-10-08T15:00:00-05:00,rejected,Tomás Herrera,2026-10-09T13:00:00+02:00,,rejected,Budget for Q4 is closed; resubmit in January.

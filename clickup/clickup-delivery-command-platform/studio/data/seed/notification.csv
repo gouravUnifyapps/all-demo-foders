@@ -1,0 +1,7 @@
+notification_id,recipient,kind,text,link,read,at
+NTF-01,Mei Takahashi,signoff,Hana Mori signed off Configuration design,/projects/IMP-2611,true,2026-10-20T10:31:00+09:00
+NTF-02,Mei Takahashi,mention,Aiko Tanaka mentioned you on RSK-1183,/projects/IMP-2611?tab=raid,false,2026-10-22T17:02:00+09:00
+NTF-03,Aiko Tanaka,assignment,"You were assigned ""Migration rehearsal 2""",/m/tasks,false,2026-10-23T08:10:00+09:00
+NTF-04,Aiko Tanaka,mention,"Mei Takahashi mentioned you on ""Migrate user list (batch 2)""",/m/tasks,false,2026-10-23T09:00:00+09:00
+NTF-05,Elena Brooks,signoff,Migration plan v2 is awaiting Sakura Mobility's sign-off,/projects/IMP-2611,false,2026-10-23T09:30:00+09:00
+NTF-06,Elena Brooks,mention,Daniel Ortiz mentioned you on IMP-2604,/projects/IMP-2604,false,2026-10-22T14:00:00-05:00

@@ -1,0 +1,13 @@
+slot_id,project_id,date,start,end,topic,taken,booked_by
+SLT-01,IMP-2611,2026-11-02,10:00,11:30,Admin training,true,Hana Mori
+SLT-02,IMP-2611,2026-11-02,13:00,14:30,Admin training,true,Hana Mori
+SLT-03,IMP-2611,2026-11-02,15:00,16:30,Admin training,false,
+SLT-04,IMP-2611,2026-11-04,10:00,11:30,Admin training,false,
+SLT-05,IMP-2611,2026-11-04,13:00,14:30,Admin training,false,
+SLT-06,IMP-2611,2026-11-04,15:00,16:30,Admin training,true,Hana Mori
+SLT-07,IMP-2611,2026-11-06,10:00,11:30,End-user training,true,Hana Mori
+SLT-08,IMP-2611,2026-11-06,13:00,14:30,End-user training,false,
+SLT-09,IMP-2611,2026-11-06,15:00,16:30,End-user training,false,
+SLT-10,IMP-2611,2026-11-08,10:00,11:30,End-user training,false,
+SLT-11,IMP-2611,2026-11-08,13:00,14:30,End-user training,false,
+SLT-12,IMP-2611,2026-11-08,15:00,16:30,End-user training,false,

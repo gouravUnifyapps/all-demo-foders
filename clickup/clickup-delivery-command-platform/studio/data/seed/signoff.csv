@@ -1,0 +1,5 @@
+signoff_id,project_id,stage,deliverable,status,requested_at,decided_by,decided_at,comment
+SGN-300,IMP-2611,Discovery,Discovery sign-off pack,signed_off,2026-08-13,Hana Mori,2026-08-17T11:00:00+09:00,
+SGN-301,IMP-2611,Configuration,Configuration design,signed_off,2026-10-16,Hana Mori,2026-10-20T10:30:00+09:00,
+SGN-302,IMP-2611,Data migration,Migration plan v2,awaiting,2026-10-23,,,
+SGN-310,IMP-2604,Discovery,Discovery sign-off pack,signed_off,2026-08-03,Owen Price,2026-08-05T09:00:00-05:00,

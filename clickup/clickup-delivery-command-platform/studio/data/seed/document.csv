@@ -1,0 +1,7 @@
+document_id,project_id,title,kind,file_url,shared_with_customer,source,uploaded_by,at,body
+DOC-10,IMP-2611,Statement of work · Sakura Mobility,sow,,true,Google Drive,Mei Takahashi,2026-07-03,"Scope: workspace configuration, data migration from the internal project tracker, Salesforce, Slack and Google Drive integrations, admin and end-user training in Japanese. 1,200 seats. Budget 860 hours. Go-live 12 Nov 2026 (baseline)."
+DOC-12,IMP-2611,Migration plan v1,migration_plan,,true,Google Drive,Mei Takahashi,2026-10-21,Migration plan v1. Batch 1: 600 users (done 28 Sep). Batch 2: 600 users (due 20 Oct). Attachments and comments follow; comments older than two years move to a read-only archive. Rehearsal 2 on 26 Oct.
+DOC-13,IMP-2611,Sign-off record · Discovery,signoff_record,,true,Delivery Command,Hana Mori,2026-08-17,Discovery sign-off. Deliverable: Discovery sign-off pack. Signed off by Hana Mori on 17 Aug 2026.
+DOC-14,IMP-2611,Sign-off record · Configuration design,signoff_record,,true,Delivery Command,Hana Mori,2026-10-20,"Configuration design sign-off. Signed off by Hana Mori on 20 Oct 2026, two working days after the request."
+DOC-15,IMP-2611,Internal margin notes,other,,false,Google Drive,Mei Takahashi,2026-09-30,Internal notes on effort against budget. Not shared with the customer.
+DOC-20,IMP-2604,Statement of work · Corvia Health,sow,,true,Google Drive,Daniel Ortiz,2026-06-12,"Scope: 3,100 seats, HIPAA-reviewed migration of attachments, Salesforce integration. Go-live 18 Nov 2026 (baseline)."

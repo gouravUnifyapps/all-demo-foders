@@ -1,0 +1,11 @@
+item_id,project_id,order,question_en,question_ja,question_de,answer
+CHK-01,IMP-2611,1,Single sign-on provider,シングルサインオンのプロバイダー,Single-Sign-on-Anbieter,Okta
+CHK-02,IMP-2611,2,Admin users (names),管理者ユーザー,Admin-Benutzer,"Hana Mori, Ren Ishida"
+CHK-03,IMP-2611,3,Default workspace language,既定のワークスペース言語,Standardsprache des Workspace,Japanese
+CHK-04,IMP-2611,4,Time zone for reports,レポートのタイムゾーン,Zeitzone für Berichte,Asia/Tokyo
+CHK-05,IMP-2611,5,Number of teams to onboard,オンボーディングするチーム数,Anzahl der Teams,14
+CHK-06,IMP-2611,6,Data retention period,データ保持期間,Aufbewahrungsfrist,7 years
+CHK-07,IMP-2611,7,Legacy tool to retire,廃止するレガシーツール,Abzulösendes Altsystem,Internal project tracker
+CHK-08,IMP-2611,8,Go-live communication owner,本番開始の連絡担当者,Verantwortlich für Go-live-Kommunikation,
+CHK-09,IMP-2611,9,Guest access policy,ゲストアクセスのポリシー,Richtlinie für Gastzugriff,
+CHK-10,IMP-2611,10,Support escalation contact,サポートのエスカレーション連絡先,Eskalationskontakt Support,

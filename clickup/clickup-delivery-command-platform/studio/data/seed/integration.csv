@@ -1,0 +1,5 @@
+system,status,last_sync,error,affected
+Salesforce,live,2026-10-23T08:40:00Z,,
+Slack,live,2026-10-23T08:35:00Z,,
+Google Drive,live,2026-10-23T08:10:00Z,,
+Jira,sync_failed,2026-10-23T06:40:00Z,Token expired. Ask the Jira admin to reconnect.,"3 escalations not updated: ENG-4821, ENG-4830, ENG-4833"

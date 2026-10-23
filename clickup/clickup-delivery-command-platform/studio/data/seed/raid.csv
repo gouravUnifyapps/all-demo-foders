@@ -1,0 +1,18 @@
+raid_id,project_id,type,title,owner,due,status,likelihood,impact,jira_key,history
+RSK-1183,IMP-2611,risk,User list export from the legacy tool is incomplete,Aiko Tanaka,2026-10-30,open,4,5,,23 Sep raised L3 I5 · 19 Oct likelihood 3 to 4 (Mei Takahashi)
+RSK-1184,IMP-2611,risk,Legacy API rate limit slows attachment migration,Haruto Sato,2026-10-30,open,4,4,ENG-4821,13 Oct raised · 20 Oct linked to ENG-4821
+RSK-1185,IMP-2611,risk,Admin trainers' availability in week of 2 Nov,Yui Nakamura,2026-11-02,open,2,3,,15 Oct raised
+RSK-1186,IMP-2611,risk,SSO user mapping waits on customer IdP admin,Mei Takahashi,2026-10-28,open,3,4,,13 Oct raised
+ASM-0311,IMP-2611,assumption,Customer provides a frozen user list by 28 Oct,Hana Mori,2026-10-28,open,,,,9 Oct logged
+ISS-0207,IMP-2611,issue,Two blocked migration tasks,Mei Takahashi,2026-10-27,open,,,ENG-4821,20 Oct logged
+DEC-0098,IMP-2611,decision,Migrate comments older than 2 years as a read-only archive,Mei Takahashi,2026-10-16,closed,,,,16 Oct decided with Hana Mori
+RSK-1171,IMP-2633,risk,Robot telemetry integration scope unclear,Kenji Arakawa,2026-11-04,open,3,4,,7 Oct raised
+RSK-1172,IMP-2633,risk,Customer test environment not ready,Haruto Sato,2026-11-02,open,4,3,,12 Oct raised
+RSK-1160,IMP-2604,risk,HIPAA review of migrated attachments,Daniel Ortiz,2026-11-06,open,5,5,,2 Oct raised
+RSK-1161,IMP-2604,risk,Data owner on leave until 9 Nov,Priya Raman,2026-11-09,open,4,4,,14 Oct raised
+RSK-1165,IMP-2631,risk,ERP connector licence delayed,Sophie Laurent,2026-11-12,open,5,4,,5 Oct raised
+RSK-1168,IMP-2615,risk,Salesforce sandbox access pending,Rachel Kim,2026-10-29,open,3,3,,10 Oct raised
+RSK-1169,IMP-2644,risk,Works council approval for time tracking,Sophie Laurent,2026-11-20,open,3,5,,18 Oct raised
+RSK-1173,IMP-2622,risk,German field labels exceed 30 characters,Jonas Weber,2026-11-06,open,2,2,,16 Oct raised
+RSK-1174,IMP-2607,risk,Semester start freezes staff availability,Marta Kowalska,2026-12-01,open,2,4,,19 Oct raised
+RSK-1175,IMP-2620,risk,Store managers miss training slots,Priya Raman,2026-11-03,open,1,3,,20 Oct raised

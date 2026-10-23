@@ -1,0 +1,19 @@
+person_id,name,role,region,capacity_hours,skill_data_migration,skill_integrations,skill_admin_training,skill_api,skill_japanese,customer,email,time_zone,week_start
+PER-101,Mei Takahashi,lead,Japan,40,3,2,3,2,4,,mei.takahashi@delivery.example,Asia/Tokyo,monday
+PER-102,Kenji Arakawa,lead,Japan,40,2,3,2,3,4,,kenji.arakawa@delivery.example,Asia/Tokyo,monday
+PER-103,Aiko Tanaka,consultant,Japan,40,4,2,3,1,4,,aiko.tanaka@delivery.example,Asia/Tokyo,monday
+PER-104,Haruto Sato,consultant,Japan,40,2,4,1,4,4,,haruto.sato@delivery.example,Asia/Tokyo,monday
+PER-105,Yui Nakamura,consultant,Japan,32,3,1,4,1,4,,yui.nakamura@delivery.example,Asia/Tokyo,monday
+PER-106,Lena Fischer,lead,Europe,40,3,3,3,2,0,,lena.fischer@delivery.example,Europe/Berlin,monday
+PER-107,Sophie Laurent,lead,Europe,40,2,3,4,2,1,,sophie.laurent@delivery.example,Europe/Paris,monday
+PER-108,Jonas Weber,consultant,Europe,40,4,3,2,3,0,,jonas.weber@delivery.example,Europe/Berlin,monday
+PER-109,Marta Kowalska,consultant,Europe,40,3,4,2,4,0,,marta.kowalska@delivery.example,Europe/Warsaw,monday
+PER-110,Daniel Ortiz,lead,North America,40,3,2,3,3,0,,daniel.ortiz@delivery.example,America/Chicago,sunday
+PER-111,Rachel Kim,lead,North America,40,2,4,2,4,1,,rachel.kim@delivery.example,America/Los_Angeles,sunday
+PER-112,Priya Raman,consultant,North America,40,4,3,3,3,0,,priya.raman@delivery.example,America/New_York,sunday
+PER-113,Marcus Bell,consultant,North America,40,1,2,3,1,0,,marcus.bell@delivery.example,America/New_York,sunday
+PER-114,Elena Brooks,director,North America,0,0,0,0,0,0,,elena.brooks@delivery.example,America/New_York,sunday
+PER-115,Tomás Herrera,finance_partner,Europe,0,0,0,0,0,0,,tomas.herrera@delivery.example,Europe/Madrid,monday
+PER-116,Grace Liu,resource_manager,North America,0,0,0,0,0,0,,grace.liu@delivery.example,America/Los_Angeles,sunday
+PER-117,Hana Mori,sponsor,Japan,0,0,0,0,0,0,Sakura Mobility,hana.mori@sakura-mobility.example,Asia/Tokyo,monday
+PER-118,Owen Price,sponsor,North America,0,0,0,0,0,0,Corvia Health,owen.price@corvia-health.example,America/Chicago,sunday

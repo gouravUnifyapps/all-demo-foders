@@ -1,0 +1,21 @@
+{
+  "createdTime": 1792756612209,
+  "deleted": false,
+  "entityType": "e_solution",
+  "id": "e_6adb4b845236864dd8b18935",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1792756612209,
+  "modifiedTime": 1792756612209,
+  "ownerUserId": 66770,
+  "properties": {
+    "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n",
+    "name": "Clickup · ClickUp Delivery command platform",
+    "description": ""
+  },
+  "standard": false,
+  "tags": [
+    "Nebula"
+  ],
+  "version": 0
+}

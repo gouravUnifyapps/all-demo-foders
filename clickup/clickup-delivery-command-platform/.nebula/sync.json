@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "startedAt": "2026-10-23T11:56:53.541Z",
+  "pid": 2988,
+  "solutionId": "e_6adb4b845236864dd8b18935",
+  "tenant": "orbit.uat.unifyapps.com",
+  "solutionName": "Clickup · ClickUp Delivery command platform",
+  "endedAt": "2026-10-23T11:56:53.542Z",
+  "changed": 0,
+  "failed": 0,
+  "error": null,
+  "reason": null
+}

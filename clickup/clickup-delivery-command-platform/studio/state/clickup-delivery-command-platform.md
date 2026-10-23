@@ -8,7 +8,7 @@ status: building
 version: 1 · since 2026-10-23T11:57:39Z
 thread: C0CBK3E47E2 · 1792757255.287779
 intent: both
-stage_flag: /home/user/all-demo-foders/clickup/clickup-delivery-command-platform/.demo-studio/stage-running
+stage_flag: 
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1792757255.287779, decided_by: Gourav Mahunta (reply), decided_at: 2026-10-23T12:10:00Z}
@@ -41,6 +41,18 @@ posts:
     by: Gourav Mahunta's Slack · gate_order: row still shows G1 waiting
     version: 1
     round: 1
+  - when: 2026-10-23T17:12:00Z
+    kind: status
+    ts: 1792757255.287779
+    by: bot
+    version: 1
+    round: 1
+  - when: 2026-10-23T19:42:00Z
+    kind: status
+    ts: 1792757255.287779
+    by: bot
+    version: 1
+    round: 1
 runs:
   - started: 2026-10-23T11:57:39Z
     ended: 2026-10-23T12:07:57Z
@@ -65,13 +77,13 @@ runs:
     outcome: waiting
 
   - started: 2026-10-23T17:11:00Z
-    ended: 
+    ended: 2026-10-23T19:40:00Z
     gate: g3
     stages: [3-build]
-    spawns: 0
-    tokens: 0
-    outcome: 
-stopped: 
+    spawns: 24
+    tokens: 3900
+    outcome: stopped: AGENT_LLM_TOOLS refused on orbit.uat during plan 9
+stopped: {why: "orbit.uat refused every Nebula call with AGENT_LLM_TOOLS PERMISSION_REQUIRED for gourav.mahunta@unifyapps.com from about 19:35Z (hold_code_branch, then get_entity_records); Nebula rule: no retry until the person confirms the permission", where: "3-build, plan 9 of 10 (e_6adbb044925d282255d09cab), task t7 Executive summary"}
 
 asks:
   - id: A1
@@ -1181,17 +1193,32 @@ decisions:
   - by: orchestrator
     when: 2026-10-23
     text: "The confirmed G1 feedback item \"Status?\" and the pending \"Stop rework\" ask for no change and are not counted; G1 stays approved. The row still shows G1 waiting, so POC Studio will refuse the G3 report with gate_order until G1 and G2 are approved in POC Studio."
+  - by: orchestrator
+    when: 2026-10-23
+    text: "3-build split the contract into 10 Nebula plans; automations were built without contract shells because every caller (the agent, the code app) comes in a later plan, after each deploy."
+  - by: orchestrator
+    when: 2026-10-23
+    text: "Builders asked to delete their own DEMO-TEST rows (CONFIRM_REQUIRED); no person can approve a delete in an unattended run, so they kept them: DEMO-TEST rows remain in Change request, Task, Activity, Project, AI output, Sign-off, Notification, Session slot, Upload and Saved view; their cleanup is a handover checklist item."
+  - by: build
+    when: 2026-10-23
+    text: "Found while building, for 4-verify: Read delivery data returns 0 rows for a region or ai_outputs kind filter; the Copilot read some go-live dates one day early (time zone); the code app's t4/t5 screens send local-midnight dates (fix built in the unpushed t7 change); Copilot model is Vertex Sonnet 5 AI FDE because the first two listed models failed (spend limit, invalid key); the agent is visible to groups All Users and testing."
+  - by: state-check
+    when: 2026-10-23
+    text: "reverted open_questions: written by build, outside its fields (schema § Who writes what)"
 dev_issues: []
 
 frozen:
 
 cost:
-  runs: 3
-  agent_spawns: 2
-  tokens_m: 0.47
-  wall_h: 0.68
+  runs: 4
+  agent_spawns: 26
+  tokens_m: 4.37
+  wall_h: 3.18
 
 open_questions:
+  - by: orchestrator
+    for: lead
+    text: "The tenant refused Nebula's tools mid-build (AGENT_LLM_TOOLS PERMISSION_REQUIRED for gourav.mahunta@unifyapps.com on orbit.uat). Confirm the role holds AGENT_LLM_TOOLS (VIEW, CREATE, EDIT, DELETE or ALL), or have a tenant admin add it; then click Build again and the run resumes plan 9 at the Executive summary screen."
   - by: harvest
     for: lead
     text: "Customer health in the portal: the VP of customer success says \"Show customers their health score\" (A111); implementation leads say \"Customers should never see internal health\" (A112). Options: (a) Portal shows no internal health; customers see stage, milestones and open sign-offs only (C1) [recommended]; (b) Portal shows a customer-facing health score, separate from the internal one; (c) Portal shows the internal health as-is"
@@ -1560,6 +1587,61 @@ The code app: internal workspace, customer portal and phone view.
 - Document files · beat 2, 6 · fde-agent · no file upload on its servers · read: — · worked around: the viewer pages each document's body text
 
 ## entities
+- object · Delivery Command · Project · OBJ_dcmd_project · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_project/schema
+- object · Delivery Command · Task · OBJ_dcmd_task · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_task/schema
+- object · Delivery Command · RAID item · OBJ_dcmd_raid · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_raid/schema
+- object · Delivery Command · Person · OBJ_dcmd_person · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_person/schema
+- object · Delivery Command · Booking · OBJ_dcmd_booking · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_booking/schema
+- object · Delivery Command · Time entry · OBJ_dcmd_time_entry · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_time_entry/schema
+- object · Delivery Command · Change request · OBJ_dcmd_change_request · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_change_request/schema
+- object · Delivery Command · Activity · OBJ_dcmd_activity · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_activity/schema
+- object · Delivery Command · Document · OBJ_dcmd_document · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_document/schema
+- object · Delivery Command · Session slot · OBJ_dcmd_session_slot · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_session_slot/schema
+- object · Delivery Command · Sign-off · OBJ_dcmd_signoff · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_signoff/schema
+- object · Delivery Command · Checklist item · OBJ_dcmd_checklist_item · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_checklist_item/schema
+- object · Delivery Command · Notification · OBJ_dcmd_notification · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_notification/schema
+- object · Delivery Command · Integration · OBJ_dcmd_integration · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_integration/schema
+- object · Delivery Command · Saved view · OBJ_dcmd_saved_view · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_saved_view/schema
+- object · Delivery Command · Weekly snapshot · OBJ_dcmd_weekly_snapshot · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_weekly_snapshot/schema
+- object · Delivery Command · Weekly metric · OBJ_dcmd_weekly_metric · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_weekly_metric/schema
+- object · Delivery Command · AI output · OBJ_dcmd_ai_output · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_ai_output/schema
+- object · Delivery Command · Role permission · OBJ_dcmd_role_permission · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_role_permission/schema
+- object · Delivery Command · Upload · OBJ_dcmd_upload · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_upload/schema
+- object · Delivery Command · Executive email · OBJ_dcmd_exec_email · https://orbit.uat.unifyapps.com/p/0/objects/OBJ_dcmd_exec_email/schema
+- automation · Delivery Command · Move task · 6adba2ac92718f6a64f34bc5 · https://orbit.uat.unifyapps.com/p/0/automations/6adba2ac92718f6a64f34bc5/builder
+- automation · Delivery Command · Reschedule task · 6adba3266112da3e23fcf133 · https://orbit.uat.unifyapps.com/p/0/automations/6adba3266112da3e23fcf133/builder
+- automation · Delivery Command · Book consultant · 6adba3b292718f6a64f39440 · https://orbit.uat.unifyapps.com/p/0/automations/6adba3b292718f6a64f39440/builder
+- automation · Delivery Command · Review timesheets · 6adba402f4431f44e30943f1 · https://orbit.uat.unifyapps.com/p/0/automations/6adba402f4431f44e30943f1/builder
+- automation · Delivery Command · Log time · 6adba405ca4f9d2045858cfc · https://orbit.uat.unifyapps.com/p/0/automations/6adba405ca4f9d2045858cfc/builder
+- automation · Delivery Command · Change request · 6adba6a8cac0655fe3582da3 · https://orbit.uat.unifyapps.com/p/0/automations/6adba6a8cac0655fe3582da3/builder
+- automation · Delivery Command · Accept proposed tasks · 6adba625ca4f9d2045986507 · https://orbit.uat.unifyapps.com/p/0/automations/6adba625ca4f9d2045986507/builder
+- automation · Delivery Command · Publish status report · 6adba5cfeb71d135d657c23d · https://orbit.uat.unifyapps.com/p/0/automations/6adba5cfeb71d135d657c23d/builder
+- automation · Delivery Command · Record sign-off · 6adba5f8eb71d135d657e318 · https://orbit.uat.unifyapps.com/p/0/automations/6adba5f8eb71d135d657e318/builder
+- automation · Delivery Command · Book training slot · 6adba59c92718f6a64f4015a · https://orbit.uat.unifyapps.com/p/0/automations/6adba59c92718f6a64f4015a/builder
+- automation · Delivery Command · Confirm upload · 6adba9abcac0655fe35aa2fc · https://orbit.uat.unifyapps.com/p/0/automations/6adba9abcac0655fe35aa2fc/builder
+- automation · Delivery Command · Save view · 6adba9aef3cd5f19ed89eaec · https://orbit.uat.unifyapps.com/p/0/automations/6adba9aef3cd5f19ed89eaec/builder
+- automation · Delivery Command · Update project settings · 6adba9def3cd5f19ed89ef7d · https://orbit.uat.unifyapps.com/p/0/automations/6adba9def3cd5f19ed89ef7d/builder
+- automation · Delivery Command · Mark notification read · 6adba94deb71d135d658f2dc · https://orbit.uat.unifyapps.com/p/0/automations/6adba94deb71d135d658f2dc/builder
+- automation · Delivery Command · Read delivery data · 6adbaa4fca4f9d20459bd303 · https://orbit.uat.unifyapps.com/p/0/automations/6adbaa4fca4f9d20459bd303/builder
+- automation · Delivery Command · Send executive summary · 6adbac23eb71d135d65f4715 · https://orbit.uat.unifyapps.com/p/0/automations/6adbac23eb71d135d65f4715/builder
+- automation · Delivery Command · Weekly executive email schedule · 6adbacd6f3cd5f19ed8a543a · https://orbit.uat.unifyapps.com/p/0/automations/6adbacd6f3cd5f19ed8a543a/builder
+- ai-agent · Delivery Command · Copilot ·  · https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6adbabd2925d282255cee62b
+- automation · Delivery Command · Ask Copilot · 6adbaf90c79cad11403e9b72 · https://orbit.uat.unifyapps.com/p/0/automations/6adbaf90c79cad11403e9b72/builder
+- code-app · ClickUp Delivery Command · app-f53fd0efccec · branch main · last commit 4da8ec330d8c54ac7feb00f7947f4bc05bc2d967 · preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/ · published: not yet · PRIVATE
+- serves: objects and seeds A1–A114 data (all beats); automations per their beats; Copilot beat 7 (A31–A38); code app screens built so far: shell, sign-in, Portfolio, Project (all tabs), Resourcing, Timesheets, Changes (beats 1–4); not yet: Executive summary, Copilot panel, Portal, Phone, Admin (beats 5–7)
+
+build:
+  plans:
+    - {id: e_6adb96180881d2257a9f97c3, n: 1, tasks: 10, status: done, what: objects 1-10, start: 2026-10-23T17:13Z, finish: 2026-10-23T17:18Z}
+    - {id: e_6adb96e00881d2257aa1945b, n: 2, tasks: 10, status: done, what: objects 11-20, start: 2026-10-23T17:18Z, finish: 2026-10-23T17:53Z}
+    - {id: e_6adb9f27925d282255ba6215, n: 3, tasks: 10, status: done, what: Executive email object and 9 seeds, start: 2026-10-23T17:53Z, finish: 2026-10-23T18:02Z}
+    - {id: e_6adba1375236864dd8e627db, n: 4, tasks: 10, status: done, what: 10 seeds, start: 2026-10-23T18:02Z, finish: 2026-10-23T18:05Z}
+    - {id: e_6adba20e5236864dd8e64c53, n: 5, tasks: 10, status: done, what: 5 automations and deploys, start: 2026-10-23T18:06Z, finish: 2026-10-23T18:18Z}
+    - {id: e_6adba4f3925d282255c4195e, n: 6, tasks: 10, status: done, what: 5 automations and deploys, start: 2026-10-23T18:18Z, finish: 2026-10-23T18:34Z}
+    - {id: e_6adba8af925d282255c9a9e6, n: 7, tasks: 10, status: done, what: 5 automations and deploys, start: 2026-10-23T18:34Z, finish: 2026-10-23T18:46Z}
+    - {id: e_6adbab775236864dd8e7a211, n: 8, tasks: 8, status: done, what: executive email, schedule, Copilot agent and publish, Ask Copilot, start: 2026-10-23T18:46Z, finish: 2026-10-23T19:06Z}
+    - {id: e_6adbb044925d282255d09cab, n: 9, tasks: 7, status: in_progress (t1-t6 pushed; t7 Executive summary built locally, not pushed; builder report not recorded), what: code app shell and internal screens, start: 2026-10-23T19:06Z}
+    - {n: 10, tasks: 6, status: not started, what: Copilot panel, Portal, Phone, Admin, publish; files ready in the session drafts}
 
 ## beats
 Storyline: "Every implementation visible and actionable" (A1), 7 beats and 2 hood beats; proposed intent `both`.

@@ -1114,6 +1114,25 @@
       },
       "standard": false,
       "version": 3
+    },
+    "e_6adbb0930881d2257acfde39": {
+      "createdTime": 1792782483376,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adbb0930881d2257acfde39",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792782483376,
+      "modifiedTime": 1792782483376,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "app-f53fd0efccec",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "e_interface"
+      },
+      "standard": false,
+      "version": 0
     }
   },
   "counters": {}

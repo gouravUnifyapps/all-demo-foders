@@ -1,6 +1,13 @@
 {
   "entities": [
     {
+      "kind": "app",
+      "id": "app-f53fd0efccec",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
       "kind": "automation",
       "id": "6adba2ac92718f6a64f34bc5",
       "name": "Delivery Command · Move task",
@@ -1454,6 +1461,12 @@
     }
   ],
   "unknown": [
+    {
+      "kind": "app",
+      "id": "app-f53fd0efccec",
+      "name": null,
+      "reason": "interface-not-cached"
+    },
     {
       "kind": "ai-agent",
       "id": "e_6adbabd2925d282255cee62b",

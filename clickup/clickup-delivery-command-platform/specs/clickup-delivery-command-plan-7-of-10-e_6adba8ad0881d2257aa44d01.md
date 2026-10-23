@@ -1,0 +1,84 @@
+---
+nebula: 3
+mode: "sonic"
+format: "spec"
+title: "ClickUp Delivery Command · plan 7 of 10"
+touches: [{"kind":"automation","name":"Delivery Command · Confirm upload"},{"kind":"automation","name":"Delivery Command · Save view"},{"kind":"automation","name":"Delivery Command · Update project settings"},{"kind":"automation","name":"Delivery Command · Mark notification read"},{"kind":"automation","name":"Delivery Command · Read delivery data"}]
+askBeforeDeploy: true
+releaseYes: [{"action":"deploy","kind":"automation","name":"Delivery Command · Confirm upload"},{"action":"deploy","kind":"automation","name":"Delivery Command · Save view"},{"action":"deploy","kind":"automation","name":"Delivery Command · Update project settings"},{"action":"deploy","kind":"automation","name":"Delivery Command · Mark notification read"},{"action":"deploy","kind":"automation","name":"Delivery Command · Read delivery data"}]
+acceptedAt: "2026-10-23T18:34:20.404Z"
+acceptedBy: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa"}
+planIds: ["e_6adba8af925d282255c9a9e6"]
+latestPlanId: "e_6adba8af925d282255c9a9e6"
+planId: "e_6adba8af925d282255c9a9e6"
+---
+# ClickUp Delivery Command · plan 7 of 10
+
+## Requested outcome
+ClickUp's delivery director, implementation leads, resource manager and consultants run every customer implementation from one code app: portfolio health at a glance, a project workspace, resourcing and timesheets, change requests that route by an hours rule, a weekly executive summary and Delivery Copilot, a read-only AI assistant over the live data. Customer sponsors follow and sign off their own rollout in a portal in English, German and Japanese; consultants log time from a phone view. The story follows IMP-2611 Sakura Mobility, at risk of missing its 19 Nov 2026 go-live. This plan (part 7 of 10) builds and deploys the automations Confirm upload, Save view, Update project settings, Mark notification read, Read delivery data; the objects they use already exist in this solution.
+
+## Touches
+- automation · Delivery Command · Confirm upload · new
+- automation · Delivery Command · Save view · new
+- automation · Delivery Command · Update project settings · new
+- automation · Delivery Command · Mark notification read · new
+- automation · Delivery Command · Read delivery data · new
+
+## Contract
+
+### automation · Delivery Command · Confirm upload
+Records a validated customer upload.
+- automation · create · Delivery Command · Confirm upload: callable; input project_id text, file_name text, rows_total number, rows_error number, error_summary text, actor text; saves an Upload with status confirmed and one Activity row; result upload_id text
+
+### automation · Delivery Command · Save view
+Saves a filtered portfolio view.
+- automation · create · Delivery Command · Save view: callable; input name text, filters text, shared_with_team boolean, actor text; result view_id text
+
+### automation · Delivery Command · Update project settings
+Saves one project setting edited in place.
+- automation · create · Delivery Command · Update project settings: callable; input project_id text, field text (name, region, go_live, budget_hours), value text, actor text; validates the value (a go-live date in the past and a negative budget are refused with a message saying what to enter), saves it and writes one Activity row; result ok boolean, message text, saved_at datetime
+
+### automation · Delivery Command · Mark notification read
+Marks one notification read.
+- automation · create · Delivery Command · Mark notification read: callable; input notification_id text; result ok boolean
+
+### automation · Delivery Command · Read delivery data
+The Copilot's read-only tool over the delivery objects.
+- automation · create · Delivery Command · Read delivery data: callable, read only; input entity text (projects, tasks, raid, bookings, people, time_entries, signoffs, ai_outputs, weekly_snapshots), filters text (JSON field equals or range), limit number; result rows list, count number; never writes
+
+## Business rules
+- Changes under 40 hours need the delivery director's approval; changes of 40 hours or more also need the finance partner, in that order.
+- Rejecting a change request needs a written reason; returning a timesheet needs a reason; requesting changes on a sign-off needs a comment.
+- An approved change updates the plan (tasks, go-live, budget hours) and is recorded in the activity feed.
+- A board column shows a warning when it holds more than 15 tasks.
+- A booking above a person's weekly capacity shows who, which weeks and by how much before it is saved.
+- The activity record is never edited or deleted.
+- Customers see only their own project and never internal health.
+- Anything Delivery Copilot writes carries an AI-written label; nothing it proposes is created without acceptance.
+- Every status shows an icon and a word, never colour alone; status words follow BRD §8 (good: On track, Signed off, Approved, Live; attention: At risk, Awaiting sign-off, Over capacity, Pending approval; problem: Off track, Blocked, Rejected, Sync failed; neutral: Not started, Draft, Scheduled, Hypercare).
+- Errors say what happened and what to do next; no jokes or exclamation marks.
+- Money shows in the contract currency; portfolio totals in USD at planning rates EUR 1.08 and JPY 0.0066.
+- Dates show in the user's format (17 Oct 2026, 17.10.2026, 2026年10月17日); weeks start on Monday in Europe and Japan and Sunday in North America.
+- No screen suggests billing, invoicing, revenue recognition, editing customer workspaces, hiring, payroll, a marketing site, video calls or offline phone use.
+- Look: the app's one stylesheet is /home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/design-system/clickup/client.css (hue 244, brand #5F55EE); the rail logo is /home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/design-system/clickup/logo.svg and the collapsed rail and tab icon use logo-mark.svg beside it, both as published; theme light by default with the dark tokens live and the switch in the profile menu.
+- Test records written during the demo carry the DEMO-TEST label and the demo's date.
+
+## Ready when
+- deploy Delivery Command · Confirm upload
+- deploy Delivery Command · Save view
+- deploy Delivery Command · Update project settings
+- deploy Delivery Command · Mark notification read
+- deploy Delivery Command · Read delivery data
+
+## Assumptions
+- Check this: proposed intent `both` (the outcome first, then 2 hood beats); the owner sets it at G2.
+- Check this: G1 open questions 1 to 12 are unanswered; the plan follows each recommended option (portal shows no internal health; phone stays at today, status, time and alerts; portfolio opens on one screen with the paged list below; region as a labelled chip; A114 out of scope; integrations seeded; the official logo; a phone-width route; full portal language switch; 18 seeded projects and 13 consultants with a generated 50,000-row upload; a seeded finance partner; a scheduled email with one test run).
+- Check this: the brand colour #5F55EE (hue 244) is brand-sample's recommendation among 14 candidates (profile standing answer for an ambiguous colour).
+- Check this: the logo is ClickUp's own nav wordmark from clickup.com, saved as published; the script's first pick was the ClickUp Brain mark and was replaced.
+- Check this: the seven stage names (Kickoff, Discovery, Configuration, Data migration, Integrations, Training, Hypercare) and the persona names are assumed; the BRD's own stage names are not in the state file.
+- Check this: earlier "ClickUp DC ·" and "DC" objects, automations and agents exist on the tenant outside this solution; this build uses new "Delivery Command ·" names and touches none of them.
+- Check this: the executive email sends only on a mail connection the owner names; until then Send executive summary stores a preview row.
+- Check this: sign-in, forgot and reset password screens and the persona switch stand in for real accounts, which need governance tools not granted yet.
+- Check this: Word export of the status report is an HTML document saved as .doc from the app; PDF is the browser's print to PDF.
+- Check this: the code app name ClickUp Delivery Command is free; if taken, the name gets the suffix "· Demo".
+- All seed rows are fictional; customer names follow the BRD's six invented customers plus twelve more invented names.

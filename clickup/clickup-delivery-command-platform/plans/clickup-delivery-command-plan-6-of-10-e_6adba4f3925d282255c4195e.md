@@ -16,6 +16,11 @@ createdAt: "2026-10-23T18:18:27.107Z"
 runningAt: "2026-10-23T18:18:30.152Z"
 runner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"382b1b0f-8b04-5591-805d-15b67bc592e7"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · plan 6 of 10
@@ -23,15 +28,15 @@ Goal: ClickUp Delivery Command · plan 6 of 10
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Delivery Command · Change request |  | done | 1 |
-| t2 | deploy | Delivery Command · Change request | t1 | running | 1 |
+| t2 | deploy | Delivery Command · Change request | t1 | done | 1 |
 | t3 | automation | Delivery Command · Accept proposed tasks |  | done | 1 |
-| t4 | deploy | Delivery Command · Accept proposed tasks | t3 | running | 1 |
+| t4 | deploy | Delivery Command · Accept proposed tasks | t3 | done | 1 |
 | t5 | automation | Delivery Command · Publish status report |  | done | 1 |
 | t6 | deploy | Delivery Command · Publish status report | t5 | done | 1 |
 | t7 | automation | Delivery Command · Record sign-off |  | done | 1 |
-| t8 | deploy | Delivery Command · Record sign-off | t7 | running | 1 |
+| t8 | deploy | Delivery Command · Record sign-off | t7 | done | 1 |
 | t9 | automation | Delivery Command · Book training slot |  | done | 1 |
-| t10 | deploy | Delivery Command · Book training slot | t9 | running | 1 |
+| t10 | deploy | Delivery Command · Book training slot | t9 | done | 1 |
 
 ### t1 · Build automation Delivery Command · Change request
 
@@ -85,6 +90,12 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Change request deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba6a8cac0655fe3582da3"}
+Read back: Delivery Command · Change request 6adba6a8cac0655fe3582da3: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, 'Deployed version 0 of automation 6adba6a8cac0655fe3582da3.'
+Read back: Delivery Command · Change request 6adba6a8cac0655fe3582da3: search_workflows deployment status DEPLOYED, definitionVersion 0 (= saved and tested version 0), deployedAt 1792780350379, savedAfterDeploy false
+Note: deploymentNotes sent: 'ClickUp Delivery Command demo v1: Delivery Command · Change request' (the bridge adds the plan tag).
+Note: Deployed on the plan's approval: the accepted spec names this automation under Ready when.
+Note: Saved version was confirmed 0 by search_workflows right before the deploy.
 
 ### t3 · Build automation Delivery Command · Accept proposed tasks
 
@@ -123,6 +134,12 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Accept proposed tasks deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba625ca4f9d2045986507"}
+Read back: Delivery Command · Accept proposed tasks 6adba625ca4f9d2045986507: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, 'Deployed version 0 of automation 6adba625ca4f9d2045986507.'
+Read back: Delivery Command · Accept proposed tasks 6adba625ca4f9d2045986507: search_workflows deployment status DEPLOYED, definitionVersion 0 (= saved and tested version 0), deployedAt 1792780352051, savedAfterDeploy false
+Note: deploymentNotes sent: 'ClickUp Delivery Command demo v1: Delivery Command · Accept proposed tasks' (the bridge adds the plan tag).
+Note: Deployed on the plan's approval: the accepted spec names this automation under Ready when.
+Note: Saved version was confirmed 0 by search_workflows right before the deploy.
 
 ### t5 · Build automation Delivery Command · Publish status report
 
@@ -199,6 +216,12 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Record sign-off deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba5f8eb71d135d657e318"}
+Read back: Delivery Command · Record sign-off 6adba5f8eb71d135d657e318: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, 'Deployed version 0 of automation 6adba5f8eb71d135d657e318.'
+Read back: Delivery Command · Record sign-off 6adba5f8eb71d135d657e318: search_workflows deployment status DEPLOYED, definitionVersion 0 (= saved and tested version 0), deployedAt 1792780353386, savedAfterDeploy false
+Note: deploymentNotes sent: 'ClickUp Delivery Command demo v1: Delivery Command · Record sign-off' (the bridge adds the plan tag).
+Note: Deployed on the plan's approval: the accepted spec names this automation under Ready when.
+Note: Saved version was confirmed 0 by search_workflows right before the deploy.
 
 ### t9 · Build automation Delivery Command · Book training slot
 
@@ -237,4 +260,10 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Book training slot deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba59c92718f6a64f4015a"}
+Read back: Delivery Command · Book training slot 6adba59c92718f6a64f4015a: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, 'Deployed version 0 of automation 6adba59c92718f6a64f4015a.'
+Read back: Delivery Command · Book training slot 6adba59c92718f6a64f4015a: search_workflows deployment status DEPLOYED, definitionVersion 0 (= saved and tested version 0), deployedAt 1792780354301, savedAfterDeploy false
+Note: deploymentNotes sent: 'ClickUp Delivery Command demo v1: Delivery Command · Book training slot' (the bridge adds the plan tag).
+Note: Deployed on the plan's approval: the accepted spec names this automation under Ready when.
+Note: Saved version was confirmed 0 by search_workflows right before the deploy.
 

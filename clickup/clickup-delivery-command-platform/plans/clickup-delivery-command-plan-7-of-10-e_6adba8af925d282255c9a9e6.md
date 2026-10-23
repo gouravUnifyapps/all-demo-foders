@@ -16,6 +16,11 @@ createdAt: "2026-10-23T18:34:22.820Z"
 runningAt: "2026-10-23T18:34:26.812Z"
 runner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"382b1b0f-8b04-5591-805d-15b67bc592e7"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · plan 7 of 10
@@ -23,15 +28,15 @@ Goal: ClickUp Delivery Command · plan 7 of 10
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Delivery Command · Confirm upload |  | done | 1 |
-| t2 | deploy | Delivery Command · Confirm upload | t1 | running | 1 |
+| t2 | deploy | Delivery Command · Confirm upload | t1 | done | 1 |
 | t3 | automation | Delivery Command · Save view |  | done | 1 |
-| t4 | deploy | Delivery Command · Save view | t3 | running | 1 |
+| t4 | deploy | Delivery Command · Save view | t3 | done | 1 |
 | t5 | automation | Delivery Command · Update project settings |  | done | 1 |
-| t6 | deploy | Delivery Command · Update project settings | t5 | running | 1 |
+| t6 | deploy | Delivery Command · Update project settings | t5 | done | 1 |
 | t7 | automation | Delivery Command · Mark notification read |  | done | 1 |
-| t8 | deploy | Delivery Command · Mark notification read | t7 | running | 1 |
+| t8 | deploy | Delivery Command · Mark notification read | t7 | done | 1 |
 | t9 | automation | Delivery Command · Read delivery data |  | done | 1 |
-| t10 | deploy | Delivery Command · Read delivery data | t9 | running | 1 |
+| t10 | deploy | Delivery Command · Read delivery data | t9 | done | 1 |
 
 ### t1 · Build automation Delivery Command · Confirm upload
 
@@ -75,6 +80,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Confirm upload deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba9abcac0655fe35aa2fc"}
+Read back: Delivery Command · Confirm upload 6adba9abcac0655fe35aa2fc: pre-deploy search_workflows version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Confirm upload 6adba9abcac0655fe35aa2fc: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, message "Deployed version 0 of automation 6adba9abcac0655fe35aa2fc."
+Read back: Delivery Command · Confirm upload 6adba9abcac0655fe35aa2fc: search_workflows deployment status "DEPLOYED", deployedAt 1792781118441, definitionVersion 0, savedAfterDeploy false; version 0
+Note: Deployed per Answer from the person: "yes, deploy Delivery Command · Confirm upload. The spec the person accepted names it under Ready when, so it is already approved" (plan approval). deploymentNotes "ClickUp Delivery Command demo v1: Delivery Command · Confirm upload".
 
 ### t3 · Build automation Delivery Command · Save view
 
@@ -110,6 +120,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Save view deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba9aef3cd5f19ed89eaec"}
+Read back: Delivery Command · Save view 6adba9aef3cd5f19ed89eaec: pre-deploy search_workflows version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Save view 6adba9aef3cd5f19ed89eaec: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, message "Deployed version 0 of automation 6adba9aef3cd5f19ed89eaec."
+Read back: Delivery Command · Save view 6adba9aef3cd5f19ed89eaec: search_workflows deployment status "DEPLOYED", deployedAt 1792781119643, definitionVersion 0, savedAfterDeploy false; version 0
+Note: Deployed per Answer from the person: "yes, deploy Delivery Command · Save view. The spec the person accepted names it under Ready when, so it is already approved" (plan approval). deploymentNotes "ClickUp Delivery Command demo v1: Delivery Command · Save view".
 
 ### t5 · Build automation Delivery Command · Update project settings
 
@@ -149,6 +164,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Update project settings deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba9def3cd5f19ed89ef7d"}
+Read back: Delivery Command · Update project settings 6adba9def3cd5f19ed89ef7d: pre-deploy search_workflows version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Update project settings 6adba9def3cd5f19ed89ef7d: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, message "Deployed version 0 of automation 6adba9def3cd5f19ed89ef7d."
+Read back: Delivery Command · Update project settings 6adba9def3cd5f19ed89ef7d: search_workflows deployment status "DEPLOYED", deployedAt 1792781120380, definitionVersion 0, savedAfterDeploy false; version 0
+Note: Deployed per Answer from the person: "yes, deploy Delivery Command · Update project settings. The spec the person accepted names it under Ready when, so it is already approved" (plan approval). deploymentNotes "ClickUp Delivery Command demo v1: Delivery Command · Update project settings".
 
 ### t7 · Build automation Delivery Command · Mark notification read
 
@@ -182,6 +202,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Mark notification read deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba94deb71d135d658f2dc"}
+Read back: Delivery Command · Mark notification read 6adba94deb71d135d658f2dc: pre-deploy search_workflows version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Mark notification read 6adba94deb71d135d658f2dc: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, message "Deployed version 0 of automation 6adba94deb71d135d658f2dc."
+Read back: Delivery Command · Mark notification read 6adba94deb71d135d658f2dc: search_workflows deployment status "DEPLOYED", deployedAt 1792781121058, definitionVersion 0, savedAfterDeploy false; version 0
+Note: Deployed per Answer from the person: "yes, deploy Delivery Command · Mark notification read. The spec the person accepted names it under Ready when, so it is already approved" (plan approval). deploymentNotes "ClickUp Delivery Command demo v1: Delivery Command · Mark notification read".
 
 ### t9 · Build automation Delivery Command · Read delivery data
 
@@ -225,4 +250,9 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Read delivery data deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adbaa4fca4f9d20459bd303"}
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: pre-deploy search_workflows version 0, deployment null (matches the logic task's saved version 0)
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: deploy_workflow ok:true, workflowVersion 0, storedVersion 0, deployedVersion 1, paused false, message "Deployed version 0 of automation 6adbaa4fca4f9d20459bd303."
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: search_workflows deployment status "DEPLOYED", deployedAt 1792781121863, definitionVersion 0, savedAfterDeploy false; version 0
+Note: Deployed per Answer from the person: "yes, deploy Delivery Command · Read delivery data. The spec the person accepted names it under Ready when, so it is already approved" (plan approval). deploymentNotes "ClickUp Delivery Command demo v1: Delivery Command · Read delivery data".
 

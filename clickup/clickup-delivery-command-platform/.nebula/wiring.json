@@ -251,6 +251,13 @@
       "name": "Delivery Command · Executive email",
       "version": 0,
       "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6adbabd2925d282255cee62b",
+      "name": null,
+      "version": null,
+      "stale": true
     }
   ],
   "edges": [
@@ -1335,5 +1342,12 @@
       "fields": []
     }
   ],
-  "unknown": []
+  "unknown": [
+    {
+      "kind": "ai-agent",
+      "id": "e_6adbabd2925d282255cee62b",
+      "name": null,
+      "reason": "entity-not-cached"
+    }
+  ]
 }

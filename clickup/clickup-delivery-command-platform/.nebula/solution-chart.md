@@ -38,6 +38,7 @@ flowchart LR
   n34["object Delivery Command · Role permission · OBJ_dcmd_role_permission"]
   n35["object Delivery Command · Upload · OBJ_dcmd_upload"]
   n36["object Delivery Command · Executive email · OBJ_dcmd_exec_email"]
+  n37["AI agent e_6adbabd2925d282255cee62b · e_6adbabd2925d282255cee62b"]
   n1 -->|storage read| n16
   n1 -->|storage write| n16
   n1 -->|storage write| n25

@@ -36,6 +36,41 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adba59c92718f6a64f4015a",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "automation",
+      "id": "6adba5cfeb71d135d657c23d",
+      "name": "Delivery Command · Publish status report",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba5f8eb71d135d657e318",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "automation",
+      "id": "6adba625ca4f9d2045986507",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "automation",
+      "id": "6adba6a8cac0655fe3582da3",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
       "kind": "object",
       "id": "OBJ_dcmd_task",
       "name": "Delivery Command · Task",
@@ -513,7 +548,62 @@
       },
       "via": "storage write",
       "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5cfeb71d135d657c23d",
+        "name": "Delivery Command · Publish status report",
+        "part": "node Save the published status report"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_ai_output",
+        "name": "Delivery Command · AI output"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5cfeb71d135d657c23d",
+        "name": "Delivery Command · Publish status report",
+        "part": "node Write the activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
     }
   ],
-  "unknown": []
+  "unknown": [
+    {
+      "kind": "automation",
+      "id": "6adba59c92718f6a64f4015a",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "automation",
+      "id": "6adba5f8eb71d135d657e318",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "automation",
+      "id": "6adba625ca4f9d2045986507",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "automation",
+      "id": "6adba6a8cac0655fe3582da3",
+      "name": null,
+      "reason": "entity-not-cached"
+    }
+  ]
 }

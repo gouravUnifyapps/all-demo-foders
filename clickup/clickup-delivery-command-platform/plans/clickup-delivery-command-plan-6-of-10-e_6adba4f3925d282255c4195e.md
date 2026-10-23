@@ -26,8 +26,8 @@ Goal: ClickUp Delivery Command · plan 6 of 10
 | t2 | deploy | Delivery Command · Change request | t1 | pending | 0 |
 | t3 | automation | Delivery Command · Accept proposed tasks |  | running | 1 |
 | t4 | deploy | Delivery Command · Accept proposed tasks | t3 | pending | 0 |
-| t5 | automation | Delivery Command · Publish status report |  | running | 1 |
-| t6 | deploy | Delivery Command · Publish status report | t5 | pending | 0 |
+| t5 | automation | Delivery Command · Publish status report |  | done | 1 |
+| t6 | deploy | Delivery Command · Publish status report | t5 | done | 1 |
 | t7 | automation | Delivery Command · Record sign-off |  | running | 1 |
 | t8 | deploy | Delivery Command · Record sign-off | t7 | pending | 0 |
 | t9 | automation | Delivery Command · Book training slot |  | running | 1 |
@@ -44,6 +44,7 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Change request with the contract above, and a test run answers the result fields.
+Error: Asked the person: The automation is built and tested; only deleting its own test rows waits for a yes. CONFIRM_REQUIRED (d_8c5712): Delete records in object OBJ_dcmd_change_request (2 delete edits) \| CONFIRM_REQUIRED (d_f5df4f): Delete records in object OBJ_dcmd_task (3 delete edits) \| CONFIRM_REQUIRED (d_1daff6): Delete records in object OBJ_dcmd_activity (8 delete edits) \| CONFIRM_REQUIRED (d_fe0f6b): Delete records in object OBJ_dcmd_project (1 delete edit) Made so far: ids {"entity":"6adba6a8cac0655fe3582da3"}.
 
 ### t2 · Deploy Delivery Command · Change request
 
@@ -67,6 +68,7 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Accept proposed tasks with the contract above, and a test run answers the result fields.
+Error: Asked the person: The automation is built and tested; only deleting its own test rows waits for a yes. CONFIRM_REQUIRED (d_a7960b): Delete records in object OBJ_dcmd_ai_output (3 delete edits). Its task row TSK-DEMO-TEST-AIO-1 is in t1's CONFIRM_REQUIRED (d_f5df4f). Made so far: ids {"entity":"6adba625ca4f9d2045986507"}.
 
 ### t4 · Deploy Delivery Command · Accept proposed tasks
 
@@ -90,6 +92,16 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Publish status report with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adba5cfeb71d135d657c23d"}
+Read back: Delivery Command · Publish status report 6adba5cfeb71d135d657c23d: compile_and_save_workflow ok, created:true, version 0; trigger CALLABLE callables/callables_from_automation; open_workflow version 0, deployment null
+Read back: Delivery Command · Publish status report: describe_callable_workflow answers project_id, title, body, actor, all string and required
+Read back: Delivery Command · Publish status report: open_workflow result schema { output_id: string }
+Read back: Delivery Command · Publish status report run 6adba5d7f4431f44e309cf75: {output_id:'AIO-6adba5d7f4431f44e309cf75'}; the create node stored kind status_report, status published, ai_written true, created_at 1792779735124; Activity ACT-6adba5d7f4431f44e309cf75 action status_report_published, source automation, actor Mei Takahashi (get_records)
+Read back: Delivery Command · Publish status report run 6adba5d8f4431f44e309cf81 (all blank): {output_id:''} and no write node ran
+Unverified: Security: actor is caller-supplied text, not checked against USER.id or the project's lead — needs the person to decide who may publish; check: any caller can publish for any project_id
+Unverified: assumed: the automation does not check that project_id exists, so a report for an unknown project is saved; check: run with project_id 'NOPE' and see a row saved
+Note: output_id and activity_id are 'AIO-' / 'ACT-' + the run's execution id, unique per run.
+Note: Its test rows (OBJ_dcmd_ai_output AIO-6adba5d7f4431f44e309cf75 on project DEMO-TEST-PRJ, OBJ_dcmd_activity ACT-6adba5d7f4431f44e309cf75) are inside t3's CONFIRM_REQUIRED (d_a7960b) and t1's CONFIRM_REQUIRED (d_1daff6) deletes; until then they sit on the non-existent project DEMO-TEST-PRJ, so no project page shows them.
 
 ### t6 · Deploy Delivery Command · Publish status report
 
@@ -101,6 +113,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Publish status report deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adba5cfeb71d135d657c23d"}
+Read back: Delivery Command · Publish status report 6adba5cfeb71d135d657c23d: before deploy search_workflows version 0, deployment null (matches t5's saved and tested version 0)
+Read back: Delivery Command · Publish status report 6adba5cfeb71d135d657c23d: deploy_workflow ok:true, workflowVersion 0, deployedVersion 1, paused false, message 'Deployed version 0 of automation 6adba5cfeb71d135d657c23d.'
+Read back: Delivery Command · Publish status report 6adba5cfeb71d135d657c23d: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1792780185136, savedAfterDeploy: false}; definitionVersion 0 equals saved version 0
+Note: Deploy released on the plan's approval: 'yes, deploy Delivery Command · Publish status report. The spec the person accepted names it under Ready when, so it is already approved'.
 
 ### t7 · Build automation Delivery Command · Record sign-off
 
@@ -113,6 +130,7 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Record sign-off with the contract above, and a test run answers the result fields.
+Error: Asked the person: The automation is built and tested; only deleting its own test rows waits for a yes. CONFIRM_REQUIRED (d_8bbb5f): Delete records in object OBJ_dcmd_signoff (1 delete edit) \| CONFIRM_REQUIRED (d_78d55a): Delete records in object OBJ_dcmd_notification (1 delete edit). Its Activity row is in t1's CONFIRM_REQUIRED (d_1daff6). Made so far: ids {"entity":"6adba5f8eb71d135d657e318"}.
 
 ### t8 · Deploy Delivery Command · Record sign-off
 
@@ -136,6 +154,7 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Book training slot with the contract above, and a test run answers the result fields.
+Error: Asked the person: The automation is built and tested; only deleting its own test row waits for a yes. CONFIRM_REQUIRED (d_03b536): Delete records in object OBJ_dcmd_session_slot (1 delete edit) Made so far: ids {"entity":"6adba59c92718f6a64f4015a"}.
 
 ### t10 · Deploy Delivery Command · Book training slot
 

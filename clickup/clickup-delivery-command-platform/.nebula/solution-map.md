@@ -11,6 +11,11 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation | `Delivery Command · Book consultant` | 6adba3b292718f6a64f39440 | 1 | no |
 | automation | `Delivery Command · Review timesheets` | 6adba402f4431f44e30943f1 | 0 | no |
 | automation | `Delivery Command · Log time` | 6adba405ca4f9d2045858cfc | 0 | no |
+| automation |  | 6adba59c92718f6a64f4015a |  | yes |
+| automation | `Delivery Command · Publish status report` | 6adba5cfeb71d135d657c23d | 0 | no |
+| automation |  | 6adba5f8eb71d135d657e318 |  | yes |
+| automation |  | 6adba625ca4f9d2045986507 |  | yes |
+| automation |  | 6adba6a8cac0655fe3582da3 |  | yes |
 | object | `Delivery Command · Task` | OBJ_dcmd_task | 0 | no |
 | object | `Delivery Command · Project` | OBJ_dcmd_project | 0 | no |
 | object | `Delivery Command · RAID item` | OBJ_dcmd_raid | 0 | no |
@@ -59,7 +64,12 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation `Delivery Command · Log time` | `node Write the time entry in Draft` | object `Delivery Command · Time entry` | storage write |  |
 | automation `Delivery Command · Log time` | `node Add the hours to the task, and set its status when one was given` | object `Delivery Command · Task` | storage write |  |
 | automation `Delivery Command · Log time` | `node Record the time in the activity feed` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Publish status report` | `node Save the published status report` | object `Delivery Command · AI output` | storage write |  |
+| automation `Delivery Command · Publish status report` | `node Write the activity row` | object `Delivery Command · Activity` | storage write |  |
 
 ## Not checked
 
-- none
+- automation `6adba59c92718f6a64f4015a` (6adba59c92718f6a64f4015a): entity-not-cached
+- automation `6adba5f8eb71d135d657e318` (6adba5f8eb71d135d657e318): entity-not-cached
+- automation `6adba625ca4f9d2045986507` (6adba625ca4f9d2045986507): entity-not-cached
+- automation `6adba6a8cac0655fe3582da3` (6adba6a8cac0655fe3582da3): entity-not-cached

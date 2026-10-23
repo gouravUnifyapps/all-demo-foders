@@ -120,6 +120,13 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adbaf90c79cad11403e9b72",
+      "name": "Delivery Command · Ask Copilot",
+      "version": 0,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_dcmd_task",
       "name": "Delivery Command · Task",

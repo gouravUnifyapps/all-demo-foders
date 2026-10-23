@@ -23,6 +23,7 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation | `Delivery Command · Read delivery data` | 6adbaa4fca4f9d20459bd303 | 0 | no |
 | automation | `Delivery Command · Send executive summary` | 6adbac23eb71d135d65f4715 | 0 | no |
 | automation | `Delivery Command · Weekly executive email schedule` | 6adbacd6f3cd5f19ed8a543a | 0 | no |
+| automation | `Delivery Command · Ask Copilot` | 6adbaf90c79cad11403e9b72 | 0 | no |
 | object | `Delivery Command · Task` | OBJ_dcmd_task | 0 | no |
 | object | `Delivery Command · Project` | OBJ_dcmd_project | 0 | no |
 | object | `Delivery Command · RAID item` | OBJ_dcmd_raid | 0 | no |

@@ -28,8 +28,8 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 | t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | done | 1 |
 | t5 | ai-agent | Delivery Command · Copilot |  | done | 1 |
 | t6 | publish | Delivery Command · Copilot | t5 | done | 1 |
-| t7 | automation | Delivery Command · Ask Copilot | t6 | running | 1 |
-| t8 | deploy | Delivery Command · Ask Copilot | t7 | pending | 0 |
+| t7 | automation | Delivery Command · Ask Copilot | t6 | done | 1 |
+| t8 | deploy | Delivery Command · Ask Copilot | t7 | running | 1 |
 
 ### t1 · Build automation Delivery Command · Send executive summary
 
@@ -227,6 +227,21 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Ask Copilot with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adbaf90c79cad11403e9b72"}
+Read back: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72: compile_and_save_workflow created:true version 0; summary trigger CALLABLE callables/callables_from_automation, 6 nodes (IF_ELSE, Invoke Agent ai_agents_by_unifyapps_invoke_agent with no connection, Groovy parse, 2 returns); not deployed, as the task says.
+Read back: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72: describe_callable_workflow parameters question string required:true, persona string, screen string, project_id string (optional).
+Read back: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72: result schema (trigger definition in the run): answer string, chart string, links array of {label string, route string}, refused boolean.
+Read back: Delivery Command · Ask Copilot test run 6adbaf97eb71d135d6703a45 ({question:'Which Japan projects go live in November and are at risk?', persona:'delivery_director', screen:'portfolio', project_id:''}) COMPLETED in 31 s: Invoke Agent aiAgentId e_6adbabd2925d282255cee62b replied one JSON object; response {answer:'Two Japan projects go live in November 2026 and are marked at risk: 1. IMP-2611 Sakura Mobility — Go-live Nov 19, 2026 ... 2. IMP-2633 Tenkai Robotics — Go-live Nov 26, 2026 ...', chart:'', links:[{label:'IMP-2611 Sakura Mobility', route:'/projects/IMP-2611'}, {label:'IMP-2633 Tenkai Robotics', route:'/projects/IMP-2633'}], refused:false}.
+Read back: Delivery Command · Ask Copilot test run 6adbafb7cac0655fe35cf471 (all-blank {}) COMPLETED: response {answer:'Ask a question first.', chart:'', links:[], refused:true}; the agent was not invoked, nothing written.
+Read back: Delivery Command · Ask Copilot: the parse node's Groovy run standalone with a plain-text reply 'I can only answer questions about delivery data.' answered {answer: that text, chart:'', links:[], refused:false, is_json:false} — the not-JSON fallback the task names.
+Read back: Delivery Command · Ask Copilot security: identity — the automation passes persona/screen/project_id only as context text, never as who is asking; rule 6 — links are kept only when the route starts with '/', so an agent reply cannot hand the app an outside URL; no secret anywhere; writes nothing.
+Unverified: A chart reply ({type, unit, series}) has not been seen live; the parser serialises an object chart to JSON text and passes a string chart as is. Check: ask a trend question such as 'Show the on-track share over the last 8 weeks' and read chart in the response.
+Unverified: Not deployed (task says do not deploy); the app hits nothing until the deploy task runs.
+Note: The agent message is 'Question: &lt;question&gt;\nPersona: &lt;persona&gt;\nScreen: &lt;screen&gt;\nProject: &lt;project_id&gt;\nReply with one JSON object {answer, chart, links, refused}.'; each call starts a new agent session (no sessionId passed).
+Note: assumed: a blank or missing question is refused with answer 'Ask a question first.', refused true; persona, screen and project_id are optional.
+Note: assumed: the parser reads publicResponse texts (falling back to agentResponses), strips a \`\`\` fence, and parses the outermost {...}; links without a route starting with '/' are dropped.
+Note: DEMO-TEST rows: none; no test run of this task writes a row.
+Note: handover: Ask Copilot 6adbaf90c79cad11403e9b72 takes question (required), persona, screen, project_id and answers {answer, chart, links:[{label, route}], refused} at the top level; a real agent turn takes about 30 s.
 
 ### t8 · Deploy Delivery Command · Ask Copilot
 

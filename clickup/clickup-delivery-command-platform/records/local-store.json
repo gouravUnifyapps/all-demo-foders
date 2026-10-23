@@ -285,6 +285,196 @@
       },
       "standard": false,
       "version": 3
+    },
+    "e_6adb97325236864dd8e49ac9": {
+      "createdTime": 1792775986604,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb97325236864dd8e49ac9",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775986604,
+      "modifiedTime": 1792775986604,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_signoff",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb9732925d282255ae8b84": {
+      "createdTime": 1792775986963,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb9732925d282255ae8b84",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775986963,
+      "modifiedTime": 1792775986963,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_checklist_item",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb97335236864dd8e49ad1": {
+      "createdTime": 1792775987264,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb97335236864dd8e49ad1",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775987264,
+      "modifiedTime": 1792775987264,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_notification",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb97335236864dd8e49ad4": {
+      "createdTime": 1792775987554,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb97335236864dd8e49ad4",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775987554,
+      "modifiedTime": 1792775987554,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_integration",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb9733925d282255ae8c8d": {
+      "createdTime": 1792775987834,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb9733925d282255ae8c8d",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775987834,
+      "modifiedTime": 1792775987834,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_saved_view",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb9734925d282255ae8cd8": {
+      "createdTime": 1792775988115,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb9734925d282255ae8cd8",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775988115,
+      "modifiedTime": 1792775988115,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_weekly_snapshot",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb9734925d282255ae8d35": {
+      "createdTime": 1792775988399,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb9734925d282255ae8d35",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775988399,
+      "modifiedTime": 1792775988399,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_weekly_metric",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb97340881d2257aa1a6b6": {
+      "createdTime": 1792775988677,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb97340881d2257aa1a6b6",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775988677,
+      "modifiedTime": 1792775988677,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_ai_output",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb9734925d282255ae8dce": {
+      "createdTime": 1792775988961,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb9734925d282255ae8dce",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775988961,
+      "modifiedTime": 1792775988961,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_role_permission",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adb97350881d2257aa1a76f": {
+      "createdTime": 1792775989749,
+      "deleted": false,
+      "entityType": "solution_linked_assets",
+      "id": "e_6adb97350881d2257aa1a76f",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1792775989749,
+      "modifiedTime": 1792775989749,
+      "ownerUserId": 66770,
+      "properties": {
+        "asset_id": "OBJ_dcmd_upload",
+        "state": "COMPLETED",
+        "solution_id": "e_6adb4b845236864dd8b18935",
+        "asset_class": "ENTITY_TYPE"
+      },
+      "standard": false,
+      "version": 0
     }
   },
   "counters": {}

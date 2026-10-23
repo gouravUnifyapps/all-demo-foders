@@ -1,0 +1,19 @@
+{
+  "createdTime": 1792775987264,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6adb97335236864dd8e49ad1",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1792775987264,
+  "modifiedTime": 1792775987264,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_id": "OBJ_dcmd_notification",
+    "state": "COMPLETED",
+    "solution_id": "e_6adb4b845236864dd8b18935",
+    "asset_class": "ENTITY_TYPE"
+  },
+  "standard": false,
+  "version": 0
+}

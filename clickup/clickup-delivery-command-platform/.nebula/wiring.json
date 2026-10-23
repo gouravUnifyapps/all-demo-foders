@@ -69,8 +69,139 @@
       "name": "Delivery Command · Activity",
       "version": 0,
       "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_signoff",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_checklist_item",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_notification",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_integration",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_saved_view",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_ai_output",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_weekly_snapshot",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_weekly_metric",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_role_permission",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_upload",
+      "name": null,
+      "version": null,
+      "stale": true
     }
   ],
   "edges": [],
-  "unknown": []
+  "unknown": [
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_signoff",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_checklist_item",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_notification",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_integration",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_saved_view",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_ai_output",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_weekly_snapshot",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_weekly_metric",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_role_permission",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_upload",
+      "name": null,
+      "reason": "entity-not-cached"
+    }
+  ]
 }

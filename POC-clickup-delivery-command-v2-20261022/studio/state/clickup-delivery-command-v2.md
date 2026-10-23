@@ -4,7 +4,7 @@ client: Clickup
 poc_row: POC-clickup-delivery-command-v2-20261022
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: awaiting_g4
+status: demo_ready
 version: 1 · since 2026-10-22T09:15:18Z
 thread: C0CBAPEC4AD · 1792662475.792899
 intent: both
@@ -14,7 +14,7 @@ gates:
   g1: {status: approved, round: 1, posted_ts: 1792661200.384079, decided_by: Gourav Mahunta (row), decided_at: 2026-10-22T09:31:00Z}
   g2: {status: approved, round: 1, posted_ts: 1792662475.772399, decided_by: Gourav Mahunta (row), decided_at: 2026-10-22T09:51:39Z}
   g3: {status: approved, round: 1, posted_ts: 1792662475.792899, decided_by: Gourav Mahunta (row), decided_at: 2026-10-23}
-  g4: {status: waiting, round: 1, posted_ts: 1792662475.792899, decided_by: , decided_at: }
+  g4: {status: approved, round: 1, posted_ts: 1792662475.792899, decided_by: Gourav Mahunta (row), decided_at: 2026-10-23}
 
 posts:
   - when: 2026-10-22T09:26:40Z
@@ -72,6 +72,12 @@ posts:
     by: bot
     version: 1
     round: 1
+  - when: 2026-10-23T10:38:00Z
+    kind: status
+    ts: 1792662475.792899
+    by: bot
+    version: 1
+    round: 1
 
 runs:
   - started: 2026-10-22T09:15:18Z
@@ -109,6 +115,13 @@ runs:
     spawns: 4
     tokens: 690
     outcome: posted G4
+  - started: 2026-10-23T10:36:05Z
+    ended: 2026-10-23T10:38:00Z
+    gate: g4
+    stages: []
+    spawns: 0
+    tokens: 0
+    outcome: "demo_ready: G4 approved on the row"
 
 stopped: 
 
@@ -1380,7 +1393,7 @@ dev_issues:
 frozen: {}
 
 cost:
-  runs: 5
+  runs: 6
   agent_spawns: 25
   tokens_m: 5.1
   wall_h: 4.9

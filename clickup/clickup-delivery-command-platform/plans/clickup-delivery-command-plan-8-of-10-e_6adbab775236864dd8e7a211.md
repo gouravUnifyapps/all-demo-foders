@@ -16,6 +16,11 @@ createdAt: "2026-10-23T18:46:14.398Z"
 runningAt: "2026-10-23T18:46:20.521Z"
 runner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"382b1b0f-8b04-5591-805d-15b67bc592e7"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · plan 8 of 10
@@ -29,7 +34,7 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 | t5 | ai-agent | Delivery Command · Copilot |  | done | 1 |
 | t6 | publish | Delivery Command · Copilot | t5 | done | 1 |
 | t7 | automation | Delivery Command · Ask Copilot | t6 | done | 1 |
-| t8 | deploy | Delivery Command · Ask Copilot | t7 | running | 1 |
+| t8 | deploy | Delivery Command · Ask Copilot | t7 | done | 1 |
 
 ### t1 · Build automation Delivery Command · Send executive summary
 
@@ -253,4 +258,9 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Ask Copilot deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adbaf90c79cad11403e9b72"}
+Read back: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72: before deploy search_workflows showed version 0 (the version t7 saved and tested), deployment null.
+Read back: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72: deploy_workflow ok:true, 'Deployed version 0', deployedVersion 1, paused false, deploymentNotes 'ClickUp Delivery Command demo v1: Delivery Command · Ask Copilot'.
+Read back: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1792782337923, savedAfterDeploy: false} — definitionVersion 0 equals the saved version 0.
+Note: Deploy approved by Answer from the person: 'yes, deploy Delivery Command · Ask Copilot. The spec the person accepted names it under Ready when, so it is already approved' (the plan's approval).
 

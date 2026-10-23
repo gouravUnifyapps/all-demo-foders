@@ -113,6 +113,13 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adbacd6f3cd5f19ed8a543a",
+      "name": "Delivery Command · Weekly executive email schedule",
+      "version": 0,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_dcmd_task",
       "name": "Delivery Command · Task",
@@ -1421,6 +1428,21 @@
         "name": "Delivery Command · Executive email"
       },
       "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbacd6f3cd5f19ed8a543a",
+        "name": "Delivery Command · Weekly executive email schedule",
+        "part": "node Send that region's executive summary"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary"
+      },
+      "via": "call node",
       "fields": []
     }
   ],

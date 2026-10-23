@@ -22,6 +22,7 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation | `Delivery Command · Update project settings` | 6adba9def3cd5f19ed89ef7d | 0 | no |
 | automation | `Delivery Command · Read delivery data` | 6adbaa4fca4f9d20459bd303 | 0 | no |
 | automation | `Delivery Command · Send executive summary` | 6adbac23eb71d135d65f4715 | 0 | no |
+| automation | `Delivery Command · Weekly executive email schedule` | 6adbacd6f3cd5f19ed8a543a | 0 | no |
 | object | `Delivery Command · Task` | OBJ_dcmd_task | 0 | no |
 | object | `Delivery Command · Project` | OBJ_dcmd_project | 0 | no |
 | object | `Delivery Command · RAID item` | OBJ_dcmd_raid | 0 | no |
@@ -126,6 +127,7 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation `Delivery Command · Send executive summary` | `node Active projects in the region` | object `Delivery Command · Project` | storage read |  |
 | automation `Delivery Command · Send executive summary` | `node Activity of the last 7 days` | object `Delivery Command · Activity` | storage read |  |
 | automation `Delivery Command · Send executive summary` | `node Save the email as a preview (no mail connection is named)` | object `Delivery Command · Executive email` | storage write |  |
+| automation `Delivery Command · Weekly executive email schedule` | `node Send that region's executive summary` | automation `Delivery Command · Send executive summary` | call node |  |
 
 ## Not checked
 

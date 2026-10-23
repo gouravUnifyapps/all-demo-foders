@@ -23,9 +23,9 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Delivery Command · Send executive summary |  | done | 1 |
-| t2 | deploy | Delivery Command · Send executive summary | t1 | running | 1 |
-| t3 | automation | Delivery Command · Weekly executive email schedule | t2 | running | 1 |
-| t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | pending | 0 |
+| t2 | deploy | Delivery Command · Send executive summary | t1 | done | 1 |
+| t3 | automation | Delivery Command · Weekly executive email schedule | t2 | done | 1 |
+| t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | running | 1 |
 | t5 | ai-agent | Delivery Command · Copilot |  | running | 1 |
 | t6 | publish | Delivery Command · Copilot | t5 | pending | 0 |
 | t7 | automation | Delivery Command · Ask Copilot | t6 | pending | 0 |
@@ -72,6 +72,11 @@ Read back: search_workflows deployment status, deployedAt and definitionVersion,
 Report ids, readBack, unverified, notes.
 
 Proof: search_workflows shows Delivery Command · Send executive summary deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6adbac23eb71d135d65f4715"}
+Read back: Delivery Command · Send executive summary 6adbac23eb71d135d65f4715: before deploy search_workflows showed version 0 (the version t1 saved and tested), deployment null.
+Read back: Delivery Command · Send executive summary 6adbac23eb71d135d65f4715: deploy_workflow ok:true, 'Deployed version 0', deployedVersion 1, paused false, deploymentNotes 'ClickUp Delivery Command demo v1: Delivery Command · Send executive summary'.
+Read back: Delivery Command · Send executive summary 6adbac23eb71d135d65f4715: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1792781432983, savedAfterDeploy: false} — definitionVersion 0 equals the saved version 0.
+Note: Deploy approved by Answer from the person: 'yes, deploy Delivery Command · Send executive summary. The spec the person accepted names it under Ready when, so it is already approved' (the plan's approval).
 
 ### t3 · Build automation Delivery Command · Weekly executive email schedule
 
@@ -84,6 +89,18 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Weekly executive email schedule with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adbacd6f3cd5f19ed8a543a"}
+Read back: Delivery Command · Weekly executive email schedule 6adbacd6f3cd5f19ed8a543a: compile_and_save_workflow created:true version 0; open_workflow: trigger SCHEDULED schedule/schedule_default, 5 nodes (Groovy due-region check, for-each loop, callables_call_automation, stop), deployment null (not deployed, as the task says).
+Read back: Delivery Command · Weekly executive email schedule 6adbacd6f3cd5f19ed8a543a: saved trigger {cron: EXPRESSION, expression: '0 0-14,22-23 * * 0,1', timezone: GMT, sequential: false}; the loop calls automationId 6adbac23eb71d135d65f4715 (Send executive summary) version -1 (deployed), synchronous, with parameters region and recipient 'exec-team@delivery.example'.
+Read back: Delivery Command · Weekly executive email schedule: no callable contract (scheduled trigger, no inputs, no result schema); it writes nothing itself.
+Read back: Delivery Command · Weekly executive email schedule test run 6adbacddf4431f44e30da90d COMPLETED at Fri 2026-10-23 14:52 UTC: Groovy output {due: [], due_count: 0, checked: ['japan 2026-10-24T03:52:13.488', 'europe 2026-10-23T20:52:13.488', 'north_america 2026-10-23T14:52:13.488']}; loop ran 0 iterations, no call, nothing written.
+Read back: Delivery Command · Weekly executive email schedule: the same Groovy node run standalone (run_connector_operation) with now=2026-10-25T23:00Z answered due [japan] ('japan 2026-10-26T08:00 due'), now=2026-10-26T07:00Z due [europe] ('europe 2026-10-26T08:00 due', CET after DST), now=2026-10-26T12:00Z due [north_america] ('north_america 2026-10-26T08:00 due', EDT).
+Unverified: The due-region call path inside the saved automation (loop iteration calling Send executive summary) has not run end to end, since a test run uses the real clock and today is Friday; check: read the deployed run list for this automation after Monday 26 Oct 2026 23:00 UTC Sunday / 07:00 / 12:00 UTC, or run a test on a Monday 08:00 local hour.
+Unverified: Security: the recipient 'exec-team@delivery.example' is a placeholder address from the spec — needs the person to name the real executive list before a mail connection is added.
+Note: assumed: one cron cannot express 'Sunday 22:00 to Monday 14:00 UTC', so the trigger fires hourly on Sundays and Mondays at 00-14 and 22-23 UTC ('0 0-14,22-23 * * 0,1', GMT) and the Groovy guard calls only regions whose local time is Monday 08:xx; the extra Sunday-morning and Monday-night hours do nothing.
+Note: Time zone stored as 'GMT' (the tenant's TIME_ZONE lookup has no 'UTC' id).
+Note: DEMO-TEST rows: none; this task's test run wrote no row in any object.
+Note: handover: Weekly executive email schedule 6adbacd6f3cd5f19ed8a543a calls Send executive summary 6adbac23eb71d135d65f4715 at version -1 (deployed copy); once deployed it produces one Executive email row per region per Monday with status preview.
 
 ### t4 · Deploy Delivery Command · Weekly executive email schedule
 

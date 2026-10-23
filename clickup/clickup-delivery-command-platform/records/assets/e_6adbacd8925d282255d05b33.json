@@ -1,0 +1,19 @@
+{
+  "createdTime": 1792781528623,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6adbacd8925d282255d05b33",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1792781528623,
+  "modifiedTime": 1792781528623,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_class": "WORKFLOW_DEFINITION",
+    "asset_id": "6adbacd6f3cd5f19ed8a543a",
+    "state": "COMPLETED",
+    "solution_id": "e_6adb4b845236864dd8b18935"
+  },
+  "standard": false,
+  "version": 0
+}

@@ -56,6 +56,13 @@ runs:
     spawns: 1
     tokens: 331
     outcome: posted G2
+  - started: 2026-10-23T12:58:00Z
+    ended: 2026-10-23T13:00:00Z
+    gate: g2
+    stages: []
+    spawns: 0
+    tokens: 0
+    outcome: waiting
 
 stopped: 
 
@@ -1157,12 +1164,16 @@ decisions:
   - by: orchestrator
     when: 2026-10-23
     text: "POC Studio refused the G2 plan report with gate_order (row g1_status still waiting although the manager approved G1 by thread reply); the G2 pack and status line were posted with Gourav Mahunta's own Slack, plan PDF linked. The row's G1 needs approving in POC Studio so later reports are accepted."
+  - by: orchestrator
+    when: 2026-10-23
+    text: "Feedback rows FB-1792759783479-1 and FB-1792759783479-2 (gate g1, confirmed by Gourav Mahunta's \"Yes\") are the G2 pack and its status line, posted with Gourav Mahunta's Slack and collected back by the POC Studio bot as G1 feedback. They are not for the gate waiting (G2) and ask for no change, so they are not counted; G2 stays waiting."
+
 dev_issues: []
 
 frozen:
 
 cost:
-  runs: 2
+  runs: 3
   agent_spawns: 2
   tokens_m: 0.47
   wall_h: 0.68

@@ -1,0 +1,19 @@
+{
+  "createdTime": 1792775817889,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6adb96890881d2257aa1873f",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1792775817889,
+  "modifiedTime": 1792775817889,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_class": "ENTITY_TYPE",
+    "asset_id": "OBJ_dcmd_session_slot",
+    "state": "COMPLETED",
+    "solution_id": "e_6adb4b845236864dd8b18935"
+  },
+  "standard": false,
+  "version": 0
+}

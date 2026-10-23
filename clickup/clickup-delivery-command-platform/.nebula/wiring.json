@@ -1,5 +1,76 @@
 {
-  "entities": [],
+  "entities": [
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_task",
+      "name": "Delivery Command · Task",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_project",
+      "name": "Delivery Command · Project",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_raid",
+      "name": "Delivery Command · RAID item",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_booking",
+      "name": "Delivery Command · Booking",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_time_entry",
+      "name": "Delivery Command · Time entry",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_person",
+      "name": "Delivery Command · Person",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_change_request",
+      "name": "Delivery Command · Change request",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_document",
+      "name": "Delivery Command · Document",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_session_slot",
+      "name": "Delivery Command · Session slot",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_dcmd_activity",
+      "name": "Delivery Command · Activity",
+      "version": 0,
+      "stale": false
+    }
+  ],
   "edges": [],
   "unknown": []
 }

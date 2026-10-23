@@ -5,18 +5,18 @@
   "id": "e_6adb4b845236864dd8b18935",
   "lastModifiedBy": 66770,
   "lastPlatformUpdateBy": 66770,
-  "lastPlatformUpdateOn": 1792775707576,
-  "modifiedTime": 1792775707576,
+  "lastPlatformUpdateOn": 1792775908131,
+  "modifiedTime": 1792775908131,
   "ownerUserId": 66770,
   "properties": {
     "name": "Clickup · ClickUp Delivery command platform",
     "description": "ClickUp's delivery director, implementation leads, resource manager and consultants run every customer implementation from one code app: portfolio health at a glance, a project workspace, resourcing and timesheets, change requests that route by an hours rule, a weekly executive summary and Delivery Copilot, a read-only AI assistant over the live data. Customer sponsors follow and sign off their own rollout in a portal in English, German and Japanese; consultants log time from a phone view. The story follows IMP-2611 Sakura Mobility, at risk of missing its 19 Nov 2026 go-live. This plan (part 1 of 10) builds the data layer: Project, Task, RAID item, Person, Booking, Time entry, Change request, Activity, Document, Session slot.",
-    "planId": "e_6adb96180881d2257a9f97c3",
+    "planId": "e_6adb96e00881d2257aa1945b",
     "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n"
   },
   "standard": false,
   "tags": [
     "Nebula"
   ],
-  "version": 2
+  "version": 3
 }

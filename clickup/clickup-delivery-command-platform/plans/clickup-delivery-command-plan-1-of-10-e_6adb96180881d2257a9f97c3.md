@@ -16,22 +16,27 @@ createdAt: "2026-10-23T17:15:04.359Z"
 runningAt: "2026-10-23T17:15:08.454Z"
 runner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"382b1b0f-8b04-5591-805d-15b67bc592e7"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · plan 1 of 10
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | object | Delivery Command · Project |  | running | 1 |
-| t2 | object | Delivery Command · Task |  | running | 1 |
-| t3 | object | Delivery Command · RAID item |  | running | 1 |
-| t4 | object | Delivery Command · Person |  | running | 1 |
-| t5 | object | Delivery Command · Booking |  | running | 1 |
-| t6 | object | Delivery Command · Time entry |  | running | 1 |
-| t7 | object | Delivery Command · Change request |  | running | 1 |
-| t8 | object | Delivery Command · Activity |  | running | 1 |
-| t9 | object | Delivery Command · Document |  | running | 1 |
-| t10 | object | Delivery Command · Session slot |  | running | 1 |
+| t1 | object | Delivery Command · Project |  | done | 1 |
+| t2 | object | Delivery Command · Task |  | done | 1 |
+| t3 | object | Delivery Command · RAID item |  | done | 1 |
+| t4 | object | Delivery Command · Person |  | done | 1 |
+| t5 | object | Delivery Command · Booking |  | done | 1 |
+| t6 | object | Delivery Command · Time entry |  | done | 1 |
+| t7 | object | Delivery Command · Change request |  | done | 1 |
+| t8 | object | Delivery Command · Activity |  | done | 1 |
+| t9 | object | Delivery Command · Document |  | done | 1 |
+| t10 | object | Delivery Command · Session slot |  | done | 1 |
 
 ### t1 · Create object Delivery Command · Project
 
@@ -44,6 +49,18 @@ Read back: get_objects for \`OBJ_dcmd_project\` quoting every field the body lis
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_project\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_project"}
+Read back: OBJ_dcmd_project (Delivery Command · Project): get_objects fields = project_id string (primaryKey, uniqueKey), customer string (nameField), customer_initials string, region single-select, stage single-select, stage_index number, go_live integer date epoch, baseline_go_live integer date epoch, slipped boolean, health single-select, lead string, seats number, contract_value number, currency single-select, budget_hours number, used_hours number, lifecycle single-select, sponsor string, portal_language single-select, last_synced_at integer date-time epoch
+Read back: OBJ_dcmd_project: required ["project_id"]; fieldDefinitions project_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_project: picklists region [north_america, europe, japan]; stage [kickoff, discovery, configuration, data_migration, integrations, training, hypercare]; health [on_track, at_risk, off_track]; currency [USD, EUR, JPY]; lifecycle [active, live, cancelled]; portal_language [en, de, ja]
+Read back: OBJ_dcmd_project: idx_region (region asc) SUCCESS; idx_health (health asc) SUCCESS; idx_lead (lead asc) SUCCESS
+Read back: OBJ_dcmd_project: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_project: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_project: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
+Note: stage_index range 1 to 7 is a help hint only (no min/max enforced) — check: a record write with stage_index 9 is accepted.
+Note: Picklists currency and portal_language were given codes only; their labels equal the codes.
 
 ### t2 · Create object Delivery Command · Task
 
@@ -56,6 +73,16 @@ Read back: get_objects for \`OBJ_dcmd_task\` quoting every field the body lists 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_task\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_task"}
+Read back: OBJ_dcmd_task (Delivery Command · Task): get_objects fields = task_id string (primaryKey, uniqueKey), project_id string, title string (nameField), description string textarea, stage single-select, status single-select, assignee string, start integer date epoch, end integer date epoch, depends_on string, critical boolean, hours_planned number, hours_logged number, ai_proposed boolean
+Read back: OBJ_dcmd_task: required ["task_id"]; fieldDefinitions task_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_task: picklists stage [kickoff, discovery, configuration, data_migration, integrations, training, hypercare]; status [not_started, in_progress, blocked, done]
+Read back: OBJ_dcmd_task: idx_project_id (project_id asc) SUCCESS; idx_assignee (assignee asc) SUCCESS
+Read back: OBJ_dcmd_task: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_task: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_task: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
 
 ### t3 · Create object Delivery Command · RAID item
 
@@ -68,6 +95,17 @@ Read back: get_objects for \`OBJ_dcmd_raid\` quoting every field the body lists 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_raid\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_raid"}
+Read back: OBJ_dcmd_raid (Delivery Command · RAID item): get_objects fields = raid_id string (primaryKey, uniqueKey), project_id string, type single-select, title string (nameField), owner string, due integer date epoch, status single-select, likelihood number, impact number, jira_key string, history string textarea
+Read back: OBJ_dcmd_raid: required ["raid_id"]; fieldDefinitions raid_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_raid: picklists type [risk, assumption, issue, decision]; status [open, mitigating, closed]
+Read back: OBJ_dcmd_raid: indexes: [] (none named by the body)
+Read back: OBJ_dcmd_raid: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_raid: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_raid: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
+Note: likelihood and impact range 1 to 5 is a help hint only, not enforced.
 
 ### t4 · Create object Delivery Command · Person
 
@@ -80,6 +118,17 @@ Read back: get_objects for \`OBJ_dcmd_person\` quoting every field the body list
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_person\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_person"}
+Read back: OBJ_dcmd_person (Delivery Command · Person): get_objects fields = person_id string (primaryKey, uniqueKey), name string (nameField), role single-select, region single-select, capacity_hours number, skill_data_migration number, skill_integrations number, skill_admin_training number, skill_api number, skill_japanese number, customer string, email string, time_zone string, week_start single-select
+Read back: OBJ_dcmd_person: required ["person_id"]; fieldDefinitions person_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_person: picklists role [consultant, lead, director, resource_manager, finance_partner, sponsor]; region [north_america, europe, japan]; week_start [monday, sunday]
+Read back: OBJ_dcmd_person: indexes: [] (none named by the body)
+Read back: OBJ_dcmd_person: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_person: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_person: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
+Note: skill_* range 0 to 4 is a help hint only, not enforced.
 
 ### t5 · Create object Delivery Command · Booking
 
@@ -92,6 +141,16 @@ Read back: get_objects for \`OBJ_dcmd_booking\` quoting every field the body lis
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_booking\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_booking"}
+Read back: OBJ_dcmd_booking (Delivery Command · Booking): get_objects fields = booking_id string (primaryKey, uniqueKey, nameField), person string, project_id string, week_start integer date epoch, hours number
+Read back: OBJ_dcmd_booking: required ["booking_id"]; fieldDefinitions booking_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_booking: picklists no picklists
+Read back: OBJ_dcmd_booking: idx_person (person asc) SUCCESS; idx_week_start (week_start asc) SUCCESS
+Read back: OBJ_dcmd_booking: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_booking: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_booking: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
 
 ### t6 · Create object Delivery Command · Time entry
 
@@ -104,6 +163,16 @@ Read back: get_objects for \`OBJ_dcmd_time_entry\` quoting every field the body 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_time_entry\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_time_entry"}
+Read back: OBJ_dcmd_time_entry (Delivery Command · Time entry): get_objects fields = entry_id string (primaryKey, uniqueKey, nameField), person string, task_id string, project_id string, date integer date epoch, hours number, timesheet_week integer date epoch, timesheet_status single-select, return_reason string
+Read back: OBJ_dcmd_time_entry: required ["entry_id"]; fieldDefinitions entry_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_time_entry: picklists timesheet_status [draft, submitted, approved, returned]
+Read back: OBJ_dcmd_time_entry: indexes: [] (none named by the body)
+Read back: OBJ_dcmd_time_entry: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_time_entry: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_time_entry: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
 
 ### t7 · Create object Delivery Command · Change request
 
@@ -116,6 +185,17 @@ Read back: get_objects for \`OBJ_dcmd_change_request\` quoting every field the b
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_change_request\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_change_request"}
+Read back: OBJ_dcmd_change_request (Delivery Command · Change request): get_objects fields = cr_id string (primaryKey, uniqueKey, nameField), project_id string, raised_by string, reason textarea, work_added textarea, work_removed textarea, hours_delta number, cost_delta number, currency single-select, golive_before integer date epoch, golive_after integer date epoch, plan_before textarea, plan_after textarea, route single-select, step1_status single-select, step1_by string, step1_at integer date-time epoch, step2_status single-select, step2_by string, step2_at integer date-time epoch, next_approver string, status single-select, reject_reason textarea
+Read back: OBJ_dcmd_change_request: required ["cr_id"]; fieldDefinitions cr_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_change_request: picklists currency [USD, EUR, JPY]; route [director, director_finance]; step1_status [pending, approved, rejected]; step2_status [not_needed, waiting, pending, approved, rejected]; status [draft, pending_approval, approved, rejected]
+Read back: OBJ_dcmd_change_request: indexes: [] (none named by the body)
+Read back: OBJ_dcmd_change_request: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_change_request: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_change_request: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
+Note: step1_status, step2_status and currency were given codes only; labels were derived (Pending, Approved, Rejected, Not needed, Waiting; currency label = code).
 
 ### t8 · Create object Delivery Command · Activity
 
@@ -128,6 +208,17 @@ Read back: get_objects for \`OBJ_dcmd_activity\` quoting every field the body li
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_activity\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_activity"}
+Read back: OBJ_dcmd_activity (Delivery Command · Activity): get_objects fields = activity_id string (primaryKey, uniqueKey, nameField), at integer date-time epoch, actor string, project_id string, action string, target string, detail string, source single-select
+Read back: OBJ_dcmd_activity: required ["activity_id"]; fieldDefinitions activity_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_activity: picklists source [app, automation, ai, salesforce]
+Read back: OBJ_dcmd_activity: idx_project_id (project_id asc) SUCCESS; idx_actor (actor asc) SUCCESS; idx_action (action asc) SUCCESS
+Read back: OBJ_dcmd_activity: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_activity: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_activity: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
+Note: Append-only (never updated or deleted) is not a store setting; it must be held by the automations and pages that write Activity rows.
 
 ### t9 · Create object Delivery Command · Document
 
@@ -140,6 +231,16 @@ Read back: get_objects for \`OBJ_dcmd_document\` quoting every field the body li
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_document\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_document"}
+Read back: OBJ_dcmd_document (Delivery Command · Document): get_objects fields = document_id string (primaryKey, uniqueKey), project_id string, title string (nameField), body string textarea, kind single-select, file_url string, shared_with_customer boolean, source string, uploaded_by string, at integer date epoch
+Read back: OBJ_dcmd_document: required ["document_id"]; fieldDefinitions document_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_document: picklists kind [sow, migration_plan, signoff_record, other]
+Read back: OBJ_dcmd_document: indexes: [] (none named by the body)
+Read back: OBJ_dcmd_document: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_document: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_document: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
 
 ### t10 · Create object Delivery Command · Session slot
 
@@ -152,4 +253,14 @@ Read back: get_objects for \`OBJ_dcmd_session_slot\` quoting every field the bod
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: get_objects shows \`OBJ_dcmd_session_slot\` with every field the body lists, its primaryKey and its indexes.
+Result IDs: {"entity":"OBJ_dcmd_session_slot"}
+Read back: OBJ_dcmd_session_slot (Delivery Command · Session slot): get_objects fields = slot_id string (primaryKey, uniqueKey, nameField), project_id string, date integer date epoch, start string, end string, topic string, taken boolean, booked_by string
+Read back: OBJ_dcmd_session_slot: required ["slot_id"]; fieldDefinitions slot_id input and schema both carry "primaryKey": true, "uniqueKey": true
+Read back: OBJ_dcmd_session_slot: picklists no picklists
+Read back: OBJ_dcmd_session_slot: indexes: [] (none named by the body)
+Read back: OBJ_dcmd_session_slot: unmirroredFields: [] (both schema halves hold every field)
+Read back: OBJ_dcmd_session_slot: Security rule 1 — created with default access settings; no skipPermissionsFilter or external written
+Unverified: OBJ_dcmd_session_slot: field types beyond the primaryKey are as sent and checked by the batch's own post-write compare, not re-read via fieldDefinitions — check: get_objects parts [fieldDefinitions].
+Note: Design check (object-schema-designer): plan specifies cross-object references (project_id, task_id, person, etc.) as plain text, not foreignKey lookups; built exactly as planned, so no write-time FK enforcement and no delete protection.
+Note: Created in one apply_object_batch call with the other nine objects of this batch; wrote: true; post-write check reported no notStored changes.
 

@@ -1,0 +1,155 @@
+---
+nebula: 3
+specId: "e_6adb9f245236864dd8e5ee6d"
+mode: "sonic"
+title: "ClickUp Delivery Command · plan 3 of 10"
+owner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","userId":66770}
+askBeforeDeploy: true
+releaseYes: []
+touches: [{"kind":"object","name":"Delivery Command · Executive email"},{"kind":"object","name":"Delivery Command · Project","id":"OBJ_dcmd_project"},{"kind":"object","name":"Delivery Command · Task","id":"OBJ_dcmd_task"},{"kind":"object","name":"Delivery Command · RAID item","id":"OBJ_dcmd_raid"},{"kind":"object","name":"Delivery Command · Person","id":"OBJ_dcmd_person"},{"kind":"object","name":"Delivery Command · Booking","id":"OBJ_dcmd_booking"},{"kind":"object","name":"Delivery Command · Time entry","id":"OBJ_dcmd_time_entry"},{"kind":"object","name":"Delivery Command · Change request","id":"OBJ_dcmd_change_request"},{"kind":"object","name":"Delivery Command · Activity","id":"OBJ_dcmd_activity"},{"kind":"object","name":"Delivery Command · Document","id":"OBJ_dcmd_document"}]
+reviewEvidence: []
+revision: 1
+revisionHistory: []
+creationId: "8734f8ae-19ce-4703-acb9-5911f2f771f8"
+pageDesign: 2
+createdAt: "2026-10-23T17:53:42.628Z"
+runningAt: "2026-10-23T17:53:46.131Z"
+runner: {"clientId":"cb1e0a4a-7af6-40cf-ac78-5470bd07a4fa","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"382b1b0f-8b04-5591-805d-15b67bc592e7"}
+---
+## Plan
+
+Goal: ClickUp Delivery Command · plan 3 of 10
+
+| id | kind | entity | dependsOn | status | attempts |
+|---|---|---|---|---|---:|
+| t1 | object | Delivery Command · Executive email |  | running | 1 |
+| t2 | record | Delivery Command · Project |  | running | 1 |
+| t3 | record | Delivery Command · Task |  | running | 1 |
+| t4 | record | Delivery Command · RAID item |  | running | 1 |
+| t5 | record | Delivery Command · Person |  | running | 1 |
+| t6 | record | Delivery Command · Booking |  | running | 1 |
+| t7 | record | Delivery Command · Time entry |  | running | 1 |
+| t8 | record | Delivery Command · Change request |  | running | 1 |
+| t9 | record | Delivery Command · Activity |  | running | 1 |
+| t10 | record | Delivery Command · Document |  | running | 1 |
+
+### t1 · Create object Delivery Command · Executive email
+
+Body:
+Read: \`entity context object --name "Delivery Command · Executive email" --json\`, then get_objects for \`OBJ_dcmd_exec_email\`; if \`OBJ_dcmd_exec_email\` or the name Delivery Command · Executive email already exists, stop and report.
+Done when: object Delivery Command · Executive email (\`OBJ_dcmd_exec_email\`), described "One composed weekly executive email, sent or kept as a preview.", holds every field the body lists, exactly: email_id text unique (EML-nnn), region picklist (as Project), send_at datetime epoch ms, recipient text, subject text, html long text, status picklist (sent "Sent", preview "Preview", failed "Failed"), error text.
+Rules: the unique text field named first is the primaryKey and is in \`required\`; each picklist stores its code with the label given; every date and datetime is epoch ms (number); booleans are booleans; long text is a long string; field properties follow object-storage-manager § Object schema format; plain field names, never \`properties_\` columns.
+Apply the write once with apply_object_batch (create the object, its fields and the indexes the line names), then read it back.
+Read back: get_objects for \`OBJ_dcmd_exec_email\` quoting every field the body lists with its type, the primaryKey, the picklist codes and each index.
+Report ids (the object id as ids.entity), readBack, unverified, notes.
+
+Proof: get_objects shows \`OBJ_dcmd_exec_email\` with every field the body lists, its primaryKey and its indexes.
+
+### t2 · Seed Delivery Command · Project
+
+Body:
+Read: get_objects for \`OBJ_dcmd_project\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/project.csv\`; get_records on \`OBJ_dcmd_project\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/project.csv\` is stored in \`OBJ_dcmd_project\`, one record per row, nothing made up: the 19 rows of studio/data/seed/project.csv (story row IMP-2611 Sakura Mobility, Japan, Data migration, go-live 19 Nov 2026, baseline 12 Nov 2026, At risk, lead Mei Takahashi, 1,200 seats, JPY 84,000,000, 860 h planned, 545 h used, sponsor Hana Mori; IMP-2590 Pellworth Labs is Cancelled).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_project\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_project\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/project.csv\` and the first row as stored.
+
+### t3 · Seed Delivery Command · Task
+
+Body:
+Read: get_objects for \`OBJ_dcmd_task\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/task.csv\`; get_records on \`OBJ_dcmd_task\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/task.csv\` is stored in \`OBJ_dcmd_task\`, one record per row, nothing made up: the 96 rows of studio/data/seed/task.csv (45 on IMP-2611; 17 in its Data migration column; critical path TSK-5024 to TSK-5044; TSK-5024 and TSK-5025 past their end date).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_task\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_task\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/task.csv\` and the first row as stored.
+
+### t4 · Seed Delivery Command · RAID item
+
+Body:
+Read: get_objects for \`OBJ_dcmd_raid\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/raid.csv\`; get_records on \`OBJ_dcmd_raid\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/raid.csv\` is stored in \`OBJ_dcmd_raid\`, one record per row, nothing made up: the 17 rows of studio/data/seed/raid.csv (RSK-1183 likelihood 4, impact 5).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_raid\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_raid\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/raid.csv\` and the first row as stored.
+
+### t5 · Seed Delivery Command · Person
+
+Body:
+Read: get_objects for \`OBJ_dcmd_person\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/person.csv\`; get_records on \`OBJ_dcmd_person\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/person.csv\` is stored in \`OBJ_dcmd_person\`, one record per row, nothing made up: the 18 rows of studio/data/seed/person.csv (13 consultants and leads, Elena Brooks delivery director, Tomás Herrera finance partner, Grace Liu resource manager, sponsors Hana Mori and Owen Price).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_person\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_person\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/person.csv\` and the first row as stored.
+
+### t6 · Seed Delivery Command · Booking
+
+Body:
+Read: get_objects for \`OBJ_dcmd_booking\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/booking.csv\`; get_records on \`OBJ_dcmd_booking\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/booking.csv\` is stored in \`OBJ_dcmd_booking\`, one record per row, nothing made up: the 168 rows of studio/data/seed/booking.csv (12 weeks from 26 Oct 2026; Haruto Sato 44 h in week of 2 Nov; Aiko Tanaka 30 h in week of 16 Nov and 20 h in week of 23 Nov; Marcus Bell none).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_booking\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_booking\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/booking.csv\` and the first row as stored.
+
+### t7 · Seed Delivery Command · Time entry
+
+Body:
+Read: get_objects for \`OBJ_dcmd_time_entry\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/time_entry.csv\`; get_records on \`OBJ_dcmd_time_entry\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/time_entry.csv\` is stored in \`OBJ_dcmd_time_entry\`, one record per row, nothing made up: the 63 rows of studio/data/seed/time_entry.csv (week of 19 Oct Pending approval for 9 people; week of 12 Oct Approved).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_time_entry\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_time_entry\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/time_entry.csv\` and the first row as stored.
+
+### t8 · Seed Delivery Command · Change request
+
+Body:
+Read: get_objects for \`OBJ_dcmd_change_request\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/change_request.csv\`; get_records on \`OBJ_dcmd_change_request\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/change_request.csv\` is stored in \`OBJ_dcmd_change_request\`, one record per row, nothing made up: the 2 rows of studio/data/seed/change_request.csv (CR-0452 approved by the director alone; CR-0449 rejected by the finance partner with a reason).
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_change_request\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_change_request\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/change_request.csv\` and the first row as stored.
+
+### t9 · Seed Delivery Command · Activity
+
+Body:
+Read: get_objects for \`OBJ_dcmd_activity\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/activity.csv\`; get_records on \`OBJ_dcmd_activity\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/activity.csv\` is stored in \`OBJ_dcmd_activity\`, one record per row, nothing made up: the 20 rows of studio/data/seed/activity.csv.
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_activity\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_activity\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/activity.csv\` and the first row as stored.
+
+### t10 · Seed Delivery Command · Document
+
+Body:
+Read: get_objects for \`OBJ_dcmd_document\` (its fields and picklist codes) and the file \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/document.csv\`; get_records on \`OBJ_dcmd_document\` must answer no rows yet, else stop and report what is there.
+Done when: every row of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/document.csv\` is stored in \`OBJ_dcmd_document\`, one record per row, nothing made up: the 6 rows of studio/data/seed/document.csv, each with a short fictional body; file_url stays empty.
+Values: a picklist stores its code; where the file holds the label (region "Japan", stage "Data migration", "Delivery director"), store the code whose label matches; a date-only value (2026-11-19) is epoch ms at 00:00 UTC that day; a datetime with an offset is its exact epoch ms; \`true\`/\`false\` are booleans; numbers are numbers; an empty cell is left unset; text and JSON text are kept verbatim.
+Apply the writes with save_entity_records, in batches, then read back.
+Read back: get_records on \`OBJ_dcmd_document\` with its total equal to the file's row count, and the first row of the file quoted as stored.
+Report ids, readBack, unverified, notes.
+
+Proof: get_records on \`OBJ_dcmd_document\` answers a total equal to the rows of \`/home/user/all-demo-foders/clickup/clickup-delivery-command-platform/studio/data/seed/document.csv\` and the first row as stored.
+

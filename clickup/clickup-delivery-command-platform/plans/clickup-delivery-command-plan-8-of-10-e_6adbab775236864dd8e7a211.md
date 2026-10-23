@@ -27,8 +27,8 @@ Goal: ClickUp Delivery Command · plan 8 of 10
 | t3 | automation | Delivery Command · Weekly executive email schedule | t2 | done | 1 |
 | t4 | deploy | Delivery Command · Weekly executive email schedule | t3 | done | 1 |
 | t5 | ai-agent | Delivery Command · Copilot |  | done | 1 |
-| t6 | publish | Delivery Command · Copilot | t5 | running | 1 |
-| t7 | automation | Delivery Command · Ask Copilot | t6 | pending | 0 |
+| t6 | publish | Delivery Command · Copilot | t5 | done | 1 |
+| t7 | automation | Delivery Command · Ask Copilot | t6 | running | 1 |
 | t8 | deploy | Delivery Command · Ask Copilot | t7 | pending | 0 |
 
 ### t1 · Build automation Delivery Command · Send executive summary
@@ -206,6 +206,15 @@ Read back: get_agent showing the published version, quoted.
 Report ids, readBack, unverified, notes.
 
 Proof: get_agent shows Delivery Command · Copilot published.
+Result IDs: {"entity":"e_6adbabd2925d282255cee62b"}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: publish_agent returned publishedVersion 5, live true, published true, needsPublish false, automationSaid {response: 'success'}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: list_agents read-back after the publish shows published true, needsPublish false, version 10
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: get_agent before the publish showed the draft with Read_delivery_data e_6adbabdb925d282255cef603 enabled true, automationId 6adbaa4fca4f9d20459bd303, and model e_6a88244b31696e1ce45dbda1 in all three slots; that draft (version 5) is what went live
+Unverified: Delivery Command · Copilot: no run through Invoke Agent against the published version yet — check: the Ask Copilot automation's first run returns an answer that called Read_delivery_data.
+Unverified: Delivery Command · Copilot: the record version went from 5 to 10 during the publish (platform bookkeeping); publishedVersion reads 5 — check: get_agent shows needsPublish false, which it did through list_agents.
+Note: Publish approved by the plan: 'yes, publish Delivery Command · Copilot. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.'
+Note: Not deployed to the copilot: the task asked only for a publish. deployments: [].
+Note: handover: Delivery Command · Copilot e_6adbabd2925d282255cee62b is published (publishedVersion 5, live true), ready for Invoke Agent in Delivery Command · Ask Copilot.
 
 ### t7 · Build automation Delivery Command · Ask Copilot
 

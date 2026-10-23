@@ -1,6 +1,41 @@
 {
   "entities": [
     {
+      "kind": "automation",
+      "id": "6adba2ac92718f6a64f34bc5",
+      "name": "Delivery Command · Move task",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba3266112da3e23fcf133",
+      "name": "Delivery Command · Reschedule task",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba3b292718f6a64f39440",
+      "name": "Delivery Command · Book consultant",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba402f4431f44e30943f1",
+      "name": "Delivery Command · Review timesheets",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba405ca4f9d2045858cfc",
+      "name": "Delivery Command · Log time",
+      "version": 0,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_dcmd_task",
       "name": "Delivery Command · Task",
@@ -148,6 +183,337 @@
       "stale": false
     }
   ],
-  "edges": [],
+  "edges": [
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba2ac92718f6a64f34bc5",
+        "name": "Delivery Command · Move task",
+        "part": "node Read the task by its id"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba2ac92718f6a64f34bc5",
+        "name": "Delivery Command · Move task",
+        "part": "node Set the task's stage and status"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba2ac92718f6a64f34bc5",
+        "name": "Delivery Command · Move task",
+        "part": "node Count the tasks now in the target column (same project, same stage)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba2ac92718f6a64f34bc5",
+        "name": "Delivery Command · Move task",
+        "part": "node Record the move in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task",
+        "part": "node Read the task being rescheduled"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task",
+        "part": "node Read every task of the same project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task",
+        "part": "node Read the project for its go-live"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task",
+        "part": "node Set the task's new dates"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task",
+        "part": "node Save the project's go-live"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task",
+        "part": "node Record the reschedule in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3b292718f6a64f39440",
+        "name": "Delivery Command · Book consultant",
+        "part": "node Read the person for their weekly capacity"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_person",
+        "name": "Delivery Command · Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3b292718f6a64f39440",
+        "name": "Delivery Command · Book consultant",
+        "part": "node Read the project being booked"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3b292718f6a64f39440",
+        "name": "Delivery Command · Book consultant",
+        "part": "node Read the person's existing bookings in those weeks"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_booking",
+        "name": "Delivery Command · Booking"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3b292718f6a64f39440",
+        "name": "Delivery Command · Book consultant",
+        "part": "node Create the booking"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_booking",
+        "name": "Delivery Command · Booking"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba3b292718f6a64f39440",
+        "name": "Delivery Command · Book consultant",
+        "part": "node Record the booking in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba402f4431f44e30943f1",
+        "name": "Delivery Command · Review timesheets",
+        "part": "node Approve or return every pending entry of those people in that week"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_time_entry",
+        "name": "Delivery Command · Time entry"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba402f4431f44e30943f1",
+        "name": "Delivery Command · Review timesheets",
+        "part": "node Record the review in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba405ca4f9d2045858cfc",
+        "name": "Delivery Command · Log time",
+        "part": "node Read the task"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba405ca4f9d2045858cfc",
+        "name": "Delivery Command · Log time",
+        "part": "node Read the person for their week start"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_person",
+        "name": "Delivery Command · Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba405ca4f9d2045858cfc",
+        "name": "Delivery Command · Log time",
+        "part": "node Write the time entry in Draft"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_time_entry",
+        "name": "Delivery Command · Time entry"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba405ca4f9d2045858cfc",
+        "name": "Delivery Command · Log time",
+        "part": "node Add the hours to the task, and set its status when one was given"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba405ca4f9d2045858cfc",
+        "name": "Delivery Command · Log time",
+        "part": "node Record the time in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    }
+  ],
   "unknown": []
 }

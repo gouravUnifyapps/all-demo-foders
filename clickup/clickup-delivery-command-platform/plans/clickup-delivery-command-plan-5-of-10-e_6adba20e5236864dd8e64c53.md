@@ -22,16 +22,16 @@ Goal: ClickUp Delivery Command · plan 5 of 10
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Delivery Command · Move task |  | running | 1 |
-| t2 | deploy | Delivery Command · Move task | t1 | pending | 0 |
-| t3 | automation | Delivery Command · Reschedule task |  | running | 1 |
-| t4 | deploy | Delivery Command · Reschedule task | t3 | pending | 0 |
-| t5 | automation | Delivery Command · Book consultant |  | running | 1 |
-| t6 | deploy | Delivery Command · Book consultant | t5 | pending | 0 |
-| t7 | automation | Delivery Command · Review timesheets |  | running | 1 |
-| t8 | deploy | Delivery Command · Review timesheets | t7 | pending | 0 |
-| t9 | automation | Delivery Command · Log time |  | running | 1 |
-| t10 | deploy | Delivery Command · Log time | t9 | pending | 0 |
+| t1 | automation | Delivery Command · Move task |  | done | 1 |
+| t2 | deploy | Delivery Command · Move task | t1 | running | 1 |
+| t3 | automation | Delivery Command · Reschedule task |  | done | 1 |
+| t4 | deploy | Delivery Command · Reschedule task | t3 | running | 1 |
+| t5 | automation | Delivery Command · Book consultant |  | done | 1 |
+| t6 | deploy | Delivery Command · Book consultant | t5 | running | 1 |
+| t7 | automation | Delivery Command · Review timesheets |  | done | 1 |
+| t8 | deploy | Delivery Command · Review timesheets | t7 | running | 1 |
+| t9 | automation | Delivery Command · Log time |  | done | 1 |
+| t10 | deploy | Delivery Command · Log time | t9 | running | 1 |
 
 ### t1 · Build automation Delivery Command · Move task
 
@@ -44,6 +44,21 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Move task with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adba2ac92718f6a64f34bc5"}
+Read back: Delivery Command · Move task 6adba2ac92718f6a64f34bc5: search_workflows had no match before the create; compile_and_save_workflow saved version 1 (created v0, guard fix v1); trigger callables/callables_from_automation; deployment null (not deployed, as the task says)
+Read back: Delivery Command · Move task: describe_callable_workflow answers task_id string required, to_stage string, to_status string, actor string required
+Read back: Delivery Command · Move task: open_workflow result schema = ok boolean, column_count number, over_limit boolean, message string, refused boolean
+Read back: Delivery Command · Move task test run 6adba36df3cd5f19ed88354e (payload {}) COMPLETED: {"ok":false,"column_count":0,"over_limit":false,"message":"A task id is needed.","refused":true}
+Read back: Delivery Command · Move task test run 6adba2b5ca4f9d204585229b (TSK-5045 to stage golive) COMPLETED: {"ok":false,"column_count":0,"over_limit":false,"message":"Unknown stage: golive.","refused":true}; no write node ran
+Read back: Delivery Command · Move task test run 6adba2b6cac0655fe3573d7c (task DEMO-TEST-NOPE) COMPLETED: {"message":"Task DEMO-TEST-NOPE was not found.","refused":true,...}
+Read back: Delivery Command · Move task security: actor and task_id come from the caller; the task is re-read from OBJ_dcmd_task in the same run before the update, and only stage and status are written (rule 3, rule 4)
+Unverified: The success path (update stage/status, count the column, write the Activity row, over_limit above 15) was not run, because every success run writes a permanent Activity row and changes a seeded task — check: run once on a DEMO-TEST task row and read OBJ_dcmd_task and OBJ_dcmd_activity back
+Unverified: That create_record stores the Activity row under record id ACT-&lt;executionId&gt; (the primary key value) — check: get_records on OBJ_dcmd_activity for activity_id ACT-&lt;runId&gt; after the first live run
+Unverified: Security: the caller's actor text is recorded as-is, with no check against the signed-in user (USER) — needs the person to decide whether actor must come from USER
+Note: assumed: column_count = tasks in the same project with the target stage, counted after the move; over_limit = column_count &gt; 15. ok is true when the move was written
+Note: assumed: a blank to_stage or to_status keeps the task's current value; at least one must be given; codes are checked against the Task picklists
+Note: Result schema adds refused boolean beside the contract's fields, as the task's refusal rule asks
+Note: Activity row: activity_id ACT-&lt;executionId&gt;, at RUN.currentTime, actor, project_id, action task_moved, target task_id, source automation
 
 ### t2 · Deploy Delivery Command · Move task
 
@@ -67,6 +82,28 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Reschedule task with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adba3266112da3e23fcf133"}
+Read back: Delivery Command · Reschedule task 6adba3266112da3e23fcf133: search_workflows had no match before the create; saved version 1; trigger callables/callables_from_automation; deployment null
+Read back: Delivery Command · Reschedule task: describe_callable_workflow answers task_id string, new_start number, new_end number, actor string, confirm boolean, all required
+Read back: Delivery Command · Reschedule task: open_workflow result schema = shifted array of {task_id string, new_start number, new_end number}, golive_before number, golive_after number, refused boolean, message string
+Read back: Delivery Command · Reschedule task test run 6adba372f4431f44e3090a38 (TSK-5039 end +2 working days, confirm false) COMPLETED: shifted TSK-5039, TSK-5040, TSK-5041, TSK-5043, TSK-5044 (TSK-5044 1795046400000 -&gt; 1795392000000), golive_before 1795046400000, golive_after 1795392000000, message "Preview only, nothing saved. ... go-live 19 Nov 2026 -&gt; 23 Nov 2026."; ended at the preview STOP, no write node ran
+Read back: Delivery Command · Reschedule task test run 6adba3696112da3e23fcf968 (all blank) COMPLETED: {"shifted":[],"golive_before":0,"golive_after":0,"refused":true,"message":"A task id is needed."}
+Read back: Delivery Command · Reschedule task test run 6adba36cf3cd5f19ed8834e5 (DEMO-TEST-NOPE) COMPLETED: refused true, "Task DEMO-TEST-NOPE was not found, or has no project."; run 6adba333cac0655fe35751a4 (end before start, confirm true) COMPLETED: refused true, "The new end date is before the new start date.", nothing written
+Read back: Delivery Command · Reschedule task security: task, project tasks and project are re-read in the run; writes only start/end per shifted task and the project's go_live (rule 3, rule 4)
+Unverified: The confirm true save path (task dates, project go_live, Activity row) was not run, because it changes seeded rows — check: run with confirm true on DEMO-TEST rows and read OBJ_dcmd_task, OBJ_dcmd_project and OBJ_dcmd_activity back
+Unverified: Security: the caller's actor text is recorded as-is — needs the person to decide whether actor must come from USER
+Note: assumed: the shift is the working-day (Mon-Fri, UTC) difference between the task's old end and new_end, applied to the start and end of every task reached forward through depends_on (comma/space separated ids), each once
+Note: assumed: golive_after = the latest new end of a shifted task that ended on or before the old go-live, when that is later than the go-live; otherwise go-live stays. Earlier moves never pull go-live in. Hypercare tasks that already end after go-live do not move it
+Note: Dates in and out are epoch ms (callable inputs typed number, described as epoch ms UTC midnight)
+Note: Result schema adds refused boolean and message beside the contract's fields
+Note: handover: a Storage fetch filter whose value pill resolves to nothing fails at run time with errorCode 5004 "No Value found in filter"; guard every input-fed filter with an if (missing/eq "") before the fetch
+Note: feedback:
+Bug: compile_and_save_workflow saves a Storage fetch whose filter value is a pill into a possibly-empty list without a warning; at run time the value key is dropped and the node fails.
+Context: storage_by_unifyapps_fetch_records filtered on &lt;earlier fetch&gt;.objects[0].properties.project_id, run when the first fetch matched no rows.
+Where: mcp-tool
+Evidence: run 6adba332f3cd5f19ed882190 of 6adba3266112da3e23fcf133 failed with errorCode 5004 "No Value found in filter with field: properties.project_id, operator: EQUAL"; the compiler does flag FILTER_VALUE_BLANK_FOR_NUMBER in an if, so it sees value types.
+Cause: Unknown — next check: whether the compiler can tell an indexed read of a fetch's objects may be absent.
+Regression: save a fetch filtered on &lt;prior fetch&gt;.objects[0].properties.x; a warning appears, or a run whose first fetch finds nothing completes instead of errorCode 5004.
 
 ### t4 · Deploy Delivery Command · Reschedule task
 
@@ -90,6 +127,19 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Book consultant with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adba3b292718f6a64f39440"}
+Read back: Delivery Command · Book consultant 6adba3b292718f6a64f39440: search_workflows had no match before the create; saved version 1; trigger callables/callables_from_automation; deployment null
+Read back: Delivery Command · Book consultant: describe_callable_workflow answers person string, project_id string, weeks array (items number), hours number, actor string, confirm boolean, all required
+Read back: Delivery Command · Book consultant: open_workflow result schema = over_capacity array of {week_start number, booked_hours number, capacity_hours number, percent number}, ok boolean, message string, refused boolean
+Read back: Delivery Command · Book consultant test run 6adba41592718f6a64f3a77f (Priya Raman, IMP-2611, weeks 1799625600000 and 1799020800000, 16 h, confirm false) COMPLETED: over_capacity [{week_start 1799020800000, booked_hours 48, capacity_hours 40, percent 120},{week_start 1799625600000, booked_hours 48, capacity_hours 40, percent 120}], ok false, message "Not saved yet. Book Priya Raman 16 h a week on IMP-2611 for 2 weeks from 4 Jan 2027. Priya Raman would be over capacity in 2 weeks: 4 Jan 2027 120% (48 of 40 h), 11 Jan 2027 120% (48 of 40 h)."; ended at the check STOP, no write node ran
+Read back: Delivery Command · Book consultant test run 6adba3bceb71d135d6575c8f (all blank) COMPLETED: refused true, "A person, a project and at least one week are needed."; run 6adba3bdcac0655fe3578117 (hours 0, confirm true) COMPLETED: refused true, "Hours must be more than 0.", nothing written
+Read back: Delivery Command · Book consultant security: capacity is read from OBJ_dcmd_person and existing hours from OBJ_dcmd_booking in the same run; the project is checked to exist; bookings write only booking_id, person, project_id, week_start, hours (rule 3, rule 4)
+Unverified: The confirm true write path (one Booking per week, one Activity row) was not run, because it leaves permanent rows — check: run with confirm true for a DEMO-TEST project and read OBJ_dcmd_booking and OBJ_dcmd_activity back, then remove the bookings by id
+Unverified: Security: the caller's actor text is recorded as-is — needs the person to decide whether actor must come from USER
+Note: assumed: person is the Person name (Booking.person stores names, e.g. Priya Raman); ok = no week over capacity; with confirm true the bookings are written even when over capacity (the spec says over capacity is shown before it is saved)
+Note: assumed: refusals for hours &lt;= 0 or &gt; 80, no weeks, more than 52 weeks, unknown person or project, and a person with capacity_hours 0
+Note: Booking ids are BKG-&lt;executionId&gt;-&lt;n&gt;; percent is rounded to a whole number
+Note: Result schema adds refused boolean beside the contract's fields
 
 ### t6 · Deploy Delivery Command · Book consultant
 
@@ -113,6 +163,19 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Review timesheets with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adba402f4431f44e30943f1"}
+Read back: Delivery Command · Review timesheets 6adba402f4431f44e30943f1: search_workflows had no match before the create; saved version 0; trigger callables/callables_from_automation; deployment null
+Read back: Delivery Command · Review timesheets: describe_callable_workflow answers persons array (items string) required, timesheet_week number required, decision string required, reason string, actor string required
+Read back: Delivery Command · Review timesheets: open_workflow result schema = updated number, refused boolean, message string
+Read back: Delivery Command · Review timesheets test run 6adba40ff4431f44e30946a5 (return, empty reason) COMPLETED: {"updated":0,"refused":true,"message":"A returned timesheet needs a reason."}
+Read back: Delivery Command · Review timesheets test run 6adba410f4431f44e30946b4 (all blank) COMPLETED: {"updated":0,"refused":true,"message":"The decision must be approve or return."}
+Read back: Delivery Command · Review timesheets test run 6adba4116112da3e23fd22ea (approve, persons [DEMO-TEST Nobody]) COMPLETED: update_records count 0, {"updated":0,"refused":false,"message":"No timesheet entries were pending approval for those people in that week."}; no Activity row written
+Read back: Delivery Command · Review timesheets security: the update filter is persons IN list AND timesheet_week EQUAL AND timesheet_status EQUAL submitted, setting only timesheet_status and return_reason (rule 4)
+Unverified: An approve or return that changes real entries (and its Activity row) was not run, because it changes seeded Time entries — check: run on DEMO-TEST entries and read OBJ_dcmd_time_entry and OBJ_dcmd_activity back
+Unverified: Security: there is no check that the actor may approve timesheets (no role check) and actor is caller text — needs the person to decide the approver rule
+Note: assumed: only Pending approval (submitted) entries change; approve sets approved and clears return_reason, return sets returned and the reason
+Note: assumed: one Activity row per batch, written only when at least one entry changed (action timesheets_approved or timesheets_returned, no project_id)
+Note: Result schema matches the contract (updated, refused, message)
 
 ### t8 · Deploy Delivery Command · Review timesheets
 
@@ -136,6 +199,19 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Log time with the contract above, and a test run answers the result fields.
+Result IDs: {"entity":"6adba405ca4f9d2045858cfc"}
+Read back: Delivery Command · Log time 6adba405ca4f9d2045858cfc: search_workflows had no match before the create; saved version 0; trigger callables/callables_from_automation; deployment null
+Read back: Delivery Command · Log time: describe_callable_workflow answers person string required, task_id string required, date number required, hours number required, status string
+Read back: Delivery Command · Log time: open_workflow result schema = entry_id string, refused boolean, message string
+Read back: Delivery Command · Log time test run 6adba41292718f6a64f3a6a0 (all blank) COMPLETED: {"entry_id":"","refused":true,"message":"A person and a task are needed."}
+Read back: Delivery Command · Log time test run 6adba413eb71d135d6576633 (TSK-5045, 30 h) COMPLETED: {"entry_id":"","refused":true,"message":"Hours must be at most 24 a day."}; run 6adba4146112da3e23fd23eb (DEMO-TEST-NOPE) COMPLETED: refused true, "Task DEMO-TEST-NOPE was not found."
+Read back: Delivery Command · Log time security: the task and person are re-read in the run; the new hours_logged is computed from the stored value; the Time entry writes only its declared fields (rule 3, rule 4)
+Unverified: The write path (Time entry in draft, task hours_logged and status, Activity row, entry_id TME-&lt;executionId&gt;) was not run, because it changes a seeded task and leaves permanent rows — check: run on a DEMO-TEST task and read OBJ_dcmd_time_entry, OBJ_dcmd_task and OBJ_dcmd_activity back
+Unverified: Security: person is caller text, not checked against the signed-in user (USER) — needs the person to decide whether the phone view must log time only as the signed-in user
+Note: assumed: hours must be &gt; 0 and &lt;= 24; status optional and checked against the Task status codes; a blank status keeps the task's status
+Note: assumed: timesheet_week is the start of the date's week by the Person's week_start (sunday or monday, default monday), epoch ms UTC midnight
+Note: assumed: the Activity actor is the person (the contract has no actor input); action time_logged
+Note: Result schema adds refused and message beside entry_id
 
 ### t10 · Deploy Delivery Command · Log time
 

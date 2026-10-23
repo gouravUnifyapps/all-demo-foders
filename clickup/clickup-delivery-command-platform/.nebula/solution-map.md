@@ -6,6 +6,11 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
+| automation | `Delivery Command · Move task` | 6adba2ac92718f6a64f34bc5 | 1 | no |
+| automation | `Delivery Command · Reschedule task` | 6adba3266112da3e23fcf133 | 1 | no |
+| automation | `Delivery Command · Book consultant` | 6adba3b292718f6a64f39440 | 1 | no |
+| automation | `Delivery Command · Review timesheets` | 6adba402f4431f44e30943f1 | 0 | no |
+| automation | `Delivery Command · Log time` | 6adba405ca4f9d2045858cfc | 0 | no |
 | object | `Delivery Command · Task` | OBJ_dcmd_task | 0 | no |
 | object | `Delivery Command · Project` | OBJ_dcmd_project | 0 | no |
 | object | `Delivery Command · RAID item` | OBJ_dcmd_raid | 0 | no |
@@ -32,7 +37,28 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
-| — | | | | |
+| automation `Delivery Command · Move task` | `node Read the task by its id` | object `Delivery Command · Task` | storage read |  |
+| automation `Delivery Command · Move task` | `node Set the task's stage and status` | object `Delivery Command · Task` | storage write |  |
+| automation `Delivery Command · Move task` | `node Count the tasks now in the target column (same project, same stage)` | object `Delivery Command · Task` | storage read |  |
+| automation `Delivery Command · Move task` | `node Record the move in the activity feed` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Reschedule task` | `node Read the task being rescheduled` | object `Delivery Command · Task` | storage read |  |
+| automation `Delivery Command · Reschedule task` | `node Read every task of the same project` | object `Delivery Command · Task` | storage read |  |
+| automation `Delivery Command · Reschedule task` | `node Read the project for its go-live` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Reschedule task` | `node Set the task's new dates` | object `Delivery Command · Task` | storage write |  |
+| automation `Delivery Command · Reschedule task` | `node Save the project's go-live` | object `Delivery Command · Project` | storage write |  |
+| automation `Delivery Command · Reschedule task` | `node Record the reschedule in the activity feed` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Book consultant` | `node Read the person for their weekly capacity` | object `Delivery Command · Person` | storage read |  |
+| automation `Delivery Command · Book consultant` | `node Read the project being booked` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Book consultant` | `node Read the person's existing bookings in those weeks` | object `Delivery Command · Booking` | storage read |  |
+| automation `Delivery Command · Book consultant` | `node Create the booking` | object `Delivery Command · Booking` | storage write |  |
+| automation `Delivery Command · Book consultant` | `node Record the booking in the activity feed` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Review timesheets` | `node Approve or return every pending entry of those people in that week` | object `Delivery Command · Time entry` | storage write |  |
+| automation `Delivery Command · Review timesheets` | `node Record the review in the activity feed` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Log time` | `node Read the task` | object `Delivery Command · Task` | storage read |  |
+| automation `Delivery Command · Log time` | `node Read the person for their week start` | object `Delivery Command · Person` | storage read |  |
+| automation `Delivery Command · Log time` | `node Write the time entry in Draft` | object `Delivery Command · Time entry` | storage write |  |
+| automation `Delivery Command · Log time` | `node Add the hours to the task, and set its status when one was given` | object `Delivery Command · Task` | storage write |  |
+| automation `Delivery Command · Log time` | `node Record the time in the activity feed` | object `Delivery Command · Activity` | storage write |  |
 
 ## Not checked
 

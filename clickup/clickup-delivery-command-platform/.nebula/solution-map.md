@@ -16,6 +16,11 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation | `Delivery Command · Record sign-off` | 6adba5f8eb71d135d657e318 | 0 | no |
 | automation | `Delivery Command · Accept proposed tasks` | 6adba625ca4f9d2045986507 | 0 | no |
 | automation | `Delivery Command · Change request` | 6adba6a8cac0655fe3582da3 | 0 | no |
+| automation | `Delivery Command · Mark notification read` | 6adba94deb71d135d658f2dc | 0 | no |
+| automation | `Delivery Command · Confirm upload` | 6adba9abcac0655fe35aa2fc | 0 | no |
+| automation | `Delivery Command · Save view` | 6adba9aef3cd5f19ed89eaec | 0 | no |
+| automation | `Delivery Command · Update project settings` | 6adba9def3cd5f19ed89ef7d | 0 | no |
+| automation | `Delivery Command · Read delivery data` | 6adbaa4fca4f9d20459bd303 | 0 | no |
 | object | `Delivery Command · Task` | OBJ_dcmd_task | 0 | no |
 | object | `Delivery Command · Project` | OBJ_dcmd_project | 0 | no |
 | object | `Delivery Command · RAID item` | OBJ_dcmd_raid | 0 | no |
@@ -95,6 +100,25 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation `Delivery Command · Change request` | `node Move the project's go-live and budget` | object `Delivery Command · Project` | storage write |  |
 | automation `Delivery Command · Change request` | `node Write the approval activity row` | object `Delivery Command · Activity` | storage write |  |
 | automation `Delivery Command · Change request` | `node Write the go-live and budget activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Mark notification read` | `node Find the notification` | object `Delivery Command · Notification` | storage read |  |
+| automation `Delivery Command · Mark notification read` | `node Mark it read` | object `Delivery Command · Notification` | storage write |  |
+| automation `Delivery Command · Confirm upload` | `node Find the project` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Confirm upload` | `node Save the confirmed upload` | object `Delivery Command · Upload` | storage write |  |
+| automation `Delivery Command · Confirm upload` | `node Write the activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Save view` | `node Save the view` | object `Delivery Command · Saved view` | storage write |  |
+| automation `Delivery Command · Update project settings` | `node Find the project` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Update project settings` | `node Save the number setting` | object `Delivery Command · Project` | storage write |  |
+| automation `Delivery Command · Update project settings` | `node Save the text setting` | object `Delivery Command · Project` | storage write |  |
+| automation `Delivery Command · Update project settings` | `node Write the activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching projects` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching tasks` | object `Delivery Command · Task` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching raid` | object `Delivery Command · RAID item` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching bookings` | object `Delivery Command · Booking` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching people` | object `Delivery Command · Person` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching time_entries` | object `Delivery Command · Time entry` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching signoffs` | object `Delivery Command · Sign-off` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching ai_outputs` | object `Delivery Command · AI output` | storage read |  |
+| automation `Delivery Command · Read delivery data` | `node Read matching weekly_snapshots` | object `Delivery Command · Weekly snapshot` | storage read |  |
 
 ## Not checked
 

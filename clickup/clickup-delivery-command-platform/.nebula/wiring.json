@@ -71,6 +71,41 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adba94deb71d135d658f2dc",
+      "name": "Delivery Command · Mark notification read",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba9abcac0655fe35aa2fc",
+      "name": "Delivery Command · Confirm upload",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba9aef3cd5f19ed89eaec",
+      "name": "Delivery Command · Save view",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adba9def3cd5f19ed89ef7d",
+      "name": "Delivery Command · Update project settings",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adbaa4fca4f9d20459bd303",
+      "name": "Delivery Command · Read delivery data",
+      "version": 0,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_dcmd_task",
       "name": "Delivery Command · Task",
@@ -1012,6 +1047,291 @@
         "name": "Delivery Command · Activity"
       },
       "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba94deb71d135d658f2dc",
+        "name": "Delivery Command · Mark notification read",
+        "part": "node Find the notification"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_notification",
+        "name": "Delivery Command · Notification"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba94deb71d135d658f2dc",
+        "name": "Delivery Command · Mark notification read",
+        "part": "node Mark it read"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_notification",
+        "name": "Delivery Command · Notification"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9abcac0655fe35aa2fc",
+        "name": "Delivery Command · Confirm upload",
+        "part": "node Find the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9abcac0655fe35aa2fc",
+        "name": "Delivery Command · Confirm upload",
+        "part": "node Save the confirmed upload"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_upload",
+        "name": "Delivery Command · Upload"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9abcac0655fe35aa2fc",
+        "name": "Delivery Command · Confirm upload",
+        "part": "node Write the activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9aef3cd5f19ed89eaec",
+        "name": "Delivery Command · Save view",
+        "part": "node Save the view"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_saved_view",
+        "name": "Delivery Command · Saved view"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9def3cd5f19ed89ef7d",
+        "name": "Delivery Command · Update project settings",
+        "part": "node Find the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9def3cd5f19ed89ef7d",
+        "name": "Delivery Command · Update project settings",
+        "part": "node Save the number setting"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9def3cd5f19ed89ef7d",
+        "name": "Delivery Command · Update project settings",
+        "part": "node Save the text setting"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba9def3cd5f19ed89ef7d",
+        "name": "Delivery Command · Update project settings",
+        "part": "node Write the activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching projects"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching tasks"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching raid"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_raid",
+        "name": "Delivery Command · RAID item"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching bookings"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_booking",
+        "name": "Delivery Command · Booking"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_person",
+        "name": "Delivery Command · Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching time_entries"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_time_entry",
+        "name": "Delivery Command · Time entry"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching signoffs"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_signoff",
+        "name": "Delivery Command · Sign-off"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching ai_outputs"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_ai_output",
+        "name": "Delivery Command · AI output"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adbaa4fca4f9d20459bd303",
+        "name": "Delivery Command · Read delivery data",
+        "part": "node Read matching weekly_snapshots"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_weekly_snapshot",
+        "name": "Delivery Command · Weekly snapshot"
+      },
+      "via": "storage read",
       "fields": []
     }
   ],

@@ -7,11 +7,11 @@ flowchart LR
   n3["automation Delivery Command · Book consultant · 6adba3b292718f6a64f39440"]
   n4["automation Delivery Command · Review timesheets · 6adba402f4431f44e30943f1"]
   n5["automation Delivery Command · Log time · 6adba405ca4f9d2045858cfc"]
-  n6["automation 6adba59c92718f6a64f4015a · 6adba59c92718f6a64f4015a"]
+  n6["automation Delivery Command · Book training slot · 6adba59c92718f6a64f4015a"]
   n7["automation Delivery Command · Publish status report · 6adba5cfeb71d135d657c23d"]
-  n8["automation 6adba5f8eb71d135d657e318 · 6adba5f8eb71d135d657e318"]
-  n9["automation 6adba625ca4f9d2045986507 · 6adba625ca4f9d2045986507"]
-  n10["automation 6adba6a8cac0655fe3582da3 · 6adba6a8cac0655fe3582da3"]
+  n8["automation Delivery Command · Record sign-off · 6adba5f8eb71d135d657e318"]
+  n9["automation Delivery Command · Accept proposed tasks · 6adba625ca4f9d2045986507"]
+  n10["automation Delivery Command · Change request · 6adba6a8cac0655fe3582da3"]
   n11["object Delivery Command · Task · OBJ_dcmd_task"]
   n12["object Delivery Command · Project · OBJ_dcmd_project"]
   n13["object Delivery Command · RAID item · OBJ_dcmd_raid"]
@@ -53,6 +53,23 @@ flowchart LR
   n5 -->|storage write| n15
   n5 -->|storage write| n11
   n5 -->|storage write| n20
+  n6 -->|storage read| n19
+  n6 -->|storage write| n19
   n7 -->|storage write| n26
   n7 -->|storage write| n20
+  n8 -->|storage read| n21
+  n8 -->|storage read| n12
+  n8 -->|storage write| n21
+  n8 -->|storage write| n20
+  n8 -->|storage write| n23
+  n9 -->|storage read| n26
+  n9 -->|storage read| n12
+  n9 -->|storage write| n11
+  n9 -->|storage write| n26
+  n10 -->|storage read| n17
+  n10 -->|storage read| n12
+  n10 -->|storage write| n17
+  n10 -->|storage write| n20
+  n10 -->|storage write| n11
+  n10 -->|storage write| n12
 ```

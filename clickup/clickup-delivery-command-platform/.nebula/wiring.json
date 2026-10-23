@@ -38,9 +38,9 @@
     {
       "kind": "automation",
       "id": "6adba59c92718f6a64f4015a",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Delivery Command · Book training slot",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -52,23 +52,23 @@
     {
       "kind": "automation",
       "id": "6adba5f8eb71d135d657e318",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Delivery Command · Record sign-off",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
       "id": "6adba625ca4f9d2045986507",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Delivery Command · Accept proposed tasks",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
       "id": "6adba6a8cac0655fe3582da3",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Delivery Command · Change request",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "object",
@@ -552,6 +552,36 @@
     {
       "from": {
         "kind": "automation",
+        "id": "6adba59c92718f6a64f4015a",
+        "name": "Delivery Command · Book training slot",
+        "part": "node Read the slot as stored now"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_session_slot",
+        "name": "Delivery Command · Session slot"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba59c92718f6a64f4015a",
+        "name": "Delivery Command · Book training slot",
+        "part": "node Mark the slot taken by the actor"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_session_slot",
+        "name": "Delivery Command · Session slot"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
         "id": "6adba5cfeb71d135d657c23d",
         "name": "Delivery Command · Publish status report",
         "part": "node Save the published status report"
@@ -578,32 +608,412 @@
       },
       "via": "storage write",
       "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5f8eb71d135d657e318",
+        "name": "Delivery Command · Record sign-off",
+        "part": "node Read the sign-off as stored now"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_signoff",
+        "name": "Delivery Command · Sign-off"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5f8eb71d135d657e318",
+        "name": "Delivery Command · Record sign-off",
+        "part": "node Read the project for its lead"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5f8eb71d135d657e318",
+        "name": "Delivery Command · Record sign-off",
+        "part": "node Save the decision on the sign-off"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_signoff",
+        "name": "Delivery Command · Sign-off"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5f8eb71d135d657e318",
+        "name": "Delivery Command · Record sign-off",
+        "part": "node Write the activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba5f8eb71d135d657e318",
+        "name": "Delivery Command · Record sign-off",
+        "part": "node Notify the project lead"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_notification",
+        "name": "Delivery Command · Notification"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba625ca4f9d2045986507",
+        "name": "Delivery Command · Accept proposed tasks",
+        "part": "node Read the proposal as stored now"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_ai_output",
+        "name": "Delivery Command · AI output"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba625ca4f9d2045986507",
+        "name": "Delivery Command · Accept proposed tasks",
+        "part": "node Read the project for its current stage"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba625ca4f9d2045986507",
+        "name": "Delivery Command · Accept proposed tasks",
+        "part": "node Create the task from the proposal"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba625ca4f9d2045986507",
+        "name": "Delivery Command · Accept proposed tasks",
+        "part": "node Mark the proposal accepted"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_ai_output",
+        "name": "Delivery Command · AI output"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba625ca4f9d2045986507",
+        "name": "Delivery Command · Accept proposed tasks",
+        "part": "node Mark the proposal rejected"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_ai_output",
+        "name": "Delivery Command · AI output"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Read any stored copy of this change request"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Read the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Save the submitted change request"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Write the activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Read the change request as stored now"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Record the finance rejection"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Record the director rejection"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Write the rejection activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Approve step one and pass to finance"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Write the step activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Record the finance approval"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Record the director approval"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_change_request",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Read the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Add the task to the project plan"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_task",
+        "name": "Delivery Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Move the project's go-live and budget"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_project",
+        "name": "Delivery Command · Project"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Write the approval activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request",
+        "part": "node Write the go-live and budget activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_dcmd_activity",
+        "name": "Delivery Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
     }
   ],
-  "unknown": [
-    {
-      "kind": "automation",
-      "id": "6adba59c92718f6a64f4015a",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6adba5f8eb71d135d657e318",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6adba625ca4f9d2045986507",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6adba6a8cac0655fe3582da3",
-      "name": null,
-      "reason": "entity-not-cached"
-    }
-  ]
+  "unknown": []
 }

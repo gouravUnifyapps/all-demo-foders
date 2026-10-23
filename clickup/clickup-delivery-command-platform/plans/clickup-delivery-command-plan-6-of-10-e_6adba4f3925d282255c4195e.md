@@ -22,16 +22,16 @@ Goal: ClickUp Delivery Command · plan 6 of 10
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Delivery Command · Change request |  | running | 1 |
-| t2 | deploy | Delivery Command · Change request | t1 | pending | 0 |
-| t3 | automation | Delivery Command · Accept proposed tasks |  | running | 1 |
-| t4 | deploy | Delivery Command · Accept proposed tasks | t3 | pending | 0 |
+| t1 | automation | Delivery Command · Change request |  | done | 1 |
+| t2 | deploy | Delivery Command · Change request | t1 | running | 1 |
+| t3 | automation | Delivery Command · Accept proposed tasks |  | done | 1 |
+| t4 | deploy | Delivery Command · Accept proposed tasks | t3 | running | 1 |
 | t5 | automation | Delivery Command · Publish status report |  | done | 1 |
 | t6 | deploy | Delivery Command · Publish status report | t5 | done | 1 |
-| t7 | automation | Delivery Command · Record sign-off |  | running | 1 |
-| t8 | deploy | Delivery Command · Record sign-off | t7 | pending | 0 |
-| t9 | automation | Delivery Command · Book training slot |  | running | 1 |
-| t10 | deploy | Delivery Command · Book training slot | t9 | pending | 0 |
+| t7 | automation | Delivery Command · Record sign-off |  | done | 1 |
+| t8 | deploy | Delivery Command · Record sign-off | t7 | running | 1 |
+| t9 | automation | Delivery Command · Book training slot |  | done | 1 |
+| t10 | deploy | Delivery Command · Book training slot | t9 | running | 1 |
 
 ### t1 · Build automation Delivery Command · Change request
 
@@ -44,7 +44,36 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Change request with the contract above, and a test run answers the result fields.
-Error: Asked the person: The automation is built and tested; only deleting its own test rows waits for a yes. CONFIRM_REQUIRED (d_8c5712): Delete records in object OBJ_dcmd_change_request (2 delete edits) \| CONFIRM_REQUIRED (d_f5df4f): Delete records in object OBJ_dcmd_task (3 delete edits) \| CONFIRM_REQUIRED (d_1daff6): Delete records in object OBJ_dcmd_activity (8 delete edits) \| CONFIRM_REQUIRED (d_fe0f6b): Delete records in object OBJ_dcmd_project (1 delete edit) Made so far: ids {"entity":"6adba6a8cac0655fe3582da3"}.
+Result IDs: {"entity":"6adba6a8cac0655fe3582da3"}
+Read back: Delivery Command · Change request 6adba6a8cac0655fe3582da3: compile_and_save_workflow ok, created:true, version 0, 51 nodes; trigger CALLABLE callables/callables_from_automation; open_workflow version 0, deployment null (not deployed)
+Read back: Delivery Command · Change request: describe_callable_workflow answers 14 inputs action string (enum submit, approve, reject; required), cr_id, project_id, raised_by, reason, work_added, work_removed string, hours_delta number, cost_delta number, golive_after integer (format date), plan_before, plan_after string, actor string (required), reject_reason string
+Read back: Delivery Command · Change request: open_workflow result schema { cr_id: string, status: string, route: string, next_approver: string, refused: boolean, message: string }
+Read back: Delivery Command · Change request run 6adba6bcca4f9d20459b6601 (submit DEMO-TEST-CR-1, 48 h): {cr_id:DEMO-TEST-CR-1, status:pending_approval, route:director_finance, next_approver:Elena Brooks, refused:false, message:'Sent to Elena Brooks for approval.'}
+Read back: Delivery Command · Change request run 6adba6beca4f9d20459b66c3 (submit DEMO-TEST-CR-2, 8 h): {route:director, next_approver:Elena Brooks, status:pending_approval, refused:false}
+Read back: Delivery Command · Change request run 6adba6c6ca4f9d20459b6adc (approve by Elena Brooks on director_finance): {status:pending_approval, next_approver:'Tomás Herrera', refused:false}
+Read back: Delivery Command · Change request run 6adba6ccf4431f44e30a2a4c (approve by Tomás Herrera): {status:approved, route:director_finance, next_approver:'', refused:false, message:'Approved. The plan, go-live and budget are updated.'}; get_records: DEMO-TEST-PRJ-1 go_live 1797465600000 -&gt; 1798675200000, budget_hours 100 -&gt; 148; tasks TSK-DEMO-TEST-CR-1-1 'SSO for contractors' and TSK-DEMO-TEST-CR-1-2 'SSO regression test' (status not_started, stage configuration); Activity ACT-6adba6ccf4431f44e30a2a4c-1 cr_approved and -2 golive_changed, source automation, actor Tomás Herrera
+Read back: Delivery Command · Change request run 6adba6c592718f6a64f4341d (reject, blank reason): {refused:true, message:'A rejection needs a written reason. Add one and reject again.'} and no read or write node ran
+Read back: Delivery Command · Change request run 6adba6d0ca4f9d20459b7026 (reject DEMO-TEST-CR-2 with reason): {status:rejected, refused:false}; get_records DEMO-TEST-CR-2 status rejected, step1_status rejected, step1_by Elena Brooks, reject_reason 'DEMO-TEST out of scope'
+Read back: Delivery Command · Change request run 6adba6c4f3cd5f19ed89557a (approve by Mei Takahashi, not the next approver): {refused:true, message:'Only Elena Brooks can decide this step.'}; run 6adba6b56112da3e23fd9718 (all blank): {refused:true, message:'Sign in before you act on a change request.'}
+Read back: Security (rule 3): approve and reject re-read the change request in the same run and branch on its stored status pending_approval, route, step1_status and next_approver, never on caller flags
+Read back: Delivery Command · Change request 6adba6a8cac0655fe3582da3 (retry, live): search_workflows version 0, nodeCount 51, deployment null (not deployed); describe_callable_workflow still answers the 14 inputs above
+Read back: Delivery Command · Change request test rows still present (get_records, live): DEMO-TEST-CR-1 status approved, DEMO-TEST-CR-2 status rejected, DEMO-TEST-PRJ-1 budget_hours 148, TSK-DEMO-TEST-CR-1-1/-2 present, 6 own Activity rows present
+Unverified: Security: who approves is checked against the caller-supplied actor name (stored next_approver), not against the platform user (USER.id) — needs the person to decide whether Person rows should be mapped to platform users so the automation can check the signed-in user; check: a call with actor 'Elena Brooks' from a different signed-in user is accepted today
+Unverified: assumed: plan_after is read as one task per line; when any line starts with '+', only those lines become tasks (a JSON array of {title, hours} is also accepted); hours_planned is 0 unless given — check with the page author what plan_after text the Change request page sends
+Unverified: assumed: a blank cr_id on submit gets a new id 'CR-' + last 6 digits of the epoch ms; collision-free is not guaranteed — check: two submits in the same millisecond window
+Note: Refusals beyond the spec, with their own messages: blank actor, submit without project_id or hours_delta, unknown project, a second submit of a non-draft CR, unknown CR, CR not pending_approval, actor not the stored next_approver, unknown action. Each writes nothing.
+Note: Submit writes the CR with storage update_record_by_id upsert:true (a new row is meant); it sets currency and golive_before from the project, step1_status pending, step2_status not_needed (under 40 h) or waiting (40 h or more), status pending_approval.
+Note: The last approval moves go_live with SET (skipIfBlank true, so a blank golive_after leaves go_live alone) and budget_hours with INCREMENT by hours_delta.
+Note: Activity detail renders hours from the stored number as '48.0 h' (the store returns whole numbers as floats); cosmetic.
+Note: handover: Change request is callable 6adba6a8cac0655fe3582da3; approve/reject require actor to equal the stored next_approver person name (Elena Brooks, then Tomás Herrera on director_finance), so the page must send the Person name as actor.
+Note: feature:
+Feature: A compact reply mode for trigger_workflow_run (status, response, and only the failed or named nodes) instead of every node's definition, run input and output.
+Evidence: Each test run of this 51-node callable returned 15-30k characters, repeating the trigger's setup and result schema twice per run, while the verdict needed only status and response; 25 test runs across five automations were needed for one batch.
+Benefit: Testing every outcome of an automation costs a fraction of the context, so a builder can test more cases in one batch.
+Scope: automation-code MCP trigger_workflow_run reply shape; non-goal: changing inspect_workflow_run, which stays the place for full node detail.
+Acceptance: trigger_workflow_run with a compact flag returns runId, status, response and failed nodes only, under 2k characters for a completed run.
+Note: Left behind for cleanup (DEMO-TEST rows, not deleted): OBJ_dcmd_change_request: DEMO-TEST-CR-1, DEMO-TEST-CR-2 \| OBJ_dcmd_project: DEMO-TEST-PRJ-1 \| OBJ_dcmd_task: TSK-DEMO-TEST-CR-1-1, TSK-DEMO-TEST-CR-1-2 \| OBJ_dcmd_activity: ACT-6adba6bcca4f9d20459b6601, ACT-6adba6beca4f9d20459b66c3, ACT-6adba6c6ca4f9d20459b6adc, ACT-6adba6ccf4431f44e30a2a4c-1, ACT-6adba6ccf4431f44e30a2a4c-2, ACT-6adba6d0ca4f9d20459b7026 (also t5's ACT-6adba5d7f4431f44e309cf75 and t7's ACT-6adba607eb71d135d657e445, listed under those tasks). The Activity and task rows have no DEMO-TEST in the ACT- id but belong to project DEMO-TEST-PRJ-1.
+Note: Answer from the person: 'No one can approve deletes in this unattended run (CONFIRM_REQUIRED needs the person). Do not delete: keep the test rows as they are, each labelled DEMO-TEST, and finish the task without the cleanup.' No delete was sent.
 
 ### t2 · Deploy Delivery Command · Change request
 
@@ -68,7 +97,21 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Accept proposed tasks with the contract above, and a test run answers the result fields.
-Error: Asked the person: The automation is built and tested; only deleting its own test rows waits for a yes. CONFIRM_REQUIRED (d_a7960b): Delete records in object OBJ_dcmd_ai_output (3 delete edits). Its task row TSK-DEMO-TEST-AIO-1 is in t1's CONFIRM_REQUIRED (d_f5df4f). Made so far: ids {"entity":"6adba625ca4f9d2045986507"}.
+Result IDs: {"entity":"6adba625ca4f9d2045986507"}
+Read back: Delivery Command · Accept proposed tasks 6adba625ca4f9d2045986507: compile_and_save_workflow ok, created:true, version 0; trigger CALLABLE callables/callables_from_automation; open_workflow version 0, deployment null
+Read back: Delivery Command · Accept proposed tasks: describe_callable_workflow answers output_ids array of string (required), decision string enum accept, reject (required), actor string (required)
+Read back: Delivery Command · Accept proposed tasks: open_workflow result schema { created: array of string }
+Read back: Delivery Command · Accept proposed tasks run 6adba63692718f6a64f426db (accept DEMO-TEST-AIO-1, AIO-03, DEMO-TEST-NOPE): {created:['TSK-DEMO-TEST-AIO-1']}; AIO-03 (a meeting_summary) and the unknown id were skipped; get_records TSK-DEMO-TEST-AIO-1 project IMP-2611, title 'DEMO-TEST proposed task one', stage data_migration, status not_started, ai_proposed true
+Read back: Delivery Command · Accept proposed tasks run 6adba63bca4f9d2045991630 (reject DEMO-TEST-AIO-2): {created:[]}, the update node set DEMO-TEST-AIO-2 status rejected and no create node ran
+Read back: Delivery Command · Accept proposed tasks run 6adba631eb71d135d657ea21 (all blank): {created:[]}, no read or write ran
+Read back: Security (rule 3): each proposal is re-read by id in the run and acted on only when kind is proposed_task and status is proposed
+Read back: Delivery Command · Accept proposed tasks 6adba625ca4f9d2045986507 (retry, live): search_workflows version 0, nodeCount 14, deployment null; describe_callable_workflow still answers output_ids array, decision enum accept/reject, actor
+Read back: Delivery Command · Accept proposed tasks test rows still present (get_records, live): DEMO-TEST-AIO-1 accepted, DEMO-TEST-AIO-2 rejected, TSK-DEMO-TEST-AIO-1 'DEMO-TEST proposed task one'
+Unverified: Security: actor is accepted but not checked against the platform user (USER.id) — needs the person to decide who may accept proposals; check: a call from any signed-in user is accepted
+Note: Each created task gets task_id 'TSK-' + output_id, the project's current stage, status not_started, critical false, hours_logged 0, ai_proposed true; the proposal is then set accepted. No Activity row is written (the contract names none).
+Note: A proposal that is not a proposed_task, not in status proposed, or not found is skipped silently, so a repeat call creates nothing twice.
+Note: Left behind for cleanup (DEMO-TEST rows, not deleted): OBJ_dcmd_ai_output: DEMO-TEST-AIO-1, DEMO-TEST-AIO-2 (and t5's AIO-6adba5d7f4431f44e309cf75 on project DEMO-TEST-PRJ) \| OBJ_dcmd_task: TSK-DEMO-TEST-AIO-1 (on real project IMP-2611, so it shows on that project's board until deleted).
+Note: Answer from the person: 'No one can approve deletes in this unattended run (CONFIRM_REQUIRED needs the person). Do not delete: keep the test rows as they are, each labelled DEMO-TEST, and finish the task without the cleanup.' No delete was sent.
 
 ### t4 · Deploy Delivery Command · Accept proposed tasks
 
@@ -130,7 +173,21 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Record sign-off with the contract above, and a test run answers the result fields.
-Error: Asked the person: The automation is built and tested; only deleting its own test rows waits for a yes. CONFIRM_REQUIRED (d_8bbb5f): Delete records in object OBJ_dcmd_signoff (1 delete edit) \| CONFIRM_REQUIRED (d_78d55a): Delete records in object OBJ_dcmd_notification (1 delete edit). Its Activity row is in t1's CONFIRM_REQUIRED (d_1daff6). Made so far: ids {"entity":"6adba5f8eb71d135d657e318"}.
+Result IDs: {"entity":"6adba5f8eb71d135d657e318"}
+Read back: Delivery Command · Record sign-off 6adba5f8eb71d135d657e318: compile_and_save_workflow ok, created:true, version 0; trigger CALLABLE callables/callables_from_automation; open_workflow version 0, deployment null
+Read back: Delivery Command · Record sign-off: describe_callable_workflow answers signoff_id string (required), decision string enum sign_off, request_changes (required), comment string, actor string (required)
+Read back: Delivery Command · Record sign-off: open_workflow result schema { status: string, decided_at: integer (format date-time), refused: boolean, message: string }
+Read back: Delivery Command · Record sign-off run 6adba601c79cad114028b6a3 (request_changes, empty comment): {status:'', decided_at:0, refused:true, message:'Add a comment so the team knows what to change.'}, no read or write ran
+Read back: Delivery Command · Record sign-off run 6adba607eb71d135d657e445 (request_changes on DEMO-TEST-SGN-1): {status:changes_requested, decided_at:1792779783914, refused:false, message:'Decision recorded.'}; get_records DEMO-TEST-SGN-1 status changes_requested, decided_by Hana Mori, decided_at 1792779783914; Notification NTF-6adba607eb71d135d657e445 recipient Mei Takahashi (IMP-2611's lead), kind signoff, text 'Hana Mori requested changes on DEMO-TEST deliverable'; Activity ACT-6adba607eb71d135d657e445 written
+Read back: Delivery Command · Record sign-off run 6adba603c79cad114028b6e6 (SGN-301, already signed off): {status:signed_off, decided_at:1792459800000, refused:true, message:'This deliverable has already been decided.'}; run 6adba602f3cd5f19ed892e2a (all blank): {refused:true}
+Read back: Security (rule 3): the sign-off is re-read in the run and decided only while its stored status is awaiting
+Read back: Delivery Command · Record sign-off 6adba5f8eb71d135d657e318 (retry, live): search_workflows version 0, nodeCount 18, deployment null; describe_callable_workflow still answers signoff_id, decision enum sign_off/request_changes, comment, actor
+Read back: Delivery Command · Record sign-off test rows still present (get_records, live): DEMO-TEST-SGN-1 changes_requested, NTF-6adba607eb71d135d657e445 recipient Mei Takahashi, ACT-6adba607eb71d135d657e445 changes_requested
+Unverified: Security: actor is caller-supplied text, not checked against USER.id or the project's sponsor — needs the person to decide whether the portal's signed-in sponsor must match the project's sponsor; check: any caller can sign off any deliverable
+Unverified: The sign_off decision path was not run against a test row (only request_changes was); check: run decision sign_off on a fresh DEMO-TEST sign-off row and read status signed_off
+Note: Refusals beyond the spec: blank signoff_id or actor or an unknown decision ('Choose Sign off or Request changes for a deliverable.'), an unknown sign-off, and a deliverable already decided. Each writes nothing.
+Note: Left behind for cleanup (DEMO-TEST rows, not deleted): OBJ_dcmd_signoff: DEMO-TEST-SGN-1 \| OBJ_dcmd_notification: NTF-6adba607eb71d135d657e445 (shows in Mei Takahashi's inbox until deleted) \| OBJ_dcmd_activity: ACT-6adba607eb71d135d657e445.
+Note: Answer from the person: 'No one can approve deletes in this unattended run (CONFIRM_REQUIRED needs the person). Do not delete: keep the test rows as they are, each labelled DEMO-TEST, and finish the task without the cleanup.' No delete was sent.
 
 ### t8 · Deploy Delivery Command · Record sign-off
 
@@ -154,7 +211,21 @@ Read back: describe_callable_workflow answering the input fields above (for a ca
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: open_workflow shows Delivery Command · Book training slot with the contract above, and a test run answers the result fields.
-Error: Asked the person: The automation is built and tested; only deleting its own test row waits for a yes. CONFIRM_REQUIRED (d_03b536): Delete records in object OBJ_dcmd_session_slot (1 delete edit) Made so far: ids {"entity":"6adba59c92718f6a64f4015a"}.
+Result IDs: {"entity":"6adba59c92718f6a64f4015a"}
+Read back: Delivery Command · Book training slot 6adba59c92718f6a64f4015a: compile_and_save_workflow ok, created:true, version 0; trigger CALLABLE callables/callables_from_automation; open_workflow version 0, deployment null
+Read back: Delivery Command · Book training slot: describe_callable_workflow answers slot_id string (required), actor string (required)
+Read back: Delivery Command · Book training slot: open_workflow result schema { ok: boolean, message: string }
+Read back: Delivery Command · Book training slot run 6adba5a66112da3e23fd651b (SLT-07, taken): {ok:false, message:'This slot was just taken. Choose another time.'}, no write ran
+Read back: Delivery Command · Book training slot run 6adba5accac0655fe357f36b (DEMO-TEST-SLT-1, free): {ok:true, message:'Your training slot is booked.'}; get_records DEMO-TEST-SLT-1 taken true (boolean), booked_by Hana Mori
+Read back: Delivery Command · Book training slot run 6adba5a76112da3e23fd652a (all blank): {ok:false, message:'Choose a slot and sign in before booking.'}; run 6adba5adf3cd5f19ed88fda1 (unknown slot): {ok:false, message:'This slot no longer exists. Choose another time.'}
+Read back: Security (rule 3): the slot is re-read in the run and booked only when its stored taken is not true
+Read back: Delivery Command · Book training slot 6adba59c92718f6a64f4015a (retry, live): search_workflows version 0, nodeCount 10, deployment null; describe_callable_workflow still answers slot_id, actor
+Read back: Delivery Command · Book training slot test row still present (get_records, live): DEMO-TEST-SLT-1 taken true
+Unverified: Security: actor is caller-supplied text, not checked against USER.id or the slot project's sponsor — needs the person to decide whether only the project's sponsor may book; check: any caller can book any slot
+Unverified: Two bookings racing between the read and the write could both succeed (read-then-write, no compare-and-set); check: two simultaneous calls on one free slot
+Note: update_record_fields_by_id takes setValue as a string, so taken is sent as "true"; the store coerced it to boolean true (read back).
+Note: Left behind for cleanup (DEMO-TEST rows, not deleted): OBJ_dcmd_session_slot: DEMO-TEST-SLT-1 (project IMP-2611, taken by Hana Mori; may show in IMP-2611's slot list until deleted).
+Note: Answer from the person: 'No one can approve deletes in this unattended run (CONFIRM_REQUIRED needs the person). Do not delete: keep the test rows as they are, each labelled DEMO-TEST, and finish the task without the cleanup.' No delete was sent.
 
 ### t10 · Deploy Delivery Command · Book training slot
 

@@ -11,11 +11,11 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation | `Delivery Command · Book consultant` | 6adba3b292718f6a64f39440 | 1 | no |
 | automation | `Delivery Command · Review timesheets` | 6adba402f4431f44e30943f1 | 0 | no |
 | automation | `Delivery Command · Log time` | 6adba405ca4f9d2045858cfc | 0 | no |
-| automation |  | 6adba59c92718f6a64f4015a |  | yes |
+| automation | `Delivery Command · Book training slot` | 6adba59c92718f6a64f4015a | 0 | no |
 | automation | `Delivery Command · Publish status report` | 6adba5cfeb71d135d657c23d | 0 | no |
-| automation |  | 6adba5f8eb71d135d657e318 |  | yes |
-| automation |  | 6adba625ca4f9d2045986507 |  | yes |
-| automation |  | 6adba6a8cac0655fe3582da3 |  | yes |
+| automation | `Delivery Command · Record sign-off` | 6adba5f8eb71d135d657e318 | 0 | no |
+| automation | `Delivery Command · Accept proposed tasks` | 6adba625ca4f9d2045986507 | 0 | no |
+| automation | `Delivery Command · Change request` | 6adba6a8cac0655fe3582da3 | 0 | no |
 | object | `Delivery Command · Task` | OBJ_dcmd_task | 0 | no |
 | object | `Delivery Command · Project` | OBJ_dcmd_project | 0 | no |
 | object | `Delivery Command · RAID item` | OBJ_dcmd_raid | 0 | no |
@@ -64,12 +64,38 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 | automation `Delivery Command · Log time` | `node Write the time entry in Draft` | object `Delivery Command · Time entry` | storage write |  |
 | automation `Delivery Command · Log time` | `node Add the hours to the task, and set its status when one was given` | object `Delivery Command · Task` | storage write |  |
 | automation `Delivery Command · Log time` | `node Record the time in the activity feed` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Book training slot` | `node Read the slot as stored now` | object `Delivery Command · Session slot` | storage read |  |
+| automation `Delivery Command · Book training slot` | `node Mark the slot taken by the actor` | object `Delivery Command · Session slot` | storage write |  |
 | automation `Delivery Command · Publish status report` | `node Save the published status report` | object `Delivery Command · AI output` | storage write |  |
 | automation `Delivery Command · Publish status report` | `node Write the activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Record sign-off` | `node Read the sign-off as stored now` | object `Delivery Command · Sign-off` | storage read |  |
+| automation `Delivery Command · Record sign-off` | `node Read the project for its lead` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Record sign-off` | `node Save the decision on the sign-off` | object `Delivery Command · Sign-off` | storage write |  |
+| automation `Delivery Command · Record sign-off` | `node Write the activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Record sign-off` | `node Notify the project lead` | object `Delivery Command · Notification` | storage write |  |
+| automation `Delivery Command · Accept proposed tasks` | `node Read the proposal as stored now` | object `Delivery Command · AI output` | storage read |  |
+| automation `Delivery Command · Accept proposed tasks` | `node Read the project for its current stage` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Accept proposed tasks` | `node Create the task from the proposal` | object `Delivery Command · Task` | storage write |  |
+| automation `Delivery Command · Accept proposed tasks` | `node Mark the proposal accepted` | object `Delivery Command · AI output` | storage write |  |
+| automation `Delivery Command · Accept proposed tasks` | `node Mark the proposal rejected` | object `Delivery Command · AI output` | storage write |  |
+| automation `Delivery Command · Change request` | `node Read any stored copy of this change request` | object `Delivery Command · Change request` | storage read |  |
+| automation `Delivery Command · Change request` | `node Read the project` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Change request` | `node Save the submitted change request` | object `Delivery Command · Change request` | storage write |  |
+| automation `Delivery Command · Change request` | `node Write the activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Change request` | `node Read the change request as stored now` | object `Delivery Command · Change request` | storage read |  |
+| automation `Delivery Command · Change request` | `node Record the finance rejection` | object `Delivery Command · Change request` | storage write |  |
+| automation `Delivery Command · Change request` | `node Record the director rejection` | object `Delivery Command · Change request` | storage write |  |
+| automation `Delivery Command · Change request` | `node Write the rejection activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Change request` | `node Approve step one and pass to finance` | object `Delivery Command · Change request` | storage write |  |
+| automation `Delivery Command · Change request` | `node Write the step activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Change request` | `node Record the finance approval` | object `Delivery Command · Change request` | storage write |  |
+| automation `Delivery Command · Change request` | `node Record the director approval` | object `Delivery Command · Change request` | storage write |  |
+| automation `Delivery Command · Change request` | `node Read the project` | object `Delivery Command · Project` | storage read |  |
+| automation `Delivery Command · Change request` | `node Add the task to the project plan` | object `Delivery Command · Task` | storage write |  |
+| automation `Delivery Command · Change request` | `node Move the project's go-live and budget` | object `Delivery Command · Project` | storage write |  |
+| automation `Delivery Command · Change request` | `node Write the approval activity row` | object `Delivery Command · Activity` | storage write |  |
+| automation `Delivery Command · Change request` | `node Write the go-live and budget activity row` | object `Delivery Command · Activity` | storage write |  |
 
 ## Not checked
 
-- automation `6adba59c92718f6a64f4015a` (6adba59c92718f6a64f4015a): entity-not-cached
-- automation `6adba5f8eb71d135d657e318` (6adba5f8eb71d135d657e318): entity-not-cached
-- automation `6adba625ca4f9d2045986507` (6adba625ca4f9d2045986507): entity-not-cached
-- automation `6adba6a8cac0655fe3582da3` (6adba6a8cac0655fe3582da3): entity-not-cached
+- none

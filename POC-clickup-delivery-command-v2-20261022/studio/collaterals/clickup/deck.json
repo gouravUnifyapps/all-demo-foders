@@ -1,0 +1,256 @@
+{
+ "slides": [
+  {
+   "from": 1,
+   "text": {
+    "T0": "HOW DELIVERY RUNS TODAY",
+    "T1": [
+     "Today’s challenges: ",
+     "why go-lives slip",
+     "."
+    ],
+    "T2": "Delivery director",
+    "T3": "Resource manager",
+    "T4": "Customer sponsor",
+    "T5": "Implementation lead",
+    "T6": "VP of customer success",
+    "T7": "Hears a project is at risk close to its go-live date.",
+    "T8": "Books consultants already on too many projects at once.",
+    "T9": "Signs off stage deliverables after they are due.",
+    "T10": "Writes each weekly status report by hand, about an hour each.",
+    "T11": "Needs headline numbers and what changed, every Monday.",
+    "T12": "WHERE IT BREAKS DOWN",
+    "T13": "THE RESULT",
+    "T14": "=",
+    "T15": "Migration runs late",
+    "T16": "Sign-offs stall",
+    "T17": "Data migration takes longer than planned.",
+    "T18": "Customers sign off a stage after its due date.",
+    "T19": "Go-lives slip",
+    "T20": "Warning comes too late",
+    "T21": "People overbooked",
+    "T22": "Reporting by hand",
+    "T23": "Consultants are booked on too many projects at once.",
+    "T24": "Status reports take about an hour each."
+   },
+   "images": {
+    "P0": "lucide:layout-dashboard",
+    "P1": "lucide:users",
+    "P2": "lucide:pen-line",
+    "P3": "lucide:file-text",
+    "P4": "lucide:chart-column",
+    "P5": "lucide:database",
+    "P6": "lucide:hourglass",
+    "P7": "lucide:users",
+    "P8": "lucide:file-pen"
+   },
+   "notes": "ClickUp's own brief names three causes of late go-lives: data migration running long, customers signing off late, and consultants booked on too many projects. Status reports also take about an hour each."
+  },
+  {
+   "from": 2,
+   "text": {
+    "T0": "FROM PORTFOLIO RISK TO PUBLISHED REPORT",
+    "T1": [
+     "Reinvented: ",
+     "one record, from risk to report",
+     "."
+    ],
+    "T2": "Risk flagged on Portfolio",
+    "T3": "Capacity checked first",
+    "T4": "Report drafted by AI",
+    "T5": "AI-written, with confidence and evidence",
+    "T6": "Over 100% refused before saving",
+    "T7": "The lead edits, then publishes",
+    "T8": "39 sec",
+    "T9": "48 h",
+    "T10": "120%",
+    "T11": "From question to an AI-written status draft",
+    "T12": "Change routed to director, then finance",
+    "T13": "Booking refused before saving, with the weeks and hours over"
+   },
+   "images": {
+    "P0": "lucide:shield-alert",
+    "P1": "lucide:user-check",
+    "P2": "lucide:sparkles",
+    "P3": {
+     "path": "build/shots/portfolio_c.png",
+     "y": 0.33
+    }
+   },
+   "notes": "One story runs through the demo: Halden Freight, at risk of missing its 27 November go-live. The Copilot's status draft came back in 39 seconds in the demo; the booking that would have taken Tomas Brandt to 120 percent was refused before it saved."
+  },
+  {
+   "from": 3,
+   "text": {
+    "T0": "WHAT THE DELIVERY DIRECTOR GETS",
+    "T1": [
+     "Every project’s health, ",
+     "with the risk named",
+     "."
+    ],
+    "T2": "Health at a glance",
+    "T3": "On track, At risk and Off track, with the change since last week.",
+    "T4": "Risk flagged early",
+    "T5": "An AI-written risk card with a confidence level and the evidence behind it.",
+    "T6": "Risks by likelihood and impact",
+    "T7": "A grid of the open risks, RSK-1183 at likelihood 4.",
+    "T8": "Filters that stick",
+    "T9": "Portfolio, as the director sees it",
+    "T10": "Region, stage, health and lead as removable chips.",
+    "T11": "From the demo: 14 on track, 4 at risk and 2 off track, with Halden Freight flagged High."
+   },
+   "images": {
+    "P0": {
+     "path": "build/shots/portfolio_c.png",
+     "y": 0.0
+    },
+    "P1": "lucide:layout-dashboard",
+    "P2": "lucide:sparkles",
+    "P3": "lucide:grid-3x3",
+    "P4": "lucide:sliders-horizontal"
+   },
+   "notes": "Portfolio shows every implementation's health and names the project most likely to slip, with its evidence."
+  },
+  {
+   "from": 3,
+   "text": {
+    "T0": "WHAT THE IMPLEMENTATION LEAD GETS",
+    "T1": [
+     "The weekly report, ",
+     "drafted for you",
+     "."
+    ],
+    "T2": "Board by stage",
+    "T3": "Seven stages, a column limit, and a keyboard path for every move.",
+    "T4": "Scope changes with a diff",
+    "T5": "Before and after plans side by side, routed to the right approvers.",
+    "T6": "AI-written draft",
+    "T7": "Delivery Copilot drafts the status report from tasks, risks and time.",
+    "T8": "Nothing published unseen",
+    "T9": "The status report editor",
+    "T10": "The lead edits the draft and publishes it; the Copilot cannot write.",
+    "T11": "From the demo: the editor where the lead edits and publishes Halden Freight's report."
+   },
+   "images": {
+    "P0": {
+     "path": "build/shots/status_c.png",
+     "y": 0.0
+    },
+    "P1": "lucide:list-checks",
+    "P2": "lucide:git-pull-request",
+    "P3": "lucide:sparkles",
+    "P4": "lucide:circle-check"
+   },
+   "notes": "The lead runs the project on one screen and gets the weekly report drafted from the project's own records."
+  },
+  {
+   "from": 3,
+   "text": {
+    "T0": "WHAT THE CUSTOMER SPONSOR GETS",
+    "T1": [
+     "Their rollout, ",
+     "in their language",
+     "."
+    ],
+    "T2": "Only their project",
+    "T3": "Stage, milestones, sessions, open actions and shared documents.",
+    "T4": "In German",
+    "T5": "Portal screens and dates the German way, like 28.10.2026.",
+    "T6": "Sign-off with a record",
+    "T7": "Sign off a deliverable; who approved and when is kept.",
+    "T8": "Internal health stays inside",
+    "T9": "The portal in German",
+    "T10": "Internal health scores are never shown to the customer.",
+    "T11": "From the demo: Katrin Albers sees Halden Freight only, with Migration plan v2 due 28.10.2026."
+   },
+   "images": {
+    "P0": {
+     "path": "build/shots/portal_de_c.png",
+     "y": 0.0
+    },
+    "P1": "lucide:user-check",
+    "P2": "lucide:languages",
+    "P3": "lucide:clipboard-check",
+    "P4": "lucide:shield-check"
+   },
+   "notes": "The sponsor follows the rollout and signs off in her own language."
+  },
+  {
+   "from": 3,
+   "text": {
+    "T0": "WHAT THE VP OF CUSTOMER SUCCESS GETS",
+    "T1": [
+     "Monday’s numbers, ",
+     "and what moved",
+     "."
+    ],
+    "T2": "Six headline numbers",
+    "T3": "Each with its change from last week, coloured good or bad for the business.",
+    "T4": "Contract value bridge",
+    "T5": "From 4.05 million at the start to 4.21 million at the end, in USD.",
+    "T6": "What changed most",
+    "T7": "The five projects that moved most, each with its reason.",
+    "T8": "Monday 08:00 email",
+    "T9": "The weekly summary",
+    "T10": "A sample of the summary each region receives at 08:00 local time.",
+    "T11": "From the demo: 6 projects at risk, 2 more than last week, shown as bad."
+   },
+   "images": {
+    "P0": {
+     "path": "build/shots/weekly_c.png",
+     "y": 0.0
+    },
+    "P1": "lucide:chart-column",
+    "P2": "lucide:route",
+    "P3": "lucide:list-checks",
+    "P4": "lucide:mail"
+   },
+   "notes": "One page every Monday. In the demo the numbers are a seeded weekly snapshot."
+  },
+  {
+   "from": 1,
+   "image": "build/swimlane_with_deck.png",
+   "text": {
+    "T0": "HOW IT WORKS WITH UNIFYAPPS",
+    "T1": [
+     "With UnifyApps: ",
+     "from risk to report on one record",
+     "."
+    ]
+   },
+   "notes": "Each step maps to a scene in the demo video and script."
+  },
+  {
+   "from": 3,
+   "text": {
+    "T0": "NEXT STEPS",
+    "T1": [
+     "From proof of concept ",
+     "to a pilot",
+     "."
+    ],
+    "T2": "Agree the pilot",
+    "T3": "Pick a delivery region and its live projects.",
+    "T4": "Connect your systems",
+    "T5": "Salesforce, Slack, Google Drive and Jira, connected at go-live.",
+    "T6": "Customer sign-ins",
+    "T7": "Sponsors sign in to see only their own project.",
+    "T8": "Roll out by region",
+    "T9": "Halden Freight's board",
+    "T10": "Region by region, with the weekly summary as the measure.",
+    "T11": "From the demo: the board by stage, with Migration over its 15-task limit."
+   },
+   "images": {
+    "P0": {
+     "path": "build/shots/overview_board_c.png",
+     "y": 0.0
+    },
+    "P1": "lucide:map",
+    "P2": "lucide:plug",
+    "P3": "lucide:user-check",
+    "P4": "lucide:rocket"
+   },
+   "notes": "The path from this proof of concept to a pilot with one delivery region."
+  }
+ ]
+}

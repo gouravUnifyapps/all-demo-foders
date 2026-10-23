@@ -1,0 +1,924 @@
+[
+ {
+  "id": "A1",
+  "screen": "Portfolio",
+  "feature": "Delivery Command is one application where the team plans, staffs and reports on every implementation, where customers follow and sign off their…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A8",
+  "screen": "Portfolio",
+  "feature": "Brand colour: none supplied. Take it from the live site clickup.com.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A10",
+  "screen": "Portfolio",
+  "feature": "Customer logos: shown as circles on project cards and in the portal.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A16",
+  "screen": "Portfolio",
+  "feature": "Delivery director | Runs the portfolio for one region | Spot projects at risk, rebalance staff, approve scope changes | Desktop and laptop,…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A22",
+  "screen": "Portfolio",
+  "feature": "List every project with customer, region, stage, go-live date, health, lead, seats and contract value. Users search and filter by region, stage,…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A23",
+  "screen": "Portfolio",
+  "feature": "Show portfolio health as counts of On track, At risk and Off track, with the change since last week.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A24",
+  "screen": "Portfolio",
+  "feature": "Place each open risk on a grid of likelihood against impact, so leaders see which risks matter most. Choosing a cell lists its risks.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A25",
+  "screen": "Portfolio",
+  "feature": "Show every go-live date in the next 90 days on a timeline, grouped by region, with slipped dates marked.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A26",
+  "screen": "Portfolio",
+  "feature": "Show how the share of projects on track has moved over the last 12 weeks.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A49",
+  "screen": "Portfolio",
+  "feature": "Risk prediction: the assistant flags projects likely to miss go-live, with a confidence level and the evidence for each flag, such as migration…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A66",
+  "screen": "Portfolio",
+  "feature": "Sign-in, forgot password, reset password | Everyone | First | None",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A67",
+  "screen": "Portfolio",
+  "feature": "Internal users navigate with a left menu: Portfolio, Projects, Resourcing, Timesheets, Changes, Admin. The top bar shows the current project or…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A70",
+  "screen": "Portfolio",
+  "feature": "Active projects | 180 to 300 | Portfolio list needs paging, search and filters",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A73",
+  "screen": "Portfolio",
+  "feature": "Open risks across the portfolio | about 400 | Grid of likelihood against impact, with drill-down",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A78",
+  "screen": "Portfolio",
+  "feature": "Good or finished | On track, Signed off, Approved, Live",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A79",
+  "screen": "Portfolio",
+  "feature": "Needs attention | At risk, Awaiting sign-off, Over capacity, Pending approval",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A80",
+  "screen": "Portfolio",
+  "feature": "Problem | Off track, Blocked, Rejected, Sync failed",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A81",
+  "screen": "Portfolio",
+  "feature": "Neutral | Not started, Draft, Scheduled, Hypercare",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A82",
+  "screen": "Portfolio",
+  "feature": "Sample customers (all invented): Halden Freight | Logistics | Europe | 4,800 | Migration; Corvia Health | Healthcare | North America | 12,000 |…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A83",
+  "screen": "Portfolio",
+  "feature": "Project IDs look like IMP-2611, change requests like CR-0457, risks like RSK-1183.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A85",
+  "screen": "Portfolio",
+  "feature": "Money shows in the contract currency (USD, EUR or JPY).",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A90",
+  "screen": "Portfolio",
+  "feature": "An integration has failed | Which one, since when, and what is affected",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A96",
+  "screen": "Portfolio",
+  "feature": "Data is out of date | When it was last updated",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A100",
+  "screen": "Portfolio",
+  "feature": "Meaning never depends on colour alone: every status shows an icon and a word.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A101",
+  "screen": "Portfolio",
+  "feature": "Screens meet WCAG 2.2 AA in both light and dark appearance.",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A106",
+  "screen": "Portfolio",
+  "feature": "The first release does not include the following, and the application must not suggest otherwise: Billing, invoicing or revenue recognition.…",
+  "nav_path": [
+   "Rail › Portfolio"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A6",
+  "screen": "Project overview",
+  "feature": "Each project follows the same seven stages: Kickoff, Discovery, Configuration, Migration, Training, Go-live and Hypercare.",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A15",
+  "screen": "Project overview",
+  "feature": "Implementation lead | Owns 8 to 12 customer projects | Plan stages and tasks, manage risks, raise scope changes, publish weekly status | Desktop,…",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A28",
+  "screen": "Project overview",
+  "feature": "A project overview shows the stage the project is in, the seven stages as a progress path, days to go-live, budget hours used against planned,…",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A29",
+  "screen": "Project overview",
+  "feature": "Tasks can be viewed as a list or as a board with one column per stage. A column shows a warning when it holds more than its limit (default 15).…",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A34",
+  "screen": "Project overview",
+  "feature": "Task detail opens beside the list so the user keeps their place. It shows description, assignee, dates, time logged, comments and attachments.",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A71",
+  "screen": "Project overview",
+  "feature": "Tasks per project | 150 to 1,200 | Board and timeline must stay readable",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A99",
+  "screen": "Project overview",
+  "feature": "All drag actions also work from the keyboard. Controls are at least 24 px on desktop and larger on the phone.",
+  "nav_path": [
+   "Portfolio",
+   "Project table › Halden Freight"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A4",
+  "screen": "Resourcing",
+  "feature": "Balanced staffing: no consultant is booked above 100% for more than one week in a quarter.",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A12",
+  "screen": "Resourcing",
+  "feature": "Tone: clear, calm and direct. Errors say what happened and what to do next. No jokes or exclamation marks in the product.",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A17",
+  "screen": "Resourcing",
+  "feature": "Resource manager | Books consultants onto projects | See who is free, book people by skill, approve timesheets | Desktop, dense grids, long sessions",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A35",
+  "screen": "Resourcing",
+  "feature": "Show every consultant against the next 12 weeks with the percentage they are booked each week. Over 100% is flagged.",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A36",
+  "screen": "Resourcing",
+  "feature": "Book a consultant onto a project by choosing person, project, weeks and hours. Booking works without dragging.",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A72",
+  "screen": "Resourcing",
+  "feature": "Consultants and leads | about 72 | Resourcing grid is people against 12 weeks",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A91",
+  "screen": "Resourcing",
+  "feature": "A booking takes someone over capacity | Who, which weeks and by how much, before saving",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A98",
+  "screen": "Resourcing",
+  "feature": "Times show the user's time zone. Weeks start on Monday in Europe and Japan and on Sunday in North America.",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A109",
+  "screen": "Resourcing",
+  "feature": "Consultant weeks booked above 100% per quarter | No more than 1 per consultant",
+  "nav_path": [
+   "Rail › Resourcing",
+   "Book consultant form"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A33",
+  "screen": "Change request",
+  "feature": "An activity feed shows who changed what and when on the project.",
+  "nav_path": [
+   "Halden Freight",
+   "Raise change request"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A40",
+  "screen": "Change request",
+  "feature": "An implementation lead raises a change request with the reason, the work added or removed, and the effect on hours, cost and go-live date.",
+  "nav_path": [
+   "Halden Freight",
+   "Raise change request"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A41",
+  "screen": "Change request",
+  "feature": "Before submitting, the lead sees the plan before and after the change side by side, with the differences marked.",
+  "nav_path": [
+   "Halden Freight",
+   "Raise change request"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A42",
+  "screen": "Change request",
+  "feature": "Changes under 40 hours need the delivery director's approval. Changes of 40 hours or more also need the finance partner, in that order. The…",
+  "nav_path": [
+   "Halden Freight",
+   "Raise change request"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A43",
+  "screen": "Change request",
+  "feature": "Rejecting a change request requires a written reason. Approved changes update the plan and are recorded in the activity feed.",
+  "nav_path": [
+   "Halden Freight",
+   "Raise change request"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A5",
+  "screen": "Customer portal",
+  "feature": "Faster customer sign-off: customers approve deliverables in the portal within two working days.",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A13",
+  "screen": "Customer portal",
+  "feature": "Feel: the internal workspace is a daily working tool and should stay dense and quiet. The customer portal and the executive summary are also shown…",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A19",
+  "screen": "Customer portal",
+  "feature": "Customer project sponsor | External user at a customer | Follow progress, sign off deliverables, book training, upload files | Desktop,…",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A50",
+  "screen": "Customer portal",
+  "feature": "Customer sponsors sign in to see only their own project: stage, milestones, upcoming sessions, open actions for their team and the documents…",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A51",
+  "screen": "Customer portal",
+  "feature": "Sponsors sign off a stage deliverable or request changes with a comment. A sign-off records who approved and when.",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A55",
+  "screen": "Customer portal",
+  "feature": "The portal is available in English, German and Japanese.",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A68",
+  "screen": "Customer portal",
+  "feature": "Customers get a shorter top menu: Home, Sign-offs, Sessions, Files, Checklist.",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A74",
+  "screen": "Customer portal",
+  "feature": "Customer users | about 900 | Portal must be simple for occasional users",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A77",
+  "screen": "Customer portal",
+  "feature": "Languages | English, German, Japanese | Text can grow by 30% in German",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A84",
+  "screen": "Customer portal",
+  "feature": "Dates show in the user's format (17 Oct 2026, 17.10.2026, 2026 年 10 月 17 日).",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A97",
+  "screen": "Customer portal",
+  "feature": "The internal workspace is in English. The customer portal is in English, German and Japanese.",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A110",
+  "screen": "Customer portal",
+  "feature": "Customer sign-off time | 2 working days or less",
+  "nav_path": [
+   "Customer portal",
+   "Deutsch",
+   "Freigaben"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A20",
+  "screen": "Weekly summary",
+  "feature": "VP of customer success | Executive owner | Read headline numbers and what changed, every Monday | Laptop and tablet, about 10 minutes a week",
+  "nav_path": [
+   "Portfolio",
+   "Weekly summary"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A56",
+  "screen": "Weekly summary",
+  "feature": "A weekly summary shows six headline numbers with their change from last week: active projects, go-lives this month, projects at risk, average days…",
+  "nav_path": [
+   "Portfolio",
+   "Weekly summary"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A57",
+  "screen": "Weekly summary",
+  "feature": "Show how contract value awaiting go-live moved from last month to this month, split into new projects, go-lives completed, slipped dates and…",
+  "nav_path": [
+   "Portfolio",
+   "Weekly summary"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A58",
+  "screen": "Weekly summary",
+  "feature": "List the five projects that changed most this week, with the reason for each.",
+  "nav_path": [
+   "Portfolio",
+   "Weekly summary"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A59",
+  "screen": "Weekly summary",
+  "feature": "The summary is also sent as an email every Monday at 08:00 in each region's time zone.",
+  "nav_path": [
+   "Portfolio",
+   "Weekly summary"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A111",
+  "screen": "Weekly summary",
+  "feature": "Executive time to read the weekly summary | 10 minutes or less",
+  "nav_path": [
+   "Portfolio",
+   "Weekly summary"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A2",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Earlier warning: a project at risk of missing its go-live date is flagged at least three weeks before the date, on average.",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A3",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Less reporting effort: weekly status reports take a consultant under 10 minutes instead of about an hour.",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A7",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Most delays come from three causes: data migration taking longer than planned, the customer not signing off a stage on time, and consultants being…",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A9",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Logo: no file supplied. Fetch the official logo. It appears on the sign-in page, the expanded and collapsed left menu, the browser tab icon, the…",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A21",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Delivery Copilot is an AI assistant available from every internal screen. It has the tools listed below. Anything it writes is labelled as AI-written.",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A44",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Users ask questions in plain language, for example \"Which Japan projects go live in November and are at risk?\" The assistant opens with three…",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A45",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Chart tool: the assistant can answer with a chart, such as hours by stage or go-lives by month. Charts use the application's colours and show units.",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A46",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Status report tool: the assistant drafts the weekly status report for a project from its tasks, risks and time entries. The lead edits and…",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A88",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Copilot is still working | Which stage it is on",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A89",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Copilot cannot answer | Why, and what to try instead",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A107",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Average warning before a missed go-live | 21 days or more",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ },
+ {
+  "id": "A108",
+  "screen": "Delivery Copilot and status report",
+  "feature": "Time to produce a weekly status report | Under 10 minutes",
+  "nav_path": [
+   "Halden Freight",
+   "Copilot panel",
+   "Draft status report"
+  ],
+  "must_show_in": [
+   "script"
+  ]
+ }
+]

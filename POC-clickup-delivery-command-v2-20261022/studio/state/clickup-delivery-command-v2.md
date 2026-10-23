@@ -4,7 +4,7 @@ client: Clickup
 poc_row: POC-clickup-delivery-command-v2-20261022
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: awaiting_g3
+status: awaiting_g4
 version: 1 · since 2026-10-22T09:15:18Z
 thread: C0CBAPEC4AD · 1792662475.792899
 intent: both
@@ -14,7 +14,7 @@ gates:
   g1: {status: approved, round: 1, posted_ts: 1792661200.384079, decided_by: Gourav Mahunta (row), decided_at: 2026-10-22T09:31:00Z}
   g2: {status: approved, round: 1, posted_ts: 1792662475.772399, decided_by: Gourav Mahunta (row), decided_at: 2026-10-22T09:51:39Z}
   g3: {status: approved, round: 1, posted_ts: 1792662475.792899, decided_by: Gourav Mahunta (row), decided_at: 2026-10-23}
-  g4: {status: not_posted, round: 1, posted_ts: , decided_by: , decided_at: }
+  g4: {status: waiting, round: 1, posted_ts: 1792662475.792899, decided_by: , decided_at: }
 
 posts:
   - when: 2026-10-22T09:26:40Z
@@ -60,6 +60,19 @@ posts:
     version: 1
     round: 1
 
+  - when: 2026-10-23T10:31:56Z
+    kind: g4
+    ts: 1792662475.792899
+    by: bot
+    version: 1
+    round: 1
+  - when: 2026-10-23T10:32:31Z
+    kind: status
+    ts: 1792662475.792899
+    by: bot
+    version: 1
+    round: 1
+
 runs:
   - started: 2026-10-22T09:15:18Z
     ended: 2026-10-22T09:26:28Z
@@ -89,8 +102,15 @@ runs:
     spawns: 0
     tokens: 0
     outcome: "stopped: poc-studio plugin (poc-collateral-studio) not installed in the cloud box"
+  - started: 2026-10-23T09:55:00Z
+    ended: 2026-10-23T10:31:56Z
+    gate: g4
+    stages: [6-collaterals, 7-review, 6-collaterals, 7-review]
+    spawns: 4
+    tokens: 690
+    outcome: posted G4
 
-stopped: {why: "6-collaterals needs the poc-studio plugin's poc-collateral-studio skill and the collateral kit (~/.local/poc-collateral); neither is installed in this cloud box", where: "G4 · 6-collaterals, before spawn"}
+stopped: 
 
 asks:
   - id: A1
@@ -1256,11 +1276,30 @@ verify:
     - "writes withheld as in round 1 because they change the story row other beats read: the finance partner's approval (CR-0460 now waits on it), the sponsor's Sign off of Migration plan v2, Publish of the status report; the Lena Vogt booking was also withheld so as not to add a fourth Lena leftover"
     - "rows this round added: Change request CR-0460 (DEMO-TEST reason, director approved, pending finance) with its Activity row; Activity ACT-34 and ACT-35 (Validate pilot batch to Training and back to Migration, status unchanged Done); no booking, no Jira issue"
 
-collaterals: {}
+collaterals:
+  folder: studio/collaterals/clickup
+  round: 1
+  script: {path: studio/collaterals/clickup/out/ClickUp_Delivery_Command_Demo_Script.pdf, bytes: 321707, pages: 15, length: "about 4:41", made_from: v1, source: studio/collaterals/clickup/story.json, page_images: studio/collaterals/clickup/review/v1/pages, revised: "7-review round 1: cover reads about 4:41; beat 2 drops 'already done' (a2 re-voiced, 32.1 s); coverage Shown in lists script only"}
+  video: {path: none, bytes: 0, length: none, made_from: none, status: "not made: no signed-in session the recorder can use (Nebula's signed-in browser refuses to export its sign-in, and no person was present for kit/auth.mjs), and recording the beats would make live writes this stage must not make; open question by collaterals"}
+  srt: {path: none, bytes: 0, made_from: none, status: "not made: made with the video"}
+  deck: {path: studio/collaterals/clickup/out/ClickUp_Delivery_Command_Deck.pptx, bytes: 3417317, slides: 8, slide_images: studio/collaterals/clickup/review/v1/deck, made_from: v1, revised: "7-review round 1: slide 2 stat 48 h change routed to director then finance; slide 3 drops cell list and saved views; slide 4 caption matches the editor (screenshot not replaced, open question); slide 5 German and sign-off only, cropped above Geteilte Dokumente; slide 8 board crop without the Days to go-live tile"}
+  check: "kit/check.py (after 7-review round 1): 0 must fix, 3 to verify (hood scenes e1, e2 have no screen text; one told-not-shown line in e1)"
+  narrated_modes: "a1 Portfolio live (Storage reads), risk card named as AI-written, not live · a2 Project overview live (Move task) · b1 Resourcing live (Book consultant) · b2 Change request live (Submit and Decide change request) · c1 Customer portal live (Sign off deliverable) · d1 Weekly summary seeded snapshot, not AI; the Monday email a sample, not sent · d2 Copilot live agent and Publish status report · e1, e2 hood, live builder screens"
+  notes:
+    - "facts.json from the state's beats, entities and data rows plus the seed rows read live and read-only (Project, Booking, Change request, Deliverable, Weekly metric); the eval.csv and the internal notes file were not in this checkout, so internal.md is POC Studio's 'Internal notes · v1' row plus the state"
+    - "deck screenshots taken read-only from the preview through Nebula's signed-in browser, cropped to drop the rail's user name; no write pressed"
+    - "the story steers around known faults: beat 2 moves the already-done Validate pilot batch on to Training (not Mark done), beat 3 names no Lena Vogt percentages, beat 4 names no CR number and does not point at the feed, beat 7 does not export"
 
 review:
-  round: 0
-  open: []
+  round: 2
+  open:
+    - "handover · p.3, beat 2 row · 2 · \"use a card's menu to move 'Validate pilot batch' to Done\" → \"move 'Validate pilot batch' on to Training from the card's menu\""
+    - "handover · p.3, beat 5 row · 4 · \"in English, German and Japanese\" → \"in German\""
+    - "handover · p.6, Sample prompts, second answer · 5, 6 · the 23 Oct time-entry line, the CNS-01 consultant id and the Tomas Brandt staffing line → dropped"
+    - "handover · p.9, Change requests that route by the 40-hour rule · 5 · CR-0456 screenshot and \"A 60-hour change on Northgate Logistics\" → the beat's own Halden Freight change (48 h, EUR 7,200, +7 days)"
+    - "handover · p.11, Before the demo · 5, 6 · the story-row reset note and the test-record list → removed from the handover"
+    - "script · p.1, cover · 8 · about 4:41 against no audience time slot → unclear: confirm the audience minutes"
+    - "deck · slide 4 · 4 · empty status report editor with \"Export it as PDF or Word\" and \"Use the Copilot's draft, or write the report here\" → the Copilot's draft in the editor"
 
 decisions:
   - by: orchestrator
@@ -1320,6 +1359,16 @@ decisions:
   - by: orchestrator
     when: 2026-10-23
     text: "Run 4 (cloud, scheduled): state restored from the POC row's demo_state (no local copy on branch claude/poc-POC-clickup-delivery-command-v2-20261022). G3 approved on the POC row. The folder is now bound to its own solution 'Clickup · ClickUp Delivery Command v2' (e_6adb0f9506a1ec756ed0ca89), not POC Studio Live. G4 not started: the poc-studio plugin (poc-collateral-studio, poc-collateral-setup) and ~/.local/poc-collateral are absent here; ffmpeg, poppler and Bun are present. The demo-studio version check could not run (raw URL 404)."
+  - by: state-check
+    when: 2026-10-23
+    text: "reverted stage_flag: written by collaterals, outside its fields (schema § Who writes what)"
+  - by: state-check
+    when: 2026-10-23
+    text: "reverted review: written by review, outside its fields (schema § Who writes what)"
+  - by: orchestrator
+    when: 2026-10-23
+    text: "G4 round 1: poc-studio 1.17.2 installed in this cloud session (the container's setup predates 0.13.5); 7-review's 5 handover lines were not sent to 5-handover because the G3 handover source is not in this checkout; they go in the G4 pack as unverified"
+
 dev_issues:
   - when: 2026-10-22
     text: "The agent ClickUp Delivery Copilot (e_6ad9e4db1a10ec0c912adab3, v8) has createDocxOrPdf attached, enabled and its capability on (get_agent), yet no model call is offered it: read_trace of cases e_6ada0866a965b115459d862d and e_6ada089ca965b115459d90d0 lists toolsOffered GenerateChartWithBlocks, think, ClarifyFromUser, read_delivery_data only. Beat 7 (export the status report as PDF) and H2 cannot show it; the build could not give it either (plan e_6ad9fa0ea965b115459b5300)."
@@ -1331,10 +1380,10 @@ dev_issues:
 frozen: {}
 
 cost:
-  runs: 4
-  agent_spawns: 21
-  tokens_m: 4.41
-  wall_h: 4.1
+  runs: 5
+  agent_spawns: 25
+  tokens_m: 5.1
+  wall_h: 4.9
 
 open_questions:
   - by: harvest
@@ -1397,6 +1446,15 @@ open_questions:
   - by: handover
     for: owner
     text: "The handover screenshots (1440 x 900, preview, 22 Oct 13:07Z to 13:11Z) show two faults not in verify's list: on Resourcing the 12-week grid runs under the open Copilot panel (columns from about Dec 21 sit behind it), and change request CR-0456 shows 'Approved by Raj Patel' under the finance step while its tag reads 'Pending approval: finance partner'. Options: (a) Recommended: add both to the next fix round with verify's open lines; (b) leave them; the presenter collapses the Copilot panel on Resourcing and does not open CR-0456"
+  - by: collaterals
+    for: owner
+    text: "The demo video and its subtitles were not made in round 1: this cloud run had no signed-in session the recorder could use (no person to sign in, and Nebula's signed-in browser does not hand out its sign-in), and recording beats 2, 3, 4, 5 and 7 as written makes live writes (task move, booking, change request and both approvals, sign-off, publish) that the collaterals stage may not make. The script PDF and the deck are made. How should the video be recorded? Options: (a) Recommended: run 6-collaterals again in a session where you sign in once through the kit's browser window, after the test rows are cleaned up and the story row reset, and let it record the beats live (it writes the beat rows, which you reset after); (b) you screen-record the demo yourself from the script PDF and Studio adds the narration and subtitles; (c) record only the read-only parts (Portfolio, the refusal, Weekly summary, the hood beats) and leave the writes to the live demo"
+  - by: collaterals
+    for: owner
+    text: "Screen against record, Customer portal (Halden Freight, Home, Shared documents): 'Migration plan v2' shows as shared on 30 Sept 2026, while Deliverable D-2611-2 (OBJ_cudc_deliverable) says shared_on 21 Oct 2026 and the plan is due 28 Oct. The script does not mention the shared date. Options: (a) Recommended: in the next fix round, make the Document row for Migration plan v2 on IMP-2611 carry 21 Oct 2026; (b) leave it; the presenter does not point at Shared documents"
+  - by: collaterals
+    for: owner
+    text: "Deck slide 4 (7-review round 1) asks for a screenshot of the Copilot's AI-written status draft in the panel. No capture of it exists, the panel's History tab does not reopen past chats, and a fresh draft means sending the Copilot a prompt, which stores a conversation and an AI output row (like SR-2626-1): a live write this stage may not make. Slide 4 keeps the empty editor screenshot; only its caption was changed to match it. Options: (a) Recommended: in the next collaterals run, a session allowed to write asks 'Draft this week's status report for Halden Freight' once and the stage crops the panel's draft from that screen; (b) keep the editor screenshot as it is; (c) put the Copilot panel's suggested questions on slide 4 and change the caption to match"
 ---
 
 build:

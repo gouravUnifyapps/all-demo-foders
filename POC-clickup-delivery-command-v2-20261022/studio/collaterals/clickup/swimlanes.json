@@ -1,0 +1,22 @@
+{ "lanes": [
+   {"id":"dir","label":"Delivery director","kind":"role"},
+   {"id":"lead","label":"Implementation lead","kind":"role"},
+   {"id":"res","label":"Resource manager","kind":"role"},
+   {"id":"cust","label":"Customer sponsor","kind":"role"},
+   {"id":"ua","label":"UnifyApps","kind":"unifyapps"} ],
+  "views": [
+   {"id":"today","title":"Today: *three causes behind late go-lives*.","steps":[
+     {"id":"t1","lane":"res","text":"Books consultants who are already on several projects","pain":"Overbooked people"},
+     {"id":"t2","lane":"cust","text":"Signs off a stage after its due date","pain":"Plan waits"},
+     {"id":"t3","lane":"lead","text":"Writes the weekly status report by hand","pain":"About an hour each"},
+     {"id":"t4","lane":"dir","text":"Hears a migration is late close to the go-live","pain":"Warning comes late"} ]},
+   {"id":"with","title":"With UnifyApps: *from risk to report on one record*.","steps":[
+     {"id":"w1","lane":"dir","text":"Sees Halden Freight at risk on Portfolio","scene":"a1"},
+     {"id":"w2","lane":"ua","text":"Risk card with confidence and evidence","kind":"ai","scene":"a1","parallel":true},
+     {"id":"w3","lane":"res","text":"Books a consultant from a form","scene":"b1"},
+     {"id":"w4","lane":"ua","text":"Capacity rule refuses any week over 100%","scene":"b1"},
+     {"id":"w5","lane":"lead","text":"Raises a change request, plan before and after","scene":"b2"},
+     {"id":"w6","lane":"ua","text":"Routes to director, then finance partner","scene":"b2"},
+     {"id":"w7","lane":"cust","text":"Signs off Migration plan v2 in German","scene":"c1"},
+     {"id":"w8","lane":"ua","text":"Copilot drafts the status report","kind":"ai","scene":"d2"},
+     {"id":"w9","lane":"lead","text":"Edits and publishes the report","scene":"d2"} ]} ] }

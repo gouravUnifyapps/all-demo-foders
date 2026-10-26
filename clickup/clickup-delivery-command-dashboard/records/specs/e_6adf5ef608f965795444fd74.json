@@ -9,9 +9,9 @@
   "modifiedTime": 1793023738426,
   "ownerUserId": 66770,
   "properties": {
-    "spec_html": "",
     "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot names the week it reads (26 Oct 2026) and compar\"\ntouches: [{\"kind\":\"ai-agent\",\"name\":\"ClickUp Command Copilot\",\"id\":\"e_6adf4f02dc07493166ced9fa\"},{\"kind\":\"code-app\",\"name\":\"ClickUp Delivery Command\",\"id\":\"app-a2a9509a82c1\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"publish\",\"kind\":\"ai-agent\",\"name\":\"ClickUp Command Copilot\",\"id\":\"e_6adf4f02dc07493166ced9fa\"},{\"action\":\"publish\",\"kind\":\"code-app\",\"name\":\"ClickUp Delivery Command\",\"id\":\"app-a2a9509a82c1\"}]\nacceptedAt: \"2026-10-26T14:08:53.982Z\"\nacceptedBy: {\"clientId\":\"ef8e5eac-b1c9-485b-ae8e-f8151f796819\"}\nplanIds: [\"e_6adf5ef808f965795444ffac\"]\nlatestPlanId: \"e_6adf5ef808f965795444ffac\"\nplanId: \"e_6adf5ef808f965795444ffac\"\n---\n# Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot names the week it reads (26 Oct 2026) and compar\n\n## Requested outcome\nVerify round 1 fixes for the ClickUp Delivery Command demo: the Copilot names the week it reads (26 Oct 2026) and compares health with last week, shows codes as words, and is published; the app's empty states name their items; publish both.\n\n## Touches\n- ai-agent · ClickUp Command Copilot · e_6adf4f02dc07493166ced9fa\n- code-app · ClickUp Delivery Command · app-a2a9509a82c1\n\n## Ready when\n- Read-back: The test answer names the week of 26 Oct 2026 with 161 / 38 / 15 against 159 / 33 / 19, and the over-capacity answer shows no raw code.\n- Read-back: `get_agent` shows ClickUp Command Copilot published with needsPublish false.\n- Read-back: The push's commit is `get_code_app`'s head.sha and the committed source holds no literal \"No items yet.\".\n- Read-back: `publish_code_app` answers deployed true with t3's commit.\n- publish ClickUp Command Copilot\n- publish ClickUp Delivery Command\n",
-    "solutionId": "e_6adf231a08f96579541331a5"
+    "solutionId": "e_6adf231a08f96579541331a5",
+    "spec_html": ""
   },
   "standard": false,
   "version": 1

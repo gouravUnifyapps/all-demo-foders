@@ -4,13 +4,13 @@ client: Clickup
 poc_row: POC-clickup-delivery-command-dashboard-20261026
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: verifying
+status: awaiting_g3
 version: 1 · since 2026-10-26T09:54:26Z
 channel: C0CBXB542R1
 threads:
   g1: 1793009027.033199
   g2: 1793013856.930499
-  g3:
+  g3: 1793025333.831609
   g4:
 intent: both (the outcome first, then one hood beat on the approval automation and the Copilot) · by Gourav Mahunta (G2 approval)
 stage_flag:
@@ -18,7 +18,7 @@ stage_flag:
 gates:
   g1: {status: approved, round: 1, posted_ts: 1793009027.033199, decided_by: Gourav Mahunta, decided_at: 2026-10-26T11:01:49Z}
   g2: {status: approved, round: 1, posted_ts: 1793013856.930499, decided_by: Gourav Mahunta, decided_at: 2026-10-26T11:59:00Z}
-  g3: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
+  g3: {status: posted, round: 1, posted_ts: 1793025333.831609, decided_by: , decided_at: }
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
 
 posts:
@@ -47,6 +47,23 @@ posts:
     version: 1
     round: 1
 
+  - when: 2026-10-26T14:35:33Z
+    kind: g3
+    ts: 1793025333.831609
+    by: bot
+    version: 1
+    round: 1
+    documents:
+      - {file_url: https://orbit.uat.unifyapps.com/auth/file/asset/download/2a7488e34cab511ef278d9ac, file_name: handover.pdf, file_size: 229075}
+      - {name: Internal notes v1 round 1, format: html, note: sent as type build_report with content only (POC Studio refused type internal_notes)}
+      - {note: 33 link documents, one per object, automation, AI agent and the code app, from ## entities}
+  - when: 2026-10-26T14:36:30Z
+    kind: status
+    ts: 1793025333.831609
+    by: bot
+    version: 1
+    round: 1
+
 runs:
   - started: 2026-10-26T09:54:26Z
     ended: 2026-10-26T10:04:05Z
@@ -63,7 +80,12 @@ runs:
     tokens: 297
     outcome: posted G2
   - started: 2026-10-26T12:03:26Z
+    ended: 2026-10-26T14:36:00Z
     gate: g3
+    stages: [3-build, 4-verify, 3-build (verify fixes), 4-verify, 5-handover]
+    spawns: 20
+    tokens: 3600
+    outcome: posted G3
 
 stopped:
 
@@ -1158,10 +1180,10 @@ dev_issues:
 frozen:
 
 cost:
-  runs: 2
-  agent_spawns: 2
-  tokens_m: 0.45
-  wall_h: 0.6
+  runs: 3
+  agent_spawns: 22
+  tokens_m: 4.05
+  wall_h: 3.1
 
 build:
   plans:
@@ -1271,6 +1293,9 @@ open_questions:
   - by: verify
     for: owner
     text: "18. The weekly summary email (beat 1) is sent through Gmail connection 6980e13788c7735877a8311c, whose mailbox is a staff member's personal gmail.com address (From: Rishabh Jain); the room will see that sender. Options: (a) Keep it for the demo and say so in the presenter notes (recommended) (b) Name a company mailbox connection to send from (c) Show the in-app preview only"
+  - by: handover
+    for: owner
+    text: "19. A deep link on the published address (https://app-a2a9509a82c1-orbit.tensor-uat.unifyapps.com/summary) answers 404 'This link isn't live yet', while the root redirects to the sign-in (Playwright, 2026-10-26T14:24Z). Options: (a) The presenter opens the root address and moves by the left menu; the runbook says so (recommended) (b) Fix the app's routing or hosting so a deep link reaches the sign-in and then its page"
 ---
 
 ## build_contract

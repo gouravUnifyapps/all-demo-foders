@@ -1,0 +1,17 @@
+{
+  "createdTime": 1793025409355,
+  "deleted": false,
+  "entityType": "solution_document",
+  "id": "e_6adf6581dc07493166d16af4",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793025409355,
+  "modifiedTime": 1793025409355,
+  "ownerUserId": 66770,
+  "properties": {
+    "document": "---\nnebula: 3\nslug: \"clickup-command-copilot\"\nname: \"ClickUp Command Copilot\"\nsummary: \"Delivery Copilot: a read-only AI agent over the ClickUp Command delivery data.\"\nentities: [{\"kind\":\"ai-agent\",\"name\":\"ClickUp Command Copilot\"}]\nplanIds: [\"e_6adf4e82769c8b649ebf1b17\",\"e_6adf5ef808f965795444ffac\"]\nupdatedAt: \"2026-10-26T14:36:44.532Z\"\n---\n## What it does\nAnswers questions about projects, risks, bookings, change requests and weekly metrics from its one tool, ClickUp Command · Read delivery data; returns a JSON chart block when asked for a chart; drafts weekly status reports (Summary, Progress, Risks, Next week); declines billing, invoicing, revenue and payroll; never changes data. Model Claude Sonnet 5 (UnifyApps, Vertex) e_6ad496812dd4ba5be70afcc1 after GPT 4.1's OpenAI project hit its spend limit. The platform chart tool is off. Published version 11 adds the anchor 1 Oct 2026 = 1790812800000 ms, week-on-week health and codes shown as words.\n\n## Known limits\nThe status report sometimes leaves out budget hours used against planned. The runtime offers environment tools no agent record holds (a dev issue for a tenant admin).",
+    "solutionId": "e_6adf231a08f96579541331a5"
+  },
+  "standard": false,
+  "version": 0
+}

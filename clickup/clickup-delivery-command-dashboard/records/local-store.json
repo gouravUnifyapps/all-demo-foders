@@ -7,20 +7,20 @@
       "id": "e_6adf231a08f96579541331a5",
       "lastModifiedBy": 66770,
       "lastPlatformUpdateBy": 66770,
-      "lastPlatformUpdateOn": 1793023739694,
-      "modifiedTime": 1793023739694,
+      "lastPlatformUpdateOn": 1793025422340,
+      "modifiedTime": 1793025422340,
       "ownerUserId": 66770,
       "properties": {
         "name": "Clickup · ClickUp Delivery command dashboard",
         "description": "Build 1 of 9 of the ClickUp Delivery Command demo for Clickup (POC POC-clickup-delivery-command-dashboard-20261026, plan approved at G2 by Gourav Mahunta). This part builds objects, part 1. Implementation leads, delivery directors, finance partners, resource managers, consultants and customer sponsors work in one code app over these objects; the demo walks Sakura Mobility (IMP-2611) from At risk through a routed change request, staffing, the sponsor's sign-off and Delivery Copilot.",
         "planId": "e_6adf5ef808f965795444ffac",
-        "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n"
+        "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n- 2026-10-26 — session — OpenAI GPT 4.1 failed every agent run on orbit.uat with insufficient_quota / project_spend_limit_exceeded (26 Oct 2026); ClickUp Command Copilot was moved to Claude Sonnet 5 (UnifyApps, Vertex) e_6ad496812dd4ba5be70afcc1.\n## Notes\n- 2026-10-26 — session — Gmail connection 6980e13788c7735877a8311c on orbit.uat is a staff member's personal gmail.com mailbox; the ClickUp weekly summary email sends from it.\n"
       },
       "standard": false,
       "tags": [
         "Nebula"
       ],
-      "version": 11
+      "version": 13
     },
     "e_6adf42d4dc07493166cdc011": {
       "createdTime": 1793016532667,
@@ -1018,6 +1018,57 @@
       },
       "standard": false,
       "version": 11
+    },
+    "e_6adf657508f965795445a700": {
+      "createdTime": 1793025397582,
+      "deleted": false,
+      "entityType": "solution_document",
+      "id": "e_6adf657508f965795445a700",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1793025397582,
+      "modifiedTime": 1793025397582,
+      "ownerUserId": 66770,
+      "properties": {
+        "document": "---\nnebula: 3\nslug: \"clickup-delivery-command-app\"\nname: \"ClickUp Delivery Command app\"\nsummary: \"The code app: executive summary, portfolio, project workspace, change approvals, resourcing, timesheets, Copilot panel, customer portal, phone view and admin.\"\nentities: [{\"kind\":\"code-app\",\"name\":\"ClickUp Delivery Command\"}]\nplanIds: [\"e_6adf4e82769c8b649ebf1b17\",\"e_6adf5240769c8b649ebf944c\",\"e_6adf5ef808f965795444ffac\"]\nupdatedAt: \"2026-10-26T14:36:31.469Z\"\n---\n## What it does\nOne PRIVATE code app (app-a2a9509a82c1) for ClickUp's implementation team and customer sponsors. Routes: /summary, /portfolio, /projects/:code (tabs list, board, timeline, raid, documents, activity, settings), /projects/:code/change, /changes, /changes/:code, /resourcing, /timesheets, /admin, /portal/home, /portal/signoffs, /portal/sessions, /portal/files, /portal/checklist, /m/today, /m/tasks, /m/time, /m/alerts. A persona switcher in the profile menu (view as) picks Kenji Arai, Elena Fischer, Marcus Bell, Tom Hale, Yui Sato, Haruto Mori or Grace Lin; it controls no access. Appearance switches light (default) and dark.\n\n## How it works\nThe stylesheet app/src/styles/design-system.css is studio/design-system/clickup/client.css with Google Fonts imports; shell.css sets Inter and Noto Sans JP. Records are read through the app's Storage data sources (FETCH e_6adf5087dc07493166cf01c2) from the OBJ_cucmd_* objects, filtered in the browser. Every write goes through a deployed ClickUp Command automation called from app/src/data/callables.ts. Portal strings in EN, DE and JA come from a portal-only table (German and Japanese drafted for client review). Charts use recharts inside the kit's .chart.\n\n## Known limits\nDeep links on the published address answer 404 before sign-in; open the root. Update task answers result `save` and Raise change request `submit` (the contract says saved and submitted); the app accepts both. Published v2 at commit 9142bfc0.",
+        "solutionId": "e_6adf231a08f96579541331a5"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adf657cdc07493166d1697b": {
+      "createdTime": 1793025404026,
+      "deleted": false,
+      "entityType": "solution_document",
+      "id": "e_6adf657cdc07493166d1697b",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1793025404026,
+      "modifiedTime": 1793025404026,
+      "ownerUserId": 66770,
+      "properties": {
+        "document": "---\nnebula: 3\nslug: \"clickup-command-automations\"\nname: \"ClickUp Command automations\"\nsummary: \"Fourteen callable automations behind the ClickUp Delivery Command app and its Copilot.\"\nentities: [{\"kind\":\"automation\",\"name\":\"ClickUp Command · Save view\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Update task\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Raise change request\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Decide change request\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Book consultant\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Timesheet action\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Portal action\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Accept proposed tasks\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Publish status report\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Send executive summary\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Update project settings\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Mark notification read\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Read delivery data\"},{\"kind\":\"automation\",\"name\":\"ClickUp Command · Ask Copilot\"}]\nplanIds: [\"e_6adf45cbdc07493166ce0071\",\"e_6adf47d508f96579542f5180\",\"e_6adf4a4f08f96579542f8822\",\"e_6adf4cbbdc07493166ce9964\",\"e_6adf4e82769c8b649ebf1b17\",\"e_6adf5240769c8b649ebf944c\"]\nupdatedAt: \"2026-10-26T14:36:38.064Z\"\n---\n## What they do\nEach is callable (callables_from_automation) and deployed. Rules: a change request under 40 hours needs the Delivery director; 40 or more needs the Delivery director then the Finance partner, in order (Decide change request); a rejection, a timesheet return or a sponsor's request for changes needs a written reason (refused_reason_required / refused_comment_required); the last approval moves the project's go-live by go_live_delta_days (calendar days) and adds hours_delta to planned hours; a booking over 100% of capacity in any week answers over_capacity with overages_json unless confirm is true; a sponsor acts only on their own project (refused_not_your_project); a taken slot is refused. Every save writes one Activity row, never edited. Read delivery data is the Copilot's only tool and writes nothing. Ask Copilot invokes ClickUp Command Copilot (e_6adf4f02dc07493166ced9fa) with the platform's signed-in email. Send executive summary sends one DEMO-TEST email through Gmail connection 6980e13788c7735877a8311c.\n\n## Extra result words\nBuilders added refusal words beyond the contract: refused_name_blank (Save view), refused_invalid_input (Book consultant, Timesheet action, Portal action), refused_project_not_found (Raise change request), refused_unknown_project and refused_missing_input (Publish status report), refused_invalid_decision, refused_no_outputs, refused_decided_by_required, refused_nothing_to_decide (Accept proposed tasks).",
+        "solutionId": "e_6adf231a08f96579541331a5"
+      },
+      "standard": false,
+      "version": 0
+    },
+    "e_6adf6581dc07493166d16af4": {
+      "createdTime": 1793025409355,
+      "deleted": false,
+      "entityType": "solution_document",
+      "id": "e_6adf6581dc07493166d16af4",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1793025409355,
+      "modifiedTime": 1793025409355,
+      "ownerUserId": 66770,
+      "properties": {
+        "document": "---\nnebula: 3\nslug: \"clickup-command-copilot\"\nname: \"ClickUp Command Copilot\"\nsummary: \"Delivery Copilot: a read-only AI agent over the ClickUp Command delivery data.\"\nentities: [{\"kind\":\"ai-agent\",\"name\":\"ClickUp Command Copilot\"}]\nplanIds: [\"e_6adf4e82769c8b649ebf1b17\",\"e_6adf5ef808f965795444ffac\"]\nupdatedAt: \"2026-10-26T14:36:44.532Z\"\n---\n## What it does\nAnswers questions about projects, risks, bookings, change requests and weekly metrics from its one tool, ClickUp Command · Read delivery data; returns a JSON chart block when asked for a chart; drafts weekly status reports (Summary, Progress, Risks, Next week); declines billing, invoicing, revenue and payroll; never changes data. Model Claude Sonnet 5 (UnifyApps, Vertex) e_6ad496812dd4ba5be70afcc1 after GPT 4.1's OpenAI project hit its spend limit. The platform chart tool is off. Published version 11 adds the anchor 1 Oct 2026 = 1790812800000 ms, week-on-week health and codes shown as words.\n\n## Known limits\nThe status report sometimes leaves out budget hours used against planned. The runtime offers environment tools no agent record holds (a dev issue for a tenant admin).",
+        "solutionId": "e_6adf231a08f96579541331a5"
+      },
+      "standard": false,
+      "version": 0
     }
   },
   "counters": {}

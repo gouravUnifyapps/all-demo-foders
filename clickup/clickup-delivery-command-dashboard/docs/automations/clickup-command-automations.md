@@ -1,0 +1,14 @@
+---
+nebula: 3
+slug: "clickup-command-automations"
+name: "ClickUp Command automations"
+summary: "Fourteen callable automations behind the ClickUp Delivery Command app and its Copilot."
+entities: [{"kind":"automation","name":"ClickUp Command · Save view"},{"kind":"automation","name":"ClickUp Command · Update task"},{"kind":"automation","name":"ClickUp Command · Raise change request"},{"kind":"automation","name":"ClickUp Command · Decide change request"},{"kind":"automation","name":"ClickUp Command · Book consultant"},{"kind":"automation","name":"ClickUp Command · Timesheet action"},{"kind":"automation","name":"ClickUp Command · Portal action"},{"kind":"automation","name":"ClickUp Command · Accept proposed tasks"},{"kind":"automation","name":"ClickUp Command · Publish status report"},{"kind":"automation","name":"ClickUp Command · Send executive summary"},{"kind":"automation","name":"ClickUp Command · Update project settings"},{"kind":"automation","name":"ClickUp Command · Mark notification read"},{"kind":"automation","name":"ClickUp Command · Read delivery data"},{"kind":"automation","name":"ClickUp Command · Ask Copilot"}]
+planIds: ["e_6adf45cbdc07493166ce0071","e_6adf47d508f96579542f5180","e_6adf4a4f08f96579542f8822","e_6adf4cbbdc07493166ce9964","e_6adf4e82769c8b649ebf1b17","e_6adf5240769c8b649ebf944c"]
+updatedAt: "2026-10-26T14:36:38.064Z"
+---
+## What they do
+Each is callable (callables_from_automation) and deployed. Rules: a change request under 40 hours needs the Delivery director; 40 or more needs the Delivery director then the Finance partner, in order (Decide change request); a rejection, a timesheet return or a sponsor's request for changes needs a written reason (refused_reason_required / refused_comment_required); the last approval moves the project's go-live by go_live_delta_days (calendar days) and adds hours_delta to planned hours; a booking over 100% of capacity in any week answers over_capacity with overages_json unless confirm is true; a sponsor acts only on their own project (refused_not_your_project); a taken slot is refused. Every save writes one Activity row, never edited. Read delivery data is the Copilot's only tool and writes nothing. Ask Copilot invokes ClickUp Command Copilot (e_6adf4f02dc07493166ced9fa) with the platform's signed-in email. Send executive summary sends one DEMO-TEST email through Gmail connection 6980e13788c7735877a8311c.
+
+## Extra result words
+Builders added refusal words beyond the contract: refused_name_blank (Save view), refused_invalid_input (Book consultant, Timesheet action, Portal action), refused_project_not_found (Raise change request), refused_unknown_project and refused_missing_input (Publish status report), refused_invalid_decision, refused_no_outputs, refused_decided_by_required, refused_nothing_to_decide (Accept proposed tasks).

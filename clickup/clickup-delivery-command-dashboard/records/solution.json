@@ -5,18 +5,18 @@
   "id": "e_6adf231a08f96579541331a5",
   "lastModifiedBy": 66770,
   "lastPlatformUpdateBy": 66770,
-  "lastPlatformUpdateOn": 1793023739694,
-  "modifiedTime": 1793023739694,
+  "lastPlatformUpdateOn": 1793025422340,
+  "modifiedTime": 1793025422340,
   "ownerUserId": 66770,
   "properties": {
     "name": "Clickup · ClickUp Delivery command dashboard",
     "description": "Build 1 of 9 of the ClickUp Delivery Command demo for Clickup (POC POC-clickup-delivery-command-dashboard-20261026, plan approved at G2 by Gourav Mahunta). This part builds objects, part 1. Implementation leads, delivery directors, finance partners, resource managers, consultants and customer sponsors work in one code app over these objects; the demo walks Sakura Mobility (IMP-2611) from At risk through a routed change request, staffing, the sponsor's sign-off and Delivery Copilot.",
     "planId": "e_6adf5ef808f965795444ffac",
-    "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n"
+    "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n- 2026-10-26 — session — OpenAI GPT 4.1 failed every agent run on orbit.uat with insufficient_quota / project_spend_limit_exceeded (26 Oct 2026); ClickUp Command Copilot was moved to Claude Sonnet 5 (UnifyApps, Vertex) e_6ad496812dd4ba5be70afcc1.\n## Notes\n- 2026-10-26 — session — Gmail connection 6980e13788c7735877a8311c on orbit.uat is a staff member's personal gmail.com mailbox; the ClickUp weekly summary email sends from it.\n"
   },
   "standard": false,
   "tags": [
     "Nebula"
   ],
-  "version": 11
+  "version": 13
 }

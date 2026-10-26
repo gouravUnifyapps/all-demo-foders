@@ -16,6 +16,11 @@ createdAt: "2026-10-26T12:21:31.218Z"
 runningAt: "2026-10-26T12:21:34.813Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 4 of 9: last seeds, the Copilot's read tool and Save view
@@ -28,10 +33,10 @@ Goal: ClickUp Delivery Command · build 4 of 9: last seeds, the Copilot's read t
 | t4 | record | ClickUp Command · Notification |  | done | 1 |
 | t5 | automation-shell | ClickUp Command · Read delivery data |  | done | 1 |
 | t6 | automation | ClickUp Command · Read delivery data | t5 | done | 1 |
-| t7 | deploy | ClickUp Command · Read delivery data | t6 | running | 1 |
+| t7 | deploy | ClickUp Command · Read delivery data | t6 | done | 1 |
 | t8 | automation-shell | ClickUp Command · Save view |  | done | 1 |
 | t9 | automation | ClickUp Command · Save view | t8 | done | 1 |
-| t10 | deploy | ClickUp Command · Save view | t9 | running | 1 |
+| t10 | deploy | ClickUp Command · Save view | t9 | done | 1 |
 
 ### t1 · Seed ClickUp Command · Saved view
 
@@ -173,6 +178,13 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Read delivery data deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf45fef3cd5f19ed4a76ba"}
+Read back: ClickUp Command · Read delivery data 6adf45fef3cd5f19ed4a76ba: before deploy search_workflows version 5 (the logic task's saved version), deployment definitionVersion 0, savedAfterDeploy true
+Read back: ClickUp Command · Read delivery data 6adf45fef3cd5f19ed4a76ba: deploy_workflow ok:true, 'Deployed version 5', workflowVersion 5, deployedVersion 2, paused false
+Read back: ClickUp Command · Read delivery data 6adf45fef3cd5f19ed4a76ba: search_workflows deployment {status: DEPLOYED, definitionVersion: 5, deployedAt: 1793017757111, savedAfterDeploy: false}
+Unverified: No run of the deployed copy was made (runType workflow); the draft version 5 was tested in t6. Check: trigger_workflow_run runType workflow with scope weekly_metrics.
+Note: Answer from the person: yes, deploy ClickUp Command · Read delivery data (through plan confirm).
+Note: deploymentNotes 'ClickUp Delivery Command demo: Read delivery data'; the bridge adds the plan tag.
 
 ### t8 · Shell for ClickUp Command · Save view
 
@@ -228,4 +240,11 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Save view deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf460108750d257cf1e381"}
+Read back: ClickUp Command · Save view 6adf460108750d257cf1e381: before deploy search_workflows version 1 (the logic task's saved version), deployment definitionVersion 0, savedAfterDeploy true
+Read back: ClickUp Command · Save view 6adf460108750d257cf1e381: deploy_workflow ok:true, 'Deployed version 1', workflowVersion 1, deployedVersion 2, paused false
+Read back: ClickUp Command · Save view 6adf460108750d257cf1e381: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793017758306, savedAfterDeploy: false}
+Unverified: No run of the deployed copy was made, because it would write a Saved view row. Check: trigger_workflow_run runType workflow with a DEMO-TEST name.
+Note: Answer from the person: yes, deploy ClickUp Command · Save view (through plan confirm).
+Note: deploymentNotes 'ClickUp Delivery Command demo: Save view'; the bridge adds the plan tag.
 

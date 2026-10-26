@@ -29,7 +29,7 @@ Goal: ClickUp Delivery Command · build 8 of 9: settings and notification automa
 | t5 | automation | ClickUp Command · Mark notification read | t4 | done | 1 |
 | t6 | deploy | ClickUp Command · Mark notification read | t5 | done | 1 |
 | t7 | ai-agent | ClickUp Command Copilot |  | done | 1 |
-| t8 | publish | ClickUp Command Copilot | t7 | running | 1 |
+| t8 | publish | ClickUp Command Copilot | t7 | done | 1 |
 | t9 | code-app | ClickUp Delivery Command |  | running | 1 |
 | t10 | code-app | ClickUp Delivery Command | t9 | running | 1 |
 
@@ -215,6 +215,15 @@ Read back: \`get_agent\` showing the published state and version, quoted.
 Report ids (the agent id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_agent\` shows ClickUp Command Copilot published.
+Result IDs: {"entity":"e_6adf4f02dc07493166ced9fa"}
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa: publish_agent (confirmed true) returned publishedVersion 5, live true, automationSaid {response: success}
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa: get_agent after publish: version 5, published true, needsPublish false, modifiedTime 1793020279577
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa: get_agent: the published version 5 holds the one bound tool, ReadDeliveryData e_6adf4f0b08f965795442fe85 (enabled true, automationId 6adf45fef3cd5f19ed4a76ba), and the instructions t7 read back (they begin 'You are ClickUp Command Copilot, the read-only assistant for the ClickUp Delivery Command workspace'). Models runs/picksTask/answerGeneration = e_6ad496812dd4ba5be70afcc1
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa: get_agent also lists 2 capability records, both switched off: generateChartTool e_6adf504b769c8b649ebf5c03 and requestClarification e_6adf504b769c8b649ebf5c06, enabled false. These are capability switches, not bound tools
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa: publish yes, from Answer from the person: 'yes, publish ClickUp Command Copilot. The person said yes to 'Publish the AI agent ClickUp Command Copilot on orbit.uat.unifyapps.com?' through plan confirm'
+Unverified: The live agent has no deployment (get_agent deployments []), so nobody can reach it yet. That is expected: no deploy was asked for. Check: list_deployments after a deploy task
+Unverified: The published version was not run after the publish. The draft runs in t7 used the same version 5. Check: one copilot chat once the agent is deployed
+Note: publish_agent takes no note or deploymentNotes, so the note 'ClickUp Delivery Command demo v1' could not be stored with the publish
 
 ### t9 · Create code app ClickUp Delivery Command: the shell
 

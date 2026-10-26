@@ -45,6 +45,11 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
+| page `global-page-of-app-a2a9509a82c1` | `data source Mark notification read` | automation `ClickUp Command · Mark notification read` | data source |  |
+| page `global-page-of-app-a2a9509a82c1` | `data source Portal action` | automation `ClickUp Command · Portal action` | data source |  |
+| page `global-page-of-app-a2a9509a82c1` | `data source Accept proposed tasks` | automation `ClickUp Command · Accept proposed tasks` | data source |  |
+| page `global-page-of-app-a2a9509a82c1` | `data source Publish status report` | automation `ClickUp Command · Publish status report` | data source |  |
+| page `global-page-of-app-a2a9509a82c1` | `data source Ask Copilot` | automation `ClickUp Command · Ask Copilot` | data source |  |
 | page `global-page-of-app-a2a9509a82c1` | `data source Timesheet action` | automation `ClickUp Command · Timesheet action` | data source |  |
 | page `global-page-of-app-a2a9509a82c1` | `data source Book consultant` | automation `ClickUp Command · Book consultant` | data source |  |
 | page `global-page-of-app-a2a9509a82c1` | `data source Decide change request` | automation `ClickUp Command · Decide change request` | data source |  |

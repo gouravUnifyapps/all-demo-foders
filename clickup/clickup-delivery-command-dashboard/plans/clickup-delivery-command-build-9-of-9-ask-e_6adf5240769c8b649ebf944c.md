@@ -28,10 +28,10 @@ Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining scree
 | t4 | code-app | ClickUp Delivery Command |  | done | 1 |
 | t5 | code-app | ClickUp Delivery Command | t4 | done | 1 |
 | t6 | code-app | ClickUp Delivery Command | t5 | done | 1 |
-| t7 | code-app | ClickUp Delivery Command | t6, t1 | running | 1 |
-| t8 | code-app | ClickUp Delivery Command | t7 | running | 1 |
-| t9 | code-app | ClickUp Delivery Command | t8 | running | 1 |
-| t10 | code-publish | ClickUp Delivery Command | t4, t5, t6, t7, t8, t9, t3 | pending | 0 |
+| t7 | code-app | ClickUp Delivery Command | t6, t1 | done | 1 |
+| t8 | code-app | ClickUp Delivery Command | t7 | done | 1 |
+| t9 | code-app | ClickUp Delivery Command | t8 | done | 1 |
+| t10 | code-publish | ClickUp Delivery Command | t4, t5, t6, t7, t8, t9, t3 | running | 1 |
 
 ### t1 · Shell for ClickUp Command · Ask Copilot
 
@@ -204,6 +204,17 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"73c5a1e5e42c40b28f293379ae1ca8bebfdb47c3"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit 73c5a1e5e42c40b28f293379ae1ca8bebfdb47c3 'Connect the Delivery Copilot panel' (components/copilot-panel/{AskPane,AnswerChart,RiskFlags,StatusReport,MeetingSummary,parts}.tsx, components/shell/CopilotSlot.tsx, data/copilot.ts, data/types.ts, data/bindings.ts, data/callables.ts, styles/shell.css)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha 73c5a1e5e42c40b28f293379ae1ca8bebfdb47c3 right after the push and release
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed bindings.ts FETCH id e_6adf5087dc07493166cf01c2, ENTITY aiOutput OBJ_cucmd_ai_output added (document OBJ_cucmd_document already there)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed callables.ts holds '&gt;&gt;&gt; callable 6adf526ef3cd5f19ed626787' (ASK_COPILOT, e_6adf57aa769c8b649ec0291f), '&gt;&gt;&gt; callable 6adf4d1492718f6a64e5ca35' (PUBLISH_STATUS_REPORT, e_6adf57ab08f9657954440835), '&gt;&gt;&gt; callable 6adf4d11f3cd5f19ed4b436a' (ACCEPT_PROPOSED_TASKS, e_6adf57ab08f965795444083e)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: No visual check was run (the task proof is not [visual]); open the preview, Kenji Arai on /portfolio, and the top-bar Copilot button to see the panel.
+Unverified: Ask Copilot was not called live: the stages are app-timed (Reading projects, Checking risks, Writing answer) while the call runs; one question in the preview settles that the answer, record links and chart render.
+Unverified: evidence_json, transcript_refs_json, record_links_json and chart_json are parsed defensively (string arrays or objects with text/code, point/line/quote, code/label, type/title/unit/series); reading AI-01 and AI-04 rows would settle that 78% and the three evidence lines and the transcript links show as stored.
+Unverified: Suggested questions are built from projects whose lead equals the persona name (Kenji Arai); if Project.lead stores a code instead, they fall back to the whole portfolio.
+Note: handover: app app-a2a9509a82c1, branch main, Copilot panel on every internal route (AppShell top bar, tabs Ask, Risk flags, Status report, Meeting); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/; Copilot slot widened to 440px in styles/shell.css.
 
 ### t8 · ClickUp Delivery Command: screen Portal
 
@@ -221,6 +232,18 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"ea1d786aeab53dfda0d8370a62e99ff9480f83a8"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit ea1d786aeab53dfda0d8370a62e99ff9480f83a8 'Build the customer portal' (components/portal/{PortalHome,PortalSignoffs,PortalSessions,PortalFiles,PortalChecklist,parts,strings,usePortalViewer}, components/shell/PortalShell.tsx, routes/Portal.tsx, data/portal.ts, data/types.ts, data/bindings.ts, data/callables.ts, lib/store.ts, styles/shell.css)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha ea1d786aeab53dfda0d8370a62e99ff9480f83a8 right after the push and release
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed bindings.ts FETCH id e_6adf5087dc07493166cf01c2, ENTITY deliverable OBJ_cucmd_deliverable, sessionSlot OBJ_cucmd_session_slot, checklistItem OBJ_cucmd_checklist_item added (project, document already there)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed callables.ts holds '&gt;&gt;&gt; callable 6adf4aaef3cd5f19ed4afc58' (PORTAL_ACTION, e_6adf58c508f9657954442f32)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: No visual check was run; view as Haruto Mori on /portal/home in the preview to see Sakura Mobility in Japanese.
+Unverified: The sponsor is matched to a Person row by name (persona name = person.name, role customer_sponsor) and their project is that row's project_code; Grace Lin was added to the profile menu personas for the Corvia Health check. A read of Person P-15 settles it.
+Unverified: English, German and Japanese portal copy lives in a portal-scoped string table (components/portal/strings.ts) switched by the .seg, not through the app's react-i18next catalogues: languages.json stays English-only, because turning translation on app-wide needs the i18next-cli retrofit the engine gates on. The German and Japanese strings are drafts for the client to review.
+Unverified: errors_json on the upload is parsed as rows of {row, column\|field, value, error\|problem\|message}; confirm_upload sends the fixes and skipped rows as the comment, since the Portal action only marks the upload confirmed. Reading the sakura-users-wave2.csv document settles the first-errors table.
+Unverified: The new-CSV drop zone checks a file in the browser only (empty cells, bad emails); nothing is uploaded, as the spec's assumption says.
+Note: handover: app app-a2a9509a82c1, branch main, routes /portal/home, /portal/signoffs, /portal/sessions, /portal/files, /portal/checklist (no-access screen when the persona sponsors no project, naming the delivery director from Person rows); portal language in store.portalLanguage (null follows the sponsor's language); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/.
 
 ### t9 · ClickUp Delivery Command: screen Phone and Admin
 
@@ -237,6 +260,17 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"f38dc296d01b529e21beae50ac5da2fa52a0ef55"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit f38dc296d01b529e21beae50ac5da2fa52a0ef55 'Build the phone view and Admin' (routes/Phone.tsx, routes/Admin.tsx, data/phone.ts, data/admin.ts, data/types.ts, data/bindings.ts, data/callables.ts)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha f38dc296d01b529e21beae50ac5da2fa52a0ef55 right after the push and release
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed bindings.ts FETCH id e_6adf5087dc07493166cf01c2, ENTITY notification OBJ_cucmd_notification, integration OBJ_cucmd_integration added (task, timeEntry, activity already there)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed callables.ts holds '&gt;&gt;&gt; callable 6adf4eb8cac0655fe38aefc9' (MARK_NOTIFICATION_READ, e_6adf5a2408f9657954446fc8), '&gt;&gt;&gt; callable 6adf485af3cd5f19ed4ac683' (UPDATE_TASK) and '&gt;&gt;&gt; callable 6adf4aa9f3cd5f19ed4afa85' (TIMESHEET_ACTION)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: No visual check was run; view as Yui Sato on /m/today and open /admin in the preview.
+Unverified: Yui Sato is matched to her Person row by name; her tasks are read where Task.assignee is her person code or her name. A read of her tasks settles which.
+Unverified: Alerts read Notification rows by person_code; that N-01 to N-08 belong to P-07 with N-01 to N-03 unread is from the story, not read here.
+Unverified: The audit log filters Activity by actor name, project code and action on the server; if Activity.actor stores a person code, the person filter options (names) would match nothing.
+Note: handover: app app-a2a9509a82c1, branch main, routes /m/today, /m/tasks, /m/time, /m/alerts (phone) and /admin (tabs Roles, Audit log, Integrations); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/.
 
 ### t10 · Publish ClickUp Delivery Command
 

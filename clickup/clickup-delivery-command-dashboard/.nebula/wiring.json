@@ -16,6 +16,26 @@
       "appId": "app-a2a9509a82c1",
       "dataSources": [
         {
+          "id": "e_6adf5a2408f9657954446fc8",
+          "name": "Mark notification read"
+        },
+        {
+          "id": "e_6adf58c508f9657954442f32",
+          "name": "Portal action"
+        },
+        {
+          "id": "e_6adf57ab08f965795444083e",
+          "name": "Accept proposed tasks"
+        },
+        {
+          "id": "e_6adf57ab08f9657954440835",
+          "name": "Publish status report"
+        },
+        {
+          "id": "e_6adf57aa769c8b649ec0291f",
+          "name": "Ask Copilot"
+        },
+        {
           "id": "e_6adf55a8769c8b649ebfe4a2",
           "name": "Timesheet action"
         },
@@ -295,6 +315,81 @@
     }
   ],
   "edges": [
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-a2a9509a82c1",
+        "name": "global-page-of-app-a2a9509a82c1",
+        "part": "data source Mark notification read"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adf4eb8cac0655fe38aefc9",
+        "name": "ClickUp Command · Mark notification read"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-a2a9509a82c1",
+        "name": "global-page-of-app-a2a9509a82c1",
+        "part": "data source Portal action"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-a2a9509a82c1",
+        "name": "global-page-of-app-a2a9509a82c1",
+        "part": "data source Accept proposed tasks"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adf4d11f3cd5f19ed4b436a",
+        "name": "ClickUp Command · Accept proposed tasks"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-a2a9509a82c1",
+        "name": "global-page-of-app-a2a9509a82c1",
+        "part": "data source Publish status report"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adf4d1492718f6a64e5ca35",
+        "name": "ClickUp Command · Publish status report"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-a2a9509a82c1",
+        "name": "global-page-of-app-a2a9509a82c1",
+        "part": "data source Ask Copilot"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adf526ef3cd5f19ed626787",
+        "name": "ClickUp Command · Ask Copilot"
+      },
+      "via": "data source",
+      "fields": []
+    },
     {
       "from": {
         "kind": "page",

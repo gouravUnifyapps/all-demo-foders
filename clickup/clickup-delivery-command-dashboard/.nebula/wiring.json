@@ -1,6 +1,13 @@
 {
   "entities": [
     {
+      "kind": "app",
+      "id": "app-a2a9509a82c1",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
       "kind": "automation",
       "id": "6adf45fef3cd5f19ed4a76ba",
       "name": "ClickUp Command · Read delivery data",
@@ -74,6 +81,20 @@
       "kind": "automation",
       "id": "6adf4d1508750d257cf3df21",
       "name": "ClickUp Command · Send executive summary",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf4eb5cac0655fe38aef9d",
+      "name": "ClickUp Command · Update project settings",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf4eb8cac0655fe38aefc9",
+      "name": "ClickUp Command · Mark notification read",
       "version": 1,
       "stale": false
     },
@@ -195,6 +216,13 @@
       "name": "ClickUp Command · Checklist item",
       "version": 0,
       "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6adf4f02dc07493166ced9fa",
+      "name": null,
+      "version": null,
+      "stale": true
     }
   ],
   "edges": [
@@ -1097,7 +1125,95 @@
       },
       "via": "storage read",
       "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4eb5cac0655fe38aef9d",
+        "name": "ClickUp Command · Update project settings",
+        "part": "node Read the project as stored"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4eb5cac0655fe38aef9d",
+        "name": "ClickUp Command · Update project settings",
+        "part": "node Save the fields the caller filled in; blank ones keep their stored value"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4eb5cac0655fe38aef9d",
+        "name": "ClickUp Command · Update project settings",
+        "part": "node Record the change in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4eb8cac0655fe38aefc9",
+        "name": "ClickUp Command · Mark notification read",
+        "part": "node Read the notification as stored"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_notification",
+        "name": "ClickUp Command · Notification"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4eb8cac0655fe38aefc9",
+        "name": "ClickUp Command · Mark notification read",
+        "part": "node Set read to true"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_notification",
+        "name": "ClickUp Command · Notification"
+      },
+      "via": "storage write",
+      "fields": []
     }
   ],
-  "unknown": []
+  "unknown": [
+    {
+      "kind": "app",
+      "id": "app-a2a9509a82c1",
+      "name": null,
+      "reason": "interface-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6adf4f02dc07493166ced9fa",
+      "name": null,
+      "reason": "entity-not-cached"
+    }
+  ]
 }

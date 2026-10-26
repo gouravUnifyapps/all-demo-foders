@@ -6,6 +6,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
+| app |  | app-a2a9509a82c1 |  | yes |
 | automation | `ClickUp Command · Read delivery data` | 6adf45fef3cd5f19ed4a76ba | 5 | no |
 | automation | `ClickUp Command · Save view` | 6adf460108750d257cf1e381 | 1 | no |
 | automation | `ClickUp Command · Update task` | 6adf485af3cd5f19ed4ac683 | 2 | no |
@@ -17,6 +18,8 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation | `ClickUp Command · Accept proposed tasks` | 6adf4d11f3cd5f19ed4b436a | 1 | no |
 | automation | `ClickUp Command · Publish status report` | 6adf4d1492718f6a64e5ca35 | 1 | no |
 | automation | `ClickUp Command · Send executive summary` | 6adf4d1508750d257cf3df21 | 1 | no |
+| automation | `ClickUp Command · Update project settings` | 6adf4eb5cac0655fe38aef9d | 1 | no |
+| automation | `ClickUp Command · Mark notification read` | 6adf4eb8cac0655fe38aefc9 | 1 | no |
 | object | `ClickUp Command · Project` | OBJ_cucmd_project | 0 | no |
 | object | `ClickUp Command · RAID item` | OBJ_cucmd_raid | 0 | no |
 | object | `ClickUp Command · Task` | OBJ_cucmd_task | 0 | no |
@@ -34,6 +37,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | object | `ClickUp Command · Integration` | OBJ_cucmd_integration | 0 | no |
 | object | `ClickUp Command · Notification` | OBJ_cucmd_notification | 0 | no |
 | object | `ClickUp Command · Checklist item` | OBJ_cucmd_checklist_item | 0 | no |
+| ai-agent |  | e_6adf4f02dc07493166ced9fa |  | yes |
 
 ## Wiring
 
@@ -99,7 +103,13 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation `ClickUp Command · Publish status report` | `node Write the status report document` | object `ClickUp Command · Document` | storage write |  |
 | automation `ClickUp Command · Publish status report` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
 | automation `ClickUp Command · Send executive summary` | `node Read the Weekly metric for the week` | object `ClickUp Command · Weekly metric` | storage read |  |
+| automation `ClickUp Command · Update project settings` | `node Read the project as stored` | object `ClickUp Command · Project` | storage read |  |
+| automation `ClickUp Command · Update project settings` | `node Save the fields the caller filled in; blank ones keep their stored value` | object `ClickUp Command · Project` | storage write |  |
+| automation `ClickUp Command · Update project settings` | `node Record the change in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Mark notification read` | `node Read the notification as stored` | object `ClickUp Command · Notification` | storage read |  |
+| automation `ClickUp Command · Mark notification read` | `node Set read to true` | object `ClickUp Command · Notification` | storage write |  |
 
 ## Not checked
 
-- none
+- app `app-a2a9509a82c1` (app-a2a9509a82c1): interface-not-cached
+- ai-agent `e_6adf4f02dc07493166ced9fa` (e_6adf4f02dc07493166ced9fa): entity-not-cached

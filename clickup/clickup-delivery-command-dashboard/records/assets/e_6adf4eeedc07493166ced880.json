@@ -1,0 +1,19 @@
+{
+  "createdTime": 1793019630315,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6adf4eeedc07493166ced880",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793019630315,
+  "modifiedTime": 1793019630315,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_id": "app-a2a9509a82c1",
+    "state": "COMPLETED",
+    "solution_id": "e_6adf231a08f96579541331a5",
+    "asset_class": "e_interface"
+  },
+  "standard": false,
+  "version": 0
+}

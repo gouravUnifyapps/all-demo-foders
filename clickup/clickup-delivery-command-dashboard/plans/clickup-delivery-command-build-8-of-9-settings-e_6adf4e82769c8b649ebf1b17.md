@@ -22,12 +22,12 @@ Goal: ClickUp Delivery Command · build 8 of 9: settings and notification automa
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation-shell | ClickUp Command · Update project settings |  | running | 1 |
-| t2 | automation | ClickUp Command · Update project settings | t1 | running | 1 |
-| t3 | deploy | ClickUp Command · Update project settings | t2 | pending | 0 |
-| t4 | automation-shell | ClickUp Command · Mark notification read |  | running | 1 |
-| t5 | automation | ClickUp Command · Mark notification read | t4 | running | 1 |
-| t6 | deploy | ClickUp Command · Mark notification read | t5 | pending | 0 |
+| t1 | automation-shell | ClickUp Command · Update project settings |  | done | 1 |
+| t2 | automation | ClickUp Command · Update project settings | t1 | done | 1 |
+| t3 | deploy | ClickUp Command · Update project settings | t2 | running | 1 |
+| t4 | automation-shell | ClickUp Command · Mark notification read |  | done | 1 |
+| t5 | automation | ClickUp Command · Mark notification read | t4 | done | 1 |
+| t6 | deploy | ClickUp Command · Mark notification read | t5 | running | 1 |
 | t7 | ai-agent | ClickUp Command Copilot |  | running | 1 |
 | t8 | publish | ClickUp Command Copilot | t7 | pending | 0 |
 | t9 | code-app | ClickUp Delivery Command |  | running | 1 |
@@ -43,6 +43,12 @@ Create the callable automation (trigger \`callables_from_automation\`) with \`se
 Read back \`search_workflows\` for its \`deployment\` and \`describe_callable_workflow\` for its inputs. Report the \`workflowId\` in \`ids.entity\`.
 
 Proof: \`describe_callable_workflow\` lists every input the body names, and \`search_workflows\` shows the shell of ClickUp Command · Update project settings deployed.
+Result IDs: {"entity":"6adf4eb5cac0655fe38aef9d"}
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: search_workflows for the name answered totalHits 0 before create; compile_and_save_workflow created:true version 0
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: deploy_workflow ok:true workflowVersion 0, deployedVersion 1, paused false
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: search_workflows deployment {status: DEPLOYED, deployedVersion 1, definitionVersion 0, savedAfterDeploy false}
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: describe_callable_workflow parameters project_code (string, required), name (string), region (string), go_live_date (number), budget_hours_planned (number)
+Note: handover: ClickUp Command · Update project settings workflowId 6adf4eb5cac0655fe38aef9d; outputs result, field_errors_json (string)
 
 ### t2 · Logic for ClickUp Command · Update project settings
 
@@ -56,6 +62,22 @@ Read back: the saved version from \`compile_and_save_workflow\`, and \`inspect_w
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: The test runs of ClickUp Command · Update project settings answer the result words the body names, quoted from \`inspect_workflow_run\`.
+Result IDs: {"entity":"6adf4eb5cac0655fe38aef9d"}
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: compile_and_save_workflow ok:true version 1, 13 nodes (fetch project, Groovy validation, update_record_fields_by_id, create Activity record), warnings []; not deployed (definitionVersion stays 0)
+Read back: ClickUp Command · Update project settings run 6adf4f2e6112da3e23ba86a5 (IMP-2624, go_live_date 1767571200000 = 2026-01-05): COMPLETED, response {"result":"failed","field_errors_json":"{\"go_live_date\":\"Go-live date cannot be in the past.\"}"}
+Read back: ClickUp Command · Update project settings run 6adf4f3192718f6a64e5e669 (IMP-2624, budget_hours_planned 10): COMPLETED, response {"result":"failed","field_errors_json":"{\"budget_hours_planned\":\"Budget hours cannot be below the 40 hours already used.\"}"}
+Read back: ClickUp Command · Update project settings run 6adf4f34ca4f9d20457f479c (all-blank payload): COMPLETED, response {"result":"failed","field_errors_json":"{\"project_code\":\"Project code is required.\"}"}
+Read back: ClickUp Command · Update project settings run 6adf4f3592718f6a64e5e691 (unknown code IMP-9999-DEMO-TEST): COMPLETED, response {"result":"failed","field_errors_json":"{\"project_code\":\"No project has this code.\"}"}
+Read back: ClickUp Command · Update project settings: nothing written on refusals: IMP-2624 read back after the runs with version 0, modifiedTime 1793016823705, budget_hours_planned 1900, go_live_date 1805068800000 (unchanged)
+Read back: Security rule 3: hours used is read from the stored Project row (budget_hours_used 40 in the Fetch records node), not from the caller
+Unverified: ClickUp Command · Update project settings saved path (result saved, fields written, Activity row created) was not run: the task names only refusal tests. Check: a test run on a DEMO-TEST project with a future go_live_date, then read the Project row for go_live_date/budget_hours_planned stored as numbers (setValue is string-typed on update_record_fields_by_id) and the ACT-&lt;executionId&gt; Activity row
+Unverified: Security: who may change project settings is not checked (no role or ownership mapping from USER to a project lead exists in the objects) — needs the person to decide whether settings changes are limited to the project lead or a role
+Note: assumed: input name is written to Project.customer, since OBJ_cucmd_project has no name column and project cards show the customer as the project name
+Note: assumed: only filled fields are written (skipIfBlank true); a blank field keeps its stored value
+Note: assumed: region must be a stored code (europe, north_america, japan), else a region field error; go-live counts as past when earlier than today 00:00 UTC
+Note: Project update uses update_record_fields_by_id on the record id (= project_code) found by the fetch; that operation has no upsert key, so upsert: true does not apply; the record's existence is checked first
+Note: On save it creates one Activity row: activity_code ACT-&lt;RUN.executionId&gt;, action updated, actor USER.name, at RUN.currentTime
+Note: Test runs created no rows
 
 ### t3 · Deploy ClickUp Command · Update project settings
 
@@ -78,6 +100,12 @@ Create the callable automation (trigger \`callables_from_automation\`) with \`se
 Read back \`search_workflows\` for its \`deployment\` and \`describe_callable_workflow\` for its inputs. Report the \`workflowId\` in \`ids.entity\`.
 
 Proof: \`describe_callable_workflow\` lists every input the body names, and \`search_workflows\` shows the shell of ClickUp Command · Mark notification read deployed.
+Result IDs: {"entity":"6adf4eb8cac0655fe38aefc9"}
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: search_workflows for the name answered totalHits 0 before create; compile_and_save_workflow created:true version 0
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: deploy_workflow ok:true workflowVersion 0, deployedVersion 1, paused false
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: search_workflows deployment {status: DEPLOYED, deployedVersion 1, definitionVersion 0, savedAfterDeploy false}
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: describe_callable_workflow parameters notification_code (string, required)
+Note: handover: ClickUp Command · Mark notification read workflowId 6adf4eb8cac0655fe38aefc9; output result (string)
 
 ### t5 · Logic for ClickUp Command · Mark notification read
 
@@ -91,6 +119,16 @@ Read back: the saved version from \`compile_and_save_workflow\`, and \`inspect_w
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: The test runs of ClickUp Command · Mark notification read answer the result words the body names, quoted from \`inspect_workflow_run\`.
+Result IDs: {"entity":"6adf4eb8cac0655fe38aefc9"}
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: compile_and_save_workflow ok:true version 1, 9 nodes (fetch by notification_code, update_record_by_id upsert true with read true), warnings []; not deployed (definitionVersion stays 0)
+Read back: ClickUp Command · Mark notification read run 6adf4f3ac79cad1140aa8be3 (N-08): COMPLETED, response {"result":"saved"}; update node output success true, object N-08 version 1, properties.read true
+Read back: ClickUp Command · Mark notification read: N-08 read back with fetch_storage_records: read true, version 1, modifiedTime 1793019706449, other fields unchanged
+Read back: ClickUp Command · Mark notification read run 6adf4f3b6112da3e23ba8718 (blank notification_code): COMPLETED, response {"result":"failed"}
+Read back: ClickUp Command · Mark notification read run 6adf4f3ccac0655fe38af6a8 (unknown N-99-DEMO-TEST): COMPLETED, response {"result":"failed"}, no update node ran
+Unverified: Security: the notification's owner (person_code) is not checked against the running user — no mapping from USER.id to person_code exists in the objects; needs the person to say how a signed-in user maps to a person_code
+Note: assumed: a blank or unknown notification_code answers result failed
+Note: Used update_record_by_id with upsert true and every stored field carried over (read set true), because update_record_fields_by_id refuses a boolean setValue (INVALID_INPUT_TYPE, string only) at compile
+Note: Test runs created no rows; N-08 was already read, so only its version and modifiedTime moved
 
 ### t6 · Deploy ClickUp Command · Mark notification read
 

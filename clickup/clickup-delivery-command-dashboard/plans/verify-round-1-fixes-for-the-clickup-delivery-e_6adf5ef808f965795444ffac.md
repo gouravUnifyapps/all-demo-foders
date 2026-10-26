@@ -25,7 +25,7 @@ Goal: Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot na
 | t1 | ai-agent | ClickUp Command Copilot |  | running | 1 |
 | t2 | publish | ClickUp Command Copilot | t1 | pending | 0 |
 | t3 | code-app | ClickUp Delivery Command |  | done | 1 |
-| t4 | code-publish | ClickUp Delivery Command | t3 | running | 1 |
+| t4 | code-publish | ClickUp Delivery Command | t3 | done | 1 |
 
 ### t1 · Copilot: week dates, week-on-week health, codes as words
 
@@ -83,4 +83,10 @@ Read back: the reply's \`deployed: true\` with its \`commitHash\`, and \`get_cod
 Report ids (the app id as ids.entity), readBack, unverified, notes.
 
 Proof: \`publish_code_app\` answers deployed true with t3's commit.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"9142bfc0190ee94e05f42c6766567888288ca8f7"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: before publish get_code_app head.sha 9142bfc0190ee94e05f42c6766567888288ca8f7 (t3's commit), busy:false; get_code_hold held:false.
+Read back: ClickUp Delivery Command app-a2a9509a82c1: publish_code_app ok:true, version v2, deployed {deployed:true, commitHash 9142bfc0190ee94e05f42c6766567888288ca8f7, version v2, entityVersion 6}, versionNote "Clickup demo v1.1: empty states name their items".
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app after publish deployment {deployed:true, commitHash 9142bfc0190ee94e05f42c6766567888288ca8f7, version v2, entityVersion 6}; head.sha unchanged 9142bfc0190e (no extra publish commit this time).
+Unverified: The published app was not loaded in a browser (no [visual] proof asked): open the published app link and an empty list to see the new wording live.
+Note: Answer from the person: yes, publish ClickUp Delivery Command. The person said yes to 'Publish the code app ClickUp Delivery Command on orbit.uat.unifyapps.com?' through plan confirm; do not ask again.
 

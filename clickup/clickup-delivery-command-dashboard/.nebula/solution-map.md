@@ -6,7 +6,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
-| app | `ClickUp Delivery Command` | app-a2a9509a82c1 | 5 | no |
+| app | `ClickUp Delivery Command` | app-a2a9509a82c1 | 6 | no |
 | page | `global-page-of-app-a2a9509a82c1` | e_global_app-a2a9509a82c1 | 0 | no |
 | automation | `ClickUp Command · Read delivery data` | 6adf45fef3cd5f19ed4a76ba | 5 | no |
 | automation | `ClickUp Command · Save view` | 6adf460108750d257cf1e381 | 1 | no |

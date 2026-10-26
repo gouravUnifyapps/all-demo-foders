@@ -25,8 +25,8 @@ Goal: Verify round 1 fixes: Read delivery data returns each date also as UTC day
 | t1 | automation | Delivery Command · Read delivery data |  | done | 1 |
 | t2 | deploy | Delivery Command · Read delivery data | t1 | done | 1 |
 | t3 | ai-agent | Delivery Command · Copilot | t2 | done | 1 |
-| t4 | ai-agent | Delivery Command · Copilot | t3 | running | 2 |
-| t5 | publish | Delivery Command · Copilot | t4 | pending | 0 |
+| t4 | ai-agent | Delivery Command · Copilot | t3 | done | 2 |
+| t5 | publish | Delivery Command · Copilot | t4 | running | 1 |
 
 ### t1 · Read delivery data returns UTC day text beside every date
 
@@ -119,7 +119,25 @@ Keep the model, the tool, the date rule from t3 and every other instruction as t
 Read back: send_test_messages with both questions; each trace's duration under 90 s and the answers still naming Haruto Sato (over 100% in the week of 2 Nov) and a status draft for IMP-2611, quoted.
 
 Proof: Both test questions answer in under 90 s, with their durations quoted from the traces.
-Error: send_test_messages {agentId: e_6adbabd2925d282255cee62b, messages: ['Who is booked over 100% in the next 12 weeks?']} — last error: row note 'The agent called a tool, and the platform did not report which case it created' (no caseId); the 3 tries before it returned REQUEST_TIMED_OUT 'The platform did not answer within 50 s ... there is none to trace'. The bookings question's duration on the new instructions could not be traced, so the under-90 s proof is missing.
+Result IDs: {"entity":"e_6adbabd2925d282255cee62b"}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: get_agent version 14 holds the instructions from attempt 1 (version 13) unchanged: '## How you work a question' plans in one short think, reads each entity once with limit 200, reads people once and bookings for everyone in week_start ranges of at most 4 weeks sent together in one turn, never per person, and calls no think or read after the reads; t3's '## Dates' rule, model e_6a88244b31696e1ce45dbda1, tool Read_delivery_data and every other section unchanged. The 14th version came from a guardrail record e_6adf104bbc76624e53493580 (enabled false) that this task did not add
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: 'Who is booked over 100% in the next 12 weeks?' (case e_6adf1193c79cad1140f598ea turn 2) answered: "Only one person is booked over 100% capacity in the next 12 weeks (26 Oct 2026 – 11 Jan 2027): Haruto Sato (PER-104) — week of 2 Nov 2026 Booked: 44h (22h on IMP-2633 + 22h on IMP-2611) vs capacity 40h = 110%"
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: trace e_6adf1193c79cad1140f598ea turn 2 duration 39.3 s (first model call 1793003956, answer createdTime 1793003995.337; at most 72.3 s even counting from the case's creation at 1793003923, which includes the Hello turn); calls: think, then in one turn Read_delivery_data people {} limit 200 plus 3 bookings reads with week_start ranges 1792972800000-1794787200000, 1795392000000-1797206400000 and 1797811200000-1799625600000, limit 200, then one think, then the answer; no per-person rereads (baseline case e_6adf0dab6112da3e23699077: 163.4 s with 4 per-person rereads)
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: 'Draft the weekly status report for IMP-2611' (case e_6adf11d1cac0655fe34984f7 turn 2) answered "AI draft for the lead to edit --- WEEKLY STATUS REPORT --- Project: IMP-2611 Sakura Mobility Week ending: 26 Oct 2026 ... GO-LIVE: 19 Nov 2026 (slipped from baseline 12 Nov 2026)"; trace duration 27.3 s (first model call 1793004001, answer createdTime 1793004028.323; at most 43.3 s from the case's creation at 1793003985, which includes the Hello turn), calls: think, then projects, tasks, raid and time_entries once each in one turn, then one think, then the answer
+Unverified: Delivery Command · Copilot: one run per question on the final instructions, so p95 under 90 s is not established — check: 10 more runs of each question with the Hello-first case method and their trace durations
+Unverified: Delivery Command · Copilot: durations are measured from the turn's first LLM node ObjectId time to the final answer createdTime in the trace's Query node, because read_trace reports no duration and the question had to be asked as turn 2 of a case opened with 'Hello'
+Unverified: Delivery Command · Copilot: the model still calls think once after the reads, against step 3 of the instructions; both answers stayed under 90 s
+Unverified: Security: Delivery Command · Copilot e_6adbabd2925d282255cee62b is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy in every trace (toolsOffered and the LLM payload tools list), though none is attached to it (get_agent tools: Read_delivery_data plus 2 disabled standard actions) — needs an admin to find where these tenant-level tools come from and remove them from this read-only agent
+Note: Draft only: needsPublish true; a publish task makes it live.
+Note: Measured durations: bookings question 163.4 s (baseline, version 10), 91.9 s and wrong (version 12, one bookings read, truncated), 39.3 s and correct (version 13/14, three 4-week bookings windows). Status report 36.7 s (baseline), 35.8 s and 27.3 s (version 13/14).
+Note: handover: on this tenant a fresh-conversation test of a slow tool-using question returns no caseId; open a case with send_test_message 'Hello' first, then ask the question with that caseId and read_trace turn 2.
+Note: feedback:
+Bug: A fresh-conversation test of a tool-using question that runs past 50 s returns no caseId (REQUEST_TIMED_OUT, or pausedForTool with no case), so send_test_message and send_test_messages cannot prove its latency; asking the same question as turn 2 of a case opened with "Hello" does return a caseId and an answer.
+Context: agent-builder send_test_message with runAgainToFindAnswer true, "Who is booked over 100% in the next 12 weeks?" on agent e_6adbabd2925d282255cee62b (read-only), orbit.uat; attempt 1 hit it 4 times, attempt 2 once more.
+Where: mcp-tool
+Evidence: 'The platform did not answer within 50 s ... the platform sends the case id only with the answer, so there is none to trace'; workaround case e_6adf1193c79cad1140f598ea (Hello, then the question with caseId) returned stillRunning with that caseId and a full trace.
+Cause: Unknown — next check: whether the test invoke SSE sends the new case id before the first tool pause on a new conversation.
+Regression: send_test_message on a new conversation for a 40-70 s tool-using question returns a caseId on every try.
 
 ### t5 · Publish Delivery Command · Copilot
 

@@ -16,6 +16,11 @@ createdAt: "2026-10-26T12:30:13.295Z"
 runningAt: "2026-10-26T12:30:16.737Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 5 of 9: task, change request and approval automations
@@ -24,13 +29,13 @@ Goal: ClickUp Delivery Command · build 5 of 9: task, change request and approva
 |---|---|---|---|---|---:|
 | t1 | automation-shell | ClickUp Command · Update task |  | done | 1 |
 | t2 | automation | ClickUp Command · Update task | t1 | done | 1 |
-| t3 | deploy | ClickUp Command · Update task | t2 | running | 1 |
+| t3 | deploy | ClickUp Command · Update task | t2 | done | 1 |
 | t4 | automation-shell | ClickUp Command · Raise change request |  | done | 1 |
 | t5 | automation | ClickUp Command · Raise change request | t4 | done | 1 |
-| t6 | deploy | ClickUp Command · Raise change request | t5 | running | 1 |
+| t6 | deploy | ClickUp Command · Raise change request | t5 | done | 1 |
 | t7 | automation-shell | ClickUp Command · Decide change request |  | done | 1 |
 | t8 | automation | ClickUp Command · Decide change request | t7 | done | 1 |
-| t9 | deploy | ClickUp Command · Decide change request | t8 | running | 1 |
+| t9 | deploy | ClickUp Command · Decide change request | t8 | done | 1 |
 
 ### t1 · Shell for ClickUp Command · Update task
 
@@ -89,6 +94,11 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Update task deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf485af3cd5f19ed4ac683"}
+Read back: ClickUp Command · Update task 6adf485af3cd5f19ed4ac683: before deploying, search_workflows showed saved version 2, the version the logic task tested, so nothing was saved in between
+Read back: ClickUp Command · Update task 6adf485af3cd5f19ed4ac683: deploy_workflow ok:true, workflowVersion 2, storedVersion 2, deployedVersion 2, paused false, deploymentNotes 'ClickUp Delivery Command demo: Update task'
+Read back: ClickUp Command · Update task 6adf485af3cd5f19ed4ac683: search_workflows deployment {status: DEPLOYED, definitionVersion: 2, deployedAt: 1793018382698, savedAfterDeploy: false}, so definitionVersion 2 equals the logic task's saved version 2
+Note: The deploy was made on the person's yes given through plan confirm.
 
 ### t4 · Shell for ClickUp Command · Raise change request
 
@@ -144,6 +154,11 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Raise change request deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf485ec79cad1140a9e9a6"}
+Read back: ClickUp Command · Raise change request 6adf485ec79cad1140a9e9a6: before deploying, search_workflows showed saved version 1, the version the logic task tested, so nothing was saved in between
+Read back: ClickUp Command · Raise change request 6adf485ec79cad1140a9e9a6: deploy_workflow ok:true, workflowVersion 1, storedVersion 1, deployedVersion 2, paused false, deploymentNotes 'ClickUp Delivery Command demo: Raise change request'
+Read back: ClickUp Command · Raise change request 6adf485ec79cad1140a9e9a6: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793018384042, savedAfterDeploy: false}, so definitionVersion 1 equals the logic task's saved version 1
+Note: The deploy was made on the person's yes given through plan confirm.
 
 ### t7 · Shell for ClickUp Command · Decide change request
 
@@ -199,4 +214,9 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Decide change request deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf485ff3cd5f19ed4ac6fd"}
+Read back: ClickUp Command · Decide change request 6adf485ff3cd5f19ed4ac6fd: before deploying, search_workflows showed saved version 1, the version the logic task tested, so nothing was saved in between
+Read back: ClickUp Command · Decide change request 6adf485ff3cd5f19ed4ac6fd: deploy_workflow ok:true, workflowVersion 1, storedVersion 1, deployedVersion 2, paused false, deploymentNotes 'ClickUp Delivery Command demo: Decide change request'
+Read back: ClickUp Command · Decide change request 6adf485ff3cd5f19ed4ac6fd: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793018386786, savedAfterDeploy: false}, so definitionVersion 1 equals the logic task's saved version 1
+Note: The deploy was made on the person's yes given through plan confirm.
 

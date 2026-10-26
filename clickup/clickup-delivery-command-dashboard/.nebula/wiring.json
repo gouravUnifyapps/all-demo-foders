@@ -1,5 +1,76 @@
 {
-  "entities": [],
+  "entities": [
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_project",
+      "name": "ClickUp Command · Project",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_raid",
+      "name": "ClickUp Command · RAID item",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_task",
+      "name": "ClickUp Command · Task",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_time_entry",
+      "name": "ClickUp Command · Time entry",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_change_request",
+      "name": "ClickUp Command · Change request",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_person",
+      "name": "ClickUp Command · Person",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_booking",
+      "name": "ClickUp Command · Booking",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_deliverable",
+      "name": "ClickUp Command · Deliverable",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_session_slot",
+      "name": "ClickUp Command · Session slot",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_document",
+      "name": "ClickUp Command · Document",
+      "version": 0,
+      "stale": false
+    }
+  ],
   "edges": [],
   "unknown": []
 }

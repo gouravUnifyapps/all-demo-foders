@@ -1,0 +1,81 @@
+---
+nebula: 3
+mode: "sonic"
+format: "spec"
+title: "ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining screens and the publish"
+touches: [{"kind":"automation","name":"ClickUp Command · Ask Copilot"},{"kind":"ai-agent","name":"ClickUp Command Copilot","id":"e_6adf4f02dc07493166ced9fa"},{"kind":"code-app","name":"ClickUp Delivery Command","id":"app-a2a9509a82c1"}]
+askBeforeDeploy: true
+releaseYes: [{"action":"deploy","kind":"automation","name":"ClickUp Command · Ask Copilot"},{"action":"publish","kind":"code-app","name":"ClickUp Delivery Command","id":"app-a2a9509a82c1"}]
+acceptedAt: "2026-10-26T13:14:37.552Z"
+acceptedBy: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819"}
+planIds: ["e_6adf5240769c8b649ebf944c"]
+latestPlanId: "e_6adf5240769c8b649ebf944c"
+planId: "e_6adf5240769c8b649ebf944c"
+---
+# ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining screens and the publish
+
+## Requested outcome
+Build 9 of 9 of the ClickUp Delivery Command demo for Clickup (POC POC-clickup-delivery-command-dashboard-20261026, plan approved at G2 by Gourav Mahunta). This part builds Ask Copilot, the remaining screens and the publish. Implementation leads, delivery directors, finance partners, resource managers, consultants and customer sponsors work in one code app over these objects; the demo walks Sakura Mobility (IMP-2611) from At risk through a routed change request, staffing, the sponsor's sign-off and Delivery Copilot.
+
+## Touches
+- automation · ClickUp Command · Ask Copilot · new
+- ai-agent · ClickUp Command Copilot · e_6adf4f02dc07493166ced9fa
+- code-app · ClickUp Delivery Command · app-a2a9509a82c1
+
+## Contract
+
+### automation · ClickUp Command · Ask Copilot
+Lets the app ask ClickUp Command Copilot a question and returns its answer.
+
+- automation · create · ClickUp Command · Ask Copilot: callable; inputs question (text), session_id (text), user_email (text); outputs answer_text (text), chart_json (text: the chart's type, title, unit and series when the answer is a chart), record_links_json (text), session_id (text); invokes the AI agent ClickUp Command Copilot through `ai_agents_by_unifyapps_invoke_agent` with aiAgentId, userQuery, sessionId and userEmailAddress, and returns the agent's text.
+
+### code-app · ClickUp Delivery Command
+The code app: internal workspace, customer portal and phone view.
+
+- code-app · update · ClickUp Delivery Command: screen Project workspace and Change request: the overview (stage, the seven `.stages`, days to go-live, budget `.prog`, open risks, next sign-off), `.tabs` List, Board (`.kb` one column per stage with the over-limit warning, drag and a Move to `.menu`), Timeline (dependencies, critical path, date change preview), RAID, Documents (in-app viewer), Activity (`.feed`), Settings (inline edit with unsaved, saving, saved, failed), the task detail drawer; the change request form with before and after side by side and the differences marked · reads Project, Task, RAID item, Document, Activity · calls ClickUp Command · Update task, ClickUp Command · Raise change request, ClickUp Command · Update project settings
+- code-app · update · ClickUp Delivery Command: screen Changes: the change requests `.tbl` and the request detail with the approval route as `.stv`, who approved and who is next, Approve as `.btn-p`, Reject with a required reason, the refusal as `.tag.negative` and `.note` · reads Change request, Activity · calls ClickUp Command · Decide change request
+- code-app · update · ClickUp Delivery Command: screen Resourcing and Timesheets: people against 12 weeks with weekly percent, over 100% flagged, the region tag; the Book consultant form (person, project, weeks, hours; no drag) showing who, which weeks and by how much before saving; the skills matrix; region capacity over the quarter; Timesheets with batch Approve and Return with reason · reads Person, Booking, Project, Time entry · calls ClickUp Command · Book consultant, ClickUp Command · Timesheet action
+- code-app · update · ClickUp Delivery Command: screen Copilot panel: opens on every internal screen from the top bar; three suggested questions from the user's projects; `.convo` with `.msg.me` and `.msg.ai`; `.stages` while it works; answers with record links and a `.chart` in the app's colours with units; the AI-written label; the risk flags as `.ai:not(.msg)` cards with confidence and evidence; Draft status report into an editor, Publish, export PDF and Word; the meeting summary with transcript links and proposed tasks to Accept or Reject · reads AI output, Document · calls ClickUp Command · Ask Copilot, ClickUp Command · Publish status report, ClickUp Command · Accept proposed tasks
+- code-app · update · ClickUp Delivery Command: screen Portal: the shorter top menu Home, Sign-offs, Sessions, Files, Checklist; English, German and Japanese; the sponsor sees only their own project and never internal health; Sign off or Request changes with a comment; book a session by day then slot, taken slots visible and disabled; upload a CSV with row errors summarised and fixable before Confirm; the ten-item checklist with Not set for unanswered items; the no-access screen naming who can grant access · reads Project, Deliverable, Session slot, Document, Checklist item · calls ClickUp Command · Portal action
+- code-app · update · ClickUp Delivery Command: screen Phone and Admin: the phone layout with bottom tabs Today, Tasks, Time, Alerts (status update, log time, mark read or open); Admin with the roles against permissions grid, the audit log filtered by person, project and action, the integrations status with last sync and the Jira Sync failed row · reads Task, Time entry, Notification, Activity, Integration · calls ClickUp Command · Update task, ClickUp Command · Timesheet action, ClickUp Command · Mark notification read
+
+## Business rules
+- A change request under 40 hours needs the Delivery director's approval; 40 hours or more needs the Delivery director, then the Finance partner, in that order.
+- Rejecting a change request, returning a timesheet, or requesting changes on a deliverable needs a written reason.
+- An approved change request moves the project's go-live date and planned hours and is recorded in the activity feed.
+- A booking that takes a consultant above 100% of capacity in any week shows who, which weeks and by how much before it is saved.
+- A customer sponsor sees only their own project and never internal health.
+- An unanswered checklist item shows as Not set, never as a guessed value.
+- Everything Delivery Copilot writes is labelled AI-written; nothing it proposes is created without acceptance.
+- Activity rows are never edited.
+- Every test record and every sent email is labelled DEMO-TEST with the demo date.
+- The code app's one global stylesheet is `/home/user/all-demo-foders/clickup/clickup-delivery-command-dashboard/studio/design-system/clickup/client.css`, byte for byte, imported from `App.tsx`.
+- The rail logo is `/home/user/all-demo-foders/clickup/clickup-delivery-command-dashboard/studio/design-system/clickup/logo.svg` (the ClickUp wordmark from clickup.com's header) on a light plate; the collapsed rail and the browser tab icon use `/home/user/all-demo-foders/clickup/clickup-delivery-command-dashboard/studio/design-system/clickup/logo-symbol.svg`; used as published, never traced, redrawn or recoloured.
+- Theme light by default, the dark tokens left live; Appearance in the profile menu switches it.
+- Components come from the class inventory (`.g1 .g2 .g3 .pad .inner .solid`, `.btn .btn-p .btn-s .btn-t`, `.tag`, `.toolbar .field .chipsel .tblwrap .tbl .pg`, `.ai:not(.msg)`, `.tile .loop .empty`, `.tabs`, `.fld .ctl .hint .seg .tog .opt`, `.sth .stv .prog .stages`, `.canvas .convo .msg`, `.pc .faces .av`, `.feed`, `.chart .spark .delta .legend`, `.toast .menu .crumb .note`), never a second implementation, never a new colour value, never a Tailwind colour, radius, shadow or type utility: Tailwind only for layout the kit has no class for.
+- Every status shows an icon and a word (On track, At risk, Off track, Signed off, Awaiting sign-off, Over capacity, Pending approval, Approved, Rejected, Blocked, Sync failed, Not started, Draft, Scheduled, Hypercare, Live).
+- Test records and sent emails are labelled `DEMO-TEST` with the demo date.
+
+## Ready when
+- The presenter walks the six beats on the published app as the beats say, and Sakura Mobility (IMP-2611) shows At risk with go-live 16 Nov 2026 on the Portfolio.
+- deploy ClickUp Command · Ask Copilot
+- publish ClickUp Delivery Command
+
+## Assumptions
+- Check this: intent proposed as `both` (the outcome, then how): one hood beat after the lean-forward beat; the owner sets it at G2.
+- Check this: scope is one app covering every ask, led by the portfolio dashboard, the executive summary and Delivery Copilot (G1 question 1, recommended option).
+- Check this: 18 fictional projects around the BRD's six sample customers; the headline counts read like the BRD's portfolio from the Weekly metric rows (G1 question 8).
+- Check this: the phone view is a responsive layout of the same code app shown in a phone frame (G1 question 9).
+- Check this: integrations show seeded status with one Sync failed row; the one live external step is the weekly summary email through the existing Gmail connection (G1 questions 10 and 11).
+- Check this: customers never see internal health (G1 question 5); the timeline is not editable from the phone (G1 question 4); region shows as a labelled tag, never colour alone (G1 question 6).
+- Check this: brand colour `#5F55EE` (hue 244) from clickup.com's `--ProductScreen-CustomStatus-Primary`; the sample was ambiguous and the profile takes the recommended one.
+- Check this: typeface Inter, the body face of clickup.com, with tabular figures, Noto Sans JP for Japanese, IBM Plex Mono kept for eyebrows (open question 13).
+- Check this: the app's sign-in, forgot and reset password are the tenant's own pages a PRIVATE code app opens with (open question 14).
+- Check this: roles are a persona switcher in the profile menu with a seeded roles grid; no tenant roles are made (open question 15).
+- Check this: documents open in an in-app viewer of the text the record holds; no file is uploaded.
+- Check this: customer logos on project cards and in the portal are circles holding the customer's initials, since the customers are invented.
+- Check this: German and Japanese portal text is drafted by Studio for the client to review.
+- Check this: the Copilot's working stages are shown by the app while the call runs (Reading projects, Checking risks, Writing answer).
+- Light is the default theme with the dark tokens live; Appearance in the profile menu switches it.
+- The AI agent's model is Nebula's recommendation (profile standing answer).
+- Release: publish and deploy on the tenant without asking; visibility PRIVATE (profile).

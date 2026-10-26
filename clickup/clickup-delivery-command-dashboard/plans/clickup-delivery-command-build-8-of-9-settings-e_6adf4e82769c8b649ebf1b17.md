@@ -16,6 +16,11 @@ createdAt: "2026-10-26T12:58:41.588Z"
 runningAt: "2026-10-26T12:58:45.777Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 8 of 9: settings and notification automations, the Copilot agent, the app shell and summary screens
@@ -30,8 +35,8 @@ Goal: ClickUp Delivery Command · build 8 of 9: settings and notification automa
 | t6 | deploy | ClickUp Command · Mark notification read | t5 | done | 1 |
 | t7 | ai-agent | ClickUp Command Copilot |  | done | 1 |
 | t8 | publish | ClickUp Command Copilot | t7 | done | 1 |
-| t9 | code-app | ClickUp Delivery Command |  | running | 1 |
-| t10 | code-app | ClickUp Delivery Command | t9 | running | 1 |
+| t9 | code-app | ClickUp Delivery Command |  | done | 1 |
+| t10 | code-app | ClickUp Delivery Command | t9 | done | 1 |
 
 ### t1 · Shell for ClickUp Command · Update project settings
 
@@ -239,6 +244,35 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`, and \`app/src/styles/design-system.css\` equals client.css byte for byte below its font imports.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"34c4f6defb4470355a5003bc499fba973fd22908"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: create_code_app ok (no designSystemId), branch main, first head 7ed9eefe763bfb2242f15aced47d60309ecfe671
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit 34c4f6defb4470355a5003bc499fba973fd22908, 29 files incl. app/src/styles/design-system.css (added), app/src/styles/shell.css, app/src/App.tsx, app/index.html, app/public/logo.svg, app/public/logo-symbol.svg, app/src/components/shell/*, app/src/routes/* (Home.tsx deleted); no vite.config.ts, main.tsx or index.css in the files list
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha 34c4f6defb4470355a5003bc499fba973fd22908 at the time, interfaceRecord mode code, security PRIVATE (update_code_app_settings security type PRIVATE read back stored PRIVATE)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: app/src/styles/design-system.css = 2 @import url() lines (Inter with opsz/400-700; Noto Sans JP + IBM Plex Mono) followed by client.css; \`tail -n +3 design-system.css \| cmp - client.css\` answered identical
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: The shell was not opened in a browser (no [visual] proof): rail, top bar, profile menu, Appearance and Copilot slot rendering is unseen; check: open the previewUrl at /summary
+Unverified: The vite bundle hoists both Google Fonts @import lines to the top of the CSS (seen in local dist); that Inter/Noto/Plex actually load under the app's CSP is unseen; check: the preview's network tab for fonts.googleapis.com
+Note: handover: app id app-a2a9509a82c1, branch main (not git-linked), preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/, deployed URL https://app-a2a9509a82c1-orbit.tensor-uat.unifyapps.com (not published). Routes: / -&gt; /summary; /summary, /portfolio, /projects, /projects/:code, /projects/:code/change, /changes, /changes/:code, /resourcing, /timesheets, /admin (AppShell: rail + top bar + Copilot slot); /portal/home\|signoffs\|sessions\|files\|checklist (PortalShell, own top menu); /m/today\|tasks\|time\|alerts (PhoneShell, bottom tabs); /login, /forgot-password, /update-password kept.
+Note: handover: shell pieces: app/src/components/shell/{AppShell,PortalShell,PhoneShell,ProfileMenu,Notifications,CopilotSlot,ScreenFrame}.tsx, nav.ts (deepest-match rail), app/src/components/status.tsx (StatusTag: icon + word for all 16 statuses), app/src/lib/store.ts (zustand: persona, appearance light default, rail collapse, Copilot open), app/src/lib/dates.ts (formatDay -&gt; '16 Nov 2026'). The Copilot slot (.canvas) says 'Not connected yet' until the Copilot task wires CopilotProvider into CopilotSlot.tsx.
+Note: The kit has no \`.rail\` class (only \`.rail-demo\`), so the rail, top bar, portal bar and phone tabs are styled in app/src/styles/shell.css from kit tokens only (gradient var(--sp-deep) to var(--sp-blue), white plate for the logo, white tints at the kit's .22/.28/.72 alphas).
+Note: The kit's body font is Archivo; per the spec's typeface line (Inter, Noto Sans JP, IBM Plex Mono), shell.css sets body font-family to Inter, Noto Sans JP with tnum, leaving design-system.css byte-identical.
+Note: The persona switcher is a presentation 'View as' (it changes the shown persona and lands on their home screen); it does not change who is signed in, and gates no data. The rail's profile shows the signed-in user's name from useGetApiUserContext. The app's .agents/rules forbid a persona switcher unless asked; this task asks for one.
+Note: The app's build script is \`tsc -b &amp;&amp; oxlint -A correctness src &amp;&amp; vite build\`, not the template's two steps; I ran tsc -b, oxlint -A correctness src and vite build locally, all clean, and the engine build passed.
+Note: Tab icon: index.html links /logo-symbol.svg (app/public, copied byte for byte) and the title reads ClickUp Delivery Command; the engine's ua:csp and ua:theme-font blocks were left as they were.
+Note: feedback:
+Bug: A code-app task body tells the builder to read \`entity context code-app --name "&lt;app&gt;" --json\`, but the CLI refuses the kind \`code-app\`.
+Context: plan e_6adf4e82769c8b649ebf1b17, task t9 Read line; nebula.mjs entity context with --session.
+Where: nebula
+Evidence: answered {"error":{"code":"USAGE","message":"Entity context takes solution, app, page, object, automation, ai-agent ..."}}; \`entity context app --name\` answered miss.
+Cause: Suspected: the task writer emits \`code-app\` as an entity-context kind the CLI does not accept.
+Regression: run a generated code-app task's Read command verbatim; it answers hit/miss, not USAGE.
+Note: feedback:
+Bug: The plan's code-app shell task names a kit class \`.rail\` that client.css does not define.
+Context: plan e_6adf4e82769c8b649ebf1b17 task t9; studio/design-system/clickup/client.css.
+Where: nebula
+Evidence: client.css defines only \`.rail-demo\` and \`.rail-demo .nav\`; the builder wrote its own \`.rail\` in shell.css from kit tokens.
+Cause: Unknown — next check: compare the planner's class inventory with the selectors client.css defines.
+Regression: every class a task names exists as a selector in client.css.
 
 ### t10 · ClickUp Delivery Command: screen Executive summary and Portfolio
 
@@ -256,4 +290,19 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"764c6e05bdb56105e341306a7f9a9b21d3a4aae9"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: create_code_app_data_sources ok: storage fetch e_6adf5087dc07493166cf01c2, fetchOne e_6adf5087dc07493166cf01c5, create e_6adf5087769c8b649ebf5fec, update e_6adf5087dc07493166cf01c8, delete e_6adf5087769c8b649ebf5fef; SAVE_VIEW e_6adf5087769c8b649ebf5ff2 (automation 6adf460108750d257cf1e381, inputs name, filters_json, owner, shared_with); SEND_EXECUTIVE_SUMMARY e_6adf5087dc07493166cf01cb (automation 6adf4d1508750d257cf3df21, inputs to_email, week_start)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit 764c6e05bdb56105e341306a7f9a9b21d3a4aae9, files: app/src/components/portfolio/Overview.tsx, app/src/components/portfolio/ProjectsTable.tsx, app/src/components/ui-kit/kit.tsx, app/src/data/automations.ts, app/src/data/bindings.ts (modified), app/src/data/callables.ts (added), app/src/data/movers.ts, app/src/data/portfolio.ts, app/src/data/types.ts, app/src/routes/Portfolio.tsx, app/src/routes/Summary.tsx, app/src/styles/shell.css
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha 764c6e05bdb56105e341306a7f9a9b21d3a4aae9, message 'Build Executive summary and Portfolio screens', busy false, security PRIVATE
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed app/src/data/bindings.ts line 19 \`id: "e_6adf5087dc07493166cf01c2",\` (FETCH) and ENTITY project OBJ_cucmd_project, raid OBJ_cucmd_raid, weeklyMetric OBJ_cucmd_weekly_metric, savedView OBJ_cucmd_saved_view; app/src/data/callables.ts holds \`// &gt;&gt;&gt; callable 6adf460108750d257cf1e381\` and \`// &gt;&gt;&gt; callable 6adf4d1508750d257cf3df21\`
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: No screen was opened (no [visual] proof): that the story values render (38 at risk +5 worse, USD 18.4M from 17.8M, top movers led by IMP-2611, 161/38/15, RSK-1183 in the 4x5 cell, Region Japan + Health At risk answering '1 of 18') is unseen; check: open the previewUrl at /summary and /portfolio?region=japan&amp;health=at_risk
+Unverified: top_movers_json's key names were never read (the seed read-back left it out); movers.ts reads project_code\|code\|project\|id and change\|reason\|summary\|note\|detail\|description plus optional from/to; check: read the 2026-10-26 Weekly metric row's top_movers_json and the Top movers table
+Unverified: Send executive summary and Save view were not called from the app; check: press Email me this summary (expects a sent toast, or the preview with the result word) and Save view 'Japan at risk' shared with 'Japan team' (expects a saved toast with a view code; again answers refused_name_taken)
+Unverified: Saved views apply only the keys q, region, stage, health, lead from filters_json; the seeded V-02 also carries a go_live_date range, which the table does not apply; check: open Saved views and choose 'Europe go-lives this quarter'
+Note: handover: app id app-a2a9509a82c1, branch main, preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/. /summary: six .tile numbers with .delta (better/worse in words), value bridge .chart (recharts waterfall: start = value_awaiting_usd minus the four signed bridge fields), top movers .tbl, Email me this summary .btn-s + Preview + .note last updated. /portfolio: 3 health .tile with .spark and change since last week, risk grid .tbl (likelihood 5..1 by impact 1..5, a cell lists its risks inline), 90-day go-live timeline as .cal per region with Slipped tags, 12-week on-track .chart, projects .tbl with .toolbar search, Region/Stage/Health/Lead facets, removable chips, Clear all, 'x of y', .pg (10 per page), Saved views menu and Save view form. Filters live in the URL (?q=&amp;region=&amp;stage=&amp;health=&amp;lead=); the top bar search lands on /portfolio?q=.
+Note: handover: storage dataSources exist for the app (bindings.ts FETCH e_6adf5087dc07493166cf01c2); add later objects to ENTITY in app/src/data/bindings.ts rather than provisioning again. Automation wrappers live in app/src/data/automations.ts (useSaveView, useSendSummary, failureMessage); add new automations through create_code_app_data_sources kind automation.
+Note: Projects (limit 200) and RAID items (limit 200) are read whole and sliced in the browser for facets, 'x of y', timeline and risk grid, so all views derive from one set; the cache marks every facet field filterable:false, and 18 projects / 20 RAID rows fit one page. If a read ever reports hasMore, the count shows 'x of y+'.
+Note: Email me this summary sends to_email = the signed-in user's email (useGetApiUserContext) and week_start = the latest Weekly metric's week_start as a number; result 'sent' shows a .toast with the message id, anything else opens the in-app preview with the result word in a .tag.negative and a .note.
+Note: Charts are recharts (the app rules require it) inside the kit's .chart wrapper, coloured with kit tokens (--c2, --c3, --st-positive, --st-negative) and the kit .legend; the 90-day window and 'today' come from the clock at render.
 

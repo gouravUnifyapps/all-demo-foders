@@ -9,10 +9,10 @@
   "modifiedTime": 1793019630315,
   "ownerUserId": 66770,
   "properties": {
+    "asset_class": "e_interface",
     "asset_id": "app-a2a9509a82c1",
     "state": "COMPLETED",
-    "solution_id": "e_6adf231a08f96579541331a5",
-    "asset_class": "e_interface"
+    "solution_id": "e_6adf231a08f96579541331a5"
   },
   "standard": false,
   "version": 0

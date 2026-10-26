@@ -16,6 +16,11 @@ createdAt: "2026-10-26T12:51:07.580Z"
 runningAt: "2026-10-26T12:51:10.576Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 7 of 9: Copilot outputs, status report and weekly email automations
@@ -24,13 +29,13 @@ Goal: ClickUp Delivery Command · build 7 of 9: Copilot outputs, status report a
 |---|---|---|---|---|---:|
 | t1 | automation-shell | ClickUp Command · Accept proposed tasks |  | done | 1 |
 | t2 | automation | ClickUp Command · Accept proposed tasks | t1 | done | 1 |
-| t3 | deploy | ClickUp Command · Accept proposed tasks | t2 | running | 1 |
+| t3 | deploy | ClickUp Command · Accept proposed tasks | t2 | done | 1 |
 | t4 | automation-shell | ClickUp Command · Publish status report |  | done | 1 |
 | t5 | automation | ClickUp Command · Publish status report | t4 | done | 1 |
-| t6 | deploy | ClickUp Command · Publish status report | t5 | running | 1 |
+| t6 | deploy | ClickUp Command · Publish status report | t5 | done | 1 |
 | t7 | automation-shell | ClickUp Command · Send executive summary |  | done | 1 |
 | t8 | automation | ClickUp Command · Send executive summary | t7 | done | 1 |
-| t9 | deploy | ClickUp Command · Send executive summary | t8 | running | 1 |
+| t9 | deploy | ClickUp Command · Send executive summary | t8 | done | 1 |
 
 ### t1 · Shell for ClickUp Command · Accept proposed tasks
 
@@ -80,6 +85,10 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Accept proposed tasks deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4d11f3cd5f19ed4b436a"}
+Read back: ClickUp Command · Accept proposed tasks 6adf4d11f3cd5f19ed4b436a: before deploy search_workflows version 1 (the version t2 saved and tested); deploy_workflow ok:true workflowVersion 1, paused false
+Read back: ClickUp Command · Accept proposed tasks 6adf4d11f3cd5f19ed4b436a: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793019463374, savedAfterDeploy: false}
+Note: Answer from the person: yes, deploy ClickUp Command · Accept proposed tasks (through plan confirm).
 
 ### t4 · Shell for ClickUp Command · Publish status report
 
@@ -128,6 +137,10 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Publish status report deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4d1492718f6a64e5ca35"}
+Read back: ClickUp Command · Publish status report 6adf4d1492718f6a64e5ca35: before deploy search_workflows version 1 (the version t5 saved and tested); deploy_workflow ok:true workflowVersion 1, paused false
+Read back: ClickUp Command · Publish status report 6adf4d1492718f6a64e5ca35: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793019465150, savedAfterDeploy: false}
+Note: Answer from the person: yes, deploy ClickUp Command · Publish status report (through plan confirm).
 
 ### t7 · Shell for ClickUp Command · Send executive summary
 
@@ -178,4 +191,8 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Send executive summary deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4d1508750d257cf3df21"}
+Read back: ClickUp Command · Send executive summary 6adf4d1508750d257cf3df21: before deploy search_workflows version 1 (the version t8 saved and tested); deploy_workflow ok:true workflowVersion 1, paused false
+Read back: ClickUp Command · Send executive summary 6adf4d1508750d257cf3df21: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793019465927, savedAfterDeploy: false}
+Note: Answer from the person: yes, deploy ClickUp Command · Send executive summary (through plan confirm).
 

@@ -13,7 +13,7 @@ threads:
   g3:
   g4:
 intent: both (the outcome first, then one hood beat on the approval automation and the Copilot) · by Gourav Mahunta (G2 approval)
-stage_flag:
+stage_flag: /home/user/all-demo-foders/clickup/clickup-delivery-command-dashboard/.demo-studio/stage-running
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1793009027.033199, decided_by: Gourav Mahunta, decided_at: 2026-10-26T11:01:49Z}

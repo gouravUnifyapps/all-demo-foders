@@ -1,0 +1,21 @@
+{
+  "createdTime": 1793020698679,
+  "deleted": false,
+  "entityType": "e_solution",
+  "id": "e_6adf531a769c8b649ebfa30b",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793020698679,
+  "modifiedTime": 1793020698679,
+  "ownerUserId": 66770,
+  "properties": {
+    "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n",
+    "name": "Noventiq · Noventiq",
+    "description": ""
+  },
+  "standard": false,
+  "tags": [
+    "Nebula"
+  ],
+  "version": 0
+}

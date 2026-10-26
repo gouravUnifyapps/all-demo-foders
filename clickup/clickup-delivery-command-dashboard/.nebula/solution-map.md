@@ -6,6 +6,8 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
+| automation |  | 6adf45fef3cd5f19ed4a76ba |  | yes |
+| automation |  | 6adf460108750d257cf1e381 |  | yes |
 | object | `ClickUp Command · Project` | OBJ_cucmd_project | 0 | no |
 | object | `ClickUp Command · RAID item` | OBJ_cucmd_raid | 0 | no |
 | object | `ClickUp Command · Task` | OBJ_cucmd_task | 0 | no |
@@ -32,4 +34,5 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 ## Not checked
 
-- none
+- automation `6adf45fef3cd5f19ed4a76ba` (6adf45fef3cd5f19ed4a76ba): entity-not-cached
+- automation `6adf460108750d257cf1e381` (6adf460108750d257cf1e381): entity-not-cached

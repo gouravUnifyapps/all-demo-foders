@@ -22,10 +22,10 @@ Goal: ClickUp Delivery Command · build 4 of 9: last seeds, the Copilot's read t
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | record | ClickUp Command · Saved view |  | running | 1 |
-| t2 | record | ClickUp Command · Checklist item |  | running | 1 |
-| t3 | record | ClickUp Command · Integration |  | running | 1 |
-| t4 | record | ClickUp Command · Notification |  | running | 1 |
+| t1 | record | ClickUp Command · Saved view |  | done | 1 |
+| t2 | record | ClickUp Command · Checklist item |  | done | 1 |
+| t3 | record | ClickUp Command · Integration |  | done | 1 |
+| t4 | record | ClickUp Command · Notification |  | done | 1 |
 | t5 | automation-shell | ClickUp Command · Read delivery data |  | running | 1 |
 | t6 | automation | ClickUp Command · Read delivery data | t5 | running | 1 |
 | t7 | deploy | ClickUp Command · Read delivery data | t6 | pending | 0 |
@@ -44,6 +44,12 @@ Read back: \`get_records\` on \`OBJ_cucmd_saved_view\`, quoting each row's prima
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_saved_view\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_saved_view","records":["V-01","V-02"]}
+Read back: OBJ_cucmd_saved_view: get_records total 2
+Read back: OBJ_cucmd_saved_view V-01: name "My Japan projects", owner "Kenji Arai", filters_json {"region":"japan"}
+Read back: OBJ_cucmd_saved_view V-02: name "Europe go-lives this quarter", owner "Elena Fischer", shared_with "Europe delivery", filters_json region europe, stage go_live, go_live_date from 1790812800000 to 1798761599000 (Q4 2026)
+Note: Object was empty before the write; both rows created with view_code as record id.
+Note: owner and shared_with hold display names (text fields), matching the RAID owner convention; V-01 shared_with is an empty string (not shared).
 
 ### t2 · Seed ClickUp Command · Checklist item
 
@@ -56,6 +62,12 @@ Read back: \`get_records\` on \`OBJ_cucmd_checklist_item\`, quoting each row's p
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_checklist_item\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_checklist_item","records":["C-2611-01","C-2611-02","C-2611-03","C-2611-04","C-2611-05","C-2611-06","C-2611-07","C-2611-08","C-2611-09","C-2611-10"]}
+Read back: OBJ_cucmd_checklist_item: get_records total 10, C-2611-01 to C-2611-10, all project_code IMP-2611, each with question_en, question_de and question_ja
+Read back: OBJ_cucmd_checklist_item C-2611-01..07: answered_by "Haruto Mori" with answer and answered_at (e.g. C-2611-01 answer "Microsoft Entra ID", answered_at 1791763200000)
+Read back: OBJ_cucmd_checklist_item C-2611-08, C-2611-09, C-2611-10: no answer, answered_by or answered_at stored
+Read back: OBJ_cucmd_checklist_item C-2611-01 question_en "Which SSO provider do you use?"; C-2611-10 question_en "How will you measure success?"
+Note: Unanswered items 08-10 leave answer missing (not an empty string).
 
 ### t3 · Seed ClickUp Command · Integration
 
@@ -68,6 +80,13 @@ Read back: \`get_records\` on \`OBJ_cucmd_integration\`, quoting each row's prim
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_integration\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_integration","records":["salesforce","slack","google_drive","jira"]}
+Read back: OBJ_cucmd_integration: get_records total 4
+Read back: OBJ_cucmd_integration salesforce: status synced, last_sync 1793001300000 (2026-10-26 07:55 UTC)
+Read back: OBJ_cucmd_integration slack: status synced, last_sync 1793001480000 (07:58 UTC)
+Read back: OBJ_cucmd_integration google_drive: status synced, last_sync 1793000400000 (07:40 UTC)
+Read back: OBJ_cucmd_integration jira: status sync_failed, failing_since 1792966200000 (2026-10-25 22:10 UTC), error "Authentication expired for the Jira project ESC", affects "Engineering escalations on 3 projects are not updating"
+Note: Times taken as UTC. jira last_sync set to 1792965300000 (2026-10-25 21:55 UTC), the last good sync before failure, a value the line left open.
 
 ### t4 · Seed ClickUp Command · Notification
 
@@ -80,6 +99,11 @@ Read back: \`get_records\` on \`OBJ_cucmd_notification\`, quoting each row's pri
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_notification\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_notification","records":["N-01","N-02","N-03","N-04","N-05","N-06","N-07","N-08"]}
+Read back: OBJ_cucmd_notification: get_records total 8, N-01 to N-08 all person_code P-07
+Read back: OBJ_cucmd_notification kinds: assignment N-01, N-04, N-07; signoff N-03, N-06; mention N-02, N-05, N-08
+Read back: OBJ_cucmd_notification read: N-01, N-02, N-03 read false; N-04 to N-08 read true
+Note: Text, link and created_at (2026-10-16 to 2026-10-26 UTC midnight) are fictional and consistent with IMP-2611 tasks and deliverables.
 
 ### t5 · Shell for ClickUp Command · Read delivery data
 

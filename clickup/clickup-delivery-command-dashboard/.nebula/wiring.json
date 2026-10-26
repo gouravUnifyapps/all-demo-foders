@@ -1,6 +1,20 @@
 {
   "entities": [
     {
+      "kind": "automation",
+      "id": "6adf45fef3cd5f19ed4a76ba",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "automation",
+      "id": "6adf460108750d257cf1e381",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
       "kind": "object",
       "id": "OBJ_cucmd_project",
       "name": "ClickUp Command · Project",
@@ -121,5 +135,18 @@
     }
   ],
   "edges": [],
-  "unknown": []
+  "unknown": [
+    {
+      "kind": "automation",
+      "id": "6adf45fef3cd5f19ed4a76ba",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "automation",
+      "id": "6adf460108750d257cf1e381",
+      "name": null,
+      "reason": "entity-not-cached"
+    }
+  ]
 }

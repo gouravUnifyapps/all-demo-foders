@@ -220,9 +220,9 @@
     {
       "kind": "ai-agent",
       "id": "e_6adf4f02dc07493166ced9fa",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "ClickUp Command Copilot",
+      "version": 5,
+      "stale": false
     }
   ],
   "edges": [
@@ -1212,8 +1212,8 @@
     {
       "kind": "ai-agent",
       "id": "e_6adf4f02dc07493166ced9fa",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "ClickUp Command Copilot",
+      "reason": "its tools are not in the cache (get_agent)"
     }
   ]
 }

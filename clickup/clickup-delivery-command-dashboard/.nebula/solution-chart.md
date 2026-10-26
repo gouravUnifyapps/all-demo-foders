@@ -33,7 +33,7 @@ flowchart LR
   n29["object ClickUp Command · Integration · OBJ_cucmd_integration"]
   n30["object ClickUp Command · Notification · OBJ_cucmd_notification"]
   n31["object ClickUp Command · Checklist item · OBJ_cucmd_checklist_item"]
-  n32["AI agent e_6adf4f02dc07493166ced9fa · e_6adf4f02dc07493166ced9fa"]
+  n32["AI agent ClickUp Command Copilot · e_6adf4f02dc07493166ced9fa"]
   n2 -->|storage read| n15
   n2 -->|storage read| n17
   n2 -->|storage read| n16

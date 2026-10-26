@@ -37,7 +37,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | object | `ClickUp Command · Integration` | OBJ_cucmd_integration | 0 | no |
 | object | `ClickUp Command · Notification` | OBJ_cucmd_notification | 0 | no |
 | object | `ClickUp Command · Checklist item` | OBJ_cucmd_checklist_item | 0 | no |
-| ai-agent |  | e_6adf4f02dc07493166ced9fa |  | yes |
+| ai-agent | `ClickUp Command Copilot` | e_6adf4f02dc07493166ced9fa | 5 | no |
 
 ## Wiring
 
@@ -112,4 +112,4 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 ## Not checked
 
 - app `app-a2a9509a82c1` (app-a2a9509a82c1): interface-not-cached
-- ai-agent `e_6adf4f02dc07493166ced9fa` (e_6adf4f02dc07493166ced9fa): entity-not-cached
+- ai-agent `ClickUp Command Copilot` (e_6adf4f02dc07493166ced9fa): its tools are not in the cache (get_agent)

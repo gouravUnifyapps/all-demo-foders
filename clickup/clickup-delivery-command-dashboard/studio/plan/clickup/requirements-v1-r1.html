@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Requirements · ClickUp Delivery Command dashboard · v1 r1</title>
+<style>:root { --ink: #1f2328; --muted: #57606a; --line: #d0d7de; --head: #f6f8fa; }
+html, body { background: #fff; color: var(--ink); }
+body { font: 10.5pt/1.45 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+h1 { font-size: 18pt; margin: 0 0 4pt; }
+h2 { font-size: 13pt; margin: 18pt 0 6pt; border-bottom: 1px solid var(--line); padding-bottom: 3pt; }
+p, li { margin: 3pt 0; }
+.meta { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; margin: 6pt 0; }
+th, td { border: 1px solid var(--line); padding: 4pt 6pt; text-align: left; vertical-align: top; }
+th { background: var(--head); font-weight: 600; }
+td.id { white-space: nowrap; width: 3.5em; }
+@media print {
+  @page { size: A4; margin: 16mm; }
+  tr, li { break-inside: avoid; }
+  h2 { break-after: avoid; }
+}
+
+.small { font-size: 9pt; }
+</style></head><body>
+<h1>ClickUp Delivery Command dashboard: requirements</h1>
+<p class="meta">Client: Clickup · Use case: ClickUp Delivery command dashboard · Version 1, round 1 (kickoff) · Harvested 26 Oct 2026 · POC lead and manager: Gourav Mahunta</p>
+
+<h2>1. Summary</h2>
+<table><tbody>
+<tr><th>What the client wants</th><td>Delivery Command: one application where ClickUp's enterprise implementation team plans, staffs and reports on every customer implementation, customers follow and sign off their own rollout, and an AI assistant (Delivery Copilot) writes the routine status work. Seven stages per project: Kickoff, Discovery, Configuration, Migration, Training, Go-live, Hypercare.</td></tr>
+<tr><th>Asks added</th><td>104 in all: 50 P0, 53 P1, 1 for another use case</td></tr>
+<tr><th>Why so many P0</th><td>The BRD says every requirement in its § 5 is a Must for the first release unless marked Should; those, and lines worded "must", are P0 (open question 2).</td></tr>
+<tr><th>Audience in the BRD</th><td>Implementation lead, delivery director, resource manager, implementation consultant, customer project sponsor, VP of customer success (six personas, BRD § 4).</td></tr>
+<tr><th>Sample data given</th><td>Six invented customers: Halden Freight (Logistics, Europe, 4,800 seats, Migration), Corvia Health (Healthcare, North America, 12,000, Configuration), Brightmoor University (Education, Europe, 2,300, Training), Kestrel Energy (Energy, North America, 7,500, Discovery), Sakura Mobility (Automotive, Japan, 9,200, Go-live), Ostrander Retail (Retail, North America, 650, Hypercare). The BRD states its team, customers, figures and rules are invented.</td></tr>
+<tr><th>Not given</th><td>No brand colour, logo, typeface file or design system: the BRD says to take them from clickup.com (A6, A7, A9).</td></tr>
+</tbody></table>
+
+<h3>Sources read</h3>
+<table><thead><tr><th>Source</th><th>What it held</th></tr></thead><tbody>
+<tr><td>#clickup-test-4, whole history (9 messages) and its 2 threads</td><td>The BRD file post, the POC setup exchange (use case, manager, client, "build"). No asks in the messages themselves.</td></tr>
+<tr><td>ClickUp-Delivery-Command-BRD.pdf (Slack file F0CA4HW01MX, 9 pages, 17 Oct 2026)</td><td>Every ask in this document. Read from Slack on the first attempt.</td></tr>
+<tr><td>POC row's psl_document rows (1 row, type input)</td><td>The same BRD, content already extracted; matches the Slack file.</td></tr>
+<tr><td>POC row's psl_feedback rows</td><td>None.</td></tr>
+<tr><td>Gmail, since 26 Oct 2026, naming ClickUp or the use case, or from or to clickup.com</td><td>No threads.</td></tr>
+</tbody></table>
+<h3>Sources not read</h3>
+<table><thead><tr><th>Source</th><th>Why</th></tr></thead><tbody>
+<tr><td>Google Calendar</td><td>not read: the connector needs the person to sign in again</td></tr>
+<tr><td>Call recordings and transcripts</td><td>not read: none shared; no client call is known (Calendar unread)</td></tr>
+<tr><td>Google Drive</td><td>not read: not connected (no file needed a Drive fallback)</td></tr>
+</tbody></table>
+<p>Seen in shared media: none (no image, video or audio files were shared).</p>
+
+<h3>Size hint</h3>
+<p>23 objects · 14 automations · 1 AI agent. A flag, not a budget; 2-plan sets the size.</p>
+<table><thead><tr><th>Object</th><th>Asks behind it</th></tr></thead><tbody>
+<tr><td>Project (customer, region, stage, go-live, health, lead, seats, contract value)</td><td>A13, A14, A19, A57, A42</td></tr>
+<tr><td>Stage / milestone</td><td>A19, A42, A43</td></tr>
+<tr><td>Task (with dependencies)</td><td>A20, A21, A25, A52</td></tr>
+<tr><td>RAID item (risk, assumption, issue, decision)</td><td>A15, A22, A41</td></tr>
+<tr><td>Document</td><td>A23, A42</td></tr>
+<tr><td>Activity entry</td><td>A24, A34</td></tr>
+<tr><td>Consultant</td><td>A26, A28</td></tr>
+<tr><td>Skill level</td><td>A28</td></tr>
+<tr><td>Booking</td><td>A26, A27, A30</td></tr>
+<tr><td>Time entry</td><td>A29, A52</td></tr>
+<tr><td>Timesheet</td><td>A29</td></tr>
+<tr><td>Change request</td><td>A31, A32, A33, A34</td></tr>
+<tr><td>Approval step</td><td>A33, A34</td></tr>
+<tr><td>Status report</td><td>A38</td></tr>
+<tr><td>Sign-off</td><td>A43</td></tr>
+<tr><td>Training slot</td><td>A44</td></tr>
+<tr><td>Customer upload and row errors</td><td>A45</td></tr>
+<tr><td>Readiness checklist item</td><td>A46</td></tr>
+<tr><td>Notification</td><td>A53</td></tr>
+<tr><td>Audit record</td><td>A55</td></tr>
+<tr><td>Integration status</td><td>A56</td></tr>
+<tr><td>Saved view</td><td>A18</td></tr>
+<tr><td>Weekly snapshot (for change since last week and 12-week trend)</td><td>A14, A17, A48, A49, A50</td></tr>
+</tbody></table>
+<table><thead><tr><th>Automation</th><th>Asks behind it</th></tr></thead><tbody>
+<tr><td>Change request routing: under 40 h director; 40 h or more director then finance</td><td>A33</td></tr>
+<tr><td>Change decision: reject needs a reason; approve updates the plan and the activity feed</td><td>A34</td></tr>
+<tr><td>Timeline reschedule: move dependants, preview the new go-live date</td><td>A21</td></tr>
+<tr><td>Booking over-capacity check before saving</td><td>A26, A27</td></tr>
+<tr><td>Timesheet approve or return with a reason</td><td>A29</td></tr>
+<tr><td>Customer sign-off or change request with comment</td><td>A43</td></tr>
+<tr><td>Training slot booking</td><td>A44</td></tr>
+<tr><td>CSV upload validation, row by row</td><td>A45</td></tr>
+<tr><td>Weekly snapshot of portfolio numbers</td><td>A14, A17, A48</td></tr>
+<tr><td>Weekly executive email, Monday 08:00 per region</td><td>A51</td></tr>
+<tr><td>Status report export to PDF and Word</td><td>A38</td></tr>
+<tr><td>Notifications on assignment, sign-off and mention</td><td>A53</td></tr>
+<tr><td>Audit record on every change</td><td>A55</td></tr>
+<tr><td>Weekly status post to each project Slack channel</td><td>A93</td></tr>
+</tbody></table>
+<table><thead><tr><th>AI agent</th><th>Asks behind it</th></tr></thead><tbody>
+<tr><td>Delivery Copilot: questions, chart, status report, task proposals, meeting summary, risk prediction</td><td>A13, A36, A37, A38, A39, A40, A41</td></tr>
+</tbody></table>
+
+<h2>2. Asks</h2>
+<p class="small">All from ClickUp-Delivery-Command-BRD.pdf, posted in #clickup-test-4 on 26 Oct 2026. The source column gives the page and section; § 5 asks carry the BRD's requirement id. A " | " separates the cells of one table row in the BRD.</p>
+<h3>P0 (50)</h3>
+<table><thead><tr><th>Id</th><th>Words, verbatim</th><th>Source</th><th>Proposed owner</th></tr></thead><tbody>
+<tr><td class="id">A9</td><td>Typeface: take it from the live site. Numbers must line up in tables. The customer portal must also display Japanese and German text correctly.</td><td>p.2 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A13</td><td>List every project with customer, region, stage, go-live date, health, lead, seats and contract value. Users search and filter by region, stage, health and lead. The count of results shows as &quot;x of y&quot;. Filters that apply show as removable chips with one &quot;clear all&quot;.</td><td>p.2 § 5.1 Portfolio P1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A14</td><td>Show portfolio health as counts of On track, At risk and Off track, with the change since last week.</td><td>p.2 § 5.1 Portfolio P2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A15</td><td>Place each open risk on a grid of likelihood against impact, so leaders see which risks matter most. Choosing a cell lists its risks.</td><td>p.2 § 5.1 Portfolio P3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A16</td><td>Show every go-live date in the next 90 days on a timeline, grouped by region, with slipped dates marked.</td><td>p.2 § 5.1 Portfolio P4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A17</td><td>Show how the share of projects on track has moved over the last 12 weeks.</td><td>p.2 § 5.1 Portfolio P5</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A18</td><td>Leaders can save a filtered view and share it with their team.</td><td>p.2 § 5.1 Portfolio P6</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A19</td><td>A project overview shows the stage the project is in, the seven stages as a progress path, days to go-live, budget hours used against planned, open risks and the next customer sign-off due.</td><td>p.3 § 5.2 Project workspace W1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A20</td><td>Tasks can be viewed as a list or as a board with one column per stage. A column shows a warning when it holds more than its limit (default 15). Tasks can be moved between columns by dragging or from a menu.</td><td>p.3 § 5.2 Project workspace W2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A21</td><td>A timeline shows tasks with start and end dates, dependencies between them and the critical path. Changing a date moves dependent tasks and shows the new go-live date before it is saved.</td><td>p.3 § 5.2 Project workspace W3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A22</td><td>A risks, assumptions, issues and decisions (RAID) log records each item with owner, due date, status and history.</td><td>p.3 § 5.2 Project workspace W4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A23</td><td>A document library holds the statement of work, migration plans and sign-off records. Files open in a viewer inside the application.</td><td>p.3 § 5.2 Project workspace W5</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A24</td><td>An activity feed shows who changed what and when on the project.</td><td>p.3 § 5.2 Project workspace W6</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A25</td><td>Task detail opens beside the list so the user keeps their place. It shows description, assignee, dates, time logged, comments and attachments.</td><td>p.3 § 5.2 Project workspace W7</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A26</td><td>Show every consultant against the next 12 weeks with the percentage they are booked each week. Over 100% is flagged.</td><td>p.3 § 5.3 Resourcing and time R1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A27</td><td>Book a consultant onto a project by choosing person, project, weeks and hours. Booking works without dragging.</td><td>p.3 § 5.3 Resourcing and time R2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A28</td><td>Show consultants against skills (data migration, integrations, admin training, API, Japanese language) with a level for each, so the right person can be found.</td><td>p.3 § 5.3 Resourcing and time R3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A29</td><td>Consultants log time against tasks each day. Managers approve or return weekly timesheets, giving a reason when they return one.</td><td>p.3 § 5.3 Resourcing and time R4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A31</td><td>An implementation lead raises a change request with the reason, the work added or removed, and the effect on hours, cost and go-live date.</td><td>p.4 § 5.4 Scope changes and approvals S1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A32</td><td>Before submitting, the lead sees the plan before and after the change side by side, with the differences marked.</td><td>p.4 § 5.4 Scope changes and approvals S2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A33</td><td>Changes under 40 hours need the delivery director&#x27;s approval. Changes of 40 hours or more also need the finance partner, in that order. The request shows who has approved and who is next.</td><td>p.4 § 5.4 Scope changes and approvals S3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A34</td><td>Rejecting a change request requires a written reason. Approved changes update the plan and are recorded in the activity feed.</td><td>p.4 § 5.4 Scope changes and approvals S4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A35</td><td>Delivery Copilot is an AI assistant available from every internal screen. It has the tools listed below. Anything it writes is labelled as AI-written.</td><td>p.4 § 5.5 Delivery Copilot (intro)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A36</td><td>Users ask questions in plain language, for example &quot;Which Japan projects go live in November and are at risk?&quot; The assistant opens with three suggested questions based on the user&#x27;s projects, and shows each stage while it works.</td><td>p.4 § 5.5 Delivery Copilot A1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A37</td><td>Chart tool: the assistant can answer with a chart, such as hours by stage or go-lives by month. Charts use the application&#x27;s colours and show units.</td><td>p.4 § 5.5 Delivery Copilot A2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A38</td><td>Status report tool: the assistant drafts the weekly status report for a project from its tasks, risks and time entries. The lead edits and publishes it. The report can be exported as PDF or Word.</td><td>p.4 § 5.5 Delivery Copilot A3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A39</td><td>Task tool: the assistant can propose tasks, for example after a meeting summary. Proposed tasks are listed for the user to accept or reject; nothing is created without acceptance.</td><td>p.4 § 5.5 Delivery Copilot A4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A40</td><td>Meeting summary tool: the assistant summarises a customer meeting transcript into decisions, actions and risks. Each point links to the part of the transcript it came from.</td><td>p.4 § 5.5 Delivery Copilot A5</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A41</td><td>Risk prediction: the assistant flags projects likely to miss go-live, with a confidence level and the evidence for each flag, such as migration tasks running late.</td><td>p.4 § 5.5 Delivery Copilot A6</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A42</td><td>Customer sponsors sign in to see only their own project: stage, milestones, upcoming sessions, open actions for their team and the documents shared with them.</td><td>p.4–5 § 5.6 Customer portal C1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A43</td><td>Sponsors sign off a stage deliverable or request changes with a comment. A sign-off records who approved and when.</td><td>p.4–5 § 5.6 Customer portal C2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A44</td><td>Sponsors book training sessions by choosing a day and then a time slot. Taken slots stay visible but cannot be chosen.</td><td>p.4–5 § 5.6 Customer portal C3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A45</td><td>Sponsors upload files such as user lists (CSV up to 50,000 rows). Errors appear row by row and can be fixed before confirming.</td><td>p.4–5 § 5.6 Customer portal C4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A46</td><td>A readiness checklist guides the customer through 10 setup items. An item they have not answered shows as not set, never as a guessed value.</td><td>p.4–5 § 5.6 Customer portal C5</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A47</td><td>The portal is available in English, German and Japanese.</td><td>p.4–5 § 5.6 Customer portal C6</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A48</td><td>A weekly summary shows six headline numbers with their change from last week: active projects, go-lives this month, projects at risk, average days to go-live, consultant utilisation and contract value awaiting go-live. A change is coloured by whether it is good or bad for the business, not by its sign.</td><td>p.5 § 5.7 Executive summary E1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A49</td><td>Show how contract value awaiting go-live moved from last month to this month, split into new projects, go-lives completed, slipped dates and cancellations.</td><td>p.5 § 5.7 Executive summary E2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A50</td><td>List the five projects that changed most this week, with the reason for each.</td><td>p.5 § 5.7 Executive summary E3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A51</td><td>The summary is also sent as an email every Monday at 08:00 in each region&#x27;s time zone.</td><td>p.5 § 5.7 Executive summary E4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A52</td><td>Consultants see today&#x27;s tasks and sessions, update a task&#x27;s status, and log time in under 30 seconds on a phone.</td><td>p.5 § 5.8 Consultant on the phone M1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A53</td><td>Notifications for new assignments, sign-offs and mentions. Each can be marked read or opened.</td><td>p.5 § 5.8 Consultant on the phone M2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A54</td><td>Roles control what each user can see and change. Show roles against permissions as a grid.</td><td>p.5 § 5.9 Administration and audit D1</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A55</td><td>Keep a record of who did what and when. It cannot be edited and can be filtered by person, project and action.</td><td>p.5 § 5.9 Administration and audit D2</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A56</td><td>Show the status of each integration (Salesforce, Slack, Google Drive, Jira) with last sync time and any error.</td><td>p.5 § 5.9 Administration and audit D3</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A57</td><td>Project settings (name, region, go-live date, budget hours) can be edited in place, with clear unsaved, saving, saved and failed states.</td><td>p.5 § 5.9 Administration and audit D4</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A58</td><td>Sign-in, forgot password, reset password</td><td>p.5 § 6 Screens (screen row: Everyone, First release)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A59</td><td>Internal users navigate with a left menu: Portfolio, Projects, Resourcing, Timesheets, Changes, Admin. The top bar shows the current project or view, search, notifications and the profile menu. Delivery Copilot opens as a panel on the right.</td><td>p.6 § 6 Navigation</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A60</td><td>Customers get a shorter top menu: Home, Sign-offs, Sessions, Files, Checklist.</td><td>p.6 § 6 Navigation</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A61</td><td>The phone has bottom tabs: Today, Tasks, Time, Alerts.</td><td>p.6 § 6 Navigation</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A96</td><td>The first release does not include the following, and the application must not suggest otherwise: • Billing, invoicing or revenue recognition. • Building or editing customer workspaces in the core ClickUp product. • Hiring, performance reviews or payroll for consultants. • A public marketing site. • Video calls or call recording. • Offline use of the phone view.</td><td>p.8 § 12 Out of scope</td><td>Gourav Mahunta</td></tr>
+</tbody></table>
+<h3>P1 (53)</h3>
+<table><thead><tr><th>Id</th><th>Words, verbatim</th><th>Source</th><th>Proposed owner</th></tr></thead><tbody>
+<tr><td class="id">A1</td><td>Earlier warning: a project at risk of missing its go-live date is flagged at least three weeks before the date, on average.</td><td>p.1 § 1 Summary</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A2</td><td>Less reporting effort: weekly status reports take a consultant under 10 minutes instead of about an hour.</td><td>p.1 § 1 Summary</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A3</td><td>Balanced staffing: no consultant is booked above 100% for more than one week in a quarter.</td><td>p.1 § 1 Summary</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A4</td><td>Faster customer sign-off: customers approve deliverables in the portal within two working days.</td><td>p.1 § 1 Summary</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A5</td><td>Delivery Command should make all three visible and actionable.</td><td>p.1 § 2 Background</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A6</td><td>Brand colour: none supplied. Take it from the live site clickup.com.</td><td>p.1 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A7</td><td>Logo: no file supplied. Fetch the official logo. It appears on the sign-in page, the expanded and collapsed left menu, the browser tab icon, the customer portal header, generated status reports (PDF and Word), and the weekly executive email.</td><td>p.1 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A8</td><td>Customer logos: shown as circles on project cards and in the portal.</td><td>p.1 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A10</td><td>Tone: clear, calm and direct. Errors say what happened and what to do next. No jokes or exclamation marks in the product.</td><td>p.2 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A11</td><td>Feel: the internal workspace is a daily working tool and should stay dense and quiet. The customer portal and the executive summary are also shown in sales demos and should look polished.</td><td>p.2 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A12</td><td>Appearance: light and dark both needed. Light is the default.</td><td>p.2 § 3 Brand</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A30</td><td>Should: show booked hours against capacity for each region over the quarter.</td><td>p.3 § 5.3 Resourcing and time R5</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A62</td><td>Active projects | 180 to 300 | Portfolio list needs paging, search and filters</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A63</td><td>Tasks per project | 150 to 1,200 | Board and timeline must stay readable</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A64</td><td>Consultants and leads | about 72 | Resourcing grid is people against 12 weeks</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A65</td><td>Open risks across the portfolio | about 400 | Grid of likelihood against impact, with drill-down</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A66</td><td>Customer users | about 900 | Portal must be simple for occasional users</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A67</td><td>Time entries per week | about 3,000 | Timesheet approval in batches</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A68</td><td>Customer upload | up to 50,000 rows | Errors summarised, not listed in full</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A69</td><td>Languages | English, German, Japanese | Text can grow by 30% in German</td><td>p.6–7 § 7 Data volumes (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A70</td><td>Good or finished | On track, Signed off, Approved, Live</td><td>p.7 § 8 Status words (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A71</td><td>Needs attention | At risk, Awaiting sign-off, Over capacity, Pending approval</td><td>p.7 § 8 Status words (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A72</td><td>Problem | Off track, Blocked, Rejected, Sync failed</td><td>p.7 § 8 Status words (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A73</td><td>Neutral | Not started, Draft, Scheduled, Hypercare</td><td>p.7 § 8 Status words (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A74</td><td>Project IDs look like IMP-2611, change requests like CR-0457, risks like RSK-1183.</td><td>p.7 § 8 Sample content</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A75</td><td>Dates show in the user&#x27;s format (17 Oct 2026, 17.10.2026, 2026 年 10 月 17 日). Money shows in the contract currency (USD, EUR or JPY).</td><td>p.7 § 8 Sample content</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A76</td><td>No projects assigned yet | Projects appear here once a lead assigns you</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A77</td><td>A search or filter matches nothing | Nothing matches the current filters, with a way to clear them</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A78</td><td>Copilot is still working | Which stage it is on</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A79</td><td>Copilot cannot answer | Why, and what to try instead</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A80</td><td>An integration has failed | Which one, since when, and what is affected</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A81</td><td>A booking takes someone over capacity | Who, which weeks and by how much, before saving</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A82</td><td>A customer upload has errors | For example 214 of 50,000 rows need fixing</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A83</td><td>A checklist item has no answer | The item shows as not set</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A84</td><td>The user has no access to a project | Who can grant access</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A85</td><td>The session is about to end | How to stay signed in</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A86</td><td>Data is out of date | When it was last updated</td><td>p.7–8 § 9 Situations the screens must handle (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A87</td><td>The internal workspace is in English. The customer portal is in English, German and Japanese.</td><td>p.8 § 10 Languages, regions and accessibility</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A88</td><td>Times show the user&#x27;s time zone. Weeks start on Monday in Europe and Japan and on Sunday in North America.</td><td>p.8 § 10 Languages, regions and accessibility</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A89</td><td>All drag actions also work from the keyboard. Controls are at least 24 px on desktop and larger on the phone.</td><td>p.8 § 10 Languages, regions and accessibility</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A90</td><td>Meaning never depends on colour alone: every status shows an icon and a word.</td><td>p.8 § 10 Languages, regions and accessibility</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A91</td><td>Screens meet WCAG 2.2 AA in both light and dark appearance.</td><td>p.8 § 10 Languages, regions and accessibility</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A92</td><td>Salesforce | Contract value, seats and close date when a deal is won, which creates the project</td><td>p.8 § 11 Integrations (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A93</td><td>Slack | Notifications and the weekly status post to each project channel</td><td>p.8 § 11 Integrations (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A94</td><td>Google Drive | Shared documents and customer uploads</td><td>p.8 § 11 Integrations (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A95</td><td>Jira | Engineering escalations linked to project issues</td><td>p.8 § 11 Integrations (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A97</td><td>Executive time to read the weekly summary | 10 minutes or less</td><td>p.9 § 13 Success measures (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A98</td><td>Customers completing the readiness checklist without help | 75%</td><td>p.9 § 13 Success measures (table row)</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A99</td><td>I want to see every project on one screen without scrolling.</td><td>p.9 § 14 Stakeholder notes, delivery director</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A100</td><td>Let us edit the timeline straight from the phone.</td><td>p.9 § 14 Stakeholder notes, consultants</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A101</td><td>Show customers their health score.</td><td>p.9 § 14 Stakeholder notes, VP of customer success</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A102</td><td>Customers should never see internal health.</td><td>p.9 § 14 Stakeholder notes, implementation leads</td><td>Gourav Mahunta</td></tr>
+<tr><td class="id">A103</td><td>Colour-code consultants by region everywhere.</td><td>p.9 § 14 Stakeholder notes, resource manager</td><td>Gourav Mahunta</td></tr>
+</tbody></table>
+
+<h2>3. Open questions</h2>
+<p class="small">For the POC lead. Answer by number and letter, for example "1a, 2a, 3b". Option a is the recommended one each time.</p>
+<ol>
+<li><p>Scope of this use case. The POC is named &quot;Delivery command dashboard&quot;, but the BRD (A1–A104) describes the whole Delivery Command application: 13 screen groups, an internal workspace, a customer portal, a phone view and an AI assistant. The BRD also calls itself an illustrative scenario.</p><ol type="a"><li>One app covering every ask, with the storyline led by the portfolio dashboard, the executive summary and Delivery Copilot (recommended)</li><li>The dashboard screens only (portfolio, executive summary, Copilot); the other areas logged as other use cases</li><li>The whole BRD with equal weight on every screen</li></ol></li><li><p>Priority. The BRD marks every § 5 requirement as Must unless marked Should, so 50 asks are P0 (all of § 5 except R5, plus the must-worded brand, navigation, sign-in and out-of-scope lines). Keep them all P0?</p><ol type="a"><li>Keep all 50 as P0; the plan shows each one somewhere, the storyline picks the lean-forward few (recommended)</li><li>The lead names the P0 set for the 20-minute demo and the rest become P1</li></ol></li><li><p>A99, delivery director: &quot;I want to see every project on one screen without scrolling.&quot; The BRD also says 180 to 300 projects and a paged list (A62, P1).</p><ol type="a"><li>A compact portfolio overview (health counts, risk grid, go-live timeline) above the paged list, so the whole portfolio reads on one screen (recommended)</li><li>Every project as a dense tile wall on one screen</li><li>Paged list only; the note is declined and recorded</li></ol></li><li><p>A100, consultants: &quot;Let us edit the timeline straight from the phone.&quot;</p><ol type="a"><li>Decline: the phone keeps M1 and M2 (status, time, notifications); the timeline stays a desktop screen (recommended)</li><li>Allow date changes from the phone with the W3 preview of the new go-live date</li></ol></li><li><p>A101 vs A102: the VP of customer success wants customers to see their health score; implementation leads say customers should never see internal health.</p><ol type="a"><li>Hide internal health from the portal; customers see stage, milestones and open actions (C1) only (recommended)</li><li>Show a customer-facing readiness score in the portal, separate from internal health</li><li>Show internal health in the portal</li></ol></li><li><p>A103, resource manager: &quot;Colour-code consultants by region everywhere.&quot; The BRD also says meaning never depends on colour alone (A90) and keeps status colours (A70–A73).</p><ol type="a"><li>A labelled region tag with its own colour on consultant rows and avatars, never colour alone (recommended)</li><li>Region colour in the resourcing grid only</li><li>Decline and record it</li></ol></li><li><p>A104, Sales: &quot;Add a pricing calculator for upsells.&quot; Logged under Other use cases; the BRD&#x27;s out of scope (A96) excludes billing and revenue.</p><ol type="a"><li>Leave it out of this use case (recommended)</li><li>Reply promote A104 to bring it in</li></ol></li><li><p>Demo data volume. The profile says fictional data, 15 to 20 rows; the BRD speaks of 180 to 300 projects, about 72 consultants and about 400 risks, and names six sample customers.</p><ol type="a"><li>15 to 20 projects built around the six named sample customers, with headline counts on the dashboards seeded to read like the BRD&#x27;s portfolio (recommended)</li><li>Seed the full BRD volumes (about 250 projects, 72 consultants, 400 risks)</li></ol></li><li><p>Phone view (M1, M2, A61). The BRD asks for a phone with bottom tabs Today, Tasks, Time, Alerts.</p><ol type="a"><li>A responsive phone layout of the same code app, shown in a phone frame (recommended)</li><li>A separate native mobile app</li></ol></li><li><p>Integrations (A92–A95, D3): Salesforce, Slack, Google Drive and Jira. The profile allows only connections already on the tenant.</p><ol type="a"><li>Use a connection where one already exists on the tenant; show the rest on the integration status screen with seeded sync times and one seeded Sync failed row (recommended)</li><li>Seeded status only, no live connection at all</li></ol></li><li><p>Weekly executive email (E4) and the weekly Slack status post (A93).</p><ol type="a"><li>Generate the email and post as previews in the app, and send one real email to the presenter during the demo (recommended)</li><li>Preview only, nothing sent</li><li>Send to a demo Slack channel and inbox on a schedule</li></ol></li>
+</ol>
+
+<h2>4. Other use cases mentioned</h2>
+<p class="small">Reply "promote A&lt;n&gt;" to bring one into this use case.</p>
+<table><thead><tr><th>Id</th><th>Words, verbatim</th><th>Other use case</th><th>Source</th></tr></thead><tbody>
+<tr><td class="id">A104</td><td>Add a pricing calculator for upsells.</td><td>Sales upsell pricing calculator</td><td>p.9 § 14 Stakeholder notes, Sales</td></tr>
+</tbody></table>
+</body></html>

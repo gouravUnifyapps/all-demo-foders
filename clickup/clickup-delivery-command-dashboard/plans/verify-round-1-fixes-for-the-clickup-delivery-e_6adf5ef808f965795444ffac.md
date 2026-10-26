@@ -16,6 +16,11 @@ createdAt: "2026-10-26T14:08:56.690Z"
 runningAt: "2026-10-26T14:09:00.049Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot names the week it reads (26 Oct 2026) and compar
@@ -23,7 +28,7 @@ Goal: Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot na
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | ClickUp Command Copilot |  | done | 1 |
-| t2 | publish | ClickUp Command Copilot | t1 | running | 1 |
+| t2 | publish | ClickUp Command Copilot | t1 | done | 1 |
 | t3 | code-app | ClickUp Delivery Command |  | done | 1 |
 | t4 | code-publish | ClickUp Delivery Command | t3 | done | 1 |
 
@@ -75,6 +80,13 @@ Read back: \`get_agent\` showing published true, the published version, needsPub
 Report ids (the agent id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_agent\` shows ClickUp Command Copilot published with needsPublish false.
+Result IDs: {"entity":"e_6adf4f02dc07493166ced9fa"}
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa before publish: get_agent version 11, published true, needsPublish true (t1's draft).
+Read back: ClickUp Command Copilot publish_agent (confirmed true): ok true, publishedVersion 11, wasAtVersion 5, live true, automationSaid {"response":"success"}.
+Read back: ClickUp Command Copilot get_agent after publish: published true, needsPublish false, version 16, instructions still hold "1 Oct 2026 is 1790812800000" and the week-of comparison rule; model e_6ad496812dd4ba5be70afcc1 in all three slots.
+Unverified: ClickUp Command Copilot has no deployment (get_agent deployments []), so the published version is not reachable from a copilot or channel; deploying was not asked in this task. Check: list_deployments on the agent.
+Note: Answer from the person: yes, publish ClickUp Command Copilot. The person said yes to 'Publish the AI agent ClickUp Command Copilot on orbit.uat.unifyapps.com?' through plan confirm; do not ask again.
+Note: The agent's record version moved from 11 to 16 during the publish with no further write from this task. publish_agent's publishedVersion 11 is the published draft, and needsPublish false confirms it.
 
 ### t3 · ClickUp Delivery Command: empty states name their items
 

@@ -39,7 +39,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | object | `ClickUp Command · Integration` | OBJ_cucmd_integration | 0 | no |
 | object | `ClickUp Command · Notification` | OBJ_cucmd_notification | 0 | no |
 | object | `ClickUp Command · Checklist item` | OBJ_cucmd_checklist_item | 0 | no |
-| ai-agent | `ClickUp Command Copilot` | e_6adf4f02dc07493166ced9fa | 11 | no |
+| ai-agent | `ClickUp Command Copilot` | e_6adf4f02dc07493166ced9fa | 16 | no |
 
 ## Wiring
 

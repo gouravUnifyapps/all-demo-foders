@@ -1204,6 +1204,11 @@ build:
       status: done
       started: 2026-10-26T13:14:00Z
       finished: 2026-10-26T13:53:00Z
+    - id: e_6adf5ef808f965795444ffac
+      tasks: 4
+      status: done
+      started: 2026-10-26T14:09:00Z
+      finished: 2026-10-26T14:17:00Z
 
 open_questions:
   - by: harvest
@@ -1590,9 +1595,9 @@ The code app: internal workspace, customer portal and phone view.
 | ai-agent | ClickUp Command Copilot | `e_6adf4f02dc07493166ced9fa` | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6adf4f02dc07493166ced9fa | beat 6: A1 A2 A5 A35 A36 A37 A38 A41 A78 A79 A96 |
 | code-app | ClickUp Delivery Command | `app-a2a9509a82c1` | https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-a2a9509a82c1 | every beat 1-6 and its controls |
 
-- code app ClickUp Delivery Command `app-a2a9509a82c1` · PRIVATE · branch main · last commit f38dc296d01b529e21beae50ac5da2fa52a0ef55 (published v1; the publish added dd7a6dcd "publish v1") · preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/ · published https://app-a2a9509a82c1-orbit.tensor-uat.unifyapps.com/ (answers 302 to the tenant sign-in) · builder https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-a2a9509a82c1
+- code app ClickUp Delivery Command `app-a2a9509a82c1` · PRIVATE · branch main · last commit 9142bfc0190ee94e05f42c6766567888288ca8f7 (published v2, empty states name their items; v1 was f38dc296) · preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/ · published https://app-a2a9509a82c1-orbit.tensor-uat.unifyapps.com/ (answers 302 to the tenant sign-in) · builder https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-a2a9509a82c1
 - commits: shell 34c4f6de, summary and portfolio 764c6e05, project workspace 7d5c3ae4, changes 31af0c68, resourcing and timesheets aa5b6a2e, Copilot panel 73c5a1e5, portal ea1d786a, phone and admin f38dc296
-- AI agent ClickUp Command Copilot `e_6adf4f02dc07493166ced9fa` · published version 5 · model Claude Sonnet 5 (UnifyApps, Vertex) `e_6ad496812dd4ba5be70afcc1` · one tool ReadDeliveryData `e_6adf4f0b08f965795442fe85` (Read delivery data)
+- AI agent ClickUp Command Copilot `e_6adf4f02dc07493166ced9fa` · published version 11 (verify round 1 fix: week anchor, week-on-week health, codes as words) · model Claude Sonnet 5 (UnifyApps, Vertex) `e_6ad496812dd4ba5be70afcc1` · one tool ReadDeliveryData `e_6adf4f0b08f965795442fe85` (Read delivery data)
 - DEMO-TEST records to clean up: Saved view V-03 'DEMO-TEST 2026-10-26 view' (OBJ_cucmd_saved_view); Time entry E-6adf4ba097a3bf334d3f24b5 and Activity A-6adf4ba097a3bf334d3f24b5 (Timesheet action log test, IMP-2611); Activity A-6adf4dc0ca4f9d20457f2ff7-AI-05 (Accept proposed tasks reject test, actor DEMO-TEST 2026-10-26); Document DOC-SR-6adf4dc2c79cad1140aa6b4a and Activity A-6adf4dc2c79cad1140aa6b4a on IMP-2604 (Publish status report test); One DEMO-TEST email to gourav.mahunta@unifyapps.com, Gmail message id 1a17847cf729b474 (Send executive summary test)
 
 ## beats

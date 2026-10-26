@@ -9,9 +9,9 @@
   "modifiedTime": 1793002501665,
   "ownerUserId": 66770,
   "properties": {
-    "spec_html": "",
     "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Verify round 1 fixes: Read delivery data returns each date also as UTC day text; Delivery Command · Copilot states dates\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Delivery Command · Read delivery data\",\"id\":\"6adbaa4fca4f9d20459bd303\"},{\"kind\":\"ai-agent\",\"name\":\"Delivery Command · Copilot\",\"id\":\"e_6adbabd2925d282255cee62b\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Delivery Command · Read delivery data\",\"id\":\"6adbaa4fca4f9d20459bd303\"},{\"action\":\"publish\",\"kind\":\"ai-agent\",\"name\":\"Delivery Command · Copilot\",\"id\":\"e_6adbabd2925d282255cee62b\"}]\nacceptedAt: \"2026-10-26T08:14:57.765Z\"\nacceptedBy: {\"clientId\":\"95fa9a26-0dcf-442c-b37d-8d723221a36e\"}\nplanIds: [\"e_6adf0c04bc76624e532ff4a9\"]\nlatestPlanId: \"e_6adf0c04bc76624e532ff4a9\"\nplanId: \"e_6adf0c04bc76624e532ff4a9\"\n---\n# Verify round 1 fixes: Read delivery data returns each date also as UTC day text; Delivery Command · Copilot states dates\n\n## Requested outcome\nVerify round 1 fixes: Read delivery data returns each date also as UTC day text; Delivery Command · Copilot states dates from that text, answers within 90 seconds, and is published.\n\n## Touches\n- automation · Delivery Command · Read delivery data · 6adbaa4fca4f9d20459bd303\n- ai-agent · Delivery Command · Copilot · e_6adbabd2925d282255cee62b\n\n## Ready when\n- Read-back: A test run's IMP-2611 row shows go_live_text \"19 Nov 2026\" and baseline_go_live_text \"12 Nov 2026\".\n- Read-back: The deployed run returns go_live_text \"19 Nov 2026\" for IMP-2611.\n- Read-back: The test answer states 19 Nov 2026 and 12 Nov 2026 for IMP-2611.\n- Read-back: Both test questions answer in under 90 s, with their durations quoted from the traces.\n- Read-back: get_agent answers needsPublish false with the published version.\n- deploy Delivery Command · Read delivery data\n- publish Delivery Command · Copilot\n",
-    "solutionId": "e_6adb4b845236864dd8b18935"
+    "solutionId": "e_6adb4b845236864dd8b18935",
+    "spec_html": ""
   },
   "standard": false,
   "version": 1

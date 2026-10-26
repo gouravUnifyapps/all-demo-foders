@@ -24,8 +24,8 @@ Goal: Verify round 1 fixes: Read delivery data returns each date also as UTC day
 |---|---|---|---|---|---:|
 | t1 | automation | Delivery Command · Read delivery data |  | done | 1 |
 | t2 | deploy | Delivery Command · Read delivery data | t1 | done | 1 |
-| t3 | ai-agent | Delivery Command · Copilot | t2 | running | 1 |
-| t4 | ai-agent | Delivery Command · Copilot | t3 | running | 1 |
+| t3 | ai-agent | Delivery Command · Copilot | t2 | done | 1 |
+| t4 | ai-agent | Delivery Command · Copilot | t3 | running | 2 |
 | t5 | publish | Delivery Command · Copilot | t4 | pending | 0 |
 
 ### t1 · Read delivery data returns UTC day text beside every date
@@ -93,6 +93,21 @@ Test with send_test_messages: "When does IMP-2611 go live, and what was its base
 Read back: the answer states 19 Nov 2026 and 12 Nov 2026, quoted, and the trace shows a Read delivery data call.
 
 Proof: The test answer states 19 Nov 2026 and 12 Nov 2026 for IMP-2611.
+Result IDs: {"entity":"e_6adbabd2925d282255cee62b"}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: update_agent changed ['instructions'], version 11, readiness canRun true, model slots unchanged (e_6a88244b31696e1ce45dbda1), tool Read_delivery_data unchanged; a new '## Dates' section says to copy every date from its &lt;field&gt;_text field and never convert epoch milliseconds by hand; read-only and decline rules kept word for word
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: send_test_message case e_6adf0e3908750d257cbe5b6a answered: "IMP-2611 Sakura Mobility has a current go-live date of 19 Nov 2026. Its baseline go-live was 12 Nov 2026, so the project has slipped by one week."
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: read_trace e_6adf0e3908750d257cbe5b6a shows Read_delivery_data called with {"entity": "projects", "filters": "{\"project_id\":\"IMP-2611\"}", "limit": 1}, toolsOffered includes Read_delivery_data
+Unverified: Security: Delivery Command · Copilot e_6adbabd2925d282255cee62b is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy in every trace (toolsOffered), though none is attached to it (get_agent tools: Read_delivery_data plus 2 disabled standard actions) — needs an admin to find where these tenant-level tools come from and remove them from this read-only agent
+Unverified: Delivery Command · Copilot: the 18 Nov / 11 or 16 Nov answer the task describes was not reproduced: before this change (version 10, case e_6adf0d6fc79cad1140f4ecea) the agent already said 19 Nov 2026 and 12 Nov 2026, since t2 made Read delivery data return go_live_text. The rule now holds that behaviour in the instructions; re-asking after a reply that holds only epoch values would show it
+Note: Draft only: needsPublish true; a publish task makes it live.
+Note: handover: Delivery Command · Copilot draft instructions are in /home/user/all-demo-foders/clickup/clickup-delivery-command-platform/.sessions/de444057-11c4-5d06-b16b-82637919ad51/work/2ff4a9-agent-builder-1/instructions-t3.md (t3) and instructions-t4.md (t4, live in the draft as version 13).
+Note: feedback:
+Bug: read_trace reports no run duration and its node ObjectIds are not reliable as times, so a latency proof has to be computed by hand from the caseId ObjectId and the Query node's output createdTime.
+Context: read_trace full:true on e_6adf0faccac0655fe3491f0f.
+Where: mcp-tool
+Evidence: the final answer createdTime is 35.8 s after case creation while the last LLM node id stamp is 55 s after it; there is no startTime, endTime or duration key.
+Cause: Unknown — next check: which platform field holds the turn's start and end times.
+Regression: read_trace returns a duration for a finished turn that matches question-to-answer time.
 
 ### t4 · Copilot answers within 90 seconds
 
@@ -104,6 +119,7 @@ Keep the model, the tool, the date rule from t3 and every other instruction as t
 Read back: send_test_messages with both questions; each trace's duration under 90 s and the answers still naming Haruto Sato (over 100% in the week of 2 Nov) and a status draft for IMP-2611, quoted.
 
 Proof: Both test questions answer in under 90 s, with their durations quoted from the traces.
+Error: send_test_messages {agentId: e_6adbabd2925d282255cee62b, messages: ['Who is booked over 100% in the next 12 weeks?']} — last error: row note 'The agent called a tool, and the platform did not report which case it created' (no caseId); the 3 tries before it returned REQUEST_TIMED_OUT 'The platform did not answer within 50 s ... there is none to trace'. The bookings question's duration on the new instructions could not be traced, so the under-90 s proof is missing.
 
 ### t5 · Publish Delivery Command · Copilot
 

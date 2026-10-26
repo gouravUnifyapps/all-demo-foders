@@ -15,6 +15,27 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adf485af3cd5f19ed4ac683",
+      "name": "ClickUp Command · Update task",
+      "version": 2,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf485ec79cad1140a9e9a6",
+      "name": "ClickUp Command · Raise change request",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf485ff3cd5f19ed4ac6fd",
+      "name": "ClickUp Command · Decide change request",
+      "version": 1,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_cucmd_project",
       "name": "ClickUp Command · Project",
@@ -296,6 +317,216 @@
         "kind": "object",
         "id": "OBJ_cucmd_saved_view",
         "name": "ClickUp Command · Saved view"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485af3cd5f19ed4ac683",
+        "name": "ClickUp Command · Update task",
+        "part": "node Read the task"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_task",
+        "name": "ClickUp Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485af3cd5f19ed4ac683",
+        "name": "ClickUp Command · Update task",
+        "part": "node Read every task of its project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_task",
+        "name": "ClickUp Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485af3cd5f19ed4ac683",
+        "name": "ClickUp Command · Update task",
+        "part": "node Read the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485af3cd5f19ed4ac683",
+        "name": "ClickUp Command · Update task",
+        "part": "node Upsert the task by its key"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_task",
+        "name": "ClickUp Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485af3cd5f19ed4ac683",
+        "name": "ClickUp Command · Update task",
+        "part": "node Record one Activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ec79cad1140a9e9a6",
+        "name": "ClickUp Command · Raise change request",
+        "part": "node Read the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ec79cad1140a9e9a6",
+        "name": "ClickUp Command · Raise change request",
+        "part": "node Read the highest stored change request code"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_change_request",
+        "name": "ClickUp Command · Change request"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ec79cad1140a9e9a6",
+        "name": "ClickUp Command · Raise change request",
+        "part": "node Write the change request"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_change_request",
+        "name": "ClickUp Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ec79cad1140a9e9a6",
+        "name": "ClickUp Command · Raise change request",
+        "part": "node Record one Activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ff3cd5f19ed4ac6fd",
+        "name": "ClickUp Command · Decide change request",
+        "part": "node Read the change request"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_change_request",
+        "name": "ClickUp Command · Change request"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ff3cd5f19ed4ac6fd",
+        "name": "ClickUp Command · Decide change request",
+        "part": "node Read its project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ff3cd5f19ed4ac6fd",
+        "name": "ClickUp Command · Decide change request",
+        "part": "node Save the decision on the change request"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_change_request",
+        "name": "ClickUp Command · Change request"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ff3cd5f19ed4ac6fd",
+        "name": "ClickUp Command · Decide change request",
+        "part": "node Move the project's go-live and planned hours"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf485ff3cd5f19ed4ac6fd",
+        "name": "ClickUp Command · Decide change request",
+        "part": "node Record one Activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
       },
       "via": "storage write",
       "fields": []

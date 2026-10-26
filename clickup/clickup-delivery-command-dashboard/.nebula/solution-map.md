@@ -8,6 +8,9 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 |---|---|---|---|---|
 | automation | `ClickUp Command · Read delivery data` | 6adf45fef3cd5f19ed4a76ba | 5 | no |
 | automation | `ClickUp Command · Save view` | 6adf460108750d257cf1e381 | 1 | no |
+| automation | `ClickUp Command · Update task` | 6adf485af3cd5f19ed4ac683 | 2 | no |
+| automation | `ClickUp Command · Raise change request` | 6adf485ec79cad1140a9e9a6 | 1 | no |
+| automation | `ClickUp Command · Decide change request` | 6adf485ff3cd5f19ed4ac6fd | 1 | no |
 | object | `ClickUp Command · Project` | OBJ_cucmd_project | 0 | no |
 | object | `ClickUp Command · RAID item` | OBJ_cucmd_raid | 0 | no |
 | object | `ClickUp Command · Task` | OBJ_cucmd_task | 0 | no |
@@ -41,6 +44,20 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation `ClickUp Command · Read delivery data` | `node Fetch OBJ_cucmd_document records (read only)` | object `ClickUp Command · Document` | storage read |  |
 | automation `ClickUp Command · Save view` | `node Read every saved view's code and name` | object `ClickUp Command · Saved view` | storage read |  |
 | automation `ClickUp Command · Save view` | `node Create the saved view` | object `ClickUp Command · Saved view` | storage write |  |
+| automation `ClickUp Command · Update task` | `node Read the task` | object `ClickUp Command · Task` | storage read |  |
+| automation `ClickUp Command · Update task` | `node Read every task of its project` | object `ClickUp Command · Task` | storage read |  |
+| automation `ClickUp Command · Update task` | `node Read the project` | object `ClickUp Command · Project` | storage read |  |
+| automation `ClickUp Command · Update task` | `node Upsert the task by its key` | object `ClickUp Command · Task` | storage write |  |
+| automation `ClickUp Command · Update task` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Raise change request` | `node Read the project` | object `ClickUp Command · Project` | storage read |  |
+| automation `ClickUp Command · Raise change request` | `node Read the highest stored change request code` | object `ClickUp Command · Change request` | storage read |  |
+| automation `ClickUp Command · Raise change request` | `node Write the change request` | object `ClickUp Command · Change request` | storage write |  |
+| automation `ClickUp Command · Raise change request` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Decide change request` | `node Read the change request` | object `ClickUp Command · Change request` | storage read |  |
+| automation `ClickUp Command · Decide change request` | `node Read its project` | object `ClickUp Command · Project` | storage read |  |
+| automation `ClickUp Command · Decide change request` | `node Save the decision on the change request` | object `ClickUp Command · Change request` | storage write |  |
+| automation `ClickUp Command · Decide change request` | `node Move the project's go-live and planned hours` | object `ClickUp Command · Project` | storage write |  |
+| automation `ClickUp Command · Decide change request` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
 
 ## Not checked
 

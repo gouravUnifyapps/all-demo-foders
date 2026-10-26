@@ -3,16 +3,16 @@
     {
       "kind": "automation",
       "id": "6adf45fef3cd5f19ed4a76ba",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "ClickUp Command · Read delivery data",
+      "version": 5,
+      "stale": false
     },
     {
       "kind": "automation",
       "id": "6adf460108750d257cf1e381",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "ClickUp Command · Save view",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "object",
@@ -134,19 +134,172 @@
       "stale": false
     }
   ],
-  "edges": [],
-  "unknown": [
+  "edges": [
     {
-      "kind": "automation",
-      "id": "6adf45fef3cd5f19ed4a76ba",
-      "name": null,
-      "reason": "entity-not-cached"
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_project records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
     },
     {
-      "kind": "automation",
-      "id": "6adf460108750d257cf1e381",
-      "name": null,
-      "reason": "entity-not-cached"
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_task records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_task",
+        "name": "ClickUp Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_raid records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_raid",
+        "name": "ClickUp Command · RAID item"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_booking records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_booking",
+        "name": "ClickUp Command · Booking"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_person records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_person",
+        "name": "ClickUp Command · Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_change_request records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_change_request",
+        "name": "ClickUp Command · Change request"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_ai_output records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_ai_output",
+        "name": "ClickUp Command · AI output"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_weekly_metric records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_weekly_metric",
+        "name": "ClickUp Command · Weekly metric"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf45fef3cd5f19ed4a76ba",
+        "name": "ClickUp Command · Read delivery data",
+        "part": "node Fetch OBJ_cucmd_document records (read only)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_document",
+        "name": "ClickUp Command · Document"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf460108750d257cf1e381",
+        "name": "ClickUp Command · Save view",
+        "part": "node Read every saved view's code and name"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_saved_view",
+        "name": "ClickUp Command · Saved view"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf460108750d257cf1e381",
+        "name": "ClickUp Command · Save view",
+        "part": "node Create the saved view"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_saved_view",
+        "name": "ClickUp Command · Saved view"
+      },
+      "via": "storage write",
+      "fields": []
     }
-  ]
+  ],
+  "unknown": []
 }

@@ -2,8 +2,8 @@ Tenant orbit.uat.unifyapps.com · solution "Clickup · ClickUp Delivery command 
 
 ```mermaid
 flowchart LR
-  n1["automation 6adf45fef3cd5f19ed4a76ba · 6adf45fef3cd5f19ed4a76ba"]
-  n2["automation 6adf460108750d257cf1e381 · 6adf460108750d257cf1e381"]
+  n1["automation ClickUp Command · Read delivery data · 6adf45fef3cd5f19ed4a76ba"]
+  n2["automation ClickUp Command · Save view · 6adf460108750d257cf1e381"]
   n3["object ClickUp Command · Project · OBJ_cucmd_project"]
   n4["object ClickUp Command · RAID item · OBJ_cucmd_raid"]
   n5["object ClickUp Command · Task · OBJ_cucmd_task"]
@@ -21,4 +21,15 @@ flowchart LR
   n17["object ClickUp Command · Integration · OBJ_cucmd_integration"]
   n18["object ClickUp Command · Notification · OBJ_cucmd_notification"]
   n19["object ClickUp Command · Checklist item · OBJ_cucmd_checklist_item"]
+  n1 -->|storage read| n3
+  n1 -->|storage read| n5
+  n1 -->|storage read| n4
+  n1 -->|storage read| n9
+  n1 -->|storage read| n8
+  n1 -->|storage read| n7
+  n1 -->|storage read| n14
+  n1 -->|storage read| n15
+  n1 -->|storage read| n12
+  n2 -->|storage read| n16
+  n2 -->|storage write| n16
 ```

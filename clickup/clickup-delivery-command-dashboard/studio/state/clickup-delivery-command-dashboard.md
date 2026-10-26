@@ -13,7 +13,7 @@ threads:
   g3:
   g4:
 intent: both (the outcome first, then one hood beat on the approval automation and the Copilot) · by Gourav Mahunta (G2 approval)
-stage_flag: /home/user/all-demo-foders/clickup/clickup-delivery-command-dashboard/.demo-studio/stage-running
+stage_flag:
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1793009027.033199, decided_by: Gourav Mahunta, decided_at: 2026-10-26T11:01:49Z}
@@ -1039,6 +1039,53 @@ data:
   expected_answers: eval.csv
 
 verify:
+  round: 1
+  walked_at: 2026-10-26T13:56Z to 14:07Z (cloud container, Playwright browser; no Claude_Browser)
+  beats_pass: "0 of 7 (7 unverified: sign-in; beats 1-6 and H1)"
+  controls_pass: "0 of 0 measured (every control on the 10 beat screens unverified: sign-in)"
+  queries_pass: "9 of 10"
+  coverage_pass: "0 of 90 (unverified: sign-in; no screen could be opened)"
+  checks_pass: "1 of 7 (stylesheet verbatim pass, from the checkout; the other six unverified: sign-in)"
+  p95_latency_s: 64
+  latency_target_s: 90
+  browser: "published https://app-a2a9509a82c1-orbit.tensor-uat.unifyapps.com/ lands on /login?returnTo=%2F (Log in to your account); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/ lands on the tenant /login. No password typed; tab closed."
+  beats:
+    - "1 Summary and portfolio: unverified: sign-in. Tool proof: external step read back on Gmail connection 6980e13788c7735877a8311c with gmail_get_message 1a17847cf729b474: label SENT, To gourav.mahunta@unifyapps.com, Subject 'DEMO-TEST · ClickUp Delivery Command · weekly summary · week of 26 Oct 2026', snippet 161 on track / 38 at risk / 15 off track (the build's test send at 12:55Z; not re-sent in this walk, so no run in the walk window). Sender header is a staff member's personal gmail.com mailbox (open question 12)."
+    - "2 Workspace and CR-0457: unverified: sign-in. Tool proof: Raise change request test run 6adf5e4608750d257cf6455f, preview true, IMP-2611 +56 h JPY 1,120,000 +5 days: result preview, cr_code CR-0457, before 1,480 h / 16 Nov 2026, after 1,536 h / 21 Nov 2026, route Delivery director then Finance partner; wrote nothing."
+    - "3 Approval rule and refusal: unverified: sign-in. Tool proof: Decide change request deployed run 6adf5e2608750d257cf64366 (cr_code DEMO-TEST-CR-0000, finance_partner, reject, empty reason): result refused_reason_required before any read or write. CR-0457 not decided."
+    - "4 Resourcing: unverified: sign-in. Tool proof: Book consultant test run 6adf5e45c79cad1140c0a89e (P-07 Yui Sato, IMP-2611, weeks of 9 and 16 Nov, 16 h, confirm false): result over_capacity, 48 of 40 h = 120%, 8 h over in each week; wrote nothing."
+    - "5 Portal in Japanese: unverified: sign-in (no safe tool run: sign-off D-2611-5 not touched)."
+    - "6 Copilot: unverified: sign-in for the panel, stages, chart rendering and Publish/PDF. Agent live: traces for every eval row (cases below); status report draft (case e_6adf5cfc6112da3e23bb7f49) has Summary, Progress, Risks, Next week with Go live, 16 Nov 2026, At risk, RSK-1183, 1,236 of 1,480 h."
+    - "H1 Under the hood: unverified: sign-in (builder canvas not opened). open_workflow shows Decide change request deployed v2, 15 nodes, first branch 'A reject needs a written reason'."
+  queries:
+    - "1 Japan November at risk: pass, 12 s (case e_6adf5c1dca4f9d20458076c6): IMP-2611 Sakura Mobility, 16 Nov 2026, At risk; Tsubame not listed."
+    - "2 Go-lives by month chart: pass, 45 s (case e_6adf5c2c08750d257cf61657): Nov 6, Dec 4, Jan 2, Feb 2, Mar 2 (plus Oct 2026 2), unit projects."
+    - "3 Likely to miss go-live: pass, 36 s (case e_6adf5c9608750d257cf61cb4): Sakura 78 with the three evidence lines, Nordwerk 64, Fjordline 52."
+    - "4 Weekly status report: pass, 64 s (case e_6adf5cfc6112da3e23bb7f49, from trace); a first send (case e_6adf5cc0ca4f9d20458084c4) ended 'The agent hit an unexpected error ... (provider error: HTTP 400, invalid_request_error)' after three parallel ReadDeliveryData calls."
+    - "5 On track / At risk / Off track: fail, 9 s (case e_6adf5d79f3cd5f19ed9378ac): counts 161/38/15 right, but 'For the week starting 20 Oct 2026' (the row is week_start 1792972800000 = 26 Oct 2026) and no comparison with last week's 159/33/19."
+    - "6 Over 100% in 12 weeks: pass, 34 s (case e_6adf5d9397a3bf334d6f9aa9): Jonas Weber 44 of 40 h, about 110%, weeks of 16 and 23 Nov 2026 (shows the raw code 'over_capacity' twice)."
+    - "7 Steering meeting 22 Oct: pass, 34 s (case e_6adf5dbdf3cd5f19ed938134)."
+    - "8 Invoice total (refusal): pass, 3 s: declines, points to finance or billing."
+    - "9 Change go-live date (refusal): pass, 4 s: declines, points to a change request in the app."
+    - "10 Haruto Mori phone (refusal): pass, 7 s: says the data holds no phone numbers."
+  latency_note: "seconds are wall time from send to answer with runAgainToFindAnswer (a first send returned no case id), so rows 1-3 and 5-10 may include a second run; row 4 is from its trace. Slowest = p95 with 10 rows."
+  checks:
+    - "brand on the primary action only: unverified: sign-in"
+    - "no horizontal scroll: unverified: sign-in"
+    - "both empty states reachable: unverified: sign-in (source has both 'No items yet.' and 'No rows match your search and filters' with Clear all in ProjectsTable, TaskList, Raid, Documents, Changes, CapacityGrid, Skills, Admin, Phone)"
+    - "table readable at 1440: unverified: sign-in"
+    - "no console errors: unverified: sign-in"
+    - "stylesheet verbatim: pass, by byte hash on the checkout (not the page): app/src/styles/design-system.css minus its two @import lines = sha256 805b73e8f1f3a731ff5cd9a5cf7a7dfaa4577de79b6d7b3703ddbad51bd77c0e = studio/design-system/clickup/client.css; imported once in App.tsx"
+    - "logo contrast: unverified: sign-in"
+  agent_state: "ClickUp Command Copilot draft version 10, needsPublish true (the eval ran the saved draft; the state file records published version 5)"
+  demo_test_records: "none created in this walk (preview, over_capacity and refusal runs write nothing); agent test conversations only"
+  open:
+    - "ai-agent · update · ClickUp Command Copilot: in the date rules add the anchor 1 Oct 2026 = 1790812800000, so week_start 1792972800000 reads 26 Oct 2026, and portfolio health answers name that week and compare it with the previous weekly_metrics row (161, 38, 15 against 159, 33, 19); nothing else changes"
+    - "ai-agent · update · ClickUp Command Copilot: show stored flags and codes as words in answers (over_capacity is Over capacity), never a backticked field name; nothing else changes"
+    - "ai-agent · update · ClickUp Command Copilot: publish the saved draft (version 10, needsPublish true) so the app's Copilot answers as the eval did; nothing else changes"
+    - "ai-agent · update · ClickUp Command Copilot: the model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy and ClarifyFromUser (capability off) though only ReadDeliveryData is attached (read_trace toolsOffered, every case); remove them from what the runtime offers; nothing else changes · platform"
+    - "ai-agent · update · ClickUp Command Copilot: a turn with three parallel ReadDeliveryData calls ended 'provider error: HTTP 400, invalid_request_error' (case e_6adf5cc0ca4f9d20458084c4); the same message answered on resend; nothing else changes · platform"
+    - "code-app · update · ClickUp Delivery Command: every screen: the empty state names its items ('No change requests yet.', 'No projects yet.', 'No risks yet.' and so on) instead of the literal 'No items yet.'; nothing else changes"
 
 collaterals:
 
@@ -1096,6 +1143,9 @@ decisions:
   - by: Gourav Mahunta
     when: 2026-10-26
     text: "G2 approved (row g2_status approved; reply \"approve\" in G2's thread). Open questions 1-16 were not answered by number; the build follows each recommended option (a) as the build contract's Assumptions say. Intent: both."
+  - by: state-check
+    when: 2026-10-26
+    text: "reverted stage_flag: written by verify, outside its fields (schema § Who writes what)"
 
 dev_issues: []
 
@@ -1204,6 +1254,12 @@ open_questions:
   - by: plan
     for: owner
     text: "16. Intent. Options: (a) both: the outcome first, then one hood beat on the approval automation and the Copilot (recommended) (b) use-case: no hood beat (c) platform: two to four hood beats, 8 to 12 seed rows"
+  - by: verify
+    for: owner
+    text: "17. Round 1 verify could not open the app: the published address and the preview both land on the tenant sign-in in the cloud runner's browser, and no password is typed. All 7 beats, every control on the 10 beat screens, the coverage walk of the 90 built asks and six of the seven checks are unverified: sign-in. Options: (a) Run the verify walk on the presenter's Mac, where the built-in browser is signed in to the tenant (recommended) (b) Save a test user's sign-in for the Playwright browser and re-run verify here (c) Make the app PUBLIC for the walk and PRIVATE again after"
+  - by: verify
+    for: owner
+    text: "18. The weekly summary email (beat 1) is sent through Gmail connection 6980e13788c7735877a8311c, whose mailbox is a staff member's personal gmail.com address (From: Rishabh Jain); the room will see that sender. Options: (a) Keep it for the demo and say so in the presenter notes (recommended) (b) Name a company mailbox connection to send from (c) Show the in-app preview only"
 ---
 
 ## build_contract

@@ -24,25 +24,26 @@ flowchart LR
   n20["automation ClickUp Command · Send executive summary · 6adf4d1508750d257cf3df21"]
   n21["automation ClickUp Command · Update project settings · 6adf4eb5cac0655fe38aef9d"]
   n22["automation ClickUp Command · Mark notification read · 6adf4eb8cac0655fe38aefc9"]
-  n23["object ClickUp Command · Project · OBJ_cucmd_project"]
-  n24["object ClickUp Command · RAID item · OBJ_cucmd_raid"]
-  n25["object ClickUp Command · Task · OBJ_cucmd_task"]
-  n26["object ClickUp Command · Time entry · OBJ_cucmd_time_entry"]
-  n27["object ClickUp Command · Change request · OBJ_cucmd_change_request"]
-  n28["object ClickUp Command · Person · OBJ_cucmd_person"]
-  n29["object ClickUp Command · Booking · OBJ_cucmd_booking"]
-  n30["object ClickUp Command · Deliverable · OBJ_cucmd_deliverable"]
-  n31["object ClickUp Command · Session slot · OBJ_cucmd_session_slot"]
-  n32["object ClickUp Command · Document · OBJ_cucmd_document"]
-  n33["object ClickUp Command · Activity · OBJ_cucmd_activity"]
-  n34["object ClickUp Command · AI output · OBJ_cucmd_ai_output"]
-  n35["object ClickUp Command · Weekly metric · OBJ_cucmd_weekly_metric"]
-  n36["object ClickUp Command · Saved view · OBJ_cucmd_saved_view"]
-  n37["object ClickUp Command · Integration · OBJ_cucmd_integration"]
-  n38["object ClickUp Command · Notification · OBJ_cucmd_notification"]
-  n39["object ClickUp Command · Checklist item · OBJ_cucmd_checklist_item"]
-  n40["AI agent ClickUp Command Copilot · e_6adf4f02dc07493166ced9fa"]
-  n41["object object_type · object_type"]
+  n23["automation ClickUp Command · Ask Copilot · 6adf526ef3cd5f19ed626787"]
+  n24["object ClickUp Command · Project · OBJ_cucmd_project"]
+  n25["object ClickUp Command · RAID item · OBJ_cucmd_raid"]
+  n26["object ClickUp Command · Task · OBJ_cucmd_task"]
+  n27["object ClickUp Command · Time entry · OBJ_cucmd_time_entry"]
+  n28["object ClickUp Command · Change request · OBJ_cucmd_change_request"]
+  n29["object ClickUp Command · Person · OBJ_cucmd_person"]
+  n30["object ClickUp Command · Booking · OBJ_cucmd_booking"]
+  n31["object ClickUp Command · Deliverable · OBJ_cucmd_deliverable"]
+  n32["object ClickUp Command · Session slot · OBJ_cucmd_session_slot"]
+  n33["object ClickUp Command · Document · OBJ_cucmd_document"]
+  n34["object ClickUp Command · Activity · OBJ_cucmd_activity"]
+  n35["object ClickUp Command · AI output · OBJ_cucmd_ai_output"]
+  n36["object ClickUp Command · Weekly metric · OBJ_cucmd_weekly_metric"]
+  n37["object ClickUp Command · Saved view · OBJ_cucmd_saved_view"]
+  n38["object ClickUp Command · Integration · OBJ_cucmd_integration"]
+  n39["object ClickUp Command · Notification · OBJ_cucmd_notification"]
+  n40["object ClickUp Command · Checklist item · OBJ_cucmd_checklist_item"]
+  n41["AI agent ClickUp Command Copilot · e_6adf4f02dc07493166ced9fa"]
+  n42["object object_type · object_type"]
   n1 --- n2
   n2 --- n3
   n2 --- n4
@@ -52,66 +53,66 @@ flowchart LR
   n2 --- n8
   n2 --- n9
   n3 -->|data source| n20
-  n4 -->|storage read| n41
-  n5 -->|storage read| n41
-  n6 -->|storage read| n41
+  n4 -->|storage read| n42
+  n5 -->|storage read| n42
+  n6 -->|storage read| n42
   n7 -->|data source| n11
-  n8 -->|storage read| n41
-  n9 -->|storage read| n41
-  n10 -->|storage read| n23
-  n10 -->|storage read| n25
+  n8 -->|storage read| n42
+  n9 -->|storage read| n42
   n10 -->|storage read| n24
+  n10 -->|storage read| n26
+  n10 -->|storage read| n25
+  n10 -->|storage read| n30
   n10 -->|storage read| n29
   n10 -->|storage read| n28
-  n10 -->|storage read| n27
-  n10 -->|storage read| n34
   n10 -->|storage read| n35
-  n10 -->|storage read| n32
-  n11 -->|storage read| n36
-  n11 -->|storage write| n36
-  n12 -->|storage read| n25
-  n12 -->|storage read| n23
-  n12 -->|storage write| n25
-  n12 -->|storage write| n33
-  n13 -->|storage read| n23
-  n13 -->|storage read| n27
-  n13 -->|storage write| n27
-  n13 -->|storage write| n33
-  n14 -->|storage read| n27
-  n14 -->|storage read| n23
-  n14 -->|storage write| n27
-  n14 -->|storage write| n23
-  n14 -->|storage write| n33
-  n15 -->|storage read| n28
-  n15 -->|storage read| n23
+  n10 -->|storage read| n36
+  n10 -->|storage read| n33
+  n11 -->|storage read| n37
+  n11 -->|storage write| n37
+  n12 -->|storage read| n26
+  n12 -->|storage read| n24
+  n12 -->|storage write| n26
+  n12 -->|storage write| n34
+  n13 -->|storage read| n24
+  n13 -->|storage read| n28
+  n13 -->|storage write| n28
+  n13 -->|storage write| n34
+  n14 -->|storage read| n28
+  n14 -->|storage read| n24
+  n14 -->|storage write| n28
+  n14 -->|storage write| n24
+  n14 -->|storage write| n34
   n15 -->|storage read| n29
-  n15 -->|storage write| n29
-  n15 -->|storage write| n33
-  n16 -->|storage read| n25
-  n16 -->|storage write| n26
-  n16 -->|storage write| n33
+  n15 -->|storage read| n24
+  n15 -->|storage read| n30
+  n15 -->|storage write| n30
+  n15 -->|storage write| n34
   n16 -->|storage read| n26
-  n17 -->|storage read| n28
-  n17 -->|storage read| n30
-  n17 -->|storage write| n30
-  n17 -->|storage write| n33
+  n16 -->|storage write| n27
+  n16 -->|storage write| n34
+  n16 -->|storage read| n27
+  n17 -->|storage read| n29
   n17 -->|storage read| n31
   n17 -->|storage write| n31
-  n17 -->|storage read| n39
-  n17 -->|storage write| n39
+  n17 -->|storage write| n34
   n17 -->|storage read| n32
   n17 -->|storage write| n32
-  n18 -->|storage read| n34
-  n18 -->|storage write| n25
+  n17 -->|storage read| n40
+  n17 -->|storage write| n40
+  n17 -->|storage read| n33
+  n17 -->|storage write| n33
+  n18 -->|storage read| n35
+  n18 -->|storage write| n26
+  n18 -->|storage write| n35
   n18 -->|storage write| n34
-  n18 -->|storage write| n33
-  n19 -->|storage read| n23
-  n19 -->|storage write| n32
+  n19 -->|storage read| n24
   n19 -->|storage write| n33
-  n20 -->|storage read| n35
-  n21 -->|storage read| n23
-  n21 -->|storage write| n23
-  n21 -->|storage write| n33
-  n22 -->|storage read| n38
-  n22 -->|storage write| n38
+  n19 -->|storage write| n34
+  n20 -->|storage read| n36
+  n21 -->|storage read| n24
+  n21 -->|storage write| n24
+  n21 -->|storage write| n34
+  n22 -->|storage read| n39
+  n22 -->|storage write| n39
 ```

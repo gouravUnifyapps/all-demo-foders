@@ -137,6 +137,13 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adf526ef3cd5f19ed626787",
+      "name": "ClickUp Command · Ask Copilot",
+      "version": 0,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_cucmd_project",
       "name": "ClickUp Command · Project",

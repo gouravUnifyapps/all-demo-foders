@@ -22,8 +22,8 @@ Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining scree
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation-shell | ClickUp Command · Ask Copilot |  | running | 1 |
-| t2 | automation | ClickUp Command · Ask Copilot | t1 | pending | 0 |
+| t1 | automation-shell | ClickUp Command · Ask Copilot |  | done | 1 |
+| t2 | automation | ClickUp Command · Ask Copilot | t1 | running | 1 |
 | t3 | deploy | ClickUp Command · Ask Copilot | t2 | pending | 0 |
 | t4 | code-app | ClickUp Delivery Command |  | running | 1 |
 | t5 | code-app | ClickUp Delivery Command | t4 | running | 1 |
@@ -43,6 +43,15 @@ Create the callable automation (trigger \`callables_from_automation\`) with \`se
 Read back \`search_workflows\` for its \`deployment\` and \`describe_callable_workflow\` for its inputs. Report the \`workflowId\` in \`ids.entity\`.
 
 Proof: \`describe_callable_workflow\` lists every input the body names, and \`search_workflows\` shows the shell of ClickUp Command · Ask Copilot deployed.
+Result IDs: {"entity":"6adf526ef3cd5f19ed626787"}
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: search_workflows before create found no automation of this exact name (closest: Delivery Command · Ask Copilot 6adbaf90c79cad11403e9b72, a different entity)
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: compile_and_save_workflow created:true version 0, trigger CALLABLE callables/callables_from_automation, 2 nodes, terminal return
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: search_workflows deployment status DEPLOYED, definitionVersion 0 (= saved version 0), deployedVersion 1, savedAfterDeploy false
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: describe_callable_workflow parameters question (string), session_id (string), user_email (string), none required
+Unverified: ClickUp Command · Ask Copilot: result schema outputs answer_text, chart_json, record_links_json, session_id were written in the saved code but not read back by describe_callable_workflow (inputs only) — check with cache wf 6adf526ef3cd5f19ed626787 --contract or open_workflow
+Unverified: ClickUp Command · Ask Copilot: stub was not test-run (shell task); stub returns answer_text "", chart_json "", record_links_json "[]", session_id echoed from input — check with one trigger_workflow_run
+Note: handover: ClickUp Command · Ask Copilot workflowId 6adf526ef3cd5f19ed626787; callable inputs question, session_id, user_email; outputs answer_text, chart_json, record_links_json, session_id, all strings, none required
+Note: assumed: all inputs and outputs optional (required: []) in the shell; the logic task should add input validation as nodes
 
 ### t2 · Logic for ClickUp Command · Ask Copilot
 

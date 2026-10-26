@@ -8,7 +8,7 @@ status: verifying
 version: 1 · since 2026-10-23T11:57:39Z
 thread: C0CBK3E47E2 · 1792757255.287779
 intent: both
-stage_flag: 
+stage_flag: /home/user/.demo-studio/stage-running
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1792757255.287779, decided_by: Gourav Mahunta (reply), decided_at: 2026-10-23T12:10:00Z}
@@ -1672,6 +1672,7 @@ build:
     - {id: e_6adbab775236864dd8e7a211, n: 8, tasks: 8, status: done, what: executive email, schedule, Copilot agent and publish, Ask Copilot, start: 2026-10-23T18:46Z, finish: 2026-10-23T19:06Z}
     - {id: e_6adbb044925d282255d09cab, n: 9, tasks: 7, status: "left in_progress (t1-t6 pushed, commits up to 4da8ec33; its runner was another machine's Nebula client, so this session cannot resume or finish it; its t7 was carried into plan 10)", what: code app shell and internal screens, start: 2026-10-23T19:06Z}
     - {id: e_6adf01b4bc76624e532df4c9, n: 10, tasks: 7, status: done, what: Executive summary (with the UTC-date fix), Copilot panel, Portal home/sign-offs/sessions, Portal files/checklist, Phone, Admin, publish v1, start: 2026-10-26T07:31Z, finish: 2026-10-26T08:00Z}
+    - {id: e_6adf0c04bc76624e532ff4a9, n: 11, tasks: 5, status: done, what: "verify round 1 fixes: Read delivery data returns <field>_text UTC day text, deployed; Copilot dates from the day text and one-read plan (slowest question 39 s, was 118 s); Copilot published v14", start: 2026-10-26T08:14Z, finish: 2026-10-26T08:44Z}
 
 ## beats
 Storyline: "Every implementation visible and actionable" (A1), 7 beats and 2 hood beats; proposed intent `both`.

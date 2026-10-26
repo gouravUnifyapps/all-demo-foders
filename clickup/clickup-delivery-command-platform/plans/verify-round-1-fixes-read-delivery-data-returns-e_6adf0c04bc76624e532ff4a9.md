@@ -16,6 +16,11 @@ createdAt: "2026-10-26T08:15:00.191Z"
 runningAt: "2026-10-26T08:15:02.897Z"
 runner: {"clientId":"95fa9a26-0dcf-442c-b37d-8d723221a36e","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"de444057-11c4-5d06-b16b-82637919ad51"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Verify round 1 fixes: Read delivery data returns each date also as UTC day text; Delivery Command · Copilot states dates
@@ -26,7 +31,7 @@ Goal: Verify round 1 fixes: Read delivery data returns each date also as UTC day
 | t2 | deploy | Delivery Command · Read delivery data | t1 | done | 1 |
 | t3 | ai-agent | Delivery Command · Copilot | t2 | done | 1 |
 | t4 | ai-agent | Delivery Command · Copilot | t3 | done | 2 |
-| t5 | publish | Delivery Command · Copilot | t4 | running | 1 |
+| t5 | publish | Delivery Command · Copilot | t4 | done | 1 |
 
 ### t1 · Read delivery data returns UTC day text beside every date
 
@@ -149,4 +154,11 @@ Then get_agent again.
 Read back: needsPublish false and the published version number, quoted.
 
 Proof: get_agent answers needsPublish false with the published version.
+Result IDs: {"entity":"e_6adbabd2925d282255cee62b"}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: get_agent before publish read version 14, needsPublish true, readiness canRun true
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: publish_agent confirmed true answered publishedVersion 14, wasAtVersion 5, live true, needsPublish false, automationSaid {"response":"success"}
+Read back: Delivery Command · Copilot e_6adbabd2925d282255cee62b: get_agent after publish reads needsPublish false, published true, version 19; instructions with '## Dates' and '## How you work a question' unchanged, model e_6a88244b31696e1ce45dbda1 in all three slots, tool Read_delivery_data enabled, sharedWith still All Users and testing
+Note: Publish yes as given: 'yes, publish Delivery Command · Copilot. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval).
+Note: Delivery Command · Copilot: the record's own version moved from 14 to 19 during the publish while publishedVersion reads 14; the publish automation writes the record itself. needsPublish false confirms the draft and the published version match.
+Note: Delivery Command · Copilot has no deployments (list in get_agent is empty); the app's Ask Copilot automation calls the agent directly. No deploy was asked for and none was made.
 

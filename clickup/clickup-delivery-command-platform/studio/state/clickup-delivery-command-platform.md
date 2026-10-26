@@ -4,16 +4,19 @@ client: Clickup
 poc_row: POC-clickup-delivery-command-platform-20261023
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: awaiting_g3
+status: awaiting_g2
 version: 1 · since 2026-10-23T11:57:39Z
 thread: C0CBK3E47E2 · 1792757255.287779
+threads:
+  g1: 1792757255.287779
+  g2: 1793014058.308779
 intent: both
 stage_flag: 
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1792757255.287779, decided_by: Gourav Mahunta (reply), decided_at: 2026-10-23T12:10:00Z}
-  g2: {status: approved, round: 1, posted_ts: 1792759631.690889, decided_by: Gourav Mahunta (reply), decided_at: 2026-10-23T17:07:07Z}
-  g3: {status: "ready, not posted: row shows G2 pending", round: 1, posted_ts: , decided_by: , decided_at: }
+  g2: {status: posted, round: 1, posted_ts: 1793014058.308779, decided_by: , decided_at: , note: "re-sent 2026-10-26 by the bot: the row showed G2 pending; the 23 Oct post went through the person's Slack and never reached the row"}
+  g3: {status: "ready, not posted: row shows G2 waiting", round: 1, posted_ts: , decided_by: , decided_at: }
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
 
 posts:
@@ -65,6 +68,20 @@ posts:
     by: bot
     version: 1
     round: 1
+  - when: 2026-10-26T11:40:00Z
+    kind: g2
+    ts: 1793014058.308779
+    by: bot (re-sent from plan-v1-r1.pdf)
+    version: 1
+    round: 1
+    documents:
+      - {file_url: "https://orbit.uat.unifyapps.com/auth/file/asset/download/55b08280bd68e30b2dcdebfd", file_name: plan-v1-r1.pdf, file_size: 503292}
+  - when: 2026-10-26T11:28:00Z
+    kind: status
+    ts: 1793014058.308779
+    by: bot
+    version: 1
+    round: 1
 runs:
   - started: 2026-10-23T11:57:39Z
     ended: 2026-10-23T12:07:57Z
@@ -103,6 +120,13 @@ runs:
     tokens: 1490
     outcome: "waiting: G3 pack ready, not posted (gate_order: row shows G2 pending)"
 
+  - started: 2026-10-26T11:23:00Z
+    ended: 2026-10-26T11:40:00Z
+    gate: g2
+    stages: []
+    spawns: 0
+    tokens: 0
+    outcome: "posted G2 (re-sent from the pack already made; row showed G2 pending)"
 asks:
   - id: A1
     text: "Delivery Command should make all three visible and actionable."
@@ -1272,7 +1296,7 @@ dev_issues:
 frozen:
 
 cost:
-  runs: 5
+  runs: 6
   agent_spawns: 35
   tokens_m: 5.86
   wall_h: 5.85

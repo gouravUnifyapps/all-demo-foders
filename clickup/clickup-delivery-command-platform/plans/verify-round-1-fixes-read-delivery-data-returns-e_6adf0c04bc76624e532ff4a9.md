@@ -23,9 +23,9 @@ Goal: Verify round 1 fixes: Read delivery data returns each date also as UTC day
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Delivery Command · Read delivery data |  | done | 1 |
-| t2 | deploy | Delivery Command · Read delivery data | t1 | running | 1 |
-| t3 | ai-agent | Delivery Command · Copilot | t2 | pending | 0 |
-| t4 | ai-agent | Delivery Command · Copilot | t3 | pending | 0 |
+| t2 | deploy | Delivery Command · Read delivery data | t1 | done | 1 |
+| t3 | ai-agent | Delivery Command · Copilot | t2 | running | 1 |
+| t4 | ai-agent | Delivery Command · Copilot | t3 | running | 1 |
 | t5 | publish | Delivery Command · Copilot | t4 | pending | 0 |
 
 ### t1 · Read delivery data returns UTC day text beside every date
@@ -67,6 +67,21 @@ Then trigger_workflow_run once with entity projects and filters {"id":"IMP-2611"
 Read back: the deployed version and the run's go_live_text "19 Nov 2026", quoted.
 
 Proof: The deployed run returns go_live_text "19 Nov 2026" for IMP-2611.
+Result IDs: {"entity":"6adbaa4fca4f9d20459bd303"}
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: before deploy search_workflows showed version 1 (the version t1 saved and tested), savedAfterDeploy true
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: deploy_workflow ok:true, 'Deployed version 1 of automation 6adbaa4fca4f9d20459bd303.', workflowVersion 1, deployedVersion 2, paused false
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: search_workflows after deploy: deployment status DEPLOYED, definitionVersion 1, deployedVersion 2, deployedAt 1793002685480, savedAfterDeploy false
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: deployed run 6adf0cc4ca4f9d20452b3d6b (runType workflow, entity projects, filters {"project_id":"IMP-2611"}, DEPLOYED_WORKFLOW_ID 6adf0cbd92718f6a6479405b) COMPLETED; Respond to automation output row id IMP-2611: "go_live": 1795046400000, "go_live_text": "19 Nov 2026", "baseline_go_live_text": "12 Nov 2026"; count 1, refused false
+Note: Run used filters {"project_id":"IMP-2611"} instead of {"id":"IMP-2611"}, per Answer from the person: 'Use filters {"project_id":"IMP-2611"} for the run: the automation refuses an id filter (t1 found this); everything else as the body says.'
+Note: Deploy approval as given: 'yes, deploy Delivery Command · Read delivery data. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.'
+Note: Callable only: the trigger stays callables_from_automation; no schedule or webhook was added.
+Note: feedback:
+Bug: inspect_workflow_run answered 'No run with id ... exists' for a deployed run that trigger_workflow_run had just started and list_workflow_runs then showed COMPLETED.
+Context: runType workflow on 6adbaa4fca4f9d20459bd303, runId 6adf0cc4ca4f9d20452b3d6b; two immediate inspects failed, a third after list_workflow_runs succeeded.
+Where: mcp-tool
+Evidence: 'inspect_workflow_run failed: No run with id \`6adf0cc4ca4f9d20452b3d6b\` exists for automation \`6adbaa4fca4f9d20459bd303\` on this host.' while the run had finished in 58 ms.
+Cause: Suspected: deployed run history is indexed seconds after the run ends and the tool reports that as a missing run.
+Regression: Trigger a deployed run and inspect it at once; the tool answers the run or says it is not indexed yet.
 
 ### t3 · Copilot states dates from the day text
 

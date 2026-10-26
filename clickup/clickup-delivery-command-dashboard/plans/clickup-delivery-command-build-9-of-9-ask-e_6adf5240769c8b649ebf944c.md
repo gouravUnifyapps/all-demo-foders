@@ -24,7 +24,7 @@ Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining scree
 |---|---|---|---|---|---:|
 | t1 | automation-shell | ClickUp Command · Ask Copilot |  | done | 1 |
 | t2 | automation | ClickUp Command · Ask Copilot | t1 | done | 1 |
-| t3 | deploy | ClickUp Command · Ask Copilot | t2 | running | 1 |
+| t3 | deploy | ClickUp Command · Ask Copilot | t2 | done | 1 |
 | t4 | code-app | ClickUp Delivery Command |  | running | 1 |
 | t5 | code-app | ClickUp Delivery Command | t4 | running | 1 |
 | t6 | code-app | ClickUp Delivery Command | t5 | running | 1 |
@@ -100,6 +100,12 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Ask Copilot deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf526ef3cd5f19ed626787"}
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: before deploy search_workflows version 1 (the logic task's tested save), savedAfterDeploy true
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: deploy_workflow ok:true, workflowVersion 1, deployedVersion 2, paused false, "Deployed version 1 of automation 6adf526ef3cd5f19ed626787."
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: search_workflows deployment status "DEPLOYED", definitionVersion 1 (= logic task's saved version 1), deployedAt 1793020748459, savedAfterDeploy false
+Unverified: ClickUp Command · Ask Copilot: a run of the deployed copy (runType workflow) was not made; check with one trigger_workflow_run runType workflow
+Note: Deployed with the person's yes from plan confirm: "yes, deploy ClickUp Command · Ask Copilot"
 
 ### t4 · ClickUp Delivery Command: screen Project workspace and Change request
 

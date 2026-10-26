@@ -6,8 +6,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
-| app | `ClickUp Delivery Command` | app-a2a9509a82c1 | 3 | no |
-| page | `global-page-of-app-a2a9509a82c1` | e_global_app-a2a9509a82c1 | 0 | no |
+| app |  | app-a2a9509a82c1 |  | yes |
 | automation | `ClickUp Command · Read delivery data` | 6adf45fef3cd5f19ed4a76ba | 5 | no |
 | automation | `ClickUp Command · Save view` | 6adf460108750d257cf1e381 | 1 | no |
 | automation | `ClickUp Command · Update task` | 6adf485af3cd5f19ed4ac683 | 2 | no |
@@ -45,13 +44,6 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
-| page `global-page-of-app-a2a9509a82c1` | `data source Send executive summary` | automation `ClickUp Command · Send executive summary` | data source |  |
-| page `global-page-of-app-a2a9509a82c1` | `data source data_update_app-a2a9509a82c1` | object `{{object_type}}` | storage read |  |
-| page `global-page-of-app-a2a9509a82c1` | `data source data_fetchOne_app-a2a9509a82c1` | object `{{object_type}}` | storage read |  |
-| page `global-page-of-app-a2a9509a82c1` | `data source data_fetch_app-a2a9509a82c1` | object `{{object_type}}` | storage read |  |
-| page `global-page-of-app-a2a9509a82c1` | `data source Save view` | automation `ClickUp Command · Save view` | data source |  |
-| page `global-page-of-app-a2a9509a82c1` | `data source data_delete_app-a2a9509a82c1` | object `{{object_type}}` | storage read |  |
-| page `global-page-of-app-a2a9509a82c1` | `data source data_create_app-a2a9509a82c1` | object `{{object_type}}` | storage read |  |
 | automation `ClickUp Command · Read delivery data` | `node Fetch OBJ_cucmd_project records (read only)` | object `ClickUp Command · Project` | storage read |  |
 | automation `ClickUp Command · Read delivery data` | `node Fetch OBJ_cucmd_task records (read only)` | object `ClickUp Command · Task` | storage read |  |
 | automation `ClickUp Command · Read delivery data` | `node Fetch OBJ_cucmd_raid records (read only)` | object `ClickUp Command · RAID item` | storage read |  |
@@ -120,4 +112,5 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 
 ## Not checked
 
+- app `app-a2a9509a82c1` (app-a2a9509a82c1): interface-edit
 - ai-agent `ClickUp Command Copilot` (e_6adf4f02dc07493166ced9fa): its tools are not in the cache (get_agent)

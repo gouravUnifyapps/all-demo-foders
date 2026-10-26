@@ -3,47 +3,9 @@
     {
       "kind": "app",
       "id": "app-a2a9509a82c1",
-      "name": "ClickUp Delivery Command",
-      "version": 3,
-      "stale": false
-    },
-    {
-      "kind": "page",
-      "id": "e_global_app-a2a9509a82c1",
-      "name": "global-page-of-app-a2a9509a82c1",
-      "version": 0,
-      "stale": false,
-      "appId": "app-a2a9509a82c1",
-      "dataSources": [
-        {
-          "id": "e_6adf5087dc07493166cf01cb",
-          "name": "Send executive summary"
-        },
-        {
-          "id": "e_6adf5087dc07493166cf01c8",
-          "name": "data_update_app-a2a9509a82c1"
-        },
-        {
-          "id": "e_6adf5087dc07493166cf01c5",
-          "name": "data_fetchOne_app-a2a9509a82c1"
-        },
-        {
-          "id": "e_6adf5087dc07493166cf01c2",
-          "name": "data_fetch_app-a2a9509a82c1"
-        },
-        {
-          "id": "e_6adf5087769c8b649ebf5ff2",
-          "name": "Save view"
-        },
-        {
-          "id": "e_6adf5087769c8b649ebf5fef",
-          "name": "data_delete_app-a2a9509a82c1"
-        },
-        {
-          "id": "e_6adf5087769c8b649ebf5fec",
-          "name": "data_create_app-a2a9509a82c1"
-        }
-      ]
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "automation",
@@ -271,111 +233,6 @@
     }
   ],
   "edges": [
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source Send executive summary"
-      },
-      "to": {
-        "kind": "automation",
-        "id": "6adf4d1508750d257cf3df21",
-        "name": "ClickUp Command · Send executive summary"
-      },
-      "via": "data source",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source data_update_app-a2a9509a82c1"
-      },
-      "to": {
-        "kind": "object",
-        "id": "{{object_type}}",
-        "name": null
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source data_fetchOne_app-a2a9509a82c1"
-      },
-      "to": {
-        "kind": "object",
-        "id": "{{object_type}}",
-        "name": null
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source data_fetch_app-a2a9509a82c1"
-      },
-      "to": {
-        "kind": "object",
-        "id": "{{object_type}}",
-        "name": null
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source Save view"
-      },
-      "to": {
-        "kind": "automation",
-        "id": "6adf460108750d257cf1e381",
-        "name": "ClickUp Command · Save view"
-      },
-      "via": "data source",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source data_delete_app-a2a9509a82c1"
-      },
-      "to": {
-        "kind": "object",
-        "id": "{{object_type}}",
-        "name": null
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "page",
-        "id": "e_global_app-a2a9509a82c1",
-        "name": "global-page-of-app-a2a9509a82c1",
-        "part": "data source data_create_app-a2a9509a82c1"
-      },
-      "to": {
-        "kind": "object",
-        "id": "{{object_type}}",
-        "name": null
-      },
-      "via": "storage read",
-      "fields": []
-    },
     {
       "from": {
         "kind": "automation",
@@ -1353,6 +1210,12 @@
     }
   ],
   "unknown": [
+    {
+      "kind": "app",
+      "id": "app-a2a9509a82c1",
+      "name": null,
+      "reason": "interface-edit"
+    },
     {
       "kind": "ai-agent",
       "id": "e_6adf4f02dc07493166ced9fa",

@@ -16,22 +16,27 @@ createdAt: "2026-10-26T12:11:48.524Z"
 runningAt: "2026-10-26T12:11:53.331Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 2 of 9: objects, part 2, and the first seeds
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | object | ClickUp Command · Activity |  | running | 1 |
-| t2 | object | ClickUp Command · AI output |  | running | 1 |
-| t3 | object | ClickUp Command · Weekly metric |  | running | 1 |
-| t4 | object | ClickUp Command · Saved view |  | running | 1 |
-| t5 | object | ClickUp Command · Checklist item |  | running | 1 |
-| t6 | object | ClickUp Command · Integration |  | running | 1 |
-| t7 | object | ClickUp Command · Notification |  | running | 1 |
-| t8 | record | ClickUp Command · Project |  | running | 1 |
-| t9 | record | ClickUp Command · Task |  | running | 1 |
-| t10 | record | ClickUp Command · RAID item |  | running | 1 |
+| t1 | object | ClickUp Command · Activity |  | done | 1 |
+| t2 | object | ClickUp Command · AI output |  | done | 1 |
+| t3 | object | ClickUp Command · Weekly metric |  | done | 1 |
+| t4 | object | ClickUp Command · Saved view |  | done | 1 |
+| t5 | object | ClickUp Command · Checklist item |  | done | 1 |
+| t6 | object | ClickUp Command · Integration |  | done | 1 |
+| t7 | object | ClickUp Command · Notification |  | done | 1 |
+| t8 | record | ClickUp Command · Project |  | done | 1 |
+| t9 | record | ClickUp Command · Task |  | done | 1 |
+| t10 | record | ClickUp Command · RAID item |  | done | 1 |
 
 ### t1 · Create object ClickUp Command · Activity
 
@@ -44,6 +49,12 @@ Read back: \`get_objects\` on \`OBJ_cucmd_activity\`, quoting every field the bo
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_activity\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_activity"}
+Read back: OBJ_cucmd_activity: get_objects fields activity_code, project_code, actor, action, summary, at; required [activity_code]; unmirroredFields []
+Read back: OBJ_cucmd_activity: picklist action [created, updated, moved, approved, rejected, signed_off, booked, published, logged]
+Read back: OBJ_cucmd_activity: types as written and stored in both halves: activity_code string primaryKey, project_code/actor/summary string, action string single-select, at integer date epoch
+Read back: OBJ_cucmd_activity: settings logging.captureReporting true; access external false, skipPermissionsFilter false (rule 1 kept)
+Note: Schema check: no lookups per spec, project_code is a plain code field; 'never updated after written' is an app/automation rule, nothing in the store enforces it.
 
 ### t2 · Create object ClickUp Command · AI output
 
@@ -56,6 +67,12 @@ Read back: \`get_objects\` on \`OBJ_cucmd_ai_output\`, quoting every field the b
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_ai_output\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_ai_output"}
+Read back: OBJ_cucmd_ai_output: fields output_code, project_code, kind, title, body, confidence, evidence_json, transcript_refs_json, decision, ai_written, created_at; required [output_code]; unmirroredFields []
+Read back: OBJ_cucmd_ai_output: picklist kind [risk_flag, meeting_summary, proposed_task, status_report]; decision [proposed, accepted, rejected]
+Read back: OBJ_cucmd_ai_output: output_code string primaryKey; confidence number (help '0 to 100'); ai_written boolean default true; created_at integer date epoch
+Read back: OBJ_cucmd_ai_output: logging.captureReporting true; external false, skipPermissionsFilter false
+Unverified: The 0 to 100 range on confidence is a help text, not an enforced bound; check: write confidence 120 and see it accepted.
 
 ### t3 · Create object ClickUp Command · Weekly metric
 
@@ -68,6 +85,11 @@ Read back: \`get_objects\` on \`OBJ_cucmd_weekly_metric\`, quoting every field t
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_weekly_metric\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_weekly_metric"}
+Read back: OBJ_cucmd_weekly_metric: fields week_start, on_track, at_risk, off_track, active_projects, golives_this_month, avg_days_to_golive, utilisation_pct, value_awaiting_usd, bridge_new, bridge_golives, bridge_slipped, bridge_cancelled, top_movers_json, last_updated; required [week_start]; unmirroredFields []; picklists {}
+Read back: OBJ_cucmd_weekly_metric: week_start integer date epoch primaryKey; counts number; top_movers_json string; last_updated integer date epoch
+Read back: OBJ_cucmd_weekly_metric: logging.captureReporting true; external false, skipPermissionsFilter false
+Note: handover: OBJ_cucmd_weekly_metric primaryKey is the integer week_start, so a row's record id becomes the epoch number as text.
 
 ### t4 · Create object ClickUp Command · Saved view
 
@@ -80,6 +102,9 @@ Read back: \`get_objects\` on \`OBJ_cucmd_saved_view\`, quoting every field the 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_saved_view\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_saved_view"}
+Read back: OBJ_cucmd_saved_view: fields view_code, name, filters_json, owner, shared_with; required [view_code, name]; unmirroredFields []; all string, view_code primaryKey, name nameField
+Read back: OBJ_cucmd_saved_view: logging.captureReporting true; external false, skipPermissionsFilter false
 
 ### t5 · Create object ClickUp Command · Checklist item
 
@@ -92,6 +117,11 @@ Read back: \`get_objects\` on \`OBJ_cucmd_checklist_item\`, quoting every field 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_checklist_item\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_checklist_item"}
+Read back: OBJ_cucmd_checklist_item: fields item_code, project_code, position, question_en, question_de, question_ja, answer, answered_by, answered_at; required [item_code, project_code]; unmirroredFields []
+Read back: OBJ_cucmd_checklist_item: item_code string primaryKey; position number; answer string (help 'Empty means not set'); answered_at integer date epoch
+Read back: OBJ_cucmd_checklist_item: logging.captureReporting true; external false, skipPermissionsFilter false
+Note: Schema check: 'not set' must be a missing answer, not a blank string; readers should test MISSING as well as empty.
 
 ### t6 · Create object ClickUp Command · Integration
 
@@ -104,6 +134,10 @@ Read back: \`get_objects\` on \`OBJ_cucmd_integration\`, quoting every field the
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_integration\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_integration"}
+Read back: OBJ_cucmd_integration: fields system, status, last_sync, failing_since, error, affects; required [system]; unmirroredFields []
+Read back: OBJ_cucmd_integration: picklist system [salesforce, slack, google_drive, jira] (primaryKey); status [synced, sync_failed]
+Read back: OBJ_cucmd_integration: last_sync, failing_since integer date epoch; logging.captureReporting true; external false, skipPermissionsFilter false
 
 ### t7 · Create object ClickUp Command · Notification
 
@@ -116,6 +150,11 @@ Read back: \`get_objects\` on \`OBJ_cucmd_notification\`, quoting every field th
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_objects\` on \`OBJ_cucmd_notification\` lists every field the body lists with its type and picklist codes.
+Result IDs: {"entity":"OBJ_cucmd_notification"}
+Read back: OBJ_cucmd_notification: fields notification_code, person_code, kind, text, link, read, created_at; required [notification_code, person_code]; unmirroredFields []
+Read back: OBJ_cucmd_notification: picklist kind [assignment, signoff, mention]; read boolean; created_at integer date epoch
+Read back: OBJ_cucmd_notification: logging.captureReporting true; external false, skipPermissionsFilter false
+Note: Schema check: read is a boolean with no default; a row never set reads MISSING, not false, so unread filters need MISSING or NOT_EQUAL true.
 
 ### t8 · Seed ClickUp Command · Project
 
@@ -128,6 +167,12 @@ Read back: \`get_records\` on \`OBJ_cucmd_project\`, quoting each row's primaryK
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_project\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_project","records":["IMP-2611","IMP-2604","IMP-2598","IMP-2615","IMP-2621","IMP-2587","IMP-2618","IMP-2609","IMP-2624","IMP-2602","IMP-2612","IMP-2595","IMP-2619","IMP-2607","IMP-2626","IMP-2600","IMP-2613","IMP-2622"]}
+Read back: OBJ_cucmd_project: get_records total 18: IMP-2587, IMP-2595, IMP-2598, IMP-2600, IMP-2602, IMP-2604, IMP-2607, IMP-2609, IMP-2611, IMP-2612, IMP-2613, IMP-2615, IMP-2618, IMP-2619, IMP-2621, IMP-2622, IMP-2624, IMP-2626
+Read back: IMP-2611: customer Sakura Mobility, stage go_live, health at_risk, health_last_week on_track, go_live_date 1794787200000, lead Kenji Arai, sponsor Haruto Mori, seats 9200, contract_value 62400000, currency jpy, budget_hours_planned 1480, budget_hours_used 1236, column_limit 15, next_signoff Cutover plan, next_signoff_due 1793232000000, timezone Asia/Tokyo
+Read back: IMP-2598: sponsor Grace Lin, health off_track, health_last_week at_risk, go_live_date 1800230400000
+Unverified: original_go_live_date on IMP-2598, IMP-2602, IMP-2607 was written but not in the read-back projection; check: get_records with fields [project_code, original_go_live_date].
+Note: Object was empty before the write, so all 18 rows were created. column_limit 15 set on every row; sponsors left unset where the line names none.
 
 ### t9 · Seed ClickUp Command · Task
 
@@ -140,6 +185,15 @@ Read back: \`get_records\` on \`OBJ_cucmd_task\`, quoting each row's primaryKey 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_task\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_task","records":["T-2611-01","T-2611-02","T-2611-03","T-2611-04","T-2611-05","T-2611-06","T-2611-07","T-2611-08","T-2611-09","T-2611-10","T-2611-11","T-2611-12","T-2611-13","T-2611-14","T-2611-15","T-2611-16","T-2611-17","T-2611-18","T-2611-19","T-2611-20"]}
+Read back: OBJ_cucmd_task: get_records total 20, T-2611-01 to T-2611-20
+Read back: T-2611-07: migration, in_progress, Yui Sato, start 1792368000000 (2026-10-19), end 1793318400000 (2026-10-30), critical true
+Read back: T-2611-09: migration, blocked, Daichi Ono; T-2611-10: in_progress, Priya Raman; T-2611-14: go_live, done
+Read back: T-2611-15: go_live, in_progress, critical true, 1792972800000 to 1793664000000 (2026-10-26 to 2026-11-03)
+Read back: T-2611-16/17/18: go_live, not_started, critical true, depends_on T-2611-15/16/17; T-2611-18 1794614400000 to 1794787200000 (2026-11-14 to 2026-11-16)
+Read back: T-2611-19 depends_on T-2611-18, T-2611-20 depends_on T-2611-19; go_live stage holds 14,15,16,17,18 = 5 tasks
+Unverified: The object has no lateness or result field: 'N days late' (06, 07, 08, 09) and 'failed' (14) are stated in each row's description only; check: whatever page shows lateness must compute it or a field must be added.
+Note: plan_change: requirement OBJ_cucmd_task has no field for days late or a rehearsal result; the seed puts them in description text.
 
 ### t10 · Seed ClickUp Command · RAID item
 
@@ -152,4 +206,12 @@ Read back: \`get_records\` on \`OBJ_cucmd_raid\`, quoting each row's primaryKey 
 Report ids (the object id as ids.entity), readBack, unverified, notes.
 
 Proof: \`get_records\` on \`OBJ_cucmd_raid\` returns every row the body names, quoted by primaryKey.
+Result IDs: {"entity":"OBJ_cucmd_raid","records":["RSK-1183","RSK-1184","RSK-1185","ASM-0311","DEC-0208","RSK-1170","RSK-1171","RSK-1172","RSK-1173","RSK-1174","RSK-1175","RSK-1176","RSK-1177","RSK-1178","RSK-1179","RSK-1180","RSK-1181","RSK-1182","RSK-1186","RSK-1187"]}
+Read back: OBJ_cucmd_raid: get_records total 20: ASM-0311, DEC-0208, RSK-1170 to RSK-1187 (no RSK-1183 gap), all status open
+Read back: RSK-1183: IMP-2611 risk 'SSO cutover rehearsal failed twice', owner Kenji Arai, due_date 1793664000000 (2026-11-03), likelihood 4, impact 5
+Read back: RSK-1184: IMP-2611 risk 'User list upload has 214 of 50,000 rows failing', 4, 4; RSK-1185: IMP-2611 issue 'Docs migration blocked on export limits', 3, 4
+Read back: ASM-0311: IMP-2611 assumption 'Sponsor team available for cutover weekend'; DEC-0208: IMP-2611 decision 'Cutover rehearsal re-run on 3 Nov'
+Read back: RSK-1172: IMP-2598 5,5 owner Dana Whitfield; RSK-1186: IMP-2619 1,1 owner Mira Lindqvist
+Unverified: history_json was written on every row but left out of the read-back projection; check: get_records fields [raid_code, history_json].
+Note: Owners are each project's lead; titles of the non-story risks are fictional.
 

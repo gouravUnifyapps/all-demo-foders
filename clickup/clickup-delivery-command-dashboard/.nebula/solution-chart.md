@@ -12,4 +12,11 @@ flowchart LR
   n8["object ClickUp Command · Deliverable · OBJ_cucmd_deliverable"]
   n9["object ClickUp Command · Session slot · OBJ_cucmd_session_slot"]
   n10["object ClickUp Command · Document · OBJ_cucmd_document"]
+  n11["object ClickUp Command · Activity · OBJ_cucmd_activity"]
+  n12["object ClickUp Command · AI output · OBJ_cucmd_ai_output"]
+  n13["object ClickUp Command · Weekly metric · OBJ_cucmd_weekly_metric"]
+  n14["object ClickUp Command · Saved view · OBJ_cucmd_saved_view"]
+  n15["object ClickUp Command · Integration · OBJ_cucmd_integration"]
+  n16["object ClickUp Command · Notification · OBJ_cucmd_notification"]
+  n17["object ClickUp Command · Checklist item · OBJ_cucmd_checklist_item"]
 ```

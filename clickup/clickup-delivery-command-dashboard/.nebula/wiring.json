@@ -69,6 +69,55 @@
       "name": "ClickUp Command · Document",
       "version": 0,
       "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_activity",
+      "name": "ClickUp Command · Activity",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_ai_output",
+      "name": "ClickUp Command · AI output",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_weekly_metric",
+      "name": "ClickUp Command · Weekly metric",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_saved_view",
+      "name": "ClickUp Command · Saved view",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_integration",
+      "name": "ClickUp Command · Integration",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_notification",
+      "name": "ClickUp Command · Notification",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_cucmd_checklist_item",
+      "name": "ClickUp Command · Checklist item",
+      "version": 0,
+      "stale": false
     }
   ],
   "edges": [],

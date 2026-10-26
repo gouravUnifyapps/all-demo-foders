@@ -16,6 +16,13 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | object | `ClickUp Command · Deliverable` | OBJ_cucmd_deliverable | 0 | no |
 | object | `ClickUp Command · Session slot` | OBJ_cucmd_session_slot | 0 | no |
 | object | `ClickUp Command · Document` | OBJ_cucmd_document | 0 | no |
+| object | `ClickUp Command · Activity` | OBJ_cucmd_activity | 0 | no |
+| object | `ClickUp Command · AI output` | OBJ_cucmd_ai_output | 0 | no |
+| object | `ClickUp Command · Weekly metric` | OBJ_cucmd_weekly_metric | 0 | no |
+| object | `ClickUp Command · Saved view` | OBJ_cucmd_saved_view | 0 | no |
+| object | `ClickUp Command · Integration` | OBJ_cucmd_integration | 0 | no |
+| object | `ClickUp Command · Notification` | OBJ_cucmd_notification | 0 | no |
+| object | `ClickUp Command · Checklist item` | OBJ_cucmd_checklist_item | 0 | no |
 
 ## Wiring
 

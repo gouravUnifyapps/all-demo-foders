@@ -23,8 +23,8 @@ Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining scree
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation-shell | ClickUp Command · Ask Copilot |  | done | 1 |
-| t2 | automation | ClickUp Command · Ask Copilot | t1 | running | 1 |
-| t3 | deploy | ClickUp Command · Ask Copilot | t2 | pending | 0 |
+| t2 | automation | ClickUp Command · Ask Copilot | t1 | done | 1 |
+| t3 | deploy | ClickUp Command · Ask Copilot | t2 | running | 1 |
 | t4 | code-app | ClickUp Delivery Command |  | running | 1 |
 | t5 | code-app | ClickUp Delivery Command | t4 | running | 1 |
 | t6 | code-app | ClickUp Delivery Command | t5 | running | 1 |
@@ -66,6 +66,29 @@ Read back: the saved version from \`compile_and_save_workflow\`, and \`inspect_w
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: The test runs of ClickUp Command · Ask Copilot answer the result words the body names, quoted from \`inspect_workflow_run\`.
+Result IDs: {"entity":"6adf526ef3cd5f19ed626787"}
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: compile_and_save_workflow ok:true, version 1, 7 nodes, ACTION×2 CALL_INTERFACE_WORKFLOW×1 IF_ELSE×1 STOP×2, operations ai_agents_by_unifyapps_invoke_agent + 2× code_by_unifyapps_javascript; contract (setup question/session_id/user_email, result answer_text/chart_json/record_links_json/session_id) unchanged from the shell
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: Invoke Agent node input parameters {aiAgentId: "e_6adf4f02dc07493166ced9fa", userQuery: "Which Japan projects go live in November and are at risk?", sessionId: "", userEmailAddress: "gourav.mahunta@unifyapps.com"}
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: inspect_workflow_run 6adf52efcac0655fe38b4be6 status COMPLETED, STOP n_4pcrb output answer_text "One Japan project is at risk with a November go-live: ... \| IMP-2611 \| Sakura Mobility \| 16 Nov 2026 \| At risk \| On track \| ...", chart_json "", record_links_json "[{\"code\":\"IMP-2611\",\"type\":\"project\"}]", session_id "e_6adf52f0cac0655fe38b4bfd"
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: inspect_workflow_run 6adf52f86112da3e23bac7b9 (all-blank payload) status COMPLETED, STOP n_8dbzp output answer_text "Please enter a question.", chart_json "", record_links_json "[]", session_id ""; agent not invoked
+Read back: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787: security rule 2 — prep node takes serverEmail from {{ __USER__.outputs.contactDetails.email }} and uses the caller's user_email only when the platform gives none (run input serverEmail "gourav.mahunta@unifyapps.com")
+Unverified: ClickUp Command · Ask Copilot: chart_json parsing (first fenced \`\`\`json/\`\`\`chart block whose JSON has type or series) was not exercised — the test answer held no chart; check with a test run asking for a chart, e.g. budget hours by project
+Unverified: ClickUp Command · Ask Copilot: CR- and RSK- code extraction not exercised by the test answer (only IMP-2611); check with a question about change requests or risks
+Unverified: ClickUp Command · Ask Copilot: session continuation with a non-empty session_id not tested; check with a second run passing session_id e_6adf52f0cac0655fe38b4bfd
+Unverified: ClickUp Command · Ask Copilot: version 1 is saved, not deployed (task said do not deploy); deployed copy is still the version 0 stub — callers get the stub until a deploy task runs
+Note: handover: ClickUp Command · Ask Copilot 6adf526ef3cd5f19ed626787 draft version 1 holds the logic; it is NOT deployed — callers still hit the version 0 stub until deployed
+Note: handover: record_links_json is a JSON string of [{code, type}] with type project (IMP-), change_request (CR-) or risk (RSK-), de-duplicated in order of mention; chart_json is "" or a JSON string of the chart object; answer_text is the agent's full text (markdown, may include a table and the chart fence)
+Note: handover: a blank question returns answer_text "Please enter a question." without invoking the agent
+Note: assumed: userEmailAddress uses the signed-in user's platform email and falls back to the user_email input only when none is present (identity from the server, secure-by-default rule 2)
+Note: assumed: answer_text keeps the agent's text whole, including any chart fence; the Copilot panel may hide the fence when chart_json is set
+Note: No rows were written by the test runs (the automation writes nothing); no DEMO-TEST cleanup needed
+Note: feedback:
+Bug: get_code_sandbox_restrictions for javascript lists no blocked commands, but the save rejects RegExp \`.exec(\` in a JavaScript code node.
+Context: compile_and_save_workflow on ClickUp Command · Ask Copilot (6adf526ef3cd5f19ed626787), a code_by_unifyapps_javascript node that used regex.exec(text) in a while loop.
+Where: mcp-tool
+Evidence: get_code_sandbox_restrictions({codeLanguage:"javascript"}) answered restrictions {executionInstanceId, lookupReferences: {}} with no blacklist; the save then answered BACKEND_VALIDATION_FAILED "Blacklisted commands found in code : .exec( at position 461".
+Cause: Unknown — next check: whether the tenant's JavaScript blacklist is returned by the backend call the tool makes, or the tool drops it.
+Regression: get_code_sandbox_restrictions for javascript on orbit UAT lists .exec( among its blacklisted commands.
 
 ### t3 · Deploy ClickUp Command · Ask Copilot
 

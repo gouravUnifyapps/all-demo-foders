@@ -140,7 +140,7 @@
       "kind": "automation",
       "id": "6adf526ef3cd5f19ed626787",
       "name": "ClickUp Command · Ask Copilot",
-      "version": 0,
+      "version": 1,
       "stale": false
     },
     {

@@ -21,7 +21,7 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation | `ClickUp Command · Send executive summary` | 6adf4d1508750d257cf3df21 | 1 | no |
 | automation | `ClickUp Command · Update project settings` | 6adf4eb5cac0655fe38aef9d | 1 | no |
 | automation | `ClickUp Command · Mark notification read` | 6adf4eb8cac0655fe38aefc9 | 1 | no |
-| automation | `ClickUp Command · Ask Copilot` | 6adf526ef3cd5f19ed626787 | 0 | no |
+| automation | `ClickUp Command · Ask Copilot` | 6adf526ef3cd5f19ed626787 | 1 | no |
 | object | `ClickUp Command · Project` | OBJ_cucmd_project | 0 | no |
 | object | `ClickUp Command · RAID item` | OBJ_cucmd_raid | 0 | no |
 | object | `ClickUp Command · Task` | OBJ_cucmd_task | 0 | no |

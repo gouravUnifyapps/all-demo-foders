@@ -5,17 +5,18 @@
   "id": "e_6adf231a08f96579541331a5",
   "lastModifiedBy": 66770,
   "lastPlatformUpdateBy": 66770,
-  "lastPlatformUpdateOn": 1793008410170,
-  "modifiedTime": 1793008410170,
+  "lastPlatformUpdateOn": 1793016538099,
+  "modifiedTime": 1793016538099,
   "ownerUserId": 66770,
   "properties": {
-    "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n",
     "name": "Clickup · ClickUp Delivery command dashboard",
-    "description": ""
+    "description": "Build 1 of 9 of the ClickUp Delivery Command demo for Clickup (POC POC-clickup-delivery-command-dashboard-20261026, plan approved at G2 by Gourav Mahunta). This part builds objects, part 1. Implementation leads, delivery directors, finance partners, resource managers, consultants and customer sponsors work in one code app over these objects; the demo walks Sakura Mobility (IMP-2611) from At risk through a routed change request, staffing, the sponsor's sign-off and Delivery Copilot.",
+    "planId": "e_6adf42d7dc07493166cdc058",
+    "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n"
   },
   "standard": false,
   "tags": [
     "Nebula"
   ],
-  "version": 0
+  "version": 2
 }

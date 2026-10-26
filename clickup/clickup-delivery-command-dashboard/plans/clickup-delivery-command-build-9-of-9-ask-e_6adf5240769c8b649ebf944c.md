@@ -25,12 +25,12 @@ Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining scree
 | t1 | automation-shell | ClickUp Command · Ask Copilot |  | done | 1 |
 | t2 | automation | ClickUp Command · Ask Copilot | t1 | done | 1 |
 | t3 | deploy | ClickUp Command · Ask Copilot | t2 | done | 1 |
-| t4 | code-app | ClickUp Delivery Command |  | running | 1 |
-| t5 | code-app | ClickUp Delivery Command | t4 | running | 1 |
-| t6 | code-app | ClickUp Delivery Command | t5 | running | 1 |
-| t7 | code-app | ClickUp Delivery Command | t6, t1 | pending | 0 |
-| t8 | code-app | ClickUp Delivery Command | t7 | pending | 0 |
-| t9 | code-app | ClickUp Delivery Command | t8 | pending | 0 |
+| t4 | code-app | ClickUp Delivery Command |  | done | 1 |
+| t5 | code-app | ClickUp Delivery Command | t4 | done | 1 |
+| t6 | code-app | ClickUp Delivery Command | t5 | done | 1 |
+| t7 | code-app | ClickUp Delivery Command | t6, t1 | running | 1 |
+| t8 | code-app | ClickUp Delivery Command | t7 | running | 1 |
+| t9 | code-app | ClickUp Delivery Command | t8 | running | 1 |
 | t10 | code-publish | ClickUp Delivery Command | t4, t5, t6, t7, t8, t9, t3 | pending | 0 |
 
 ### t1 · Shell for ClickUp Command · Ask Copilot
@@ -123,6 +123,18 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"7d5c3ae4b26a9cd6dd6109693170ae44cdb385d0"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit 7d5c3ae4b26a9cd6dd6109693170ae44cdb385d0 (17 files: routes/ProjectWorkspace.tsx, routes/ChangeRequest.tsx, components/workspace/{Overview,Board,Timeline,TaskList,TaskDrawer,Raid,Documents,Settings,parts}.tsx, data/workspace.ts, data/callable.ts, data/types.ts, data/bindings.ts, data/callables.ts, lib/dates.ts)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha 7d5c3ae4b26a9cd6dd6109693170ae44cdb385d0 'Build Project workspace and Change request screens' right after the push
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed app/src/data/bindings.ts FETCH id e_6adf5087dc07493166cf01c2; ENTITY adds task OBJ_cucmd_task, document OBJ_cucmd_document, activity OBJ_cucmd_activity, changeRequest OBJ_cucmd_change_request
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed app/src/data/callables.ts holds blocks '&gt;&gt;&gt; callable 6adf485af3cd5f19ed4ac683' (UPDATE_TASK, e_6adf5340769c8b649ebfa6d3), '6adf485ec79cad1140a9e9a6' (RAISE_CHANGE_REQUEST, e_6adf5341769c8b649ebfa6d9), '6adf4eb5cac0655fe38aef9d' (UPDATE_PROJECT_SETTINGS, e_6adf534108f96579544384bc)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: design: no visual check was run (the proof has no [visual]); check: open the preview at /projects/IMP-2611, /changes/CR-0457 and /resourcing as the beats say.
+Unverified: Update task's JS node sets result 'save' while its contract says 'saved'; the app treats any non-refused result as landed. Check: one Board move on the preview and read the answer's result.
+Unverified: Raise change request's JS node sets result 'submit' while its contract says 'submitted'; the app accepts both. Check: submit CR-0457 on the preview and see it open /changes/CR-0457.
+Unverified: Update project settings takes 'name' but Project has no name field; Settings sends the edited customer name as name. Check: save a changed name and re-read the Project row's customer.
+Note: The app's build script is 'tsc -b &amp;&amp; oxlint -A correctness src &amp;&amp; vite build', not the template's; the local build ran tsc -b, oxlint -A correctness src and vite build, all green, and the engine built green.
+Note: handover: app app-a2a9509a82c1, branch main, routes /projects, /projects/:code (tabs ?tab=list\|board\|timeline\|raid\|documents\|activity\|settings), /projects/:code/change; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/; shared helpers for later screens: useCallable/parseJson in src/data/callable.ts, ActivityFeed/RefusalNote/FailureBanner/TabBar/Fact in src/components/workspace/parts.tsx, PlanTable in components/workspace/PlanCompare.tsx.
 
 ### t5 · ClickUp Delivery Command: screen Changes
 
@@ -140,6 +152,15 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"31af0c68ba3de39ce595eb61e001571716041c63"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit 31af0c68ba3de39ce595eb61e001571716041c63 (routes/Changes.tsx, data/changes.ts, data/types.ts, data/callables.ts, components/workspace/PlanCompare.tsx, routes/ChangeRequest.tsx)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha 31af0c68ba3de39ce595eb61e001571716041c63 'Build Changes screen with approval route and decisions' right after the push
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed bindings.ts FETCH id e_6adf5087dc07493166cf01c2 with ENTITY.changeRequest OBJ_cucmd_change_request and ENTITY.activity OBJ_cucmd_activity
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed callables.ts holds '&gt;&gt;&gt; callable 6adf485ff3cd5f19ed4ac6fd' (DECIDE_CHANGE_REQUEST, e_6adf552d08f965795443b4d9)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: design: no visual check was run (the proof has no [visual]); check: open the preview at /projects/IMP-2611, /changes/CR-0457 and /resourcing as the beats say.
+Unverified: The approver role and name come from the persona switcher (Elena Fischer -&gt; delivery_director, Marcus Bell -&gt; finance_partner); an empty Reject reason is sent to the automation on purpose so its refused_reason_required shows as .tag.negative + .note. Check: run beat 3 on the preview.
+Note: handover: app app-a2a9509a82c1, branch main, routes /changes and /changes/:code; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/.
 
 ### t6 · ClickUp Delivery Command: screen Resourcing and Timesheets
 
@@ -157,6 +178,15 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address.
 
 Proof: The push's \`commit\` is \`get_code_app\`'s \`head.sha\`; \`bindings.ts\` holds a FETCH id and \`callables.ts\` the block of each automation the body names.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"aa5b6a2e44ad5866073359d97f3301e356f49625"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true builds:true commit aa5b6a2e44ad5866073359d97f3301e356f49625 (routes/Resourcing.tsx, routes/Timesheets.tsx, components/resourcing/{CapacityGrid,BookConsultant,Skills,RegionCapacity}.tsx, data/resourcing.ts, data/types.ts, data/bindings.ts, data/callables.ts)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha aa5b6a2e44ad5866073359d97f3301e356f49625 'Build Resourcing and Timesheets screens' right after the push
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed bindings.ts FETCH id e_6adf5087dc07493166cf01c2 with ENTITY person OBJ_cucmd_person, booking OBJ_cucmd_booking, timeEntry OBJ_cucmd_time_entry (project OBJ_cucmd_project already there)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: committed callables.ts holds '&gt;&gt;&gt; callable 6adf4aa308750d257cf32534' (BOOK_CONSULTANT, e_6adf55a8769c8b649ebfe49d) and '&gt;&gt;&gt; callable 6adf4aa9f3cd5f19ed4afa85' (TIMESHEET_ACTION, e_6adf55a8769c8b649ebfe4a2)
+Read back: ClickUp Delivery Command app-a2a9509a82c1: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/"
+Unverified: design: no visual check was run (the proof has no [visual]); check: open the preview at /projects/IMP-2611, /changes/CR-0457 and /resourcing as the beats say.
+Unverified: The 12-week grid computes each week's share from Booking rows against Person.capacity_hours, matching weeks by rounding (week - first_week) / 7 days; Timesheets reads week_start within the week's Monday -1 day to +6 days. Check: /resourcing shows Jonas Weber at 110% in the weeks of 16 and 23 Nov, and /timesheets opens on the week of 19 Oct with its submitted entries.
+Note: handover: app app-a2a9509a82c1, branch main, routes /resourcing and /timesheets; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/.
 
 ### t7 · ClickUp Delivery Command: screen Copilot panel
 

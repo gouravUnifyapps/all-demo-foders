@@ -22,8 +22,8 @@ Goal: Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot na
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | ClickUp Command Copilot |  | running | 1 |
-| t2 | publish | ClickUp Command Copilot | t1 | pending | 0 |
+| t1 | ai-agent | ClickUp Command Copilot |  | done | 1 |
+| t2 | publish | ClickUp Command Copilot | t1 | running | 1 |
 | t3 | code-app | ClickUp Delivery Command |  | done | 1 |
 | t4 | code-publish | ClickUp Delivery Command | t3 | done | 1 |
 
@@ -39,6 +39,31 @@ Read back: \`get_agent\` instructions holding the anchor line, and both test ans
 Report ids (the agent id as ids.entity), readBack, unverified, notes.
 
 Proof: The test answer names the week of 26 Oct 2026 with 161 / 38 / 15 against 159 / 33 / 19, and the over-capacity answer shows no raw code.
+Result IDs: {"entity":"e_6adf4f02dc07493166ced9fa"}
+Read back: ClickUp Command Copilot e_6adf4f02dc07493166ced9fa: update_agent changed ["instructions"] only, version 10 -&gt; 11, needsPublish true; model stays e_6ad496812dd4ba5be70afcc1 in all three slots; tools unchanged (ReadDeliveryData the only enabled tool).
+Read back: ClickUp Command Copilot get_agent instructions hold the anchor line: "1 Oct 2026 is 1790812800000, 1 Nov 2026 is 1793491200000, ... and 1792972800000 is 1790812800000 plus 25 days, so it is 26 Oct 2026."
+Read back: ClickUp Command Copilot get_agent instructions: "Always name the week that row covers, as \"the week of\" its week_start date ... Then compare it with the previous row ... give the latest count, the previous count and the change"; and "a booking whose over_capacity flag is true is written as \"Over capacity\", never as over_capacity: true"; "a status such as pending_approval is Pending approval".
+Read back: ClickUp Command Copilot before the change (case e_6adf5f30c79cad1140c0c1c2): "week starting 26 Oct 2026 show 161 projects On track, 38 At risk and 15 Off track" with no comparison; booking answer (case e_6adf5f3892718f6a64e703d2) said "both flagged \`over_capacity: true\` in the data".
+Read back: ClickUp Command Copilot test 1 (case e_6adf5fbd92718f6a64e70e2a, trace calls ReadDeliveryData {"scope": "weekly_metrics"}): "Portfolio Health — Week of 26 Oct 2026 ... compared with the prior week (19 Oct 2026): On track 161 \| 159 \| up 2; At risk 38 \| 33 \| up 5; Off track 15 \| 19 \| down 4".
+Read back: ClickUp Command Copilot test 2 (case e_6adf600797a3bf334d6fd5f9, trace calls ReadDeliveryData {"scope": "bookings"}): "Jonas Weber (P-05, implementation lead, Europe) is the only person flagged over capacity ... two overlapping bookings marked over capacity: B-04 on IMP-2609, 24 hours per week ... B-05 on IMP-2602, 20 hours per week, starting 16 Nov 2026 ... these overlap in the 16 Nov–30 Nov 2026 window, pushing him over 100 percent" — no raw code or backticks.
+Unverified: ClickUp Command Copilot test 2 did not state the 110% figure or name the weeks as 16 and 23 Nov 2026 (it said the 16 Nov–30 Nov window), and wrote "over capacity" in prose rather than the capitalised label; the proof (no raw code) holds. Check: ask the same question again and look for "110 percent".
+Unverified: ClickUp Command Copilot: change is in the draft only (needsPublish true); it goes live with the plan's publish task.
+Note: ClickUp Command Copilot trace offers the model tools not attached to the agent: toolsOffered = think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy, ReadDeliveryData, while get_agent lists only ReadDeliveryData enabled. The existing instruction forbids the Environment* tools and neither test called them; not changed here, as the task keeps tools as they are.
+Note: send_test_message timed out at 50 s on the first try of each question; the identical resend answered.
+Note: feedback:
+Bug: The trace of ClickUp Command Copilot offers the model tools the agent does not have attached or switched on.
+Context: read_trace after send_test_message on agent e_6adf4f02dc07493166ced9fa, whose get_agent lists only ReadDeliveryData enabled.
+Where: platform
+Evidence: read_trace case e_6adf5fbd92718f6a64e70e2a toolsOffered = think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy, ReadDeliveryData; get_agent counts.tools 3 with no Environment* tool.
+Cause: Unknown — next check: find where the Environment* tools are bound and why ClarifyFromUser is offered with requestClarification off.
+Regression: read_trace on a fresh turn shows toolsOffered limited to what get_agent reports enabled (plus think).
+Note: feedback:
+Bug: send_test_message timed out at 50 s on the first try of each of two read-only questions with no case id; the identical resend answered.
+Context: send_test_message with runAgainToFindAnswer true on agent e_6adf4f02dc07493166ced9fa, one call at a time.
+Where: mcp-tool
+Evidence: REQUEST_TIMED_OUT limitSeconds 50 on /api/ai-agent/test/invoke and /invoke/sse; resends returned caseIds e_6adf5fbd92718f6a64e70e2a and e_6adf600797a3bf334d6fd5f9.
+Cause: Suspected: a tool-using turn plus the second run for the case id exceeds the fixed 50 s wait.
+Regression: send the same two questions once each; both return an answer and caseId on the first call.
 
 ### t2 · Publish ClickUp Command Copilot
 

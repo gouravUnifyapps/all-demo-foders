@@ -3,9 +3,67 @@
     {
       "kind": "app",
       "id": "app-f53fd0efccec",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "ClickUp Delivery Command",
+      "version": 3,
+      "stale": false
+    },
+    {
+      "kind": "page",
+      "id": "e_global_app-f53fd0efccec",
+      "name": "global-page-of-app-f53fd0efccec",
+      "version": 0,
+      "stale": false,
+      "appId": "app-f53fd0efccec",
+      "dataSources": [
+        {
+          "id": "e_6adbb6845236864dd8edcd6b",
+          "name": "Send executive summary"
+        },
+        {
+          "id": "e_6adbb56d925d282255d10fd5",
+          "name": "Change request"
+        },
+        {
+          "id": "e_6adbb4b0925d282255d0fc9b",
+          "name": "Review timesheets"
+        },
+        {
+          "id": "e_6adbb4b0925d282255d0fc96",
+          "name": "Book consultant"
+        },
+        {
+          "id": "e_6adbb3ff0881d2257ad023b6",
+          "name": "Reschedule task"
+        },
+        {
+          "id": "e_6adbb35b5236864dd8ed69d8",
+          "name": "Move task"
+        },
+        {
+          "id": "e_6adbb1ee0881d2257acff8f3",
+          "name": "Save view"
+        },
+        {
+          "id": "e_6adbb1ed925d282255d0c00d",
+          "name": "data_fetchOne_app-f53fd0efccec"
+        },
+        {
+          "id": "e_6adbb1ed925d282255d0c00a",
+          "name": "data_fetch_app-f53fd0efccec"
+        },
+        {
+          "id": "e_6adbb1ed0881d2257acff8ed",
+          "name": "data_delete_app-f53fd0efccec"
+        },
+        {
+          "id": "e_6adbb1ed0881d2257acff8e9",
+          "name": "data_update_app-f53fd0efccec"
+        },
+        {
+          "id": "e_6adbb1ed0881d2257acff8e6",
+          "name": "data_create_app-f53fd0efccec"
+        }
+      ]
     },
     {
       "kind": "automation",
@@ -289,6 +347,186 @@
     }
   ],
   "edges": [
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Send executive summary"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adbac23eb71d135d65f4715",
+        "name": "Delivery Command · Send executive summary"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Change request"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba6a8cac0655fe3582da3",
+        "name": "Delivery Command · Change request"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Review timesheets"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba402f4431f44e30943f1",
+        "name": "Delivery Command · Review timesheets"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Book consultant"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba3b292718f6a64f39440",
+        "name": "Delivery Command · Book consultant"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Reschedule task"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba3266112da3e23fcf133",
+        "name": "Delivery Command · Reschedule task"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Move task"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba2ac92718f6a64f34bc5",
+        "name": "Delivery Command · Move task"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Save view"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba9aef3cd5f19ed89eaec",
+        "name": "Delivery Command · Save view"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source data_fetchOne_app-f53fd0efccec"
+      },
+      "to": {
+        "kind": "object",
+        "id": "{{object_type}}",
+        "name": null
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source data_fetch_app-f53fd0efccec"
+      },
+      "to": {
+        "kind": "object",
+        "id": "{{object_type}}",
+        "name": null
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source data_delete_app-f53fd0efccec"
+      },
+      "to": {
+        "kind": "object",
+        "id": "{{object_type}}",
+        "name": null
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source data_update_app-f53fd0efccec"
+      },
+      "to": {
+        "kind": "object",
+        "id": "{{object_type}}",
+        "name": null
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source data_create_app-f53fd0efccec"
+      },
+      "to": {
+        "kind": "object",
+        "id": "{{object_type}}",
+        "name": null
+      },
+      "via": "storage read",
+      "fields": []
+    },
     {
       "from": {
         "kind": "automation",
@@ -1461,12 +1699,6 @@
     }
   ],
   "unknown": [
-    {
-      "kind": "app",
-      "id": "app-f53fd0efccec",
-      "name": null,
-      "reason": "interface-not-cached"
-    },
     {
       "kind": "ai-agent",
       "id": "e_6adbabd2925d282255cee62b",

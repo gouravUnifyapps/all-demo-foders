@@ -6,7 +6,8 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
-| app |  | app-f53fd0efccec |  | yes |
+| app | `ClickUp Delivery Command` | app-f53fd0efccec | 3 | no |
+| page | `global-page-of-app-f53fd0efccec` | e_global_app-f53fd0efccec | 0 | no |
 | automation | `Delivery Command · Move task` | 6adba2ac92718f6a64f34bc5 | 1 | no |
 | automation | `Delivery Command · Reschedule task` | 6adba3266112da3e23fcf133 | 1 | no |
 | automation | `Delivery Command · Book consultant` | 6adba3b292718f6a64f39440 | 1 | no |
@@ -52,6 +53,18 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
+| page `global-page-of-app-f53fd0efccec` | `data source Send executive summary` | automation `Delivery Command · Send executive summary` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Change request` | automation `Delivery Command · Change request` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Review timesheets` | automation `Delivery Command · Review timesheets` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Book consultant` | automation `Delivery Command · Book consultant` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Reschedule task` | automation `Delivery Command · Reschedule task` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Move task` | automation `Delivery Command · Move task` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Save view` | automation `Delivery Command · Save view` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source data_fetchOne_app-f53fd0efccec` | object `{{object_type}}` | storage read |  |
+| page `global-page-of-app-f53fd0efccec` | `data source data_fetch_app-f53fd0efccec` | object `{{object_type}}` | storage read |  |
+| page `global-page-of-app-f53fd0efccec` | `data source data_delete_app-f53fd0efccec` | object `{{object_type}}` | storage read |  |
+| page `global-page-of-app-f53fd0efccec` | `data source data_update_app-f53fd0efccec` | object `{{object_type}}` | storage read |  |
+| page `global-page-of-app-f53fd0efccec` | `data source data_create_app-f53fd0efccec` | object `{{object_type}}` | storage read |  |
 | automation `Delivery Command · Move task` | `node Read the task by its id` | object `Delivery Command · Task` | storage read |  |
 | automation `Delivery Command · Move task` | `node Set the task's stage and status` | object `Delivery Command · Task` | storage write |  |
 | automation `Delivery Command · Move task` | `node Count the tasks now in the target column (same project, same stage)` | object `Delivery Command · Task` | storage read |  |
@@ -133,5 +146,4 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 ## Not checked
 
-- app `app-f53fd0efccec` (app-f53fd0efccec): interface-not-cached
 - ai-agent `Delivery Command · Copilot` (e_6adbabd2925d282255cee62b): its tools are not in the cache (get_agent)

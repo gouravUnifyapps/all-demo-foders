@@ -8,7 +8,7 @@ status: building
 version: 1 · since 2026-10-23T11:57:39Z
 thread: C0CBK3E47E2 · 1792757255.287779
 intent: both
-stage_flag: 
+stage_flag: /home/user/.demo-studio/stage-running
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1792757255.287779, decided_by: Gourav Mahunta (reply), decided_at: 2026-10-23T12:10:00Z}
@@ -83,7 +83,8 @@ runs:
     spawns: 24
     tokens: 3900
     outcome: stopped: AGENT_LLM_TOOLS refused on orbit.uat during plan 9
-stopped: {why: "orbit.uat refused every Nebula call with AGENT_LLM_TOOLS PERMISSION_REQUIRED for gourav.mahunta@unifyapps.com from about 19:35Z (hold_code_branch, then get_entity_records); Nebula rule: no retry until the person confirms the permission", where: "3-build, plan 9 of 10 (e_6adbb044925d282255d09cab), task t7 Executive summary"}
+  - started: 2026-10-26T07:27:00Z
+    gate: g3
 
 asks:
   - id: A1

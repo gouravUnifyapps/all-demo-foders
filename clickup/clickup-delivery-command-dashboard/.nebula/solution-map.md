@@ -11,6 +11,9 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation | `ClickUp Command · Update task` | 6adf485af3cd5f19ed4ac683 | 2 | no |
 | automation | `ClickUp Command · Raise change request` | 6adf485ec79cad1140a9e9a6 | 1 | no |
 | automation | `ClickUp Command · Decide change request` | 6adf485ff3cd5f19ed4ac6fd | 1 | no |
+| automation | `ClickUp Command · Book consultant` | 6adf4aa308750d257cf32534 | 1 | no |
+| automation | `ClickUp Command · Timesheet action` | 6adf4aa9f3cd5f19ed4afa85 | 2 | no |
+| automation | `ClickUp Command · Portal action` | 6adf4aaef3cd5f19ed4afc58 | 1 | no |
 | object | `ClickUp Command · Project` | OBJ_cucmd_project | 0 | no |
 | object | `ClickUp Command · RAID item` | OBJ_cucmd_raid | 0 | no |
 | object | `ClickUp Command · Task` | OBJ_cucmd_task | 0 | no |
@@ -58,6 +61,33 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation `ClickUp Command · Decide change request` | `node Save the decision on the change request` | object `ClickUp Command · Change request` | storage write |  |
 | automation `ClickUp Command · Decide change request` | `node Move the project's go-live and planned hours` | object `ClickUp Command · Project` | storage write |  |
 | automation `ClickUp Command · Decide change request` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Book consultant` | `node Read the person` | object `ClickUp Command · Person` | storage read |  |
+| automation `ClickUp Command · Book consultant` | `node Read the project` | object `ClickUp Command · Project` | storage read |  |
+| automation `ClickUp Command · Book consultant` | `node Read the person's existing bookings` | object `ClickUp Command · Booking` | storage read |  |
+| automation `ClickUp Command · Book consultant` | `node Save the booking` | object `ClickUp Command · Booking` | storage write |  |
+| automation `ClickUp Command · Book consultant` | `node Record the booking in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Read the task for its project` | object `ClickUp Command · Task` | storage read |  |
+| automation `ClickUp Command · Timesheet action` | `node Create the time entry` | object `ClickUp Command · Time entry` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Record the log in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Read the open entries of that week` | object `ClickUp Command · Time entry` | storage read |  |
+| automation `ClickUp Command · Timesheet action` | `node Mark the entry submitted` | object `ClickUp Command · Time entry` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Record the submit in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Read the pending entries named` | object `ClickUp Command · Time entry` | storage read |  |
+| automation `ClickUp Command · Timesheet action` | `node Mark the entry approved` | object `ClickUp Command · Time entry` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Record the approval in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Mark the entry returned` | object `ClickUp Command · Time entry` | storage write |  |
+| automation `ClickUp Command · Timesheet action` | `node Record the return in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Portal action` | `node Read the sponsor and their project` | object `ClickUp Command · Person` | storage read |  |
+| automation `ClickUp Command · Portal action` | `node Read the deliverable` | object `ClickUp Command · Deliverable` | storage read |  |
+| automation `ClickUp Command · Portal action` | `node Record the change request on the deliverable` | object `ClickUp Command · Deliverable` | storage write |  |
+| automation `ClickUp Command · Portal action` | `node Sign the deliverable off` | object `ClickUp Command · Deliverable` | storage write |  |
+| automation `ClickUp Command · Portal action` | `node Record the sign-off in the activity feed` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Portal action` | `node Read the slot` | object `ClickUp Command · Session slot` | storage read |  |
+| automation `ClickUp Command · Portal action` | `node Book the slot` | object `ClickUp Command · Session slot` | storage write |  |
+| automation `ClickUp Command · Portal action` | `node Read the checklist item` | object `ClickUp Command · Checklist item` | storage read |  |
+| automation `ClickUp Command · Portal action` | `node Save the answer` | object `ClickUp Command · Checklist item` | storage write |  |
+| automation `ClickUp Command · Portal action` | `node Confirm an upload: read the document` | object `ClickUp Command · Document` | storage read |  |
+| automation `ClickUp Command · Portal action` | `node Confirm the upload` | object `ClickUp Command · Document` | storage write |  |
 
 ## Not checked
 

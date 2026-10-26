@@ -36,6 +36,27 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adf4aa308750d257cf32534",
+      "name": "ClickUp Command · Book consultant",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf4aa9f3cd5f19ed4afa85",
+      "name": "ClickUp Command · Timesheet action",
+      "version": 2,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf4aaef3cd5f19ed4afc58",
+      "name": "ClickUp Command · Portal action",
+      "version": 1,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_cucmd_project",
       "name": "ClickUp Command · Project",
@@ -527,6 +548,411 @@
         "kind": "object",
         "id": "OBJ_cucmd_activity",
         "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa308750d257cf32534",
+        "name": "ClickUp Command · Book consultant",
+        "part": "node Read the person"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_person",
+        "name": "ClickUp Command · Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa308750d257cf32534",
+        "name": "ClickUp Command · Book consultant",
+        "part": "node Read the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa308750d257cf32534",
+        "name": "ClickUp Command · Book consultant",
+        "part": "node Read the person's existing bookings"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_booking",
+        "name": "ClickUp Command · Booking"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa308750d257cf32534",
+        "name": "ClickUp Command · Book consultant",
+        "part": "node Save the booking"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_booking",
+        "name": "ClickUp Command · Booking"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa308750d257cf32534",
+        "name": "ClickUp Command · Book consultant",
+        "part": "node Record the booking in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Read the task for its project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_task",
+        "name": "ClickUp Command · Task"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Create the time entry"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_time_entry",
+        "name": "ClickUp Command · Time entry"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Record the log in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Read the open entries of that week"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_time_entry",
+        "name": "ClickUp Command · Time entry"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Mark the entry submitted"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_time_entry",
+        "name": "ClickUp Command · Time entry"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Record the submit in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Read the pending entries named"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_time_entry",
+        "name": "ClickUp Command · Time entry"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Mark the entry approved"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_time_entry",
+        "name": "ClickUp Command · Time entry"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Record the approval in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Mark the entry returned"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_time_entry",
+        "name": "ClickUp Command · Time entry"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aa9f3cd5f19ed4afa85",
+        "name": "ClickUp Command · Timesheet action",
+        "part": "node Record the return in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Read the sponsor and their project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_person",
+        "name": "ClickUp Command · Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Read the deliverable"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_deliverable",
+        "name": "ClickUp Command · Deliverable"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Record the change request on the deliverable"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_deliverable",
+        "name": "ClickUp Command · Deliverable"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Sign the deliverable off"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_deliverable",
+        "name": "ClickUp Command · Deliverable"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Record the sign-off in the activity feed"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Read the slot"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_session_slot",
+        "name": "ClickUp Command · Session slot"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Book the slot"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_session_slot",
+        "name": "ClickUp Command · Session slot"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Read the checklist item"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_checklist_item",
+        "name": "ClickUp Command · Checklist item"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Save the answer"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_checklist_item",
+        "name": "ClickUp Command · Checklist item"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Confirm an upload: read the document"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_document",
+        "name": "ClickUp Command · Document"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4aaef3cd5f19ed4afc58",
+        "name": "ClickUp Command · Portal action",
+        "part": "node Confirm the upload"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_document",
+        "name": "ClickUp Command · Document"
       },
       "via": "storage write",
       "fields": []

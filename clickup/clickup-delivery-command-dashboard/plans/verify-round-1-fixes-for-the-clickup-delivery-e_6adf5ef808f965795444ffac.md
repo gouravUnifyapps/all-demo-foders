@@ -24,8 +24,8 @@ Goal: Verify round 1 fixes for the ClickUp Delivery Command demo: the Copilot na
 |---|---|---|---|---|---:|
 | t1 | ai-agent | ClickUp Command Copilot |  | running | 1 |
 | t2 | publish | ClickUp Command Copilot | t1 | pending | 0 |
-| t3 | code-app | ClickUp Delivery Command |  | running | 1 |
-| t4 | code-publish | ClickUp Delivery Command | t3 | pending | 0 |
+| t3 | code-app | ClickUp Delivery Command |  | done | 1 |
+| t4 | code-publish | ClickUp Delivery Command | t3 | running | 1 |
 
 ### t1 · Copilot: week dates, week-on-week health, codes as words
 
@@ -62,6 +62,16 @@ Read back: the push's \`commit\` and \`files\`; \`get_code_app\` answering that 
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the commit.
 
 Proof: The push's commit is \`get_code_app\`'s head.sha and the committed source holds no literal "No items yet.".
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"9142bfc0190ee94e05f42c6766567888288ca8f7"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: push_code_patch committed:true, builds:true, commit 9142bfc0190ee94e05f42c6766567888288ca8f7 (parent dd7a6dcd5cf4), 24 files modified under app/src (copilot-panel, portal, portfolio, shell, workspace, routes).
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app head.sha 9142bfc0190ee94e05f42c6766567888288ca8f7, message "Empty states name what is missing", busy:false; branch released (released:true, discarded []).
+Read back: ClickUp Delivery Command app-a2a9509a82c1: grep -rn "No items yet" over the committed checkout app/src returns no match (exit 1); "No rows match your search and filters" still appears in 11 places, unchanged.
+Read back: ClickUp Delivery Command app-a2a9509a82c1: empty titles now read e.g. "No projects yet.", "No tasks yet.", "No risks yet.", "No documents yet.", "No activity yet.", "No change requests yet.", "No bookings yet.", "No timesheet entries yet.", "No notifications yet.", "No audit entries yet.", "No status reports yet.", "No saved views yet.", "No people yet."; portal copy noItems split per screen: "No sign-offs yet.", "No sessions yet.", "No files yet.", "No checklist items yet." (with German and Japanese equivalents).
+Unverified: The new empty-state wording was not seen on screen (no [visual] proof asked): open the preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/ on a screen with an empty list to see it.
+Unverified: The change is not live: deployment is still commit f38dc296d01b; a code-publish task would release it.
+Note: Only the empty-state title text changed; detail lines, classes and the filtered-empty state are untouched. The unused EmptyScreen helper in ScreenFrame.tsx now reads "Nothing on {title} yet.".
+Note: The app's build script is tsc -b &amp;&amp; oxlint -A correctness src &amp;&amp; vite build; all three ran locally and passed, and the engine built the push green.
+Note: handover: ClickUp Delivery Command app-a2a9509a82c1 main head is commit 9142bfc0190ee94e05f42c6766567888288ca8f7 (empty states name their items); not yet published.
 
 ### t4 · Publish ClickUp Delivery Command
 

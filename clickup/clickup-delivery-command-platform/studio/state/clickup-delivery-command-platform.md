@@ -8,7 +8,7 @@ status: verifying
 version: 1 · since 2026-10-23T11:57:39Z
 thread: C0CBK3E47E2 · 1792757255.287779
 intent: both
-stage_flag: /home/user/.demo-studio/stage-running
+stage_flag: 
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1792757255.287779, decided_by: Gourav Mahunta (reply), decided_at: 2026-10-23T12:10:00Z}
@@ -1130,7 +1130,27 @@ data:
   expected_answers: eval.csv
 
 verify:
-  round: 0
+  round: 1
+  walked_at: 2026-10-26T08:03Z to 08:12Z
+  beats_pass: "0 of 9 (beats 1-7, H1, H2 all unverified: sign-in; the verify browser opened the preview and the Code Builder page and both redirected to orbit.uat.unifyapps.com/login)"
+  controls_pass: "0 of 0 measured (control sweep on all 12 beat screens unverified: sign-in)"
+  queries_pass: "11 of 11 (8 fact, 3 refusal; cases e_6adf09586112da3e236839c3 to e_6adf0b3d97a3bf334db852d3)"
+  coverage_pass: "0 of 113 (no beat or control reached: sign-in)"
+  checks_pass: "0 of 7 (all seven unverified: sign-in; they measure computed values on the page)"
+  p95_latency_s: 118
+  latency_target_s: 90
+  latencies_s: "Q1 35, Q2 43, Q3 22, Q4 20, Q5 106, Q6 118, Q7 34, Q8 16, Q9 4, Q10 4, Q11 5 (case creation to final model call)"
+  notes:
+    - "Q5 status report and Q1/Q7 answers state IMP-2611's go-live as 18 Nov 2026 and its baseline as 11 Nov or 16 Nov 2026; the seed holds go_live 1795046400000 (19 Nov 2026) and baseline_go_live 1794441600000 (12 Nov 2026). The trace shows the agent converting epoch milliseconds by hand in think steps. The rows still pass: the expected facts are stated."
+    - "Q2 chart adds Sep 2026 1 and Oct 2026 1 (live projects) to the expected Nov 6, Dec 4, Jan 3, Feb 3; passed on the expected months."
+    - "Agent record shows needsPublish: true (version 10): the draft verified here differs from the published agent the app's Ask Copilot automation calls."
+    - "Mode live for beat 7 not observed in the app (sign-in); the agent itself answered live with Read_delivery_data calls in every trace."
+  open:
+    - "automation · update · Delivery Command · Read delivery data: every date field (go_live, baseline_go_live, start, end, due, week_start, date, decided_at, requested_at) also comes back as UTC day text such as \"19 Nov 2026\" beside its epoch value; nothing else changes"
+    - "ai-agent · update · Delivery Command · Copilot: instructions say to state every date from the day text the tool returns and never convert epoch milliseconds by hand (it now says IMP-2611 goes live 18 Nov 2026, baseline 11 Nov or 16 Nov; the data says 19 Nov and 12 Nov); nothing else changes"
+    - "ai-agent · update · Delivery Command · Copilot: answers within 90 s at p95 (now 118 s for \"Who is booked over 100% in the next 12 weeks?\" and 106 s for \"Draft the weekly status report for IMP-2611\"): instructions cap think steps to one short plan and read bookings and people once each with limit 200 instead of per-person rereads; nothing else changes"
+    - "ai-agent · update · Delivery Command · Copilot: publish the draft (needsPublish true at version 10) so the app's Ask Copilot runs the verified instructions; nothing else changes"
+    - "ai-agent · update · Delivery Command · Copilot: the model is offered only think and Read_delivery_data; today every trace also offers EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy (not attached to the agent) and ClarifyFromUser (its capability is off); nothing else changes · platform"
 
 collaterals:
 
@@ -1274,6 +1294,12 @@ open_questions:
   - by: plan
     for: lead
     text: "An earlier build of this demo exists on the tenant outside this solution (\"ClickUp DC ·\" and \"DC\" objects, eight automations, three Copilot agents). Options: (a) Build fresh under \"Delivery Command ·\" names in this solution and leave the earlier entities untouched [recommended]; (b) Reuse the earlier \"ClickUp DC ·\" objects and automations"
+  - by: verify
+    for: owner
+    text: "Round 1 verify could not walk the app: the verify browser (Nebula Playwright, unattended runner) is not signed in to orbit.uat.unifyapps.com, so the preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/ and the Code Builder page both redirect to /login, and the code app has no published URL. Beats 1-7, H1, H2, the control sweep on 12 screens and the seven checks are unverified: sign-in. Options: (a) Sign the verify browser in once (or run verify where the person's browser is signed in) and rerun round 1 [recommended]; (b) Make the published code app public for the demo window; (c) Accept the agent-only verify for this round"
+  - by: verify
+    for: owner
+    text: "Coverage walk: all 113 asks with status built were shown by no beat or control this round, because no screen could be opened (sign-in). What was built for them is the code app app-f53fd0efccec v1 with its objects and automations; they did not show because the walk never reached a screen. Options: (a) Rerun the coverage walk once the browser is signed in [recommended]; (b) Treat coverage as unmeasured for G3"
 ---
 
 ## build_contract

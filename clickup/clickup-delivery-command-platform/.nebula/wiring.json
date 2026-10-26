@@ -203,7 +203,7 @@
       "kind": "automation",
       "id": "6adbaa4fca4f9d20459bd303",
       "name": "Delivery Command · Read delivery data",
-      "version": 0,
+      "version": 1,
       "stale": false
     },
     {

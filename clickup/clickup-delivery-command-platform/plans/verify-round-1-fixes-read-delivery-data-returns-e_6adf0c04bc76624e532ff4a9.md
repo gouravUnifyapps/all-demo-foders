@@ -22,8 +22,8 @@ Goal: Verify round 1 fixes: Read delivery data returns each date also as UTC day
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Delivery Command · Read delivery data |  | running | 1 |
-| t2 | deploy | Delivery Command · Read delivery data | t1 | pending | 0 |
+| t1 | automation | Delivery Command · Read delivery data |  | done | 1 |
+| t2 | deploy | Delivery Command · Read delivery data | t1 | running | 1 |
 | t3 | ai-agent | Delivery Command · Copilot | t2 | pending | 0 |
 | t4 | ai-agent | Delivery Command · Copilot | t3 | pending | 0 |
 | t5 | publish | Delivery Command · Copilot | t4 | pending | 0 |
@@ -38,6 +38,24 @@ Save with compile_and_save_workflow and test-run it with entity projects and fil
 Read back: the test run's row for IMP-2611 shows go_live_text "19 Nov 2026" and baseline_go_live_text "12 Nov 2026", quoted.
 
 Proof: A test run's IMP-2611 row shows go_live_text "19 Nov 2026" and baseline_go_live_text "12 Nov 2026".
+Result IDs: {"entity":"6adbaa4fca4f9d20459bd303"}
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: compile_and_save_workflow ok:true, 'Workflow saved successfully at version 1.', changes: 'changed 1 statement (line 786); nothing else moved' (the 'Keep each row's id and fields only' Groovy node n_g3nf4)
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: test run 6adf0c636112da3e2368cc25 (entity projects, filters {"project_id":"IMP-2611"}) COMPLETED, response row id IMP-2611 shows "go_live": 1795046400000, "go_live_text": "19 Nov 2026", "baseline_go_live": 1794441600000, "baseline_go_live_text": "12 Nov 2026"; count 1, refused false, message ""
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: test run 6adf0c696112da3e2368ccf6 (entity tasks, project_id IMP-2611, limit 1) COMPLETED with 1 row, count 1; that row holds no start/end so no _text keys were added
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: all-blank run 6adf0c72ca4f9d20452b2be2 COMPLETED with rows [], count 0, message 'Unknown entity. Use one of: projects, tasks, ...' (unchanged answer)
+Read back: Delivery Command · Read delivery data 6adbaa4fca4f9d20459bd303: inputs (entity, filters, limit), outputs (rows, count, refused, message), filters and limit untouched; only storage_by_unifyapps_fetch_records reads, no write node. Not deployed: deployment still definitionVersion 0, saved version now 1
+Unverified: A row where a date field holds a non-numeric or blank value returns &lt;field&gt;_text null — not seen in a run; check with a signoffs or raid row whose due/decided_at is blank.
+Note: The test the task named, filters {"id":"IMP-2611"}, is refused by the unchanged filter check (run 6adf0c6208750d257cbdfd75: refused true, 'Unknown filter field id for projects. Use one of: project_id, ...'); the record's id is IMP-2611 but only project_id is a filter field, so the proof was taken with {"project_id":"IMP-2611"}. Filters were kept as the task said.
+Note: A _text key is added only when the row holds that date field; a missing field adds no key.
+Note: Deploy is a separate task: callers still get the deployed version 0 without _text fields until it is deployed.
+Note: The first save attempt timed out in backend validation (infrastructure, nothing saved); the identical second call saved version 1.
+Note: feedback:
+Bug: compile_and_save_workflow failed once because the tenant's workflow validate endpoint did not answer within 15s.
+Context: Saving an edit to automation 6adbaa4fca4f9d20459bd303 (831-line code via codeFile) on orbit UAT; the same call succeeded on the second try at version 1.
+Where: platform
+Evidence: 'Backend validation did not run: POST .../api/workflow-definition/validate?strict=true did not answer within 15s', infrastructure: true, skippedChecks storage, save.
+Cause: Unknown — next check: time the validate call for a ~40 KB workflow on orbit UAT.
+Regression: Saving the same codeFile succeeds on the first call within the validation timeout.
 
 ### t2 · Deploy Delivery Command · Read delivery data
 

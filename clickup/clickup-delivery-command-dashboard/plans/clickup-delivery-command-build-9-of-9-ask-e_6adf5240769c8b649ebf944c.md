@@ -16,6 +16,11 @@ createdAt: "2026-10-26T13:14:39.935Z"
 runningAt: "2026-10-26T13:14:43.713Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining screens and the publish
@@ -31,7 +36,7 @@ Goal: ClickUp Delivery Command · build 9 of 9: Ask Copilot, the remaining scree
 | t7 | code-app | ClickUp Delivery Command | t6, t1 | done | 1 |
 | t8 | code-app | ClickUp Delivery Command | t7 | done | 1 |
 | t9 | code-app | ClickUp Delivery Command | t8 | done | 1 |
-| t10 | code-publish | ClickUp Delivery Command | t4, t5, t6, t7, t8, t9, t3 | running | 1 |
+| t10 | code-publish | ClickUp Delivery Command | t4, t5, t6, t7, t8, t9, t3 | done | 1 |
 
 ### t1 · Shell for ClickUp Command · Ask Copilot
 
@@ -282,4 +287,11 @@ Read back: the reply's \`deployed: true\` with its \`commitHash\`, and \`get_cod
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the published address and the preview address.
 
 Proof: \`publish_code_app\` answers deployed true with the commitHash of the last pushed commit.
+Result IDs: {"entity":"app-a2a9509a82c1","commit":"f38dc296d01b529e21beae50ac5da2fa52a0ef55"}
+Read back: ClickUp Delivery Command app-a2a9509a82c1: before publish get_code_app head.sha f38dc296d01b529e21beae50ac5da2fa52a0ef55 'Build the phone view and Admin' (= t9's last pushed commit), busy false; get_code_hold held:false
+Read back: ClickUp Delivery Command app-a2a9509a82c1: publish_code_app ok:true version v1, commitHash f38dc296d01b529e21beae50ac5da2fa52a0ef55, deployed {deployed:true, commitHash f38dc296d01b529e21beae50ac5da2fa52a0ef55, entityVersion 5}, 21 routes incl. /summary, /portfolio, /projects, /changes, /resourcing, /timesheets, /admin, /portal/*, /m/*
+Read back: ClickUp Delivery Command app-a2a9509a82c1: get_code_app after publish deployment {"deployed": true, "commitHash": "f38dc296d01b529e21beae50ac5da2fa52a0ef55", "entityVersion": 5}; head dd7a6dcd5cf43e6306aa70e1291d8e584b887411 'publish v1' (the publish's own commit, expected)
+Unverified: ClickUp Delivery Command app-a2a9509a82c1: the published address — neither publish_code_app nor get_code_app answers a URL; check: open the app's Publish/Share panel in Code Builder on orbit.uat.unifyapps.com to read the live link
+Note: Answer from the person: yes, publish ClickUp Delivery Command. The person said yes to 'Publish the code app ClickUp Delivery Command on orbit.uat.unifyapps.com?' through plan confirm
+Note: handover: app app-a2a9509a82c1 published v1 from commit f38dc296d01b529e21beae50ac5da2fa52a0ef55 (PRIVATE, sign-in required); published address not answered by the tools (see unverified); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-a2a9509a82c1/main/
 

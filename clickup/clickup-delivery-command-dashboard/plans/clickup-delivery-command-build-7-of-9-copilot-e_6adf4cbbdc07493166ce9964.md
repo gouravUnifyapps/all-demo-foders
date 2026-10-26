@@ -22,15 +22,15 @@ Goal: ClickUp Delivery Command · build 7 of 9: Copilot outputs, status report a
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation-shell | ClickUp Command · Accept proposed tasks |  | running | 1 |
-| t2 | automation | ClickUp Command · Accept proposed tasks | t1 | running | 1 |
-| t3 | deploy | ClickUp Command · Accept proposed tasks | t2 | pending | 0 |
-| t4 | automation-shell | ClickUp Command · Publish status report |  | running | 1 |
-| t5 | automation | ClickUp Command · Publish status report | t4 | running | 1 |
-| t6 | deploy | ClickUp Command · Publish status report | t5 | pending | 0 |
-| t7 | automation-shell | ClickUp Command · Send executive summary |  | running | 1 |
-| t8 | automation | ClickUp Command · Send executive summary | t7 | running | 1 |
-| t9 | deploy | ClickUp Command · Send executive summary | t8 | pending | 0 |
+| t1 | automation-shell | ClickUp Command · Accept proposed tasks |  | done | 1 |
+| t2 | automation | ClickUp Command · Accept proposed tasks | t1 | done | 1 |
+| t3 | deploy | ClickUp Command · Accept proposed tasks | t2 | running | 1 |
+| t4 | automation-shell | ClickUp Command · Publish status report |  | done | 1 |
+| t5 | automation | ClickUp Command · Publish status report | t4 | done | 1 |
+| t6 | deploy | ClickUp Command · Publish status report | t5 | running | 1 |
+| t7 | automation-shell | ClickUp Command · Send executive summary |  | done | 1 |
+| t8 | automation | ClickUp Command · Send executive summary | t7 | done | 1 |
+| t9 | deploy | ClickUp Command · Send executive summary | t8 | running | 1 |
 
 ### t1 · Shell for ClickUp Command · Accept proposed tasks
 
@@ -42,6 +42,11 @@ Create the callable automation (trigger \`callables_from_automation\`) with \`se
 Read back \`search_workflows\` for its \`deployment\` and \`describe_callable_workflow\` for its inputs. Report the \`workflowId\` in \`ids.entity\`.
 
 Proof: \`describe_callable_workflow\` lists every input the body names, and \`search_workflows\` shows the shell of ClickUp Command · Accept proposed tasks deployed.
+Result IDs: {"entity":"6adf4d11f3cd5f19ed4b436a"}
+Read back: ClickUp Command · Accept proposed tasks 6adf4d11f3cd5f19ed4b436a: search_workflows before create found no automation of that name; compile_and_save_workflow created:true version 0
+Read back: ClickUp Command · Accept proposed tasks 6adf4d11f3cd5f19ed4b436a: deploy_workflow ok:true workflowVersion 0, paused false; search_workflows deployment status DEPLOYED, deployedVersion 1, definitionVersion 0, savedAfterDeploy false (before t2's save)
+Read back: ClickUp Command · Accept proposed tasks 6adf4d11f3cd5f19ed4b436a: describe_callable_workflow parameters output_codes (string), decision (string), decided_by (string); result schema created_task_codes (string), result (string)
+Note: handover: ClickUp Command · Accept proposed tasks workflowId 6adf4d11f3cd5f19ed4b436a; shell deployed at version 0 with stub result not_built
 
 ### t2 · Logic for ClickUp Command · Accept proposed tasks
 
@@ -55,6 +60,15 @@ Read back: the saved version from \`compile_and_save_workflow\`, and \`inspect_w
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: The test runs of ClickUp Command · Accept proposed tasks answer the result words the body names, quoted from \`inspect_workflow_run\`.
+Result IDs: {"entity":"6adf4d11f3cd5f19ed4b436a"}
+Read back: ClickUp Command · Accept proposed tasks 6adf4d11f3cd5f19ed4b436a: compile_and_save_workflow ok:true version 1, warnings [], 14 nodes (2 JS code, fetch AI output, create Task, upsert AI output by id, create Activity); not deployed (deployment still definitionVersion 0)
+Read back: ClickUp Command · Accept proposed tasks run 6adf4dc0ca4f9d20457f2ff7 (output_codes AI-05, decision reject, decided_by DEMO-TEST 2026-10-26): status COMPLETED, response {"created_task_codes":"","result":"rejected"}; the accept branch condition read result false so no Task create ran; Upsert Record id AI-05 decision rejected → {"success":true}; Activity created id A-6adf4dc0ca4f9d20457f2ff7-AI-05 action rejected
+Read back: ClickUp Command · Accept proposed tasks run 6adf4dc192718f6a64e5d21b (all blank): COMPLETED, response {"created_task_codes":"","result":"refused_invalid_decision"}, no storage node ran
+Read back: ClickUp Command · Accept proposed tasks: get_records OBJ_cucmd_task id T-AI-05 → missing (no task created); AI-05 set back with apply_record_edits → decision proposed, version 2
+Unverified: The accept path (creates Task T-&lt;output_code&gt; with source copilot, status not_started, sets decision accepted, one Activity row action created) was not test-run because the task named only the reject test; check: run with output_codes AI-06, decision accept on a fixture, then read OBJ_cucmd_task T-AI-06 and reset
+Note: Result words: accepted \| rejected \| refused_invalid_decision \| refused_no_outputs \| refused_decided_by_required \| refused_nothing_to_decide (no listed code is a proposed_task still at decision proposed). A refusal writes nothing.
+Note: assumed: reject also sets the output's decision to rejected (the test's reset step implies it) and every decided output writes one Activity row (accept → action created, reject → action rejected); task_code of an accepted proposal is T-&lt;output_code&gt;.
+Note: Cleanup: Activity row A-6adf4dc0ca4f9d20457f2ff7-AI-05 (actor DEMO-TEST 2026-10-26) made by the reject test. AI-05 is back at decision proposed.
 
 ### t3 · Deploy ClickUp Command · Accept proposed tasks
 
@@ -77,6 +91,11 @@ Create the callable automation (trigger \`callables_from_automation\`) with \`se
 Read back \`search_workflows\` for its \`deployment\` and \`describe_callable_workflow\` for its inputs. Report the \`workflowId\` in \`ids.entity\`.
 
 Proof: \`describe_callable_workflow\` lists every input the body names, and \`search_workflows\` shows the shell of ClickUp Command · Publish status report deployed.
+Result IDs: {"entity":"6adf4d1492718f6a64e5ca35"}
+Read back: ClickUp Command · Publish status report 6adf4d1492718f6a64e5ca35: search_workflows before create found no automation of that name; compile_and_save_workflow created:true version 0
+Read back: ClickUp Command · Publish status report 6adf4d1492718f6a64e5ca35: deploy_workflow ok:true workflowVersion 0; search_workflows deployment status DEPLOYED, deployedVersion 1, definitionVersion 0, savedAfterDeploy false (before t5's save)
+Read back: ClickUp Command · Publish status report 6adf4d1492718f6a64e5ca35: describe_callable_workflow parameters project_code (string), body (string), edited_by (string); result schema doc_code (string), published_at (number), result (string)
+Note: handover: ClickUp Command · Publish status report workflowId 6adf4d1492718f6a64e5ca35; shell deployed at version 0
 
 ### t5 · Logic for ClickUp Command · Publish status report
 
@@ -90,6 +109,14 @@ Read back: the saved version from \`compile_and_save_workflow\`, and \`inspect_w
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: The test runs of ClickUp Command · Publish status report answer the result words the body names, quoted from \`inspect_workflow_run\`.
+Result IDs: {"entity":"6adf4d1492718f6a64e5ca35"}
+Read back: ClickUp Command · Publish status report 6adf4d1492718f6a64e5ca35: compile_and_save_workflow ok:true version 1, warnings [], 9 nodes; not deployed
+Read back: ClickUp Command · Publish status report run 6adf4dc2c79cad1140aa6b4a (IMP-2604, DEMO-TEST body, Mira Lindqvist): COMPLETED, response {"doc_code":"DOC-SR-6adf4dc2c79cad1140aa6b4a","published_at":1793019330474,"result":"published"}; Document created kind status_report, ai_written true, edited_by Mira Lindqvist, published_at 1793019330474; Activity created A-6adf4dc2c79cad1140aa6b4a action published
+Read back: ClickUp Command · Publish status report run 6adf4dc392718f6a64e5d22e (all blank): COMPLETED, response {"doc_code":"","published_at":0,"result":"refused_missing_input"}, no storage node ran
+Unverified: The refused_unknown_project path (project_code not in OBJ_cucmd_project) was not test-run; check: run with project_code IMP-0000 and expect result refused_unknown_project
+Note: Result words: published \| refused_missing_input \| refused_unknown_project. doc_code is DOC-SR-&lt;executionId&gt;, title 'Status report: &lt;project_code&gt;'; shared_with_customer is left unset.
+Note: assumed: the automation also reads OBJ_cucmd_project to refuse an unknown project_code before writing.
+Note: Cleanup: Document DOC-SR-6adf4dc2c79cad1140aa6b4a (body starts DEMO-TEST 2026-10-26) and Activity A-6adf4dc2c79cad1140aa6b4a on IMP-2604, made by the test.
 
 ### t6 · Deploy ClickUp Command · Publish status report
 
@@ -112,6 +139,11 @@ Create the callable automation (trigger \`callables_from_automation\`) with \`se
 Read back \`search_workflows\` for its \`deployment\` and \`describe_callable_workflow\` for its inputs. Report the \`workflowId\` in \`ids.entity\`.
 
 Proof: \`describe_callable_workflow\` lists every input the body names, and \`search_workflows\` shows the shell of ClickUp Command · Send executive summary deployed.
+Result IDs: {"entity":"6adf4d1508750d257cf3df21"}
+Read back: ClickUp Command · Send executive summary 6adf4d1508750d257cf3df21: search_workflows before create found no automation of that name; compile_and_save_workflow created:true version 0
+Read back: ClickUp Command · Send executive summary 6adf4d1508750d257cf3df21: deploy_workflow ok:true workflowVersion 0; search_workflows deployment status DEPLOYED, deployedVersion 1, definitionVersion 0, savedAfterDeploy false (before t8's save)
+Read back: ClickUp Command · Send executive summary 6adf4d1508750d257cf3df21: describe_callable_workflow parameters to_email (string), week_start (number); result schema result (string, sent \| failed), message_id (string)
+Note: handover: ClickUp Command · Send executive summary workflowId 6adf4d1508750d257cf3df21; shell deployed at version 0
 
 ### t8 · Logic for ClickUp Command · Send executive summary
 
@@ -125,6 +157,16 @@ Read back: the saved version from \`compile_and_save_workflow\`, and \`inspect_w
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: The test runs of ClickUp Command · Send executive summary answer the result words the body names, quoted from \`inspect_workflow_run\`.
+Result IDs: {"entity":"6adf4d1508750d257cf3df21"}
+Read back: ClickUp Command · Send executive summary 6adf4d1508750d257cf3df21: compile_and_save_workflow ok:true version 1, warnings [] (the first try was refused with MALFORMED_FILTER_CONDITION for comparing the number week_start with ""; fixed by using MISSING only); not deployed
+Read back: ClickUp Command · Send executive summary run 6adf4dc46112da3e23ba73f3 (to gourav.mahunta@unifyapps.com, week_start 1792972800000): COMPLETED, response {"result":"sent","message_id":"1a17847cf729b474"}; Send email ran on connection 6980e13788c7735877a8311c with subject 'DEMO-TEST · ClickUp Delivery Command · weekly summary · week of 26 Oct 2026', email_type html; Gmail output labelIds [SENT]
+Read back: ClickUp Command · Send executive summary run 6adf4dcf08750d257cf40b4a (blank to_email): COMPLETED, response {"result":"failed","message_id":""}, no fetch or send ran
+Read back: Security: Gmail is reached only through connection 6980e13788c7735877a8311c, with no token in the definition; every Weekly metric value and top-mover text is HTML-escaped in the code node before it goes into the email
+Unverified: How the email renders in the inbox (the logo image https://clickup.com/landing/images/clickup-logo-gradient.png, the tiles, the bridge, the five movers) was not seen; check: open message 1a17847cf729b474 in the presenter's Gmail
+Unverified: The Gmail failure branch (try/catch → failed) was not forced; check: run with a to_email Gmail rejects and expect result failed
+Note: The email holds six headline numbers: active projects, go-lives this month, at risk, avg days to go-live, utilisation %, value awaiting go-live. It also shows the value bridge (start of week, new, go-lives, slipped, cancelled, end value), up to five top movers from top_movers_json, and a DEMO-TEST 2026-10-26 label. A missing week, a blank week or a bad recipient answers failed and sends nothing.
+Note: assumed: the ClickUp logo is the public PNG https://clickup.com/landing/images/clickup-logo-gradient.png (HTTP 200 image/png when checked).
+Note: Cleanup: one DEMO-TEST email sent to gourav.mahunta@unifyapps.com, Gmail message id 1a17847cf729b474. No rows were written.
 
 ### t9 · Deploy ClickUp Command · Send executive summary
 

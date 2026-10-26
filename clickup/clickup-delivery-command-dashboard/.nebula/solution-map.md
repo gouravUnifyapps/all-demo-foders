@@ -14,6 +14,9 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation | `ClickUp Command · Book consultant` | 6adf4aa308750d257cf32534 | 1 | no |
 | automation | `ClickUp Command · Timesheet action` | 6adf4aa9f3cd5f19ed4afa85 | 2 | no |
 | automation | `ClickUp Command · Portal action` | 6adf4aaef3cd5f19ed4afc58 | 1 | no |
+| automation | `ClickUp Command · Accept proposed tasks` | 6adf4d11f3cd5f19ed4b436a | 1 | no |
+| automation | `ClickUp Command · Publish status report` | 6adf4d1492718f6a64e5ca35 | 1 | no |
+| automation | `ClickUp Command · Send executive summary` | 6adf4d1508750d257cf3df21 | 1 | no |
 | object | `ClickUp Command · Project` | OBJ_cucmd_project | 0 | no |
 | object | `ClickUp Command · RAID item` | OBJ_cucmd_raid | 0 | no |
 | object | `ClickUp Command · Task` | OBJ_cucmd_task | 0 | no |
@@ -88,6 +91,14 @@ Solution: `Clickup · ClickUp Delivery command dashboard` (e_6adf231a08f96579541
 | automation `ClickUp Command · Portal action` | `node Save the answer` | object `ClickUp Command · Checklist item` | storage write |  |
 | automation `ClickUp Command · Portal action` | `node Confirm an upload: read the document` | object `ClickUp Command · Document` | storage read |  |
 | automation `ClickUp Command · Portal action` | `node Confirm the upload` | object `ClickUp Command · Document` | storage write |  |
+| automation `ClickUp Command · Accept proposed tasks` | `node Read the named AI outputs` | object `ClickUp Command · AI output` | storage read |  |
+| automation `ClickUp Command · Accept proposed tasks` | `node Create the task from the proposal` | object `ClickUp Command · Task` | storage write |  |
+| automation `ClickUp Command · Accept proposed tasks` | `node Set the output's decision` | object `ClickUp Command · AI output` | storage write |  |
+| automation `ClickUp Command · Accept proposed tasks` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Publish status report` | `node Read the project` | object `ClickUp Command · Project` | storage read |  |
+| automation `ClickUp Command · Publish status report` | `node Write the status report document` | object `ClickUp Command · Document` | storage write |  |
+| automation `ClickUp Command · Publish status report` | `node Record one Activity row` | object `ClickUp Command · Activity` | storage write |  |
+| automation `ClickUp Command · Send executive summary` | `node Read the Weekly metric for the week` | object `ClickUp Command · Weekly metric` | storage read |  |
 
 ## Not checked
 

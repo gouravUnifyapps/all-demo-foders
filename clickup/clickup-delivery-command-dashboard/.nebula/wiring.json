@@ -57,6 +57,27 @@
       "stale": false
     },
     {
+      "kind": "automation",
+      "id": "6adf4d11f3cd5f19ed4b436a",
+      "name": "ClickUp Command · Accept proposed tasks",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf4d1492718f6a64e5ca35",
+      "name": "ClickUp Command · Publish status report",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "automation",
+      "id": "6adf4d1508750d257cf3df21",
+      "name": "ClickUp Command · Send executive summary",
+      "version": 1,
+      "stale": false
+    },
+    {
       "kind": "object",
       "id": "OBJ_cucmd_project",
       "name": "ClickUp Command · Project",
@@ -955,6 +976,126 @@
         "name": "ClickUp Command · Document"
       },
       "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d11f3cd5f19ed4b436a",
+        "name": "ClickUp Command · Accept proposed tasks",
+        "part": "node Read the named AI outputs"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_ai_output",
+        "name": "ClickUp Command · AI output"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d11f3cd5f19ed4b436a",
+        "name": "ClickUp Command · Accept proposed tasks",
+        "part": "node Create the task from the proposal"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_task",
+        "name": "ClickUp Command · Task"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d11f3cd5f19ed4b436a",
+        "name": "ClickUp Command · Accept proposed tasks",
+        "part": "node Set the output's decision"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_ai_output",
+        "name": "ClickUp Command · AI output"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d11f3cd5f19ed4b436a",
+        "name": "ClickUp Command · Accept proposed tasks",
+        "part": "node Record one Activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d1492718f6a64e5ca35",
+        "name": "ClickUp Command · Publish status report",
+        "part": "node Read the project"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_project",
+        "name": "ClickUp Command · Project"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d1492718f6a64e5ca35",
+        "name": "ClickUp Command · Publish status report",
+        "part": "node Write the status report document"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_document",
+        "name": "ClickUp Command · Document"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d1492718f6a64e5ca35",
+        "name": "ClickUp Command · Publish status report",
+        "part": "node Record one Activity row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_activity",
+        "name": "ClickUp Command · Activity"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6adf4d1508750d257cf3df21",
+        "name": "ClickUp Command · Send executive summary",
+        "part": "node Read the Weekly metric for the week"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_cucmd_weekly_metric",
+        "name": "ClickUp Command · Weekly metric"
+      },
+      "via": "storage read",
       "fields": []
     }
   ],

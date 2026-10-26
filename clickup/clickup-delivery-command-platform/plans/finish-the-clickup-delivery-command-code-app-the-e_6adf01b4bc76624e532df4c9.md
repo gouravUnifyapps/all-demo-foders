@@ -16,6 +16,11 @@ createdAt: "2026-10-26T07:31:00.085Z"
 runningAt: "2026-10-26T07:31:03.411Z"
 runner: {"clientId":"95fa9a26-0dcf-442c-b37d-8d723221a36e","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"de444057-11c4-5d06-b16b-82637919ad51"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Finish the ClickUp Delivery Command code app: the Executive summary screen, the Copilot panel, the customer portal (home
@@ -28,7 +33,7 @@ Goal: Finish the ClickUp Delivery Command code app: the Executive summary screen
 | t4 | code-app | ClickUp Delivery Command | t3 | done | 1 |
 | t5 | code-app | ClickUp Delivery Command | t4 | done | 1 |
 | t6 | code-app | ClickUp Delivery Command | t5 | done | 1 |
-| t7 | code-publish | ClickUp Delivery Command | t1, t2, t3, t4, t5, t6 | running | 1 |
+| t7 | code-publish | ClickUp Delivery Command | t1, t2, t3, t4, t5, t6 | done | 1 |
 
 ### t1 · Code app ClickUp Delivery Command · screen Executive summary
 
@@ -191,4 +196,18 @@ Read back: get_code_app answering deployment deployed true with the commitHash e
 Report ids (the app id as ids.entity), readBack with the deployed line and the published address, unverified, notes.
 
 Proof: get_code_app answers deployed: true with the commitHash, quoted, and the published address.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"5126004fb989c524511308023adbc9c0ab14591d"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app before publish answered head.sha 5126004fb989c524511308023adbc9c0ab14591d (t6's commit), busy false, security PRIVATE, deployed false
+Read back: ClickUp Delivery Command app-f53fd0efccec: publish_code_app answered version v1, deployed: true, commitHash "5126004fb989c524511308023adbc9c0ab14591d", entityVersion 5, 16 routes (/portfolio, /portfolio/summary, /projects, /resourcing, /timesheets, /changes, /admin, /portal and its 4 sub-routes, /phone, plus /login, /forgot-password, /update-password)
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app after publish answered deployment deployed: true, commitHash "5126004fb989c524511308023adbc9c0ab14591d", entityVersion 5; head is now 8d75f623304c1b4f322edd227729bbc410300b11 "publish v1" (the publish's own commit, expected); security still PRIVATE
+Unverified: ClickUp Delivery Command app-f53fd0efccec: the published address. Neither publish_code_app nor get_code_app returns a URL; check: open the app's Publish/Share link in Code Builder for app-f53fd0efccec
+Note: Publish went ahead on the plan's approval: "yes, publish ClickUp Delivery Command. The spec the person accepted names it under Ready when, so it is already approved"
+Note: Security and visibility were not changed; the app stays PRIVATE
+Note: feedback:
+Bug: A code-publish task's Proof asks for the app's published address, but neither publish_code_app nor get_code_app answers one.
+Context: Plan e_6adf01b4bc76624e532df4c9 task t7, publish of code app app-f53fd0efccec; the planner wrote "and the published address" into Read back and Proof.
+Where: nebula
+Evidence: publish_code_app answered deployed {deployed: true, commitHash, entityVersion: 5, routes[]} and get_code_app answered deployment {deployed, commitHash, entityVersion}; no URL or host field in either.
+Cause: Unknown — next check: whether the planner's code-publish template assumes a published-URL field the code-builder tools never return.
+Regression: A code-publish task's Proof names only fields that publish_code_app or get_code_app actually return, or one of them returns the published URL.
 

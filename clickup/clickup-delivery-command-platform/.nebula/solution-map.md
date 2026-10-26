@@ -6,7 +6,7 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
-| app | `ClickUp Delivery Command` | app-f53fd0efccec | 3 | no |
+| app | `ClickUp Delivery Command` | app-f53fd0efccec | 5 | no |
 | page | `global-page-of-app-f53fd0efccec` | e_global_app-f53fd0efccec | 0 | no |
 | automation | `Delivery Command · Move task` | 6adba2ac92718f6a64f34bc5 | 1 | no |
 | automation | `Delivery Command · Reschedule task` | 6adba3266112da3e23fcf133 | 1 | no |

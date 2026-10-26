@@ -24,10 +24,10 @@ Goal: ClickUp Delivery Command · build 8 of 9: settings and notification automa
 |---|---|---|---|---|---:|
 | t1 | automation-shell | ClickUp Command · Update project settings |  | done | 1 |
 | t2 | automation | ClickUp Command · Update project settings | t1 | done | 1 |
-| t3 | deploy | ClickUp Command · Update project settings | t2 | running | 1 |
+| t3 | deploy | ClickUp Command · Update project settings | t2 | done | 1 |
 | t4 | automation-shell | ClickUp Command · Mark notification read |  | done | 1 |
 | t5 | automation | ClickUp Command · Mark notification read | t4 | done | 1 |
-| t6 | deploy | ClickUp Command · Mark notification read | t5 | running | 1 |
+| t6 | deploy | ClickUp Command · Mark notification read | t5 | done | 1 |
 | t7 | ai-agent | ClickUp Command Copilot |  | running | 1 |
 | t8 | publish | ClickUp Command Copilot | t7 | pending | 0 |
 | t9 | code-app | ClickUp Delivery Command |  | running | 1 |
@@ -89,6 +89,11 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Update project settings deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4eb5cac0655fe38aef9d"}
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: before deploy search_workflows version 1 (the logic task's saved version), savedAfterDeploy true
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: deploy_workflow ok:true workflowVersion 1, storedVersion 1, deployedVersion 2, paused false
+Read back: ClickUp Command · Update project settings 6adf4eb5cac0655fe38aef9d: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793019807711, savedAfterDeploy: false}
+Note: Answer from the person: yes, deploy ClickUp Command · Update project settings (through plan confirm)
 
 ### t4 · Shell for ClickUp Command · Mark notification read
 
@@ -140,6 +145,11 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Mark notification read deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4eb8cac0655fe38aefc9"}
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: before deploy search_workflows version 1 (the logic task's saved version), savedAfterDeploy true
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: deploy_workflow ok:true workflowVersion 1, storedVersion 1, deployedVersion 2, paused false
+Read back: ClickUp Command · Mark notification read 6adf4eb8cac0655fe38aefc9: search_workflows deployment {status: DEPLOYED, definitionVersion: 1, deployedAt: 1793019810253, savedAfterDeploy: false}
+Note: Answer from the person: yes, deploy ClickUp Command · Mark notification read (through plan confirm)
 
 ### t7 · Create AI agent ClickUp Command Copilot
 

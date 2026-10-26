@@ -16,6 +16,11 @@ createdAt: "2026-10-26T12:40:47.213Z"
 runningAt: "2026-10-26T12:40:50.132Z"
 runner: {"clientId":"ef8e5eac-b1c9-485b-ae8e-f8151f796819","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"402e0464-c1ba-5334-8b57-9ece89217092"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: ClickUp Delivery Command · build 6 of 9: booking, timesheet and portal automations
@@ -24,13 +29,13 @@ Goal: ClickUp Delivery Command · build 6 of 9: booking, timesheet and portal au
 |---|---|---|---|---|---:|
 | t1 | automation-shell | ClickUp Command · Book consultant |  | done | 1 |
 | t2 | automation | ClickUp Command · Book consultant | t1 | done | 1 |
-| t3 | deploy | ClickUp Command · Book consultant | t2 | running | 1 |
+| t3 | deploy | ClickUp Command · Book consultant | t2 | done | 1 |
 | t4 | automation-shell | ClickUp Command · Timesheet action |  | done | 1 |
 | t5 | automation | ClickUp Command · Timesheet action | t4 | done | 1 |
-| t6 | deploy | ClickUp Command · Timesheet action | t5 | running | 1 |
+| t6 | deploy | ClickUp Command · Timesheet action | t5 | done | 1 |
 | t7 | automation-shell | ClickUp Command · Portal action |  | done | 1 |
 | t8 | automation | ClickUp Command · Portal action | t7 | done | 1 |
-| t9 | deploy | ClickUp Command · Portal action | t8 | running | 1 |
+| t9 | deploy | ClickUp Command · Portal action | t8 | done | 1 |
 
 ### t1 · Shell for ClickUp Command · Book consultant
 
@@ -84,6 +89,10 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Book consultant deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4aa308750d257cf32534"}
+Read back: ClickUp Command · Book consultant 6adf4aa308750d257cf32534: deploy_workflow ok:true, "Deployed version 1 of automation 6adf4aa308750d257cf32534.", storedVersion 1, paused:false
+Read back: ClickUp Command · Book consultant 6adf4aa308750d257cf32534: search_workflows deployment {status: "DEPLOYED", definitionVersion: 1, deployedAt: 1793019010261, savedAfterDeploy: false} — definitionVersion 1 equals the logic task's saved version 1
+Note: Before deploying, search_workflows showed saved version 1 (the tested one), so the deploy shipped the tested draft. deploymentNotes: "ClickUp Delivery Command demo: Book consultant".
 
 ### t4 · Shell for ClickUp Command · Timesheet action
 
@@ -146,6 +155,10 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Timesheet action deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4aa9f3cd5f19ed4afa85"}
+Read back: ClickUp Command · Timesheet action 6adf4aa9f3cd5f19ed4afa85: deploy_workflow ok:true, "Deployed version 2 of automation 6adf4aa9f3cd5f19ed4afa85.", storedVersion 2, paused:false
+Read back: ClickUp Command · Timesheet action 6adf4aa9f3cd5f19ed4afa85: search_workflows deployment {status: "DEPLOYED", definitionVersion: 2, deployedAt: 1793019011524, savedAfterDeploy: false} — definitionVersion 2 equals the logic task's saved version 2
+Note: Before deploying, search_workflows showed saved version 2 (the tested one), so the deploy shipped the tested draft. deploymentNotes: "ClickUp Delivery Command demo: Timesheet action".
 
 ### t7 · Shell for ClickUp Command · Portal action
 
@@ -208,4 +221,8 @@ Read back: \`search_workflows\` \`deployment\` (\`status\`, \`definitionVersion\
 Report ids (the workflowId as ids.entity), readBack, unverified, notes.
 
 Proof: \`search_workflows\` shows ClickUp Command · Portal action deployed with definitionVersion equal to the logic task's saved version.
+Result IDs: {"entity":"6adf4aaef3cd5f19ed4afc58"}
+Read back: ClickUp Command · Portal action 6adf4aaef3cd5f19ed4afc58: deploy_workflow ok:true, "Deployed version 1 of automation 6adf4aaef3cd5f19ed4afc58.", storedVersion 1, paused:false
+Read back: ClickUp Command · Portal action 6adf4aaef3cd5f19ed4afc58: search_workflows deployment {status: "DEPLOYED", definitionVersion: 1, deployedAt: 1793019012257, savedAfterDeploy: false} — definitionVersion 1 equals the logic task's saved version 1
+Note: Before deploying, search_workflows showed saved version 1 (the tested one), so the deploy shipped the tested draft. deploymentNotes: "ClickUp Delivery Command demo: Portal action".
 

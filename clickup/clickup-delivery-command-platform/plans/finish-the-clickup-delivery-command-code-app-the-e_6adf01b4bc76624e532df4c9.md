@@ -22,13 +22,13 @@ Goal: Finish the ClickUp Delivery Command code app: the Executive summary screen
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | code-app | ClickUp Delivery Command |  | running | 1 |
-| t2 | code-app | ClickUp Delivery Command | t1 | running | 1 |
-| t3 | code-app | ClickUp Delivery Command | t2 | running | 1 |
-| t4 | code-app | ClickUp Delivery Command | t3 | running | 1 |
-| t5 | code-app | ClickUp Delivery Command | t4 | running | 1 |
-| t6 | code-app | ClickUp Delivery Command | t5 | running | 1 |
-| t7 | code-publish | ClickUp Delivery Command | t1, t2, t3, t4, t5, t6 | pending | 0 |
+| t1 | code-app | ClickUp Delivery Command |  | done | 1 |
+| t2 | code-app | ClickUp Delivery Command | t1 | done | 1 |
+| t3 | code-app | ClickUp Delivery Command | t2 | done | 1 |
+| t4 | code-app | ClickUp Delivery Command | t3 | done | 1 |
+| t5 | code-app | ClickUp Delivery Command | t4 | done | 1 |
+| t6 | code-app | ClickUp Delivery Command | t5 | done | 1 |
+| t7 | code-publish | ClickUp Delivery Command | t1, t2, t3, t4, t5, t6 | running | 1 |
 
 ### t1 · Code app ClickUp Delivery Command · screen Executive summary
 
@@ -41,6 +41,27 @@ Read back: the push's \`commit\` and \`files\`; get_code_app answering that comm
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's commit is get_code_app's head.sha, bindings.ts names a FETCH id and the preview address is quoted.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"add31b3128cf7096c3d342b18561cf52ce9eff4f"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: push_code_patch committed: true, builds: true, commit add31b3128cf7096c3d342b18561cf52ce9eff4f (parent 4da8ec330d8c54ac7feb00f7947f4bc05bc2d967), files: app/src/components/executive/BiggestMovers.tsx, HeadlineTiles.tsx, SendTestEmail.tsx, ValueBridge.tsx, app/src/components/project/Timeline.tsx, app/src/components/resourcing/BookForm.tsx, app/src/data/bindings.ts, app/src/data/callables.ts, app/src/data/executive.ts, app/src/lib/format.ts, app/src/routes/ExecutiveSummary.tsx
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app answered head.sha add31b3128cf7096c3d342b18561cf52ce9eff4f after release
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/bindings.ts names FETCH id "e_6adbb1ed925d282255d0c00a"
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/callables.ts holds the blocks // &gt;&gt;&gt; callable 6adbac23eb71d135d65f4715 (SEND_EXECUTIVE_SUMMARY, dataSource e_6adbb6845236864dd8edcd6b, reused)
+Read back: ClickUp Delivery Command app-f53fd0efccec: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/"
+Unverified: No visual check was run (the proof is not [visual]); the six tiles, the bridge and the movers table were not seen rendering. Check: open /portfolio/summary in the preview as Elena Brooks.
+Unverified: The tile and bridge numbers come from the newest Weekly metric row (seed 2026-10-19: 18/17, 1/1, 6/5, 59.8/57.1, 72/70, 4,468,380 vs 4,878,380 last week, bridge from 5,502,380); the stored rows themselves were not read. Check: the preview's tiles read 18 (+1), 1 (±0), 6 (+1 red), 59.8 (+2.7 red), 72% (+2 pts), USD 4,468,380.
+Unverified: The five biggest movers are ranked from the last 30 days of Activity, weighting go-live, health, cancellation and go-live events highest; the ranking rule is mine, the plan names none. Check: the table lists IMP-2611 first with its reasons.
+Unverified: Send test email was not sent: a test send writes an email. Check: press Send test email with Japan and your address; the toast shows the automation's message and email id.
+Unverified: UTC-midnight dates: Timeline (Reschedule task new_start/new_end) and BookForm (Book consultant weeks) now send Date.UTC of the picked calendar day; not exercised against the automations. Check: reschedule a task to 19 Nov and read the stored start as 2026-11-19T00:00Z.
+Note: handover: app app-f53fd0efccec, branch main, head add31b3128cf7096c3d342b18561cf52ce9eff4f; route /portfolio/summary (Executive summary, Portfolio tab strip); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/; lib/format.ts now exports utcDay(ms) — every date sent to an automation goes through it.
+Note: handover: data/call.ts useAutomation sends context and storedInputs whole and throws Refused on refused:true; ENTITY gained weekly_metric.
+Note: The engine's build runs oxlint -A correctness src as well as tsc -b and vite build; I ran all three locally before each push.
+Note: feedback:
+Bug: app-code-build says the engine's build is \`tsc -b &amp;&amp; vite build\`, but this app's build script also runs \`oxlint -A correctness src\`, which fails builds the documented local check passes.
+Context: Building screens for code app app-f53fd0efccec; app/package.json build is \`tsc -b &amp;&amp; oxlint -A correctness src &amp;&amp; vite build\`. Surface: app-code-build § Building locally.
+Where: nebula
+Evidence: A click handler calling a function named useSample() passed tsc -b and vite build, but oxlint -A correctness src reported react-hooks(rules-of-hooks). The skill says to tell the person when the script differs rather than run it, leaving no sanctioned way to match the engine.
+Cause: Suspected: the template's build script gained an oxlint step after the skill was written.
+Regression: For an app whose build includes oxlint, the skill's local steps include or explicitly allow it, so a rules-of-hooks error is caught before push.
 
 ### t2 · Code app ClickUp Delivery Command · Copilot panel
 
@@ -53,6 +74,20 @@ Read back: the push's \`commit\` and \`files\`; get_code_app answering that comm
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's commit is get_code_app's head.sha, bindings.ts names a FETCH id and the preview address is quoted.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"79bc76b3245edb60e9394dba31666ed04a867347"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: push_code_patch committed: true, builds: true, commit 79bc76b3245edb60e9394dba31666ed04a867347 (parent add31b3128cf7096c3d342b18561cf52ce9eff4f), files: app/src/components/copilot/AskTab.tsx, CopilotPanel.tsx, MeetingTab.tsx, RiskFlags.tsx, StatusReport.tsx, parts.tsx, app/src/components/shell/AppShell.tsx, app/src/data/bindings.ts, app/src/data/call.ts, app/src/data/callables.ts, app/src/data/copilot.ts, app/src/lib/exportDoc.ts, app/src/styles/shell.css
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app answered head.sha 79bc76b3245edb60e9394dba31666ed04a867347 after release
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/bindings.ts names FETCH id "e_6adbb1ed925d282255d0c00a"
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/callables.ts holds the blocks // &gt;&gt;&gt; callable 6adbaf90c79cad11403e9b72 (ASK_COPILOT, e_6adf038d6e8cff53fad16a63), // &gt;&gt;&gt; callable 6adba5cfeb71d135d657c23d (PUBLISH_STATUS_REPORT, e_6adf038dbae51e4d7ab1dc78), // &gt;&gt;&gt; callable 6adba625ca4f9d2045986507 (ACCEPT_PROPOSED_TASKS, e_6adf038ebae51e4d7ab1dc7c)
+Read back: ClickUp Delivery Command app-f53fd0efccec: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/"
+Unverified: No live Ask Copilot call was made; the answer card, chart and refusal depend on what the AI agent returns. The chart JSON's series is read tolerantly ({label,value}, {name,data}, {labels,values} or a map). Check: ask "Which Japan projects go live in November and are at risk?" as Elena Brooks on /portfolio and see IMP-2611 and IMP-2633 linked in an AI Insight card.
+Unverified: The billing refusal relies on Ask Copilot answering refused: true with its reason in answer; the panel shows that reason in a .note with a .tag.negative and suggests what to ask. Check: ask for the invoice total.
+Unverified: Publish, Accept and Reject were not run (they write records). Check: publish the IMP-2611 draft and accept AIO-04 and AIO-05; the board shows two new tasks.
+Unverified: PDF export opens a print window (pop-ups must be allowed); Word saves an HTML document named .doc. Neither was opened in a browser.
+Unverified: Meeting-summary times link to /projects/&lt;id&gt;?tab=activity&amp;transcript=&lt;output id&gt;&amp;t=&lt;time&gt;; no transcript player exists in the app to land on that time. Check: decide where a transcript lives.
+Note: handover: app app-f53fd0efccec, branch main, head 79bc76b3245edb60e9394dba31666ed04a867347; the Copilot panel (components/copilot/CopilotPanel.tsx) is the right pane of AppShell on every internal route, opened by the rail's Delivery Copilot button; tabs Ask, Risk flags, Report, Meeting; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/.
+Note: handover: useAutomation(binding, fallback, refusalOf?) now takes an optional outcome check for automations that do not say no with refused:true (Ask Copilot answers refused in-band; Publish status report answers no output_id when it published nothing).
+Note: The panel is built on the Ask Copilot automation, not the SDK CopilotProvider parts in components/copilot.tsx, which stays unreferenced; suggested questions are worked out from the persona's projects (at-risk projects grouped by region and go-live month).
 
 ### t3 · Code app ClickUp Delivery Command · screen Portal home, Portal sign-offs, Portal sessions
 
@@ -65,6 +100,19 @@ Read back: the push's \`commit\` and \`files\`; get_code_app answering that comm
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's commit is get_code_app's head.sha, bindings.ts names a FETCH id and the preview address is quoted.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"413138f355f5de0824a29290c61762f5d74d308c"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: push_code_patch committed: true, builds: true, commit 413138f355f5de0824a29290c61762f5d74d308c (parent 79bc76b3245edb60e9394dba31666ed04a867347), files: app/src/components/portal/PortalGate.tsx, app/src/components/shell/PortalShell.tsx, app/src/data/bindings.ts, app/src/data/callables.ts, app/src/data/portal.ts, app/src/data/portfolio.ts, app/src/lib/portalText.ts, app/src/routes/PortalHome.tsx, PortalSessions.tsx, PortalSignOffs.tsx, app/src/styles/portal.css
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app answered head.sha 413138f355f5de0824a29290c61762f5d74d308c after release
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/bindings.ts names FETCH id "e_6adbb1ed925d282255d0c00a"
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/callables.ts holds the blocks // &gt;&gt;&gt; callable 6adba5f8eb71d135d657e318 (RECORD_SIGN_OFF, e_6adf04a56e8cff53fad18032), // &gt;&gt;&gt; callable 6adba59c92718f6a64f4015a (BOOK_TRAINING_SLOT, e_6adf04a5bae51e4d7ab1fb2f)
+Read back: ClickUp Delivery Command app-f53fd0efccec: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/"
+Unverified: Not opened in a browser: the portal opening in Japanese depends on IMP-2611's stored portal_language being 'ja' (seed says ja) and no language picked earlier in that browser. Check: switch to Hana Mori and open /portal.
+Unverified: Sign-off of SGN-302 and booking on 4 Nov were not run (they write records). Check: sign off SGN-302 and see 'Hana Mori · &lt;date time&gt;' in the Decision column; on 4 Nov 15:00 shows struck through and disabled.
+Unverified: The documents read filters shared_with_customer EQUAL true on the backend; that the stored field is a boolean was not read. Check: Home's Shared documents lists DOC-10, 12, 13, 14 and not DOC-15.
+Note: handover: app app-f53fd0efccec, branch main, head 413138f355f5de0824a29290c61762f5d74d308c; routes /portal, /portal/sign-offs, /portal/sessions (also /portal/files, /portal/checklist); PortalShell passes {persona, tx, projects, project, deniedId} through usePortal(); every portal page wraps in PortalGate; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/.
+Note: handover: portal labels live in lib/portalText.ts (one entry per label with en, de and ja), dates as 17 Oct 2026 / 17.10.2026 / 2026年10月17日; the language is the sponsor's pick, else the project's portal_language. Noto Sans JP is set on .portal:lang(ja) in styles/portal.css.
+Note: The app's i18n runtime stays English-only (languages.json holds en): only the portal is translated, from its own dictionary, since the rules' i18next path needs the i18n CLI and hand-written catalogues the rules forbid.
+Note: The portal and the persona switch are demo stand-ins for access control: the sponsor's project is chosen by filtering Project on sponsor = the persona's name on the backend, not by a real customer login (pre-existing persona switcher).
 
 ### t4 · Code app ClickUp Delivery Command · screen Portal files and Portal checklist
 
@@ -77,6 +125,17 @@ Read back: the push's \`commit\` and \`files\`; get_code_app answering that comm
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's commit is get_code_app's head.sha, bindings.ts names a FETCH id and the preview address is quoted.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"1ba3a76ccc2786da7b22284277955a759e205110"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: push_code_patch committed: true, builds: true, commit 1ba3a76ccc2786da7b22284277955a759e205110 (parent 413138f355f5de0824a29290c61762f5d74d308c), files: app/src/components/portal/PortalGate.tsx, app/src/data/bindings.ts, app/src/data/callables.ts, app/src/data/portal.ts, app/src/lib/portalText.ts, app/src/lib/userCsv.ts, app/src/routes/PortalChecklist.tsx, PortalFiles.tsx, app/src/styles/portal.css
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app answered head.sha 1ba3a76ccc2786da7b22284277955a759e205110 after release
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/bindings.ts names FETCH id "e_6adbb1ed925d282255d0c00a"
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/callables.ts holds the blocks // &gt;&gt;&gt; callable 6adba9abcac0655fe35aa2fc (CONFIRM_UPLOAD, e_6adf05bcbae51e4d7ab2148e)
+Read back: ClickUp Delivery Command app-f53fd0efccec: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/"
+Unverified: Use sample file was checked outside the browser: running sampleUserCsv with bun gave 50000 rows of which 214 have a problem (name missing, email not valid, email used twice, role not admin/member/guest). The screen itself was not opened. Check: Files → Use sample file shows '214 of 50,000 rows need fixing'.
+Unverified: Confirm upload was not run (it writes a record). Check: fix two rows and confirm; the toast shows the automation's message or upload id, rows_error 212.
+Unverified: The no-access state reads the denied project's lead from Project to name who can grant access. Check: open /portal?project=IMP-2604 as Hana Mori and read 'You do not have access to IMP-2604. Daniel Ortiz, the project lead, can grant it.'
+Note: handover: app app-f53fd0efccec, branch main, head 1ba3a76ccc2786da7b22284277955a759e205110; routes /portal/files, /portal/checklist, and the no-access state on any portal route with ?project=&lt;id not the sponsor's&gt; (e.g. /portal?project=IMP-2604); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/.
+Note: The uploaded rows never leave the browser: Confirm upload gets the file name, rows_total, rows_error and an English error_summary only.
 
 ### t5 · Code app ClickUp Delivery Command · screen Phone
 
@@ -89,6 +148,16 @@ Read back: the push's \`commit\` and \`files\`; get_code_app answering that comm
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's commit is get_code_app's head.sha, bindings.ts names a FETCH id and the preview address is quoted.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"906ab46dd784aae9643a1411ed318df36a5e336a"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: push_code_patch committed: true, builds: true, commit 906ab46dd784aae9643a1411ed318df36a5e336a (parent 1ba3a76ccc2786da7b22284277955a759e205110), files: app/src/components/shell/PhoneShell.tsx, app/src/data/bindings.ts, app/src/data/callables.ts, app/src/data/phone.ts, app/src/routes/Phone.tsx, app/src/styles/shell.css
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app answered head.sha 906ab46dd784aae9643a1411ed318df36a5e336a after release
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/bindings.ts names FETCH id "e_6adbb1ed925d282255d0c00a"
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/callables.ts holds the blocks // &gt;&gt;&gt; callable 6adba405ca4f9d2045858cfc (LOG_TIME, e_6adf0696bc76624e532e841b), // &gt;&gt;&gt; callable 6adba2ac92718f6a64f34bc5 (MOVE_TASK, already in the copy), // &gt;&gt;&gt; callable 6adba94deb71d135d658f2dc (MARK_NOTIFICATION_READ, e_6adf0696bc76624e532e8420)
+Read back: ClickUp Delivery Command app-f53fd0efccec: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/"
+Unverified: Not opened in a browser. Check: Profile menu → Phone view as Aiko Tanaka shows Today, Tasks, Time and Alerts tabs at the bottom.
+Unverified: Log time sends date as a number (UTC midnight of today), as the automation's contract declares (number), where the task text said date. Not run (it writes a time entry).
+Unverified: Status changes (Move task) and Mark read were not run. Notification links /m/tasks open the phone's Tasks tab.
+Note: handover: app app-f53fd0efccec, branch main, head 906ab46dd784aae9643a1411ed318df36a5e336a; route /phone with ?tab=today\|tasks\|time\|alerts, reached from the profile menu's Phone view; the phone works for the current persona's name (assignee and recipient); preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/.
 
 ### t6 · Code app ClickUp Delivery Command · screen Admin
 
@@ -101,6 +170,16 @@ Read back: the push's \`commit\` and \`files\`; get_code_app answering that comm
 Report ids (the app id as ids.entity), readBack, unverified, notes, and a \`handover:\` note with the app id, the branch, the routes and the preview address for the next task.
 
 Proof: The push's commit is get_code_app's head.sha, bindings.ts names a FETCH id and the preview address is quoted.
+Result IDs: {"entity":"app-f53fd0efccec","commit":"5126004fb989c524511308023adbc9c0ab14591d"}
+Read back: ClickUp Delivery Command app-f53fd0efccec: push_code_patch committed: true, builds: true, commit 5126004fb989c524511308023adbc9c0ab14591d (parent 906ab46dd784aae9643a1411ed318df36a5e336a), files: app/src/data/admin.ts, app/src/data/bindings.ts, app/src/data/callables.ts, app/src/routes/Admin.tsx
+Read back: ClickUp Delivery Command app-f53fd0efccec: get_code_app answered head.sha 5126004fb989c524511308023adbc9c0ab14591d after release
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/bindings.ts names FETCH id "e_6adbb1ed925d282255d0c00a"
+Read back: ClickUp Delivery Command app-f53fd0efccec: committed app/src/data/callables.ts holds the blocks // &gt;&gt;&gt; callable 6adba9def3cd5f19ed89ef7d (UPDATE_PROJECT_SETTINGS, e_6adf07466e8cff53fad1c683)
+Read back: ClickUp Delivery Command app-f53fd0efccec: previewUrl "https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/"
+Unverified: Not opened in a browser. Check: /admin?tab=integrations shows Jira as Sync failed with a .note naming since 23 Oct 2026, the token error and ENG-4821, ENG-4830, ENG-4833.
+Unverified: In-place edits were not saved (they write projects). The refusal text comes from Update project settings ('The go-live date is in the past…', 'The budget cannot be negative…'); the go-live is sent as YYYY-MM-DD and the region as its code. Check: set IMP-2611's budget to -5 and read the refusal under the cell and in the note.
+Unverified: The audit log reads up to 1000 Activity rows once and filters on screen (person, project, action, search); a log past 1000 rows shows only the newest 1000, with a hint saying so.
+Note: handover: app app-f53fd0efccec, branch main, head 5126004fb989c524511308023adbc9c0ab14591d; route /admin with ?tab=roles\|audit\|integrations\|projects; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/; ENTITY now holds weekly_metric, ai_output, session_slot, checklist_item, notification, role_permission, integration; the app is ready for its code-publish task (not deployed yet).
 
 ### t7 · Publish ClickUp Delivery Command
 

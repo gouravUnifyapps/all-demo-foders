@@ -53,6 +53,15 @@ Solution: `Clickup · ClickUp Delivery command platform` (e_6adb4b845236864dd8b1
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
+| page `global-page-of-app-f53fd0efccec` | `data source Update project settings` | automation `Delivery Command · Update project settings` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Mark notification read` | automation `Delivery Command · Mark notification read` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Log time` | automation `Delivery Command · Log time` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Confirm upload` | automation `Delivery Command · Confirm upload` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Book training slot` | automation `Delivery Command · Book training slot` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Record sign-off` | automation `Delivery Command · Record sign-off` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Accept proposed tasks` | automation `Delivery Command · Accept proposed tasks` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Publish status report` | automation `Delivery Command · Publish status report` | data source |  |
+| page `global-page-of-app-f53fd0efccec` | `data source Ask Copilot` | automation `Delivery Command · Ask Copilot` | data source |  |
 | page `global-page-of-app-f53fd0efccec` | `data source Send executive summary` | automation `Delivery Command · Send executive summary` | data source |  |
 | page `global-page-of-app-f53fd0efccec` | `data source Change request` | automation `Delivery Command · Change request` | data source |  |
 | page `global-page-of-app-f53fd0efccec` | `data source Review timesheets` | automation `Delivery Command · Review timesheets` | data source |  |

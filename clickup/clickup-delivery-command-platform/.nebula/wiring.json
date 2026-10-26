@@ -16,6 +16,42 @@
       "appId": "app-f53fd0efccec",
       "dataSources": [
         {
+          "id": "e_6adf07466e8cff53fad1c683",
+          "name": "Update project settings"
+        },
+        {
+          "id": "e_6adf0696bc76624e532e8420",
+          "name": "Mark notification read"
+        },
+        {
+          "id": "e_6adf0696bc76624e532e841b",
+          "name": "Log time"
+        },
+        {
+          "id": "e_6adf05bcbae51e4d7ab2148e",
+          "name": "Confirm upload"
+        },
+        {
+          "id": "e_6adf04a5bae51e4d7ab1fb2f",
+          "name": "Book training slot"
+        },
+        {
+          "id": "e_6adf04a56e8cff53fad18032",
+          "name": "Record sign-off"
+        },
+        {
+          "id": "e_6adf038ebae51e4d7ab1dc7c",
+          "name": "Accept proposed tasks"
+        },
+        {
+          "id": "e_6adf038dbae51e4d7ab1dc78",
+          "name": "Publish status report"
+        },
+        {
+          "id": "e_6adf038d6e8cff53fad16a63",
+          "name": "Ask Copilot"
+        },
+        {
           "id": "e_6adbb6845236864dd8edcd6b",
           "name": "Send executive summary"
         },
@@ -347,6 +383,141 @@
     }
   ],
   "edges": [
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Update project settings"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba9def3cd5f19ed89ef7d",
+        "name": "Delivery Command · Update project settings"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Mark notification read"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba94deb71d135d658f2dc",
+        "name": "Delivery Command · Mark notification read"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Log time"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba405ca4f9d2045858cfc",
+        "name": "Delivery Command · Log time"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Confirm upload"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba9abcac0655fe35aa2fc",
+        "name": "Delivery Command · Confirm upload"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Book training slot"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba59c92718f6a64f4015a",
+        "name": "Delivery Command · Book training slot"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Record sign-off"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba5f8eb71d135d657e318",
+        "name": "Delivery Command · Record sign-off"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Accept proposed tasks"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba625ca4f9d2045986507",
+        "name": "Delivery Command · Accept proposed tasks"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Publish status report"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adba5cfeb71d135d657c23d",
+        "name": "Delivery Command · Publish status report"
+      },
+      "via": "data source",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-f53fd0efccec",
+        "name": "global-page-of-app-f53fd0efccec",
+        "part": "data source Ask Copilot"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6adbaf90c79cad11403e9b72",
+        "name": "Delivery Command · Ask Copilot"
+      },
+      "via": "data source",
+      "fields": []
+    },
     {
       "from": {
         "kind": "page",

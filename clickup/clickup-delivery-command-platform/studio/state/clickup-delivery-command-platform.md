@@ -1130,27 +1130,38 @@ data:
   expected_answers: eval.csv
 
 verify:
-  round: 1
-  walked_at: 2026-10-26T08:03Z to 08:12Z
-  beats_pass: "0 of 9 (beats 1-7, H1, H2 all unverified: sign-in; the verify browser opened the preview and the Code Builder page and both redirected to orbit.uat.unifyapps.com/login)"
-  controls_pass: "0 of 0 measured (control sweep on all 12 beat screens unverified: sign-in)"
-  queries_pass: "11 of 11 (8 fact, 3 refusal; cases e_6adf09586112da3e236839c3 to e_6adf0b3d97a3bf334db852d3)"
-  coverage_pass: "0 of 113 (no beat or control reached: sign-in)"
-  checks_pass: "0 of 7 (all seven unverified: sign-in; they measure computed values on the page)"
-  p95_latency_s: 118
+  round: 2
+  walked_at: 2026-10-26T08:45Z to 09:38Z
+  browser: "Nebula browser wrapper signed in on orbit.uat.unifyapps.com; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-f53fd0efccec/main/ (same code as published v1, commit 5126004f); 1440 x 900; screenshots in /tmp/claude-0/verify-r2/"
+  beats_pass: "2 of 9 (pass: beat 3, H2; fix: beat 1 tiles read ±0 and the list reads 2 of 20 with two DEMO-TEST projects; beat 2 Move to does nothing and the Data migration column reads 18 of 15 with a DEMO-TEST task; beat 4 the new request is numbered CR-312005; beat 5 Send test email says sent while the automation saved a preview, and a DEMO-TEST project leads the five biggest movers; beat 6 the sponsor's portal shows a DEMO-TEST session and a DEMO-TEST sign-off; beat 7 Publish shows a raw id and Meeting and Report list DEMO-TEST rows; H1 node 2 is labelled 'Actor given?' while its YES branch refuses. Persona changes were made from the sign-in screen because the profile menu's switch does nothing)"
+  controls_pass: "82 of 86 (fail: Move to menu items, profile-menu persona switch, Send test email message, Report Publish message; unverified: writes that would use up the demo's seeded state: approve the eight pending timesheets, Hana's SGN-302 sign-off, book a training slot, accept or reject proposed tasks, log time on the phone, apply a saved view from the Views menu)"
+  queries_pass: "10 of 11 (8 fact, 3 refusal; fail Q6 'Who is booked over 100% in the next 12 weeks?': 'no person in the data I can fully verify is booked over 100% in any of the 12 weeks', expected Haruto Sato week of 2 Nov 2026, 44 of 40 h, 110%; cases e_6adf1ad0f3cd5f19ed3dc868 to e_6adf1d93c79cad11400eb689)"
+  coverage_pass: "103 of 113 (92 asks named by beats shown on their screens; A49 A50 A60 on Phone, A51 A52 A53 A54 A80 on Admin, A77 on filtered tables, A94 A95 on Portal and RAID; not shown: A8 A76 A85 A91 A92 A93 A101 A102 A110 A111, see open_questions)"
+  checks_pass: "5 of 7 (fail: brand on the primary action only on every internal and portal screen; both empty states on Timesheets, Changes, Project List/RAID/Documents, Resourcing; pass: no horizontal scroll, table readable at 1440 (mono 10.5px heads, 13-15px cells, tabular numbers, nothing cut), no console errors and no failed tenant requests, stylesheet (source design-system.css equals client.css byte for byte after the two @import lines; the build is minified, so computed :root properties were compared and differ only in notation such as rgba vs hex8 and 150ms vs .15s), logo contrast 9.07:1 rail, 8.97:1 portal header)"
+  p95_latency_s: 151
   latency_target_s: 90
-  latencies_s: "Q1 35, Q2 43, Q3 22, Q4 20, Q5 106, Q6 118, Q7 34, Q8 16, Q9 4, Q10 4, Q11 5 (case creation to final model call)"
-  notes:
-    - "Q5 status report and Q1/Q7 answers state IMP-2611's go-live as 18 Nov 2026 and its baseline as 11 Nov or 16 Nov 2026; the seed holds go_live 1795046400000 (19 Nov 2026) and baseline_go_live 1794441600000 (12 Nov 2026). The trace shows the agent converting epoch milliseconds by hand in think steps. The rows still pass: the expected facts are stated."
-    - "Q2 chart adds Sep 2026 1 and Oct 2026 1 (live projects) to the expected Nov 6, Dec 4, Jan 3, Feb 3; passed on the expected months."
-    - "Agent record shows needsPublish: true (version 10): the draft verified here differs from the published agent the app's Ask Copilot automation calls."
-    - "Mode live for beat 7 not observed in the app (sign-in); the agent itself answered live with Read_delivery_data calls in every trace."
+  latencies_s: "Q1 12, Q2 18, Q3 21, Q4 15, Q5 62, Q6 151, Q7 23, Q8 22, Q9 4, Q10 4, Q11 4 (case creation to answer, from the case id time and the last LLM node; in the app: Q1 28 s, chart 49 s, status report draft about 57 s, invoice refusal 11 s, each with an Ask Copilot run 6adbaf90c79cad11403e9b72)"
+  live_evidence: "every demo-path write in the walk returned an executionInstanceId from its automation: Save view 6adf13a32934813cf1f19f95, Reschedule preview, Book consultant 6adf15ee.. / 6adf1612.., Change request submit and decisions, Send executive summary 6adf18152934813cf1f2288f (status preview), Confirm upload 6adf19270301de7aecb1a23b, Ask Copilot 6adf198e0301de7aecb1afa1, Publish status report; list_workflow_runs returns no deployed runs for callable runs, so the run ids come from the page's own call replies"
+  previous_open:
+    - "Read delivery data day text: fixed (every stated date in the 11 answers and the app's draft matches the seed)"
+    - "Copilot dates from day text: fixed for stated dates; new finding below: date range filters are still hand-converted to epoch and land a year early"
+    - "Copilot within 90 s at p95: still failing (151 s on Q6, 62 s on Q5)"
+    - "Copilot publish: fixed (version 19, published, needsPublish false)"
+    - "Tools offered beyond the agent's own: still seen in every trace; platform, moved to dev_issues"
+  demo_test_records: "VIEW-6adf13a32934813cf1f19f95 (saved view 'DEMO-TEST Japan · at risk'); Marcus Bell 10 h on DEMO-TEST-PRJ-1 weeks of 16 and 23 Nov; CR-312005 on DEMO-TEST-PRJ-1 (approved, added 2 tasks, moved its go-live to 4 Jan 2028); AIO-6adf1a752934813cf1f2740d ('DEMO-TEST Weekly status · Sakura Mobility'); EML-JAPAN-20261026-813cf1f2288f (preview); DEMO-TEST-PRJ-C9A9E6 budget 140 to 144 h. Not marked DEMO-TEST: UPL-IMP-2611-6adf19270301de7aecb1a23b (sample upload confirmed on IMP-2611, as beat 6 does) and Aiko Tanaka's 'New assignment' notification marked read on the phone"
   open:
-    - "automation · update · Delivery Command · Read delivery data: every date field (go_live, baseline_go_live, start, end, due, week_start, date, decided_at, requested_at) also comes back as UTC day text such as \"19 Nov 2026\" beside its epoch value; nothing else changes"
-    - "ai-agent · update · Delivery Command · Copilot: instructions say to state every date from the day text the tool returns and never convert epoch milliseconds by hand (it now says IMP-2611 goes live 18 Nov 2026, baseline 11 Nov or 16 Nov; the data says 19 Nov and 12 Nov); nothing else changes"
-    - "ai-agent · update · Delivery Command · Copilot: answers within 90 s at p95 (now 118 s for \"Who is booked over 100% in the next 12 weeks?\" and 106 s for \"Draft the weekly status report for IMP-2611\"): instructions cap think steps to one short plan and read bookings and people once each with limit 200 instead of per-person rereads; nothing else changes"
-    - "ai-agent · update · Delivery Command · Copilot: publish the draft (needsPublish true at version 10) so the app's Ask Copilot runs the verified instructions; nothing else changes"
-    - "ai-agent · update · Delivery Command · Copilot: the model is offered only think and Read_delivery_data; today every trace also offers EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy (not attached to the agent) and ClarifyFromUser (its capability is off); nothing else changes · platform"
+    - "code-app · update · ClickUp Delivery Command: the shared menu item (components/kit.tsx MenuItem) runs its onSelect when chosen; today its own onClick calls preventDefault, which stops the menu's select, so every Move to item on the Project board, the profile menu (persona switch, Light and Dark, Phone view, Customer portal, Sign out) and the Views menu do nothing; nothing else changes"
+    - "code-app · update · ClickUp Delivery Command: every list, board, chart, feed and selector leaves out rows whose id or name starts with DEMO-TEST (today the Portfolio list reads 2 of 20, the IMP-2611 Data migration column 18 of 15, Executive summary's biggest movers lead with DEMO-TEST Project, the portal shows a DEMO-TEST slot and DEMO-TEST-SGN-1 to the sponsor, Copilot Meeting and Report list DEMO-TEST-PRJ and DEMO-TEST proposed tasks, Changes lists DEMO-TEST-CR-1, DEMO-TEST-CR-2 and CR-312005, and the audit log and project pickers list DEMO-TEST projects); nothing else changes"
+    - "object · update · Delivery Command · Weekly snapshot: the 2026-10-19 row reads on_track 13, at_risk 3, off_track 2, active_projects 18, so the Portfolio tiles, which compare with the latest snapshot before this week, read 12 On track −1, 4 At risk +1, 2 Off track ±0 as beat 1 says (today the row equals the live counts and all three read ±0); nothing else changes"
+    - "automation · update · Delivery Command · Change request: a new request takes the next number of the CR-04nn series after the highest stored (CR-0452 now) instead of 'CR-' plus the last six digits of the clock (it made CR-312005); nothing else changes"
+    - "automation · update · Delivery Command · Change request: node 2 is named 'No actor?' (its YES branch refuses the call; it reads 'Actor given?' on the canvas the hood beat H1 opens); nothing else changes"
+    - "code-app · update · ClickUp Delivery Command: screen Executive summary: when Send executive summary answers status preview, the message reads 'Saved as a preview. No mailbox is connected, so nothing was sent.' instead of 'Test email sent'; nothing else changes"
+    - "code-app · update · ClickUp Delivery Command: screen Copilot panel: after Publish on the Report tab the line reads 'Published to IMP-2611's report history' instead of 'Published as AIO-6adf1a752934813cf1f2740d.'; nothing else changes"
+    - "code-app · update · ClickUp Delivery Command: the avatar circles (.av, header and portal), the Portfolio go-live markers (.mk) and their legend key (.k-brand), the progress bars (.prog on Portfolio rows, Project overview and Portal checklist) and the portal Sessions day dots (.evd) take the neutral ink or chart series token instead of the brand colour; nothing else changes"
+    - "code-app · update · ClickUp Delivery Command: screens Timesheets, Changes, Project (List, RAID, Documents) and Resourcing (bookings grid): the filtered-empty state 'No rows match your search and filters' carries a Clear all filters button, as Portfolio and Admin do; nothing else changes"
+    - "automation · update · Delivery Command · Read delivery data: a range filter on a date field also accepts day text such as {\"week_start\":{\"gte\":\"2026-10-26\",\"lte\":\"2026-11-16\"}} and converts it to epoch milliseconds itself (the Copilot sent 1761436800000, which is 26 Oct 2025, and read 0 bookings); nothing else changes"
+    - "automation · update · Delivery Command · Read delivery data: bookings rows come back compact (person, project_id, week_start_text, hours) so a read of all 170 bookings reaches the model whole (the Copilot reported 'the tool output was truncated' for Haruto Sato, Aiko Tanaka and Kenji Arakawa); nothing else changes"
+    - "ai-agent · update · Delivery Command · Copilot: instructions write date range filters as day text and read bookings in at most three ranges of four weeks, so 'Who is booked over 100% in the next 12 weeks?' answers Haruto Sato, week of 2 Nov 2026, 44 of 40 h, 110%, within 90 s (now 151 s and 'no person ... is booked over 100%'); nothing else changes"
 
 collaterals:
 
@@ -1232,7 +1243,11 @@ decisions:
   - by: build
     when: 2026-10-26
     text: "Found while building, for 4-verify: no screen was opened in a browser and no writing action was run; only the portal is translated (EN/DE/JA, lib/portalText.ts), the rest stays English; the portal picks the sponsor's project by persona name; the five biggest movers are ranked by a rule the builder chose (go-live, health and cancellation events weighted highest); meeting-summary transcript links have no transcript player to land on; the tools return no published URL."
-dev_issues: []
+dev_issues:
+  - what: "The agent runtime offers the model tools the agent does not have: every trace of Delivery Command · Copilot (version 19) lists EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy (not attached; the agent has 3 tool records: Read_delivery_data, and requestClarification and generateChartTool both disabled) and ClarifyFromUser (its capability requestClarification is off)"
+    beat: "Beat 7 · Ask Delivery Copilot (and H2)"
+    read: "read_trace modelCalls[].toolsOffered for cases e_6adf1ad0f3cd5f19ed3dc868, e_6adf1b5497a3bf334ddc82a1 and e_6adf1bfd08750d257cc4b917; get_agent tools and capabilities for e_6adbabd2925d282255cee62b"
+    raised:
 
 frozen:
 
@@ -1300,6 +1315,21 @@ open_questions:
   - by: verify
     for: owner
     text: "Coverage walk: all 113 asks with status built were shown by no beat or control this round, because no screen could be opened (sign-in). What was built for them is the code app app-f53fd0efccec v1 with its objects and automations; they did not show because the walk never reached a screen. Options: (a) Rerun the coverage walk once the browser is signed in [recommended]; (b) Treat coverage as unmeasured for G3"
+  - by: verify
+    for: owner
+    text: "Round 2 coverage: A8 (light and dark appearance) was built as Light and Dark items in the profile menu, but no walk could switch it because that menu's items do nothing (a fix line is open). Options: (a) Re-check A8 in round 3 once the menu fix lands [recommended]; (b) Drop dark appearance from the demo"
+  - by: verify
+    for: owner
+    text: "Round 2 coverage: A76 ('Projects appear here once a lead assigns you', the empty state for a consultant with no projects) and A85 ('How to stay signed in' on the sign-in screen) were built as empty-state and sign-in copy, but no beat or control reaches them: every persona in the walk has projects, and the sign-in screen shows no stay-signed-in line. Options: (a) Accept them as unshown in the demo [recommended]; (b) Add a persona with no projects and a stay-signed-in line so they can be shown"
+  - by: verify
+    for: owner
+    text: "Round 2 coverage: A91 (WCAG 2.2 AA in light and dark) was built through the design system's tokens; this walk measured only the seven checks (logo contrast, table type), not a full WCAG pass, and could not open dark appearance. Options: (a) Treat A91 as covered by the seven checks for the demo [recommended]; (b) Run a full accessibility audit before the client demo"
+  - by: verify
+    for: owner
+    text: "Round 2 coverage: A92 (a won Salesforce deal creates the project with value, seats and close date) and A93 (notifications and the weekly status post to each project channel) were built as seeded integration-status rows (option a of the integrations question); no screen shows a deal creating a project or a channel post. Options: (a) Accept the integration-status rows as their showing [recommended]; (b) Add a seeded 'deal won' activity and a channel-post preview so a beat can show them"
+  - by: verify
+    for: owner
+    text: "Round 2 coverage: A101 (video calls or recording), A102 (offline phone), A110 (edit the timeline from the phone) and A111 (customers see their health score) carry status built although they are out of scope or were decided against (phone stays at today, tasks, time and alerts; the portal shows no internal health). Nothing shows them, by design. Options: (a) Set them to out of scope or declined so coverage counts 103 of 103 [recommended]; (b) Keep them built and show the decision on a screen"
 ---
 
 ## build_contract

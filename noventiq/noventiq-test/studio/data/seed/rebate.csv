@@ -1,0 +1,13 @@
+rebate_id,vendor,entity,segment,programme,amount_usd,quarter_earned,quarter_booked,status
+RB-EMB-MS-26Q2,Microsoft,embee,enterprise,Microsoft CSP incentive,1200000,2026-Q2,2026-Q3,booked_late
+RB-EMB-MS-26Q2B,Microsoft,embee,smb,Microsoft CSP incentive,290000,2026-Q2,2026-Q2,booked
+RB-EMB-MS-25Q4,Microsoft,embee,enterprise,Microsoft CSP incentive,310000,2025-Q4,2025-Q4,booked
+RB-EMB-MS-26Q1,Microsoft,embee,enterprise,Microsoft CSP incentive,280000,2026-Q1,2026-Q1,booked
+RB-EMB-MS-26Q3,Microsoft,embee,enterprise,Microsoft CSP incentive,330000,2026-Q3,2026-Q3,booked
+RB-DE-MS-25Q4,Microsoft,nq_de,enterprise,Microsoft partner incentive,60000,2025-Q4,2025-Q4,booked
+RB-DE-MS-26Q1,Microsoft,nq_de,enterprise,Microsoft partner incentive,52000,2026-Q1,2026-Q1,booked
+RB-DE-MS-26Q2,Microsoft,nq_de,smb,Microsoft partner incentive,58000,2026-Q2,2026-Q2,booked
+RB-DE-MS-26Q3,Microsoft,nq_de,enterprise,Microsoft partner incentive,64000,2026-Q3,2026-Q3,booked
+RB-DE-AWS-26Q3,AWS,nq_de,enterprise,AWS partner funding,45000,2026-Q3,,accrued
+RB-EMB-CSCO-26Q3,Cisco,embee,smb,Cisco partner rebate,38000,2026-Q3,,accrued
+RB-AI-MS-26Q3,Microsoft,nq_ai,smb,Microsoft AI partner funding,25000,2026-Q3,,accrued

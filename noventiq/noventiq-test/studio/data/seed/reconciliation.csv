@@ -1,0 +1,13 @@
+run_id,quarter,entity,gp_ledger_usd,gp_computed_usd,reconciling_items_usd,difference_usd,result,reason,rule,rule_owner,run_at
+REC-NQDE-2025Q4,2025-Q4,nq_de,229380,229380,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-01
+REC-NQDE-2026Q1,2026-Q1,nq_de,231420,231420,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-01
+REC-NQDE-2026Q2,2026-Q2,nq_de,249040,249040,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-05
+REC-NQDE-2026Q3,2026-Q3,nq_de,224340,,,,not_run,,GP-01,"Meera Iyer, Group Financial Controller",
+REC-EMBEE-2025Q4,2025-Q4,embee,477380,477380,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-01
+REC-EMBEE-2026Q1,2026-Q1,embee,478520,478520,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-01
+REC-EMBEE-2026Q2,2026-Q2,embee,478600,1678600,1200000,0,reconciled,Ties to the accounts after the late-rebate reconciling item,GP-01,"Meera Iyer, Group Financial Controller",2026-10-05
+REC-EMBEE-2026Q3,2026-Q3,embee,1711380,,,,not_run,,GP-01,"Meera Iyer, Group Financial Controller",
+REC-NQAI-2025Q4,2025-Q4,nq_ai,78120,78120,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-01
+REC-NQAI-2026Q1,2026-Q1,nq_ai,90320,90320,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-01
+REC-NQAI-2026Q2,2026-Q2,nq_ai,99020,99020,0,0,reconciled,Ties to the accounts,GP-01,"Meera Iyer, Group Financial Controller",2026-10-05
+REC-NQAI-2026Q3,2026-Q3,nq_ai,117160,,,,not_run,,GP-01,"Meera Iyer, Group Financial Controller",

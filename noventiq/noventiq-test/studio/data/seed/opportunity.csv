@@ -1,0 +1,21 @@
+opp_id,entity,country,customer_key,crm_account_ref,name,source_system,local_stage,group_stage,local_service_code,service_line,mapped_by,amount_usd,probability,forecast_quarter,close_date,crm_status_mocked
+OPP-EMB-5521,embee,India,NQ-C-0042,DYN-ACC-3317,Microsoft 365 E5 renewal,dynamics_365,1-Qualify,qualified,MS-LIC-EA,software_licensing,rule,620000,40,2026-Q4,2026-12-15,Open
+OPP-DE-2207,nq_de,Germany,NQ-C-0042,CRE-88412,Azure migration services,creatio,Offer,proposal,PS-CLOUD-MIG,cloud,rule,340000,60,2026-Q4,2026-12-05,Open
+OPP-AI-0391,nq_ai,India,,BW-0719,AI copilot pilot extension,black_and_white,Hot,qualified,AI-PS,professional_services,ai_suggested,85000,40,2026-Q4,2026-11-28,Open
+OPP-DE-2190,nq_de,Germany,NQ-C-0007,CRE-88107,Managed SOC renewal,creatio,Contracting,negotiation,SEC-MSSP,cybersecurity,rule,410000,75,2026-Q4,2026-11-20,Open
+OPP-DE-2214,nq_de,Austria,NQ-C-0011,CRE-88230,Microsoft 365 E5 upgrade,creatio,Qualification,qualified,SW-RESALE,software_licensing,rule,260000,40,2027-Q1,2027-01-30,Open
+OPP-DE-2221,nq_de,Germany,NQ-C-0019,CRE-88355,Penetration test programme,creatio,Offer,proposal,SEC-ASSESS,cybersecurity,rule,120000,60,2026-Q4,2026-12-10,Open
+OPP-DE-2232,nq_de,Switzerland,NQ-C-0031,CRE-88391,Business Premium seats,creatio,Lead,lead,SW-RESALE,software_licensing,rule,45000,10,2027-Q1,2027-02-14,Open
+OPP-DE-2180,nq_de,Germany,NQ-C-0007,CRE-88107,AWS savings plan,creatio,Closed won,won,CLD-AWS-RES,cloud,rule,530000,100,2026-Q3,2026-09-18,Closed won
+OPP-EMB-5490,embee,India,NQ-C-0015,DYN-ACC-3120,Dynamics 365 Sales rollout,dynamics_365,2-Develop,proposal,MS-LIC-CSP,software_licensing,rule,290000,60,2026-Q4,2026-12-12,Open
+OPP-EMB-5502,embee,India,NQ-C-0023,DYN-ACC-3188,Azure landing zone,dynamics_365,3-Propose,negotiation,AZ-PS-LZ,cloud,rule,380000,75,2026-Q4,2026-11-25,Open
+OPP-EMB-5510,embee,India,NQ-C-0027,DYN-ACC-3204,Sentinel managed detection,dynamics_365,1-Qualify,qualified,SEC-MDR,cybersecurity,ai_suggested,450000,40,2027-Q1,2027-01-20,Open
+OPP-EMB-5516,embee,Singapore,NQ-C-0035,DYN-ACC-3259,Azure OpenAI capacity,dynamics_365,2-Develop,proposal,AZ-CONS,cloud,rule,210000,60,2026-Q4,2026-12-20,Open
+OPP-EMB-5478,embee,India,NQ-C-0027,DYN-ACC-3204,Microsoft EA true-up,dynamics_365,Won,won,MS-LIC-EA,software_licensing,rule,880000,100,2026-Q3,2026-09-28,Closed won
+OPP-EMB-5530,embee,India,NQ-C-0039,DYN-ACC-3281,Business Premium renewal,dynamics_365,Lead,lead,MS-LIC-CSP,software_licensing,rule,60000,10,2027-Q1,2027-03-10,Open
+OPP-EMB-5468,embee,India,NQ-C-0047,DYN-ACC-3302,Email security add-on,dynamics_365,Lost,lost,SEC-EMAIL,cybersecurity,rule,35000,0,2026-Q3,2026-09-05,Closed lost
+OPP-AI-0377,nq_ai,India,NQ-C-0015,BW-0644,Demand forecasting phase 2,black_and_white,Negotiation,negotiation,AI-PS,professional_services,rule,160000,75,2026-Q4,2026-11-30,Open
+OPP-AI-0384,nq_ai,India,NQ-C-0027,BW-0682,Fraud scoring production,black_and_white,Hot,qualified,AI-ML-BUILD,professional_services,ai_suggested,240000,40,2027-Q1,2027-01-25,Open
+OPP-AI-0369,nq_ai,India,NQ-C-0023,BW-0701,Grid analytics support,black_and_white,Closed,won,AI-AMS,professional_services,rule,90000,100,2026-Q3,2026-08-29,Closed won
+OPP-AI-0395,nq_ai,India,NQ-C-0035,BW-0733,Churn model refresh,black_and_white,Warm,lead,AI-PS,professional_services,rule,55000,10,2027-Q1,2027-02-20,Open
+OPP-DE-2240,nq_de,Germany,NQ-C-0043,CRE-88460,Azure credits top-up,creatio,Qualification,qualified,CLD-AZ-CSP,cloud,rule,70000,40,2026-Q4,2026-12-18,Open

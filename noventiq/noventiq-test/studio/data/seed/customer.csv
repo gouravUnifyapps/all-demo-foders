@@ -1,0 +1,13 @@
+customer_key,group_name,segment,parent_key,industry,home_country,key_owner
+NQ-C-0042,Kestrel Pharma,enterprise,,Pharmaceuticals,India,Meera Iyer
+NQ-C-0007,Halden Motors,enterprise,,Automotive,Germany,Lukas Brandt
+NQ-C-0011,Ostara Retail,enterprise,,Retail,Germany,Lukas Brandt
+NQ-C-0015,Bluewing Logistics,enterprise,,Logistics,India,Rohan Kapoor
+NQ-C-0019,Marrow & Finch Insurance,enterprise,,Insurance,Germany,Lukas Brandt
+NQ-C-0023,Saffron Grid Energy,enterprise,,Energy,India,Rohan Kapoor
+NQ-C-0027,Velantra Bank,enterprise,,Banking,India,Rohan Kapoor
+NQ-C-0031,Northpeak Foods,smb,,Food and beverage,Germany,Lukas Brandt
+NQ-C-0035,Corrivo Telecom,enterprise,,Telecom,India,Rohan Kapoor
+NQ-C-0039,Lumessa Health,smb,,Healthcare,India,Rohan Kapoor
+NQ-C-0043,Kestrel Pharma Research,smb,NQ-C-0042,Pharmaceuticals,Germany,Meera Iyer
+NQ-C-0047,Tamarind Hotels,smb,,Hospitality,India,Rohan Kapoor

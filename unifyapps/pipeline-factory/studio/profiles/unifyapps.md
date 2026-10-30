@@ -10,7 +10,7 @@
 - slack: find them · the POC row's channel (#pipeline-factory)
 - poc: find it · links both
 - avoid: deletes · anything needing a connection the tenant lacks
-- tenant: orbit.uat.unifyapps.com · solution: UnifyApps · Pipeline Factory (create if missing)
+- tenant: sales.uat-us-east-1.unifyapps.com · solution: UnifyApps · Pipeline Factory (create if missing)
 - release: publish and deploy without asking · visibility PRIVATE
 - external: existing · only connections already on the tenant
 - sandboxes: none

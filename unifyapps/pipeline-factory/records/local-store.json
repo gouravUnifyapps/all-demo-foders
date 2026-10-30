@@ -1,0 +1,26 @@
+{
+  "records": {
+    "e_6ae490db7a5baa53a94bf550": {
+      "createdTime": 1793364187806,
+      "deleted": false,
+      "entityType": "e_solution",
+      "id": "e_6ae490db7a5baa53a94bf550",
+      "lastModifiedBy": 66770,
+      "lastPlatformUpdateBy": 66770,
+      "lastPlatformUpdateOn": 1793364187806,
+      "modifiedTime": 1793364187806,
+      "ownerUserId": 66770,
+      "properties": {
+        "name": "UnifyApps · Pipeline Factory",
+        "description": "",
+        "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n## Notes\n"
+      },
+      "standard": false,
+      "tags": [
+        "Nebula"
+      ],
+      "version": 0
+    }
+  },
+  "counters": {}
+}

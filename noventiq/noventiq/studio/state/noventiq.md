@@ -16,7 +16,7 @@ intent:
 stage_flag:
 
 gates:
-  g1: {status: waiting, round: 1, posted_ts: 1793021406.071119, decided_by: , decided_at: }
+  g1: {status: waiting, round: 2, posted_ts: 1793021406.071119, decided_by: , decided_at: }
   g2: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
   g3: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
@@ -37,6 +37,20 @@ posts:
     version: 1
     round: 1
 
+  - when: 2026-10-30T08:45:00Z
+    kind: g1
+    ts: 1793021406.071119
+    by: bot
+    version: 1
+    round: 2
+    documents:
+      - {name: Requirements · Noventiq · v1 round 2, type: requirements, file_url: https://orbit.uat.unifyapps.com/auth/file/asset/download/aa81469344015d74225a162f, file_name: requirements-v1-r2.pdf, file_size: 230936}
+  - when: 2026-10-30T08:46:30Z
+    kind: status
+    ts: 1793021406.071119
+    by: bot
+    version: 1
+    round: 2
 runs:
   - started: 2026-10-26T13:19:06Z
     ended: 2026-10-26T13:30:25Z
@@ -44,6 +58,13 @@ runs:
     stages: [1-harvest]
     spawns: 1
     tokens: 151
+    outcome: posted G1
+  - started: 2026-10-30T08:32:46Z
+    ended: 2026-10-30T08:46:00Z
+    gate: g1
+    stages: [1-harvest]
+    spawns: 1
+    tokens: 157
     outcome: posted G1
 
 stopped:
@@ -385,6 +406,83 @@ asks:
     owner: Gourav Mahunta
     use_case: "other: the four-month POC programme"
     status: out_of_scope
+  - id: A49
+    text: "Research and ideation on the actual business model of Noventiq should be added to the overall context to understand the central user-persona, their pain points a bit more to have a better idea on what AI features need to be created finally."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A50
+    text: "What multiple countries would be incuded in the anlaysis"
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A51
+    text: "Creation of the synthetic systems that we are supposed to connect with for the data on which the business intelligence is supposed to be generated."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A52
+    text: "Answer to the six practical questions that drive cost and feasibility needs to be explicitly answered."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A53
+    text: "In addition to current revenue health the solution should also offer cross-sell/up-sell opportunities at an account level with evidence collected from data across all of these accounts"
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A54
+    text: "These suggestions should translate to traceable action plans that can be acclelerated/rolled back or edited at any point of time."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A55
+    text: "Central logic of linking disjointed data across different sources into a singular source of truth at an account level across multiple connector sources."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A56
+    text: "How that logic and context will flow inside the agent."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A57
+    text: "Logic for returning evidence on each and everty financial calculation made…finance people do not trust AI without citations."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A58
+    text: "Data Sync strategies, how exactly is data updated across any of these systems refelcted in the final response."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
+  - id: A59
+    text: "Logic for tracing back the errors detected in any connector/any data at any point of time to it’s source."
+    source: "psl_feedback FB-1793291553836-1 · Mrinal Dixit · reply in the G1 thread https://unifyapps.slack.com/archives/C0CBYSL95UK/p1793021406071119 · 2026-10-29"
+    priority: P0
+    owner: Gourav Mahunta
+    use_case: "this"
+    status: open
 
 coverage: []
 
@@ -406,15 +504,33 @@ decisions:
     when: 2026-10-26
     text: "Profile drafted by Studio from the POC row (no profile existed for Noventiq); defaults used for every line the row did not give."
 
+  - by: Mrinal Dixit
+    when: 2026-10-29
+    ticket_no: FB-1793291553836-1
+    text: "G1 changes requested (psl_feedback FB-1793291553836-1), verbatim: Feedback on the requirements doc : General: Research and ideation on the actual business model of Noventiq should be added to the overall context to understand the central user-persona, their pain points a bit more to have a better idea on what AI features need to be created finally. Ideation perspective/Features: What multiple countries would be incuded in the anlaysis. Creation of the synthetic systems that we are supposed to connect with for the data on which the business intelligence is supposed to be generated. Answer to the six practical questions that drive cost and feasibility needs to be explicitly answered. In addition to current revenue health the solution should also offer cross-sell/up-sell opportunities at an account level with evidence collected from data across all of these accounts → These suggestions should translate to traceable action plans that can be acclelerated/rolled back or edited at any point of time. BE perspective: Central logic of linking disjointed data across different sources into a singular source of truth at an account level across multiple connector sources. How that logic and context will flow inside the agent. Logic for returning evidence on each and everty financial calculation made…finance people do not trust AI without citations. Data Sync strategies, how exactly is data updated across any of these systems refelcted in the final response. Logic for tracing back the errors detected in any connector/any data at any point of time to it’s source. Incorporate these and proceed to the next stage"
+  - by: Gourav Mahunta
+    when: 2026-10-30
+    ticket_no: FB-1793345185239-1
+    text: "G1 changes requested (psl_feedback FB-1793345185239-1), verbatim: rebuild this"
+  - by: Gourav Mahunta
+    when: 2026-10-30
+    ticket_no: FB-1793349011236-1
+    text: "G1 changes requested (psl_feedback FB-1793349011236-1), verbatim: build"
+  - by: orchestrator
+    when: 2026-10-30
+    text: "Preflight on the cloud runner: Bun, Chrome (Playwright Chromium), tenant sign-in and Slack read tools ok; collateral python packages and faster-whisper were missing; installed in this session (doctor now all ok)."
+  - by: orchestrator
+    when: 2026-10-30
+    text: "G1 round 2: round-1 open questions 2 (real vs fictional data) and 3 (which entities) are superseded by round 2's synthetic-systems and countries questions; the requirements doc §3 carries the 14 still open."
 dev_issues: []
 
 frozen:
 
 cost:
-  runs: 1
-  agent_spawns: 1
-  tokens_m: 0.15
-  wall_h: 0.3
+  runs: 2
+  agent_spawns: 2
+  tokens_m: 0.31
+  wall_h: 0.53
 
 open_questions:
   - by: harvest
@@ -447,6 +563,24 @@ open_questions:
   - by: harvest
     for: lead
     text: "Every ask's proposed owner is the POC lead; Amogh Gupta tagged Mrinal Dixit and Gourav Mahunta with \"need to pick this\". Who owns the asks? Options: (recommended) Gourav Mahunta owns all asks; Split between Gourav Mahunta and Mrinal Dixit (the lead names which)"
+  - by: harvest
+    for: lead
+    text: "[Not said yet: audience] Who presents on 10 November, and to whom (roles, slot length)? No source names the audience. Options: (recommended) A UnifyApps presenter in the seat of Noventiq's group finance team, to Noventiq's group CFO office and the country leads of the three POC entities, 20 minutes; The profile default: a senior operations leader, 20 minutes, in person, projector"
+  - by: harvest
+    for: lead
+    text: "[Not said yet: persona] Which persona are the screens for (A49 asks for the central user persona)? No source names one. Options: (recommended) Primary: the group or country finance controller who must trust gross profit, rebates and reconciliation (A3, A4, A13, A17, A57); secondary: the country sales or account lead who acts on pipeline and cross-sell/up-sell action plans (A2, A10, A53, A54); The profile default: the client's team lead"
+  - by: harvest
+    for: lead
+    text: "Which countries are in the analysis (replaces round 1's entities question) (A50, A6, A41)? The deck names three landscapes; A39 says two POC entities are in India; no source names the third country. Options: (recommended) India for Embee (typical landscape) and NQ AI (hard landscape), plus the country of the NetSuite + Creatio entity (easy landscape), which the lead names; shown as a placeholder country until named; Three countries the lead names now"
+  - by: harvest
+    for: lead
+    text: "How are the synthetic source systems built (settles round 1's real-versus-fictional data question) (A51; the demo data is synthetic, which settles round 1's real-versus-fictional question)? Options: (recommended) One synthetic store per source system, shaped like its real records and with its own ids, codes and last-updated times (Creatio, Dynamics 365, Black and White CRMs, NetSuite, SAP B1 and Tally ERPs, payroll, Zoho Projects and Azure DevOps time), so linking, sync and trace-back to source can be shown; Mock APIs behind custom connectors that the data layer calls; Trial instances of the real products"
+  - by: harvest
+    for: lead
+    text: "Where do the cross-sell/up-sell action plans live (A54: accelerated, rolled back or edited at any time)? Options: (recommended) In the demo app, each plan a record with steps, owner, due dates, the evidence it rests on and a full change history, so accelerate, roll back and edit are each a logged version; Also written back to the synthetic CRM as tasks or opportunities"
+  - by: harvest
+    for: lead
+    text: "Where are the six practical questions (deck p.10: get the data, make it consistent, can Finance trust it, keep it running, copy or read live, scaling cost) answered explicitly (A52)? Options: (recommended) In the G2 plan, one row per question with the demo screen or mechanism that proves it, and a \"How it works\" page in the demo app; In the G2 plan only"
 ---
 
 build:

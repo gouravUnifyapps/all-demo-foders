@@ -1,0 +1,58 @@
+component_id,stage,name,kind,ask_id,when_runs,threshold,below_threshold_to,writes_fields,model_family,checks,rung,demo_mode,success_rate_7d,success_target,status,origin
+CMP-001,1,Duplicate Finder,agent,A11,Every 15 min,95 merge / 80-95 RevOps / <80 separate,RevOps,"account keys, merge log",family_a,,exceptions_only,seeded,99.4,99,green,seed
+CMP-002,1,Parent Company Linker,agent,A12,On change; HQ or M&A news,80,RevOps,"parent_id, outreach lock at top parent",family_a,,approve_every_item,seeded,99.1,99,green,seed
+CMP-003,1,Headquarters Finder,agent,A13,On new account,80,RevOps picks,"hq, hq_confidence, candidates, evidence",family_a,,approve_every_item,seeded,98.7,99,amber,seed
+CMP-004,1,Headquarters Re-checker,monitor,A14,Nightly on news; quarterly on all,change,"Patch tower alert, then Patch Suggester",hq change alert,family_a,,exceptions_only,seeded,96.8,99,red,seed
+CMP-005,1,New Account Finder,agent,A15,Weekly lookalikes; daily 7 sources,70; fit floor 36,not suggested,suggestions to RevOps,family_a,,approve_every_item,seeded,99.0,99,green,seed
+CMP-006,1,Fit Scorer,agent,A16,On change; monthly,70,RevOps,"fit_score (of 60), fit_band",family_b,,exceptions_only,seeded,99.6,99,green,seed
+CMP-007,1,Patch Suggester,agent,A17,New account or HQ change,80,RevOps decides,patch proposal (never patch_id),family_a,,approve_every_item,seeded,99.2,99,green,seed
+CMP-008,1,Current Vendor Finder,agent,A18,Weekly,60,tagged [HYPOTHESIS],current_vendors,family_a,,exceptions_only,seeded,98.9,99,amber,seed
+CMP-009,1,Renewal Date Finder,agent,A19,Weekly,60,no signal,"renewal_estimate, renewal signal 9 months before",family_a,,exceptions_only,seeded,99.3,99,green,seed
+CMP-010,1,Battlecard Writer,agent,A20,On vendor change,product marketing approves each,Product marketing,battlecard drafts,family_a,,approve_every_item,seeded,99.0,99,green,seed
+CMP-011,2,Buying Signal Spotter,agent,A21,Continuous,70,"logged, not scored","signals (type, date, source, strength); fade over 30 days",family_a,,exceptions_only,seeded,99.5,99,green,seed
+CMP-012,2,Account Ranking,workflow,A22,Mon 06:00 rank; daily 07:00 top-up,rules,,"timing_score (max 40), rank_in_patch, Gate 1 batch",none,,exceptions_only,seeded,99.8,99,green,seed
+CMP-013,2,Weekly Slot Planner,workflow,A23,Monday after ranking,"base 25, floor 15, cap 40, eligible / 13",,"slots per patch, pace boost up to +50%",none,,exceptions_only,seeded,100.0,99,green,seed
+CMP-014,2,Holdout Picker,workflow,A24,Monday after allocation,10% of new medium/low plays; std diff < 0.1,redraw,"factory_holdout, factory_holdout_until (90 days)",none,,exceptions_only,seeded,100.0,99,green,seed
+CMP-015,2,Gate 1,human_gate,A25,"Daily 07:00, decide by 10:00","hard blocks: no Patch ID / AE / pod, AE hold, held out",refill from same patch,gate1 decision and reason,none,,approve_every_item,live,97.9,99,amber,seed
+CMP-016,3,Company Facts Collector,agent,A27,On selection,quote + link required; 12 months,rejected,"facts with quote, page, date, link",family_a,,exceptions_only,seeded,99.1,99,green,seed
+CMP-017,3,Use Case Matcher,agent,A28,On selection,70,shown only as a question,top 3 UC-IDs with pattern and outcome,family_a,,exceptions_only,seeded,98.8,99,amber,seed
+CMP-018,3,Case for Change Drafter,agent,A29,On selection,70,BDR reviews at Gate 2,case_for_change (every sentence cited or [HYPOTHESIS]),family_a,,approve_every_item,seeded,97.6,99,amber,seed
+CMP-019,3,Past Contact Query,rule,A30,On selection,rules,,"past contact (events, downloads, visits, calls, deals, loss reasons)",none,,exceptions_only,seeded,100.0,99,green,seed
+CMP-020,3,Account Tagger,rule,A30,On selection,rules,,"vertical, Patch ID, size, systems, vendors, AI maturity, fit band, pattern, outcome",none,,exceptions_only,seeded,100.0,99,green,seed
+CMP-021,4,Buying Team Mapper,agent,A31,On selection; job-change alerts,70 per role,BDR checks at Gate 2,"3 Tier 1, 3 Tier 2, 4 Tier 3, 2 backups; gatekeeper mapped",family_a,,approve_every_item,seeded,99.0,99,green,seed
+CMP-022,4,Person Notes Writer,agent,A32,Every 90 days; on job change,70,flagged at Gate 2,four-line note per person (professional only),family_a,,approve_every_item,seeded,99.2,99,green,seed
+CMP-023,4,Intro Finder,agent,A33,Tier 1 at best fit; monthly exports,60,not suggested,intro request in AE to-do; 7-day cold hold,family_a,,approve_every_item,seeded,98.5,99,amber,seed
+CMP-024,4,Contact Finder,workflow,A34,Per person,verified email; re-verify after 90 days,LinkedIn only,"email, phone (Tier 1 and engaged), source, verify date",none,,exceptions_only,mocked,99.0,99,green,seed
+CMP-025,4,Do-Not-Contact List,workflow,A35,Copies every 15 min,DNC screen before any dialler; erasure in 30 days,,"suppression list, consent, hashed erasure code",none,,exceptions_only,live,100.0,99,green,seed
+CMP-026,4,AE checkpoint,human_gate,A36,Day 1; decide by Day 2 12:00,best fit only (~5/week/patch),"backup AE, then Geo leader",approve / adjust / disqualify,none,,approve_every_item,seeded,96.9,99,red,seed
+CMP-027,5,Play Picker,agent,A37,On approval; fast-lane signals,70,BDR picks at Gate 2,"play, people, channels, start days, senders",family_a,,approve_every_item,seeded,99.1,99,green,seed
+CMP-028,5,Page Builder,agent,A38,Per account,75,marketing ops checks,"Art of the Possible page (noindex, tracked link)",family_a,,approve_every_item,seeded,98.9,99,amber,seed
+CMP-029,5,Content Picker,agent,A39,Per asset touch,70; assets under 18 months,no asset; sourced insight,one asset per touch,family_a,,exceptions_only,seeded,99.4,99,green,seed
+CMP-030,5,Message Writer,agent,A40,Per play,70,flagged at Gate 2,every email and LinkedIn message,family_a,,approve_every_item,seeded,98.6,99,amber,seed
+CMP-031,5,Fact Checker,checker,A41,Per draft and page,traceable or blocked,blocked,fact check result per claim,family_b,"Message Writer, Page Builder",approve_every_item,seeded,99.7,99,green,seed
+CMP-032,5,Message Grader,checker,A42,Per draft; rubric checked monthly,75,"one rewrite, then a person at Gate 2",grade 0-100,family_b,Message Writer,approve_every_item,seeded,99.5,99,green,seed
+CMP-033,5,Send Rules Check,workflow,A43,Per draft before send,all rules pass,blocked,rules result and reason,none,,exceptions_only,live,100.0,99,green,seed
+CMP-034,5,Gate 2,human_gate,A44,By 17:00 Day 2,one screen per account; ~5% planted errors,,"approve, edit, swap a person or hold",none,,approve_every_item,live,98.2,99,amber,seed
+CMP-035,6,Outreach Launcher,workflow,A47,On Gate 2 approval,70% of daily limit; key person + play,,"Apollo sequence, Sprouts queue, HubSpot fields, parent lock",none,,exceptions_only,mocked,99.6,99,green,seed
+CMP-036,6,Call Script Writer,agent,A48,Per call task,70,BDR approves the script,"opener, questions, objections, voicemail, follow-up",family_a,,approve_every_item,mocked,98.7,99,amber,seed
+CMP-037,6,Follow-up Planner,agent,A49,On any response,70,BDR decides,"lead thread, pauses, Committee Surge switch",family_a,,approve_every_item,seeded,99.0,99,green,seed
+CMP-038,6,Inbox Health Checker,agent,A50,Weekly placement; daily blacklist,alerts,BDR and GTM engineer,"placement, blacklist, reputation, scanner list",none,,exceptions_only,mocked,99.9,99,green,seed
+CMP-039,6,Email Domain Swapper,workflow,A51,Same day,placement under 70% twice or major blacklist,,"rest domain, swap warmed spare",none,,exceptions_only,mocked,100.0,99,green,seed
+CMP-040,6,LinkedIn senders,human_gate,A52,Daily,~20 AE requests/day; stop on warning,unsent AE messages to BDR,sends from own account,none,,approve_every_item,mocked,97.4,99,amber,seed
+CMP-041,7,Reply Sorter,checker,A54,On every reply,90 unsubscribe / 80 other,a person sorts it,"reply type (9), stop all channels",family_b,Reply Writer,exceptions_only,seeded,99.8,99,green,seed
+CMP-042,7,Reply Writer,agent,A55,On every reply,70,marked for full rewrite,drafted answer in BDR to-do; 90 min reminder,family_a,,approve_every_item,seeded,99.1,99,green,seed
+CMP-043,7,Meeting Handoff and Deadlines,workflow,A56,On booking; calendar every 15 min,rules,,"deal at Engage, locked fields, SC booking, reminders, deadlines",none,,exceptions_only,live,99.7,99,green,seed
+CMP-044,7,Meeting Prep Writer,agent,A57,On booking,70,AE edits,prep pack into the AE's AI Twin,family_a,,approve_every_item,seeded,98.8,99,amber,seed
+CMP-045,7,Meeting Labeler,checker,A58,After each meeting,80,Geo leader checks,"intro / New Buyer Meeting / doesn't count, with quotes",family_b,AE notes,approve_every_item,seeded,99.0,99,green,seed
+CMP-046,7,Deal Qualifier,checker,A59,After each New Buyer Meeting,80,"recommended not qualified, with gaps","six requirements met / partly / missing, recap",family_b,Meeting Prep Writer,approve_every_item,seeded,99.2,99,green,seed
+CMP-047,7,AE confirm,human_gate,A60,Within 2 business days,label and stage,,deal moves to Commit,none,,approve_every_item,seeded,96.5,99,red,seed
+CMP-048,8,Winning Message Finder,agent,A62,Weekly,3 positive replies,not promoted,examples for Message Writer,family_a,,approve_every_item,seeded,99.0,99,green,seed
+CMP-049,8,Scoring Tuner,agent,A65,Monthly,proposals only; +/-20% after 8 weeks,Friday review,fit and signal weight proposals,family_a,,approve_every_item,seeded,99.0,99,green,seed
+CMP-050,8,Objection Collector,agent,A66,Weekly,70,sales reviews,"objection list, buyer language",family_a,,approve_every_item,seeded,99.1,99,green,seed
+CMP-051,8,A/B Tester,agent,A67,Continuous; 4-week limit,"20% traffic per version; ~1,060 people for bold tests",,test results,none,,exceptions_only,seeded,99.5,99,green,seed
+CMP-052,8,Quality Grader,checker,A68,"Every prompt, model or weight change",any drop blocks release,,"rubrics, test sets, rungs, policy drafts",family_b,every agent,approve_every_item,seeded,99.9,99,green,seed
+CMP-053,8,Agent Monitor,agent,A69,Weekly,slip from baseline,GTM engineer,"block/edit rate, errors, calibration",none,,exceptions_only,seeded,99.7,99,green,seed
+CMP-054,8,Test Error Planter,workflow,A70,Each Gate 2 batch,~5% of items,,planted errors that never send; catch rate,none,,exceptions_only,seeded,100.0,99,green,seed
+CMP-055,8,Alarm and Escalation,workflow,A71,Every 15 min,red line,"patch, pod (2 days), Geo (5), CRO","pause, throttle, move slots, demote a gate, to-do",none,,exceptions_only,live,99.8,99,green,seed
+CMP-056,8,Content Handoff,workflow,A72,Monday,8 weeks of ads; nurture until date,Content Factory,"ad audiences, nurture, marketing_influenced",none,,exceptions_only,mocked,99.4,99,green,seed
+CMP-057,8,Privacy and Consent,workflow,A73,Continuous; 12-month clean-up,state checklists; erasure in 30 days,,"consent, DNC checks, erasure",none,,exceptions_only,seeded,100.0,99,green,seed

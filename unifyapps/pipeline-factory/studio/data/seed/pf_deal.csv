@@ -1,0 +1,7 @@
+deal_id,account_id,person_id,play_id,booking_key,stage,owner_ae,patch_id,bdr_of_record,meeting_type,meeting_source,factory_sourced,factory_influenced,marketing_influenced,meeting_at,locked_at,ae_accept_due,sc_booked,next_step,correction_reason,origin
+DL-001,ACC-010,PER-016,PLAY-SURGE-02,ACC-010|PER-016|PLAY-SURGE-02,engage,Jordan Pike,PT-USW-01,Lena Ortiz,intro,factory_booked,true,true,false,1792684800000,1792684800000,,true,Scheduled,,seed
+DL-002,ACC-011,PER-018,PLAY-CJM-03,ACC-011|PER-018|PLAY-CJM-03,connect,Sam Whitaker,PT-USW-02,Lena Ortiz,new_buyer_meeting,factory_booked,true,true,false,1792598400000,1792598400000,,true,Scheduled,,seed
+DL-003,ACC-013,,PLAY-LEAD-01,ACC-013|-|PLAY-LEAD-01,commit,Nora Castellanos,PT-USE-01,Felix Brandt,new_buyer_meeting,calendar_pickup,true,true,false,1792080000000,1792080000000,,true,Scheduled,,seed
+DL-004,ACC-015,,PLAY-REN-01,ACC-015|-|PLAY-REN-01,validate_select,Talia Brooks,PT-USE-03,Owen Reyes,new_buyer_meeting,factory_booked,true,true,false,1793203200000,1793203200000,,true,Scheduled,,seed
+DL-005,ACC-017,,PLAY-SURGE-04,ACC-017|-|PLAY-SURGE-04,contract,Rosa Delgado,PT-USC-02,Priyanka Desai,new_buyer_meeting,factory_booked,true,true,false,1790784000000,1790784000000,,true,Scheduled,,seed
+DL-006,ACC-008,,PLAY-AE-01,ACC-008|-|PLAY-AE-01,commit,Dana Whitfield,PT-USW-03,Marco Ellison,new_buyer_meeting,ae_sourced,false,true,false,1790265600000,1790265600000,,true,Scheduled,,seed

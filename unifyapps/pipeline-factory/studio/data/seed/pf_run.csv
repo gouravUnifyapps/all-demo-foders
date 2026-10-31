@@ -1,0 +1,21 @@
+run_id,patch_id,component_name,account_id,input_summary,output_summary,model,model_family,confidence,cost_usd,latency_ms,status,cause,ran_at,idempotency_key,origin
+RUN-001,PT-USW-03,Fit Scorer,ACC-001,firmographics + core systems,"48 of 60, best fit",model-b-large,family_b,91,0.04,2100,ok,,1793099400000,ACC-001|-|Fit Scorer,seed
+RUN-002,PT-USW-03,Account Ranking,ACC-001,fit 48 + timing 31,rank 1 in PT-USW-03,none,none,100,0.0,350,ok,,1793102400000,ACC-001|-|Account Ranking,seed
+RUN-003,PT-USW-03,Weekly Slot Planner,,"412 eligible, 8 of 13 intros",25 base +5 pace boost (20%),none,none,100,0.0,420,ok,,1793016900000,-|-|Weekly Slot Planner,seed
+RUN-004,PT-USW-03,Holdout Picker,ACC-006,seed 20261026,held out until 2027-01-29; balance 0.06,none,none,100,0.0,300,ok,,1793017200000,ACC-006|-|Holdout Picker,seed
+RUN-005,PT-USW-03,Case for Change Drafter,ACC-001,"27 facts, 3 use cases","7 sentences, 6 cited, 1 [HYPOTHESIS]",model-a-large,family_a,84,0.18,9400,ok,,1793360400000,ACC-001|-|Case for Change Drafter,seed
+RUN-006,PT-USW-03,Case for Change Drafter,ACC-004,19 facts,rejected on save,model-a-large,family_a,77,0.15,8800,schema_rejected,Schema check: a fact without quote and link; GTM engineer alerted; Gate 2 waits,1793360640000,ACC-004|-|Case for Change Drafter,seed
+RUN-007,PT-USW-03,Buying Team Mapper,ACC-001,industry default titles + BDR edits,"3 T1, 3 T2, 4 T3, 2 backups; gatekeeper mapped",model-a-large,family_a,85,0.09,6100,ok,,1793361120000,ACC-001|-|Buying Team Mapper,seed
+RUN-008,PT-USW-03,Message Writer,ACC-001,"play PLAY-CJM-01, 8 people",8 drafts,model-a-large,family_a,82,0.32,14200,ok,,1793362200000,ACC-001|-|Message Writer,seed
+RUN-009,PT-USW-03,Fact Checker,ACC-001,"8 drafts, 13 claims",13 of 13 traced,model-b-large,family_b,93,0.11,7300,ok,,1793362440000,ACC-001|-|Fact Checker,seed
+RUN-010,PT-USW-03,Message Grader,ACC-001,8 drafts,grades 72 to 86; DR-005 rewritten once to 79,model-b-large,family_b,88,0.07,5200,ok,,1793362560000,ACC-001|-|Message Grader,seed
+RUN-011,PT-USW-03,Reply Sorter,ACC-001,reply from PER-001,positive (94); all channels stopped for PER-001,model-b-small,family_b,94,0.01,1200,ok,,1793718720000,ACC-001|-|Reply Sorter,seed
+RUN-012,PT-USW-03,Reply Writer,ACC-001,thread + account view,drafted answer with booking link,model-a-large,family_a,90,0.05,4100,ok,,1793718780000,ACC-001|-|Reply Writer,seed
+RUN-013,PT-USW-03,Buying Signal Spotter,ACC-001,web visit 2026-10-27,checked visit: 14 s + scroll,model-a-small,family_a,88,0.01,800,ok,,1793120520000,ACC-001|-|Buying Signal Spotter,seed
+RUN-014,PT-USW-03,Buying Signal Spotter,ACC-004,web visit 90 s after email delivery,not counted: within 2 min of delivery,model-a-small,family_a,70,0.01,700,below_threshold,Visit within 2 minutes of an email's delivery,1793197860000,ACC-004|-|Buying Signal Spotter,seed
+RUN-015,PT-USE-02,Inbox Health Checker,,4 domains,1 domain under 70% placement twice,none,none,100,0.0,15000,ok,,1792666800000,-|-|Inbox Health Checker,seed
+RUN-016,PT-USE-02,Email Domain Swapper,,domain under 70% twice,rested; warmed spare swapped in,none,none,100,0.0,900,ok,,1792667100000,-|-|Email Domain Swapper,seed
+RUN-017,PT-USW-03,Headquarters Re-checker,ACC-002,M&A news,no change,model-a-small,family_a,90,0.02,2300,late_retried,Ran 40 min late; retried once; counts against success rate,1793263200000,ACC-002|-|Headquarters Re-checker,seed
+RUN-018,PT-USW-03,Alarm and Escalation,,tower metrics,Mountain red; pace boost applied; to-do for Pod West-2,none,none,100,0.0,600,ok,,1793193300000,-|-|Alarm and Escalation,seed
+RUN-019,PT-USE-01,Outreach Launcher,ACC-013,5 approved people,enrolled (mocked: no Apollo connection),none,none,100,0.0,1300,ok,,1792157400000,ACC-013|-|Outreach Launcher,seed
+RUN-020,PT-USW-03,Test Error Planter,ACC-001,Gate 2 batch of 8,planted 1 error (DR-006: sender from the wrong pod),none,none,100,0.0,200,ok,,1793362680000,ACC-001|-|Test Error Planter,seed

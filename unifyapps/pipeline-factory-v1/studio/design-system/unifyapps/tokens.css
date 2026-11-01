@@ -1,0 +1,5 @@
+/* tokens.css · #847347 is the fill of the UnifyApps logo (Unify-logo.svg, www.unifyapps.com header) and the most-used colour in the site stylesheets; passed to brand-sample.py as --swatch because its own pick was --swiper-theme-color, a carousel library default */
+:root {
+  --brand: #847347;
+  --brand-hue: 43;
+}

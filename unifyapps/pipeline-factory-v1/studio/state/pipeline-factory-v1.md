@@ -4,12 +4,12 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: awaiting_g1
+status: awaiting_g2
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
   g1: 1793442419.752669
-  g2:
+  g2: 1793522055.329009
   g3:
   g4:
   connections:
@@ -17,8 +17,8 @@ intent:
 stage_flag:
 
 gates:
-  g1: {status: waiting, round: 1, posted_ts: 1793442419.752669, decided_by: , decided_at: }
-  g2: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
+  g1: {status: approved, round: 1, posted_ts: 1793442419.752669, decided_by: Gourav Mahunta (row), decided_at: 2026-11-01T08:11:55Z}
+  g2: {status: waiting, round: 1, posted_ts: 1793522055.329009, decided_by: , decided_at: }
   connections: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: , list: []}
   g3: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
@@ -32,7 +32,20 @@ posts:
     round: 1
     documents:
       - {name: Requirements · Pipeline Factory v1, type: requirements, file_url: https://orbit.uat.unifyapps.com/auth/file/asset/download/3e8e757cdbfeadc3279a5593, file_name: requirements-v1-r1.pdf, file_size: 533280}
-
+  - when: 2026-11-01T08:34:02Z
+    kind: g2
+    ts: 1793522055.329009
+    by: bot
+    version: 1
+    round: 1
+    documents:
+      - {name: Plan · Pipeline Factory v1, type: scope, file_url: https://orbit.uat.unifyapps.com/auth/file/asset/download/a788b16b901b736c5329b94c, file_name: plan-v1-r1.pdf, file_size: 416152}
+  - when: 2026-11-01T08:34:32Z
+    kind: status
+    ts: 1793522055.329009
+    by: bot
+    version: 1
+    round: 1
 runs:
   - started: 2026-10-31T10:16:23Z
     ended: 2026-10-31T10:26:47Z
@@ -41,6 +54,13 @@ runs:
     spawns: 1
     tokens: 160
     outcome: posted G1
+  - started: 2026-11-01T08:14:39Z
+    ended: 2026-11-01T08:34:02Z
+    gate: g2
+    stages: [2-plan]
+    spawns: 1
+    tokens: 256364
+    outcome: posted G2
 
 stopped:
 
@@ -774,18 +794,231 @@ asks:
     use_case: "this"
     status: open
 
-coverage: []
+coverage:
+  - ask: A1
+    by: beat 1
+  - ask: A2
+    by: beat 2
+  - ask: A3
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A4
+    by: beat 1
+  - ask: A5
+    by: beat H1
+  - ask: A6
+    by: beat H1
+  - ask: A7
+    by: beat H1
+  - ask: A8
+    by: beat 3
+  - ask: A9
+    by: beat 5
+  - ask: A10
+    by: beat 1
+  - ask: A11
+    by: beat 1
+  - ask: A12
+    by: beat 1
+  - ask: A13
+    by: control Components tab, model family and checks columns, on Control tower
+  - ask: A14
+    by: beat 6
+  - ask: A15
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A16
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A17
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A18
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A19
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A20
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A21
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A22
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A23
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A24
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A25
+    by: control Components tab, facet sub-workflow 1, on Control tower
+  - ask: A27
+    by: beat 1
+  - ask: A28
+    by: beat 2
+  - ask: A29
+    by: beat 2
+  - ask: A30
+    by: beat 3
+  - ask: A31
+    by: beat 3
+  - ask: A32
+    by: beat 3
+  - ask: A33
+    by: beat 2
+  - ask: A34
+    by: beat 2
+  - ask: A35
+    by: beat 4
+  - ask: A36
+    by: beat 4
+  - ask: A37
+    by: beat 4
+  - ask: A38
+    by: beat 4
+  - ask: A39
+    by: beat 4
+  - ask: A40
+    by: beat 4
+  - ask: A41
+    by: beat 4
+  - ask: A42
+    by: beat 4
+  - ask: A43
+    by: control Components tab, facet sub-workflow 4, on Control tower
+  - ask: A44
+    by: control Components tab, facet sub-workflow 4, on Control tower
+  - ask: A45
+    by: control Components tab, facet sub-workflow 4, on Control tower
+  - ask: A46
+    by: control Components tab, facet sub-workflow 4, on Control tower
+  - ask: A47
+    by: beat 5
+  - ask: A48
+    by: beat 2
+  - ask: A49
+    by: control Components tab, facet sub-workflow 5, on Control tower
+  - ask: A50
+    by: control Components tab, facet sub-workflow 5, on Control tower
+  - ask: A51
+    by: beat 5
+  - ask: A52
+    by: beat 5
+  - ask: A53
+    by: beat 5
+  - ask: A54
+    by: beat 5
+  - ask: A55
+    by: beat 5
+  - ask: A56
+    by: beat 5
+  - ask: A57
+    by: control Components tab, row Outreach Launcher (tier spacing), on Control tower
+  - ask: A58
+    by: control Components tab, row Outreach Launcher (tier spacing), on Control tower
+  - ask: A59
+    by: beat 5
+  - ask: A60
+    by: control Components tab, facet sub-workflow 6, on Control tower
+  - ask: A61
+    by: control Components tab, facet sub-workflow 6, on Control tower
+  - ask: A62
+    by: control Components tab, facet sub-workflow 6, on Control tower
+  - ask: A63
+    by: control Components tab, facet sub-workflow 6, on Control tower
+  - ask: A64
+    by: control Components tab, facet sub-workflow 6, on Control tower
+  - ask: A65
+    by: open question 4
+  - ask: A66
+    by: beat 6
+  - ask: A67
+    by: control Components tab, facet sub-workflow 7, on Control tower
+  - ask: A68
+    by: control Components tab, facet sub-workflow 7, on Control tower
+  - ask: A69
+    by: beat 6
+  - ask: A70
+    by: control Components tab, facet sub-workflow 7, on Control tower
+  - ask: A71
+    by: beat 6
+  - ask: A72
+    by: beat 6
+  - ask: A73
+    by: beat 6
+  - ask: A74
+    by: beat 6
+  - ask: A75
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A76
+    by: control Hand-offs tab, record drawer (payload and evidence), on Control tower
+  - ask: A77
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A78
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A79
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A80
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A81
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A82
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A83
+    by: beat 5
+  - ask: A84
+    by: beat 7
+  - ask: A85
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A86
+    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+  - ask: A88
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A89
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A90
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A91
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A92
+    by: beat H1
+  - ask: A93
+    by: open question 2
+  - ask: A94
+    by: open question 2
+  - ask: A95
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A96
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A97
+    by: open question 2
+  - ask: A98
+    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+  - ask: A99
+    by: beat 4
+  - ask: A100
+    by: open question 4
+  - ask: A101
+    by: beat 6
+  - ask: A102
+    by: open question 4
+  - ask: A103
+    by: beat 1
+  - ask: A104
+    by: beat 1
 
 size:
-  pages:
-  objects:
-  automations:
-  agents:
+  pages: 3
+  objects: 9
+  automations: 9
+  agents: 1
 
 data:
-  source:
-  masked:
+  source: "assumed, shaped like HubSpot (accounts, contacts, deals) and the factory's context graph; the component registry is given: the spec's sub-workflow tables (Pipeline-Factory-Engineering-Build.docx), written to studio/data/components.csv with seeded run statistics"
+  masked: "none: fictional. Invented companies, people and links (carrowvale.example); the spec's own author and the earlier POC are not seeded; components.csv holds no personal field (57 rows, 16 columns, profiled)"
   rows:
+    - "PF Patch: 2, record · seed"
+    - "PF Account: 15, record · seed (story row A-1001 Carrow & Vale Logistics)"
+    - "PF Person: 13, record · seed (A-1001's buying committee and its gatekeeper)"
+    - "PF Signal: 9, record · seed"
+    - "PF Fact: 10, record · seed"
+    - "PF Draft: 6, record · seed"
+    - "PF Hand-off: 18, record · seed"
+    - "PF Component: 57, record · seed naming studio/data/components.csv"
+    - "PF Seed snapshot: one per seeded row, written by the seed task"
   expected_answers: eval.csv
 
 verify:
@@ -808,16 +1041,37 @@ decisions:
   - by: orchestrator
     when: 2026-10-31
     text: "Version 1 is the first version: 1-harvest reads the channel's whole history, not only messages since the version time."
+  - by: research
+    when: 2026-11-01
+    text: "Site: https://www.unifyapps.com (official, Strong). No brand page or press kit (/brand, /brand-kit, /press-kit, /media-kit answer 404); the colour source is the site itself: its stylesheets and the header logo Unify-logo.svg, whose 757 paths are filled #847347, the most-used colour in the stylesheets."
+  - by: profile
+    when: 2026-11-01
+    text: "Brand colour: brand-sample.py picked #007AFF from --swiper-theme-color, a carousel library default, not a brand variable; the site names no brand variable, so the colour is ambiguous and the standing answer takes the recommended one: #847347 (hue 43), the logo fill. Other candidates: #0F2805 (dark green, text), #5C37EB (violet accent), #007AFF (library default). Listed in the G2 pack."
+  - by: plan
+    when: 2026-11-01
+    text: "Logo: the site header logo Unify-logo.svg saved as published to studio/design-system/unifyapps/logo.svg (brand-sample.py fetched a chevron icon instead); no wordmark placeholder needed."
+  - by: plan
+    when: 2026-11-01
+    text: "Modes: the outside systems (HubSpot, Apollo, Sprouts, Gong, Bombora, Sales Navigator, Google Calendar) are mocked by the PF objects: Sprouts and Gong have no connection on the tenant, and the HubSpot and Apollo connections there belong to other people (open question 4)."
+  - by: plan
+    when: 2026-11-01
+    text: "Modes: the timing score, the Send Rules Check, Gate 1 hard blocks and the field locks are deterministic rules inside live automations, never presented as AI; the 38 agents' outputs (facts, Case for Change, person notes, drafts, grades, labels) are seeded with the AI marker; one live read-only AI agent, the Pipeline Factory Analyst."
+  - by: plan
+    when: 2026-11-01
+    text: "The analyst reaches the code app through an automation (Pipeline Factory · Ask the analyst, on ai_agents_by_unifyapps_invoke_agent), because a code app calls only Storage and automations."
+  - by: plan
+    when: 2026-11-01
+    text: "Harvest questions 2 (demo date), 5 (the earlier POC) and 6 (who owns the asks) are not carried into G2: the plan does not depend on them (20-minute slot, this POC only, Gourav Mahunta as owner)."
 
 dev_issues: []
 
 frozen:
 
 cost:
-  runs: 1
-  agent_spawns: 1
-  tokens_m: 0.16
-  wall_h: 0.2
+  runs: 2
+  agent_spawns: 2
+  tokens_m: 0.42
+  wall_h: 0.7
 
 open_questions:
   - by: harvest
@@ -838,12 +1092,212 @@ open_questions:
   - by: harvest
     for: lead
     text: "The spec was written by Hardik (byline, Oct 28, 2026); the asks are proposed to the POC lead. Who owns them? Options: (recommended) Gourav Mahunta owns all asks, Hardik is the subject expert consulted on them; Hardik owns the asks in sub-workflows 1 to 8, Gourav the rest"
+  - by: plan
+    for: owner
+    text: "1. Which intent should the demo take? The plan assumes both: the outcome first (one account through the factory), then one hood beat (the Save hand-off automation that enforces the hand-off contract). Options: (recommended) both; use-case: no hood beat, 15 to 20 rows; platform: 2 to 4 hood beats, a one-line description on every node and field."
+  - by: plan
+    for: owner
+    text: "2. Which slice is built live, and is that what the client will count as success (harvest questions 1 and 3)? The plan assumes one account end to end (signal, fast lane, Gate 1, research and buying team, Gate 2 with the Send Rules Check, a booked meeting with locked fields) on six live automations and one live AI agent, with the 57 components as registry rows carrying seeded run statistics; the agents' rubrics (A93), handbook sections (A94) and 50-item evaluations (A97) are not built. Options: (recommended) that slice; one sub-workflow in full depth; build two or three more of the 38 agents live (name them)."
+  - by: plan
+    for: owner
+    text: "3. The spec's Hand-off register (A5) and the blueprint it cites are not in the shared file (harvest question 4). The plan assumes the register is the spec's Feeds columns, written into each component's feeds, and Save hand-off refuses any pair not in it. Options: (recommended) the Feeds columns; share the register in the thread before the build starts."
+  - by: plan
+    for: owner
+    text: "4. Outside systems: Sprouts and Gong have no connection on the tenant, and the HubSpot (9) and Apollo (2) connections there belong to other people. The plan assumes every outside system is mocked by the factory's own records and no external step is built (A65, A100, A102 shown as rules on the mocked records). Options: (recommended) mocked, labelled (mocked) on screen; name one HubSpot connection and the booking writes the locked fields to a DEMO-TEST company there as a bonus step; give a HubSpot sandbox (a credential asked in the session)."
 ---
 
 ## build_contract
+
+Title: Pipeline Factory Control Tower
+
+### Requested outcome
+The pod BDR and the patch AE watch one account, Carrow & Vale Logistics, move through the Pipeline Factory: a strong signal takes the fast lane, Gate 1 accepts it, research and the buying team arrive as confidence-scored hand-off records, Gate 2 approves drafts while the Send Rules Check refuses one, and the booked meeting locks its fields. Every hand-off is a saved record in the control tower that a person can see, check and stop; an assistant answers what is waiting on a person and a person pauses a red component from its answer.
+
+### Touches
+- object · PF Patch · new
+- object · PF Account · new
+- object · PF Person · new
+- object · PF Signal · new
+- object · PF Fact · new
+- object · PF Draft · new
+- object · PF Hand-off · new
+- object · PF Component · new
+- object · PF Seed snapshot · new
+- automation · Pipeline Factory · Save hand-off · new
+- automation · Pipeline Factory · Log signal · new
+- automation · Pipeline Factory · Decide Gate 1 · new
+- automation · Pipeline Factory · Clear Gate 2 · new
+- automation · Pipeline Factory · Book meeting · new
+- automation · Pipeline Factory · Pause component · new
+- automation · Pipeline Factory · Read factory records · new
+- automation · Pipeline Factory · Ask the analyst · new
+- automation · Pipeline Factory · Reset demo · new
+- ai-agent · Pipeline Factory Analyst · new
+- code-app · UnifyApps Pipeline Factory Control Tower · new
+
+### Contract
+#### object · PF Patch
+The patches: slots, pace and success rate per patch.
+- object · create · PF Patch: id OBJ_pf_patch; primaryKey patch_id (text, required); fields name (text), pod (text), owner_ae (text), bdr (text), geo (text), eligible_accounts (number), slots_base (number), slots_allocated (number), slots_used (number), pace_boost_pct (number), intros_booked_7d (number), success_rate (number), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Account
+The patch accounts with fit, timing, Gate 1 state and the fields that lock at booking.
+- object · create · PF Account: id OBJ_pf_account; primaryKey account_id (text, required); fields name (text), industry (text), patch_id (text), pod (text), owner_ae (text), backup_ae (text), bdr_of_record (text), hq_city (text), fit_score (number, of 60), fit_band (picklist: best "Best fit", medium "Medium fit", low "Low fit"), icp_quadrant (text), timing_score (number, of 40), rank_in_patch (number), top_signals (text), last_touch (date, epoch ms), gate1_status (picklist: pending "Pending", accepted "Accepted", rejected "Rejected", blocked "Blocked", queued "Queued", not_eligible "Not eligible"), gate1_reason (picklist: none "None", bad_fit "Bad fit", active_deal "Active deal", wrong_timing "Wrong timing", in_conversation "Already in conversation"), factory_holdout (boolean), factory_holdout_until (date, epoch ms), ultimate_parent_lock (text), deal_stage (picklist: none "None", engage "Engage", connect "Connect", commit "Commit"), meeting_type (text), meeting_source (text), factory_sourced (boolean), factory_influenced (boolean), marketing_influenced (boolean), value_pattern (text), locked_at (date, epoch ms), meeting_label (picklist: none "None", intro "Intro", new_buyer "New Buyer Meeting", does_not_count "Doesn't count"), qualified_status (picklist: none "None", qualified "Qualified", not_qualified "Not qualified"), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Person
+The story account's buying committee by tier and role.
+- object · create · PF Person: id OBJ_pf_person; primaryKey person_id (text, required); fields account_id (text), name (text), title (text), role (picklist: economic_buyer "Economic buyer", champion "Champion", technical_evaluator "Technical evaluator", business_owner "Business owner", gatekeeper "Gatekeeper"), tier (picklist: t1 "Tier 1", t2 "Tier 2", t3 "Tier 3", backup "Backup", mapped "Mapped only"), note (text), email_status (picklist: verified "Verified", linkedin_only "LinkedIn only"), dnc (boolean), in_other_sequence (boolean), confidence (number), evidence_tag (picklist: public "[PUBLIC]", hypothesis "[HYPOTHESIS]"), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Signal
+Buying signals with weight, confidence and whether they counted.
+- object · create · PF Signal: id OBJ_pf_signal; primaryKey signal_id (text, required); fields account_id (text), signal_type (picklist: pricing_visit "Checked pricing/product visit", new_leader "New CIO/CTO/CDO/CAIO/Head of AI", event "Event or webinar", ai_hiring "AI platform hiring", earnings "Earnings naming AI", bombora "Bombora surge", vendor_interest "Interest in a current vendor's tool", vendor_renewal "Vendor renewal within 9 months", funding "Funding, merger or new market", exec_posts "Executive posts on AI"), weight (number), signal_date (date, epoch ms), source_link (text), confidence (number), counted (boolean), not_counted_reason (text), fast_lane (boolean), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Fact
+Sourced company facts, use case matches and Case for Change lines.
+- object · create · PF Fact: id OBJ_pf_fact; primaryKey fact_id (text, required); fields account_id (text), kind (picklist: fact "Company fact", use_case "Use case match", case_for_change "Case for Change line"), statement (text), quote (text), source (text), page_or_time (text), fact_date (date, epoch ms), link (text), evidence_tag (picklist: public "[PUBLIC]", hypothesis "[HYPOTHESIS]"), uc_id (text), confidence (number), writer (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Draft
+The drafts held at Gate 2 with grade, fact check and rules result.
+- object · create · PF Draft: id OBJ_pf_draft; primaryKey draft_id (text, required); fields account_id (text), person_id (text), play_id (text), channel (picklist: email "Email", linkedin "LinkedIn", call "Call"), subject (text), body (text), grade (number), fact_check (picklist: passed "Passed", blocked "Blocked"), rules_check (picklist: pending "Pending", passed "Passed", blocked "Blocked"), rules_reason (text), sender (text), sender_pod (text), planted_error (boolean), status (picklist: waiting_gate2 "Waiting at Gate 2", approved "Approved", blocked "Blocked", held "Held", enrolled "Enrolled"), enrolment_key (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Hand-off
+Every hand-off as a saved record: schema-checked, confidence-scored, keyed by Patch ID.
+- object · create · PF Hand-off: id OBJ_pf_handoff; primaryKey handoff_id (text, required); fields idempotency_key (text, account_id + person_id + play_id), patch_id (text), account_id (text), person_id (text), play_id (text), from_component (text), to_component (text), record_type (text), payload (text, JSON), evidence (text), confidence (number), threshold (number), schema_status (picklist: passed "Passed", rejected "Rejected"), status (picklist: flowed "Flowed on", waiting_person "Waiting on a person", rejected "Rejected", late "Late, retried", held "Held: component paused"), assigned_to (text), reason (text), model (text), cost_usd (number), latency_ms (number), due_at (date, epoch ms), saved_at (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Component
+The registry: 38 agents, 12 workflows, 5 human gates and 2 rule steps.
+- object · create · PF Component: id OBJ_pf_component; primaryKey component_id (text, required); fields name (text), sub_workflow (picklist: sw1 "1. Patch accounts", sw2 "2. Account selection", sw3 "3. Account research", sw4 "4. Buying committee", sw5 "5. Outreach drafting", sw6 "6. Outreach", sw7 "7. Engage, Connect and Commit", sw8 "8. Learning and governance"), kind (picklist: agent "Agent", checker "Checker", monitor "Monitor", workflow "Workflow", human_gate "Human gate", rule_step "Rule step"), what_it_does (text), threshold (number), below_threshold_goes_to (text), schedule (text), feeds (text), writes (text), model_family (picklist: family_a "Family A (drafters)", family_b "Family B (checkers)", none "No model"), checks (text), success_rate (number), status (picklist: live "Live", shadow "Shadow", paused "Paused"), ask_id (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Seed snapshot
+The seeded values the reset restores.
+- object · create · PF Seed snapshot: id OBJ_pf_seed_snapshot; primaryKey snapshot_id (text, required); fields object_id (text), record_id (text), row_values (text, JSON of the seeded row), taken_at (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default seed)
+- record · seed · PF Patch: origin seed on every row. PATCH-NAE-03 "NA East · Logistics and Utilities", pod POD-NAE-1, owner_ae Dana Okafor, bdr Marcus Ellery, geo NA East, eligible_accounts 312, slots_base 25, slots_allocated 24, slots_used 19, pace_boost_pct 0, intros_booked_7d 4, success_rate 98.6; PATCH-NAE-04 "NA East · Manufacturing and Health", pod POD-NAE-2, owner_ae Rhea Castillo, bdr Tomas Ilves, geo NA East, eligible_accounts 260, slots_base 25, slots_allocated 20, slots_used 20, pace_boost_pct 25, intros_booked_7d 2, success_rate 99.2
+- record · seed · PF Account: origin seed on every row; dates are epoch ms in the 90 days before the demo. A-1001 Carrow & Vale Logistics (the story row): logistics, PATCH-NAE-03, POD-NAE-1, owner_ae Dana Okafor, backup_ae Luis Brennan, bdr_of_record Marcus Ellery, hq_city Columbus OH, fit_score 49, fit_band best, icp_quadrant Q1, timing_score 25, rank_in_patch 1, top_signals "2 checked pricing visits in 14 days; AI platform hiring; renewal of current vendor in 8 months", gate1_status pending, gate1_reason none, factory_holdout false, ultimate_parent_lock Dana Okafor, deal_stage none, value_pattern "Order-to-cash orchestration", meeting_label none, qualified_status none. A-1002 Brightline Cold Chain: logistics, PATCH-NAE-03, fit 41 medium, timing 30, rank 2, pending. A-1003 Ostrander Marine Freight: logistics, PATCH-NAE-03, fit 44 medium, timing 15, rank 3, pending. A-1004 Pellham Ridge Distribution: logistics, PATCH-NAE-03, fit 38 low, timing 20, rank 4, pending. A-1005 Kestrel Ridge Utilities: utilities, PATCH-NAE-03, fit 40 medium, timing 22, rank 5, pending, factory_holdout true, factory_holdout_until 2027-01-27. A-1006 Tamsin Row Health Partners: healthcare, patch_id empty, pod empty, owner_ae empty, fit 43 medium, timing 18, gate1_status pending. A-1007 Quillfeather Insurance Group: insurance, PATCH-NAE-03, fit 46 best, timing 28, rank 6, accepted, deal_stage engage. A-1008 Marlow Basin Foods: food, PATCH-NAE-03, fit 37 low, timing 19, rank 7, queued. A-1009 Sablewood Retail Co: retail, PATCH-NAE-03, fit 42 medium, timing 12, rank 8, queued. A-1010 Fenwick Arc Manufacturing: manufacturing, PATCH-NAE-04, POD-NAE-2, Rhea Castillo, Tomas Ilves, fit 47 best, timing 26, rank 1, pending. A-1011 Larkspur Data Centers: technology, PATCH-NAE-04, fit 39 low, timing 24, rank 2, pending. A-1012 Harrowgate Mutual: insurance, PATCH-NAE-04, fit 45 best, accepted, deal_stage connect, meeting_label new_buyer. A-1013 Vexmoor Telecom: telecom, PATCH-NAE-04, fit 48 best, accepted, deal_stage commit, meeting_label new_buyer, qualified_status qualified. A-1014 Bellwether Grain Co-op: agriculture, PATCH-NAE-04, fit 35 low, not_eligible (below the floor of 36). A-1015 Corrin Bay Pharmacy Group: healthcare, PATCH-NAE-04, fit 41 medium, timing 17, rank 3, pending. Every PATCH-NAE-03 row carries pod POD-NAE-1, owner_ae Dana Okafor, backup_ae Luis Brennan, bdr_of_record Marcus Ellery; every PATCH-NAE-04 row pod POD-NAE-2, owner_ae Rhea Castillo, backup_ae Omar Haddad, bdr_of_record Tomas Ilves.
+- record · seed · PF Person: origin seed on every row; all for A-1001. P-1001 Helena Marsh, CFO, economic_buyer, t1, verified, confidence 88, public. P-1002 Arjun Mehta, VP Digital Operations, champion, t1, verified, 91, public. P-1003 Colette Baines, Head of AI (joined 6 weeks ago), business_owner, t1, verified, 84, public. P-1004 Wes Odum, Director Enterprise Architecture, technical_evaluator, t2, verified, 79, public. P-1005 Nadia Fournier, Director Order Management, business_owner, t2, verified, 66, hypothesis. P-1006 Gabe Lindahl, IT Integration Manager, technical_evaluator, t2, linkedin_only, 74, public. P-1007 Imani Clarke, Customer Operations Lead, business_owner, t3, verified, 72, public. P-1008 Sven Aldous, Finance Systems Manager, technical_evaluator, t3, verified, 70, public, in_other_sequence true. P-1009 Ruth Okonkwo, Procurement Lead, business_owner, t3, verified, 71, public. P-1010 Theo Marchetti, Automation Engineer, technical_evaluator, t3, verified, 75, public. P-1011 Lena Voss, Director Supply Chain Systems, champion, backup, verified, 77, public. P-1012 Calvin Reyes, Senior Integration Architect, technical_evaluator, backup, verified, 73, public. P-1013 Joan Pruitt, Executive Assistant to the CFO, gatekeeper, mapped, verified, 90, public. Each note is four lines: role and time in role, past companies, what they own, link to UC-ID UC-LOG-014.
+- record · seed · PF Signal: origin seed on every row. S-01 A-1001 pricing_visit weight 25, confidence 92, counted true (2 visits in 14 days, 40s and 65s with scroll). S-02 A-1001 pricing_visit weight 0, counted false, not_counted_reason "within 2 minutes of an email's delivery". S-03 A-1001 ai_hiring weight 15, confidence 81, counted true. S-04 A-1001 vendor_renewal weight 15, confidence 64, counted true. S-05 A-1002 bombora weight 15, confidence 77, counted true. S-06 A-1002 event weight 20, confidence 85, counted true. S-07 A-1003 earnings weight 15, confidence 73, counted true. S-08 A-1010 new_leader weight 20, confidence 88, counted true, fast_lane true. S-09 A-1011 funding weight 10, confidence 66, counted false, not_counted_reason "confidence under 70: logged, not scored".
+- record · seed · PF Fact: origin seed on every row; all for A-1001; links are invented addresses under carrowvale.example. F-01 fact "Order exceptions are handled by hand across three ERPs", quote from the latest annual report, page 14, public, confidence 90, writer Company Facts Collector. F-02 fact "Plans to automate order-to-cash by 2027", earnings call Q2, 00:18:40, public, 88. F-03 fact "Hiring three integration engineers for an AI platform team", job post, public, 82. F-04 fact "Cost-to-serve named a board priority", investor deck, slide 9, public, 86. F-05 use_case UC-LOG-014 "Order exception triage", confidence 84, writer Use Case Matcher. F-06 use_case UC-LOG-022 "Carrier invoice reconciliation", confidence 76. F-07 use_case UC-LOG-031 "Customer status agent", confidence 64, hypothesis (shown only as a question). F-08 case_for_change "Business problem: order exceptions handled by hand across three ERPs" (cites F-01), public. F-09 case_for_change "Why now: new Head of AI and an integration hiring push" (cites F-03), public. F-10 case_for_change "Risk: the current integration vendor contract may renew in 8 months" hypothesis, confidence 68, writer Case for Change Drafter.
+- record · seed · PF Draft: origin seed on every row; all A-1001, play_id PLAY-SIG-NEWLEADER. D-01 P-1002 email, subject "Order exceptions across three ERPs", grade 86, fact_check passed, rules_check pending, sender Marcus Ellery, sender_pod POD-NAE-1, status waiting_gate2. D-02 P-1003 email, subject "Your first 90 days as Head of AI", grade 82, passed, pending, Marcus Ellery, POD-NAE-1, waiting_gate2. D-03 P-1001 linkedin, grade 79, passed, pending, sender Dana Okafor, POD-NAE-1, waiting_gate2. D-04 P-1004 email, subject "Integration hiring at Carrow & Vale", grade 81, passed, pending, sender Rhea Castillo, sender_pod POD-NAE-2, planted_error true, waiting_gate2. D-05 P-1005 email, grade 71 (under 75 after one rewrite: a person decides), passed, pending, Marcus Ellery, POD-NAE-1, waiting_gate2. D-06 P-1008 email, grade 80, passed, pending, Marcus Ellery, POD-NAE-1, waiting_gate2 (P-1008 is in another sequence). Each email body is 90 to 120 words, one sourced fact, one question, no em dashes.
+- record · seed · PF Hand-off: origin seed on every row; idempotency_key is account_id + person_id + play_id; model, cost_usd and latency_ms on every agent row. H-01 PATCH-NAE-03 A-1001 Fit Scorer to Account Ranking, fit score, confidence 92, threshold 70, passed, flowed. H-02 A-1001 Buying Signal Spotter to Account Ranking, signal S-01, 92, 70, passed, flowed. H-03 A-1001 Account Ranking to Gate 1, batch row, 100, 0, passed, flowed. H-04 A-1007 Gate 1 to Company Facts Collector, 100, passed, flowed. H-05 A-1001 Company Facts Collector to Case for Change Drafter, facts F-01 to F-04, 88, 0, passed, flowed. H-06 A-1001 Use Case Matcher to Case for Change Drafter, F-05 to F-07, 84, 70, passed, flowed. H-07 A-1002 Patch Suggester to RevOps, patch proposal, 74, 80, passed, waiting_person, assigned_to RevOps, reason "confidence 74 under 80". H-08 A-1001 Buying Team Mapper to Person Notes Writer, P-1001 to P-1013, 81, 70, passed, flowed. H-09 A-1001 Person Notes Writer to Message Writer, 83, 70, passed, flowed. H-10 A-1003 Case for Change Drafter to Play Picker, 77, 70, rejected, rejected, assigned_to GTM engineer, reason "schema check failed: evidence missing". H-11 A-1010 Buying Signal Spotter to Play Picker, fast lane S-08, 88, 70, passed, flowed. H-12 A-1001 Buying Team Mapper to Gate 2, role of P-1005, 66, 70, passed, waiting_person, assigned_to Marcus Ellery, reason "role confidence 66 under 70". H-13 A-1001 Message Writer to Fact Checker, D-01 to D-06, 85, 70, passed, flowed. H-14 A-1002 Current Vendor Finder to Renewal Date Finder, 58, 60, passed, late, reason "late 2h 10m, retried once". H-15 A-1001 Case for Change Drafter to Gate 2, F-10, 68, 70, passed, waiting_person, assigned_to Marcus Ellery, reason "confidence 68 under 70". H-16 A-1012 Meeting Labeler to AE confirm, new_buyer, 86, 80, passed, flowed. H-17 A-1013 Deal Qualifier to AE confirm, qualified, 90, 80, passed, flowed. H-18 A-1011 Current Vendor Finder to Battlecard Writer, 61, 60, passed, late, reason "late 3h 40m, retried twice".
+- record · seed · PF Component: origin seed on every row; every row of the file studio/data/components.csv (57 rows: 38 agents (30 agents, 6 checkers, 2 monitors), 12 workflows, 5 human gates, 2 rule steps), every column as the file gives it; C08 Current Vendor Finder carries success_rate 96.1 (red under 97).
+- record · seed · PF Seed snapshot: one row per row the seed lines above write (snapshot_id `object_id:record_id`, row_values the row as seeded, JSON), written once after the seeds, origin seed.
+
+#### automation · Pipeline Factory · Save hand-off
+The hand-off contract enforced in code for every connection.
+- automation · create · Pipeline Factory · Save hand-off: callable from other automations; inputs from_component (text), to_component (text), record_type (text), patch_id (text), account_id (text), person_id (text), play_id (text), confidence (number), payload (text, JSON), evidence (text), writes_field (text); result result (text: saved | duplicate | rejected | waiting_person), handoff_id (text), reason (text). Deterministic, no model call: refuses a pair not in the register (PF Component feeds) with rejected "not registered"; refuses a writes_field whose writer is another component with rejected "one writer per field"; refuses a payload with no confidence, no evidence or no patch_id with rejected "schema check failed: `field` missing" and a PF Hand-off row assigned_to GTM engineer; looks up idempotency_key account_id + person_id + play_id and answers duplicate without a second row; under the to-component's threshold saves waiting_person assigned to its below_threshold_goes_to; else saves flowed. Every row carries model, cost_usd, latency_ms and saved_at.
+
+#### automation · Pipeline Factory · Log signal
+Scores a signal and sends a strong one down the fast lane.
+- automation · create · Pipeline Factory · Log signal: callable from the app; inputs account_id (text), signal_type (text, a PF Signal code), source_link (text), seconds_on_page (number), scrolled (boolean), minutes_after_email (number), origin (text); result result (text: counted | not_counted | fast_lane), timing_score (number), reason (text). Deterministic: the checked-visit rule (10+ seconds and a scroll, or a repeat within 7 days; never within 2 minutes of an email's delivery, never from a scanner network, never with no interaction); weights from the starting signal weights; timing_score is the sum of counted weights, capped at 40; new_leader, event, vendor_renewal and a second checked visit are strong and go to the fast lane: one PF Hand-off Buying Signal Spotter to Play Picker through Save hand-off, due within the hour. Writes PF Signal and PF Account.timing_score.
+
+#### automation · Pipeline Factory · Decide Gate 1
+The BDR's accept or reject, with hard blocks and same-patch refill.
+- automation · create · Pipeline Factory · Decide Gate 1: callable from the app; inputs account_id (text), decision (text: accept | reject), reason (text: bad_fit | active_deal | wrong_timing | in_conversation), origin (text); result result (text: accepted | rejected | blocked), refill_account_id (text), reason (text). Hard blocks answer blocked with the cause: no Patch ID, no AE or pod, an AE hold, or factory_holdout true ("held out until" and the date). A reject needs one reason and refills the slot with the next queued account of the same patch (lowest rank_in_patch), never another patch's. An accept saves a Gate 1 to Company Facts Collector and Buying Team Mapper hand-off through Save hand-off and adds 1 to PF Patch.slots_used.
+
+#### automation · Pipeline Factory · Clear Gate 2
+The Send Rules Check and one enrolment per person and play.
+- automation · create · Pipeline Factory · Clear Gate 2: callable from the app; inputs draft_id (text), decision (text: approve | hold), actor (text), origin (text); result result (text: approved | blocked | already_enrolled | held), rule (text), reason (text). Runs the Send Rules Check before an approve: the sender's pod must be the account's pod; the person not on DNC, not in another sequence, not held out; Patch ID, AE and pod present; a planted_error draft is always blocked and counted as caught. A blocked draft gets rules_check blocked and rules_reason; an approved draft is enrolled once (Outreach Launcher, mocked: status enrolled, enrolment_key account_id + person_id + play_id, "queued for Apollo sequence (mocked)"); an approve of an enrolled draft answers already_enrolled and writes nothing.
+
+#### automation · Pipeline Factory · Book meeting
+Books the meeting and locks the attribution fields.
+- automation · create · Pipeline Factory · Book meeting: callable from the app; inputs account_id (text), action (text: book | correct), field (text), new_value (text), reason (text), actor_role (text), origin (text); result result (text: booked | locked | corrected), locked_fields (text), reason (text). book sets deal_stage engage, meeting_type intro, meeting_source "factory: AE booking link", factory_sourced true, factory_influenced true, locked_at now, and saves a Meeting Handoff hand-off through Save hand-off. correct on a locked field (patch_id, bdr_of_record, meeting_type, meeting_source, factory_sourced, factory_influenced, marketing_influenced) answers locked "Locked at booking: corrections go through RevOps with a reason" unless actor_role is revops and reason is given, then corrected and logged.
+
+#### automation · Pipeline Factory · Pause component
+A person stops a component; its hand-offs hold.
+- automation · create · Pipeline Factory · Pause component: callable from the app; inputs component_id (text), actor (text), origin (text); result result (text: paused | already_paused), held_handoffs (number), reason (text). Sets PF Component.status paused and every flowed-pending or late PF Hand-off from that component to held; resuming is a person's job and is not offered.
+
+#### automation · Pipeline Factory · Read factory records
+The analyst's read-only tool.
+- automation · create · Pipeline Factory · Read factory records: callable from the AI agent; inputs patch_id (text), account_id (text); result patches (text, JSON), accounts (text, JSON), waiting_handoffs (text, JSON), red_components (text, JSON). Read-only: PF Patch, PF Account, PF Hand-off with status waiting_person, rejected or late, and PF Component with success_rate under 97.
+
+#### automation · Pipeline Factory · Ask the analyst
+Calls the analyst for the app.
+- automation · create · Pipeline Factory · Ask the analyst: callable from the app; inputs question (text), patch_id (text); result answer (text), grounding (text), suggested_component_id (text). Invokes the Pipeline Factory Analyst agent with the question and the patch, and returns its answer, the records it cited, and the red component it names, if any.
+
+#### automation · Pipeline Factory · Reset demo
+Clears test rows and restores the seed rows.
+- automation · create · Pipeline Factory · Reset demo: callable, mode deterministic, no model call; no inputs; result deleted (number), restored (number). Deletes every row whose origin is test in the nine PF objects, puts every seed row back to its values in PF Seed snapshot, never touches a user row.
+
+#### ai-agent · Pipeline Factory Analyst
+The read-only assistant over the factory records.
+- ai-agent · create · Pipeline Factory Analyst: read-only; model Nebula's recommendation; instructions: answers the BDR, the AE and RevOps about one patch from the factory's records only; names each hand-off by its from and to components, its confidence against the threshold and who it waits on; names a component under 97% success as red; never sends, edits or approves anything; says a field is not held when no record holds it; tool Read factory records (Pipeline Factory · Read factory records).
+
+#### code-app · UnifyApps Pipeline Factory Control Tower
+The code app: Control tower, To-do and Account.
+- code-app · create · UnifyApps Pipeline Factory Control Tower: the shell: the design system stylesheet, the fonts, the rail with the UnifyApps logo, the header, the routes for Control tower (/tower), To-do (/todo) and Account (/accounts/:accountId); PRIVATE
+- code-app · update · UnifyApps Pipeline Factory Control Tower: screen Control tower: four .tile (slots left of allocated, intros booked in 7 days, success rate with .delta against 99% and red under 97%, waiting on a person); .tabs Hand-offs and Components; Hand-offs: .toolbar (search, facets status, from component, patch) above .tbl of PF Hand-off (from to, patch, confidence of threshold, status .tag, model, cost, latency) with a .drawer for one record's payload and evidence; Components: .toolbar (search, facets sub-workflow, kind, status) above .tbl of PF Component with .pg, and a .drawer for one component (what it does, threshold and where below goes, schedule, feeds, writes, model family, checks, success rate); a .feed of the newest hand-offs; a Log signal .modal (.fld, .ctl, .seg) · reads PF Patch, PF Hand-off, PF Component · calls Pipeline Factory · Log signal on Log signal
+- code-app · update · UnifyApps Pipeline Factory Control Tower: screen To-do: the Gate 1 batch as .toolbar above .tbl of PF Account where gate1_status is pending or queued (fit band .tag, timing of 40, top 3 signals as .cell-chips, Patch ID, AE, last touch, slots left), Accept as the row's .btn-p and Reject with a .menu of four reasons; a hard block as .tag.negative with a .note; a Waiting on you .feed of PF Hand-off rows assigned to the BDR; .toast on each result · reads PF Account, PF Patch, PF Hand-off · calls Pipeline Factory · Decide Gate 1 on Accept and Reject
+- code-app · update · UnifyApps Pipeline Factory Control Tower: screen Account: .crumb; the account head as .g1 with .dl (patch, AE, BDR, fit of 60, timing of 40, the locked fields with a lock mark); .tabs Research, Buying team, Gate 2, Meeting; Research: .tbl of PF Fact with [PUBLIC] or [HYPOTHESIS] .tag, and the Case for Change in an AI Insight card (.ai:not(.msg)) marked AI-drafted; Buying team: .pc cards by tier with .faces, the gatekeeper marked mapped only; Gate 2: .tbl of PF Draft with grade, fact check and rules .tag, Approve as .btn-p and Hold, the refusal as .tag.negative with a .note; Meeting: .stages Engage, Connect, Commit, Book meeting as .btn-p, the Deal Qualifier's six requirements as .tbl, the deadlines as .agenda, the locked-field correction as a .modal; the agent drawer (.agent-launch, .agent-drawer) on every screen with the answer in an AI Insight card (.ai:not(.msg)) with its grounding line and one action, Pause and the component name · reads PF Account, PF Person, PF Fact, PF Draft, PF Hand-off, PF Component · calls Pipeline Factory · Clear Gate 2 on Approve and Hold, Pipeline Factory · Book meeting on Book meeting and the correction, Pipeline Factory · Ask the analyst on Ask, Pipeline Factory · Pause component on Pause
+
+### Business rules
+- Every agent hands off through the context graph, never directly: a hand-off is a PF Hand-off row written only by Pipeline Factory · Save hand-off.
+- A hand-off not in the register (PF Component feeds) is refused; only the component named as a field's writer writes it.
+- A record that fails its schema is rejected, the GTM engineer is alerted, the downstream step waits; generic copy is never substituted.
+- A record under the receiving component's threshold does not flow on; it goes to the named person's to-do list.
+- Every save is keyed on account_id + person_id + play_id; a re-run never makes a second copy or a second enrolment.
+- Gate 1 hard blocks: no Patch ID, AE or pod; an AE hold; held out. A rejected slot refills from the same patch.
+- The Send Rules Check blocks a draft whose sender is not in the account's pod, whose person is on DNC or in another sequence, and every planted test error.
+- Patch ID, BDR of record, meeting type, meeting source, factory-sourced, factory-influenced and marketing-influenced lock at booking; corrections go through RevOps with a reason.
+- Timing score is the sum of counted signal weights, capped at 40; a visit counts only under the checked-visit rule.
+- Safety actions are automatic; resuming a paused component needs a person.
+- Every row carries origin: seed on seeded rows, test on rows a check or recording writes, user on rows a person makes in the demo.
+
+### Ready when
+- The BDR logs a new Head of AI signal on Carrow & Vale Logistics and a fast-lane hand-off to the Play Picker appears in the control tower.
+- Gate 1 accepts Carrow & Vale Logistics, refuses Kestrel Ridge Utilities as held out, and refills a rejected slot from the same patch.
+- Gate 2 approves D-01 once and answers already enrolled on a second approve, and refuses D-04 because its sender is not in the account's pod.
+- Booking the meeting locks the seven fields and a correction without RevOps is refused.
+- The assistant names the three hand-offs waiting on a person and Current Vendor Finder as red, and Pause holds its hand-offs.
+- deploy Pipeline Factory · Save hand-off
+- deploy Pipeline Factory · Log signal
+- deploy Pipeline Factory · Decide Gate 1
+- deploy Pipeline Factory · Clear Gate 2
+- deploy Pipeline Factory · Book meeting
+- deploy Pipeline Factory · Pause component
+- deploy Pipeline Factory · Read factory records
+- deploy Pipeline Factory · Ask the analyst
+- deploy Pipeline Factory · Reset demo
+- publish Pipeline Factory Analyst
+- publish UnifyApps Pipeline Factory Control Tower
+
+### Rules
+- client.css: /home/user/all-demo-foders/unifyapps/pipeline-factory-v1/studio/design-system/unifyapps/client.css
+- logo: /home/user/all-demo-foders/unifyapps/pipeline-factory-v1/studio/design-system/unifyapps/logo.svg
+- theme: light · chrome: brand · surface: glass · density: comfortable · style-set: S1
+- Outside systems (HubSpot, Apollo, Sprouts, Gong, Bombora, Sales Navigator, Google Calendar) are mocked by the PF objects; no external write; any test record on an outside system would be labelled DEMO-TEST with the demo's date.
+
+### Assumptions
+- Check this: proposed intent both (the outcome, then how), with one hood beat after the lean-forward beat.
+- Check this: the live slice is one account's path (sub-workflows 2, 3, 4, 5 and 7 as six live automations and one live AI agent); the other components are PF Component registry rows with seeded run statistics.
+- Check this: the hand-off register is the spec's Feeds columns, written into PF Component.feeds, until the blueprint's register is shared.
+- Check this: HubSpot, Apollo, Sprouts, Gong, Bombora, Sales Navigator and Google Calendar are mocked; no external step is built.
+- Check this: brand colour #847347 (the fill of the UnifyApps logo on www.unifyapps.com), hue 43; the sampler's own pick #007AFF was a carousel library default.
+- Check this: the Pipeline Factory Analyst runs on Nebula's recommended model; the two model families of the spec are shown as a model_family column, not as two live models.
+- Check this: seed rows are fictional (invented companies and people, links under carrowvale.example), dates in the 90 days before the demo.
+- Check this: Pipeline Factory · Reset demo and PF Seed snapshot are the one automation and object no beat shows; 4-verify and 6-collaterals run the reset.
+- Check this: app visibility PRIVATE; publish and deploy without asking (profile release line).
 
 ## entities
 
 ## beats
 
+Storyline: "Every agent hands off through the context graph, never directly" (A103) · 7 beats and one hood beat · proposed intent: both.
+
+Story row: PF Account A-1001 Carrow & Vale Logistics · PATCH-NAE-03 (NA East · Logistics and Utilities) · pod POD-NAE-1 · AE Dana Okafor (backup Luis Brennan) · BDR of record Marcus Ellery · fit 49 of 60, best fit, ICP Q1 · timing 25 of 40 before beat 2, 40 after · rank 1 in patch · play PLAY-SIG-NEWLEADER · economic buyer Helena Marsh (CFO), champion Arjun Mehta, new Head of AI Colette Baines · drafts D-01 to D-06, D-04 the planted wrong-pod sender · patch slots 19 used of 24.
+
+1. **The control tower.** The presenter opens Control tower: the screen shows the patch tiles (5 slots left of 24, 4 intros in 7 days, success rate 98.6% against 99%, 3 waiting on a person) and the Hand-offs tab, every hand-off a saved record with its Patch ID, sender, confidence against threshold, model, cost and latency; Carrow & Vale Logistics tops the feed. Route /tower. Asks A1, A4, A10, A11, A12, A27, A103, A104. mode: live (reads seeded rows).
+2. **The fast lane.** The presenter clicks Log signal on Carrow & Vale Logistics and logs "new Head of AI" (Colette Baines): the screen shows the result fast_lane, timing 25 to 40 of 40, and a new hand-off Buying Signal Spotter to Play Picker due within the hour at the top of the feed; a visit logged 90 seconds after an email is shown as not counted. Route /tower (Log signal modal). Asks A2, A28, A29, A33, A34, A48. mode: live (Pipeline Factory · Log signal, deterministic rules).
+3. **Gate 1.** The presenter opens To-do as Marcus Ellery: the 07:00 batch shows fit band, timing, top 3 signals, Patch ID, AE, last touch and slots left; Accept on Carrow & Vale Logistics saves the hand-off to research; Reject on Ostrander Marine Freight with "active deal" refills the slot with Marlow Basin Foods from the same patch; Accept on Kestrel Ridge Utilities is refused "held out until 2027-01-27". Route /todo. Asks A8, A30, A31, A32. mode: live (Pipeline Factory · Decide Gate 1).
+4. **Research and the buying team.** The presenter opens the account: Research shows four sourced facts with quote, page and link tagged [PUBLIC], three use case matches by UC-ID (the weakest shown only as a question), and the Case for Change in an AI Insight card with a [HYPOTHESIS] risk line; Buying team shows 12 people by tier, the economic buyer flagged and the gatekeeper mapped, never contacted. Route /accounts/A-1001 (Research, Buying team). Asks A35, A36, A37, A38, A39, A40, A41, A42, A99. mode: seeded (AI marker).
+5. **Gate 2, and the failure beat.** On the Gate 2 tab the presenter approves D-01 (grade 86, fact check passed): Send Rules Check passes and it is enrolled once; Approve again answers already enrolled; Approve on D-04 is refused "Blocked: sender Rhea Castillo is not in the account's pod (POD-NAE-1)" and counted as a caught planted error. Route /accounts/A-1001 (Gate 2). Asks A9, A47, A51, A52, A53, A54, A55, A56, A59, A83. mode: live (Pipeline Factory · Clear Gate 2); drafts and grades seeded.
+6. **Booked and locked.** On the Meeting tab the presenter clicks Book meeting: the deal opens at Engage owned by Dana Okafor and the seven fields lock (Patch ID, BDR of record, meeting type, meeting source, factory-sourced, factory-influenced, marketing-influenced); editing Patch ID is refused "Locked at booking: corrections go through RevOps with a reason"; the Deal Qualifier's six requirements and the AE deadlines sit below. Route /accounts/A-1001 (Meeting). Asks A14, A66, A69, A71, A72, A73, A74, A101. mode: live (Pipeline Factory · Book meeting); label and qualifier seeded.
+7. **The lean-forward moment: ask the factory, then stop it.** The presenter opens the assistant and types "What is waiting on a person in patch PATCH-NAE-03 right now, and why?": the AI Insight card names H-07 (RevOps), H-12 and H-15 (Marcus Ellery) with their confidence against threshold, H-10 rejected on its schema, and Current Vendor Finder red at 96.1%; its one action, Pause Current Vendor Finder, holds that component's hand-offs and the tile turns paused; resuming is left to a person. Route /tower (agent drawer). Asks A4, A8, A10, A84. mode: live (Pipeline Factory Analyst through Pipeline Factory · Ask the analyst; Pipeline Factory · Pause component).
+   Alternatives considered: B, the learning loop: a Scoring Tuner weight proposal passing the Quality Grader and the Friday review (A3, A75), weaker because it is seeded end to end. C, the stop alone: a person pauses a component from its drawer (A4), weaker without the question that finds it. This one wins because the audience asks the factory in their own words and a person stops it from the answer.
+H1. **Under the hood.** After beat 7 the presenter opens Pipeline Factory · Save hand-off in the automation builder: the register check, one writer per field, the schema check that rejected H-10, the confidence gate, the idempotency key account_id + person_id + play_id, all in one deterministic automation every other automation calls. Asks A5, A6, A7, A9, A92. mode: live (the deployed automation).
+
+AI surfaces: Pipeline Factory Analyst answer · live. Case for Change card · seeded. Company facts and use case matches · seeded. Person notes · seeded. Drafts, Message Grader grades, Fact Checker results · seeded. Meeting label and Deal Qualifier recap · seeded. Timing score · deterministic. Send Rules Check result · deterministic. Component success rates · seeded. Outside systems (HubSpot, Apollo, Sprouts, Gong, Bombora, Google Calendar) · mocked.
+
 ## views
+
+- Control tower (/tower) · beats 1, 2, 7, H1 start · .app shell with .app-rail (logo, .nav-i), .app-top · four .tile (slots, intros, success rate with .delta, waiting) · .tabs Hand-offs / Components · Hand-offs: .toolbar (.field search "n of m", .chipsel status, from component, patch) above .tblwrap .tbl, status as .tag, a .drawer for one record · Components: .toolbar (.chipsel sub-workflow, kind, status) above .tbl with .pg, a .drawer (.dl) for one component · .feed newest hand-offs · Log signal .modal (.fld .ctl .seg) · .agent-launch and .agent-drawer, the answer in .ai:not(.msg) with grounding line and one .btn-p action · .toast
+- To-do (/todo) · beat 3 · .toolbar above .tbl of the Gate 1 batch (.tag fit band, .cell-chips top 3 signals), row .btn-p Accept and Reject with a .menu of four reasons · .tag.negative and .note for a hard block · .feed Waiting on you · .toast · .empty states
+- Account (/accounts/:accountId) · beats 4, 5, 6 · .crumb · .g1 head with .dl and lock marks · .tabs Research / Buying team / Gate 2 / Meeting · Research: .tbl facts with .tag [PUBLIC] / [HYPOTHESIS], Case for Change in .ai:not(.msg) · Buying team: .pc cards by tier, .faces, .av · Gate 2: .tbl drafts with grade, .tag fact check and rules, .btn-p Approve, .btn-s Hold, .tag.negative and .note for the refusal · Meeting: .stages Engage / Connect / Commit, .btn-p Book meeting, .tbl six requirements, .agenda deadlines, correction .modal

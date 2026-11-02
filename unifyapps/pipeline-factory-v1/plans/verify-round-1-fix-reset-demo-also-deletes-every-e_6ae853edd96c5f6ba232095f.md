@@ -1,0 +1,107 @@
+---
+nebula: 3
+specId: "e_6ae853e3afe7fc590a235a01"
+mode: "sonic"
+title: "Verify round 1 fix: Reset demo also deletes every PF Hand-off that has no seed snapshot"
+owner: {"clientId":"e3c4458d-7875-4592-a302-6ed8821e5525","email":"gourav.mahunta@unifyapps.com","userId":66770}
+askBeforeDeploy: true
+releaseYes: [{"action":"deploy","kind":"automation","name":"Pipeline Factory · Reset demo","id":"6ae8441df38e327618fcc13c"}]
+touches: [{"kind":"automation","name":"Pipeline Factory · Reset demo","id":"6ae8441df38e327618fcc13c"}]
+reviewEvidence: []
+revision: 1
+revisionHistory: []
+creationId: "cd025e69-a952-4f5a-9130-d57ea824a83e"
+pageDesign: 2
+createdAt: "2026-11-02T09:12:12.970Z"
+runningAt: "2026-11-02T09:12:23.861Z"
+runner: {"clientId":"e3c4458d-7875-4592-a302-6ed8821e5525","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"8da1d8cb-cc02-5ac8-85df-da01be5fab51"}
+---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
+## Plan
+
+Goal: Verify round 1 fix: Reset demo also deletes every PF Hand-off that has no seed snapshot
+
+| id | kind | entity | dependsOn | status | attempts |
+|---|---|---|---|---|---:|
+| t1 | automation | Pipeline Factory · Reset demo |  | done | 1 |
+| t2 | deploy | Pipeline Factory · Reset demo | t1 | done | 1 |
+
+### t1 · Fix Pipeline Factory · Reset demo
+
+Body:
+1. Read: \`open_workflow\` on \`6ae8441df38e327618fcc13c\` ("Pipeline Factory · Reset demo", deployed) for its code, saved version and \`setup\`/\`result\` schema, and \`search_workflows\` for its deployment.
+2. Done when: the saved automation does this verify fix and nothing else: also deletes every PF Hand-off whose handoff_id has no PF Seed snapshot row (today it keeps the 14 T-A* hand-offs and every hand-off a walk saves, because they carry origin user); nothing else changes. Every other input, result field and path keeps its current behaviour.
+3. Save with \`compile_and_save_workflow\`, then run it once on the saved draft: read back that PF Hand-off holds only the 18 seeded rows H-01 to H-18 (every row with no PF Seed snapshot is gone, the T-A* ones and the four walk rows on A-1001 included), that no origin test row is left in the nine PF objects, and that every seed row equals its snapshot. The deletes are the automation's own run, as its contract says; make no delete call yourself.
+4. Read back: \`open_workflow\` for the new saved version (higher than the one step 1 read) and its schema, the test runs' \`inspect_workflow_run\` output, and the best practice score. Do not deploy: the deploy task does.
+5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
+
+Proof: open_workflow shows a higher saved version of Pipeline Factory · Reset demo with the fix; test runs read back.
+Result IDs: {"entity":"6ae8441df38e327618fcc13c"}
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: compile_and_save_workflow ok:true 'Workflow saved successfully at version 4.' (was version 3); summary 55 nodes, 10× storage_by_unifyapps_delete_records, 10× fetch_records, IF_ELSE×1
+Read back: Pipeline Factory · Reset demo: search_workflows version 4, nodeCount 55, deployment status DEPLOYED, definitionVersion 3, savedAfterDeploy true (not deployed by this task, as asked)
+Read back: Pipeline Factory · Reset demo: setup/result schema unchanged, as the test run's START node recorded it: setup {type:object, properties:{}}, result {deleted:number 'Deleted test rows', restored:number 'Restored seed rows'}
+Read back: Pipeline Factory · Reset demo: test run 6ae8547ffbdd550a9a4956a4 (workflow_test, input {}) COMPLETED, response {deleted: 36, restored: 0}
+Read back: Pipeline Factory · Reset demo run 6ae8547ffbdd550a9a4956a4: new node n_r8491 output keep [H-18..H-01] (18 ids); IF n_qy3jq result true; new delete n_vqx0b filter properties_handoff_id NOT_IN [H-18..H-01], output {count: 18}; origin-test deletes counted 0+3+0+2+0+3+10+0+0 = 18
+Read back: Pipeline Factory · Reset demo run 6ae8547ffbdd550a9a4956a4: restore picker n_fw2zm output {items: [], skipped: 0, unchanged: 130}, so every seed row equals its snapshot
+Read back: Pipeline Factory · Reset demo: get_records OBJ_pf_handoff after the run total 18, ids H-01 to H-18, all origin seed (before the run: 46 = 18 seed + 18 origin user incl. 14 T-A* and 4 on A-1001 + 10 origin test)
+Read back: Pipeline Factory · Reset demo: get_records origin=test total 0 in each of OBJ_pf_patch, OBJ_pf_account, OBJ_pf_person, OBJ_pf_signal, OBJ_pf_fact, OBJ_pf_draft, OBJ_pf_handoff, OBJ_pf_component, OBJ_pf_seed_snapshot
+Read back: Pipeline Factory · Reset demo: best practice 86 (81 of 85 checks), version 4; performance 78, usability 96, security 100; no fix round saved (the one attempt was refused by the compiler twice, nothing saved)
+Read back: Pipeline Factory · Reset demo: security: no secrets, no caller input (setup is empty); the new delete only touches OBJ_pf_handoff and is skipped when the snapshot id list is empty, so it can never clear the object
+Unverified: open_workflow read-back of version 4 not obtained: three calls answered 'did not answer when asked whether its NEBULA_MCP_TOOLS module is enabled'; version 4 is shown by the save receipt, search_workflows and the test run's node inputs. Check: open_workflow 6ae8441df38e327618fcc13c shows version 4 with node 'Delete every PF Hand-off with no seed snapshot'
+Unverified: The guard's empty-list arm (no hand-off snapshot rows, so the delete is skipped and orphans stays 0) was not run: it needs the snapshot emptied. Check: a test run with OBJ_pf_seed_snapshot holding no OBJ_pf_handoff rows returns COMPLETED and leaves PF Hand-off untouched
+Note: Change: added fetch 'Read the PF Hand-off ids that have a seed snapshot' (OBJ_pf_seed_snapshot, object_id = OBJ_pf_handoff), Groovy 'List the snapshotted hand-off ids', variable 'orphans', and inside an IF on keep[0] existing a delete 'Delete every PF Hand-off with no seed snapshot' (properties_handoff_id NOT_IN keep); its count is added to the \`deleted\` result sum. The description now says the hand-off rows are also deleted.
+Note: assumed: the new deletes are counted in the existing \`deleted\` result field (its title 'Deleted test rows' is unchanged); the run returned 36 instead of the 18 the old code would have returned
+Note: The save's changes line named only this task's statements (6 added, the return changed, the description changed, 9 connections rewired, positions shifted)
+Note: best practice exception: CHECK_59 Limit multiple variable definitions except for branches · Create variables (n_ny5bx, n_bo9wj) · the compiler refuses a new key on an existing create-variables node (UNKNOWN_INPUT_KEY twice), so the two nodes cannot be merged
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_vef3p, n_x1ozg, n_8qjjo, n_68wd6, n_02ywm, n_uy95e, n_84g2d, n_2lky6, n_s2smf, n_e4zby) · needs indexes on OBJ_pf_seed_snapshot (origin+snapshot_id, object_id) and on origin in the eight PF objects, outside the task
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Update an existing record (n_wchph, n_ce5mv, n_c7giy, n_8mgtn, n_sf8xg, n_smau4, n_gk21e, n_cqfvf) · nodes not changed by this task
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (n_e3ng2) · nodes not changed by this task
+Note: feedback:
+Bug: compile_and_save_workflow warns pill.unknownOutput that storage_by_unifyapps_delete_records emits only objects, hasMore, but the node returns count at run time.
+Context: saving 6ae8441df38e327618fcc13c v4, result sums &lt;deleteNode&gt;.count over ten delete nodes.
+Where: mcp-tool
+Evidence: warnings on n_v5lm3…n_vqx0b .count; run 6ae8547ffbdd550a9a4956a4 shows each delete output {"count": N} and deleted: 36.
+Cause: Suspected: catalogue outputSchema for delete_records carries the fetch shape.
+Regression: compile a workflow reading del.count from storage_by_unifyapps_delete_records; no pill.unknownOutput warning.
+Note: feedback:
+Bug: An existing create_variables node cannot gain a new key; the compiler refuses it with UNKNOWN_INPUT_KEY, which blocks the CHECK_59 merge fix.
+Context: 6ae8441df38e327618fcc13c v4; adding orphans to the restored node, then the same under a new binding and label; matched to n_bo9wj, then n_ny5bx.
+Where: mcp-tool
+Evidence: "'orphans' does not exist in type 'Inputs of variable_by_unifyapps::variable_by_unifyapps_create_variables'. Known properties: 'restored'", then "Property 'restored' does not exist on type 'Outputs of n_ny5bx'".
+Cause: Suspected: create_variables inputs typed from the live node's saved variables instead of the compiled code.
+Regression: change {a:0} to {a:0,b:0} on an existing node and save; it saves and x.b resolves.
+Note: feedback:
+Bug: open_workflow failed three times with 'did not answer when asked whether its NEBULA_MCP_TOOLS module is enabled' while search_workflows answered in between.
+Context: read-back after saving 6ae8441df38e327618fcc13c v4 on orbit.uat.
+Where: mcp-tool
+Evidence: the same open_workflow error three times in about a minute; search_workflows ok:true version 4 between them.
+Cause: Unknown — next check: whether open_workflow does its own module probe and caches a failed answer per session.
+Regression: after a save, call open_workflow and search_workflows back to back; both answer.
+
+### t2 · Deploy Pipeline Factory · Reset demo
+
+Body:
+1. Read: \`search_workflows\` for "Pipeline Factory · Reset demo" and the version the automation task saved (Built so far).
+2. Done when: "Pipeline Factory · Reset demo" is deployed with \`definitionVersion\` equal to that saved version.
+3. Apply \`deploy_workflow\` once on \`6ae8441df38e327618fcc13c\` with deploymentNotes "Demo Studio · verify round 1 fix · Pipeline Factory · Reset demo".
+4. Read back: \`search_workflows\` for its \`deployment\`, quoted.
+5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
+
+Proof: search_workflows shows Pipeline Factory · Reset demo deployed at the fixed version.
+Result IDs: {"entity":"6ae8441df38e327618fcc13c"}
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: before deploy search_workflows version 4 (the version t1 saved and tested), deployment definitionVersion 3, savedAfterDeploy true
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: deploy_workflow ok:true 'Deployed version 4 of automation 6ae8441df38e327618fcc13c.', workflowVersion 4, storedVersion 4, deployedVersion 2, paused false
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: search_workflows after deploy deployment {status: DEPLOYED, deployedVersion: 2, definitionVersion: 4, deployedAt: 1793611166549, savedAfterDeploy: false}; definitionVersion 4 equals the saved version 4
+Read back: Pipeline Factory · Reset demo: best practice 86 (81 of 85 checks), version 4, the same version scored in t1, so it was not read again
+Unverified: deploymentNotes text with the bridge's plan tag is not shown by any read; check: the automation's deployment history on the tenant shows 'Demo Studio · verify round 1 fix · Pipeline Factory · Reset demo [nebula plan e_6ae853edd96c5f6ba232095f]'
+Unverified: No run of the deployed copy (runType workflow) was made, because the task did not ask for one; check: trigger_workflow_run runType workflow returns {deleted, restored}
+Note: deploymentNotes sent: 'Demo Studio · verify round 1 fix · Pipeline Factory · Reset demo'
+Note: best practice exception: CHECK_59 Limit multiple variable definitions except for branches · Create variables (n_ny5bx, n_bo9wj) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_vef3p, n_x1ozg, n_8qjjo, n_68wd6, n_02ywm, n_uy95e, n_84g2d, n_2lky6, n_s2smf, n_e4zby) · task does not save
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Update an existing record (n_wchph, n_ce5mv, n_c7giy, n_8mgtn, n_sf8xg, n_smau4, n_gk21e, n_cqfvf) · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (n_e3ng2) · task does not save
+

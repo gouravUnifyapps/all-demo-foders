@@ -1,0 +1,18 @@
+{
+  "createdTime": 1793610183759,
+  "deleted": false,
+  "entityType": "solution_spec",
+  "id": "e_6ae851c7d96c5f6ba231a0c9",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793610189660,
+  "modifiedTime": 1793610189660,
+  "ownerUserId": 66770,
+  "properties": {
+    "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Verify round 1 fix: the fast-lane hand-off carries due_at, written by Save hand-off (new optional due_at input) and pass\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Save hand-off\",\"id\":\"6ae840a5fbdd550a9a44c524\"},{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Log signal\",\"id\":\"6ae843cc9594aa458cba14d7\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Save hand-off\",\"id\":\"6ae840a5fbdd550a9a44c524\"},{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Log signal\",\"id\":\"6ae843cc9594aa458cba14d7\"}]\nacceptedAt: \"2026-11-02T09:03:01.605Z\"\nacceptedBy: {\"clientId\":\"e3c4458d-7875-4592-a302-6ed8821e5525\"}\nplanIds: [\"e_6ae851cbf410ab7b2f03bef9\"]\nlatestPlanId: \"e_6ae851cbf410ab7b2f03bef9\"\nplanId: \"e_6ae851cbf410ab7b2f03bef9\"\n---\n# Verify round 1 fix: the fast-lane hand-off carries due_at, written by Save hand-off (new optional due_at input) and pass\n\n## Requested outcome\nVerify round 1 fix: the fast-lane hand-off carries due_at, written by Save hand-off (new optional due_at input) and passed by Log signal along with its origin\n\n## Touches\n- automation · Pipeline Factory · Save hand-off · 6ae840a5fbdd550a9a44c524\n- automation · Pipeline Factory · Log signal · 6ae843cc9594aa458cba14d7\n\n## Ready when\n- Read-back: open_workflow shows a higher saved version of Pipeline Factory · Save hand-off with the fix; test runs read back.\n- Read-back: search_workflows shows Pipeline Factory · Save hand-off deployed at the fixed version.\n- Read-back: open_workflow shows a higher saved version of Pipeline Factory · Log signal with the fix; test runs read back.\n- Read-back: search_workflows shows Pipeline Factory · Log signal deployed at the fixed version.\n- deploy Pipeline Factory · Save hand-off\n- deploy Pipeline Factory · Log signal\n",
+    "solutionId": "e_6ae5bfc3b4f0d14b27962a04",
+    "spec_html": ""
+  },
+  "standard": false,
+  "version": 1
+}

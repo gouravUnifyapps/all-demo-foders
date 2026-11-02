@@ -1,0 +1,18 @@
+{
+  "createdTime": 1793610723270,
+  "deleted": false,
+  "entityType": "solution_spec",
+  "id": "e_6ae853e3afe7fc590a235a01",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793610737451,
+  "modifiedTime": 1793610737451,
+  "ownerUserId": 66770,
+  "properties": {
+    "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Verify round 1 fix: Reset demo also deletes every PF Hand-off that has no seed snapshot\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Reset demo\",\"id\":\"6ae8441df38e327618fcc13c\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Reset demo\",\"id\":\"6ae8441df38e327618fcc13c\"}]\nacceptedAt: \"2026-11-02T09:11:58.734Z\"\nacceptedBy: {\"clientId\":\"e3c4458d-7875-4592-a302-6ed8821e5525\"}\nplanIds: [\"e_6ae853edd96c5f6ba232095f\"]\nlatestPlanId: \"e_6ae853edd96c5f6ba232095f\"\nplanId: \"e_6ae853edd96c5f6ba232095f\"\n---\n# Verify round 1 fix: Reset demo also deletes every PF Hand-off that has no seed snapshot\n\n## Requested outcome\nVerify round 1 fix: Reset demo also deletes every PF Hand-off that has no seed snapshot\n\n## Touches\n- automation · Pipeline Factory · Reset demo · 6ae8441df38e327618fcc13c\n\n## Ready when\n- Read-back: open_workflow shows a higher saved version of Pipeline Factory · Reset demo with the fix; test runs read back.\n- Read-back: search_workflows shows Pipeline Factory · Reset demo deployed at the fixed version.\n- deploy Pipeline Factory · Reset demo\n",
+    "solutionId": "e_6ae5bfc3b4f0d14b27962a04",
+    "spec_html": ""
+  },
+  "standard": false,
+  "version": 1
+}

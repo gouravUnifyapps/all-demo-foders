@@ -1,0 +1,19 @@
+{
+  "createdTime": 1793605418189,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6ae83f2ad96c5f6ba22599e4",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793605418189,
+  "modifiedTime": 1793605418189,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_class": "ENTITY_TYPE",
+    "asset_id": "OBJ_pf_draft",
+    "state": "COMPLETED",
+    "solution_id": "e_6ae5bfc3b4f0d14b27962a04"
+  },
+  "standard": false,
+  "version": 0
+}

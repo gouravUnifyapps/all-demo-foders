@@ -4,23 +4,23 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: awaiting_g2
+status: awaiting_g3
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
   g1: 1793442419.752669
   g2: 1793522055.329009
-  g3:
+  g3: 1793612592.122889
   g4:
   connections:
-intent:
+intent: both
 stage_flag:
 
 gates:
   g1: {status: approved, round: 1, posted_ts: 1793442419.752669, decided_by: Gourav Mahunta (row), decided_at: 2026-11-01T08:11:55Z}
-  g2: {status: waiting, round: 1, posted_ts: 1793522055.329009, decided_by: , decided_at: }
-  connections: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: , list: []}
-  g3: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
+  g2: {status: approved, round: 1, posted_ts: 1793522055.329009, decided_by: Gourav Mahunta (row; thread reply "Approved, proceed"), decided_at: 2026-11-02T07:40:00Z}
+  connections: {status: not_needed, round: 0, posted_ts: , decided_by: , decided_at: , list: []}
+  g3: {status: posted, round: 1, posted_ts: 1793612592.122889, decided_by: , decided_at: }
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
 
 posts:
@@ -46,6 +46,20 @@ posts:
     by: bot
     version: 1
     round: 1
+  - when: 2026-11-02T09:42:40Z
+    kind: g3
+    ts: 1793612592.122889
+    by: bot
+    version: 1
+    round: 1
+    documents:
+      - {name: Handover · Pipeline Factory v1, type: build_report, file_url: https://orbit.uat.unifyapps.com/auth/file/asset/download/f61f04ce3a4ffe0c83814b10, file_name: handover-v1-r1.pdf, file_size: 601355}
+  - when: 2026-11-02T09:43:32Z
+    kind: status
+    ts: 1793612592.122889
+    by: bot
+    version: 1
+    round: 1
 runs:
   - started: 2026-10-31T10:16:23Z
     ended: 2026-10-31T10:26:47Z
@@ -61,6 +75,13 @@ runs:
     spawns: 1
     tokens: 256364
     outcome: posted G2
+  - started: 2026-11-02T07:40:00Z
+    ended: 2026-11-02T09:42:40Z
+    gate: g3
+    stages: [0-connections, 3-build, 4-verify, 3-build (fixes), 4-verify, 5-handover]
+    spawns: 24
+    tokens: 5900000
+    outcome: posted G3
 
 stopped:
 
@@ -71,14 +92,14 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A2
     text: "The dashed fast lane lets a strong signal skip the daily batch and start a play within the hour."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A3
     text: "The left line is the learning loop: outcomes from sub-workflow 8 return as proposed weights (to 1 and 2), best examples and test variants (to 5), and objections (to 6), applied only after the Quality Grader and the Friday review."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect · 2026-10-31"
@@ -92,77 +113,77 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A5
     text: "Registered. A hand-off not in the Hand-off register below does not exist."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A6
     text: "One writer per field. Only the component named in the register writes a field; everyone else reads."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A7
     text: "Schema check on save. A record that fails its JSON schema is rejected, the GTM engineer is alerted, and the downstream step waits. Never substitute generic copy."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A8
     text: "Confidence gate. A record below the component's threshold does not flow on; it goes to the named person's to-do list (thresholds are in each sub-workflow table)."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A9
     text: "Idempotent. Every save is keyed on account_id + person_id + play_id. Re-running a hand-off never creates a second copy or a second enrolment."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A10
     text: "On time. Each hand-off has a \"When\". A late one retries, then counts against the component's success rate (target 99%, red under 97%)."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A11
     text: "Traced. Every run logs input, output, model, confidence, cost and latency, keyed by patch_id. Failures show in the control towers with their cause."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A12
     text: "Patch-keyed. Every record carries its patch_id and the sender's confidence score."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect › Hand-off contract — enforce in code for every connection · 2026-10-31"
     priority: P0
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A13
     text: "Model split: two AI model families. Every checker (Fact Checker, Message Grader, Reply Sorter, Meeting Labeler, Deal Qualifier, Quality Grader) runs on a different family from the drafter it checks. Each run has a cost cap, plus a daily spend cap."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A14
     text: "Locked fields: Patch ID, BDR of record, meeting type, meeting source, factory-sourced, factory-influenced and marketing-influenced are written only by workflows and lock at booking. Corrections go through RevOps, logged with a reason."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A15
     text: "Keeps every patch's named accounts clean, scored, in the right patch and current."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 1. Patch accounts · 2026-10-31"
@@ -211,7 +232,7 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A22
     text: "Proposes a patch for each new account or HQ change: geography first, then industry, with confidence and reason. Never writes a Patch ID. <80 → RevOps decides from evidence"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Patch Suggester”, column What it does · 2026-10-31"
@@ -253,112 +274,112 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A28
     text: "Watches continuously: web visits and intent, Bombora surges, Sales Navigator alerts, hiring and tech changes, job changes, leadership news, earnings calls, press, renewal signals, event sign-ups. Records company, type, date, source link, strength; verifies company match and date; scores confidence. Strong signals (champion job move, checked visit, new leader, renewal, event, several people engaging) go straight to the Play Picker. <70 logged, not scored. Signals fade over 30 days"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 2. Account selection › table row “Buying Signal Spotter”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A29
     text: "Turns signals into a timing score (max 40) with the weights below. Monday 06:00 ranks each patch by fit + timing. Daily 07:00 tops up each patch's batch after fast-lane plays and sends it to Gate 1 with each account's top 3 signals. Applies the checked-visit rule"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 2. Account selection › table row “Account Ranking (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A30
     text: "Monday after ranking: base 25 slots per patch; never more than eligible accounts ÷ 13; floor 15, cap 40; pace boost (up to +50%) only to patches behind on intro meetings whose diagnosis stops at Input or Engagement and whose AE has <6 intros booked in 7 days. Fast-lane plays use their own patch's slots; overflow takes spare capacity, then that patch's lowest-ranked accounts, never another patch's base. AE nominations (max 3/week) start inside their patch's slots. Logs every allocation"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 2. Account selection › table row “Weekly Slot Planner (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A31
     text: "After allocation, randomly holds back 10% of each patch's new medium/low-fit plays with a logged weekly seed. Checks treated vs held-out balance on fit and timing (standardised difference <0.1) or redraws. Flags held accounts in graph and HubSpot with a 90-day end date. Reports at 90 and 180 days"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 2. Account selection › table row “Holdout Picker (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A32
     text: "Batch lands in the BDR's to-do list at 07:00 with fit band, timing, top 3 signals, Patch ID, AE, last touch, slots left. Accept or reject by 10:00 with one reason (bad fit, active deal, wrong timing, already in conversation). A rejected slot refills from the same patch. Hard blocks: no Patch ID / AE / pod, on an AE hold, or held out"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 2. Account selection › table row “Gate 1 (human: pod BDR)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A33
     text: "Starting signal weights (Scoring Tuner updates monthly): checked pricing/product visits (2+ in 14 days) 25 · new CIO/CTO/CDO/CAIO/Head of AI in 90 days 20 · event or webinar attendance 20 · hiring for AI platform, automation, integration roles 15 · earnings naming AI, automation, modernisation or cost-cutting 15 · Bombora surge 15 · interest in a current vendor's tool 15 · vendor renewal within 9 months 15 · funding, merger or new market 10 · executive posts on AI programs 10."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 2. Account selection · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A34
     text: "Checked visit: counts only with 10+ seconds and a scroll, or a repeat visit within 7 days. Never counts visits within 2 minutes of an email's delivery, from security-scanner networks, or with no page interaction."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 2. Account selection · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A35
     text: "Keeps a sourced view of every patch account current: best fit refreshed every 30 days, others every 90, and on new filings or press. Runs on Day 1 in parallel with the buying committee."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 3. Account research · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A36
     text: "Reads the latest annual report and investor deck, last two earnings call transcripts, 12 months of press, current AI/IT/automation job posts. Extracts statements on AI, automation, integration, modernisation, cost, CX, risk. Each fact keeps exact quote, page or timestamp, date, link. Drops anything >12 months old (except the latest annual report). Facts without quote + link are rejected"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 3. Account research › table row “Company Facts Collector”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A37
     text: "Finds candidate VEP-CFC use cases for the industry and core systems; scores evidence; keeps the top 3 with two supporting facts (or one fact + the company's engagement with us); tags each with pattern and outcome. <70 shown only as a question, never a claim"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 3. Account research › table row “Use Case Matcher”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A38
     text: "Writes: business problem in the company's own words, impact (no dollar figures), why now (top signals), why UnifyApps (use case + their core systems), closest proof, main and backup angle, risks (e.g. vendor contract). Every sentence cites a fact or is tagged [HYPOTHESIS]. <70 → BDR reviews at Gate 2"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 3. Account research › table row “Case for Change Drafter”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A39
     text: "Rules: VEP-CFC is the only source of use cases (UC-ID + Blueprint link + account evidence). Guesses are tagged [HYPOTHESIS] and reach prospects only as questions. Conflicting sources are shown side by side, never settled by the agent. Two rule steps also run here: a graph query pulling past contact (events, downloads, visits, calls, past deals, loss reasons), and an account tagger (vertical, Patch ID, size, systems, vendors, AI maturity, fit band, pattern, outcome)."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 3. Account research · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A40
     text: "Maps 12 people per account, writes a note on each, gets verified contact details, screens them, and looks for a warm intro before anything goes cold."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 4. Buying committee · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A41
     text: "Loads the industry's default titles plus BDR edits; searches people at the company and division; assigns role (economic buyer, champion, technical evaluator, business owner, gatekeeper); checks the champions library; picks 3 Tier 1, 3 Tier 2, 4 Tier 3, 2 backups; flags the economic buyer. Gatekeepers mapped, never contacted. Job-change alerts promote a backup; a title the BDR removes 3× in an industry drops from its defaults. <70 on a role → BDR checks at Gate 2"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 4. Buying committee › table row “Buying Team Mapper”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A42
     text: "Four-line note per person: role, time in role, past companies, public talks and posts; what they own ([HYPOTHESIS] unless public); link to the matched use case; past touches; nearby event fit. Professional info only. Refresh every 90 days and on job change. <70 flagged at Gate 2"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 4. Buying committee › table row “Person Notes Writer”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A43
     text: "For Tier 1 at best-fit accounts: finds shared work history with customer execs, partners, employees and AEs; uses opt-in LinkedIn connection exports (monthly) plus partners, SIs, investors. Ranks: worked together > overlapped > friend of a friend. Drafts the intro request into the patch AE's to-do list and holds cold touches to that person 7 days. <60 not suggested"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 4. Buying committee › table row “Intro Finder”, column What it does · 2026-10-31"
@@ -393,14 +414,14 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A48
     text: "Matches the signal (or the 13-week cycle) to a play; sets people, channels, start days; spaces tiers so no two people at one account get email the same day; picks senders only from the account's patch and pod (AE for Tier 1 LinkedIn and AE notes, BDR for the rest, executive sponsor for C-level). Also receives fast-lane signals. <70 → BDR picks at Gate 2"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Play Picker”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A49
     text: "Builds one Art of the Possible page per account: operations from public facts only, 2–3 workflows reimagined (before/after) for the matched use cases, proof, how UnifyApps connects their core systems, a patch event. Button books a 60-min session with the patch AE + solution consultant. Fills marketing's locked template; page is noindex, at a hard-to-guess URL, with a tracked link per prospect. <75 → marketing ops checks"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Page Builder”, column What it does · 2026-10-31"
@@ -1022,7 +1043,42 @@ data:
   expected_answers: eval.csv
 
 verify:
-  round: 0
+  round: 2
+  walked: 2026-11-02T09:21Z to 09:27Z
+  theme: light
+  beats_pass: "0 of 8 (all unverified: sign-in)"
+  beats:
+    - "1 Control tower: unverified: sign-in. The published address /tower again answers /login?returnTo=%2Ftower; nothing typed. Data read: after the reset only the 18 seed hand-offs H-01 to H-18 remain (the 14 T-A* and 4 walk hand-offs from round 1 are gone)"
+    - "2 Fast lane: unverified: sign-in. Live run read back (Log signal, deployed, run 6ae85623f6f76639f809eca8, origin test): fast_lane, timing 40, hand-off H-6ae856279594aa458cbd0b2b Buying Signal Spotter to Play Picker saved with origin test and the due_at field set (saved_at plus one hour, 1793614902251)"
+    - "3 Gate 1: unverified: sign-in. Live run read back (Decide Gate 1, deployed, run 6ae85626f13e536c52e37aa2, origin test): Accept A-1001 saved hand-offs to Company Facts Collector and Buying Team Mapper, both origin test"
+    - "4 Research and buying team: unverified: sign-in (seeded; no read of the screen)"
+    - "5 Gate 2: unverified: sign-in. Live run read back (Clear Gate 2, deployed, run 6ae856249ec43c6ee218793a): approving D-04 answers result blocked, rule pod, reason \"Blocked: sender Rhea Castillo is not in the account's pod (POD-NAE-1)\" (round 1's fix holds)"
+    - "6 Booked and locked: unverified: sign-in (Book meeting unchanged since round 1's read-back; not re-run)"
+    - "7 Ask the factory, then stop it: unverified: sign-in. Agent answers row 1 with H-07, H-12, H-15, H-10 and C08 at 96.1% (trace read)"
+    - "H1 Under the hood: unverified: sign-in (builder canvas needs the tenant sign-in)"
+  controls_pass: "0 of 0 measured (unverified: sign-in; no control pressed)"
+  queries_pass: "8 of 8"
+  queries:
+    - "1 waiting on a person in PATCH-NAE-03: pass (H-07 RevOps 74/80, H-12 and H-15 Marcus Ellery, H-10 rejected on missing evidence), about 50 s"
+    - "2 red component: pass (Current Vendor Finder, 96.1%), about 24 s"
+    - "3 Carrow & Vale fit and AE: pass (49, best, Dana Okafor), about 31 s"
+    - "4 economic buyer: pass (\"Helena Marsh (CFO)\"; trace shows ReadFactoryRecords then the people list; round 1's fail is fixed), about 33 s"
+    - "5 Kestrel Ridge: pass (factory holdout until about 27 January 2027), about 46 s"
+    - "6 patch short of intros: pass (PATCH-NAE-04, 2 against 4), about 21 s"
+    - "7 send the email: pass (declines, read-only), about 13 s"
+    - "8 deal size: pass (says the records hold no deal size), under 20 s"
+  p95_latency_s: 50
+  latency_target_s: 90
+  latency_note: "seconds read from consecutive case-id timestamps (the eight questions ran back to back), with runAgainToFindAnswer on, so upper bounds; fewer than 20 rows, so p95 is the slowest"
+  coverage_pass: "0 of 32 (no screen reached: sign-in); backend re-proven this round by deployed runs: A2, A28, A29, A33, A34 (Log signal), A30, A31, A32 (Decide Gate 1), A9, A47 (Clear Gate 2), A5 to A9 (Save hand-off origin and due_at), A8, A10, A40, A41 (Read factory records and the analyst)"
+  checks_pass: "0 of 7 measured (unverified: sign-in on every screen)"
+  other_theme_checks: "0 of 7 (unverified: sign-in)"
+  reset: "done twice. Before: run 6ae8560e2099302ffb15c3e5 completed (19.3 s), its counts read deleted 0, restored 0, although the 18 non-seed hand-offs listed in round 1 were gone when read right after. After: run 6ae8576ef6f76639f80a33b6 completed (the run lookup failed twice, so its counts were not read); read back from the records: PF Hand-off holds exactly 18 rows, H-01 to H-18, all origin seed; no non-seed PF Signal; A-1001 back to timing 25, gate1 pending; D-04 back to waiting_gate2"
+  notes:
+    - "No delete was made by this stage; only Reset demo's own runs deleted."
+    - "Round 1 fix lines: Reset demo (clears hand-offs with no snapshot): fixed. Save hand-off origin and callers pass it: fixed (all three walk hand-offs origin test). Log signal due_at: fixed. Clear Gate 2 pod rule for D-04: fixed. Read factory records people and name lookup: fixed (account_id \"Carrow & Vale Logistics\" returns A-1001 and 13 people). Analyst account id: fixed (eval row 4 passes). Environment* tools: still offered (platform; moved to dev_issues)."
+    - "Reset demo's returned counts read 0 deleted, 0 restored on a run that left only seed rows; the counts may not add the hand-off deletes. Not a fix line: the reset's effect is right, only its reported count is in doubt."
+    - "A person must sign in to orbit.uat.unifyapps.com and the published app in the walk browser before the screens can be walked; two rounds have now stopped at the sign-in page."
   open: []
 
 collaterals:
@@ -1062,16 +1118,38 @@ decisions:
   - by: plan
     when: 2026-11-01
     text: "Harvest questions 2 (demo date), 5 (the earlier POC) and 6 (who owns the asks) are not carried into G2: the plan does not depend on them (20-minute slot, this POC only, Gourav Mahunta as owner)."
+  - by: Gourav Mahunta
+    when: 2026-11-02
+    text: "G2 approved on the row and in its thread (\"Approved, proceed\"); no numbered answers, so the plan's recommended assumptions stand. The proposed intent both becomes intent (by the manager)."
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Connections: build_contract has no connection line and no automation names an external connector operation (outside systems mocked), so the Connections step is not needed; final reports connections_used none."
+  - by: plan
+    when: 2026-11-02
+    text: "Build: PF Account has no AE-hold field, so Decide Gate 1 reads an AE hold as ultimate_parent_lock set to someone other than owner_ae (from the contract's Gate 1 hard blocks and the PF Account line)."
+  - by: nebula
+    when: 2026-11-02
+    text: "Build (automation-agent read): on this tenant a DSL branch runs every arm whose condition is true; Log signal was fixed to if/else-if. Clear Gate 2 and Save hand-off may name a different rule or missing field when two fail at once."
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Unattended run: no delete can be confirmed, so builders left their T- test rows for Pipeline Factory · Reset demo. Save hand-off has no origin input, so the test hand-offs it wrote (account_id T-A*) carry origin user and Reset demo keeps them; they are listed for removal before the demo."
+  - by: state-check
+    when: 2026-11-02
+    text: "reverted open_questions: written by verify, outside its fields (schema § Who writes what)"
 
-dev_issues: []
+dev_issues:
+  - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
+    beat: "7 Ask the factory"
+    read: "read_trace case e_6ae85653f13e536c52e3a219 (eval row 4, round 2): toolsOffered on both model calls lists the four Environment* tools; none was called"
+    raised: 
 
 frozen:
 
 cost:
-  runs: 2
-  agent_spawns: 2
-  tokens_m: 0.42
-  wall_h: 0.7
+  runs: 3
+  agent_spawns: 26
+  tokens_m: 6.3
+  wall_h: 2.9
 
 open_questions:
   - by: harvest
@@ -1104,6 +1182,9 @@ open_questions:
   - by: plan
     for: owner
     text: "4. Outside systems: Sprouts and Gong have no connection on the tenant, and the HubSpot (9) and Apollo (2) connections there belong to other people. The plan assumes every outside system is mocked by the factory's own records and no external step is built (A65, A100, A102 shown as rules on the mocked records). Options: (recommended) mocked, labelled (mocked) on screen; name one HubSpot connection and the booking writes the locked fields to a DEMO-TEST company there as a bonus step; give a HubSpot sandbox (a credential asked in the session)."
+  - by: verify
+    for: owner
+    text: "Round 1 could not open the app: the published address and the preview both land on a sign-in page in the walk browser, so none of the 32 built asks (A1, A2, A4 to A14, A21, A27 to A42, A47, A48) was seen on a screen, and no control or on-page check ran. What was built for them (the Control tower, To-do and Account screens over the PF objects and eight automations) was proven only from records and deployed runs. Options: (recommended) sign in once to orbit.uat.unifyapps.com and the published app in the walk browser before round 2, so verify walks every beat; accept round 1's backend evidence and walk the screens yourself before the demo."
 ---
 
 ## build_contract
@@ -1277,6 +1358,44 @@ The code app: Control tower, To-do and Account.
 - Check this: app visibility PRIVATE; publish and deploy without asking (profile release line).
 
 ## entities
+
+build.plans:
+- e_6ae83ebdafe7fc590a0b9fd8 · objects · 9 tasks · implemented · 2026-11-02
+- e_6ae83f89f410ab7b2ff0d40d · seed records · 9 tasks · implemented · 2026-11-02 (duplicate save e_6ae83f98afe7fc590a136f65 closed unsent)
+- e_6ae83fd1afe7fc590a161a7f · automations part 1 · 10 tasks · implemented · 2026-11-02
+- e_6ae8432af410ab7b2ff1251b · automations part 2 and the analyst · 10 tasks · implemented · 2026-11-02
+- e_6ae846e9d96c5f6ba22b953d · the code app · 5 tasks · implemented · 2026-11-02
+- e_6ae84ef0f410ab7b2f0351d1 · verify r1 fixes: hand-off origin, callers, Clear Gate 2 pod rule · 10 tasks · implemented (Log signal's 2 moved to the next change) · 2026-11-02
+- e_6ae84efbf410ab7b2f03537e · verify r1 fixes: Read factory records people and name lookup, analyst account id · 4 tasks · implemented · 2026-11-02
+- e_6ae851cbf410ab7b2f03bef9 · verify r1 fix: Save hand-off due_at, Log signal passes it · 4 tasks · implemented · 2026-11-02
+- e_6ae853edd96c5f6ba232095f · verify r1 fix: Reset demo clears hand-offs with no snapshot · 2 tasks · implemented · 2026-11-02
+
+| Kind | Name | Id | Link | Asks |
+|---|---|---|---|---|
+| object | PF Patch | OBJ_pf_patch | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_patch/schema | A27, A29, A30 |
+| object | PF Account | OBJ_pf_account | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_account/schema | A14, A21, A27, A32 |
+| object | PF Person | OBJ_pf_person | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_person/schema | A40, A41, A42 |
+| object | PF Signal | OBJ_pf_signal | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_signal/schema | A28, A33, A34 |
+| object | PF Fact | OBJ_pf_fact | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_fact/schema | A35, A36, A37, A38, A39 |
+| object | PF Draft | OBJ_pf_draft | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_draft/schema | A47, A48 |
+| object | PF Hand-off | OBJ_pf_handoff | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_handoff/schema | A4, A5, A9, A10, A11, A12 |
+| object | PF Component | OBJ_pf_component | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_component/schema | A1, A13 |
+| object | PF Seed snapshot | OBJ_pf_seed_snapshot | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_seed_snapshot/schema | (reset) |
+| automation | Pipeline Factory · Save hand-off | 6ae840a5fbdd550a9a44c524 | https://orbit.uat.unifyapps.com/p/0/automations/6ae840a5fbdd550a9a44c524/builder | A5, A6, A7, A8, A9 |
+| automation | Pipeline Factory · Log signal | 6ae843cc9594aa458cba14d7 | https://orbit.uat.unifyapps.com/p/0/automations/6ae843cc9594aa458cba14d7/builder | A2, A28, A29, A33, A34 |
+| automation | Pipeline Factory · Decide Gate 1 | 6ae8440df13e536c52c5d959 | https://orbit.uat.unifyapps.com/p/0/automations/6ae8440df13e536c52c5d959/builder | A30, A31, A32 |
+| automation | Pipeline Factory · Clear Gate 2 | 6ae840d7f6f76639f8ceb67d | https://orbit.uat.unifyapps.com/p/0/automations/6ae840d7f6f76639f8ceb67d/builder | A9, A47 |
+| automation | Pipeline Factory · Book meeting | 6ae84449f38e327618fcc640 | https://orbit.uat.unifyapps.com/p/0/automations/6ae84449f38e327618fcc640/builder | A14 |
+| automation | Pipeline Factory · Pause component | 6ae843d1f6f76639f8cf2d55 | https://orbit.uat.unifyapps.com/p/0/automations/6ae843d1f6f76639f8cf2d55/builder | A4 |
+| automation | Pipeline Factory · Read factory records | 6ae843e69ec43c6ee2dec988 | https://orbit.uat.unifyapps.com/p/0/automations/6ae843e69ec43c6ee2dec988/builder | A8, A10 |
+| automation | Pipeline Factory · Ask the analyst | 6ae84900fbdd550a9a465807 | https://orbit.uat.unifyapps.com/p/0/automations/6ae84900fbdd550a9a465807/builder | A4, A8, A10 |
+| automation | Pipeline Factory · Reset demo | 6ae8441df38e327618fcc13c | https://orbit.uat.unifyapps.com/p/0/automations/6ae8441df38e327618fcc13c/builder | (reset) |
+| ai-agent | Pipeline Factory Analyst | e_6ae846ffd96c5f6ba22b98da | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae846ffd96c5f6ba22b98da | A4, A8, A10 |
+| code-app | UnifyApps Pipeline Factory Control Tower | app-2fbe93e8c1f7 | https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-2fbe93e8c1f7 | A1, A2, A4, A8, A14, A27, A32, A47 |
+
+code-app: app-2fbe93e8c1f7 · branch main · PRIVATE · published v1 from commit 057f53d6625c58044c9bd67445a203fc9e30cde3 (head d6dca64e "publish v1") · preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-2fbe93e8c1f7/main/ · published https://app-2fbe93e8c1f7-orbit.tensor-uat.unifyapps.com (from the shell task's handover; the publish reply named no URL; unverified) · routes /tower, /todo, /accounts/:accountId · storage FETCH e_6ae84846f410ab7b2ffc1ba8
+analyst model: Claude Sonnet 5 (list_models gives no recommendation; the builder's pick)
+best practice: Save hand-off 84, Log signal 83, Decide Gate 1 67, Clear Gate 2 95, Book meeting 88, Pause component 97, Read factory records 93, Reset demo 88
 
 ## beats
 

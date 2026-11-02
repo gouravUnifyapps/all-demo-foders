@@ -1,0 +1,18 @@
+{
+  "createdTime": 1793609465088,
+  "deleted": false,
+  "entityType": "solution_spec",
+  "id": "e_6ae84ef9f410ab7b2f035341",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793609469754,
+  "modifiedTime": 1793609469754,
+  "ownerUserId": 66770,
+  "properties": {
+    "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Verify round 1 fixes: Read factory records returns people and finds an account by name; the analyst uses the account id\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Read factory records\",\"id\":\"6ae843e69ec43c6ee2dec988\"},{\"kind\":\"ai-agent\",\"name\":\"Pipeline Factory Analyst\",\"id\":\"e_6ae846ffd96c5f6ba22b98da\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Read factory records\",\"id\":\"6ae843e69ec43c6ee2dec988\"},{\"action\":\"publish\",\"kind\":\"ai-agent\",\"name\":\"Pipeline Factory Analyst\",\"id\":\"e_6ae846ffd96c5f6ba22b98da\"}]\nacceptedAt: \"2026-11-02T08:51:03.615Z\"\nacceptedBy: {\"clientId\":\"e3c4458d-7875-4592-a302-6ed8821e5525\"}\nplanIds: [\"e_6ae84efbf410ab7b2f03537e\"]\nlatestPlanId: \"e_6ae84efbf410ab7b2f03537e\"\nplanId: \"e_6ae84efbf410ab7b2f03537e\"\n---\n# Verify round 1 fixes: Read factory records returns people and finds an account by name; the analyst uses the account id\n\n## Requested outcome\nVerify round 1 fixes: Read factory records returns people and finds an account by name; the analyst uses the account id\n\n## Touches\n- automation · Pipeline Factory · Read factory records · 6ae843e69ec43c6ee2dec988\n- ai-agent · Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da\n\n## Ready when\n- Read-back: open_workflow shows a higher saved version of Pipeline Factory · Read factory records with the fix; test runs read back.\n- Read-back: search_workflows shows Pipeline Factory · Read factory records deployed at the fixed version.\n- Read-back: get_agent shows the new instructions; the economic buyer answer names Helena Marsh.\n- Read-back: get_agent shows the agent published.\n- deploy Pipeline Factory · Read factory records\n- publish Pipeline Factory Analyst\n",
+    "solutionId": "e_6ae5bfc3b4f0d14b27962a04",
+    "spec_html": ""
+  },
+  "standard": false,
+  "version": 1
+}

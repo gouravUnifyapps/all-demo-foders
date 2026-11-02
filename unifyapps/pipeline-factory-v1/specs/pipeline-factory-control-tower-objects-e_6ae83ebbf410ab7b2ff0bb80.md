@@ -1,0 +1,96 @@
+---
+nebula: 3
+mode: "sonic"
+format: "spec"
+title: "Pipeline Factory Control Tower · objects"
+touches: [{"kind":"object","name":"PF Patch"},{"kind":"object","name":"PF Account"},{"kind":"object","name":"PF Person"},{"kind":"object","name":"PF Signal"},{"kind":"object","name":"PF Fact"},{"kind":"object","name":"PF Draft"},{"kind":"object","name":"PF Hand-off"},{"kind":"object","name":"PF Component"},{"kind":"object","name":"PF Seed snapshot"}]
+askBeforeDeploy: true
+releaseYes: []
+acceptedAt: "2026-11-02T07:41:46.514Z"
+acceptedBy: {"clientId":"e3c4458d-7875-4592-a302-6ed8821e5525"}
+planIds: ["e_6ae83ebdafe7fc590a0b9fd8"]
+latestPlanId: "e_6ae83ebdafe7fc590a0b9fd8"
+planId: "e_6ae83ebdafe7fc590a0b9fd8"
+---
+# Pipeline Factory Control Tower · objects
+
+## Requested outcome
+The pod BDR and the patch AE watch one account, Carrow & Vale Logistics, move through the Pipeline Factory: a strong signal takes the fast lane, Gate 1 accepts it, research and the buying team arrive as confidence-scored hand-off records, Gate 2 approves drafts while the Send Rules Check refuses one, and the booked meeting locks its fields. Every hand-off is a saved record in the control tower that a person can see, check and stop; an assistant answers what is waiting on a person and a person pauses a red component from its answer.
+This plan creates the nine PF objects the factory's records live in; seeds, automations, the analyst and the code app follow in later plans.
+
+## Touches
+- object · PF Patch · new
+- object · PF Account · new
+- object · PF Person · new
+- object · PF Signal · new
+- object · PF Fact · new
+- object · PF Draft · new
+- object · PF Hand-off · new
+- object · PF Component · new
+- object · PF Seed snapshot · new
+
+## Contract
+### object · PF Patch
+The patches: slots, pace and success rate per patch.
+- object · create · PF Patch: id OBJ_pf_patch; primaryKey patch_id (text, required); fields name (text), pod (text), owner_ae (text), bdr (text), geo (text), eligible_accounts (number), slots_base (number), slots_allocated (number), slots_used (number), pace_boost_pct (number), intros_booked_7d (number), success_rate (number), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Account
+The patch accounts with fit, timing, Gate 1 state and the fields that lock at booking.
+- object · create · PF Account: id OBJ_pf_account; primaryKey account_id (text, required); fields name (text), industry (text), patch_id (text), pod (text), owner_ae (text), backup_ae (text), bdr_of_record (text), hq_city (text), fit_score (number, of 60), fit_band (picklist: best "Best fit", medium "Medium fit", low "Low fit"), icp_quadrant (text), timing_score (number, of 40), rank_in_patch (number), top_signals (text), last_touch (date, epoch ms), gate1_status (picklist: pending "Pending", accepted "Accepted", rejected "Rejected", blocked "Blocked", queued "Queued", not_eligible "Not eligible"), gate1_reason (picklist: none "None", bad_fit "Bad fit", active_deal "Active deal", wrong_timing "Wrong timing", in_conversation "Already in conversation"), factory_holdout (boolean), factory_holdout_until (date, epoch ms), ultimate_parent_lock (text), deal_stage (picklist: none "None", engage "Engage", connect "Connect", commit "Commit"), meeting_type (text), meeting_source (text), factory_sourced (boolean), factory_influenced (boolean), marketing_influenced (boolean), value_pattern (text), locked_at (date, epoch ms), meeting_label (picklist: none "None", intro "Intro", new_buyer "New Buyer Meeting", does_not_count "Doesn't count"), qualified_status (picklist: none "None", qualified "Qualified", not_qualified "Not qualified"), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Person
+The story account's buying committee by tier and role.
+- object · create · PF Person: id OBJ_pf_person; primaryKey person_id (text, required); fields account_id (text), name (text), title (text), role (picklist: economic_buyer "Economic buyer", champion "Champion", technical_evaluator "Technical evaluator", business_owner "Business owner", gatekeeper "Gatekeeper"), tier (picklist: t1 "Tier 1", t2 "Tier 2", t3 "Tier 3", backup "Backup", mapped "Mapped only"), note (text), email_status (picklist: verified "Verified", linkedin_only "LinkedIn only"), dnc (boolean), in_other_sequence (boolean), confidence (number), evidence_tag (picklist: public "[PUBLIC]", hypothesis "[HYPOTHESIS]"), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Signal
+Buying signals with weight, confidence and whether they counted.
+- object · create · PF Signal: id OBJ_pf_signal; primaryKey signal_id (text, required); fields account_id (text), signal_type (picklist: pricing_visit "Checked pricing/product visit", new_leader "New CIO/CTO/CDO/CAIO/Head of AI", event "Event or webinar", ai_hiring "AI platform hiring", earnings "Earnings naming AI", bombora "Bombora surge", vendor_interest "Interest in a current vendor's tool", vendor_renewal "Vendor renewal within 9 months", funding "Funding, merger or new market", exec_posts "Executive posts on AI"), weight (number), signal_date (date, epoch ms), source_link (text), confidence (number), counted (boolean), not_counted_reason (text), fast_lane (boolean), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Fact
+Sourced company facts, use case matches and Case for Change lines.
+- object · create · PF Fact: id OBJ_pf_fact; primaryKey fact_id (text, required); fields account_id (text), kind (picklist: fact "Company fact", use_case "Use case match", case_for_change "Case for Change line"), statement (text), quote (text), source (text), page_or_time (text), fact_date (date, epoch ms), link (text), evidence_tag (picklist: public "[PUBLIC]", hypothesis "[HYPOTHESIS]"), uc_id (text), confidence (number), writer (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Draft
+The drafts held at Gate 2 with grade, fact check and rules result.
+- object · create · PF Draft: id OBJ_pf_draft; primaryKey draft_id (text, required); fields account_id (text), person_id (text), play_id (text), channel (picklist: email "Email", linkedin "LinkedIn", call "Call"), subject (text), body (text), grade (number), fact_check (picklist: passed "Passed", blocked "Blocked"), rules_check (picklist: pending "Pending", passed "Passed", blocked "Blocked"), rules_reason (text), sender (text), sender_pod (text), planted_error (boolean), status (picklist: waiting_gate2 "Waiting at Gate 2", approved "Approved", blocked "Blocked", held "Held", enrolled "Enrolled"), enrolment_key (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Hand-off
+Every hand-off as a saved record: schema-checked, confidence-scored, keyed by Patch ID.
+- object · create · PF Hand-off: id OBJ_pf_handoff; primaryKey handoff_id (text, required); fields idempotency_key (text, account_id + person_id + play_id), patch_id (text), account_id (text), person_id (text), play_id (text), from_component (text), to_component (text), record_type (text), payload (text, JSON), evidence (text), confidence (number), threshold (number), schema_status (picklist: passed "Passed", rejected "Rejected"), status (picklist: flowed "Flowed on", waiting_person "Waiting on a person", rejected "Rejected", late "Late, retried", held "Held: component paused"), assigned_to (text), reason (text), model (text), cost_usd (number), latency_ms (number), due_at (date, epoch ms), saved_at (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Component
+The registry: 38 agents, 12 workflows, 5 human gates and 2 rule steps.
+- object · create · PF Component: id OBJ_pf_component; primaryKey component_id (text, required); fields name (text), sub_workflow (picklist: sw1 "1. Patch accounts", sw2 "2. Account selection", sw3 "3. Account research", sw4 "4. Buying committee", sw5 "5. Outreach drafting", sw6 "6. Outreach", sw7 "7. Engage, Connect and Commit", sw8 "8. Learning and governance"), kind (picklist: agent "Agent", checker "Checker", monitor "Monitor", workflow "Workflow", human_gate "Human gate", rule_step "Rule step"), what_it_does (text), threshold (number), below_threshold_goes_to (text), schedule (text), feeds (text), writes (text), model_family (picklist: family_a "Family A (drafters)", family_b "Family B (checkers)", none "No model"), checks (text), success_rate (number), status (picklist: live "Live", shadow "Shadow", paused "Paused"), ask_id (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+### object · PF Seed snapshot
+The seeded values the reset restores.
+- object · create · PF Seed snapshot: id OBJ_pf_seed_snapshot; primaryKey snapshot_id (text, required); fields object_id (text), record_id (text), row_values (text, JSON of the seeded row), taken_at (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default seed)
+
+
+## Business rules
+- Every agent hands off through the context graph, never directly: a hand-off is a PF Hand-off row written only by Pipeline Factory · Save hand-off.
+- A hand-off not in the register (PF Component feeds) is refused; only the component named as a field's writer writes it.
+- A record that fails its schema is rejected, the GTM engineer is alerted, the downstream step waits; generic copy is never substituted.
+- A record under the receiving component's threshold does not flow on; it goes to the named person's to-do list.
+- Every save is keyed on account_id + person_id + play_id; a re-run never makes a second copy or a second enrolment.
+- Gate 1 hard blocks: no Patch ID, AE or pod; an AE hold; held out. A rejected slot refills from the same patch.
+- The Send Rules Check blocks a draft whose sender is not in the account's pod, whose person is on DNC or in another sequence, and every planted test error.
+- Patch ID, BDR of record, meeting type, meeting source, factory-sourced, factory-influenced and marketing-influenced lock at booking; corrections go through RevOps with a reason.
+- Timing score is the sum of counted signal weights, capped at 40; a visit counts only under the checked-visit rule.
+- Safety actions are automatic; resuming a paused component needs a person.
+- Every row carries origin: seed on seeded rows, test on rows a check or recording writes, user on rows a person makes in the demo.
+
+## Ready when
+- The object PF Patch exists with every field its Contract line names.
+- The object PF Account exists with every field its Contract line names.
+- The object PF Person exists with every field its Contract line names.
+- The object PF Signal exists with every field its Contract line names.
+- The object PF Fact exists with every field its Contract line names.
+- The object PF Draft exists with every field its Contract line names.
+- The object PF Hand-off exists with every field its Contract line names.
+- The object PF Component exists with every field its Contract line names.
+- The object PF Seed snapshot exists with every field its Contract line names.
+
+## Assumptions
+- Check this: objects link by text keys (account_id, patch_id, person_id), not lookup fields, so the seeds and automations stay simple.
+- Check this: the contract was approved at G2 (Demo Studio plan v1 r1); every value comes from it.

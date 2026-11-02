@@ -22,13 +22,13 @@ Goal: Pipeline Factory · G3 round 2 · P11
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | PF · Message Grader |  | running | 1 |
+| t1 | ai-agent | PF · Message Grader |  | pending | 1 |
 | t2 | publish | PF · Message Grader | t1 | pending | 0 |
-| t3 | ai-agent | PF · Call Script Writer |  | running | 1 |
+| t3 | ai-agent | PF · Call Script Writer |  | done | 1 |
 | t4 | publish | PF · Call Script Writer | t3 | pending | 0 |
-| t5 | ai-agent | PF · Follow-up Planner |  | running | 1 |
+| t5 | ai-agent | PF · Follow-up Planner |  | done | 1 |
 | t6 | publish | PF · Follow-up Planner | t5 | pending | 0 |
-| t7 | ai-agent | PF · Inbox Health Checker |  | running | 1 |
+| t7 | ai-agent | PF · Inbox Health Checker |  | done | 1 |
 | t8 | publish | PF · Inbox Health Checker | t7 | pending | 0 |
 
 ### t1 · Build AI agent PF · Message Grader
@@ -41,6 +41,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Message Grader with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: PF · Message Grader is built (model, instructions, both tools) and declines out-of-scope work, but its job run cannot save: send_test_message case e_6ae8699546920244f3d69de3 -&gt; SaveAgentOutput result rejected, run RUN-6ae869992099302ffb2e91c0, reason 'schema check failed: draft_id missing', because Read component inputs (~200k chars) is cut by the runtime to 16k+2k chars and no draft reaches the model. After the one instruction fix round the second run (case e_6ae86b07f6f76639f83a38a0) was rejected the same way. Needs Read component inputs narrowed (automation-agent) before this agent can grade.
 
 ### t2 · Publish PF · Message Grader
 
@@ -63,6 +64,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Call Script Writer with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae8687ef410ab7b2f1575c6"}
+Read back: PF · Call Script Writer e_6ae8687ef410ab7b2f1575c6: get_agent version 1, readiness canRun true, models runs/picksTask/answerGeneration e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5 (UnifyApps, Vertex, cached)), role/goal set, instructions state the one job (C36 call script + call list order), read-first/save-once steps, output contract, origin pass-through, scope, never dials; tools ReadComponentInputs e_6ae86895d96c5f6ba24427da -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae86895d96c5f6ba24427e2 -&gt; 6ae864829594aa458cc1ce69, both enabled, topicId GLOBAL; deployments 0
+Read back: PF · Call Script Writer e_6ae8687ef410ab7b2f1575c6: trace e_6ae8696046920244f3d69a2f calls ReadComponentInputs {component_id:C36, account_id:A-1001}, ReadComponentInputs {..., person_id:P-1002}, then one SaveAgentOutput {component_id:C36, account_id:A-1001, output_type:call_script, ...}; agent said: 'SaveAgentOutput returned **duplicate** (run_id RUN-6ae869289ec43c6ee231f771), with the reason that this is a re-run of an existing run already sitting at **waiting_person**' (the first batch run had saved it waiting_person for BDR approval)
+Read back: PF · Call Script Writer e_6ae8687ef410ab7b2f1575c6: refusal case e_6ae868a6fbdd550a9a519ee3 answered 'I'm not able to send emails — that falls outside my one job here, which is writing call scripts and ordering the BDR's call list, not sending messages.' with toolCalls []
+Unverified: PF · Call Script Writer: origin test on the first (waiting_person) save is not shown, because send_test_messages returned no case id for that run; the second run's SaveAgentOutput arguments are shortened in the trace. Settle with read_trace e_6ae8696046920244f3d69a2f fullValues modelCalls.2.toolCalls.0.arguments, or the PF Component run row RUN-6ae869289ec43c6ee231f771's origin.
+Unverified: PF · Call Script Writer: call_transcript sources sit past the 16,000-char cut of Read component inputs, so objection answers cannot draw on Gong transcripts until that read is narrowed.
+Note: Model: Claude Sonnet 5 card e_6acca2af70b66f5702c8b59f replaced by the active 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1 as the task says.
+Note: The first send_test_messages call returned no case id for the tool run; a second send_test_message was used to get the trace, and Save agent output answered duplicate (no second write).
 
 ### t4 · Publish PF · Call Script Writer
 
@@ -85,6 +94,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Follow-up Planner with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86881d96c5f6ba244257b"}
+Read back: PF · Follow-up Planner e_6ae86881d96c5f6ba244257b: get_agent version 1, readiness canRun true, models e_6ad496812dd4ba5be70afcc1 in all three slots, role/goal set, instructions state the one job (C37 replan: referral lead thread, Tier 1 objection pause, Committee Surge), read-first/save-once, output contract, origin pass-through, scope, never sends, rewrites go to Fact Checker and Message Grader; tools ReadComponentInputs e_6ae86899d96c5f6ba244286d -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae86899f410ab7b2f15786e -&gt; 6ae864829594aa458cc1ce69, both enabled, topicId GLOBAL; deployments 0
+Read back: PF · Follow-up Planner e_6ae86881d96c5f6ba244257b: trace e_6ae869a3f13e536c52ec4f4a calls ReadComponentInputs {component_id:C37, account_id:A-1001} (three reads), then one SaveAgentOutput {component_id:C37, account_id:A-1001, output_type:replan, ...}; agent said: '**Result: duplicate** — run_id \`RUN-6ae86984f38e32761819c92a\`. SaveAgentOutput reported this as a re-run of an existing run that's already "waiting_person," so nothing new was written.'
+Read back: PF · Follow-up Planner e_6ae86881d96c5f6ba244257b: refusal case e_6ae86a522099302ffb2ec5ec answered 'I'm not able to send emails — that's outside my one job here. I'm the PF Follow-up Planner (component C37)...' with no tool call (llmCalls 1)
+Unverified: PF · Follow-up Planner: the reply rows and Reply Sorter hand-offs never reached the model (the agent's own think step: 'Three ReadComponentInputs calls all truncated at the same point (end of "facts", just after F-09)'), so its replan rules are untested on real replies; settle after Read component inputs is narrowed with one run on an account that has replies.
+Unverified: PF · Follow-up Planner: origin test on the first (waiting_person) save is not shown because that run returned no case id; settle by reading run RUN-6ae86984f38e32761819c92a's origin.
+Note: Model: e_6ad496812dd4ba5be70afcc1 used in place of e_6acca2af70b66f5702c8b59f as the task says.
+Note: plan_change: major — same cause as t1: Read component inputs' reply is cut to 16k+2k chars, so C37 never sees sources (reply rows) or handoffs_in and can only save a no-action replan.
 
 ### t6 · Publish PF · Follow-up Planner
 
@@ -107,6 +124,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Inbox Health Checker with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86884d96c5f6ba24425cc"}
+Read back: PF · Inbox Health Checker e_6ae86884d96c5f6ba24425cc: get_agent version 2, readiness canRun true, models e_6ad496812dd4ba5be70afcc1 in all three slots, role/goal set, instructions state the one job (C38 inbox health), read-first (with a component-only re-read when inboxes are cut) and save-once, payload.inbox_id with placement_pct_last and blacklisted, output contract, origin pass-through, scope, never rests or swaps a domain; tools ReadComponentInputs e_6ae8689eafe7fc590a4fac26 -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae8689eafe7fc590a4fac2a -&gt; 6ae864829594aa458cc1ce69, both enabled, topicId GLOBAL; deployments 0
+Read back: PF · Inbox Health Checker e_6ae86884d96c5f6ba24425cc: trace e_6ae86ad42099302ffb2ed624 calls ReadComponentInputs {component_id:C38, account_id:A-1001}, ReadComponentInputs {component_id:C38}, then one SaveAgentOutput {component_id:C38, account_id:A-1001, output_type:inbox_health, ...}; agent said: '**Result:** \`saved\` · **run_id:** \`RUN-6ae869e746920244f3d6a54f\` · **reason:** saved; wrote placement_pct_last, blacklisted (hand-off \`H-6ae86b052099302ffb2ee2d9\` sent to the Email Domain Swapper)' and 'getunifyapps.example (IN-01) triggered an alert as placement dropped from 92% to 90%'
+Read back: PF · Inbox Health Checker e_6ae86884d96c5f6ba24425cc: refusal case e_6ae86a569594aa458cd5fa93 answered 'This falls outside my scope — I'm the Inbox Health Checker (C38)... I don't send emails or messages myself. That task belongs to a **BDR**' with no tool call (llmCalls 1)
+Unverified: PF · Inbox Health Checker: origin test on the saved run is in the shortened SaveAgentOutput arguments (prior run trace e_6ae869d59ec43c6ee2366c25 showed origin "test" in full); settle with read_trace e_6ae86ad42099302ffb2ed624 fullValues modelCalls.2.toolCalls.0.arguments.
+Unverified: PF · Inbox Health Checker: reply rate by provider and the email-security-scanner list were absent from the PF Inbox rows the agent saw; it reported them absent.
+Note: Model: e_6ad496812dd4ba5be70afcc1 used in place of e_6acca2af70b66f5702c8b59f as the task says.
+Note: Fix round 1: the first run (case e_6ae869d59ec43c6ee2366c25) saw no inbox rows because the read reply was cut at 16k chars and saved with no inbox_id; instructions now re-read with component_id only (shorter reply showing inboxes) and put inbox_id, placement_pct_last and blacklisted at the payload top level; the second run saved.
 
 ### t8 · Publish PF · Inbox Health Checker
 

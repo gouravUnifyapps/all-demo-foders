@@ -338,155 +338,183 @@
       "kind": "ai-agent",
       "id": "e_6ae86666d96c5f6ba243ce26",
       "name": "PF · Fit Scorer",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8666ad96c5f6ba243ce39",
       "name": "PF · Patch Suggester",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8666dafe7fc590a4a3d96",
       "name": "PF · Current Vendor Finder",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86671d96c5f6ba243ce77",
       "name": "PF · Renewal Date Finder",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86673afe7fc590a4a3dda",
       "name": "PF · Battlecard Writer",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8667ed96c5f6ba243cf29",
       "name": "PF · Buying Signal Spotter",
-      "version": 2,
+      "version": 5,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86680afe7fc590a4a3f53",
       "name": "PF · Duplicate Finder",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86682d96c5f6ba243cf48",
       "name": "PF · Company Facts Collector",
-      "version": 2,
+      "version": 5,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86684d96c5f6ba243cf6a",
       "name": "PF · Parent Company Linker",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86685f410ab7b2f151b2f",
       "name": "PF · Use Case Matcher",
-      "version": 2,
+      "version": 5,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86687d96c5f6ba243cfb8",
       "name": "PF · Headquarters Finder",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86689d96c5f6ba243cfd8",
       "name": "PF · Case for Change Drafter",
-      "version": 2,
+      "version": 5,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8668bafe7fc590a4a3fec",
       "name": "PF · Headquarters Re-checker",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8668ef410ab7b2f151c47",
       "name": "PF · New Account Finder",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae867cdafe7fc590a4f8e82",
       "name": "PF · Buying Team Mapper",
-      "version": 1,
+      "version": 3,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae867d2f410ab7b2f155861",
       "name": "PF · Person Notes Writer",
-      "version": 1,
+      "version": 3,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae867d4f410ab7b2f155959",
       "name": "PF · Intro Finder",
-      "version": 1,
+      "version": 2,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86821f410ab7b2f15695c",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Play Picker",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86825f410ab7b2f156a03",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Page Builder",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86828f410ab7b2f156a22",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Content Picker",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ad96c5f6ba2441a16",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Message Writer",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ed96c5f6ba2441a5f",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Fact Checker",
+      "version": 5,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8687bd96c5f6ba2442526",
+      "name": "PF · Message Grader",
+      "version": 3,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8687ef410ab7b2f1575c6",
+      "name": "PF · Call Script Writer",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86881d96c5f6ba244257b",
+      "name": "PF · Follow-up Planner",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86884d96c5f6ba24425cc",
+      "name": "PF · Inbox Health Checker",
+      "version": 2,
+      "stale": false
     }
   ],
   "edges": [
@@ -4093,32 +4121,56 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86821f410ab7b2f15695c",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Play Picker",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86825f410ab7b2f156a03",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Page Builder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86828f410ab7b2f156a22",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Content Picker",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ad96c5f6ba2441a16",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Message Writer",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ed96c5f6ba2441a5f",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Fact Checker",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8687bd96c5f6ba2442526",
+      "name": "PF · Message Grader",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8687ef410ab7b2f1575c6",
+      "name": "PF · Call Script Writer",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86881d96c5f6ba244257b",
+      "name": "PF · Follow-up Planner",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86884d96c5f6ba24425cc",
+      "name": "PF · Inbox Health Checker",
+      "reason": "its tools are not in the cache (get_agent)"
     }
   ]
 }

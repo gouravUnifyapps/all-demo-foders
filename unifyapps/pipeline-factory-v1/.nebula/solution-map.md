@@ -47,28 +47,32 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | object | `PF Inbox` | OBJ_pf_inbox | 0 | no |
 | object | `PF Suppression` | OBJ_pf_suppression | 0 | no |
 | ai-agent | `Pipeline Factory Analyst` | e_6ae846ffd96c5f6ba22b98da | 14 | no |
-| ai-agent | `PF · Fit Scorer` | e_6ae86666d96c5f6ba243ce26 | 2 | no |
-| ai-agent | `PF · Patch Suggester` | e_6ae8666ad96c5f6ba243ce39 | 2 | no |
-| ai-agent | `PF · Current Vendor Finder` | e_6ae8666dafe7fc590a4a3d96 | 2 | no |
-| ai-agent | `PF · Renewal Date Finder` | e_6ae86671d96c5f6ba243ce77 | 2 | no |
-| ai-agent | `PF · Battlecard Writer` | e_6ae86673afe7fc590a4a3dda | 2 | no |
-| ai-agent | `PF · Buying Signal Spotter` | e_6ae8667ed96c5f6ba243cf29 | 2 | no |
-| ai-agent | `PF · Duplicate Finder` | e_6ae86680afe7fc590a4a3f53 | 2 | no |
-| ai-agent | `PF · Company Facts Collector` | e_6ae86682d96c5f6ba243cf48 | 2 | no |
-| ai-agent | `PF · Parent Company Linker` | e_6ae86684d96c5f6ba243cf6a | 2 | no |
-| ai-agent | `PF · Use Case Matcher` | e_6ae86685f410ab7b2f151b2f | 2 | no |
-| ai-agent | `PF · Headquarters Finder` | e_6ae86687d96c5f6ba243cfb8 | 2 | no |
-| ai-agent | `PF · Case for Change Drafter` | e_6ae86689d96c5f6ba243cfd8 | 2 | no |
-| ai-agent | `PF · Headquarters Re-checker` | e_6ae8668bafe7fc590a4a3fec | 2 | no |
-| ai-agent | `PF · New Account Finder` | e_6ae8668ef410ab7b2f151c47 | 2 | no |
-| ai-agent | `PF · Buying Team Mapper` | e_6ae867cdafe7fc590a4f8e82 | 1 | no |
-| ai-agent | `PF · Person Notes Writer` | e_6ae867d2f410ab7b2f155861 | 1 | no |
-| ai-agent | `PF · Intro Finder` | e_6ae867d4f410ab7b2f155959 | 1 | no |
-| ai-agent |  | e_6ae86821f410ab7b2f15695c |  | yes |
-| ai-agent |  | e_6ae86825f410ab7b2f156a03 |  | yes |
-| ai-agent |  | e_6ae86828f410ab7b2f156a22 |  | yes |
-| ai-agent |  | e_6ae8682ad96c5f6ba2441a16 |  | yes |
-| ai-agent |  | e_6ae8682ed96c5f6ba2441a5f |  | yes |
+| ai-agent | `PF · Fit Scorer` | e_6ae86666d96c5f6ba243ce26 | 7 | no |
+| ai-agent | `PF · Patch Suggester` | e_6ae8666ad96c5f6ba243ce39 | 7 | no |
+| ai-agent | `PF · Current Vendor Finder` | e_6ae8666dafe7fc590a4a3d96 | 7 | no |
+| ai-agent | `PF · Renewal Date Finder` | e_6ae86671d96c5f6ba243ce77 | 7 | no |
+| ai-agent | `PF · Battlecard Writer` | e_6ae86673afe7fc590a4a3dda | 7 | no |
+| ai-agent | `PF · Buying Signal Spotter` | e_6ae8667ed96c5f6ba243cf29 | 5 | no |
+| ai-agent | `PF · Duplicate Finder` | e_6ae86680afe7fc590a4a3f53 | 7 | no |
+| ai-agent | `PF · Company Facts Collector` | e_6ae86682d96c5f6ba243cf48 | 5 | no |
+| ai-agent | `PF · Parent Company Linker` | e_6ae86684d96c5f6ba243cf6a | 7 | no |
+| ai-agent | `PF · Use Case Matcher` | e_6ae86685f410ab7b2f151b2f | 5 | no |
+| ai-agent | `PF · Headquarters Finder` | e_6ae86687d96c5f6ba243cfb8 | 7 | no |
+| ai-agent | `PF · Case for Change Drafter` | e_6ae86689d96c5f6ba243cfd8 | 5 | no |
+| ai-agent | `PF · Headquarters Re-checker` | e_6ae8668bafe7fc590a4a3fec | 7 | no |
+| ai-agent | `PF · New Account Finder` | e_6ae8668ef410ab7b2f151c47 | 7 | no |
+| ai-agent | `PF · Buying Team Mapper` | e_6ae867cdafe7fc590a4f8e82 | 3 | no |
+| ai-agent | `PF · Person Notes Writer` | e_6ae867d2f410ab7b2f155861 | 3 | no |
+| ai-agent | `PF · Intro Finder` | e_6ae867d4f410ab7b2f155959 | 2 | no |
+| ai-agent | `PF · Play Picker` | e_6ae86821f410ab7b2f15695c | 1 | no |
+| ai-agent | `PF · Page Builder` | e_6ae86825f410ab7b2f156a03 | 1 | no |
+| ai-agent | `PF · Content Picker` | e_6ae86828f410ab7b2f156a22 | 1 | no |
+| ai-agent | `PF · Message Writer` | e_6ae8682ad96c5f6ba2441a16 | 2 | no |
+| ai-agent | `PF · Fact Checker` | e_6ae8682ed96c5f6ba2441a5f | 5 | no |
+| ai-agent | `PF · Message Grader` | e_6ae8687bd96c5f6ba2442526 | 3 | no |
+| ai-agent | `PF · Call Script Writer` | e_6ae8687ef410ab7b2f1575c6 | 1 | no |
+| ai-agent | `PF · Follow-up Planner` | e_6ae86881d96c5f6ba244257b | 1 | no |
+| ai-agent | `PF · Inbox Health Checker` | e_6ae86884d96c5f6ba24425cc | 2 | no |
 
 ## Wiring
 
@@ -323,8 +327,12 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 - ai-agent `PF · Buying Team Mapper` (e_6ae867cdafe7fc590a4f8e82): its tools are not in the cache (get_agent)
 - ai-agent `PF · Person Notes Writer` (e_6ae867d2f410ab7b2f155861): its tools are not in the cache (get_agent)
 - ai-agent `PF · Intro Finder` (e_6ae867d4f410ab7b2f155959): its tools are not in the cache (get_agent)
-- ai-agent `e_6ae86821f410ab7b2f15695c` (e_6ae86821f410ab7b2f15695c): entity-not-cached
-- ai-agent `e_6ae86825f410ab7b2f156a03` (e_6ae86825f410ab7b2f156a03): entity-not-cached
-- ai-agent `e_6ae86828f410ab7b2f156a22` (e_6ae86828f410ab7b2f156a22): entity-not-cached
-- ai-agent `e_6ae8682ad96c5f6ba2441a16` (e_6ae8682ad96c5f6ba2441a16): entity-not-cached
-- ai-agent `e_6ae8682ed96c5f6ba2441a5f` (e_6ae8682ed96c5f6ba2441a5f): entity-not-cached
+- ai-agent `PF · Play Picker` (e_6ae86821f410ab7b2f15695c): its tools are not in the cache (get_agent)
+- ai-agent `PF · Page Builder` (e_6ae86825f410ab7b2f156a03): its tools are not in the cache (get_agent)
+- ai-agent `PF · Content Picker` (e_6ae86828f410ab7b2f156a22): its tools are not in the cache (get_agent)
+- ai-agent `PF · Message Writer` (e_6ae8682ad96c5f6ba2441a16): its tools are not in the cache (get_agent)
+- ai-agent `PF · Fact Checker` (e_6ae8682ed96c5f6ba2441a5f): its tools are not in the cache (get_agent)
+- ai-agent `PF · Message Grader` (e_6ae8687bd96c5f6ba2442526): its tools are not in the cache (get_agent)
+- ai-agent `PF · Call Script Writer` (e_6ae8687ef410ab7b2f1575c6): its tools are not in the cache (get_agent)
+- ai-agent `PF · Follow-up Planner` (e_6ae86881d96c5f6ba244257b): its tools are not in the cache (get_agent)
+- ai-agent `PF · Inbox Health Checker` (e_6ae86884d96c5f6ba24425cc): its tools are not in the cache (get_agent)

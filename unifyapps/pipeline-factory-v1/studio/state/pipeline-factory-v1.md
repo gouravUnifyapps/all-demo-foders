@@ -1180,6 +1180,10 @@ decisions:
     when: 2026-11-02
     text: "Build (R2-P06, R2-P07): model card e_6acca2af70b66f5702c8b59f (Claude Sonnet 5, provider anthropic) fails every run with the provider's 401 invalid x-api-key although list_models shows it active; the family-A agents use the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model (a platform choice, not a client one). Save agent output's threshold rule stands for every agent (under threshold waiting_person, else saved; no no_action result): where a line says no_action or not suggested, the agent saves once with changed:false or suggested:false and says no action."
 
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Build (R2-P07): Save agent output's single threshold rule differs from three agents' own routing lines: C08 Current Vendor Finder (under 60 should save tagged [HYPOTHESIS], goes waiting_person), C09 Renewal Date Finder (under 60 should be no action, goes waiting_person), C10 Battlecard Writer (every draft should wait for product marketing, saves with a hand-off). Kept as built (one rule for every agent, decided above); listed for the G3 pack. Agents are also offered tenant-injected EnvironmentAccess and RequestEnvironmentDeploy tools they do not have attached (the round-1 dev issue)."
+
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"

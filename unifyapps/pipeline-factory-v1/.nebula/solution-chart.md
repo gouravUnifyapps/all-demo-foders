@@ -27,7 +27,7 @@ flowchart LR
   n23["automation Pipeline Factory · Contact Finder · 6ae862f3f13e536c52e76ecd"]
   n24["automation Pipeline Factory · Alarm and Escalation · 6ae863282099302ffb2cf702"]
   n25["automation Pipeline Factory · Account Ranking · 6ae8632c9ec43c6ee22f380d"]
-  n26["automation 6ae8635446920244f3d5194b · 6ae8635446920244f3d5194b"]
+  n26["automation Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b"]
   n27["automation Pipeline Factory · Send Rules Check · 6ae863842099302ffb2d0262"]
   n28["automation Pipeline Factory · Weekly Slot Planner · 6ae863a5f38e327618183dca"]
   n29["automation Pipeline Factory · Content Handoff · 6ae863d0fbdd550a9a4ffc58"]
@@ -183,6 +183,17 @@ flowchart LR
   n25 -->|storage write| n40
   n25 -->|call node| n14
   n25 -->|storage write| n48
+  n26 -->|storage read| n46
+  n26 -->|storage read| n40
+  n26 -->|storage read| n41
+  n26 -->|storage read| n42
+  n26 -->|storage read| n43
+  n26 -->|storage read| n44
+  n26 -->|storage read| n49
+  n26 -->|storage read| n45
+  n26 -->|storage read| n50
+  n26 -->|storage read| n51
+  n26 -->|storage read| n48
   n27 -->|storage read| n44
   n27 -->|storage read| n40
   n27 -->|storage read| n41

@@ -148,9 +148,9 @@
     {
       "kind": "automation",
       "id": "6ae8635446920244f3d5194b",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Read component inputs",
+      "version": 5,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -2269,6 +2269,171 @@
     {
       "from": {
         "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the component row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component",
+        "name": "PF Component"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the accounts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the signals"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_signal",
+        "name": "PF Signal"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the facts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_fact",
+        "name": "PF Fact"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the drafts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the sources"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the hand-offs, newest first"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_handoff",
+        "name": "PF Hand-off"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the inboxes"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the suppression rows"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_suppression",
+        "name": "PF Suppression"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8635446920244f3d5194b",
+        "name": "Pipeline Factory · Read component inputs",
+        "part": "node Read the last 50 component runs"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
         "id": "6ae863842099302ffb2d0262",
         "name": "Pipeline Factory · Send Rules Check",
         "part": "node Read the draft"
@@ -3929,12 +4094,6 @@
     }
   ],
   "unknown": [
-    {
-      "kind": "automation",
-      "id": "6ae8635446920244f3d5194b",
-      "name": null,
-      "reason": "entity-write"
-    },
     {
       "kind": "ai-agent",
       "id": "e_6ae846ffd96c5f6ba22b98da",

@@ -20,7 +20,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation | `Pipeline Factory · Contact Finder` | 6ae862f3f13e536c52e76ecd | 1 | no |
 | automation | `Pipeline Factory · Alarm and Escalation` | 6ae863282099302ffb2cf702 | 5 | no |
 | automation | `Pipeline Factory · Account Ranking` | 6ae8632c9ec43c6ee22f380d | 2 | no |
-| automation |  | 6ae8635446920244f3d5194b |  | yes |
+| automation | `Pipeline Factory · Read component inputs` | 6ae8635446920244f3d5194b | 5 | no |
 | automation | `Pipeline Factory · Send Rules Check` | 6ae863842099302ffb2d0262 | 1 | no |
 | automation | `Pipeline Factory · Weekly Slot Planner` | 6ae863a5f38e327618183dca | 0 | no |
 | automation | `Pipeline Factory · Content Handoff` | 6ae863d0fbdd550a9a4ffc58 | 0 | no |
@@ -199,6 +199,17 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Account Ranking` | `node Move the account to Gate 1 pending` | object `PF Account` | storage write |  |
 | automation `Pipeline Factory · Account Ranking` | `node Save the Account Ranking to Gate 1 hand-off` | automation `Pipeline Factory · Save hand-off` | call node | `handoff_id` |
 | automation `Pipeline Factory · Account Ranking` | `node Log the PF Component run (C12)` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the component row` | object `PF Component` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the accounts` | object `PF Account` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the people` | object `PF Person` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the signals` | object `PF Signal` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the facts` | object `PF Fact` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the drafts` | object `PF Draft` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the sources` | object `PF Source` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the hand-offs, newest first` | object `PF Hand-off` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the inboxes` | object `PF Inbox` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the suppression rows` | object `PF Suppression` | storage read |  |
+| automation `Pipeline Factory · Read component inputs` | `node Read the last 50 component runs` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Send Rules Check` | `node Read the draft` | object `PF Draft` | storage read |  |
 | automation `Pipeline Factory · Send Rules Check` | `node Read the draft's account` | object `PF Account` | storage read |  |
 | automation `Pipeline Factory · Send Rules Check` | `node Read the draft's person` | object `PF Person` | storage read |  |
@@ -310,7 +321,6 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 ## Not checked
 
-- automation `6ae8635446920244f3d5194b` (6ae8635446920244f3d5194b): entity-write
 - ai-agent `Pipeline Factory Analyst` (e_6ae846ffd96c5f6ba22b98da): its tools are not in the cache (get_agent)
 - ai-agent `PF · Fit Scorer` (e_6ae86666d96c5f6ba243ce26): its tools are not in the cache (get_agent)
 - ai-agent `PF · Patch Suggester` (e_6ae8666ad96c5f6ba243ce39): its tools are not in the cache (get_agent)

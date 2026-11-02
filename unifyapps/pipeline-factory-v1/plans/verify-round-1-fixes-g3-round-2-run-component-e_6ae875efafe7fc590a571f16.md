@@ -22,10 +22,10 @@ Goal: Verify round 1 fixes (G3 round 2): Run component runs a component with no 
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Pipeline Factory · Run component |  | running | 1 |
-| t2 | deploy | Pipeline Factory · Run component | t1 | pending | 0 |
-| t3 | automation | Pipeline Factory · Save agent output |  | running | 1 |
-| t4 | deploy | Pipeline Factory · Save agent output | t3 | pending | 0 |
+| t1 | automation | Pipeline Factory · Run component |  | done | 1 |
+| t2 | deploy | Pipeline Factory · Run component | t1 | running | 1 |
+| t3 | automation | Pipeline Factory · Save agent output |  | done | 1 |
+| t4 | deploy | Pipeline Factory · Save agent output | t3 | running | 1 |
 | t5 | ai-agent | Pipeline Factory Analyst |  | done | 1 |
 | t6 | publish | Pipeline Factory Analyst | t5 | done | 1 |
 | t7 | publish | PF · Reply Sorter |  | done | 1 |
@@ -40,6 +40,22 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: Test runs of Run component for C13, C33 and C39 with no account answer ran, and C18 on A-1001 still runs.
+Result IDs: {"entity":"6ae865229ec43c6ee2300d8d"}
+Read back: Pipeline Factory · Run component 6ae865229ec43c6ee2300d8d: compile_and_save_workflow ok:true 'Workflow saved successfully at version 3.'; open_workflow returns version 3, deployment definitionVersion 2, savedAfterDeploy true (not deployed, as the task says); the saved code differs from the edit only in one auto-named variable (holdTheAccountSPatchEmptyWhenNoAccountIsGiven) and indentation
+Read back: Pipeline Factory · Run component: the saved code wraps 'Read the account for its patch' (n_anshr) in 'Account given?' (n_b3a2k: account_id exists and is not empty); a new 'Hold the account's patch' variable (n_fb47z, patch_id "") takes the account's patch_id when one is given; C13 Weekly Slot Planner now passes that variable as patch_id; every other arm, input and result field is unchanged
+Read back: Pipeline Factory · Run component test 6ae876ed46920244f3d8c6ec (C13, account_id ""): COMPLETED, n_b3a2k false so the account read was skipped, patch_id ""; response result 'ran', summary 'allocated 2 patch(es): PATCH-NAE-04 20 (boost 25%); PATCH-NAE-03 24'; get_records shows PF Component run rows CR-C13-6ae876ed46920244f3d8c6f1-PATCH-NAE-04 and -PATCH-NAE-03 (status saved, origin test)
+Read back: Pipeline Factory · Run component test 6ae876f09ec43c6ee258587d (C13, A-1015): COMPLETED, n_anshr ran and the variable read patch_id 'PATCH-NAE-04'; response result 'ran', summary 'allocated 1 patch(es): PATCH-NAE-04 20 (boost 25%)'; row CR-C13-6ae876f09ec43c6ee25858da-PATCH-NAE-04 saved, origin test
+Read back: Pipeline Factory · Run component test 6ae876f2f38e3276181c361d (C33, draft D-06, no account): COMPLETED, response result 'ran', summary 'Blocked: person is in another sequence', reason 'Send Rules Check answered blocked'; row CR-C33-6ae876f2f38e3276181c3626 status blocked, origin test
+Read back: Pipeline Factory · Run component test 6ae876f39594aa458cecf85f (C39, no account): COMPLETED, response result 'ran', reason 'Email Domain Swapper answered done'; row CR-C39-6ae876f39594aa458cecf86d saved, origin test
+Read back: Pipeline Factory · Run component test 6ae876f4f6f76639f83cc1fe (C18, A-1001, unchanged agent path): COMPLETED, response result 'ran', run_id RUN-6ae87720f6f76639f83cc5f0, confidence 72, reason 'run saved: saved; wrote PF Fact row (case_for_change)'
+Read back: Pipeline Factory · Run component: best practice 83 (82 of 85 checks), version 3, no fix round (every failing check is an exception below)
+Unverified: Run component with account_id given but not in PF Account (for example A-9999) was not tested: for C13 the patch_id would come through empty, so every patch would be planned. Check: one test run of C13 with A-9999.
+Note: Test rows left for Pipeline Factory · Reset demo (origin test): PF Component run CR-C13-6ae876ed46920244f3d8c6f1-PATCH-NAE-04, CR-C13-6ae876ed46920244f3d8c6f1-PATCH-NAE-03, CR-C13-6ae876f09ec43c6ee25858da-PATCH-NAE-04, CR-C33-6ae876f2f38e3276181c3626, CR-C39-6ae876f39594aa458cecf86d, RUN-6ae87720f6f76639f83cc5f0; PF Hand-off H-6ae87720f6f76639f83cc5f1, H-6ae87720f6f76639f83cc5f3, H-6ae87720f6f76639f83cc5f5; the PF Fact row (case_for_change) the C18 agent saved for A-1001; plus whatever Weekly Slot Planner, Send Rules Check and Email Domain Swapper wrote (the C39 run rested IN-02, swapped IN-03 in and retired IN-05)
+Note: The C18 test ran through the deployed Save agent output (version 0), so its hand-offs H-6ae87720…f1/f3/f5 still carry model 'none (deterministic)'; the t3 fix ships only when Save agent output is deployed
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Call workflow (n_xtvtn, n_wl78k, n_tepgt, n_d6i2g) · nodes not changed by this task; the DSL has no node option to hide inputs/outputs
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_cr23d, n_lsmyd, n_anshr, n_khd03) · needs object indexes on OBJ_pf_component, OBJ_pf_component_run and OBJ_pf_account outside the task
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields (n_87wnj) · nodes not changed by this task
+Note: Security: no change to access or identity; the account read is still filtered by account_id, and no secret was written
 
 ### t2 · Deploy Pipeline Factory · Run component
 
@@ -62,6 +78,34 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: The PF Hand-off rows a test save makes carry the run's model and each receiver's threshold.
+Result IDs: {"entity":"6ae864829594aa458cc1ce69"}
+Read back: Pipeline Factory · Save agent output 6ae864829594aa458cc1ce69: saved as version 1 (51 nodes); open_workflow returns code identical to the edit, deployment definitionVersion 0, savedAfterDeploy true (not deployed, as the task says)
+Read back: Pipeline Factory · Save agent output: describe_callable_workflow for Save hand-off 6ae840a5fbdd550a9a44c524 lists 13 inputs with no model or threshold, so after each Save hand-off call a new step writes properties.model = the run's model input and properties.threshold = the receiver's PF Component threshold onto the PF Hand-off row, by its id (handoff_id), and only when handoff_id is not empty and the result is not 'duplicate'; the register read now fetches threshold and each feed carries its receiver's threshold; Save hand-off is unchanged (version 4)
+Read back: Pipeline Factory · Save agent output test 6ae877502099302ffb30f2aa (C18, A-1001, play PLAY-T3-TEST, model 'Claude Sonnet 5', confidence 80): COMPLETED, result 'saved', handoff_ids H-6ae877512099302ffb30f368,H-6ae877512099302ffb30f3a0,H-6ae877512099302ffb30f3ae
+Read back: Pipeline Factory · Save agent output: get_records PF Hand-off H-6ae877512099302ffb30f368 to Play Picker: model 'Claude Sonnet 5', threshold 70; H-6ae877512099302ffb30f3a0 to Message Writer: model 'Claude Sonnet 5', threshold 70; H-6ae877512099302ffb30f3ae to Meeting Prep Writer: model 'Claude Sonnet 5', threshold 0 (its registered threshold in PF Component C44)
+Read back: Pipeline Factory · Save agent output test 6ae8773af38e3276181c3a03 (under threshold, confidence 50): COMPLETED, result 'waiting_person', reason 'confidence 50 under threshold 70', handoff_ids '' (no hand-off is saved under threshold, as before)
+Read back: Pipeline Factory · Save agent output test 6ae877379594aa458cecfc2a (same key as the agent's earlier save): result 'saved'; the three hand-offs answered 'duplicate already saved under A-1001\|\|', so no hand-off row was rewritten
+Unverified: Best Practice score not read: get_workflow_best_practice_report answered HTTP 500 'Workflow execution failed' twice for version 1; no fix round was made. Check: read the score chip for Save agent output in the builder.
+Unverified: A call with model left blank was not tested; the new step sets skipIfBlank true so that a blank model keeps Save hand-off's value. Check: one test save with model "" and a fresh play_id, then read the PF Hand-off model.
+Note: The task expected Meeting Prep Writer's own threshold 'not 0', but its PF Component row C44 registers threshold 0. The row now carries that registered value, 0, read from the register. If 0 is wrong, the register row needs changing; that is outside this task.
+Note: Save hand-off already wrote the receiver's threshold (70/70/0 on the agent's hand-offs H-6ae87720f6f76639f83cc5f1/3/5); the defect seen was model 'none (deterministic)' on all three
+Note: Save hand-off keys hand-offs on account\|person\|play, so a second test save with the same account, person and play answers duplicate and writes no new row. The proof test used play_id PLAY-T3-TEST to get a fresh key.
+Note: Test rows left for Pipeline Factory · Reset demo (origin test): PF Component run RUN-6ae877379594aa458cecfc2a, RUN-6ae8773af38e3276181c3a03, RUN-6ae877502099302ffb30f2aa; PF Hand-off H-6ae877512099302ffb30f368, H-6ae877512099302ffb30f3a0, H-6ae877512099302ffb30f3ae; the PF Fact rows (case_for_change, A-1001) the two saved runs wrote
+Note: Security: the new write sets only the model and threshold fields of a PF Hand-off row that this same run saved (by its returned id); no access settings were changed and no secret was written
+Note: feedback:
+Bug: compile_and_save_workflow reported failure (a 60 s MCP timeout, then HTTP 502 on the one retry) while the retry's save had in fact landed.
+Context: An update save of Pipeline Factory · Save agent output (6ae864829594aa458cc1ce69, about 47 KB by codeFile) on orbit UAT.
+Where: mcp-tool
+Evidence: Call 1 timed out after 60s and the version stayed 0. Call 2 returned 'Tenant MCP returned HTTP 502.', yet search_workflows then showed version 1 and open_workflow returned code identical to the file sent.
+Cause: Unknown — next check: time the tenant save of a ~47 KB workflow against the bridge's 60 s timeout and the gateway's timeout.
+Regression: Saving a workflow of about 47 KB by codeFile answers ok:true with the new version.
+Note: feedback:
+Bug: get_workflow_best_practice_report failed twice with HTTP 500 for Save agent output, while it scored Run component in the same session.
+Context: workflowIds [6ae864829594aa458cc1ce69], version 1, 51 nodes, orbit UAT.
+Where: platform
+Evidence: 'POST /api/workflow/execute/node failed with HTTP 500 Internal Server Error: Workflow execution failed' on both tries.
+Cause: Unknown — next check: open the builder's score chip for version 1 and read the platform log for that 500.
+Regression: get_workflow_best_practice_report on 6ae864829594aa458cc1ce69 returns a score.
 
 ### t4 · Deploy Pipeline Factory · Save agent output
 

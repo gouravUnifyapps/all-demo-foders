@@ -28,10 +28,10 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation | `Pipeline Factory · Holdout Picker` | 6ae864059ec43c6ee22f8008 | 0 | no |
 | automation | `Pipeline Factory · Email Domain Swapper` | 6ae864342099302ffb2d2a71 | 0 | no |
 | automation | `Pipeline Factory · Do-Not-Contact List` | 6ae864672099302ffb2d3157 | 1 | no |
-| automation | `Pipeline Factory · Save agent output` | 6ae864829594aa458cc1ce69 | 0 | no |
+| automation | `Pipeline Factory · Save agent output` | 6ae864829594aa458cc1ce69 | 1 | no |
 | automation | `Pipeline Factory · Outreach Launcher` | 6ae864929594aa458cc23de9 | 0 | no |
 | automation | `Pipeline Factory · Privacy and Consent` | 6ae86493f38e32761818a2c1 | 1 | no |
-| automation |  | 6ae865229ec43c6ee2300d8d |  | yes |
+| automation | `Pipeline Factory · Run component` | 6ae865229ec43c6ee2300d8d | 3 | no |
 | automation | `Pipeline Factory · Meeting Handoff and Deadlines` | 6ae8654d2099302ffb2d9514 | 1 | no |
 | object | `PF Patch` | OBJ_pf_patch | 0 | no |
 | object | `PF Account` | OBJ_pf_account | 0 | no |
@@ -90,7 +90,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
-| page `global-page-of-app-2fbe93e8c1f7` | `data source Run component` | automation `6ae865229ec43c6ee2300d8d` | data source |  |
+| page `global-page-of-app-2fbe93e8c1f7` | `data source Run component` | automation `Pipeline Factory · Run component` | data source |  |
 | page `global-page-of-app-2fbe93e8c1f7` | `data source Pause component` | automation `Pipeline Factory · Pause component` | data source |  |
 | page `global-page-of-app-2fbe93e8c1f7` | `data source Book meeting` | automation `Pipeline Factory · Book meeting` | data source |  |
 | page `global-page-of-app-2fbe93e8c1f7` | `data source Clear Gate 2` | automation `Pipeline Factory · Clear Gate 2` | data source |  |
@@ -278,6 +278,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Save agent output` | `node Create the PF Fact row with the caller's origin` | object `PF Fact` | storage write |  |
 | automation `Pipeline Factory · Save agent output` | `node Create the PF Draft row with the caller's origin` | object `PF Draft` | storage write |  |
 | automation `Pipeline Factory · Save agent output` | `node Save the hand-off through Pipeline Factory · Save hand-off` | automation `Pipeline Factory · Save hand-off` | call node | `handoff_id`, `reason`, `result` |
+| automation `Pipeline Factory · Save agent output` | `node Write the run's model and the receiver's threshold on the saved PF Hand-off row` | object `PF Hand-off` | storage write |  |
 | automation `Pipeline Factory · Save agent output` | `node Update the same PF Component run row` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Save agent output` | `node Save the PF Component run row` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Outreach Launcher` | `node Read the account` | object `PF Account` | storage read |  |
@@ -295,6 +296,23 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Privacy and Consent` | `node Screen the person through Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result`, `suppression_id` |
 | automation `Pipeline Factory · Privacy and Consent` | `node Complete the erasure through Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result` |
 | automation `Pipeline Factory · Privacy and Consent` | `node Log the checks in one PF Component run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Run component` | `node Read the component row` | object `PF Component` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Read the newest run the agent saved during this call` | object `PF Component run` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Write latency_ms on the agent's run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Run component` | `node Read the account for its patch` | object `PF Account` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Run Account Ranking` | automation `Pipeline Factory · Account Ranking` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Weekly Slot Planner` | automation `Pipeline Factory · Weekly Slot Planner` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Holdout Picker` | automation `Pipeline Factory · Holdout Picker` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Contact Finder` | automation `Pipeline Factory · Contact Finder` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Run component` | `node Run Send Rules Check` | automation `Pipeline Factory · Send Rules Check` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Run component` | `node Run Outreach Launcher` | automation `Pipeline Factory · Outreach Launcher` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Email Domain Swapper` | automation `Pipeline Factory · Email Domain Swapper` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Meeting Handoff and Deadlines` | automation `Pipeline Factory · Meeting Handoff and Deadlines` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Alarm and Escalation` | automation `Pipeline Factory · Alarm and Escalation` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Content Handoff` | automation `Pipeline Factory · Content Handoff` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Privacy and Consent` | automation `Pipeline Factory · Privacy and Consent` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Read the run the workflow logged during this call` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read the account` | object `PF Account` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read the account's calendar events` | object `PF Source` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read every account` | object `PF Account` | storage read |  |
@@ -305,7 +323,6 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 ## Not checked
 
-- automation `6ae865229ec43c6ee2300d8d` (6ae865229ec43c6ee2300d8d): entity-write
 - ai-agent `Pipeline Factory Analyst` (e_6ae846ffd96c5f6ba22b98da): its tools are not in the cache (get_agent)
 - ai-agent `PF · Fit Scorer` (e_6ae86666d96c5f6ba243ce26): its tools are not in the cache (get_agent)
 - ai-agent `PF · Patch Suggester` (e_6ae8666ad96c5f6ba243ce39): its tools are not in the cache (get_agent)

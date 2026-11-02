@@ -209,7 +209,7 @@
       "kind": "automation",
       "id": "6ae864829594aa458cc1ce69",
       "name": "Pipeline Factory · Save agent output",
-      "version": 0,
+      "version": 1,
       "stale": false
     },
     {
@@ -229,9 +229,9 @@
     {
       "kind": "automation",
       "id": "6ae865229ec43c6ee2300d8d",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Run component",
+      "version": 3,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -616,7 +616,7 @@
       "to": {
         "kind": "automation",
         "id": "6ae865229ec43c6ee2300d8d",
-        "name": null
+        "name": "Pipeline Factory · Run component"
       },
       "via": "data source",
       "fields": []
@@ -3464,6 +3464,21 @@
         "kind": "automation",
         "id": "6ae864829594aa458cc1ce69",
         "name": "Pipeline Factory · Save agent output",
+        "part": "node Write the run's model and the receiver's threshold on the saved PF Hand-off row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_handoff",
+        "name": "PF Hand-off"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864829594aa458cc1ce69",
+        "name": "Pipeline Factory · Save agent output",
         "part": "node Update the same PF Component run row"
       },
       "to": {
@@ -3724,6 +3739,287 @@
     {
       "from": {
         "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the component row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component",
+        "name": "PF Component"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the newest run the agent saved during this call"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Write latency_ms on the agent's run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the account for its patch"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Account Ranking"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae8632c9ec43c6ee22f380d",
+        "name": "Pipeline Factory · Account Ranking"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Weekly Slot Planner"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863a5f38e327618183dca",
+        "name": "Pipeline Factory · Weekly Slot Planner"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Holdout Picker"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864059ec43c6ee22f8008",
+        "name": "Pipeline Factory · Holdout Picker"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Contact Finder"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Do-Not-Contact List"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864672099302ffb2d3157",
+        "name": "Pipeline Factory · Do-Not-Contact List"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Send Rules Check"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Outreach Launcher"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Email Domain Swapper"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864342099302ffb2d2a71",
+        "name": "Pipeline Factory · Email Domain Swapper"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Meeting Handoff and Deadlines"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Alarm and Escalation"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Content Handoff"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Privacy and Consent"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the run the workflow logged during this call"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
         "id": "6ae8654d2099302ffb2d9514",
         "name": "Pipeline Factory · Meeting Handoff and Deadlines",
         "part": "node Read the account"
@@ -3832,12 +4128,6 @@
     }
   ],
   "unknown": [
-    {
-      "kind": "automation",
-      "id": "6ae865229ec43c6ee2300d8d",
-      "name": null,
-      "reason": "entity-write"
-    },
     {
       "kind": "ai-agent",
       "id": "e_6ae846ffd96c5f6ba22b98da",

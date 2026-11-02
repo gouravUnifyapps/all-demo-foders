@@ -1,0 +1,18 @@
+code,kind,system,local_value,group_value,version,owner,status
+GP-RULE,gp_rule,,,GP = revenue - cost of sale - people cost (hours x standard rate) + vendor rebates allocated by revenue share; a rebate counts in the quarter it was earned,v1.2,Sara Thomas · Group finance,approved
+RATE-01,standard_rate,embee,,Delivery standard rate $28 per hour,v1.0,Arjun Mehta · Embee finance,approved
+RATE-02,standard_rate,nqai,,Delivery standard rate $32 per hour,v1.0,Neha Iyer · NQ AI delivery lead,approved
+RATE-03,standard_rate,entc,,Delivery standard rate $55 per hour,v1.0,Sara Thomas · Group finance,approved
+FX-01,fx,,,"Group reporting in USD; INR at 84.00 per USD, fixed for the POC",v1.0,Sara Thomas · Group finance,approved
+MATCH-01,match_rule,,,Same tax id (GSTIN or VAT) in two systems: linked automatically,v1.0,Sara Thomas · Group finance,approved
+MATCH-02,match_rule,,,"Normalised name and address similarity 0.85 or more: suggested, owner confirms; below 0.85: exception",v1.0,Kavya Rao · NQ AI sales operations,approved
+STAGE-CR-Q,stage_map,creatio,Qualified,discovery,v1.0,Sara Thomas · Group finance,approved
+STAGE-D-Q,stage_map,dynamics365,Qualified,qualified,v1.0,Sara Thomas · Group finance,approved
+STAGE-BW-B,stage_map,blackandwhite,Budget OK,qualified,v1.0,Sara Thomas · Group finance,approved
+SVC-SB1,service_map,sapb1,M365-LIC,licensing,v1.1,Arjun Mehta · Embee finance,approved
+SVC-T,service_map,tally,AIP-01,ai_data,v1.1,Kavya Rao · NQ AI sales operations,approved
+SVC-NS,service_map,netsuite,4300-Services,managed,v1.1,Sara Thomas · Group finance,approved
+SYNC-01,sync_policy,,"ERP, payroll, time","Copied nightly (payroll monthly, team level only): month-end GP needs stable, reconciled numbers",v1.0,Sara Thomas · Group finance,approved
+SYNC-02,sync_policy,,CRM,Deal status and amount read live from the CRM; copied into the layer on Sync now or nightly,v1.0,Sara Thomas · Group finance,approved
+SYNC-03,sync_policy,,all,"A failed run is retried once, then raised as an exception to the system's owner",v1.0,Neha Iyer · NQ AI delivery lead,approved
+TIME-01,exception_rule,,timesheets,Logged hours below 90% of planned hours for a closed month raise an exception; the owner may accrue from planned hours,v1.0,Neha Iyer · NQ AI delivery lead,approved

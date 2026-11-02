@@ -1,0 +1,29 @@
+link_id,account_key,system,source_id,source_name,method,confidence,status,confirmed_by
+LNK-001,NQ-ACC-0001,dynamics365,D-ACC-1007,Aster Pharma Pvt Ltd,tax_id,1.0,matched,rule
+LNK-002,NQ-ACC-0001,sapb1,SB1-C-1007,ASTER PHARMA PVT. LTD.,tax_id,1.0,matched,rule
+LNK-003,NQ-ACC-0002,creatio,CR-ACC-1007,Kestrel Logistics LLC,tax_id,1.0,matched,rule
+LNK-004,NQ-ACC-0002,netsuite,NS-C-1007,"Kestrel Logistics, LLC",tax_id,1.0,matched,rule
+LNK-005,NQ-ACC-0003,dynamics365,D-ACC-1014,Bluepeak Bank Pvt Ltd,tax_id,1.0,matched,rule
+LNK-006,NQ-ACC-0003,sapb1,SB1-C-1014,BLUEPEAK BANK PVT. LTD.,tax_id,1.0,matched,rule
+LNK-007,NQ-ACC-0004,blackandwhite,BW-ACC-1007,ORCHID HOTELS,normalized_name,0.93,matched,rule
+LNK-008,NQ-ACC-0004,tally,T-C-1007,Orchid Hotels Ltd,ai_suggested,0.88,matched,Kavya Rao
+LNK-009,NQ-ACC-0005,dynamics365,D-ACC-1021,Vantara Motors Pvt Ltd,tax_id,1.0,matched,rule
+LNK-010,NQ-ACC-0005,sapb1,SB1-C-1021,VANTARA MOTORS PVT. LTD.,tax_id,1.0,matched,rule
+LNK-011,NQ-ACC-0006,creatio,CR-ACC-1014,Solace Health LLC,tax_id,1.0,matched,rule
+LNK-012,NQ-ACC-0006,netsuite,NS-C-1014,"Solace Health, LLC",tax_id,1.0,matched,rule
+LNK-013,NQ-ACC-0007,dynamics365,D-ACC-1028,Meridian Retail Group Pvt Ltd,tax_id,1.0,matched,rule
+LNK-014,NQ-ACC-0007,sapb1,SB1-C-1028,MERIDIAN RETAIL GROUP PVT. LTD.,tax_id,1.0,matched,rule
+LNK-015,NQ-ACC-0008,blackandwhite,BW-ACC-1014,TARANG TELECOM,normalized_name,0.93,matched,rule
+LNK-016,NQ-ACC-0008,tally,T-C-1014,Tarang Telecom Ltd,normalized_name,0.95,matched,rule
+LNK-017,NQ-ACC-0009,creatio,CR-ACC-1021,Ironleaf Manufacturing LLC,tax_id,1.0,matched,rule
+LNK-018,NQ-ACC-0009,netsuite,NS-C-1021,"Ironleaf Manufacturing, LLC",tax_id,1.0,matched,rule
+LNK-019,NQ-ACC-0010,dynamics365,D-ACC-1035,Crescent Insurance Pvt Ltd,tax_id,1.0,matched,rule
+LNK-020,NQ-ACC-0010,sapb1,SB1-C-1035,CRESCENT INSURANCE PVT. LTD.,tax_id,1.0,matched,rule
+LNK-021,NQ-ACC-0011,blackandwhite,BW-ACC-1021,LUMEN EDTECH,normalized_name,0.93,matched,rule
+LNK-022,NQ-ACC-0011,tally,T-C-1021,Lumen Edtech Ltd,normalized_name,0.95,matched,rule
+LNK-023,NQ-ACC-0012,creatio,CR-ACC-1028,Halcyon Energy LLC,tax_id,1.0,matched,rule
+LNK-024,NQ-ACC-0012,netsuite,NS-C-1028,"Halcyon Energy, LLC",tax_id,1.0,matched,rule
+LNK-025,NQ-ACC-0013,dynamics365,D-ACC-1042,Meridian Fashion Pvt Ltd,tax_id,1.0,matched,rule
+LNK-026,NQ-ACC-0013,sapb1,SB1-C-1042,MERIDIAN FASHION PVT. LTD.,tax_id,1.0,matched,rule
+LNK-027,NQ-ACC-0007,blackandwhite,BW-ACC-7731,Meridian Rtl Grp,ai_suggested,0.86,needs_review,
+LNK-028,NQ-ACC-0007,tally,T-C-0441,MERIDIAN RTL GRP (NQ AI),ai_suggested,0.84,needs_review,

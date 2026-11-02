@@ -1,0 +1,5 @@
+period,status,gp_usd,ledger_gp_usd,difference_usd,blocking_open,signed_by,signed_at
+Q4 2025,closed,275136.0,275136.0,0.0,0,Sara Thomas,2025-12-15
+Q1 2026,closed,295256.0,295256.0,0.0,0,Sara Thomas,2026-03-15
+Q2 2026,closed,225986.0,264386.0,-38400.0,0,Sara Thomas,2026-06-15
+Q3 2026,open,348954.0,309082.0,39872.0,2,,

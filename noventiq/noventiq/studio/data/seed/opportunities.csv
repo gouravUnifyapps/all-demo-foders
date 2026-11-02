@@ -1,0 +1,21 @@
+opp_id,source_system,source_id,account_key,entity,country,title,service,stage_local,stage_group,amount_usd,close_date,close_quarter,weighted_usd,synced_run
+OPP-001,dynamics365,OPP-D-5531,NQ-ACC-0007,embee,India,Azure landing zone,cloud,Propose,proposal,180000,2026-12-15,Q4 2026,90000,SR-0302
+OPP-002,dynamics365,OPP-D-5408,NQ-ACC-0007,embee,India,"Microsoft 365 E3 renewal, 1,200 seats",licensing,Won,won,240000,2026-09-20,Q3 2026,240000,SR-0302
+OPP-003,blackandwhite,BW-OPP-118,,nqai,India,"Copilot pilot, store operations",ai_data,Budget OK,qualified,45000,2027-01-31,Q1 2027,13500,SR-0303
+OPP-004,dynamics365,D-OPP-1007,NQ-ACC-0001,embee,India,Defender for Endpoint roll-out,security,Qualified,qualified,62000,2026-12-20,Q4 2026,18600,SR-0302
+OPP-005,dynamics365,D-OPP-1014,NQ-ACC-0001,embee,India,M365 E5 upgrade,licensing,Propose,proposal,138000,2027-02-15,Q1 2027,69000,SR-0302
+OPP-006,dynamics365,D-OPP-1021,NQ-ACC-0003,embee,India,Azure data centre exit,cloud,Close,negotiation,310000,2026-11-30,Q4 2026,232500,SR-0302
+OPP-007,dynamics365,D-OPP-1028,NQ-ACC-0003,embee,India,SOC as a service,security,Qualify,discovery,85000,2027-03-31,Q1 2027,8500,SR-0302
+OPP-008,dynamics365,D-OPP-1035,NQ-ACC-0005,embee,India,AKS platform build,cloud,Qualified,qualified,120000,2027-01-15,Q1 2027,36000,SR-0302
+OPP-009,dynamics365,D-OPP-1042,NQ-ACC-0010,embee,India,Dynamics 365 licences,licensing,Won,won,54000,2026-10-12,Q4 2026,54000,SR-0302
+OPP-010,dynamics365,D-OPP-1049,NQ-ACC-0013,embee,India,M365 Business Premium,licensing,Propose,proposal,36000,2026-12-05,Q4 2026,18000,SR-0302
+OPP-011,creatio,CR-OPP-1007,NQ-ACC-0002,entc,Country C (to be named),AWS migration wave 2,cloud,Proposal sent,proposal,260000,2026-12-31,Q4 2026,130000,SR-0301
+OPP-012,creatio,CR-OPP-1014,NQ-ACC-0002,entc,Country C (to be named),Managed cloud operations,managed,Qualified,discovery,96000,2027-02-28,Q1 2027,9600,SR-0301
+OPP-013,creatio,CR-OPP-1021,NQ-ACC-0006,entc,Country C (to be named),Microsoft 365 renewal,licensing,Contracting,negotiation,48000,2026-11-25,Q4 2026,36000,SR-0301
+OPP-014,creatio,CR-OPP-1028,NQ-ACC-0009,entc,Country C (to be named),Azure IoT pilot,cloud,Qualified,discovery,70000,2027-01-20,Q1 2027,7000,SR-0301
+OPP-015,creatio,CR-OPP-1035,NQ-ACC-0012,entc,Country C (to be named),Managed SAP hosting,managed,Proposal sent,proposal,150000,2027-03-15,Q1 2027,75000,SR-0301
+OPP-016,creatio,CR-OPP-1042,NQ-ACC-0012,entc,Country C (to be named),M365 Copilot licences,licensing,Closed won,won,82000,2026-10-02,Q4 2026,82000,SR-0301
+OPP-017,blackandwhite,BW-OPP-1007,NQ-ACC-0004,nqai,India,Hotel PMS licences,licensing,Quote,proposal,41000,2026-12-10,Q4 2026,20500,SR-0303
+OPP-018,blackandwhite,BW-OPP-1014,NQ-ACC-0008,nqai,India,Churn model on Fabric,ai_data,Budget OK,qualified,98000,2027-01-30,Q1 2027,29400,SR-0303
+OPP-019,blackandwhite,BW-OPP-1021,NQ-ACC-0008,nqai,India,Microsoft 365 E3,licensing,First meeting,discovery,120000,2027-03-31,Q1 2027,12000,SR-0303
+OPP-020,blackandwhite,BW-OPP-1028,NQ-ACC-0011,nqai,India,Learning analytics platform,ai_data,Won,won,52000,2026-09-10,Q3 2026,52000,SR-0303

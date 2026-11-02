@@ -1,0 +1,179 @@
+system,entity,record_type,source_id,customer_ref,customer_name,account_key,segment,currency,last_modified,sync_run,quarter,service_code,service,amount_usd,amount_local,cost_usd,hours,planned_hours,vendor,stage_local,earned_quarter,attributed_quarter,note
+dynamics365,embee,account,D-ACC-1007,D-ACC-1007,Aster Pharma Pvt Ltd,NQ-ACC-0001,Enterprise,INR,2026-11-01T21:40:00Z,SR-0302,,,,,,,,,,,,,
+sapb1,embee,customer,SB1-C-1007,SB1-C-1007,ASTER PHARMA PVT. LTD.,NQ-ACC-0001,Enterprise,INR,2026-11-01T21:40:00Z,SR-0305,,,,,,,,,,,,,
+creatio,entc,account,CR-ACC-1007,CR-ACC-1007,Kestrel Logistics LLC,NQ-ACC-0002,Enterprise,USD,2026-11-01T21:40:00Z,SR-0301,,,,,,,,,,,,,
+netsuite,entc,customer,NS-C-1007,NS-C-1007,"Kestrel Logistics, LLC",NQ-ACC-0002,Enterprise,USD,2026-11-01T21:40:00Z,SR-0304,,,,,,,,,,,,,
+dynamics365,embee,account,D-ACC-1014,D-ACC-1014,Bluepeak Bank Pvt Ltd,NQ-ACC-0003,Enterprise,INR,2026-11-01T21:40:00Z,SR-0302,,,,,,,,,,,,,
+sapb1,embee,customer,SB1-C-1014,SB1-C-1014,BLUEPEAK BANK PVT. LTD.,NQ-ACC-0003,Enterprise,INR,2026-11-01T21:40:00Z,SR-0305,,,,,,,,,,,,,
+blackandwhite,nqai,account,BW-ACC-1007,BW-ACC-1007,ORCHID HOTELS,NQ-ACC-0004,SMB,INR,2026-11-01T21:40:00Z,SR-0303,,,,,,,,,,,,,
+tally,nqai,customer,T-C-1007,T-C-1007,Orchid Hotels Ltd,NQ-ACC-0004,SMB,INR,2026-11-01T21:40:00Z,SR-0306,,,,,,,,,,,,,
+dynamics365,embee,account,D-ACC-1021,D-ACC-1021,Vantara Motors Pvt Ltd,NQ-ACC-0005,Enterprise,INR,2026-11-01T21:40:00Z,SR-0302,,,,,,,,,,,,,
+sapb1,embee,customer,SB1-C-1021,SB1-C-1021,VANTARA MOTORS PVT. LTD.,NQ-ACC-0005,Enterprise,INR,2026-11-01T21:40:00Z,SR-0305,,,,,,,,,,,,,
+creatio,entc,account,CR-ACC-1014,CR-ACC-1014,Solace Health LLC,NQ-ACC-0006,SMB,USD,2026-11-01T21:40:00Z,SR-0301,,,,,,,,,,,,,
+netsuite,entc,customer,NS-C-1014,NS-C-1014,"Solace Health, LLC",NQ-ACC-0006,SMB,USD,2026-11-01T21:40:00Z,SR-0304,,,,,,,,,,,,,
+dynamics365,embee,account,D-ACC-1028,D-ACC-1028,Meridian Retail Group Pvt Ltd,NQ-ACC-0007,Enterprise,INR,2026-11-01T21:40:00Z,SR-0302,,,,,,,,,,,,,
+sapb1,embee,customer,SB1-C-1028,SB1-C-1028,MERIDIAN RETAIL GROUP PVT. LTD.,NQ-ACC-0007,Enterprise,INR,2026-11-01T21:40:00Z,SR-0305,,,,,,,,,,,,,
+blackandwhite,nqai,account,BW-ACC-1014,BW-ACC-1014,TARANG TELECOM,NQ-ACC-0008,Enterprise,INR,2026-11-01T21:40:00Z,SR-0303,,,,,,,,,,,,,
+tally,nqai,customer,T-C-1014,T-C-1014,Tarang Telecom Ltd,NQ-ACC-0008,Enterprise,INR,2026-11-01T21:40:00Z,SR-0306,,,,,,,,,,,,,
+creatio,entc,account,CR-ACC-1021,CR-ACC-1021,Ironleaf Manufacturing LLC,NQ-ACC-0009,SMB,USD,2026-11-01T21:40:00Z,SR-0301,,,,,,,,,,,,,
+netsuite,entc,customer,NS-C-1021,NS-C-1021,"Ironleaf Manufacturing, LLC",NQ-ACC-0009,SMB,USD,2026-11-01T21:40:00Z,SR-0304,,,,,,,,,,,,,
+dynamics365,embee,account,D-ACC-1035,D-ACC-1035,Crescent Insurance Pvt Ltd,NQ-ACC-0010,SMB,INR,2026-11-01T21:40:00Z,SR-0302,,,,,,,,,,,,,
+sapb1,embee,customer,SB1-C-1035,SB1-C-1035,CRESCENT INSURANCE PVT. LTD.,NQ-ACC-0010,SMB,INR,2026-11-01T21:40:00Z,SR-0305,,,,,,,,,,,,,
+blackandwhite,nqai,account,BW-ACC-1021,BW-ACC-1021,LUMEN EDTECH,NQ-ACC-0011,SMB,INR,2026-11-01T21:40:00Z,SR-0303,,,,,,,,,,,,,
+tally,nqai,customer,T-C-1021,T-C-1021,Lumen Edtech Ltd,NQ-ACC-0011,SMB,INR,2026-11-01T21:40:00Z,SR-0306,,,,,,,,,,,,,
+creatio,entc,account,CR-ACC-1028,CR-ACC-1028,Halcyon Energy LLC,NQ-ACC-0012,Enterprise,USD,2026-11-01T21:40:00Z,SR-0301,,,,,,,,,,,,,
+netsuite,entc,customer,NS-C-1028,NS-C-1028,"Halcyon Energy, LLC",NQ-ACC-0012,Enterprise,USD,2026-11-01T21:40:00Z,SR-0304,,,,,,,,,,,,,
+dynamics365,embee,account,D-ACC-1042,D-ACC-1042,Meridian Fashion Pvt Ltd,NQ-ACC-0013,SMB,INR,2026-11-01T21:40:00Z,SR-0302,,,,,,,,,,,,,
+sapb1,embee,customer,SB1-C-1042,SB1-C-1042,MERIDIAN FASHION PVT. LTD.,NQ-ACC-0013,SMB,INR,2026-11-01T21:40:00Z,SR-0305,,,,,,,,,,,,,
+blackandwhite,nqai,account,BW-ACC-7731,BW-ACC-7731,Meridian Rtl Grp,,Enterprise,INR,2026-11-01T21:40:00Z,SR-0303,,,,,,,,,,,,,
+tally,nqai,customer,T-C-0441,T-C-0441,MERIDIAN RTL GRP (NQ AI),,Enterprise,INR,2026-11-01T21:40:00Z,SR-0306,,,,,,,,,,,,,
+sapb1,embee,invoice,SB1-INV-1007,SB1-C-1007,,NQ-ACC-0001,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,M365-LIC,licensing,146700.0,12322800,133500.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1014,SB1-C-1007,,NQ-ACC-0001,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,M365-LIC,licensing,168000.0,14112000,152900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1021,SB1-C-1007,,NQ-ACC-0001,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,M365-LIC,licensing,92000.0,7728000,83700.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1028,SB1-C-1007,,NQ-ACC-0001,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,M365-LIC,licensing,183400.0,15405600,166900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1035,SB1-C-1007,,NQ-ACC-0001,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,SEC-SOC,security,35200.0,2956800,12300.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1042,SB1-C-1007,,NQ-ACC-0001,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,SEC-SOC,security,45800.0,3847200,16000.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1049,SB1-C-1007,,NQ-ACC-0001,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,SEC-SOC,security,28200.0,2368800,9900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1056,SB1-C-1007,,NQ-ACC-0001,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,SEC-SOC,security,40700.0,3418800,14200.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1007,NS-C-1007,,NQ-ACC-0002,,USD,2025-12-31T18:00:00Z,SR-0304,Q4 2025,4100-Cloud,cloud,93600.0,93600,80500.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1014,NS-C-1007,,NQ-ACC-0002,,USD,2026-03-31T18:00:00Z,SR-0304,Q1 2026,4100-Cloud,cloud,95500.0,95500,82100.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1021,NS-C-1007,,NQ-ACC-0002,,USD,2026-06-30T18:00:00Z,SR-0304,Q2 2026,4100-Cloud,cloud,130600.0,130600,112300.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1028,NS-C-1007,,NQ-ACC-0002,,USD,2026-09-30T18:00:00Z,SR-0304,Q3 2026,4100-Cloud,cloud,107600.0,107600,92500.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1035,NS-C-1007,,NQ-ACC-0002,,USD,2025-12-31T18:00:00Z,SR-0304,Q4 2025,4300-Services,managed,66000.0,66000,19800.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1042,NS-C-1007,,NQ-ACC-0002,,USD,2026-03-31T18:00:00Z,SR-0304,Q1 2026,4300-Services,managed,66000.0,66000,19800.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1049,NS-C-1007,,NQ-ACC-0002,,USD,2026-06-30T18:00:00Z,SR-0304,Q2 2026,4300-Services,managed,45600.0,45600,13700.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1056,NS-C-1007,,NQ-ACC-0002,,USD,2026-09-30T18:00:00Z,SR-0304,Q3 2026,4300-Services,managed,57000.0,57000,17100.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1063,SB1-C-1014,,NQ-ACC-0003,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,M365-LIC,licensing,141000.0,11844000,128300.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1070,SB1-C-1014,,NQ-ACC-0003,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,M365-LIC,licensing,94100.0,7904400,85600.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1077,SB1-C-1014,,NQ-ACC-0003,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,M365-LIC,licensing,125300.0,10525200,114000.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1084,SB1-C-1014,,NQ-ACC-0003,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,M365-LIC,licensing,186700.0,15682800,169900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1091,SB1-C-1014,,NQ-ACC-0003,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,AZ-CSP,cloud,60400.0,5073600,51900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1098,SB1-C-1014,,NQ-ACC-0003,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,AZ-CSP,cloud,87300.0,7333200,75100.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1105,SB1-C-1014,,NQ-ACC-0003,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,AZ-CSP,cloud,70000.0,5880000,60200.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1112,SB1-C-1014,,NQ-ACC-0003,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,AZ-CSP,cloud,65900.0,5535600,56700.0,,,,,,,
+tally,nqai,invoice,T-INV-1007,T-C-1007,,NQ-ACC-0004,,INR,2025-12-31T18:00:00Z,SR-0306,Q4 2025,LIC-MS,licensing,171700.0,14422800,156200.0,,,,,,,
+tally,nqai,invoice,T-INV-1014,T-C-1007,,NQ-ACC-0004,,INR,2026-03-31T18:00:00Z,SR-0306,Q1 2026,LIC-MS,licensing,144600.0,12146400,131600.0,,,,,,,
+tally,nqai,invoice,T-INV-1021,T-C-1007,,NQ-ACC-0004,,INR,2026-06-30T18:00:00Z,SR-0306,Q2 2026,LIC-MS,licensing,164700.0,13834800,149900.0,,,,,,,
+tally,nqai,invoice,T-INV-1028,T-C-1007,,NQ-ACC-0004,,INR,2026-09-30T18:00:00Z,SR-0306,Q3 2026,LIC-MS,licensing,128400.0,10785600,116800.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1119,SB1-C-1021,,NQ-ACC-0005,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,AZ-CSP,cloud,96200.0,8080800,82700.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1126,SB1-C-1021,,NQ-ACC-0005,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,AZ-CSP,cloud,111100.0,9332400,95500.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1133,SB1-C-1021,,NQ-ACC-0005,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,AZ-CSP,cloud,83300.0,6997200,71600.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1140,SB1-C-1021,,NQ-ACC-0005,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,AZ-CSP,cloud,138600.0,11642400,119200.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1063,NS-C-1014,,NQ-ACC-0006,,USD,2025-12-31T18:00:00Z,SR-0304,Q4 2025,4200-License,licensing,85900.0,85900,78200.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1070,NS-C-1014,,NQ-ACC-0006,,USD,2026-03-31T18:00:00Z,SR-0304,Q1 2026,4200-License,licensing,174700.0,174700,159000.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1077,NS-C-1014,,NQ-ACC-0006,,USD,2026-06-30T18:00:00Z,SR-0304,Q2 2026,4200-License,licensing,127800.0,127800,116300.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1084,NS-C-1014,,NQ-ACC-0006,,USD,2026-09-30T18:00:00Z,SR-0304,Q3 2026,4200-License,licensing,98800.0,98800,89900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1147,SB1-C-1028,,NQ-ACC-0007,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,M365-LIC,licensing,182400,15321600,166000.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1154,SB1-C-1028,,NQ-ACC-0007,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,M365-LIC,licensing,176800,14851200,160900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1161,SB1-C-1028,,NQ-ACC-0007,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,M365-LIC,licensing,194200,16312800,176700.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1168,SB1-C-1028,,NQ-ACC-0007,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,M365-LIC,licensing,201600,16934400,183500.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1175,SB1-C-1028,,NQ-ACC-0007,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,AZ-CSP,cloud,96400,8097600,82900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1182,SB1-C-1028,,NQ-ACC-0007,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,AZ-CSP,cloud,104800,8803200,90100.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1189,SB1-C-1028,,NQ-ACC-0007,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,AZ-CSP,cloud,112600,9458400,96800.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1196,SB1-C-1028,,NQ-ACC-0007,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,AZ-CSP,cloud,118200,9928800,101700.0,,,,,,,
+tally,nqai,invoice,T-INV-1035,T-C-1014,,NQ-ACC-0008,,INR,2025-12-31T18:00:00Z,SR-0306,Q4 2025,AIP-01,ai_data,20000.0,1680000,5000.0,,,,,,,
+tally,nqai,invoice,T-INV-1042,T-C-1014,,NQ-ACC-0008,,INR,2026-03-31T18:00:00Z,SR-0306,Q1 2026,AIP-01,ai_data,41900.0,3519600,10500.0,,,,,,,
+tally,nqai,invoice,T-INV-1049,T-C-1014,,NQ-ACC-0008,,INR,2026-06-30T18:00:00Z,SR-0306,Q2 2026,AIP-01,ai_data,29100.0,2444400,7300.0,,,,,,,
+tally,nqai,invoice,T-INV-1056,T-C-1014,,NQ-ACC-0008,,INR,2026-09-30T18:00:00Z,SR-0306,Q3 2026,AIP-01,ai_data,32100.0,2696400,8000.0,,,,,,,
+tally,nqai,invoice,T-INV-1063,T-C-1014,,NQ-ACC-0008,,INR,2025-12-31T18:00:00Z,SR-0306,Q4 2025,LIC-MS,licensing,193800.0,16279200,176400.0,,,,,,,
+tally,nqai,invoice,T-INV-1070,T-C-1014,,NQ-ACC-0008,,INR,2026-03-31T18:00:00Z,SR-0306,Q1 2026,LIC-MS,licensing,148500.0,12474000,135100.0,,,,,,,
+tally,nqai,invoice,T-INV-1077,T-C-1014,,NQ-ACC-0008,,INR,2026-06-30T18:00:00Z,SR-0306,Q2 2026,LIC-MS,licensing,135300.0,11365200,123100.0,,,,,,,
+tally,nqai,invoice,T-INV-1084,T-C-1014,,NQ-ACC-0008,,INR,2026-09-30T18:00:00Z,SR-0306,Q3 2026,LIC-MS,licensing,182400.0,15321600,166000.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1091,NS-C-1021,,NQ-ACC-0009,,USD,2025-12-31T18:00:00Z,SR-0304,Q4 2025,4100-Cloud,cloud,101600.0,101600,87400.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1098,NS-C-1021,,NQ-ACC-0009,,USD,2026-03-31T18:00:00Z,SR-0304,Q1 2026,4100-Cloud,cloud,71500.0,71500,61500.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1105,NS-C-1021,,NQ-ACC-0009,,USD,2026-06-30T18:00:00Z,SR-0304,Q2 2026,4100-Cloud,cloud,132200.0,132200,113700.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1112,NS-C-1021,,NQ-ACC-0009,,USD,2026-09-30T18:00:00Z,SR-0304,Q3 2026,4100-Cloud,cloud,110400.0,110400,94900.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1203,SB1-C-1035,,NQ-ACC-0010,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,M365-LIC,licensing,157600.0,13238400,143400.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1210,SB1-C-1035,,NQ-ACC-0010,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,M365-LIC,licensing,155800.0,13087200,141800.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1217,SB1-C-1035,,NQ-ACC-0010,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,M365-LIC,licensing,198300.0,16657200,180500.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1224,SB1-C-1035,,NQ-ACC-0010,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,M365-LIC,licensing,141400.0,11877600,128700.0,,,,,,,
+tally,nqai,invoice,T-INV-1091,T-C-1021,,NQ-ACC-0011,,INR,2025-12-31T18:00:00Z,SR-0306,Q4 2025,AIP-01,ai_data,21600.0,1814400,5400.0,,,,,,,
+tally,nqai,invoice,T-INV-1098,T-C-1021,,NQ-ACC-0011,,INR,2026-03-31T18:00:00Z,SR-0306,Q1 2026,AIP-01,ai_data,48300.0,4057200,12100.0,,,,,,,
+tally,nqai,invoice,T-INV-1105,T-C-1021,,NQ-ACC-0011,,INR,2026-06-30T18:00:00Z,SR-0306,Q2 2026,AIP-01,ai_data,22800.0,1915200,5700.0,,,,,,,
+tally,nqai,invoice,T-INV-1112,T-C-1021,,NQ-ACC-0011,,INR,2026-09-30T18:00:00Z,SR-0306,Q3 2026,AIP-01,ai_data,29200.0,2452800,7300.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1119,NS-C-1028,,NQ-ACC-0012,,USD,2025-12-31T18:00:00Z,SR-0304,Q4 2025,4200-License,licensing,165700.0,165700,150800.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1126,NS-C-1028,,NQ-ACC-0012,,USD,2026-03-31T18:00:00Z,SR-0304,Q1 2026,4200-License,licensing,101900.0,101900,92700.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1133,NS-C-1028,,NQ-ACC-0012,,USD,2026-06-30T18:00:00Z,SR-0304,Q2 2026,4200-License,licensing,122300.0,122300,111300.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1140,NS-C-1028,,NQ-ACC-0012,,USD,2026-09-30T18:00:00Z,SR-0304,Q3 2026,4200-License,licensing,175400.0,175400,159600.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1147,NS-C-1028,,NQ-ACC-0012,,USD,2025-12-31T18:00:00Z,SR-0304,Q4 2025,4300-Services,managed,63500.0,63500,19000.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1154,NS-C-1028,,NQ-ACC-0012,,USD,2026-03-31T18:00:00Z,SR-0304,Q1 2026,4300-Services,managed,30700.0,30700,9200.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1161,NS-C-1028,,NQ-ACC-0012,,USD,2026-06-30T18:00:00Z,SR-0304,Q2 2026,4300-Services,managed,32500.0,32500,9800.0,,,,,,,
+netsuite,entc,invoice,NS-INV-1168,NS-C-1028,,NQ-ACC-0012,,USD,2026-09-30T18:00:00Z,SR-0304,Q3 2026,4300-Services,managed,61700.0,61700,18500.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1231,SB1-C-1042,,NQ-ACC-0013,,INR,2025-12-31T18:00:00Z,SR-0305,Q4 2025,M365-LIC,licensing,102200.0,8584800,93000.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1238,SB1-C-1042,,NQ-ACC-0013,,INR,2026-03-31T18:00:00Z,SR-0305,Q1 2026,M365-LIC,licensing,147000.0,12348000,133800.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1245,SB1-C-1042,,NQ-ACC-0013,,INR,2026-06-30T18:00:00Z,SR-0305,Q2 2026,M365-LIC,licensing,216500.0,18186000,197000.0,,,,,,,
+sapb1,embee,invoice,SB1-INV-1252,SB1-C-1042,,NQ-ACC-0013,,INR,2026-09-30T18:00:00Z,SR-0305,Q3 2026,M365-LIC,licensing,93000.0,7812000,84600.0,,,,,,,
+tally,nqai,invoice,T-INV-3391,T-C-0441,MERIDIAN RTL GRP (NQ AI),,,INR,2026-09-28T11:20:00Z,SR-0306,Q3 2026,AIP-01,ai_data,12600,1058400,3200,,,,,,,
+zoho_projects,embee,timesheet,ZP-TS-1007,,,NQ-ACC-0001,,INR,2026-03-31T20:00:00Z,SR-0308,Q1 2026,,security,10640,893760,,380,380,,,,,
+netsuite,entc,timesheet,NS-TS-1007,,,NQ-ACC-0002,,USD,2026-03-31T20:00:00Z,SR-0304,Q1 2026,,managed,37290,37290,,678,678,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1007,,,NQ-ACC-0008,,INR,2026-03-31T20:00:00Z,SR-0309,Q1 2026,,ai_data,9984,838656,,312,312,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1014,,,NQ-ACC-0011,,INR,2026-03-31T20:00:00Z,SR-0309,Q1 2026,,ai_data,13440,1128960,,420,420,,,,,
+netsuite,entc,timesheet,NS-TS-1014,,,NQ-ACC-0012,,USD,2026-03-31T20:00:00Z,SR-0304,Q1 2026,,managed,26290,26290,,478,478,,,,,
+zoho_projects,embee,timesheet,ZP-TS-1014,,,NQ-ACC-0001,,INR,2026-06-30T20:00:00Z,SR-0308,Q2 2026,,security,12096,1016064,,432,432,,,,,
+netsuite,entc,timesheet,NS-TS-1021,,,NQ-ACC-0002,,USD,2026-06-30T20:00:00Z,SR-0304,Q2 2026,,managed,27390,27390,,498,498,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1021,,,NQ-ACC-0008,,INR,2026-06-30T20:00:00Z,SR-0309,Q2 2026,,ai_data,11968,1005312,,374,374,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1028,,,NQ-ACC-0011,,INR,2026-06-30T20:00:00Z,SR-0309,Q2 2026,,ai_data,14400,1209600,,450,450,,,,,
+netsuite,entc,timesheet,NS-TS-1028,,,NQ-ACC-0012,,USD,2026-06-30T20:00:00Z,SR-0304,Q2 2026,,managed,34760,34760,,632,632,,,,,
+zoho_projects,embee,timesheet,ZP-TS-1021,,,NQ-ACC-0001,,INR,2026-09-30T20:00:00Z,SR-0308,Q3 2026,,security,11480,964320,,410,410,,,,,
+netsuite,entc,timesheet,NS-TS-1035,,,NQ-ACC-0002,,USD,2026-09-30T20:00:00Z,SR-0304,Q3 2026,,managed,25520,25520,,464,464,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1035,,,NQ-ACC-0008,,INR,2026-09-30T20:00:00Z,SR-0309,Q3 2026,,ai_data,13760,1155840,,430,430,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1042,,,NQ-ACC-0011,,INR,2026-09-30T20:00:00Z,SR-0309,Q3 2026,,ai_data,9856,827904,,308,354,,,,,"NQ AI Delivery, Data Platform team: 46 h of September not logged"
+netsuite,entc,timesheet,NS-TS-1042,,,NQ-ACC-0012,,USD,2026-09-30T20:00:00Z,SR-0304,Q3 2026,,managed,34210,34210,,622,622,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1049,,,,,INR,2026-09-30T20:00:00Z,SR-0309,Q3 2026,,ai_data,1920,161280,,60,60,,,,,
+zoho_projects,embee,timesheet,ZP-TS-1028,,,NQ-ACC-0001,,INR,2025-12-31T20:00:00Z,SR-0308,Q4 2025,,security,13048,1096032,,466,466,,,,,
+netsuite,entc,timesheet,NS-TS-1049,,,NQ-ACC-0002,,USD,2025-12-31T20:00:00Z,SR-0304,Q4 2025,,managed,32560,32560,,592,592,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1056,,,NQ-ACC-0008,,INR,2025-12-31T20:00:00Z,SR-0309,Q4 2025,,ai_data,8576,720384,,268,268,,,,,
+azure_devops,nqai,timesheet,ADO-TS-1063,,,NQ-ACC-0011,,INR,2025-12-31T20:00:00Z,SR-0309,Q4 2025,,ai_data,13120,1102080,,410,410,,,,,
+netsuite,entc,timesheet,NS-TS-1056,,,NQ-ACC-0012,,USD,2025-12-31T20:00:00Z,SR-0304,Q4 2025,,managed,27060,27060,,492,492,,,,,
+sapb1,embee,rebate,SB1-REB-1007,,,,Enterprise,INR,2025-12-31T19:00:00Z,SR-0305,Q4 2025,,,22500.0,1890000,,,,Microsoft,,Q4 2025,Q4 2025,
+sapb1,embee,rebate,SB1-REB-1014,,,,Enterprise,INR,2026-03-31T19:00:00Z,SR-0305,Q1 2026,,,26800.0,2251200,,,,Microsoft,,Q1 2026,Q1 2026,
+sapb1,embee,rebate,REB-SB1-0912,,,,Enterprise,INR,2026-07-14T10:05:00Z,SR-0305,Q3 2026,,,38400,3225600,,,,Microsoft,,Q2 2026,Q3 2026,"Microsoft CSP rebate earned in Q2 2026, booked 2026-07-14"
+sapb1,embee,rebate,SB1-REB-1021,,,,Enterprise,INR,2026-09-30T19:00:00Z,SR-0305,Q3 2026,,,22600.0,1898400,,,,Microsoft,,Q3 2026,Q3 2026,
+tally,nqai,rebate,T-REB-1007,,,,Enterprise,INR,2025-12-31T19:00:00Z,SR-0306,Q4 2025,,,8200.0,688800,,,,Microsoft,,Q4 2025,Q4 2025,
+tally,nqai,rebate,T-REB-1014,,,,Enterprise,INR,2026-03-31T19:00:00Z,SR-0306,Q1 2026,,,7400.0,621600,,,,Microsoft,,Q1 2026,Q1 2026,
+tally,nqai,rebate,T-REB-1021,,,,Enterprise,INR,2026-06-30T19:00:00Z,SR-0306,Q2 2026,,,5900.0,495600,,,,Microsoft,,Q2 2026,Q2 2026,
+tally,nqai,rebate,T-REB-1028,,,,Enterprise,INR,2026-09-30T19:00:00Z,SR-0306,Q3 2026,,,6500.0,546000,,,,Microsoft,,Q3 2026,Q3 2026,
+netsuite,entc,rebate,NS-REB-1007,,,,SMB,USD,2025-12-31T19:00:00Z,SR-0304,Q4 2025,,,10000.0,10000,,,,Microsoft,,Q4 2025,Q4 2025,
+netsuite,entc,rebate,NS-REB-1014,,,,SMB,USD,2026-03-31T19:00:00Z,SR-0304,Q1 2026,,,9700.0,9700,,,,Microsoft,,Q1 2026,Q1 2026,
+netsuite,entc,rebate,NS-REB-1021,,,,SMB,USD,2026-06-30T19:00:00Z,SR-0304,Q2 2026,,,10900.0,10900,,,,Microsoft,,Q2 2026,Q2 2026,
+netsuite,entc,rebate,NS-REB-1028,,,,SMB,USD,2026-09-30T19:00:00Z,SR-0304,Q3 2026,,,12300.0,12300,,,,Microsoft,,Q3 2026,Q3 2026,
+sapb1,embee,ledger_gp,GL-SB1-Q12026,,,,,INR,2026-03-31T23:00:00Z,SR-0305,Q1 2026,,,155160.0,13033440,,,,,,,,Gross profit per the general ledger after month-end journals
+sapb1,embee,ledger_gp,GL-SB1-Q22026,,,,,INR,2026-06-30T23:00:00Z,SR-0305,Q2 2026,,,156304.0,13129536,,,,,,,,Gross profit per the general ledger after month-end journals
+sapb1,embee,ledger_gp,GL-SB1-Q32026,,,,,INR,2026-09-30T23:00:00Z,SR-0305,Q3 2026,,,155220.0,13038480,,,,,,,,Gross profit per the general ledger after month-end journals
+sapb1,embee,ledger_gp,GL-SB1-Q42025,,,,,INR,2025-12-31T23:00:00Z,SR-0305,Q4 2025,,,133552.0,11218368,,,,,,,,Gross profit per the general ledger after month-end journals
+netsuite,entc,ledger_gp,GL-NS-Q12026,,,,,USD,2026-03-31T23:00:00Z,SR-0304,Q1 2026,,,62120.0,62120,,,,,,,,Gross profit per the general ledger after month-end journals
+netsuite,entc,ledger_gp,GL-NS-Q22026,,,,,USD,2026-06-30T23:00:00Z,SR-0304,Q2 2026,,,62650.0,62650,,,,,,,,Gross profit per the general ledger after month-end journals
+netsuite,entc,ledger_gp,GL-NS-Q32026,,,,,USD,2026-09-30T23:00:00Z,SR-0304,Q3 2026,,,90970.0,90970,,,,,,,,Gross profit per the general ledger after month-end journals
+netsuite,entc,ledger_gp,GL-NS-Q42025,,,,,USD,2025-12-31T23:00:00Z,SR-0304,Q4 2025,,,90980.0,90980,,,,,,,,Gross profit per the general ledger after month-end journals
+tally,nqai,ledger_gp,GL-T-Q12026,,,,,INR,2026-03-31T23:00:00Z,SR-0306,Q1 2026,,,77976.0,6549984,,,,,,,,Gross profit per the general ledger after month-end journals
+tally,nqai,ledger_gp,GL-T-Q22026,,,,,INR,2026-06-30T23:00:00Z,SR-0306,Q2 2026,,,45432.0,3816288,,,,,,,,Gross profit per the general ledger after month-end journals
+tally,nqai,ledger_gp,GL-T-Q32026,,,,,INR,2026-09-30T23:00:00Z,SR-0306,Q3 2026,,,62892.0,5282928,,,,,,,,Gross profit per the general ledger after month-end journals
+tally,nqai,ledger_gp,GL-T-Q42025,,,,,INR,2025-12-31T23:00:00Z,SR-0306,Q4 2025,,,50604.0,4250736,,,,,,,,Gross profit per the general ledger after month-end journals
+payroll_in,embee,payroll_cost,PAY-RUN-1007,,,,,INR,2025-12-31T12:00:00Z,SR-0307,Q4 2025,,,13048,1096032,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,embee,payroll_cost,PAY-RUN-1014,,,,,INR,2026-03-31T12:00:00Z,SR-0307,Q1 2026,,,10640,893760,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,embee,payroll_cost,PAY-RUN-1021,,,,,INR,2026-06-30T12:00:00Z,SR-0307,Q2 2026,,,12096,1016064,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,embee,payroll_cost,PAY-RUN-1028,,,,,INR,2026-09-30T12:00:00Z,SR-0307,Q3 2026,,,11480,964320,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,nqai,payroll_cost,PAY-RUN-1035,,,,,INR,2025-12-31T12:00:00Z,SR-0307,Q4 2025,,,21696,1822464,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,nqai,payroll_cost,PAY-RUN-1042,,,,,INR,2026-03-31T12:00:00Z,SR-0307,Q1 2026,,,23424,1967616,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,nqai,payroll_cost,PAY-RUN-1049,,,,,INR,2026-06-30T12:00:00Z,SR-0307,Q2 2026,,,26368,2214912,,,,,,,,"Delivery team cost at standard rate, team level only"
+payroll_in,nqai,payroll_cost,PAY-RUN-1056,,,,,INR,2026-09-30T12:00:00Z,SR-0307,Q3 2026,,,27008,2268672,,,,,,,,"Delivery team cost at standard rate, team level only"
+dynamics365,embee,opportunity,OPP-D-5531,D-ACC-1028,,NQ-ACC-0007,,USD,2026-11-01T16:30:00Z,SR-0302,2026-12-15,,cloud,180000,180000,,,,,Propose,,,Azure landing zone
+dynamics365,embee,opportunity,OPP-D-5408,D-ACC-1028,,NQ-ACC-0007,,USD,2026-11-01T16:30:00Z,SR-0302,2026-09-20,,licensing,240000,240000,,,,,Won,,,"Microsoft 365 E3 renewal, 1,200 seats"
+blackandwhite,nqai,opportunity,BW-OPP-118,BW-ACC-7731,,,,USD,2026-11-01T16:30:00Z,SR-0303,2027-01-31,,ai_data,45000,45000,,,,,Budget OK,,,"Copilot pilot, store operations"
+dynamics365,embee,opportunity,D-OPP-1007,D-ACC-1007,,NQ-ACC-0001,,USD,2026-11-01T16:30:00Z,SR-0302,2026-12-20,,security,62000,62000,,,,,Qualified,,,Defender for Endpoint roll-out
+dynamics365,embee,opportunity,D-OPP-1014,D-ACC-1007,,NQ-ACC-0001,,USD,2026-11-01T16:30:00Z,SR-0302,2027-02-15,,licensing,138000,138000,,,,,Propose,,,M365 E5 upgrade
+dynamics365,embee,opportunity,D-OPP-1021,D-ACC-1014,,NQ-ACC-0003,,USD,2026-11-01T16:30:00Z,SR-0302,2026-11-30,,cloud,310000,310000,,,,,Close,,,Azure data centre exit
+dynamics365,embee,opportunity,D-OPP-1028,D-ACC-1014,,NQ-ACC-0003,,USD,2026-11-01T16:30:00Z,SR-0302,2027-03-31,,security,85000,85000,,,,,Qualify,,,SOC as a service
+dynamics365,embee,opportunity,D-OPP-1035,D-ACC-1021,,NQ-ACC-0005,,USD,2026-11-01T16:30:00Z,SR-0302,2027-01-15,,cloud,120000,120000,,,,,Qualified,,,AKS platform build
+dynamics365,embee,opportunity,D-OPP-1042,D-ACC-1035,,NQ-ACC-0010,,USD,2026-11-01T16:30:00Z,SR-0302,2026-10-12,,licensing,54000,54000,,,,,Won,,,Dynamics 365 licences
+dynamics365,embee,opportunity,D-OPP-1049,D-ACC-1042,,NQ-ACC-0013,,USD,2026-11-01T16:30:00Z,SR-0302,2026-12-05,,licensing,36000,36000,,,,,Propose,,,M365 Business Premium
+creatio,entc,opportunity,CR-OPP-1007,CR-ACC-1007,,NQ-ACC-0002,,USD,2026-11-01T16:30:00Z,SR-0301,2026-12-31,,cloud,260000,260000,,,,,Proposal sent,,,AWS migration wave 2
+creatio,entc,opportunity,CR-OPP-1014,CR-ACC-1007,,NQ-ACC-0002,,USD,2026-11-01T16:30:00Z,SR-0301,2027-02-28,,managed,96000,96000,,,,,Qualified,,,Managed cloud operations
+creatio,entc,opportunity,CR-OPP-1021,CR-ACC-1014,,NQ-ACC-0006,,USD,2026-11-01T16:30:00Z,SR-0301,2026-11-25,,licensing,48000,48000,,,,,Contracting,,,Microsoft 365 renewal
+creatio,entc,opportunity,CR-OPP-1028,CR-ACC-1021,,NQ-ACC-0009,,USD,2026-11-01T16:30:00Z,SR-0301,2027-01-20,,cloud,70000,70000,,,,,Qualified,,,Azure IoT pilot
+creatio,entc,opportunity,CR-OPP-1035,CR-ACC-1028,,NQ-ACC-0012,,USD,2026-11-01T16:30:00Z,SR-0301,2027-03-15,,managed,150000,150000,,,,,Proposal sent,,,Managed SAP hosting
+creatio,entc,opportunity,CR-OPP-1042,CR-ACC-1028,,NQ-ACC-0012,,USD,2026-11-01T16:30:00Z,SR-0301,2026-10-02,,licensing,82000,82000,,,,,Closed won,,,M365 Copilot licences
+blackandwhite,nqai,opportunity,BW-OPP-1007,BW-ACC-1007,,NQ-ACC-0004,,USD,2026-11-01T16:30:00Z,SR-0303,2026-12-10,,licensing,41000,41000,,,,,Quote,,,Hotel PMS licences
+blackandwhite,nqai,opportunity,BW-OPP-1014,BW-ACC-1014,,NQ-ACC-0008,,USD,2026-11-01T16:30:00Z,SR-0303,2027-01-30,,ai_data,98000,98000,,,,,Budget OK,,,Churn model on Fabric
+blackandwhite,nqai,opportunity,BW-OPP-1021,BW-ACC-1014,,NQ-ACC-0008,,USD,2026-11-01T16:30:00Z,SR-0303,2027-03-31,,licensing,120000,120000,,,,,First meeting,,,Microsoft 365 E3
+blackandwhite,nqai,opportunity,BW-OPP-1028,BW-ACC-1021,,NQ-ACC-0011,,USD,2026-11-01T16:30:00Z,SR-0303,2026-09-10,,ai_data,52000,52000,,,,,Won,,,Learning analytics platform

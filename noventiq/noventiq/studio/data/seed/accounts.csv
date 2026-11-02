@@ -1,0 +1,14 @@
+account_key,name,entity,country,landscape,segment,parent_key,sources,is_story
+NQ-ACC-0001,Aster Pharma,embee,India,typical,Enterprise,,2,False
+NQ-ACC-0002,Kestrel Logistics,entc,Country C (to be named),easy,Enterprise,,2,False
+NQ-ACC-0003,Bluepeak Bank,embee,India,typical,Enterprise,,2,False
+NQ-ACC-0004,Orchid Hotels,nqai,India,hard,SMB,,2,False
+NQ-ACC-0005,Vantara Motors,embee,India,typical,Enterprise,,2,False
+NQ-ACC-0006,Solace Health,entc,Country C (to be named),easy,SMB,,2,False
+NQ-ACC-0007,Meridian Retail Group,embee,India,typical,Enterprise,,4,True
+NQ-ACC-0008,Tarang Telecom,nqai,India,hard,Enterprise,,2,False
+NQ-ACC-0009,Ironleaf Manufacturing,entc,Country C (to be named),easy,SMB,,2,False
+NQ-ACC-0010,Crescent Insurance,embee,India,typical,SMB,,2,False
+NQ-ACC-0011,Lumen Edtech,nqai,India,hard,SMB,,2,False
+NQ-ACC-0012,Halcyon Energy,entc,Country C (to be named),easy,Enterprise,,2,False
+NQ-ACC-0013,Meridian Fashion,embee,India,typical,SMB,NQ-ACC-0007,2,False

@@ -1,0 +1,11 @@
+run_id,system,mode,started,status,rows_read,rows_changed,errors,note
+SR-0301,creatio,live_read,2026-11-01T22:00:00Z,ok,10,0,0,
+SR-0302,dynamics365,live_read,2026-11-01T22:00:00Z,ok,15,0,0,
+SR-0303,blackandwhite,live_read,2026-11-01T22:00:00Z,ok,9,0,0,
+SR-0304,netsuite,copy_nightly,2026-11-01T22:00:00Z,ok,44,0,0,
+SR-0305,sapb1,copy_nightly,2026-11-01T22:00:00Z,ok,50,0,0,
+SR-0306,tally,copy_nightly,2026-11-01T22:00:00Z,ok,29,0,0,
+SR-0307,payroll_in,copy_monthly,2026-11-01T22:00:00Z,ok,8,0,0,
+SR-0308,zoho_projects,copy_nightly,2026-11-01T22:00:00Z,ok,4,0,0,
+SR-0309,azure_devops,copy_nightly,2026-11-01T22:00:00Z,ok,9,0,0,
+SR-0310,azure_devops,copy_nightly,2026-11-02T22:00:00Z,failed,0,0,1,Timeout after 120 s reading work-item time logs (page 3 of 5)

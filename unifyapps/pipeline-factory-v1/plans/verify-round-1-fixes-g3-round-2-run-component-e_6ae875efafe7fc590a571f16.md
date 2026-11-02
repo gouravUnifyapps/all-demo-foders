@@ -26,9 +26,9 @@ Goal: Verify round 1 fixes (G3 round 2): Run component runs a component with no 
 | t2 | deploy | Pipeline Factory · Run component | t1 | pending | 0 |
 | t3 | automation | Pipeline Factory · Save agent output |  | running | 1 |
 | t4 | deploy | Pipeline Factory · Save agent output | t3 | pending | 0 |
-| t5 | ai-agent | Pipeline Factory Analyst |  | running | 1 |
-| t6 | publish | Pipeline Factory Analyst | t5 | pending | 0 |
-| t7 | publish | PF · Reply Sorter |  | running | 1 |
+| t5 | ai-agent | Pipeline Factory Analyst |  | done | 1 |
+| t6 | publish | Pipeline Factory Analyst | t5 | running | 1 |
+| t7 | publish | PF · Reply Sorter |  | done | 1 |
 
 ### t1 · Run component: run a component with no account
 
@@ -84,6 +84,25 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows the date rule; the test answers 2027-01-27.
+Result IDs: {"entity":"e_6ae846ffd96c5f6ba22b98da"}
+Read back: Pipeline Factory Analyst e_6ae846ffd96c5f6ba22b98da: before the change, send_test_message (case e_6ae876192099302ffb30dbdc) answered "Kestrel Ridge Utilities (A-1005, PATCH-NAE-03) is currently under a factory holdout that ends on **27 January 2028**". The trace's think call showed why: the record holds "factory_holdout_until: 1801008000000 (milliseconds epoch)", and the model used the wrong year anchor ("2027-01-01 = 1767225600", which is really 2026-01-01).
+Read back: Pipeline Factory Analyst: update_agent changed ["instructions"], version 14 -&gt; 15, needsPublish true. No other field changed. role and goal were sent with the values already stored.
+Read back: Pipeline Factory Analyst: get_agent shows the new rule under 'What every answer names': "A date field (such as factory_holdout_until): give the stored calendar date exactly, as YYYY-MM-DD, for example \"Kestrel Ridge Utilities' holdout ends 2027-01-27\". Never convert it to a time zone, never add a time of day, and never say \"approximately\", \"about\" or \"around\", because the record holds one exact date. When the record holds the date as a number, it is milliseconds since 1970-01-01 in UTC ... (1801008000000 is 2027-01-01 plus 26 days, so 2027-01-27)."
+Read back: Pipeline Factory Analyst: after the change, send_test_message "When does Kestrel Ridge Utilities' factory holdout end?" (case e_6ae8765f9ec43c6ee25846bf) answered "Kestrel Ridge Utilities' factory holdout ends on **2027-01-27**. - Account: Kestrel Ridge Utilities (A-1005), PATCH-NAE-03 - \`factory_holdout\` is active, with \`factory_holdout_until\` = **2027-01-27**"
+Read back: Pipeline Factory Analyst: date -u -d @1801008000 gives 'Wed Jan 27 00:00:00 UTC 2027', so 2027-01-27 is the stored date.
+Unverified: Pipeline Factory Analyst: after 4 reads over about 2 minutes, the trace for the fixed run (case e_6ae8765f9ec43c6ee25846bf) still has no model call. The answer is quoted from send_test_message. Check: read_trace on e_6ae8765f9ec43c6ee25846bf to see the think step's day count.
+Unverified: Pipeline Factory Analyst: the draft (version 15) is not published, as the task says. The publish task carries it.
+Note: The record returns factory_holdout_until as epoch milliseconds (1801008000000), not as a calendar string. So the rule cannot only say 'as the record holds it': that would print the raw number. The rule also tells the model to convert from fixed UTC year anchors, because its own anchor was wrong by one year. A sturdier fix is for ReadFactoryRecords (automation 6ae843e69ec43c6ee2dec988) to format date fields as YYYY-MM-DD. That is not in this plan.
+Note: plan_change: absorbed
+Note: The baseline trace offers the model EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy, which are not among the agent's tools. The existing instructions already forbid them. Nothing was changed here.
+Note: feedback:
+Bug: read_trace never shows a model call for a caseId that send_test_message returned after runAgainToFindAnswer.
+Context: send_test_message {agentId e_6ae846ffd96c5f6ba22b98da, runAgainToFindAnswer: true} returned case e_6ae8765f9ec43c6ee25846bf with a full answer; read_trace was called 4 times over about 2 minutes.
+Where: mcp-tool
+Evidence: Each read returned nodesInTrace 2 and incomplete: true, while the same flow earlier (case e_6ae876192099302ffb30dbdc) gave 11 nodes and 3 model calls on the first read.
+Cause: Unknown — next check: read_trace on the rerun caseId after 10 minutes, and compare the case id the second invoke reports.
+Regression: send_test_message with runAgainToFindAnswer, then read_trace on its caseId within 3 minutes returns at least one modelCalls entry.
+Note: get_agent returned HTTP 502 once. The same read succeeded on the second try.
 
 ### t6 · Publish Pipeline Factory Analyst
 
@@ -106,4 +125,17 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Reply Sorter published with nothing left to publish.
+Result IDs: {"entity":"e_6ae86bebf410ab7b2f20260c"}
+Read back: PF · Reply Sorter e_6ae86bebf410ab7b2f20260c: before publishing, get_agent showed version 7, published true, needsPublish true. Draft tools: ReadComponentInputs, DoNotContactList and SaveAgentOutput enabled; generateChartTool and requestClarification off.
+Read back: PF · Reply Sorter: publish_agent {confirmed: true} answered publishedVersion 7, live true, automationSaid {"response":"success"}.
+Read back: PF · Reply Sorter: get_agent afterwards shows "published": true, "needsPublish": false, version 12. Instructions and tools are the same as the draft held.
+Unverified: PF · Reply Sorter: whether Pipeline Factory · Run component now runs the published version is not checked here. Check: run component C41 through Pipeline Factory · Run component and read the run.
+Note: Publish approval: 'yes, publish PF · Reply Sorter. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: feedback:
+Bug: publish_agent reports a version the next get_agent does not show.
+Context: publish_agent {agentId e_6ae86bebf410ab7b2f20260c, confirmed: true} on PF · Reply Sorter at version 7.
+Where: mcp-tool
+Evidence: publish_agent answered publishedVersion 7 and wasAtVersion 2; get_agent seconds later showed version 12 with needsPublish false.
+Cause: Unknown — next check: read the agent's version before and after one publish to see how many versions the publish automation writes.
+Regression: publish_agent's publishedVersion equals the version get_agent reports right after it.
 

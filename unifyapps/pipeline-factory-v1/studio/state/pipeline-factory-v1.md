@@ -4,7 +4,7 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: verifying
+status: awaiting_g3
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
@@ -20,7 +20,7 @@ gates:
   g1: {status: approved, round: 1, posted_ts: 1793442419.752669, decided_by: Gourav Mahunta (row), decided_at: 2026-11-01T08:11:55Z}
   g2: {status: approved, round: 1, posted_ts: 1793522055.329009, decided_by: Gourav Mahunta (row; thread reply "Approved, proceed"), decided_at: 2026-11-02T07:40:00Z}
   connections: {status: not_needed, round: 0, posted_ts: , decided_by: , decided_at: , list: []}
-  g3: {status: changes_requested, round: 2, posted_ts: 1793612592.122889, decided_by: Gourav Mahunta (thread feedback FB-1793612784906-1, confirmed "yes"), decided_at: 2026-11-02T09:46:24Z}
+  g3: {status: posted, round: 2, posted_ts: 1793612592.122889, decided_by: Gourav Mahunta (thread feedback FB-1793612784906-1, confirmed "yes"), decided_at: 2026-11-02T09:46:24Z}
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
 
 posts:
@@ -72,6 +72,20 @@ posts:
     by: bot
     version: 1
     round: 2
+  - when: 2026-11-02T12:16:00Z
+    kind: status
+    ts: 1793612592.122889
+    by: bot
+    version: 1
+    round: 2
+  - when: 2026-11-02T12:15:00Z
+    kind: g3
+    ts: 1793612592.122889
+    by: bot
+    version: 1
+    round: 2
+    documents:
+      - {name: Handover · Pipeline Factory v1 · round 2, type: build_report, file_url: https://orbit.uat.unifyapps.com/auth/file/asset/download/8cdc97df6e4e2c0ee5308f89, file_name: handover-v1-r2.pdf, file_size: 594502}
 runs:
   - started: 2026-10-31T10:16:23Z
     ended: 2026-10-31T10:26:47Z
@@ -97,9 +111,11 @@ runs:
   - started: 2026-11-02T09:55:00Z
     gate: g3
     round: 2
-    stages: [2-plan (scoped: 38 agents, 12 workflows), 3-build (15 plans and 2 fixes, 140 tasks)]
-    spawns: 38
-    tokens: 7500000
+    ended: 2026-11-02T12:15:00Z
+    stages: [2-plan (scoped: 38 agents, 12 workflows), 3-build (15 plans and 2 fixes, 140 tasks), 4-verify, 3-build (verify fixes), 4-verify, 5-handover]
+    spawns: 42
+    tokens: 8300000
+    outcome: posted G3 round 2
 
 stopped:
 
@@ -1215,6 +1231,10 @@ decisions:
     when: 2026-11-02
     text: "reverted posts: written by verify, outside its fields (schema § Who writes what)"
 
+  - by: orchestrator
+    when: 2026-11-02
+    text: "G3 round 2 pack posted with the handover PDF, the internal notes and the 20 round-1 asset links only: the 58 round-2 entities were cut from the report by a blank line in the entities table (fixed now). They are listed in the entities table, the handover doc and the internal notes; the next G3 report sends all 78."
+
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"
@@ -1237,9 +1257,9 @@ frozen:
 
 cost:
   runs: 4
-  agent_spawns: 67
-  tokens_m: 14.5
-  wall_h: 5.2
+  agent_spawns: 71
+  tokens_m: 15.1
+  wall_h: 5.6
 
 open_questions:
   - by: harvest
@@ -1281,6 +1301,18 @@ open_questions:
   - by: plan
     for: owner
     text: "Round 2: the 38 agents and 12 workflows are built to run on demand; the spec's schedules (every 15 min, nightly, Monday 06:00, daily 07:00, weekly, monthly) are shown in the registry but not switched on, so the demo records never change by themselves. Options: (recommended) on demand for the demo, schedules switched on in a later version; switch the schedules on now (the records will move between rehearsals and each run costs model calls)."
+  - by: handover
+    for: owner
+    text: "Round 2: the planned model cards answer 401, so the drafters run on another Claude Sonnet 5 card and the six checkers on substitute GPT cards, one of which may serve gpt-4.1 and one of which is a shared card marked do-not-touch, while their run rows and the Components drawer say GPT-5.1. Options: (recommended) a tenant admin fixes the two planned cards' keys and the checkers move back to the planned GPT-5.1 card before the demo; keep the substitutes and change the run rows and drawer to name the model actually served."
+  - by: handover
+    for: owner
+    text: "Round 2: Save agent output's one threshold rule differs from three agents' own routing lines (Current Vendor Finder should save under 60 tagged [HYPOTHESIS], Renewal Date Finder should do nothing under 60, every Battlecard Writer draft should wait for product marketing). Options: (recommended) keep the one rule for the demo, not run C08, C09 or C10 live, and say so if asked; a short change to Save agent output for these three routing lines."
+  - by: handover
+    for: owner
+    text: "Round 2: Meeting Handoff and Deadlines' AE deadline hand-offs save as flowed, not waiting on the AE, because round-1 Save hand-off parks a row only under the receiver's threshold. Options: (recommended) keep as built, deadlines are on no beat; change Save hand-off so deadline rows wait on the AE."
+  - by: handover
+    for: owner
+    text: "Round 2: PF Component run holds 4 builder rows with origin user (Account Ranking, Send Rules Check, Outreach Launcher, Message Writer) that Pipeline Factory · Reset demo keeps by design, as it will keep any Run on account rehearsal row made from the app; removing them is a delete that needs your yes in the session. Options: (recommended) delete them, and any rehearsal run rows, before the demo with your yes; leave them, they show in those components' last runs."
 ---
 
 ## build_contract
@@ -1895,7 +1927,6 @@ build.plans:
 | automation | Pipeline Factory · Reset demo | 6ae8441df38e327618fcc13c | https://orbit.uat.unifyapps.com/p/0/automations/6ae8441df38e327618fcc13c/builder | (reset) |
 | ai-agent | Pipeline Factory Analyst | e_6ae846ffd96c5f6ba22b98da | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae846ffd96c5f6ba22b98da | A4, A8, A10 |
 | code-app | UnifyApps Pipeline Factory Control Tower | app-2fbe93e8c1f7 | https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-2fbe93e8c1f7 | A1, A2, A4, A8, A14, A27, A32, A47 |
-
 | object | PF Component run | OBJ_pf_component_run | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_component_run/schema | A1, A13 (R2) |
 | object | PF Source | OBJ_pf_source | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_source/schema | R2 (mocked sources) |
 | object | PF Inbox | OBJ_pf_inbox | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_inbox/schema | R2 (C38, C39) |

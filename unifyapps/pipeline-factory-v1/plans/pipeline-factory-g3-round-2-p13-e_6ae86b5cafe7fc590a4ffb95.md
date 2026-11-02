@@ -22,16 +22,16 @@ Goal: Pipeline Factory · G3 round 2 · P13
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | PF · Winning Message Finder |  | running | 1 |
-| t2 | publish | PF · Winning Message Finder | t1 | pending | 0 |
-| t3 | ai-agent | PF · Scoring Tuner |  | running | 1 |
-| t4 | publish | PF · Scoring Tuner | t3 | pending | 0 |
-| t5 | ai-agent | PF · Objection Collector |  | running | 1 |
-| t6 | publish | PF · Objection Collector | t5 | pending | 0 |
-| t7 | ai-agent | PF · A/B Tester |  | running | 1 |
-| t8 | publish | PF · A/B Tester | t7 | pending | 0 |
-| t9 | ai-agent | PF · Quality Grader |  | running | 1 |
-| t10 | publish | PF · Quality Grader | t9 | pending | 0 |
+| t1 | ai-agent | PF · Winning Message Finder |  | done | 1 |
+| t2 | publish | PF · Winning Message Finder | t1 | running | 1 |
+| t3 | ai-agent | PF · Scoring Tuner |  | done | 1 |
+| t4 | publish | PF · Scoring Tuner | t3 | running | 1 |
+| t5 | ai-agent | PF · Objection Collector |  | done | 1 |
+| t6 | publish | PF · Objection Collector | t5 | running | 1 |
+| t7 | ai-agent | PF · A/B Tester |  | done | 1 |
+| t8 | publish | PF · A/B Tester | t7 | running | 1 |
+| t9 | ai-agent | PF · Quality Grader |  | done | 1 |
+| t10 | publish | PF · Quality Grader | t9 | running | 1 |
 
 ### t1 · Build AI agent PF · Winning Message Finder
 
@@ -43,6 +43,18 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Winning Message Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86bd2afe7fc590a500c5f"}
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: get_agent readiness canRun true, missing []; models runs/picksTask/answerGeneration = e_6ad496812dd4ba5be70afcc1; memory false; deployments 0; published false
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: tools enabled true, topicId GLOBAL: ReadComponentInputs (6ae8635446920244f3d5194b), SaveAgentOutput (6ae864829594aa458cc1ce69); descriptions fix component_id "C48"
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: instructions state the one job, ReadComponentInputs first with component_id "C48", SaveAgentOutput exactly once, the output contract (output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), origin passed through as given, scope and refusals, changed:false/suggested:false + "no action" when nothing to do
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: trace e_6ae86cd99ec43c6ee249d48d called ReadComponentInputs {"component_id":"C48","account_id":"A-1001"} then SaveAgentOutput with output_type "example_proposal", summary "No action: no message has 3 or more positive replies for Carrow &amp; Vale Logistics (A-1001)...", evidence_tag "hypothesis", model "Claude Sonnet 5", origin "test"
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: job answer (case e_6ae86cd99ec43c6ee249d48d): "SaveAgentOutput returned **duplicate** (run_id RUN-6ae86c872099302ffb2f4c0e) ... reason: "re-run of RUN-6ae86c872099302ffb2f4c0e: already proposal, nothing written again." ... I proposed "no action" (suggested: false, changed: false) with confidence 35" — Save agent output run RUN-6ae86c872099302ffb2f4c0e
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: refusal (case e_6ae86c039ec43c6ee248c11d, toolCalls []): "I'm not able to send emails — that task is outside my one job here, which is finding winning messages (C48, the PF Winning Message Finder)."
+Unverified: Security: guardrails are none on this agent (get_agent counts.guardrails 0) — PII masking and content filter need an admin to turn them on in the agent's settings if wanted
+Unverified: Each job test message ran more than once (a 60 s client timeout on send_test_messages, then runAgainToFindAnswer); Save agent output's duplicate guard answered duplicate, so only one origin test row per component is expected — check: list PF Component run rows for this component_id with origin test
+Note: Model: card e_6acca2af70b66f5702c8b59f answers 401 per the task, so the agent uses the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model (family A).
+Note: toolsOffered in the trace also lists tenant-level tools not attached to the agent (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy); get_agent capabilities is [] and counts.tools matches only the bound tools. The agent did not call them.
+Note: Rows the tests wrote carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published (the publish task does).
 
 ### t2 · Publish PF · Winning Message Finder
 
@@ -65,6 +77,25 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Scoring Tuner with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86bd6afe7fc590a500cfa"}
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: get_agent readiness canRun true, missing []; models runs/picksTask/answerGeneration = e_6ad496812dd4ba5be70afcc1; memory false; deployments 0; published false
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: tools enabled true, topicId GLOBAL: ReadComponentInputs (6ae8635446920244f3d5194b), SaveAgentOutput (6ae864829594aa458cc1ce69); descriptions fix component_id "C49"
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: instructions state the one job, ReadComponentInputs first with component_id "C49", SaveAgentOutput exactly once, the output contract (output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), origin passed through as given, scope and refusals, changed:false/suggested:false + "no action" when nothing to do
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: trace e_6ae86d199594aa458cdd4516 called ReadComponentInputs {"component_id":"C49","account_id":"A-1001"} then SaveAgentOutput with output_type "weight_proposal", payload patches[PATCH-NAE-03] weights old_weight=new_weight (25/15/15), within_20pct true, changed false, evidence_tag "hypothesis", model "Claude Sonnet 5", origin "test"
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: job answer (case e_6ae86d199594aa458cdd4516): "SaveAgentOutput returned **duplicate** (run_id \`RUN-6ae86c4746920244f3d74a75\`), meaning this exact "no action" weight proposal for account A-1001 / patch PATCH-NAE-03 had already been saved in a prior run" — Save agent output run RUN-6ae86c4746920244f3d74a75
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: refusal (case e_6ae86d072099302ffb2f82fc, pausedForTool false): "I'm not able to do that — sending emails is outside my one job here. I'm PF · Scoring Tuner (C49) ..."
+Unverified: Security: guardrails are none on this agent (get_agent counts.guardrails 0) — PII masking and content filter need an admin to turn them on in the agent's settings if wanted
+Unverified: Each job test message ran more than once (a 60 s client timeout on send_test_messages, then runAgainToFindAnswer); Save agent output's duplicate guard answered duplicate, so only one origin test row per component is expected — check: list PF Component run rows for this component_id with origin test
+Note: Model: card e_6acca2af70b66f5702c8b59f answers 401 per the task, so the agent uses the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model (family A).
+Note: toolsOffered in the trace also lists tenant-level tools not attached to the agent (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy); get_agent capabilities is [] and counts.tools matches only the bound tools. The agent did not call them.
+Note: Rows the tests wrote carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published (the publish task does).
+Note: feedback:
+Bug: send_test_messages is cut off by the MCP client's 60 s timeout although it runs for minutes, so its rows are lost while the agent writes on the server.
+Context: parallel send_test_messages (2 messages) on new PF agents whose first message calls Save agent output.
+Where: mcp-tool
+Evidence: 3 of 5 calls answered 'tool "send_test_messages" timed out after 60s'; a re-run then got duplicate from Save agent output, so the timed-out run had written.
+Cause: Suspected: client MCP timeout (60 s) shorter than the tool's ~2.5 min trace wait.
+Regression: send_test_messages with two messages on a tool-calling agent returns rows, not a 60 s timeout.
 
 ### t4 · Publish PF · Scoring Tuner
 
@@ -87,6 +118,18 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Objection Collector with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86bd8f410ab7b2f202521"}
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: get_agent readiness canRun true, missing []; models runs/picksTask/answerGeneration = e_6ad496812dd4ba5be70afcc1; memory false; deployments 0; published false
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: tools enabled true, topicId GLOBAL: ReadComponentInputs (6ae8635446920244f3d5194b), SaveAgentOutput (6ae864829594aa458cc1ce69); descriptions fix component_id "C50"
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: instructions state the one job, ReadComponentInputs first with component_id "C50", SaveAgentOutput exactly once, the output contract (output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), origin passed through as given, scope and refusals, changed:false/suggested:false + "no action" when nothing to do
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: trace e_6ae86d49f13e536c52ed8e72 called ReadComponentInputs {"component_id":"C50","account_id":"A-1001"} then SaveAgentOutput with output_type "objection_list", payload objections [{"buyer_words":"we already have an integration vendor","source_ids":["SRC-12"]}], confidence 60, evidence_tag "public", model "Claude Sonnet 5", origin "test"
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: job answer (case e_6ae86d49f13e536c52ed8e72): "SaveAgentOutput returned **duplicate** (run_id \`RUN-6ae86c92f13e536c52ed4c9a\`), with the reason that this is a re-run of an existing run already sitting at **waiting_person** ... at confidence 60 (below the 70 threshold, hence it sits for sales review)" — Save agent output run RUN-6ae86c92f13e536c52ed4c9a
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: refusal (case e_6ae86d0bf6f76639f83b0cfa, pausedForTool false): "I'm not able to send emails — that falls outside my one job, which is updating the objection list and buyer language from call/meeting transcripts (component C50, the PF Objection Collector)."
+Unverified: Security: guardrails are none on this agent (get_agent counts.guardrails 0) — PII masking and content filter need an admin to turn them on in the agent's settings if wanted
+Unverified: Each job test message ran more than once (a 60 s client timeout on send_test_messages, then runAgainToFindAnswer); Save agent output's duplicate guard answered duplicate, so only one origin test row per component is expected — check: list PF Component run rows for this component_id with origin test
+Note: Model: card e_6acca2af70b66f5702c8b59f answers 401 per the task, so the agent uses the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model (family A).
+Note: toolsOffered in the trace also lists tenant-level tools not attached to the agent (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy); get_agent capabilities is [] and counts.tools matches only the bound tools. The agent did not call them.
+Note: Rows the tests wrote carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published (the publish task does).
 
 ### t6 · Publish PF · Objection Collector
 
@@ -109,6 +152,18 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · A/B Tester with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86bdbf410ab7b2f202568"}
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: get_agent readiness canRun true, missing []; models runs/picksTask/answerGeneration = e_6ad496812dd4ba5be70afcc1; memory false; deployments 0; published false
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: tools enabled true, topicId GLOBAL: ReadComponentInputs (6ae8635446920244f3d5194b), SaveAgentOutput (6ae864829594aa458cc1ce69); descriptions fix component_id "C51"
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: instructions state the one job, ReadComponentInputs first with component_id "C51", SaveAgentOutput exactly once, the output contract (output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), origin passed through as given, scope and refusals, changed:false/suggested:false + "no action" when nothing to do
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: trace e_6ae86d6af6f76639f83b1351 called ReadComponentInputs {"component_id":"C51","account_id":"A-1001"} then SaveAgentOutput with output_type "test_variant", draft_id "D-01", payload test_kind "fixed_size", change_kind "bold", traffic_split {A:50,B:50}, sample_size 1060, suggested true, evidence_tag "hypothesis", model "Claude Sonnet 5", origin "test"
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: job answer (case e_6ae86d6af6f76639f83b1351): "SaveAgentOutput returned **duplicate** (run_id RUN-6ae86d8246920244f3d78c8e, handoff H-6ae86d8246920244f3d78c99): this exact test proposal was already saved as a prior proposal ... fixed-size, bold-change A/B test ... 50/50 traffic split, ~1,060 people per version" — Save agent output run RUN-6ae86d8246920244f3d78c8e
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: refusal (case e_6ae86d0f9ec43c6ee24a248f, pausedForTool false): "I'm not able to do this — sending emails falls outside my one job, which is designing A/B tests (small or bold message variants, traffic splits, and sample sizes) for the Message Writer."
+Unverified: Security: guardrails are none on this agent (get_agent counts.guardrails 0) — PII masking and content filter need an admin to turn them on in the agent's settings if wanted
+Unverified: Each job test message ran more than once (a 60 s client timeout on send_test_messages, then runAgainToFindAnswer); Save agent output's duplicate guard answered duplicate, so only one origin test row per component is expected — check: list PF Component run rows for this component_id with origin test
+Note: Model: card e_6acca2af70b66f5702c8b59f answers 401 per the task, so the agent uses the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model (family A).
+Note: toolsOffered in the trace also lists tenant-level tools not attached to the agent (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy); get_agent capabilities is [] and counts.tools matches only the bound tools. The agent did not call them.
+Note: Rows the tests wrote carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published (the publish task does).
 
 ### t8 · Publish PF · A/B Tester
 
@@ -131,6 +186,27 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Quality Grader with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86bdeafe7fc590a500d57"}
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: get_agent readiness canRun true, missing []; models runs/picksTask/answerGeneration = e_696fe072cb3ef82f7e23dc86; memory false; deployments 0; published false
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: tools enabled true, topicId GLOBAL: ReadComponentInputs (6ae8635446920244f3d5194b), SaveAgentOutput (6ae864829594aa458cc1ce69), ReadFactoryRecords (6ae843e69ec43c6ee2dec988); descriptions fix component_id "C52"
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: instructions state the one job, ReadComponentInputs first with component_id "C52", SaveAgentOutput exactly once, the output contract (output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), origin passed through as given, scope and refusals, changed:false/suggested:false + "no action" when nothing to do
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: trace e_6ae86da32099302ffb2fb89b called ReadComponentInputs {"component_id":"C52","account_id":"A-1001"} then SaveAgentOutput with output_type "release_check", payload {"verdict":"pass","changed":false,"checked":[],"block_reasons":[]}, confidence 100, evidence_tag "public", model "GPT-5.1", origin "test"; tool result {"result":"duplicate","run_id":"RUN-6ae86da6f13e536c52edc594"} (first run: "already saved")
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: job answer (case e_6ae86da32099302ffb2fb89b): "Result: duplicate, run_id: RUN-6ae86da6f13e536c52edc594, reason: re-run of RUN-6ae86da6f13e536c52edc594: already saved, nothing written again. Summary: No recent proposals or hand-offs to grade; no action taken." — Save agent output run RUN-6ae86da6f13e536c52edc594
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: refusal (case e_6ae86d9946920244f3d799e3, pausedForTool false): "Sorry, I cannot send emails. My role is strictly to grade proposals, score releases, and enforce rubric and policy checks. For sending emails, please contact your organization's BDR or IT support."
+Unverified: Security: guardrails are none on this agent (get_agent counts.guardrails 0) — PII masking and content filter need an admin to turn them on in the agent's settings if wanted
+Unverified: Each job test message ran more than once (a 60 s client timeout on send_test_messages, then runAgainToFindAnswer); Save agent output's duplicate guard answered duplicate, so only one origin test row per component is expected — check: list PF Component run rows for this component_id with origin test
+Unverified: PF · Quality Grader: the trace's raw response names model gpt-4.1-2025-04-14 though the card says gpt-5.1; still an OpenAI model (family B, not the drafters' Claude family) — check: the card connection's Azure deployment name
+Note: Model: GPT-5.1 card e_6a0dd4e556ffb40e76c2762e failed both test messages with HTTP 500 / provider 401 'Incorrect API key provided', so the agent uses the closest active GPT card 'GPT-5.1 (Azure Open AI)' e_696fe072cb3ef82f7e23dc86 (the card PF · Message Grader already runs on); it answered both tests.
+Note: toolsOffered in the trace also lists tenant-level tools not attached to the agent (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy); get_agent capabilities is [] and counts.tools matches only the bound tools. The agent did not call them.
+Note: Rows the tests wrote carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published (the publish task does).
+Note: handover: PF · Quality Grader runs on card e_696fe072cb3ef82f7e23dc86, not e_6a0dd4e556ffb40e76c2762e (that card fails 401 Incorrect API key).
+Note: feedback:
+Bug: Model card 'GPT-5.1 (Azure Open AI)' e_696fe072cb3ef82f7e23dc86 (list_models model gpt-5.1) is answered by gpt-4.1 at run time.
+Context: PF · Quality Grader moved to this card after e_6a0dd4e556ffb40e76c2762e failed 401 Incorrect API key.
+Where: platform
+Evidence: read_trace case e_6ae86da32099302ffb2fb89b LLM Raw: "model":"gpt-4.1-2025-04-14".
+Cause: Unknown — next check: the card connection's Azure deployment name.
+Regression: a test turn on this card shows model gpt-5.1 in LLM Raw.
 
 ### t10 · Publish PF · Quality Grader
 

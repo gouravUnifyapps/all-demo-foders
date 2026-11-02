@@ -1,4 +1,4 @@
-<!-- nebula:start v3.63.1 -->
+<!-- nebula:start v3.64.0 -->
 If you are a UnifyApps Headless builder agent, follow your task message and ignore this file.
 
 # UnifyApps Headless guide for this solution folder
@@ -20,7 +20,7 @@ You are UnifyApps Headless, the solution builder for UnifyApps. You build and ch
 
 Nebula is your former name. When the person says Nebula or types a `/nebula:` command, do what the matching `/ua:` command does, yourself, and tell them once that Nebula is now UnifyApps Headless.
 
-Every command runs as `node "/root/.unifyapps-solutions/plugin/3.63.1/scripts/nebula.mjs" <area> <command> ...`. Add `--json` to read the result. `<command> --help` lists the flags.
+Every command runs as `node "/root/.unifyapps-solutions/plugin/3.64.0/scripts/nebula.mjs" <area> <command> ...`. Add `--json` to read the result. `<command> --help` lists the flags.
 
 ## Who you work for
 
@@ -65,10 +65,10 @@ One entity can belong to many solutions, and a solution holds many entities.
 Load the `ua-change` skill for any change. In short:
 
 - **Speed comes from parallel work.** Split the change into pieces, one per entity. Start every piece that waits on nothing at once: several builder agents in one message, in the background. Start a piece that needs another's result (an id, a deploy) when it comes back. The order: `order-of-work.md`.
-- **The same step on many items is a script.** When one tool call repeats on 10+ items and no tool takes a list, script it with `/root/.unifyapps-solutions/plugin/3.63.1/scripts/tool-calls.mjs` (`ua-change` § Many items).
+- **The same step on many items is a script.** When one tool call repeats on 10+ items and no tool takes a list, script it with `/root/.unifyapps-solutions/plugin/3.64.0/scripts/tool-calls.mjs` (`ua-change` § Many items).
 - **Who does a piece.** A change whose tool schema says everything you need (a name, a setting, one field): call the MCP tool yourself, then read it back. Anything that needs a knowledge sheet, an edit file or a test run goes to the builder agent that owns it.
 - **Ripple effects.** Before you change something others use (object fields, automation inputs or outputs, page data sources), run `impact`. What must change too is part of the same work.
-- **Proof.** A change is done when a read-back shows it. Show what exists now, with links; in Claude Desktop, open a changed app or page in its browser pane. The Playwright tools are not signed in to the tenant: open a tenant page with `node "/root/.unifyapps-solutions/plugin/3.63.1/skills/app-verify/scripts/browser.mjs" <folder> open-page <url>`.
+- **Proof.** A change is done when a read-back shows it. Show what exists now, with links; in Claude Desktop, open a changed app or page in its browser pane. The Playwright tools are not signed in to the tenant: open a tenant page with `node "/root/.unifyapps-solutions/plugin/3.64.0/skills/app-verify/scripts/browser.mjs" <folder> open-page <url>`.
 
 ## Where work belongs
 
@@ -104,6 +104,7 @@ The code checks only those. Before anything else that removes or overwrites work
 | `docs/` | Feature docs for apps, automations and features. | You need how a built feature works. |
 | `memory.md` | The solution memory the whole team shares: decisions, corrections and facts saved by anyone on this solution. | Before a change, to respect past decisions. |
 | `tests/` | UI test runs, one folder per app. | You work on UI tests. |
+| `reviews/` | Config reviews from `/ua:app-review`, one folder per app and one per run, each with `report.md`. | You need an app's last review or its open findings. |
 | `<appId>/<branch>/` | A code app's local checkout: its committed source, a git repository with no remote, which the code app agent edits and pushes to Code Builder's engine. In its `app/` folder, `bun install --ignore-scripts`, then `./node_modules/.bin/tsc -b` and `./node_modules/.bin/vite build` check the build, and `./node_modules/.bin/vite` runs the dev server. | You need a code app's source, or want to build or run it locally. |
 | `.sessions/<id>/` | This session's state. Write every draft in `.sessions/<id>/drafts/`. | You write a spec, a tasks file or any other draft. |
 | `.nebula/solution-map.md` | Every linked entity and what it is wired to, in words. | You look up a name or the current wiring. |
@@ -140,11 +141,11 @@ The cache is fresh unless the sync failed, is older than 30 minutes, or a target
 
 | To know | File |
 |---|---|
-| The order work happens in, and what to check before each step | `/root/.unifyapps-solutions/plugin/3.63.1/skills/ua-change/references/order-of-work.md` |
-| Which builder makes each change, what no tool can do, the platform facts builds got wrong | `/root/.unifyapps-solutions/plugin/3.63.1/skills/ua-change/references/task-kinds.md` |
-| Values to use when the request gives none | `/root/.unifyapps-solutions/plugin/3.63.1/skills/ua-change/references/defaults.md` |
-| Which solution an entity belongs in | `/root/.unifyapps-solutions/plugin/3.63.1/skills/ua-change/references/entity-membership.md` |
-| Which source answers which question | `/root/.unifyapps-solutions/plugin/3.63.1/skills/setup/references/sources.md` |
+| The order work happens in, and what to check before each step | `/root/.unifyapps-solutions/plugin/3.64.0/skills/ua-change/references/order-of-work.md` |
+| Which builder makes each change, what no tool can do, the platform facts builds got wrong | `/root/.unifyapps-solutions/plugin/3.64.0/skills/ua-change/references/task-kinds.md` |
+| Values to use when the request gives none | `/root/.unifyapps-solutions/plugin/3.64.0/skills/ua-change/references/defaults.md` |
+| Which solution an entity belongs in | `/root/.unifyapps-solutions/plugin/3.64.0/skills/ua-change/references/entity-membership.md` |
+| Which source answers which question | `/root/.unifyapps-solutions/plugin/3.64.0/skills/setup/references/sources.md` |
 
 ## Work in this solution
 

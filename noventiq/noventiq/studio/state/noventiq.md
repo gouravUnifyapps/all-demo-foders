@@ -66,6 +66,13 @@ runs:
     spawns: 1
     tokens: 157
     outcome: posted G1
+  - started: 2026-11-02T06:53:00Z
+    ended: 2026-11-02T06:58:00Z
+    gate: g1
+    stages: []
+    spawns: 0
+    tokens: 0
+    outcome: "waiting: G1 not approved on the row; Mrinal Dixit's 'Approved, proceed' arrived as feedback FB-1793602287223-1, not as an approval"
 
 stopped:
 
@@ -522,12 +529,16 @@ decisions:
   - by: orchestrator
     when: 2026-10-30
     text: "G1 round 2: round-1 open questions 2 (real vs fictional data) and 3 (which entities) are superseded by round 2's synthetic-systems and countries questions; the requirements doc §3 carries the 14 still open."
+  - by: Mrinal Dixit
+    when: 2026-11-02
+    ticket_no: FB-1793602287223-1
+    text: "G1 feedback (psl_feedback FB-1793602287223-1), verbatim: Approved, proceed. Read as an intent to approve, not as a change, so G1 was not reworked; the row still shows g1_status waiting, and Demo Studio never approves a gate itself. G2 starts once the manager approves G1 on the POC page or replies exactly `approve` in the G1 thread."
 dev_issues: []
 
 frozen:
 
 cost:
-  runs: 2
+  runs: 3
   agent_spawns: 2
   tokens_m: 0.31
   wall_h: 0.53

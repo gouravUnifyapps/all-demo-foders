@@ -456,23 +456,23 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86821f410ab7b2f15695c",
-      "name": "PF · Play Picker",
-      "version": 1,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86825f410ab7b2f156a03",
-      "name": "PF · Page Builder",
-      "version": 1,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86828f410ab7b2f156a22",
-      "name": "PF · Content Picker",
-      "version": 1,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
@@ -484,36 +484,36 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ed96c5f6ba2441a5f",
-      "name": "PF · Fact Checker",
-      "version": 5,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8687bd96c5f6ba2442526",
-      "name": "PF · Message Grader",
-      "version": 3,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8687ef410ab7b2f1575c6",
       "name": "PF · Call Script Writer",
-      "version": 1,
+      "version": 6,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86881d96c5f6ba244257b",
       "name": "PF · Follow-up Planner",
-      "version": 1,
+      "version": 6,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86884d96c5f6ba24425cc",
       "name": "PF · Inbox Health Checker",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
@@ -554,9 +554,9 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bebf410ab7b2f20260c",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Reply Sorter",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
@@ -575,16 +575,16 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf7f410ab7b2f202726",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Meeting Labeler",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bfbf410ab7b2f202747",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Deal Qualifier",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
@@ -4205,20 +4205,20 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86821f410ab7b2f15695c",
-      "name": "PF · Play Picker",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86825f410ab7b2f156a03",
-      "name": "PF · Page Builder",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86828f410ab7b2f156a22",
-      "name": "PF · Content Picker",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
@@ -4229,14 +4229,14 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ed96c5f6ba2441a5f",
-      "name": "PF · Fact Checker",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8687bd96c5f6ba2442526",
-      "name": "PF · Message Grader",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
@@ -4289,8 +4289,8 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bebf410ab7b2f20260c",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Reply Sorter",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
@@ -4307,14 +4307,14 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf7f410ab7b2f202726",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Meeting Labeler",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bfbf410ab7b2f202747",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Deal Qualifier",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",

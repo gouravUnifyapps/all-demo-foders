@@ -22,14 +22,14 @@ Goal: Pipeline Factory · G3 round 2 · P11
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | PF · Message Grader |  | running | 2 |
-| t2 | publish | PF · Message Grader | t1 | pending | 0 |
+| t1 | ai-agent | PF · Message Grader |  | done | 2 |
+| t2 | publish | PF · Message Grader | t1 | done | 1 |
 | t3 | ai-agent | PF · Call Script Writer |  | done | 1 |
-| t4 | publish | PF · Call Script Writer | t3 | running | 1 |
+| t4 | publish | PF · Call Script Writer | t3 | done | 1 |
 | t5 | ai-agent | PF · Follow-up Planner |  | done | 1 |
-| t6 | publish | PF · Follow-up Planner | t5 | running | 1 |
+| t6 | publish | PF · Follow-up Planner | t5 | done | 1 |
 | t7 | ai-agent | PF · Inbox Health Checker |  | done | 1 |
-| t8 | publish | PF · Inbox Health Checker | t7 | running | 1 |
+| t8 | publish | PF · Inbox Health Checker | t7 | done | 1 |
 
 ### t1 · Build AI agent PF · Message Grader
 
@@ -41,7 +41,15 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Message Grader with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
-Error: PF · Message Grader is built (model, instructions, both tools) and declines out-of-scope work, but its job run cannot save: send_test_message case e_6ae8699546920244f3d69de3 -&gt; SaveAgentOutput result rejected, run RUN-6ae869992099302ffb2e91c0, reason 'schema check failed: draft_id missing', because Read component inputs (~200k chars) is cut by the runtime to 16k+2k chars and no draft reaches the model. After the one instruction fix round the second run (case e_6ae86b07f6f76639f83a38a0) was rejected the same way. Needs Read component inputs narrowed (automation-agent) before this agent can grade.
+Result IDs: {"entity":"e_6ae8687bd96c5f6ba2442526"}
+Read back: PF · Message Grader e_6ae8687bd96c5f6ba2442526: get_agent version 3, readiness canRun true, models runs/picksTask/answerGeneration e_696fe072cb3ef82f7e23dc86 (GPT-5.1 (Azure Open AI)), role/goal set, instructions state the one job (C32 rubric grade 0-100 on one draft per run, payload.grade), read-first/save-once, output contract, origin pass-through, scope and refusals, grades only; tools ReadComponentInputs e_6ae86891f410ab7b2f157738 -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae86891d96c5f6ba2442718 -&gt; 6ae864829594aa458cc1ce69, both enabled, topicId GLOBAL; deployments 0, memory false
+Read back: PF · Message Grader e_6ae8687bd96c5f6ba2442526: trace e_6ae86d279ec43c6ee24a2cb0 calls ReadComponentInputs {component_id:C32, account_id:A-1001} (reply now 11,315 chars, untruncated), then one SaveAgentOutput {component_id:C32, account_id:A-1001, draft_id:D-01, output_type:draft_grade, payload grade 86 with six rubric scores, confidence 86, evidence_tag public, model GPT-5.1, origin test}; tool answered {result:saved, run_id:RUN-6ae869992099302ffb2e91c0, handoff_ids:H-6ae86d2e9ec43c6ee24a2df4, reason:'saved; wrote grade'}; agent said: 'Result: saved (run_id: RUN-6ae869992099302ffb2e91c0, reason: saved; wrote grade). Draft D-01 for Arjun Mehta received an overall grade of 86 ... no rewrite requested.'
+Read back: PF · Message Grader e_6ae8687bd96c5f6ba2442526: refusal case e_6ae86a4efbdd550a9a522422 answered 'I'm not able to send emails. My one job is to grade drafts on the message rubric; sending emails is handled by another component or a BDR.' with no tool call
+Unverified: PF · Message Grader: the served model is not verified as GPT-5.1 — card e_696fe072cb3ef82f7e23dc86's traces report gpt-4.1-2025-04-14; settle by fixing the key on card e_6a0dd4e556ffb40e76c2762e and one send_test_message on it.
+Unverified: PF · Message Grader: the job test was a single send_test_message (the send_test_messages pair ran earlier and failed on the 401 card); the under-75 rewrite path was not exercised because D-01 graded 86.
+Note: Model: card e_6a0dd4e556ffb40e76c2762e (GPT-5.1) failed with provider 401 'Incorrect API key provided', so the agent uses the closest active GPT card 'GPT-5.1 (Azure Open AI)' e_696fe072cb3ef82f7e23dc86; its traces name gpt-4.1-2025-04-14.
+Note: The agent graded D-01 (the first draft, as its instructions say) rather than D-04 the router named; the test message names no draft.
+Note: handover: Save agent output's registry: C32 target draft (needs a real draft_id and payload.grade), C38 target inbox (payload.inbox_id plus placement_pct_last/blacklisted at the payload top level); C36 and C37 write a run row only. Idempotency key is component\|account\|person\|play\|output_type, so a rerun after a saved or waiting_person run answers duplicate; a rerun after rejected reuses the run id.
 
 ### t2 · Publish PF · Message Grader
 
@@ -53,6 +61,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Message Grader published.
+Result IDs: {"entity":"e_6ae8687bd96c5f6ba2442526"}
+Read back: PF · Message Grader e_6ae8687bd96c5f6ba2442526: get_agent before publish: version 3, published false, needsPublish true, readiness canRun true, 2 tools enabled (ReadComponentInputs, SaveAgentOutput), deployments 0
+Read back: PF · Message Grader e_6ae8687bd96c5f6ba2442526: publish_agent {confirmed:true} answered ok true, publishedVersion 3, live true, published true, needsPublish false, automation said 'success'
+Read back: PF · Message Grader e_6ae8687bd96c5f6ba2442526: list_agents read back after publish: published true, needsPublish false (record version now 8 after the platform's publish bookkeeping)
+Unverified: PF · Message Grader: Pipeline Factory · Run component invoking the published version was not run in this task; one Run component call naming C32 would settle it
+Note: Answer from the person: yes, publish PF · Message Grader. The spec the person accepted names it under Ready when, so it is already approved (the plan's approval).
+Note: No deployment made or asked for: the agent has 0 deployments; the Run component invokes it directly.
 
 ### t3 · Build AI agent PF · Call Script Writer
 
@@ -83,6 +98,9 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Call Script Writer published.
+Result IDs: {"entity":"e_6ae8687ef410ab7b2f1575c6"}
+Read back: PF · Call Script Writer e_6ae8687ef410ab7b2f1575c6: publish_agent re-read the agent: version 1, published true, needsPublish false, publishedVersion 1, live true, automation said 'success'
+Note: Published on the person's yes as given: 'yes, publish PF · Call Script Writer. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
 
 ### t5 · Build AI agent PF · Follow-up Planner
 
@@ -113,6 +131,10 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Follow-up Planner published.
+Result IDs: {"entity":"e_6ae86881d96c5f6ba244257b"}
+Read back: PF · Follow-up Planner e_6ae86881d96c5f6ba244257b: publish_agent re-read the agent: version 1, published true, needsPublish false, publishedVersion 1, live true, automation said 'success'
+Unverified: PF · Follow-up Planner: its replan rules were tested only before Read component inputs was narrowed (it then saw no reply rows); one run on an account with replies would show them working.
+Note: Published on the plan's approval: 'yes, publish PF · Follow-up Planner. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.'
 
 ### t7 · Build AI agent PF · Inbox Health Checker
 
@@ -143,4 +165,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Inbox Health Checker published.
+Result IDs: {"entity":"e_6ae86884d96c5f6ba24425cc"}
+Read back: PF · Inbox Health Checker e_6ae86884d96c5f6ba24425cc: publish_agent re-read the agent: version 2, published true, needsPublish false, publishedVersion 2, live true, automation said 'success'
+Note: Published on the plan's approval: 'yes, publish PF · Inbox Health Checker. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.'
 

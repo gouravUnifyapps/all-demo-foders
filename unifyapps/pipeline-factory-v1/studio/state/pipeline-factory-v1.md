@@ -1188,6 +1188,10 @@ decisions:
     when: 2026-11-02
     text: "Build (R2-P11): Pipeline Factory · Read component inputs answered about 200,000 characters for A-1001, and the agent runtime keeps only the first 16,000 and last 2,000 of a tool reply, so agents could not see drafts, sources or incoming hand-offs (C32 could not grade; C08, C09 and C37 saw no sources). A short change narrows it to under 12,000 characters with the same inputs and result fields (plan e_6ae86bb6d96c5f6ba24481b4); the agents tested before it are re-run by 4-verify."
 
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Build (R2-P12): the GPT-5.1 card e_6a0dd4e556ffb40e76c2762e answers 401 Incorrect API key, so family-B checkers run on another GPT card that answers: Reply Sorter, Meeting Labeler and Deal Qualifier on 'GPT-5.1_without_effort(DNT)' e_6ae835bbafe7fc590a05a045 (a shared card marked do-not-touch, used but not changed); some earlier checkers may be on e_696fe072cb3ef82f7e23dc86, which may serve gpt-4.1. 4-verify reads each checker's card; an admin fixing the two cards' keys restores the planned models. A-1001 holds no reply, transcript or calendar rows for its account, so Reply Sorter, Meeting Labeler and Reply Writer saved no action in their tests."
+
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"

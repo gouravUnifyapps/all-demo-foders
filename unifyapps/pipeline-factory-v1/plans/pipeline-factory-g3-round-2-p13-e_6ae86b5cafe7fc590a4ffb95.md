@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:52:11.161Z"
 runningAt: "2026-11-02T10:52:17.187Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P13
@@ -23,15 +28,15 @@ Goal: Pipeline Factory · G3 round 2 · P13
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Winning Message Finder |  | done | 1 |
-| t2 | publish | PF · Winning Message Finder | t1 | running | 1 |
+| t2 | publish | PF · Winning Message Finder | t1 | done | 1 |
 | t3 | ai-agent | PF · Scoring Tuner |  | done | 1 |
-| t4 | publish | PF · Scoring Tuner | t3 | running | 1 |
+| t4 | publish | PF · Scoring Tuner | t3 | done | 1 |
 | t5 | ai-agent | PF · Objection Collector |  | done | 1 |
-| t6 | publish | PF · Objection Collector | t5 | running | 1 |
+| t6 | publish | PF · Objection Collector | t5 | done | 1 |
 | t7 | ai-agent | PF · A/B Tester |  | done | 1 |
-| t8 | publish | PF · A/B Tester | t7 | running | 1 |
+| t8 | publish | PF · A/B Tester | t7 | done | 1 |
 | t9 | ai-agent | PF · Quality Grader |  | done | 1 |
-| t10 | publish | PF · Quality Grader | t9 | running | 1 |
+| t10 | publish | PF · Quality Grader | t9 | done | 1 |
 
 ### t1 · Build AI agent PF · Winning Message Finder
 
@@ -66,6 +71,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Winning Message Finder published.
+Result IDs: {"entity":"e_6ae86bd2afe7fc590a500c5f"}
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: publish_agent (confirmed true) returned publishedVersion 1, live true, published true, needsPublish false, automationSaid response "success"
+Read back: PF · Winning Message Finder e_6ae86bd2afe7fc590a500c5f: live read (list_agents by id) after publish: version 6, published true, needsPublish false
+Unverified: PF · Winning Message Finder: not yet invoked through Pipeline Factory · Run component after publish — check: run that automation for this component and read the PF Component run row
+Note: Release approval: yes, publish PF · Winning Message Finder. The spec the person accepted names it under Ready when (plan approval, not a separate answer to this call).
+Note: The stored version moved from 1 to 6 during publish (the platform bumps it); publishedVersion 1 is the draft that was tested in the build task.
+Note: Not deployed to any app or channel, per the spec.
 
 ### t3 · Build AI agent PF · Scoring Tuner
 
@@ -107,6 +119,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Scoring Tuner published.
+Result IDs: {"entity":"e_6ae86bd6afe7fc590a500cfa"}
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: publish_agent (confirmed true) returned publishedVersion 1, live true, published true, needsPublish false, automationSaid response "success"
+Read back: PF · Scoring Tuner e_6ae86bd6afe7fc590a500cfa: live read (list_agents by id) after publish: version 6, published true, needsPublish false
+Unverified: PF · Scoring Tuner: not yet invoked through Pipeline Factory · Run component after publish — check: run that automation for this component and read the PF Component run row
+Note: Release approval: yes, publish PF · Scoring Tuner. The spec the person accepted names it under Ready when (plan approval, not a separate answer to this call).
+Note: The stored version moved from 1 to 6 during publish (the platform bumps it); publishedVersion 1 is the draft that was tested in the build task.
+Note: Not deployed to any app or channel, per the spec.
 
 ### t5 · Build AI agent PF · Objection Collector
 
@@ -141,6 +160,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Objection Collector published.
+Result IDs: {"entity":"e_6ae86bd8f410ab7b2f202521"}
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: publish_agent (confirmed true) returned publishedVersion 1, live true, published true, needsPublish false, automationSaid response "success"
+Read back: PF · Objection Collector e_6ae86bd8f410ab7b2f202521: live read (list_agents by id) after publish: version 6, published true, needsPublish false
+Unverified: PF · Objection Collector: not yet invoked through Pipeline Factory · Run component after publish — check: run that automation for this component and read the PF Component run row
+Note: Release approval: yes, publish PF · Objection Collector. The spec the person accepted names it under Ready when (plan approval, not a separate answer to this call).
+Note: The stored version moved from 1 to 6 during publish (the platform bumps it); publishedVersion 1 is the draft that was tested in the build task.
+Note: Not deployed to any app or channel, per the spec.
 
 ### t7 · Build AI agent PF · A/B Tester
 
@@ -175,6 +201,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · A/B Tester published.
+Result IDs: {"entity":"e_6ae86bdbf410ab7b2f202568"}
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: publish_agent (confirmed true) returned publishedVersion 1, live true, published true, needsPublish false, automationSaid response "success"
+Read back: PF · A/B Tester e_6ae86bdbf410ab7b2f202568: live read (list_agents by id) after publish: version 6, published true, needsPublish false
+Unverified: PF · A/B Tester: not yet invoked through Pipeline Factory · Run component after publish — check: run that automation for this component and read the PF Component run row
+Note: Release approval: yes, publish PF · A/B Tester. The spec the person accepted names it under Ready when (plan approval, not a separate answer to this call).
+Note: The stored version moved from 1 to 6 during publish (the platform bumps it); publishedVersion 1 is the draft that was tested in the build task.
+Note: Not deployed to any app or channel, per the spec.
 
 ### t9 · Build AI agent PF · Quality Grader
 
@@ -218,4 +251,11 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Quality Grader published.
+Result IDs: {"entity":"e_6ae86bdeafe7fc590a500d57"}
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: publish_agent (confirmed true) returned publishedVersion 2, live true, published true, needsPublish false, automationSaid response "success"
+Read back: PF · Quality Grader e_6ae86bdeafe7fc590a500d57: live read (list_agents by id) after publish: version 7, published true, needsPublish false
+Unverified: PF · Quality Grader: not yet invoked through Pipeline Factory · Run component after publish — check: run that automation for this component and read the PF Component run row
+Note: Release approval: yes, publish PF · Quality Grader. The spec the person accepted names it under Ready when (plan approval, not a separate answer to this call).
+Note: The stored version moved from 2 to 7 during publish (the platform bumps it); publishedVersion 2 is the draft that was tested in the build task.
+Note: Not deployed to any app or channel, per the spec.
 

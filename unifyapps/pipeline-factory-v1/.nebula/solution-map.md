@@ -73,18 +73,18 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent | `PF · Call Script Writer` | e_6ae8687ef410ab7b2f1575c6 | 6 | no |
 | ai-agent | `PF · Follow-up Planner` | e_6ae86881d96c5f6ba244257b | 6 | no |
 | ai-agent | `PF · Inbox Health Checker` | e_6ae86884d96c5f6ba24425cc | 7 | no |
-| ai-agent | `PF · Winning Message Finder` | e_6ae86bd2afe7fc590a500c5f | 1 | no |
-| ai-agent | `PF · Scoring Tuner` | e_6ae86bd6afe7fc590a500cfa | 1 | no |
-| ai-agent | `PF · Objection Collector` | e_6ae86bd8f410ab7b2f202521 | 1 | no |
-| ai-agent | `PF · A/B Tester` | e_6ae86bdbf410ab7b2f202568 | 1 | no |
-| ai-agent | `PF · Quality Grader` | e_6ae86bdeafe7fc590a500d57 | 2 | no |
+| ai-agent | `PF · Winning Message Finder` | e_6ae86bd2afe7fc590a500c5f | 6 | no |
+| ai-agent | `PF · Scoring Tuner` | e_6ae86bd6afe7fc590a500cfa | 6 | no |
+| ai-agent | `PF · Objection Collector` | e_6ae86bd8f410ab7b2f202521 | 7 | no |
+| ai-agent | `PF · A/B Tester` | e_6ae86bdbf410ab7b2f202568 | 6 | no |
+| ai-agent | `PF · Quality Grader` | e_6ae86bdeafe7fc590a500d57 | 7 | no |
 | ai-agent | `PF · Reply Sorter` | e_6ae86bebf410ab7b2f20260c | 7 | no |
 | ai-agent | `PF · Reply Writer` | e_6ae86beff410ab7b2f20266c | 6 | no |
 | ai-agent | `PF · Meeting Prep Writer` | e_6ae86bf3f410ab7b2f2026ba | 6 | no |
 | ai-agent | `PF · Meeting Labeler` | e_6ae86bf7f410ab7b2f202726 | 7 | no |
 | ai-agent | `PF · Deal Qualifier` | e_6ae86bfbf410ab7b2f202747 | 7 | no |
-| ai-agent |  | e_6ae86c76f410ab7b2f203900 |  | yes |
-| ai-agent |  | e_6ae86c7ad96c5f6ba24493ba |  | yes |
+| ai-agent | `PF · Agent Monitor` | e_6ae86c76f410ab7b2f203900 | 1 | no |
+| ai-agent | `PF · Test Error Planter` | e_6ae86c7ad96c5f6ba24493ba | 2 | no |
 
 ## Wiring
 
@@ -358,5 +358,5 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 - ai-agent `PF · Meeting Prep Writer` (e_6ae86bf3f410ab7b2f2026ba): its tools are not in the cache (get_agent)
 - ai-agent `PF · Meeting Labeler` (e_6ae86bf7f410ab7b2f202726): its tools are not in the cache (get_agent)
 - ai-agent `PF · Deal Qualifier` (e_6ae86bfbf410ab7b2f202747): its tools are not in the cache (get_agent)
-- ai-agent `e_6ae86c76f410ab7b2f203900` (e_6ae86c76f410ab7b2f203900): entity-not-cached
-- ai-agent `e_6ae86c7ad96c5f6ba24493ba` (e_6ae86c7ad96c5f6ba24493ba): entity-not-cached
+- ai-agent `PF · Agent Monitor` (e_6ae86c76f410ab7b2f203900): its tools are not in the cache (get_agent)
+- ai-agent `PF · Test Error Planter` (e_6ae86c7ad96c5f6ba24493ba): its tools are not in the cache (get_agent)

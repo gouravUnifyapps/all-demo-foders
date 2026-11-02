@@ -22,9 +22,9 @@ Goal: Pipeline Factory · G3 round 2 · P14
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | PF · Agent Monitor |  | running | 1 |
+| t1 | ai-agent | PF · Agent Monitor |  | done | 1 |
 | t2 | publish | PF · Agent Monitor | t1 | pending | 0 |
-| t3 | ai-agent | PF · Test Error Planter |  | running | 1 |
+| t3 | ai-agent | PF · Test Error Planter |  | done | 1 |
 | t4 | publish | PF · Test Error Planter | t3 | pending | 0 |
 
 ### t1 · Build AI agent PF · Agent Monitor
@@ -37,6 +37,28 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Agent Monitor with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86c76f410ab7b2f203900"}
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: list_agents for 'PF · ' showed no such agent before create; create_agent answered readiness canRun true, missing [].
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: get_agent models runs/picksTask/answerGeneration all e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5 (UnifyApps, Vertex, cached)); kind ai-agent; memory false; capabilities []; deployments []; role and goal set.
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: get_agent tools (3, all enabled, topicId GLOBAL): ReadComponentInputs -&gt; 6ae8635446920244f3d5194b, SaveAgentOutput -&gt; 6ae864829594aa458cc1ce69, ReadFactoryRecords -&gt; 6ae843e69ec43c6ee2dec988; descriptions fix component_id "C53", output_type "drift_alert".
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: instructions state the one job (compare each agent to its baseline weekly on block and edit rate, factual errors, grades and confidence calibration, alert the GTM engineer on any slip), read with ReadComponentInputs first, save exactly once with SaveAgentOutput, the output contract (output_type, summary, payload, confidence 0-100, evidence, evidence_tag), origin passed through, never pauses a component, scope and refusals.
+Read back: PF · Agent Monitor case e_6ae86d33f6f76639f83b0eaf trace: toolsOffered include ReadComponentInputs, ReadFactoryRecords, SaveAgentOutput; calls ReadComponentInputs {component_id C53, account_id A-1001}, then ReadComponentInputs again with patch_id PATCH-NAE-03, then one SaveAgentOutput {component_id C53, account_id A-1001, output_type drift_alert, payload changed:false alerts:[], confidence 25, evidence_tag public, model Claude Sonnet 5, origin test}.
+Read back: PF · Agent Monitor answer: "SaveAgentOutput returned **duplicate** (run_id \`RUN-6ae86d309ec43c6ee24a2f3c\`) ... recent_runs as 0 of 50 available records and handoffs_in as empty ... drift_alert with changed: false" (duplicate because the first of the two runs runAgainToFindAnswer makes had already saved that key).
+Read back: PF · Agent Monitor case e_6ae86d072099302ffb2f82fd refusal (no tool call, 1 LLM call): "I'm not able to send emails — that task falls outside my scope. My one job as PF · Agent Monitor (C53) is to compare each agent to its baseline weekly ... Sending an email to Arjun Mehta would typically be handled by a BDR".
+Read back: Security: PF · Agent Monitor has no write tool beyond Save agent output (the only write path); no secret in instructions; instructions treat record and user text as information; not deployed, not published.
+Unverified: PF · Agent Monitor: the first save's own result (saved vs waiting_person) is not in a trace I could read; only the second run's duplicate for run RUN-6ae86d309ec43c6ee24a2f3c is. Check: read the PF Component run row RUN-6ae86d309ec43c6ee24a2f3c status.
+Unverified: PF · Agent Monitor: no slip path tested — A-1001's recent_runs came back '0 of 50' so the agent saved changed:false. Check: run it with seeded recent runs and see an alerts list.
+Unverified: Security: guardrails (content filter, PII masking) are not set on PF · Agent Monitor (guardrails []) — needs an admin to decide whether they apply before publish.
+Note: Model card per the task: e_6acca2af70b66f5702c8b59f answers 401, so the active same-model card e_6ad496812dd4ba5be70afcc1 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' is used.
+Note: Test rows carry origin test (run RUN-6ae86d309ec43c6ee24a2f3c) and are left for Pipeline Factory · Reset demo; no delete made. send_test_messages timed out at the client (60 s) and its runs may also have written test rows; then send_test_message was used per question.
+Note: Not deployed to any app or channel; not published (the publish task does).
+Note: feedback:
+Bug: \`send_test_messages\` is cut off by the MCP client's 60 s call timeout although the tool documents a run of several minutes, so no rows come back.
+Context: agent-builder MCP, send_test_messages with 2 questions on new agents whose questions call write tools.
+Where: mcp-tool
+Evidence: answered \`tool "send_test_messages" timed out after 60s\`; the agents had run on the server (a later save answered duplicate) but no caseIds were returned.
+Cause: Suspected: the client-side MCP timeout (60 s) is shorter than the tool's documented wait.
+Regression: send_test_messages with 2 tool-calling questions returns rows instead of a 60 s timeout.
 
 ### t2 · Publish PF · Agent Monitor
 
@@ -59,6 +81,23 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Test Error Planter with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae86c7ad96c5f6ba24493ba"}
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: list_agents for 'PF · ' showed no such agent before create; get_agent readiness canRun true, version 2.
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: get_agent models runs/picksTask/answerGeneration all e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5 (UnifyApps, Vertex, cached)); kind ai-agent; memory false; capabilities []; deployments []; role and goal set.
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: get_agent tools (2, both enabled, topicId GLOBAL): ReadComponentInputs -&gt; 6ae8635446920244f3d5194b, SaveAgentOutput -&gt; 6ae864829594aa458cc1ce69; descriptions fix component_id "C54", output_type "planted_error", planted_error a boolean.
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: instructions state the one job (plant test errors in about 5% of Gate 2 items, score each reviewer's catch rate), read first, save once, the output contract, origin passed through, a planted draft never sends, scope and refusals.
+Read back: PF · Test Error Planter round 1 case e_6ae86d62f38e3276181acbcd: Save agent output answered rejected, run RUN-6ae86d09fbdd550a9a532810, reason "schema check failed: planted_error missing (wrong type)" — the agent sent planted_error as an object; the Save automation coerces PF Draft.planted_error as a boolean (BOOLS list). That run also called SaveAgentOutput twice.
+Read back: PF · Test Error Planter fix: instructions and SaveAgentOutput description now say payload.planted_error is the boolean true/false with details under planted_error_detail (update_agent changed [instructions]; update_tools changed [description]).
+Read back: PF · Test Error Planter round 2 case e_6ae86dec9594aa458ce774e8 trace: ReadComponentInputs {component_id C54, account_id A-1001}, then ONE SaveAgentOutput {component_id C54, account_id A-1001, draft_id D-06, output_type planted_error, payload planted_error:true, planted_error_detail wrong_pod_sender POD-NAE-1 -&gt; POD-NAE-3, catch_rates Send Rules Check/Clear Gate 2 absent, handoff_to Gate 2, confidence 65, evidence_tag hypothesis, origin test}.
+Read back: PF · Test Error Planter answer: "SaveAgentOutput returned **duplicate** (run_id \`RUN-6ae86d09fbdd550a9a532810\`, hand-off \`H-6ae86e09f38e3276181b0e98\`): this exact planted-error run for account A-1001 had already been saved earlier" — the first of the two runs saved it and created hand-off H-6ae86e09f38e3276181b0e98 to Gate 2.
+Read back: PF · Test Error Planter case e_6ae86d0af38e3276181ac4a8 refusal (no tool call): "I'm not able to help with that — sending emails falls outside my one job here. I'm PF · Test Error Planter (C54) ... handled by the relevant BDR or account owner".
+Read back: Security: PF · Test Error Planter writes only through Save agent output (PF Draft.planted_error and its run row); no send tool; no secret in instructions; not deployed, not published.
+Unverified: PF · Test Error Planter: the saving run's own result line is not in a trace I could read; the duplicate answer names run RUN-6ae86d09fbdd550a9a532810 and hand-off H-6ae86e09f38e3276181b0e98. Check: read that PF Component run row's status and PF Draft D-06 planted_error.
+Unverified: Security: guardrails are not set on PF · Test Error Planter (guardrails []) — needs an admin to decide whether they apply before publish.
+Note: Model card per the task: e_6ad496812dd4ba5be70afcc1 used in place of e_6acca2af70b66f5702c8b59f (401).
+Note: Test writes: PF Draft D-06 planted_error true and run RUN-6ae86d09fbdd550a9a532810 (origin test) with hand-off H-6ae86e09f38e3276181b0e98 to Gate 2; left for Pipeline Factory · Reset demo; no delete made. Reset demo must also clear D-06.planted_error.
+Note: handover: Save agent output registers C54 as target draft, field planted_error of type boolean; a C54 save needs draft_id and payload.planted_error true/false, and its idempotency key is component\|account\|person\|play\|output_type (draft_id is not in it), so one planted_error run per account.
+Note: Not deployed to any app or channel; not published (the publish task does).
 
 ### t4 · Publish PF · Test Error Planter
 

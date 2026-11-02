@@ -90,8 +90,8 @@ flowchart LR
   n86["AI agent PF · Meeting Prep Writer · e_6ae86bf3f410ab7b2f2026ba"]
   n87["AI agent PF · Meeting Labeler · e_6ae86bf7f410ab7b2f202726"]
   n88["AI agent PF · Deal Qualifier · e_6ae86bfbf410ab7b2f202747"]
-  n89["AI agent e_6ae86c76f410ab7b2f203900 · e_6ae86c76f410ab7b2f203900"]
-  n90["AI agent e_6ae86c7ad96c5f6ba24493ba · e_6ae86c7ad96c5f6ba24493ba"]
+  n89["AI agent PF · Agent Monitor · e_6ae86c76f410ab7b2f203900"]
+  n90["AI agent PF · Test Error Planter · e_6ae86c7ad96c5f6ba24493ba"]
   n91["object object_type · object_type"]
   n1 --- n2
   n2 --- n3

@@ -1,0 +1,18 @@
+{
+  "createdTime": 1793619436162,
+  "deleted": false,
+  "entityType": "solution_spec",
+  "id": "e_6ae875ecafe7fc590a571ed0",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793619440904,
+  "modifiedTime": 1793619440904,
+  "ownerUserId": 66770,
+  "properties": {
+    "spec_html": "",
+    "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Verify round 1 fixes (G3 round 2): Run component runs a component with no account; Save agent output passes the model an\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Run component\",\"id\":\"6ae865229ec43c6ee2300d8d\"},{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Save agent output\",\"id\":\"6ae864829594aa458cc1ce69\"},{\"kind\":\"ai-agent\",\"name\":\"Pipeline Factory Analyst\",\"id\":\"e_6ae846ffd96c5f6ba22b98da\"},{\"kind\":\"ai-agent\",\"name\":\"PF · Reply Sorter\",\"id\":\"e_6ae86bebf410ab7b2f20260c\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Run component\",\"id\":\"6ae865229ec43c6ee2300d8d\"},{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Save agent output\",\"id\":\"6ae864829594aa458cc1ce69\"},{\"action\":\"publish\",\"kind\":\"ai-agent\",\"name\":\"Pipeline Factory Analyst\",\"id\":\"e_6ae846ffd96c5f6ba22b98da\"},{\"action\":\"publish\",\"kind\":\"ai-agent\",\"name\":\"PF · Reply Sorter\",\"id\":\"e_6ae86bebf410ab7b2f20260c\"}]\nacceptedAt: \"2026-11-02T11:37:15.164Z\"\nacceptedBy: {\"clientId\":\"533e7426-6927-42a4-bbcf-657253136df4\"}\nplanIds: [\"e_6ae875efafe7fc590a571f16\"]\nlatestPlanId: \"e_6ae875efafe7fc590a571f16\"\nplanId: \"e_6ae875efafe7fc590a571f16\"\n---\n# Verify round 1 fixes (G3 round 2): Run component runs a component with no account; Save agent output passes the model an\n\n## Requested outcome\nVerify round 1 fixes (G3 round 2): Run component runs a component with no account; Save agent output passes the model and each receiver's threshold to its hand-offs; the analyst gives stored dates as they are; publish PF · Reply Sorter's saved draft.\n\n## Touches\n- automation · Pipeline Factory · Run component · 6ae865229ec43c6ee2300d8d\n- automation · Pipeline Factory · Save agent output · 6ae864829594aa458cc1ce69\n- ai-agent · Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da\n- ai-agent · PF · Reply Sorter · e_6ae86bebf410ab7b2f20260c\n\n## Ready when\n- Read-back: Test runs of Run component for C13, C33 and C39 with no account answer ran, and C18 on A-1001 still runs.\n- Read-back: search_workflows shows Run component deployed at the saved version.\n- Read-back: The PF Hand-off rows a test save makes carry the run's model and each receiver's threshold.\n- Read-back: search_workflows shows Save agent output deployed at the saved version.\n- Read-back: get_agent shows the date rule; the test answers 2027-01-27.\n- Read-back: get_agent shows the analyst published with nothing left to publish.\n- Read-back: get_agent shows PF · Reply Sorter published with nothing left to publish.\n- deploy Pipeline Factory · Run component\n- deploy Pipeline Factory · Save agent output\n- publish Pipeline Factory Analyst\n- publish PF · Reply Sorter\n",
+    "solutionId": "e_6ae5bfc3b4f0d14b27962a04"
+  },
+  "standard": false,
+  "version": 1
+}

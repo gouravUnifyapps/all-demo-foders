@@ -4,7 +4,7 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: verifying
+status: building
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
@@ -1066,43 +1066,64 @@ data:
   expected_answers: eval.csv
 
 verify:
-  round: 2
-  walked: 2026-11-02T09:21Z to 09:27Z
+  round: 1
+  g3_round: 2
+  walked: 2026-11-02T11:28Z to 11:36Z
   theme: light
   beats_pass: "0 of 8 (all unverified: sign-in)"
   beats:
-    - "1 Control tower: unverified: sign-in. The published address /tower again answers /login?returnTo=%2Ftower; nothing typed. Data read: after the reset only the 18 seed hand-offs H-01 to H-18 remain (the 14 T-A* and 4 walk hand-offs from round 1 are gone)"
-    - "2 Fast lane: unverified: sign-in. Live run read back (Log signal, deployed, run 6ae85623f6f76639f809eca8, origin test): fast_lane, timing 40, hand-off H-6ae856279594aa458cbd0b2b Buying Signal Spotter to Play Picker saved with origin test and the due_at field set (saved_at plus one hour, 1793614902251)"
-    - "3 Gate 1: unverified: sign-in. Live run read back (Decide Gate 1, deployed, run 6ae85626f13e536c52e37aa2, origin test): Accept A-1001 saved hand-offs to Company Facts Collector and Buying Team Mapper, both origin test"
-    - "4 Research and buying team: unverified: sign-in (seeded; no read of the screen)"
-    - "5 Gate 2: unverified: sign-in. Live run read back (Clear Gate 2, deployed, run 6ae856249ec43c6ee218793a): approving D-04 answers result blocked, rule pod, reason \"Blocked: sender Rhea Castillo is not in the account's pod (POD-NAE-1)\" (round 1's fix holds)"
-    - "6 Booked and locked: unverified: sign-in (Book meeting unchanged since round 1's read-back; not re-run)"
-    - "7 Ask the factory, then stop it: unverified: sign-in. Agent answers row 1 with H-07, H-12, H-15, H-10 and C08 at 96.1% (trace read)"
-    - "H1 Under the hood: unverified: sign-in (builder canvas needs the tenant sign-in)"
+    - "1 Control tower: unverified: sign-in. The published address /tower answers /login?returnTo=%2Ftower (Playwright, not signed in; the built-in signed-in browser tools are not in this session); nothing typed. Data read: after both resets PF Hand-off holds only the 18 seed rows"
+    - "2 Fast lane: unverified: sign-in (backend unchanged since G3 round 1's live proof)"
+    - "3 Gate 1: unverified: sign-in (backend unchanged since G3 round 1's live proof)"
+    - "4 Research and buying team: unverified: sign-in"
+    - "5 Gate 2: unverified: sign-in. The new Send Rules Check answers D-04 blocked, rule pod, the same rule Clear Gate 2 gives"
+    - "6 Booked and locked: unverified: sign-in"
+    - "7 Ask the factory, then stop it: unverified: sign-in. The analyst answers row 1 with H-07, H-12, H-15, H-10 and Current Vendor Finder at 96.1%. Pause component on C08 (origin test) set it paused, and the second reset set it back to live"
+    - "H1 Under the hood (with the round-2 Components tab): unverified: sign-in. Backend: PF · Case for Change Drafter run live through Run component (see R2 proofs)"
   controls_pass: "0 of 0 measured (unverified: sign-in; no control pressed)"
-  queries_pass: "8 of 8"
+  queries_pass: "9 of 10"
   queries:
-    - "1 waiting on a person in PATCH-NAE-03: pass (H-07 RevOps 74/80, H-12 and H-15 Marcus Ellery, H-10 rejected on missing evidence), about 50 s"
-    - "2 red component: pass (Current Vendor Finder, 96.1%), about 24 s"
-    - "3 Carrow & Vale fit and AE: pass (49, best, Dana Okafor), about 31 s"
-    - "4 economic buyer: pass (\"Helena Marsh (CFO)\"; trace shows ReadFactoryRecords then the people list; round 1's fail is fixed), about 33 s"
-    - "5 Kestrel Ridge: pass (factory holdout until about 27 January 2027), about 46 s"
-    - "6 patch short of intros: pass (PATCH-NAE-04, 2 against 4), about 21 s"
-    - "7 send the email: pass (declines, read-only), about 13 s"
+    - "1 waiting on a person in PATCH-NAE-03: pass (H-07 RevOps 74/80, H-12 and H-15 Marcus Ellery 66/70 and 68/70, H-10 rejected on missing evidence, C08 red 96.1%), about 29 s"
+    - "2 red component: pass (Current Vendor Finder C08, 96.1%), about 15 s"
+    - "3 Carrow & Vale fit and AE: pass (49, best, Dana Okafor), about 16 s"
+    - "4 economic buyer: pass (\"Helena Marsh (CFO)\"), about 13 s"
+    - "5 Kestrel Ridge: fail. The answer says \"Holdout expires: approximately **26 January 2027**\", but the record and beat 3 say 2027-01-27. About 23 s"
+    - "6 patch short of intros: pass (PATCH-NAE-04, 2 against 4, 25% pace boost), about 24 s"
+    - "7 send the email: pass (declines, read-only), under 20 s"
     - "8 deal size: pass (says the records hold no deal size), under 20 s"
-  p95_latency_s: 50
+    - "9 Run C18 on A-1001: pass, via Pipeline Factory · Run component (deployed run 6ae87402f38e3276181bc9e2, origin test, 58 s). It saved a Case for Change citing F-01 and F-03, with the Head of AI as F-09, no dollar figures, and the vendor-renewal risk on F-10 (a hypothesis-tagged fact). Not sent as a test message, so nothing was written twice"
+    - "10 C18 asked for an email: pass. PF · Case for Change Drafter declines (\"I don't write emails or messages ... the job of the Message Writer\") and calls no tool"
+  p95_latency_s: 58
   latency_target_s: 90
-  latency_note: "seconds read from consecutive case-id timestamps (the eight questions ran back to back), with runAgainToFindAnswer on, so upper bounds; fewer than 20 rows, so p95 is the slowest"
-  coverage_pass: "0 of 32 (no screen reached: sign-in); backend re-proven this round by deployed runs: A2, A28, A29, A33, A34 (Log signal), A30, A31, A32 (Decide Gate 1), A9, A47 (Clear Gate 2), A5 to A9 (Save hand-off origin and due_at), A8, A10, A40, A41 (Read factory records and the analyst)"
+  latency_note: "Rows 1 to 8: wall seconds between consecutive calls, with runAgainToFindAnswer on, so upper bounds. Row 9 is the Run component run time. With fewer than 20 rows, p95 is the slowest row"
+  coverage_pass: "0 of 32 (no screen reached: sign-in). The round-2 backend was proven by deployed runs (R2 proofs below); the round-1 owner question about signing in still stands"
   checks_pass: "0 of 7 measured (unverified: sign-in on every screen)"
   other_theme_checks: "0 of 7 (unverified: sign-in)"
-  reset: "done twice. Before: run 6ae8560e2099302ffb15c3e5 completed (19.3 s), its counts read deleted 0, restored 0, although the 18 non-seed hand-offs listed in round 1 were gone when read right after. After: run 6ae8576ef6f76639f80a33b6 completed (the run lookup failed twice, so its counts were not read); read back from the records: PF Hand-off holds exactly 18 rows, H-01 to H-18, all origin seed; no non-seed PF Signal; A-1001 back to timing 25, gate1 pending; D-04 back to waiting_gate2"
+  reset: "done twice. Before: run 6ae873f846920244f3d872be completed on the round-2 deployed version 6ae866c79594aa458cd51241 (20.4 s) and returned deleted 216, restored 92. Its child call to Reset agent runs (run 6ae8740946920244f3d8746a) deleted 144 and restored 7, so the counts are no longer empty or 0 (round 1's doubt and the compiler warning are settled). After: run 6ae8754a9594aa458ceccf99 (its counts were not read because the run index lags). Read back from the records: PF Hand-off is 18 seed rows only; PF Suppression is the 4 seeds (the P-1009 test row is gone); PF Component run has no origin-test row; IN-02, IN-03 and IN-05 are back at their seed status; C08 is back to live; the registry links are kept (C08, C18 and C39 keep built_kind, built_entity_id and built_link)"
+  r2_proofs:
+    - "Reset demo before: deleted 216, restored 92, including Reset agent runs at 144 and 7. The round-2 seeds were rewritten at the reset time (PF Suppression and PF Inbox rows were modified then)"
+    - "C18 Case for Change Drafter on A-1001: pass with one gap. Run row RUN-6ae87438f6f76639f83c5794 is saved, confidence 78, model Claude Sonnet 5, cites F-01 and F-03, origin test. It saved 3 hand-offs, to Play Picker, Message Writer and Meeting Prep Writer, each with confidence 78 and origin test. The gap: each hand-off's model reads \"none (deterministic)\", and the Meeting Prep Writer hand-off has threshold 0 (fix line)"
+    - "C32 Message Grader with D-04: saved, grade 81, rewrite not requested, run RUN-6ae8746e9ec43c6ee257bd67, hand-off to Send Rules Check. The run row says model GPT-5.1, but the agent's card is e_696fe072cb3ef82f7e23dc86 (dev issue)"
+    - "C41 Reply Sorter on P-1009: pass. SRC-15 was sorted unsubscribe at confidence 100 with all three channels stopped. Do-Not-Contact List run CR-C25 added SUP-6ae8746e46920244f3d87d3d (P-1009, opt_out, copied to HubSpot, Apollo and Sprouts, mocked). It wrote 3 hand-offs"
+    - "C13 Weekly Slot Planner: pass. PATCH-NAE-03 got 24 (base 25, no boost, cap 312/13) and PATCH-NAE-04 got 20 (25% pace boost, cap 260/13). Each needs an account in that patch: A-1001 for NAE-03 and A-1015 for NAE-04"
+    - "C33 Send Rules Check: pass. D-04 is blocked on rule pod (\"sender Rhea Castillo is not in the account pod (POD-NAE-1)\"; inbox_limit and planted_error also fail). D-06 is blocked on rule other_sequence"
+    - "C39 Email Domain Swapper: pass. It rested IN-02 (placement 68% and 64%), activated IN-03, retired IN-05 and kept IN-06 blocked_new. Run CR-C39-6ae87444f6f76639f83c588b"
+    - "Paused component: partly proven. Pause component (origin test) set C08 to paused, then Run component C08 on A-1001 (run 6ae87533f6f76639f83c82f3) wrote no run row and no hand-off, so it ran nothing. Its 'paused' answer was not read: the run lookup failed twice because the run index lags"
+    - "Human gate: pass. Run component C26 (AE checkpoint) answered result not_runnable with reason \"a person or a rule step, not a built entity\" (run 6ae8742cfbdd550a9a6eb3cc)"
+    - "Registry: pass. PF Component holds 57 rows: 38 ai_agent, 14 automation (the 12 workflows plus Gate 1 and Gate 2 on Decide Gate 1 and Clear Gate 2) and 5 not_built (C19, C20, C26, C40, C47). Every built row has its built_entity_id, and those ids match ## entities"
+    - "Model cards (get_agent, 6 agents). Family A all run on e_6ad496812dd4ba5be70afcc1, Claude Sonnet 5 (UnifyApps, Vertex, cached): C16 Company Facts Collector, C18 Case for Change Drafter, C30 Message Writer. Checkers: C31 Fact Checker and C32 Message Grader run on e_696fe072cb3ef82f7e23dc86 (GPT-5.1 (Azure Open AI), which may serve gpt-4.1); C41 Reply Sorter runs on e_6ae835bbafe7fc590a05a045 (GPT-5.1_without_effort(DNT)). C41's needsPublish is true: its saved draft is ahead of the published version"
+    - "Reset demo after: test rows cleared, round-2 objects at their seeds, registry links kept (see reset)"
+  open:
+    - "automation · update · Pipeline Factory · Run component: when account_id is empty, skip the PF Account lookup instead of failing at Fetch records with \"No Value found in filter with field: properties.account_id\". Runs 6ae87429f38e3276181bcb8f (C13), 6ae8742bf6f76639f83c5690 (C33 D-06) and 6ae8742c9ec43c6ee254cf3b (C39) failed this way. For C13, read the patch from the account when one is given, else plan every patch; nothing else changes"
+    - "automation · update · Pipeline Factory · Save agent output: pass the run's model (for example Claude Sonnet 5) and each receiver's registered threshold to Save hand-off. Today agent hand-offs read model \"none (deterministic)\" and the C18 to Meeting Prep Writer hand-off has threshold 0 (H-6ae87438f6f76639f83c5799, ...579b, ...579d); nothing else changes"
+    - "ai-agent · update · Pipeline Factory Analyst: give a date field as the stored calendar date (Kestrel Ridge's holdout is 2027-01-27, not \"approximately 26 January 2027\"), with no time-zone conversion and no 'approximately'; nothing else changes"
+    - "ai-agent · update · PF · Reply Sorter: publish the saved draft (get_agent shows needsPublish true), so Run component runs the version that was tested; nothing else changes"
   notes:
-    - "No delete was made by this stage; only Reset demo's own runs deleted."
-    - "Round 1 fix lines: Reset demo (clears hand-offs with no snapshot): fixed. Save hand-off origin and callers pass it: fixed (all three walk hand-offs origin test). Log signal due_at: fixed. Clear Gate 2 pod rule for D-04: fixed. Read factory records people and name lookup: fixed (account_id \"Carrow & Vale Logistics\" returns A-1001 and 13 people). Analyst account id: fixed (eval row 4 passes). Environment* tools: still offered (platform; moved to dev_issues)."
-    - "Reset demo's returned counts read 0 deleted, 0 restored on a run that left only seed rows; the counts may not add the hand-off deletes. Not a fix line: the reset's effect is right, only its reported count is in doubt."
-    - "A person must sign in to orbit.uat.unifyapps.com and the published app in the walk browser before the screens can be walked; two rounds have now stopped at the sign-in page."
-  open: []
+    - "No delete was made by this stage; only Reset demo's own runs deleted. Every write was origin test, and the second reset cleared them."
+    - "PF Component run keeps 4 builder rows with origin user (C12, C33, C35 and C30, from 2026-11-02 10:44 to 11:01Z). Reset demo keeps them by design, and they will show under those components' last runs. List them for removal before the demo, as with round 1's T- rows."
+    - "Deployed runs of Run component and Reset demo are often missing from inspect_workflow_run and list_workflow_runs for several minutes after they start, so effects were read from the records."
+    - "G3 round 1 (verify rounds 1 and 2): 8 of 8 queries passed, 0 of 8 beats (sign-in), and every round-1 fix line held. This round re-asked the analyst. Row 5 now gives the date one day early (it said 'about 27 January 2027' last round)."
+    - "Screens: three verify rounds have now stopped at sign-in. The signed-in Claude_Browser tools were not in this session, and Playwright is not signed in to the tenant."
 
 collaterals:
 
@@ -1197,11 +1218,26 @@ decisions:
   - by: orchestrator
     when: 2026-11-02
     text: "Build (R2-P12): the GPT-5.1 card e_6a0dd4e556ffb40e76c2762e answers 401 Incorrect API key, so family-B checkers run on another GPT card that answers: Reply Sorter, Meeting Labeler and Deal Qualifier on 'GPT-5.1_without_effort(DNT)' e_6ae835bbafe7fc590a05a045 (a shared card marked do-not-touch, used but not changed); some earlier checkers may be on e_696fe072cb3ef82f7e23dc86, which may serve gpt-4.1. 4-verify reads each checker's card; an admin fixing the two cards' keys restores the planned models. A-1001 holds no reply, transcript or calendar rows for its account, so Reply Sorter, Meeting Labeler and Reply Writer saved no action in their tests."
+  - by: state-check
+    when: 2026-11-02
+    text: "reverted posts: written by verify, outside its fields (schema § Who writes what)"
 
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"
     read: "read_trace case e_6ae85653f13e536c52e3a219 (eval row 4, round 2): toolsOffered on both model calls lists the four Environment* tools; none was called"
+    raised: 
+  - what: "The planned model cards answer 401 although list_models shows them active: Claude Sonnet 5 e_6acca2af70b66f5702c8b59f ('invalid x-api-key') and GPT-5.1 e_6a0dd4e556ffb40e76c2762e ('Incorrect API key'). So family A runs on e_6ad496812dd4ba5be70afcc1, and the checkers run on e_696fe072cb3ef82f7e23dc86 (which may serve gpt-4.1) or the do-not-touch card e_6ae835bbafe7fc590a05a045, while their run rows still record model GPT-5.1"
+    beat: "H1 (round-2 agents)"
+    read: "get_agent models.runs on C31 Fact Checker and C32 Message Grader = e_696fe072cb3ef82f7e23dc86 and on C41 Reply Sorter = e_6ae835bbafe7fc590a05a045; run row RUN-6ae8746e9ec43c6ee257bd67 model 'GPT-5.1'; build decisions R2-P06 and R2-P12"
+    raised: 
+  - what: "Deployed automation runs are missing from inspect_workflow_run ('No run with id ... exists') and from list_workflow_runs for minutes after trigger_workflow_run returns their runId, so a run's answer cannot be read in time"
+    beat: "reset; H1 (Run component)"
+    read: "Reset demo run 6ae873f846920244f3d872be: not found twice at about 11:29Z, then listed and readable by about 11:35Z. Run component run 6ae87533f6f76639f83c82f3 (the paused C08 run): not found three times"
+    raised: 
+  - what: "send_test_message to an agent that calls a tool reports no caseId ('the platform did not report which case it created'), so the answer can be read only by running the agent a second time (runAgainToFindAnswer), which is safe only for read-only agents"
+    beat: "7 Ask the factory"
+    read: "Pipeline Factory Analyst eval row 1, first send at 11:30Z: pausedForTool true, no caseId, 'The run finished with nothing said'"
     raised: 
 
 frozen:

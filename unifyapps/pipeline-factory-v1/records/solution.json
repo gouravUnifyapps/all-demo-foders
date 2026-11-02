@@ -5,18 +5,18 @@
   "id": "e_6ae5bfc3b4f0d14b27962a04",
   "lastModifiedBy": 66770,
   "lastPlatformUpdateBy": 66770,
-  "lastPlatformUpdateOn": 1793617755069,
-  "modifiedTime": 1793617755069,
+  "lastPlatformUpdateOn": 1793619442060,
+  "modifiedTime": 1793619442060,
   "ownerUserId": 66770,
   "properties": {
     "name": "UnifyApps · Pipeline Factory v1",
     "description": "The pod BDR and the patch AE watch one account, Carrow & Vale Logistics, move through the Pipeline Factory: a strong signal takes the fast lane, Gate 1 accepts it, research and the buying team arrive as confidence-scored hand-off records, Gate 2 approves drafts while the Send Rules Check refuses one, and the booked meeting locks its fields. Every hand-off is a saved record in the control tower that a person can see, check and stop; an assistant answers what is waiting on a person and a person pauses a red component from its answer.\nThis plan creates the nine PF objects the factory's records live in; seeds, automations, the analyst and the code app follow in later plans.",
-    "planId": "e_6ae86f58d96c5f6ba244fc4d",
+    "planId": "e_6ae875efafe7fc590a571f16",
     "memory": "# Memory\n## Decisions\n## Corrections\n## Errors\n- 2026-11-02 — Verify round 1 fixes: Read factory records returns people and finds an account by name; the analyst uses the account id — Pipeline Factory Analyst is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy at run time though none is attached; no agent tool removes them (dev issue 1).\n## Notes\n- 2026-11-02 — Pipeline Factory Control Tower · automations, part 1 — Tenant fact (orbit.uat): an automation DSL branch runs every arm whose condition is true, not only the first; use if/else-if for ordered rules.\n"
   },
   "standard": false,
   "tags": [
     "Nebula"
   ],
-  "version": 30
+  "version": 31
 }

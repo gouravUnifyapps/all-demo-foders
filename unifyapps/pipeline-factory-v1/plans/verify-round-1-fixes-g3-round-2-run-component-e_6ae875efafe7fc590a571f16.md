@@ -27,7 +27,7 @@ Goal: Verify round 1 fixes (G3 round 2): Run component runs a component with no 
 | t3 | automation | Pipeline Factory · Save agent output |  | running | 1 |
 | t4 | deploy | Pipeline Factory · Save agent output | t3 | pending | 0 |
 | t5 | ai-agent | Pipeline Factory Analyst |  | done | 1 |
-| t6 | publish | Pipeline Factory Analyst | t5 | running | 1 |
+| t6 | publish | Pipeline Factory Analyst | t5 | done | 1 |
 | t7 | publish | PF · Reply Sorter |  | done | 1 |
 
 ### t1 · Run component: run a component with no account
@@ -114,6 +114,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows the analyst published with nothing left to publish.
+Result IDs: {"entity":"e_6ae846ffd96c5f6ba22b98da"}
+Read back: Pipeline Factory Analyst e_6ae846ffd96c5f6ba22b98da: before publishing, get_agent showed version 15, published true, needsPublish true. Its instructions hold the date rule: "A date field (such as factory_holdout_until): give the stored calendar date exactly, as YYYY-MM-DD ...".
+Read back: Pipeline Factory Analyst: publish_agent {confirmed: true} answered publishedVersion 15, live true, automationSaid {"response":"success"}.
+Read back: Pipeline Factory Analyst: get_agent afterwards shows "published": true, "needsPublish": false, version 20. The instructions still hold the date rule, and the tool ReadFactoryRecords is enabled.
+Unverified: Pipeline Factory Analyst: that Pipeline Factory · Ask the analyst gets 2027-01-27 from the published version is not checked here. Check: ask it "When does Kestrel Ridge Utilities' factory holdout end?" and read the answer.
+Note: Publish approval: 'yes, publish Pipeline Factory Analyst. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: Same as t7: publish_agent reported publishedVersion 15, but get_agent right after showed version 20. This is already in feedbacks/records.md.
 
 ### t7 · Publish PF · Reply Sorter's saved draft
 

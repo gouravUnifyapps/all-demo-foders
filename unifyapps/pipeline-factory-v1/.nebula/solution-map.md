@@ -46,7 +46,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | object | `PF Source` | OBJ_pf_source | 0 | no |
 | object | `PF Inbox` | OBJ_pf_inbox | 0 | no |
 | object | `PF Suppression` | OBJ_pf_suppression | 0 | no |
-| ai-agent | `Pipeline Factory Analyst` | e_6ae846ffd96c5f6ba22b98da | 15 | no |
+| ai-agent | `Pipeline Factory Analyst` | e_6ae846ffd96c5f6ba22b98da | 20 | no |
 | ai-agent | `PF · Fit Scorer` | e_6ae86666d96c5f6ba243ce26 | 7 | no |
 | ai-agent | `PF · Patch Suggester` | e_6ae8666ad96c5f6ba243ce39 | 7 | no |
 | ai-agent | `PF · Current Vendor Finder` | e_6ae8666dafe7fc590a4a3d96 | 7 | no |

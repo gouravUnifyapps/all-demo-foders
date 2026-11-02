@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:55:28.328Z"
 runningAt: "2026-11-02T10:55:33.564Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P14
@@ -23,9 +28,9 @@ Goal: Pipeline Factory · G3 round 2 · P14
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Agent Monitor |  | done | 1 |
-| t2 | publish | PF · Agent Monitor | t1 | pending | 0 |
+| t2 | publish | PF · Agent Monitor | t1 | done | 1 |
 | t3 | ai-agent | PF · Test Error Planter |  | done | 1 |
-| t4 | publish | PF · Test Error Planter | t3 | pending | 0 |
+| t4 | publish | PF · Test Error Planter | t3 | done | 1 |
 
 ### t1 · Build AI agent PF · Agent Monitor
 
@@ -70,6 +75,13 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Agent Monitor published.
+Result IDs: {"entity":"e_6ae86c76f410ab7b2f203900"}
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: before publish list_agents showed version 1, published false, needsPublish true.
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: publish_agent(confirmed true) answered ok true, publishedVersion 1, live true, automationSaid {response: "success"}.
+Read back: PF · Agent Monitor e_6ae86c76f410ab7b2f203900: live re-read (list_agents ids) shows published true, needsPublish false, version 6.
+Unverified: PF · Agent Monitor: no live invoke by Pipeline Factory · Run component was made after the publish. Check: run Run component for C53 and read its result.
+Note: Publish per Answer from the person: "yes, publish PF · Agent Monitor. The spec the person accepted names it under Ready when, so it is already approved; do not ask again." (the plan's approval).
+Note: The stored version rose from 1 to 6 during publish while needsPublish reads false; the published content is draft version 1. Not deployed to any app or channel.
 
 ### t3 · Build AI agent PF · Test Error Planter
 
@@ -109,4 +121,11 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Test Error Planter published.
+Result IDs: {"entity":"e_6ae86c7ad96c5f6ba24493ba"}
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: before publish list_agents showed version 2, published false, needsPublish true.
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: publish_agent(confirmed true) answered ok true, publishedVersion 2, live true, automationSaid {response: "success"}.
+Read back: PF · Test Error Planter e_6ae86c7ad96c5f6ba24493ba: live re-read (list_agents ids) shows published true, needsPublish false, version 7.
+Unverified: PF · Test Error Planter: no live invoke by Pipeline Factory · Run component was made after the publish. Check: run Run component for C54 and read its result.
+Note: Publish per Answer from the person: "yes, publish PF · Test Error Planter. The spec the person accepted names it under Ready when, so it is already approved; do not ask again." (the plan's approval).
+Note: The stored version rose from 2 to 7 during publish while needsPublish reads false; the published content is draft version 2. Not deployed to any app or channel.
 

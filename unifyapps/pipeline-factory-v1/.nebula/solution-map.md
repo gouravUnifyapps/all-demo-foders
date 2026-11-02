@@ -20,7 +20,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation | `Pipeline Factory · Contact Finder` | 6ae862f3f13e536c52e76ecd | 1 | no |
 | automation | `Pipeline Factory · Alarm and Escalation` | 6ae863282099302ffb2cf702 | 5 | no |
 | automation | `Pipeline Factory · Account Ranking` | 6ae8632c9ec43c6ee22f380d | 2 | no |
-| automation | `Pipeline Factory · Read component inputs` | 6ae8635446920244f3d5194b | 4 | no |
+| automation |  | 6ae8635446920244f3d5194b |  | yes |
 | automation | `Pipeline Factory · Send Rules Check` | 6ae863842099302ffb2d0262 | 1 | no |
 | automation | `Pipeline Factory · Weekly Slot Planner` | 6ae863a5f38e327618183dca | 0 | no |
 | automation | `Pipeline Factory · Content Handoff` | 6ae863d0fbdd550a9a4ffc58 | 0 | no |
@@ -64,11 +64,11 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent | `PF · Buying Team Mapper` | e_6ae867cdafe7fc590a4f8e82 | 8 | no |
 | ai-agent | `PF · Person Notes Writer` | e_6ae867d2f410ab7b2f155861 | 8 | no |
 | ai-agent | `PF · Intro Finder` | e_6ae867d4f410ab7b2f155959 | 7 | no |
-| ai-agent |  | e_6ae86821f410ab7b2f15695c |  | yes |
-| ai-agent |  | e_6ae86825f410ab7b2f156a03 |  | yes |
-| ai-agent |  | e_6ae86828f410ab7b2f156a22 |  | yes |
-| ai-agent | `PF · Message Writer` | e_6ae8682ad96c5f6ba2441a16 | 2 | no |
-| ai-agent |  | e_6ae8682ed96c5f6ba2441a5f |  | yes |
+| ai-agent | `PF · Play Picker` | e_6ae86821f410ab7b2f15695c | 6 | no |
+| ai-agent | `PF · Page Builder` | e_6ae86825f410ab7b2f156a03 | 6 | no |
+| ai-agent | `PF · Content Picker` | e_6ae86828f410ab7b2f156a22 | 6 | no |
+| ai-agent | `PF · Message Writer` | e_6ae8682ad96c5f6ba2441a16 | 7 | no |
+| ai-agent | `PF · Fact Checker` | e_6ae8682ed96c5f6ba2441a5f | 10 | no |
 | ai-agent | `PF · Message Grader` | e_6ae8687bd96c5f6ba2442526 | 8 | no |
 | ai-agent | `PF · Call Script Writer` | e_6ae8687ef410ab7b2f1575c6 | 6 | no |
 | ai-agent | `PF · Follow-up Planner` | e_6ae86881d96c5f6ba244257b | 6 | no |
@@ -83,8 +83,8 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent | `PF · Meeting Prep Writer` | e_6ae86bf3f410ab7b2f2026ba | 6 | no |
 | ai-agent | `PF · Meeting Labeler` | e_6ae86bf7f410ab7b2f202726 | 7 | no |
 | ai-agent | `PF · Deal Qualifier` | e_6ae86bfbf410ab7b2f202747 | 7 | no |
-| ai-agent | `PF · Agent Monitor` | e_6ae86c76f410ab7b2f203900 | 1 | no |
-| ai-agent | `PF · Test Error Planter` | e_6ae86c7ad96c5f6ba24493ba | 2 | no |
+| ai-agent | `PF · Agent Monitor` | e_6ae86c76f410ab7b2f203900 | 6 | no |
+| ai-agent | `PF · Test Error Planter` | e_6ae86c7ad96c5f6ba24493ba | 7 | no |
 
 ## Wiring
 
@@ -199,17 +199,6 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Account Ranking` | `node Move the account to Gate 1 pending` | object `PF Account` | storage write |  |
 | automation `Pipeline Factory · Account Ranking` | `node Save the Account Ranking to Gate 1 hand-off` | automation `Pipeline Factory · Save hand-off` | call node | `handoff_id` |
 | automation `Pipeline Factory · Account Ranking` | `node Log the PF Component run (C12)` | object `PF Component run` | storage write |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the component row` | object `PF Component` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the accounts` | object `PF Account` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the people` | object `PF Person` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the signals` | object `PF Signal` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the facts` | object `PF Fact` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the drafts` | object `PF Draft` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the sources` | object `PF Source` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the hand-offs, newest first` | object `PF Hand-off` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the inboxes` | object `PF Inbox` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the suppression rows` | object `PF Suppression` | storage read |  |
-| automation `Pipeline Factory · Read component inputs` | `node Read the last 50 component runs` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Send Rules Check` | `node Read the draft` | object `PF Draft` | storage read |  |
 | automation `Pipeline Factory · Send Rules Check` | `node Read the draft's account` | object `PF Account` | storage read |  |
 | automation `Pipeline Factory · Send Rules Check` | `node Read the draft's person` | object `PF Person` | storage read |  |
@@ -321,6 +310,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 ## Not checked
 
+- automation `6ae8635446920244f3d5194b` (6ae8635446920244f3d5194b): entity-write
 - ai-agent `Pipeline Factory Analyst` (e_6ae846ffd96c5f6ba22b98da): its tools are not in the cache (get_agent)
 - ai-agent `PF · Fit Scorer` (e_6ae86666d96c5f6ba243ce26): its tools are not in the cache (get_agent)
 - ai-agent `PF · Patch Suggester` (e_6ae8666ad96c5f6ba243ce39): its tools are not in the cache (get_agent)
@@ -339,11 +329,11 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 - ai-agent `PF · Buying Team Mapper` (e_6ae867cdafe7fc590a4f8e82): its tools are not in the cache (get_agent)
 - ai-agent `PF · Person Notes Writer` (e_6ae867d2f410ab7b2f155861): its tools are not in the cache (get_agent)
 - ai-agent `PF · Intro Finder` (e_6ae867d4f410ab7b2f155959): its tools are not in the cache (get_agent)
-- ai-agent `e_6ae86821f410ab7b2f15695c` (e_6ae86821f410ab7b2f15695c): entity-write
-- ai-agent `e_6ae86825f410ab7b2f156a03` (e_6ae86825f410ab7b2f156a03): entity-write
-- ai-agent `e_6ae86828f410ab7b2f156a22` (e_6ae86828f410ab7b2f156a22): entity-write
+- ai-agent `PF · Play Picker` (e_6ae86821f410ab7b2f15695c): its tools are not in the cache (get_agent)
+- ai-agent `PF · Page Builder` (e_6ae86825f410ab7b2f156a03): its tools are not in the cache (get_agent)
+- ai-agent `PF · Content Picker` (e_6ae86828f410ab7b2f156a22): its tools are not in the cache (get_agent)
 - ai-agent `PF · Message Writer` (e_6ae8682ad96c5f6ba2441a16): its tools are not in the cache (get_agent)
-- ai-agent `e_6ae8682ed96c5f6ba2441a5f` (e_6ae8682ed96c5f6ba2441a5f): entity-write
+- ai-agent `PF · Fact Checker` (e_6ae8682ed96c5f6ba2441a5f): its tools are not in the cache (get_agent)
 - ai-agent `PF · Message Grader` (e_6ae8687bd96c5f6ba2442526): its tools are not in the cache (get_agent)
 - ai-agent `PF · Call Script Writer` (e_6ae8687ef410ab7b2f1575c6): its tools are not in the cache (get_agent)
 - ai-agent `PF · Follow-up Planner` (e_6ae86881d96c5f6ba244257b): its tools are not in the cache (get_agent)

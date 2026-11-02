@@ -27,7 +27,7 @@ flowchart LR
   n23["automation Pipeline Factory · Contact Finder · 6ae862f3f13e536c52e76ecd"]
   n24["automation Pipeline Factory · Alarm and Escalation · 6ae863282099302ffb2cf702"]
   n25["automation Pipeline Factory · Account Ranking · 6ae8632c9ec43c6ee22f380d"]
-  n26["automation Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b"]
+  n26["automation 6ae8635446920244f3d5194b · 6ae8635446920244f3d5194b"]
   n27["automation Pipeline Factory · Send Rules Check · 6ae863842099302ffb2d0262"]
   n28["automation Pipeline Factory · Weekly Slot Planner · 6ae863a5f38e327618183dca"]
   n29["automation Pipeline Factory · Content Handoff · 6ae863d0fbdd550a9a4ffc58"]
@@ -71,11 +71,11 @@ flowchart LR
   n67["AI agent PF · Buying Team Mapper · e_6ae867cdafe7fc590a4f8e82"]
   n68["AI agent PF · Person Notes Writer · e_6ae867d2f410ab7b2f155861"]
   n69["AI agent PF · Intro Finder · e_6ae867d4f410ab7b2f155959"]
-  n70["AI agent e_6ae86821f410ab7b2f15695c · e_6ae86821f410ab7b2f15695c"]
-  n71["AI agent e_6ae86825f410ab7b2f156a03 · e_6ae86825f410ab7b2f156a03"]
-  n72["AI agent e_6ae86828f410ab7b2f156a22 · e_6ae86828f410ab7b2f156a22"]
+  n70["AI agent PF · Play Picker · e_6ae86821f410ab7b2f15695c"]
+  n71["AI agent PF · Page Builder · e_6ae86825f410ab7b2f156a03"]
+  n72["AI agent PF · Content Picker · e_6ae86828f410ab7b2f156a22"]
   n73["AI agent PF · Message Writer · e_6ae8682ad96c5f6ba2441a16"]
-  n74["AI agent e_6ae8682ed96c5f6ba2441a5f · e_6ae8682ed96c5f6ba2441a5f"]
+  n74["AI agent PF · Fact Checker · e_6ae8682ed96c5f6ba2441a5f"]
   n75["AI agent PF · Message Grader · e_6ae8687bd96c5f6ba2442526"]
   n76["AI agent PF · Call Script Writer · e_6ae8687ef410ab7b2f1575c6"]
   n77["AI agent PF · Follow-up Planner · e_6ae86881d96c5f6ba244257b"]
@@ -183,17 +183,6 @@ flowchart LR
   n25 -->|storage write| n40
   n25 -->|call node| n14
   n25 -->|storage write| n48
-  n26 -->|storage read| n46
-  n26 -->|storage read| n40
-  n26 -->|storage read| n41
-  n26 -->|storage read| n42
-  n26 -->|storage read| n43
-  n26 -->|storage read| n44
-  n26 -->|storage read| n49
-  n26 -->|storage read| n45
-  n26 -->|storage read| n50
-  n26 -->|storage read| n51
-  n26 -->|storage read| n48
   n27 -->|storage read| n44
   n27 -->|storage read| n40
   n27 -->|storage read| n41

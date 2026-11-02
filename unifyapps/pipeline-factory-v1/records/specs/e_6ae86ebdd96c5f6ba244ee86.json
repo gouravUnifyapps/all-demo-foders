@@ -1,0 +1,18 @@
+{
+  "createdTime": 1793617597896,
+  "deleted": false,
+  "entityType": "solution_spec",
+  "id": "e_6ae86ebdd96c5f6ba244ee86",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793617603447,
+  "modifiedTime": 1793617603447,
+  "ownerUserId": 66770,
+  "properties": {
+    "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Give each list Pipeline Factory · Read component inputs returns its own share of the 12,000-character reply, so drafts a\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Read component inputs\",\"id\":\"6ae8635446920244f3d5194b\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Read component inputs\",\"id\":\"6ae8635446920244f3d5194b\"}]\nacceptedAt: \"2026-11-02T11:06:36.522Z\"\nacceptedBy: {\"clientId\":\"533e7426-6927-42a4-bbcf-657253136df4\"}\nplanIds: [\"e_6ae86ec1d96c5f6ba244ee98\"]\nlatestPlanId: \"e_6ae86ec1d96c5f6ba244ee98\"\nplanId: \"e_6ae86ec1d96c5f6ba244ee98\"\n---\n# Give each list Pipeline Factory · Read component inputs returns its own share of the 12,000-character reply, so drafts a\n\n## Requested outcome\nGive each list Pipeline Factory · Read component inputs returns its own share of the 12,000-character reply, so drafts and hand-offs no longer leave facts, people and sources empty (C30 and C18 on A-1001 must see F-01, F-03 and the handbook), and deploy it.\n\n## Touches\n- automation · Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b\n\n## Ready when\n- Read-back: Test runs answer under 12,000 characters, and for C30 on A-1001 facts, people and sources are not empty while drafts and handoffs_in still hold rows.\n- Read-back: search_workflows shows Pipeline Factory · Read component inputs deployed with definitionVersion equal to the saved version.\n- deploy Pipeline Factory · Read component inputs\n",
+    "solutionId": "e_6ae5bfc3b4f0d14b27962a04",
+    "spec_html": ""
+  },
+  "standard": false,
+  "version": 1
+}

@@ -148,9 +148,9 @@
     {
       "kind": "automation",
       "id": "6ae8635446920244f3d5194b",
-      "name": "Pipeline Factory · Read component inputs",
-      "version": 4,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "automation",
@@ -456,37 +456,37 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86821f410ab7b2f15695c",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Play Picker",
+      "version": 6,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86825f410ab7b2f156a03",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Page Builder",
+      "version": 6,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86828f410ab7b2f156a22",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Content Picker",
+      "version": 6,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ad96c5f6ba2441a16",
       "name": "PF · Message Writer",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ed96c5f6ba2441a5f",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Fact Checker",
+      "version": 10,
+      "stale": false
     },
     {
       "kind": "ai-agent",
@@ -590,14 +590,14 @@
       "kind": "ai-agent",
       "id": "e_6ae86c76f410ab7b2f203900",
       "name": "PF · Agent Monitor",
-      "version": 1,
+      "version": 6,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86c7ad96c5f6ba24493ba",
       "name": "PF · Test Error Planter",
-      "version": 2,
+      "version": 7,
       "stale": false
     }
   ],
@@ -2269,171 +2269,6 @@
     {
       "from": {
         "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the component row"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_component",
-        "name": "PF Component"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the accounts"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_account",
-        "name": "PF Account"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the people"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_person",
-        "name": "PF Person"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the signals"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_signal",
-        "name": "PF Signal"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the facts"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_fact",
-        "name": "PF Fact"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the drafts"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_draft",
-        "name": "PF Draft"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the sources"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_source",
-        "name": "PF Source"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the hand-offs, newest first"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_handoff",
-        "name": "PF Hand-off"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the inboxes"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_inbox",
-        "name": "PF Inbox"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the suppression rows"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_suppression",
-        "name": "PF Suppression"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8635446920244f3d5194b",
-        "name": "Pipeline Factory · Read component inputs",
-        "part": "node Read the last 50 component runs"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_component_run",
-        "name": "PF Component run"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
         "id": "6ae863842099302ffb2d0262",
         "name": "Pipeline Factory · Send Rules Check",
         "part": "node Read the draft"
@@ -4095,6 +3930,12 @@
   ],
   "unknown": [
     {
+      "kind": "automation",
+      "id": "6ae8635446920244f3d5194b",
+      "name": null,
+      "reason": "entity-write"
+    },
+    {
       "kind": "ai-agent",
       "id": "e_6ae846ffd96c5f6ba22b98da",
       "name": "Pipeline Factory Analyst",
@@ -4205,20 +4046,20 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86821f410ab7b2f15695c",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Play Picker",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86825f410ab7b2f156a03",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Page Builder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86828f410ab7b2f156a22",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Content Picker",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
@@ -4229,8 +4070,8 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae8682ed96c5f6ba2441a5f",
-      "name": null,
-      "reason": "entity-write"
+      "name": "PF · Fact Checker",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",

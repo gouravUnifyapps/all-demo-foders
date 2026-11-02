@@ -23,15 +23,15 @@ Goal: Pipeline Factory · G3 round 2 · P10
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Play Picker |  | done | 1 |
-| t2 | publish | PF · Play Picker | t1 | running | 1 |
+| t2 | publish | PF · Play Picker | t1 | done | 1 |
 | t3 | ai-agent | PF · Page Builder |  | done | 1 |
-| t4 | publish | PF · Page Builder | t3 | running | 1 |
+| t4 | publish | PF · Page Builder | t3 | done | 1 |
 | t5 | ai-agent | PF · Content Picker |  | done | 1 |
-| t6 | publish | PF · Content Picker | t5 | running | 1 |
-| t7 | ai-agent | PF · Message Writer |  | running | 2 |
-| t8 | publish | PF · Message Writer | t7 | pending | 0 |
+| t6 | publish | PF · Content Picker | t5 | done | 1 |
+| t7 | ai-agent | PF · Message Writer |  | done | 2 |
+| t8 | publish | PF · Message Writer | t7 | done | 1 |
 | t9 | ai-agent | PF · Fact Checker |  | done | 1 |
-| t10 | publish | PF · Fact Checker | t9 | running | 1 |
+| t10 | publish | PF · Fact Checker | t9 | done | 1 |
 
 ### t1 · Build AI agent PF · Play Picker
 
@@ -63,6 +63,10 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Play Picker published.
+Result IDs: {"entity":"e_6ae86821f410ab7b2f15695c"}
+Read back: PF · Play Picker e_6ae86821f410ab7b2f15695c: publish_agent returned published true, needsPublish false, publishedVersion 1, live true, automation said "success" (before: get_agent version 1, published false, needsPublish true, readiness canRun true, tools ReadComponentInputs and SaveAgentOutput enabled).
+Unverified: PF · Play Picker: not invoked through Pipeline Factory · Run component after publish; one Run component call for C27 would settle it.
+Note: Answer from the person: yes, publish PF · Play Picker. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t3 · Build AI agent PF · Page Builder
 
@@ -93,6 +97,10 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Page Builder published.
+Result IDs: {"entity":"e_6ae86825f410ab7b2f156a03"}
+Read back: PF · Page Builder e_6ae86825f410ab7b2f156a03: publish_agent returned published true, needsPublish false, publishedVersion 1, live true, automation said "success" (before: version 1, published false, readiness canRun true).
+Unverified: PF · Page Builder: not invoked through Pipeline Factory · Run component after publish; one Run component call for C28 would settle it.
+Note: Answer from the person: yes, publish PF · Page Builder. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t5 · Build AI agent PF · Content Picker
 
@@ -124,6 +132,10 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Content Picker published.
+Result IDs: {"entity":"e_6ae86828f410ab7b2f156a22"}
+Read back: PF · Content Picker e_6ae86828f410ab7b2f156a22: publish_agent returned published true, needsPublish false, publishedVersion 1, live true, automation said "success" (before: version 1, published false, readiness canRun true).
+Unverified: PF · Content Picker: not invoked through Pipeline Factory · Run component after publish; one Run component call for C29 would settle it.
+Note: Answer from the person: yes, publish PF · Content Picker. The spec the person accepted names it under Ready when, so it is already approved.
 
 ### t7 · Build AI agent PF · Message Writer
 
@@ -135,7 +147,26 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Message Writer with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
-Error: PF · Message Writer did not save through Save agent output in either test round (round 1 case e_6ae869cb46920244f3d6a28e, round 2 case e_6ae86afe9594aa458cd61b23): ReadComponentInputs results arrive cut to 18,208 characters, so the model re-reads looking for hand-offs and drafts and the run ends without SaveAgentOutput. The refusal test called a tool instead of declining. Both rounds are used; it needs Read component inputs to return a smaller per-component result, then one more test.
+Result IDs: {"entity":"e_6ae8682ad96c5f6ba2441a16"}
+Read back: PF · Message Writer e_6ae8682ad96c5f6ba2441a16 (made by this task's earlier attempt, unchanged this round): get_agent shows version 2, models runs/picksTask/answerGeneration e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5, UnifyApps, Vertex, cached), readiness canRun true, published false, deployments [], memory false, capabilities [].
+Read back: PF · Message Writer: tools exactly ReadComponentInputs e_6ae86842f410ab7b2f156cc2 (automation 6ae8635446920244f3d5194b) and SaveAgentOutput e_6ae86842f410ab7b2f156cd0 (automation 6ae864829594aa458cc1ce69), both enabled, topicId GLOBAL, descriptions fix component_id "C30".
+Read back: PF · Message Writer: instructions state the one job (every email and LinkedIn message of the play, handbook voice, one sourced fact, pain, objection), read with ReadComponentInputs first, save exactly once with SaveAgentOutput, output_type draft keyed account_id + person_id + play_id, copy rules, patch AE as session host, never sends, origin passed through, refusals.
+Read back: PF · Message Writer trace e_6ae86d589ec43c6ee24a53d0: ReadComponentInputs {component_id C30, account_id A-1001} (result now 11,528 chars), ReadComponentInputs again with person_id P-1003, then SaveAgentOutput once with person_id P-1003, play_id PLAY-SIG-PRICING-INTENT, output_type draft, confidence 52, evidence_tag hypothesis, origin "test"; tool answered {"result":"duplicate","run_id":"RUN-6ae86dd3f38e3276181b0a01","reason":"re-run of RUN-6ae86dd3f38e3276181b0a01: already waiting_person, nothing written again"}; agent answered "SaveAgentOutput returned **duplicate** (run_id \`RUN-6ae86dd3f38e3276181b0a01\`) ... Per my instructions, I called SaveAgentOutput exactly once and am reporting the duplicate result as returned, without retrying."
+Read back: PF · Message Writer: RUN-6ae86dd3f38e3276181b0a01 is waiting_person (confidence under 70), written by one of this round's earlier caseless runs of the same message.
+Read back: PF · Message Writer refusal case e_6ae86d3046920244f3d78571, toolCalls []: "I can't actually send any email — sending and review happen at Gate 2, handled by a BDR. My one job (component C30) is to **draft** the email (or LinkedIn message) for a person in a play..."
+Unverified: PF · Message Writer: the run that wrote RUN-6ae86dd3f38e3276181b0a01 has no caseId (the platform did not report it for a tool-using turn), so its own answer was not read; read the PF Component run row RUN-6ae86dd3f38e3276181b0a01 to see its payload.
+Unverified: PF · Message Writer: the draft's fact is inferred, not cited: ReadComponentInputs returned reason "drafts cut to 10 of 11; handoffs_in cut to 9 of 19; sources cut to 0 of 18; signals cut to 1 of 6; facts cut to 0 of 13; people cut to 0 of 14; suppression cut to 0 of 4", so the agent cited a sibling draft and saved with evidence_tag hypothesis and confidence 52. A rerun after the read keeps facts, people and sources would settle it.
+Note: plan_change: major — Pipeline Factory · Read component inputs (6ae8635446920244f3d5194b), as narrowed, returns facts, people and sources as [] for C30 on A-1001 ("facts cut to 0 of 13; people cut to 0 of 14; sources cut to 0 of 18") because drafts (5,415 chars) and handoffs_in (2,944 chars) fill the budget first. Message Writer saves and declines correctly, but cannot cite a PF Fact or read the handbook voice until the automation keeps facts, people and sources (handbook, content_asset) for C30 within its budget.
+Note: handover: PF · Message Writer e_6ae8682ad96c5f6ba2441a16 saves through SaveAgentOutput once per run; draft key is account_id + person_id + play_id, so a rerun for the same person and play answers duplicate.
+Note: This round's test wrote origin-test rows only (RUN-6ae86dd3f38e3276181b0a01 and any row from the caseless runs); left for Pipeline Factory · Reset demo, no delete made.
+Note: Observed: the trace offers the model platform tools the agent did not ask for (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy) although get_agent shows capabilities []; none were called.
+Note: feedback:
+Bug: A test turn that calls a tool comes back with no caseId from both send_test_messages and send_test_message, so the only way to read that run's trace is to run the agent again with runAgainToFindAnswer, which writes twice on an agent that saves.
+Context: agent-builder send_test_messages / send_test_message on PF · Message Writer e_6ae8682ad96c5f6ba2441a16, message "Run your job for component C30 on account A-1001; origin test".
+Where: mcp-tool
+Evidence: both calls answered "The agent called a tool, and the platform did not report which case it created" with no caseId; a third run with runAgainToFindAnswer:true gave caseId e_6ae86d589ec43c6ee24a53d0, whose SaveAgentOutput answered duplicate of RUN-6ae86dd3f38e3276181b0a01 written by an earlier caseless run.
+Cause: Unknown — next check: whether the invoke response or a case list filtered by agent and start time carries the case id of a tool-pausing test turn.
+Regression: send_test_message on an agent whose first step is a tool call returns a caseId that read_trace can open, without a second run.
 
 ### t8 · Publish PF · Message Writer
 
@@ -147,6 +178,12 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Message Writer published.
+Result IDs: {"entity":"e_6ae8682ad96c5f6ba2441a16"}
+Read back: PF · Message Writer e_6ae8682ad96c5f6ba2441a16: before publish, list_agents showed version 2, published false, needsPublish true (the version t7 tested). publish_agent returned published true, needsPublish false, publishedVersion 2, live true, automation said "success".
+Unverified: PF · Message Writer: not invoked through Pipeline Factory · Run component after publish; one Run component call for C30 would settle it.
+Unverified: PF · Message Writer: drafts cite inferred facts until Read component inputs returns facts, people and sources for C30 (router says a separate change fixes that); a rerun of C30 on A-1001 after that change would show a cited fact_id.
+Note: Answer from the person: yes, publish PF · Message Writer. The spec the person accepted names it under Ready when, so it is already approved.
+Note: Published as it stands, per the router's note; the agent needs no republish when the automation changes, since it calls the deployed Read component inputs.
 
 ### t9 · Build AI agent PF · Fact Checker
 
@@ -187,4 +224,8 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Fact Checker published.
+Result IDs: {"entity":"e_6ae8682ed96c5f6ba2441a5f"}
+Read back: PF · Fact Checker e_6ae8682ed96c5f6ba2441a5f: publish_agent returned published true, needsPublish false, publishedVersion 5, live true, automation said "success" (before: version 5, published false, models e_696fe072cb3ef82f7e23dc86 GPT-5.1 in all three slots, readiness canRun true).
+Unverified: PF · Fact Checker: not invoked through Pipeline Factory · Run component after publish; one Run component call for C31 with a draft_id would settle it.
+Note: Answer from the person: yes, publish PF · Fact Checker. The spec the person accepted names it under Ready when, so it is already approved.
 

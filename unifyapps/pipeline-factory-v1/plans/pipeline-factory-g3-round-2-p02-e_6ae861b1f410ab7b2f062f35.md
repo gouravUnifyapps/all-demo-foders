@@ -28,8 +28,8 @@ Goal: Pipeline Factory · G3 round 2 · P02
 | t4 | deploy | Pipeline Factory · Save agent output | t3 | done | 1 |
 | t5 | automation | Pipeline Factory · Reset agent runs |  | done | 1 |
 | t6 | deploy | Pipeline Factory · Reset agent runs | t5 | done | 1 |
-| t7 | automation | Pipeline Factory · Reset demo | t6 | running | 1 |
-| t8 | deploy | Pipeline Factory · Reset demo | t7 | pending | 0 |
+| t7 | automation | Pipeline Factory · Reset demo | t6 | done | 1 |
+| t8 | deploy | Pipeline Factory · Reset demo | t7 | running | 1 |
 
 ### t1 · Build Pipeline Factory · Read component inputs
 
@@ -194,7 +194,22 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Reset demo; test runs with origin test answer each result path.
-Error: Asked the person: Testing Pipeline Factory · Reset demo (saved version 5) means running it, and every run deletes all origin test rows in the nine PF objects and, through Pipeline Factory · Reset agent runs, in PF Component run, PF Source, PF Inbox and PF Suppression (other builders' parallel test rows included), then restores seed rows. This unattended task says to make no delete. May I run one test run of the saved draft now? Yes / No (leave it untested; 4-verify runs it after the build, as for Reset agent runs). Made so far: ids {"entity":"6ae8441df38e327618fcc13c"}.
+Result IDs: {"entity":"6ae8441df38e327618fcc13c"}
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: open_workflow version 5, deployment {status: DEPLOYED, definitionVersion: 4, savedAfterDeploy: true} (version 5 not deployed, as the task says); trigger CALLABLE callables/callables_from_automation; 56 nodes incl. CALL_WORKFLOW×1
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: contract unchanged from round 1: setup {type: object, properties: {}}, result {deleted: number, restored: number}; describe_callable_workflow parameters [], count 0
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: added after every round-1 step: '// Reset the four round-2 objects through Pipeline Factory · Reset agent runs' op('callables','callables_call_automation', { automationId: "6ae863f02099302ffb2d2358", synchronous: true, version: "-1", parameters: {}, executeOnSameVM: false })
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: return deleted =SUM(&lt;Reset agent runs call&gt;.deleted, the 9 round-1 delete counts, orphans); restored =SUM(countRestoredSeedRows.restored, &lt;Reset agent runs call&gt;.restored)
+Read back: Pipeline Factory · Reset demo: best practice 86 (81 of 85 checks), no fix round (every failing row is on a round-1 node this task did not change), version 5
+Unverified: Pipeline Factory · Reset demo run: unverified: run by 4-verify after the build, including whether the deleted count comes back empty (compiler warning pill.unknownOutput: storage_by_unifyapps_delete_records emits objects, hasMore, not count; the same \`.count\` read is in Pipeline Factory · Reset agent runs) — check: inspect that run's 'Answer the caller' output and the Reset agent runs call output
+Note: Not test-run, per the person's answer: 'Do not run it now: other builders are writing origin test rows in parallel and this run is unattended. Leave the change saved (version 5) and untested'.
+Note: No test rows written by this task.
+Note: The save added executeOnSameVM: false to the call node by itself (platform default); harmless.
+Note: PF Component restore from snapshot rows kept as round 1 had it, unchanged.
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_vef3p, n_x1ozg, n_8qjjo, n_68wd6, n_02ywm, n_uy95e, n_84g2d, n_2lky6, n_s2smf, n_e4zby) · nodes not changed by this task
+Note: best practice exception: CHECK_59 Limit multiple variable definitions except for branches · Create variables (n_ny5bx, n_bo9wj) · nodes not changed by this task
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Update an existing record (n_wchph, n_ce5mv, n_c7giy, n_8mgtn, n_sf8xg, n_smau4, n_gk21e, n_cqfvf) · nodes not changed by this task
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · nodes not changed by this task
+Note: handover: deploy Pipeline Factory · Reset demo version 5 (6ae8441df38e327618fcc13c); it calls deployed Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358 at version -1.
 
 ### t8 · Deploy Pipeline Factory · Reset demo
 

@@ -21,7 +21,7 @@ flowchart LR
   n17["automation Pipeline Factory · Pause component · 6ae843d1f6f76639f8cf2d55"]
   n18["automation Pipeline Factory · Read factory records · 6ae843e69ec43c6ee2dec988"]
   n19["automation Pipeline Factory · Decide Gate 1 · 6ae8440df13e536c52c5d959"]
-  n20["automation 6ae8441df38e327618fcc13c · 6ae8441df38e327618fcc13c"]
+  n20["automation Pipeline Factory · Reset demo · 6ae8441df38e327618fcc13c"]
   n21["automation Pipeline Factory · Book meeting · 6ae84449f38e327618fcc640"]
   n22["automation Pipeline Factory · Ask the analyst · 6ae84900fbdd550a9a465807"]
   n23["automation Pipeline Factory · Contact Finder · 6ae862f3f13e536c52e76ecd"]
@@ -30,15 +30,15 @@ flowchart LR
   n26["automation Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b"]
   n27["automation Pipeline Factory · Send Rules Check · 6ae863842099302ffb2d0262"]
   n28["automation Pipeline Factory · Weekly Slot Planner · 6ae863a5f38e327618183dca"]
-  n29["automation Pipeline Factory · Content Handoff · 6ae863d0fbdd550a9a4ffc58"]
+  n29["automation 6ae863d0fbdd550a9a4ffc58 · 6ae863d0fbdd550a9a4ffc58"]
   n30["automation Pipeline Factory · Reset agent runs · 6ae863f02099302ffb2d2358"]
   n31["automation Pipeline Factory · Holdout Picker · 6ae864059ec43c6ee22f8008"]
   n32["automation Pipeline Factory · Email Domain Swapper · 6ae864342099302ffb2d2a71"]
   n33["automation Pipeline Factory · Do-Not-Contact List · 6ae864672099302ffb2d3157"]
   n34["automation Pipeline Factory · Save agent output · 6ae864829594aa458cc1ce69"]
   n35["automation Pipeline Factory · Outreach Launcher · 6ae864929594aa458cc23de9"]
-  n36["automation Pipeline Factory · Privacy and Consent · 6ae86493f38e32761818a2c1"]
-  n37["automation Pipeline Factory · Run component · 6ae865229ec43c6ee2300d8d"]
+  n36["automation 6ae86493f38e32761818a2c1 · 6ae86493f38e32761818a2c1"]
+  n37["automation 6ae865229ec43c6ee2300d8d · 6ae865229ec43c6ee2300d8d"]
   n38["automation Pipeline Factory · Meeting Handoff and Deadlines · 6ae8654d2099302ffb2d9514"]
   n39["object PF Patch · OBJ_pf_patch"]
   n40["object PF Account · OBJ_pf_account"]
@@ -57,7 +57,18 @@ flowchart LR
   n53["AI agent e_6ae86666d96c5f6ba243ce26 · e_6ae86666d96c5f6ba243ce26"]
   n54["AI agent e_6ae8666ad96c5f6ba243ce39 · e_6ae8666ad96c5f6ba243ce39"]
   n55["AI agent e_6ae8666dafe7fc590a4a3d96 · e_6ae8666dafe7fc590a4a3d96"]
-  n56["object object_type · object_type"]
+  n56["AI agent e_6ae86671d96c5f6ba243ce77 · e_6ae86671d96c5f6ba243ce77"]
+  n57["AI agent e_6ae86673afe7fc590a4a3dda · e_6ae86673afe7fc590a4a3dda"]
+  n58["AI agent e_6ae8667ed96c5f6ba243cf29 · e_6ae8667ed96c5f6ba243cf29"]
+  n59["AI agent e_6ae86680afe7fc590a4a3f53 · e_6ae86680afe7fc590a4a3f53"]
+  n60["AI agent e_6ae86682d96c5f6ba243cf48 · e_6ae86682d96c5f6ba243cf48"]
+  n61["AI agent e_6ae86684d96c5f6ba243cf6a · e_6ae86684d96c5f6ba243cf6a"]
+  n62["AI agent e_6ae86685f410ab7b2f151b2f · e_6ae86685f410ab7b2f151b2f"]
+  n63["AI agent e_6ae86687d96c5f6ba243cfb8 · e_6ae86687d96c5f6ba243cfb8"]
+  n64["AI agent e_6ae86689d96c5f6ba243cfd8 · e_6ae86689d96c5f6ba243cfd8"]
+  n65["AI agent e_6ae8668bafe7fc590a4a3fec · e_6ae8668bafe7fc590a4a3fec"]
+  n66["AI agent e_6ae8668ef410ab7b2f151c47 · e_6ae8668ef410ab7b2f151c47"]
+  n67["object object_type · object_type"]
   n1 --- n2
   n2 --- n3
   n2 --- n4
@@ -75,11 +86,11 @@ flowchart LR
   n5 -->|data source| n15
   n6 -->|data source| n22
   n7 -->|data source| n19
-  n8 -->|storage read| n56
-  n9 -->|storage read| n56
-  n10 -->|storage read| n56
-  n11 -->|storage read| n56
-  n12 -->|storage read| n56
+  n8 -->|storage read| n67
+  n9 -->|storage read| n67
+  n10 -->|storage read| n67
+  n11 -->|storage read| n67
+  n12 -->|storage read| n67
   n13 -->|data source| n16
   n14 -->|storage read| n46
   n14 -->|storage write| n45
@@ -106,6 +117,25 @@ flowchart LR
   n19 -->|call node| n14
   n19 -->|storage read| n39
   n19 -->|storage write| n39
+  n20 -->|storage write| n39
+  n20 -->|storage write| n40
+  n20 -->|storage write| n41
+  n20 -->|storage write| n42
+  n20 -->|storage write| n43
+  n20 -->|storage write| n44
+  n20 -->|storage write| n45
+  n20 -->|storage write| n46
+  n20 -->|storage write| n47
+  n20 -->|storage read| n47
+  n20 -->|storage read| n39
+  n20 -->|storage read| n40
+  n20 -->|storage read| n41
+  n20 -->|storage read| n42
+  n20 -->|storage read| n43
+  n20 -->|storage read| n44
+  n20 -->|storage read| n45
+  n20 -->|storage read| n46
+  n20 -->|call node| n30
   n21 -->|storage read| n40
   n21 -->|storage write| n40
   n21 -->|call node| n14
@@ -148,13 +178,6 @@ flowchart LR
   n28 -->|storage read| n39
   n28 -->|storage write| n39
   n28 -->|storage write| n48
-  n29 -->|storage read| n39
-  n29 -->|storage read| n40
-  n29 -->|storage read| n41
-  n29 -->|storage read| n44
-  n29 -->|storage read| n49
-  n29 -->|storage write| n40
-  n29 -->|storage write| n48
   n30 -->|storage write| n48
   n30 -->|storage write| n49
   n30 -->|storage write| n50
@@ -196,29 +219,6 @@ flowchart LR
   n35 -->|storage read| n48
   n35 -->|storage write| n50
   n35 -->|storage write| n48
-  n36 -->|storage read| n40
-  n36 -->|storage read| n41
-  n36 -->|storage read| n51
-  n36 -->|storage read| n49
-  n36 -->|storage read| n44
-  n36 -->|call node| n33
-  n36 -->|storage write| n48
-  n37 -->|storage read| n46
-  n37 -->|storage read| n48
-  n37 -->|storage write| n48
-  n37 -->|storage read| n40
-  n37 -->|call node| n25
-  n37 -->|call node| n28
-  n37 -->|call node| n31
-  n37 -->|call node| n23
-  n37 -->|call node| n33
-  n37 -->|call node| n27
-  n37 -->|call node| n35
-  n37 -->|call node| n32
-  n37 -->|call node| n38
-  n37 -->|call node| n24
-  n37 -->|call node| n29
-  n37 -->|call node| n36
   n38 -->|storage read| n40
   n38 -->|storage read| n49
   n38 -->|call node| n21

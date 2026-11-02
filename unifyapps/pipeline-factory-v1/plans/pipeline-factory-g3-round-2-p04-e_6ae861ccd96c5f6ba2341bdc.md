@@ -23,15 +23,15 @@ Goal: Pipeline Factory · G3 round 2 · P04
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Contact Finder |  | done | 1 |
-| t2 | deploy | Pipeline Factory · Contact Finder | t1 | running | 1 |
+| t2 | deploy | Pipeline Factory · Contact Finder | t1 | done | 1 |
 | t3 | automation | Pipeline Factory · Send Rules Check |  | done | 1 |
-| t4 | deploy | Pipeline Factory · Send Rules Check | t3 | running | 1 |
+| t4 | deploy | Pipeline Factory · Send Rules Check | t3 | done | 1 |
 | t5 | automation | Pipeline Factory · Outreach Launcher |  | done | 1 |
-| t6 | deploy | Pipeline Factory · Outreach Launcher | t5 | running | 1 |
+| t6 | deploy | Pipeline Factory · Outreach Launcher | t5 | done | 1 |
 | t7 | automation | Pipeline Factory · Email Domain Swapper |  | done | 1 |
-| t8 | deploy | Pipeline Factory · Email Domain Swapper | t7 | running | 1 |
+| t8 | deploy | Pipeline Factory · Email Domain Swapper | t7 | done | 1 |
 | t9 | automation | Pipeline Factory · Meeting Handoff and Deadlines |  | done | 1 |
-| t10 | deploy | Pipeline Factory · Meeting Handoff and Deadlines | t9 | running | 1 |
+| t10 | deploy | Pipeline Factory · Meeting Handoff and Deadlines | t9 | done | 1 |
 
 ### t1 · Build Pipeline Factory · Contact Finder
 
@@ -86,6 +86,15 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Contact Finder deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae862f3f13e536c52e76ecd"}
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: before deploy search_workflows showed version 1, deployment null — the version t1 saved and tested.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: deploy_workflow -&gt; ok true, 'Deployed version 1 of automation 6ae862f3f13e536c52e76ecd.', paused false, storedVersion 1.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 1, deployedAt: 1793615503191, savedAfterDeploy: false} — definitionVersion 1 equals the saved version 1.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: best practice 86 (82 of 85 checks), read once, no fix round (deploy-only task), version 1.
+Note: Deploy approved by the plan: the accepted spec names Pipeline Factory · Contact Finder under Ready when.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Create or update records in bulk (n_69str, n_2xa0y) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_lqeiz, n_16za6, n_hd7zy, n_lqe94) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Bulk update records via primary key, Create or update records in bulk (n_69str, n_2xa0y) · task does not save
 
 ### t3 · Build Pipeline Factory · Send Rules Check
 
@@ -133,6 +142,15 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Send Rules Check deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae863842099302ffb2d0262"}
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: before deploy search_workflows showed version 1, deployment null — the version t3 saved and tested.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: deploy_workflow -&gt; ok true, 'Deployed version 1 of automation 6ae863842099302ffb2d0262.', paused false, storedVersion 1.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 1, deployedAt: 1793615505284, savedAfterDeploy: false} — definitionVersion 1 equals the saved version 1.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: best practice 92 (82 of 85 checks), no fix round needed, version 1.
+Note: Deploy approved by the plan: the accepted spec names Pipeline Factory · Send Rules Check under Ready when.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Create or update records in bulk (n_mx4w2) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_zj7p7, n_v4hlk, n_a4ath, n_rmkic, n_mv6l1) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Create or update records in bulk (n_mx4w2) · task does not save
 
 ### t5 · Build Pipeline Factory · Outreach Launcher
 
@@ -173,6 +191,15 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Outreach Launcher deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae864929594aa458cc23de9"}
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: before deploy search_workflows showed version 0, deployment null — the version t5 saved and tested.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: deploy_workflow -&gt; ok true, 'Deployed version 0 of automation 6ae864929594aa458cc23de9.', paused false, storedVersion 0.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1793615506607, savedAfterDeploy: false} — definitionVersion 0 equals the saved version 0.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: best practice 89 (82 of 85 checks), read once, no fix round (deploy-only task), version 0.
+Note: Deploy approved by the plan: the accepted spec names Pipeline Factory · Outreach Launcher under Ready when.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Create or update records in bulk (n_zcxk7, n_kttdk) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_7gso1, n_hq686, n_99ul1, n_50huz, n_ek91t) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Bulk update records via primary key, Create or update records in bulk (n_ehbvn, n_kttdk) · task does not save
 
 ### t7 · Build Pipeline Factory · Email Domain Swapper
 
@@ -207,6 +234,14 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Email Domain Swapper deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae864342099302ffb2d2a71"}
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: before deploy search_workflows showed version 0, deployment null — the version t7 saved and tested.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: deploy_workflow -&gt; ok true, 'Deployed version 0 of automation 6ae864342099302ffb2d2a71.', paused false, storedVersion 0.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1793615507599, savedAfterDeploy: false} — definitionVersion 0 equals the saved version 0.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: best practice 98 (83 of 85 checks), no fix round needed, version 0.
+Note: Deploy approved by the plan: the accepted spec names Pipeline Factory · Email Domain Swapper under Ready when.
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_uvx02) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Bulk update records via primary key, Create or update records in bulk (n_2oynz, n_2kk75) · task does not save
 
 ### t9 · Build Pipeline Factory · Meeting Handoff and Deadlines
 
@@ -257,4 +292,14 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Meeting Handoff and Deadlines deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae8654d2099302ffb2d9514"}
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: before deploy search_workflows showed version 1, deployment null — the version t9 saved and tested.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: deploy_workflow -&gt; ok true, 'Deployed version 1 of automation 6ae8654d2099302ffb2d9514.', paused false, storedVersion 1.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 1, deployedAt: 1793615509138, savedAfterDeploy: false} — definitionVersion 1 equals the saved version 1.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: callees Book meeting 6ae84449f38e327618fcc640 (definitionVersion 2) and Save hand-off 6ae840a5fbdd550a9a44c524 (definitionVersion 4) both DEPLOYED, savedAfterDeploy false.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: best practice 86 (82 of 85 checks), read once, no fix round (deploy-only task), version 1.
+Note: Deploy approved by the plan: the accepted spec names Pipeline Factory · Meeting Handoff and Deadlines under Ready when.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Call automation (n_4dvj9, n_kjf51), Create or update records in bulk (n_k0xal) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_dceam, n_zrnax, n_ihefz) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Create or update records in bulk (n_k0xal) · task does not save
 

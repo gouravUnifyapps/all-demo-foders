@@ -550,6 +550,41 @@
       "name": null,
       "version": null,
       "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bebf410ab7b2f20260c",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86beff410ab7b2f20266c",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bf3f410ab7b2f2026ba",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bf7f410ab7b2f202726",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bfbf410ab7b2f202747",
+      "name": null,
+      "version": null,
+      "stale": true
     }
   ],
   "edges": [
@@ -4234,6 +4269,36 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bdeafe7fc590a500d57",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bebf410ab7b2f20260c",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86beff410ab7b2f20266c",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bf3f410ab7b2f2026ba",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bf7f410ab7b2f202726",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bfbf410ab7b2f202747",
       "name": null,
       "reason": "entity-not-cached"
     }

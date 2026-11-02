@@ -78,6 +78,11 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent |  | e_6ae86bd8f410ab7b2f202521 |  | yes |
 | ai-agent |  | e_6ae86bdbf410ab7b2f202568 |  | yes |
 | ai-agent |  | e_6ae86bdeafe7fc590a500d57 |  | yes |
+| ai-agent |  | e_6ae86bebf410ab7b2f20260c |  | yes |
+| ai-agent |  | e_6ae86beff410ab7b2f20266c |  | yes |
+| ai-agent |  | e_6ae86bf3f410ab7b2f2026ba |  | yes |
+| ai-agent |  | e_6ae86bf7f410ab7b2f202726 |  | yes |
+| ai-agent |  | e_6ae86bfbf410ab7b2f202747 |  | yes |
 
 ## Wiring
 
@@ -346,3 +351,8 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 - ai-agent `e_6ae86bd8f410ab7b2f202521` (e_6ae86bd8f410ab7b2f202521): entity-not-cached
 - ai-agent `e_6ae86bdbf410ab7b2f202568` (e_6ae86bdbf410ab7b2f202568): entity-not-cached
 - ai-agent `e_6ae86bdeafe7fc590a500d57` (e_6ae86bdeafe7fc590a500d57): entity-not-cached
+- ai-agent `e_6ae86bebf410ab7b2f20260c` (e_6ae86bebf410ab7b2f20260c): entity-not-cached
+- ai-agent `e_6ae86beff410ab7b2f20266c` (e_6ae86beff410ab7b2f20266c): entity-not-cached
+- ai-agent `e_6ae86bf3f410ab7b2f2026ba` (e_6ae86bf3f410ab7b2f2026ba): entity-not-cached
+- ai-agent `e_6ae86bf7f410ab7b2f202726` (e_6ae86bf7f410ab7b2f202726): entity-not-cached
+- ai-agent `e_6ae86bfbf410ab7b2f202747` (e_6ae86bfbf410ab7b2f202747): entity-not-cached

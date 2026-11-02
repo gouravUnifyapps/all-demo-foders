@@ -23,11 +23,11 @@ Goal: Pipeline Factory · G3 round 2 · P09
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Buying Team Mapper |  | done | 1 |
-| t2 | publish | PF · Buying Team Mapper | t1 | pending | 0 |
+| t2 | publish | PF · Buying Team Mapper | t1 | running | 1 |
 | t3 | ai-agent | PF · Person Notes Writer |  | done | 1 |
-| t4 | publish | PF · Person Notes Writer | t3 | pending | 0 |
+| t4 | publish | PF · Person Notes Writer | t3 | running | 1 |
 | t5 | ai-agent | PF · Intro Finder |  | done | 1 |
-| t6 | publish | PF · Intro Finder | t5 | pending | 0 |
+| t6 | publish | PF · Intro Finder | t5 | running | 1 |
 
 ### t1 · Build AI agent PF · Buying Team Mapper
 

@@ -43,6 +43,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Duplicate Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: The agent is built and read back, but it cannot run: every test on model card e_6acca2af70b66f5702c8b59f "Claude Sonnet 5" (provider anthropic) fails with HTTP 500, root cause from the model provider "401 authentication_error: invalid x-api-key" (tried 2 rounds, plus one single send_test_message; same error). Question for the person: (a) have a tenant admin fix the API key on the Anthropic connection behind that card, then this task is re-sent to run the tests; or (b) move these agents to another active Sonnet 5 card, e.g. e_6ad496812dd4ba5be70afcc1 "Claude Sonnet 5 (UnifyApps, Vertex, cached)", and run the tests on it? Made so far: ids {"entity":"e_6ae86680afe7fc590a4a3f53","tools":["e_6ae8669bf410ab7b2f151f8a","e_6ae8669bf410ab7b2f151f8d"]}.
 
 ### t2 · Publish PF · Duplicate Finder
 
@@ -65,6 +66,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Parent Company Linker with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: The agent is built and read back, but it cannot run: every test on model card e_6acca2af70b66f5702c8b59f "Claude Sonnet 5" (provider anthropic) fails with HTTP 500, root cause from the model provider "401 authentication_error: invalid x-api-key" (tried 2 rounds, plus one single send_test_message; same error). Question for the person: (a) have a tenant admin fix the API key on the Anthropic connection behind that card, then this task is re-sent to run the tests; or (b) move these agents to another active Sonnet 5 card, e.g. e_6ad496812dd4ba5be70afcc1 "Claude Sonnet 5 (UnifyApps, Vertex, cached)", and run the tests on it? Made so far: ids {"entity":"e_6ae86684d96c5f6ba243cf6a","tools":["e_6ae8669fafe7fc590a4a4656","e_6ae8669fd96c5f6ba243d509"]}.
 
 ### t4 · Publish PF · Parent Company Linker
 
@@ -87,6 +89,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Headquarters Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: The agent is built and read back, but it cannot run: every test on model card e_6acca2af70b66f5702c8b59f "Claude Sonnet 5" (provider anthropic) fails with HTTP 500, root cause from the model provider "401 authentication_error: invalid x-api-key" (tried 2 rounds, plus one single send_test_message; same error). Question for the person: (a) have a tenant admin fix the API key on the Anthropic connection behind that card, then this task is re-sent to run the tests; or (b) move these agents to another active Sonnet 5 card, e.g. e_6ad496812dd4ba5be70afcc1 "Claude Sonnet 5 (UnifyApps, Vertex, cached)", and run the tests on it? Made so far: ids {"entity":"e_6ae86687d96c5f6ba243cfb8","tools":["e_6ae866a4afe7fc590a4a4789","e_6ae866a4afe7fc590a4a478d"]}.
 
 ### t6 · Publish PF · Headquarters Finder
 
@@ -109,6 +112,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Headquarters Re-checker with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: The agent is built and read back, but it cannot run: every test on model card e_6acca2af70b66f5702c8b59f "Claude Sonnet 5" (provider anthropic) fails with HTTP 500, root cause from the model provider "401 authentication_error: invalid x-api-key" (tried 2 rounds, plus one single send_test_message; same error). Question for the person: (a) have a tenant admin fix the API key on the Anthropic connection behind that card, then this task is re-sent to run the tests; or (b) move these agents to another active Sonnet 5 card, e.g. e_6ad496812dd4ba5be70afcc1 "Claude Sonnet 5 (UnifyApps, Vertex, cached)", and run the tests on it? Made so far: ids {"entity":"e_6ae8668bafe7fc590a4a3fec","tools":["e_6ae866a9afe7fc590a4a4836","e_6ae866a9afe7fc590a4a483a"]}.
 
 ### t8 · Publish PF · Headquarters Re-checker
 
@@ -131,6 +135,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · New Account Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: The agent is built and read back, but it cannot run: every test on model card e_6acca2af70b66f5702c8b59f "Claude Sonnet 5" (provider anthropic) fails with HTTP 500, root cause from the model provider "401 authentication_error: invalid x-api-key" (tried 2 rounds, plus one single send_test_message; same error). Question for the person: (a) have a tenant admin fix the API key on the Anthropic connection behind that card, then this task is re-sent to run the tests; or (b) move these agents to another active Sonnet 5 card, e.g. e_6ad496812dd4ba5be70afcc1 "Claude Sonnet 5 (UnifyApps, Vertex, cached)", and run the tests on it? Made so far: ids {"entity":"e_6ae8668ef410ab7b2f151c47","tools":["e_6ae866add96c5f6ba243d764","e_6ae866adafe7fc590a4a48d8"]}.
 
 ### t10 · Publish PF · New Account Finder
 

@@ -30,15 +30,15 @@ flowchart LR
   n26["automation Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b"]
   n27["automation Pipeline Factory · Send Rules Check · 6ae863842099302ffb2d0262"]
   n28["automation Pipeline Factory · Weekly Slot Planner · 6ae863a5f38e327618183dca"]
-  n29["automation 6ae863d0fbdd550a9a4ffc58 · 6ae863d0fbdd550a9a4ffc58"]
+  n29["automation Pipeline Factory · Content Handoff · 6ae863d0fbdd550a9a4ffc58"]
   n30["automation Pipeline Factory · Reset agent runs · 6ae863f02099302ffb2d2358"]
   n31["automation Pipeline Factory · Holdout Picker · 6ae864059ec43c6ee22f8008"]
   n32["automation Pipeline Factory · Email Domain Swapper · 6ae864342099302ffb2d2a71"]
   n33["automation Pipeline Factory · Do-Not-Contact List · 6ae864672099302ffb2d3157"]
   n34["automation Pipeline Factory · Save agent output · 6ae864829594aa458cc1ce69"]
   n35["automation Pipeline Factory · Outreach Launcher · 6ae864929594aa458cc23de9"]
-  n36["automation 6ae86493f38e32761818a2c1 · 6ae86493f38e32761818a2c1"]
-  n37["automation 6ae865229ec43c6ee2300d8d · 6ae865229ec43c6ee2300d8d"]
+  n36["automation Pipeline Factory · Privacy and Consent · 6ae86493f38e32761818a2c1"]
+  n37["automation Pipeline Factory · Run component · 6ae865229ec43c6ee2300d8d"]
   n38["automation Pipeline Factory · Meeting Handoff and Deadlines · 6ae8654d2099302ffb2d9514"]
   n39["object PF Patch · OBJ_pf_patch"]
   n40["object PF Account · OBJ_pf_account"]
@@ -54,21 +54,29 @@ flowchart LR
   n50["object PF Inbox · OBJ_pf_inbox"]
   n51["object PF Suppression · OBJ_pf_suppression"]
   n52["AI agent Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da"]
-  n53["AI agent e_6ae86666d96c5f6ba243ce26 · e_6ae86666d96c5f6ba243ce26"]
-  n54["AI agent e_6ae8666ad96c5f6ba243ce39 · e_6ae8666ad96c5f6ba243ce39"]
-  n55["AI agent e_6ae8666dafe7fc590a4a3d96 · e_6ae8666dafe7fc590a4a3d96"]
-  n56["AI agent e_6ae86671d96c5f6ba243ce77 · e_6ae86671d96c5f6ba243ce77"]
-  n57["AI agent e_6ae86673afe7fc590a4a3dda · e_6ae86673afe7fc590a4a3dda"]
-  n58["AI agent e_6ae8667ed96c5f6ba243cf29 · e_6ae8667ed96c5f6ba243cf29"]
-  n59["AI agent e_6ae86680afe7fc590a4a3f53 · e_6ae86680afe7fc590a4a3f53"]
-  n60["AI agent e_6ae86682d96c5f6ba243cf48 · e_6ae86682d96c5f6ba243cf48"]
-  n61["AI agent e_6ae86684d96c5f6ba243cf6a · e_6ae86684d96c5f6ba243cf6a"]
-  n62["AI agent e_6ae86685f410ab7b2f151b2f · e_6ae86685f410ab7b2f151b2f"]
-  n63["AI agent e_6ae86687d96c5f6ba243cfb8 · e_6ae86687d96c5f6ba243cfb8"]
-  n64["AI agent e_6ae86689d96c5f6ba243cfd8 · e_6ae86689d96c5f6ba243cfd8"]
-  n65["AI agent e_6ae8668bafe7fc590a4a3fec · e_6ae8668bafe7fc590a4a3fec"]
-  n66["AI agent e_6ae8668ef410ab7b2f151c47 · e_6ae8668ef410ab7b2f151c47"]
-  n67["object object_type · object_type"]
+  n53["AI agent PF · Fit Scorer · e_6ae86666d96c5f6ba243ce26"]
+  n54["AI agent PF · Patch Suggester · e_6ae8666ad96c5f6ba243ce39"]
+  n55["AI agent PF · Current Vendor Finder · e_6ae8666dafe7fc590a4a3d96"]
+  n56["AI agent PF · Renewal Date Finder · e_6ae86671d96c5f6ba243ce77"]
+  n57["AI agent PF · Battlecard Writer · e_6ae86673afe7fc590a4a3dda"]
+  n58["AI agent PF · Buying Signal Spotter · e_6ae8667ed96c5f6ba243cf29"]
+  n59["AI agent PF · Duplicate Finder · e_6ae86680afe7fc590a4a3f53"]
+  n60["AI agent PF · Company Facts Collector · e_6ae86682d96c5f6ba243cf48"]
+  n61["AI agent PF · Parent Company Linker · e_6ae86684d96c5f6ba243cf6a"]
+  n62["AI agent PF · Use Case Matcher · e_6ae86685f410ab7b2f151b2f"]
+  n63["AI agent PF · Headquarters Finder · e_6ae86687d96c5f6ba243cfb8"]
+  n64["AI agent PF · Case for Change Drafter · e_6ae86689d96c5f6ba243cfd8"]
+  n65["AI agent PF · Headquarters Re-checker · e_6ae8668bafe7fc590a4a3fec"]
+  n66["AI agent PF · New Account Finder · e_6ae8668ef410ab7b2f151c47"]
+  n67["AI agent PF · Buying Team Mapper · e_6ae867cdafe7fc590a4f8e82"]
+  n68["AI agent PF · Person Notes Writer · e_6ae867d2f410ab7b2f155861"]
+  n69["AI agent PF · Intro Finder · e_6ae867d4f410ab7b2f155959"]
+  n70["AI agent e_6ae86821f410ab7b2f15695c · e_6ae86821f410ab7b2f15695c"]
+  n71["AI agent e_6ae86825f410ab7b2f156a03 · e_6ae86825f410ab7b2f156a03"]
+  n72["AI agent e_6ae86828f410ab7b2f156a22 · e_6ae86828f410ab7b2f156a22"]
+  n73["AI agent e_6ae8682ad96c5f6ba2441a16 · e_6ae8682ad96c5f6ba2441a16"]
+  n74["AI agent e_6ae8682ed96c5f6ba2441a5f · e_6ae8682ed96c5f6ba2441a5f"]
+  n75["object object_type · object_type"]
   n1 --- n2
   n2 --- n3
   n2 --- n4
@@ -86,11 +94,11 @@ flowchart LR
   n5 -->|data source| n15
   n6 -->|data source| n22
   n7 -->|data source| n19
-  n8 -->|storage read| n67
-  n9 -->|storage read| n67
-  n10 -->|storage read| n67
-  n11 -->|storage read| n67
-  n12 -->|storage read| n67
+  n8 -->|storage read| n75
+  n9 -->|storage read| n75
+  n10 -->|storage read| n75
+  n11 -->|storage read| n75
+  n12 -->|storage read| n75
   n13 -->|data source| n16
   n14 -->|storage read| n46
   n14 -->|storage write| n45
@@ -149,9 +157,10 @@ flowchart LR
   n24 -->|storage read| n46
   n24 -->|storage read| n39
   n24 -->|storage read| n45
+  n24 -->|storage read| n48
   n24 -->|call node| n17
-  n24 -->|call node| n14
   n24 -->|storage write| n48
+  n24 -->|call node| n14
   n25 -->|storage read| n39
   n25 -->|storage read| n40
   n25 -->|storage read| n42
@@ -178,6 +187,13 @@ flowchart LR
   n28 -->|storage read| n39
   n28 -->|storage write| n39
   n28 -->|storage write| n48
+  n29 -->|storage read| n39
+  n29 -->|storage read| n40
+  n29 -->|storage read| n41
+  n29 -->|storage read| n44
+  n29 -->|storage read| n49
+  n29 -->|storage write| n40
+  n29 -->|storage write| n48
   n30 -->|storage write| n48
   n30 -->|storage write| n49
   n30 -->|storage write| n50
@@ -219,6 +235,29 @@ flowchart LR
   n35 -->|storage read| n48
   n35 -->|storage write| n50
   n35 -->|storage write| n48
+  n36 -->|storage read| n40
+  n36 -->|storage read| n41
+  n36 -->|storage read| n51
+  n36 -->|storage read| n49
+  n36 -->|storage read| n44
+  n36 -->|call node| n33
+  n36 -->|storage write| n48
+  n37 -->|storage read| n46
+  n37 -->|storage read| n48
+  n37 -->|storage write| n48
+  n37 -->|storage read| n40
+  n37 -->|call node| n25
+  n37 -->|call node| n28
+  n37 -->|call node| n31
+  n37 -->|call node| n23
+  n37 -->|call node| n33
+  n37 -->|call node| n27
+  n37 -->|call node| n35
+  n37 -->|call node| n32
+  n37 -->|call node| n38
+  n37 -->|call node| n24
+  n37 -->|call node| n29
+  n37 -->|call node| n36
   n38 -->|storage read| n40
   n38 -->|storage read| n49
   n38 -->|call node| n21

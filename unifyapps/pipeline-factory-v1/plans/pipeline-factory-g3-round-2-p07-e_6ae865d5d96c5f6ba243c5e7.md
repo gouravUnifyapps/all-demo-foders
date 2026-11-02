@@ -43,6 +43,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Fit Scorer with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: needs_confirmation: The model card the spec names, Claude Sonnet 5 (e_6acca2af70b66f5702c8b59f, provider anthropic), cannot run: every test invoke answered HTTP 500 'Workflow execution failed' with root cause '401 authentication_error: invalid x-api-key' from Anthropic, although list_models shows its connection active. Either an admin fixes the API key on that model card's connection, or say yes to switching these five agents to another active Claude Sonnet 5 card, e.g. 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1 (model claude-sonnet-5, provider vertex_ai). Which one? The agents are built; only the test run is blocked. Made so far: ids {"entity":"e_6ae86666d96c5f6ba243ce26","readTool":"e_6ae8667bf410ab7b2f151abb","saveTool":"e_6ae8667bf410ab7b2f151ac0"}.
 
 ### t2 · Publish PF · Fit Scorer
 
@@ -65,6 +66,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Patch Suggester with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: needs_confirmation: The model card the spec names, Claude Sonnet 5 (e_6acca2af70b66f5702c8b59f, provider anthropic), cannot run: every test invoke answered HTTP 500 'Workflow execution failed' with root cause '401 authentication_error: invalid x-api-key' from Anthropic, although list_models shows its connection active. Either an admin fixes the API key on that model card's connection, or say yes to switching these five agents to another active Claude Sonnet 5 card, e.g. 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1 (model claude-sonnet-5, provider vertex_ai). Which one? The agents are built; only the test run is blocked. Made so far: ids {"entity":"e_6ae8666ad96c5f6ba243ce39","readTool":"e_6ae8667eafe7fc590a4a3f25","saveTool":"e_6ae8667eafe7fc590a4a3f28"}.
 
 ### t4 · Publish PF · Patch Suggester
 
@@ -87,6 +89,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Current Vendor Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: needs_confirmation: The model card the spec names, Claude Sonnet 5 (e_6acca2af70b66f5702c8b59f, provider anthropic), cannot run: every test invoke answered HTTP 500 'Workflow execution failed' with root cause '401 authentication_error: invalid x-api-key' from Anthropic, although list_models shows its connection active. Either an admin fixes the API key on that model card's connection, or say yes to switching these five agents to another active Claude Sonnet 5 card, e.g. 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1 (model claude-sonnet-5, provider vertex_ai). Which one? The agents are built; only the test run is blocked. Made so far: ids {"entity":"e_6ae8666dafe7fc590a4a3d96","readTool":"e_6ae86682d96c5f6ba243cf4c","saveTool":"e_6ae86682d96c5f6ba243cf52"}.
 
 ### t6 · Publish PF · Current Vendor Finder
 
@@ -109,6 +112,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Renewal Date Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: needs_confirmation: The model card the spec names, Claude Sonnet 5 (e_6acca2af70b66f5702c8b59f, provider anthropic), cannot run: every test invoke answered HTTP 500 'Workflow execution failed' with root cause '401 authentication_error: invalid x-api-key' from Anthropic, although list_models shows its connection active. Either an admin fixes the API key on that model card's connection, or say yes to switching these five agents to another active Claude Sonnet 5 card, e.g. 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1 (model claude-sonnet-5, provider vertex_ai). Which one? The agents are built; only the test run is blocked. Made so far: ids {"entity":"e_6ae86671d96c5f6ba243ce77","readTool":"e_6ae86685d96c5f6ba243cf75","saveTool":"e_6ae86685f410ab7b2f151b28"}.
 
 ### t8 · Publish PF · Renewal Date Finder
 
@@ -131,6 +135,7 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Battlecard Writer with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Error: Asked the person: needs_confirmation: The model card the spec names, Claude Sonnet 5 (e_6acca2af70b66f5702c8b59f, provider anthropic), cannot run: every test invoke answered HTTP 500 'Workflow execution failed' with root cause '401 authentication_error: invalid x-api-key' from Anthropic, although list_models shows its connection active. Either an admin fixes the API key on that model card's connection, or say yes to switching these five agents to another active Claude Sonnet 5 card, e.g. 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1 (model claude-sonnet-5, provider vertex_ai). Which one? The agents are built; only the test run is blocked. Made so far: ids {"entity":"e_6ae86673afe7fc590a4a3dda","readTool":"e_6ae86688f410ab7b2f151c00","saveTool":"e_6ae86689d96c5f6ba243cfcc"}.
 
 ### t10 · Publish PF · Battlecard Writer
 

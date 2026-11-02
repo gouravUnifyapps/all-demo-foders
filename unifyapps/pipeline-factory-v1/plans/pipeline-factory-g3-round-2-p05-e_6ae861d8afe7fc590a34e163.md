@@ -16,20 +16,25 @@ createdAt: "2026-11-02T10:11:35.483Z"
 runningAt: "2026-11-02T10:11:40.071Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P05
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Pipeline Factory · Alarm and Escalation |  | running | 1 |
-| t2 | deploy | Pipeline Factory · Alarm and Escalation | t1 | pending | 0 |
+| t1 | automation | Pipeline Factory · Alarm and Escalation |  | done | 1 |
+| t2 | deploy | Pipeline Factory · Alarm and Escalation | t1 | done | 1 |
 | t3 | automation | Pipeline Factory · Content Handoff |  | done | 1 |
-| t4 | deploy | Pipeline Factory · Content Handoff | t3 | running | 1 |
+| t4 | deploy | Pipeline Factory · Content Handoff | t3 | done | 1 |
 | t5 | automation | Pipeline Factory · Privacy and Consent |  | done | 1 |
-| t6 | deploy | Pipeline Factory · Privacy and Consent | t5 | running | 1 |
+| t6 | deploy | Pipeline Factory · Privacy and Consent | t5 | done | 1 |
 | t7 | automation | Pipeline Factory · Run component |  | done | 1 |
-| t8 | deploy | Pipeline Factory · Run component | t7 | running | 1 |
+| t8 | deploy | Pipeline Factory · Run component | t7 | done | 1 |
 
 ### t1 · Build Pipeline Factory · Alarm and Escalation
 
@@ -41,7 +46,32 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Alarm and Escalation; test runs with origin test answer each result path.
-Error: Asked the person: Question for the person: the GTM-engineer to-do for a component at 95% to under 97% (C08 Current Vendor Finder) is refused by Save hand-off as 'not registered', because C55's register row feeds only 'patch, pod, Geo, CRO', and no C55 hand-off can be waiting_person (no receiving register row with a threshold). Options: (a) add 'GTM engineer' to C55 feeds in PF Component and a register entry for the GTM engineer with a threshold above 0 (fde/data task, also in the seed snapshot), then re-test; (b) send the component to-do to 'pod' (registered) and accept status flowed; (c) change Save hand-off to accept a person target. The automation is built and saved at version 2; only this step waits. Made so far: ids {"entity":"6ae863282099302ffb2cf702"}.
+Result IDs: {"entity":"6ae863282099302ffb2cf702"}
+Read back: Pipeline Factory · Alarm and Escalation 6ae863282099302ffb2cf702: saved version 5 (open_workflow/search_workflows version 5, not deployed), trigger CALLABLE callables/callables_from_automation, 21 nodes; setup {origin string enum user\|seed\|test}; result {actions, escalations, reason: string}, all required; describe_callable_workflow lists origin (string, optional)
+Read back: Pipeline Factory · Alarm and Escalation: the person's answer is applied. A component at 95% to under 97% now gets a PF Component run row (component_id C55, kind workflow, status waiting_person, assigned_to 'GTM engineer', play_id alarm-&lt;component&gt;, reason naming the component and its rate, origin as given), written by one bulk create; no hand-off is saved for it. While such a row is open, no second row is made and the row's age drives the escalation to pod (2 business days), Geo (5) and CRO (10) through Save hand-off. Under 95% still pauses through Pause component; patch proposals still go through Save hand-off.
+Read back: Pipeline Factory · Alarm and Escalation: run 6ae866eb2099302ffb2ddbd8 (v3, origin test) COMPLETED; GTM to-do path: get_records PF Component run CR-TODO-6ae866eb2099302ffb2ddbd8-C08 component_id C55, kind workflow, status waiting_person, assigned_to 'GTM engineer', reason 'C08 Current Vendor Finder at 96.1%: under 97%, check before it falls under 95%', origin test; C08 stays live (not paused)
+Read back: Pipeline Factory · Alarm and Escalation: run 6ae8675746920244f3d61527 (v5, origin test) COMPLETED, reason '3 red lines: 1 paused, 1 to-do items saved, 1 to-do items already open, 0 to-do items refused by Save hand-off, 1 escalations'. Pause path: Pause component answered 'paused', and get_records PF Component C99-TEST status paused. Escalation path: aged test to-do CR-TODO-TEST-AGED-C08 (3 business days) gave get_records PF Hand-off H-6ae8675946920244f3d61535 from C55 to pod, play escalate-pod-C08, status flowed, origin test. Patch path: PATCH-NAE-04 throttle proposal (Save hand-off 'duplicate' of H-6ae86332f6f76639f821b351)
+Read back: Pipeline Factory · Alarm and Escalation: run 6ae867649594aa458cd537bf (v5, the shipped version, origin test) COMPLETED: bulk create inserted 1, insertedIds [CR-TODO-6ae867649594aa458cd537bf-C08]; get_records shows status waiting_person, assigned_to 'GTM engineer', kind workflow, component_id C55, origin test; action call_result waiting_person; log row CR-6ae867649594aa458cd537bf status saved, origin test
+Read back: Pipeline Factory · Alarm and Escalation: best practice 84 (80 of 85 checks), under 90 after 2 fix rounds, first read 82, version 5
+Read back: Pipeline Factory · Alarm and Escalation: security rule 4 — writes set only the listed PF Component run fields; rule 3 — success_rate and open to-dos are read again in the same run before acting
+Unverified: Pipeline Factory · Alarm and Escalation: the 'no red line' answer was not run, since seed row C08 (96.1%) always makes a red line; check: run it when every component is at 97% or more and every patch is on intro pace
+Unverified: Pipeline Factory · Alarm and Escalation: Geo (5 days) and CRO (10 days) escalation levels were not run, only pod; check: an open test to-do aged 6 and 11 business days
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Call (Save hand-off) n_3jpbw, n_92x4j · left after two fix rounds (these nodes call Save hand-off by automation id, which holds no secret; turning off node I/O is a node setting the DSL does not expose)
+Note: best practice exception: CHECK_39 Hardcoded critical input detected · Call (Save hand-off) n_3jpbw, n_92x4j · needs environment variable outside the task (the callee automationId would have to move to an ENV value)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records n_2u86s (OBJ_pf_handoff from_component), n_iqw69 (OBJ_pf_component_run component_id+status) · needs object index outside the task
+Note: best practice exception: CHECK_27 Manual list aggregation detected · Add item to list n_rvqp9, n_27e3z, n_dw6jo · left after two fix rounds (restructuring the answer list across three loops would change how answers are matched)
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop n_l7ahn, n_sht0m, n_voldz · left after two fix rounds (the DSL saves captureIterations false back as true; see feedback)
+Note: Fix round 1 (v4) replaced the per-item GTM to-do create loop with one bulk create and raised the score 82 to 84. Fix round 2 (v5) tried to clear Capture Iterations and compiled to the same automation as v4 (changes: 'Nothing changed').
+Note: Test fixtures changed (origin test only): PF Component C99-TEST set from paused to live, then paused again by the run; PF Component run CR-TODO-TEST-AGED-C08 created (aged to-do), and it and CR-TODO-6ae866eb2099302ffb2ddbd8-C08 set to status no_action to close them. No origin user row was touched.
+Note: test rows left for Reset demo: PF Component run CR-TODO-6ae866eb2099302ffb2ddbd8-C08, CR-TODO-TEST-AGED-C08, CR-TODO-6ae867649594aa458cd537bf-C08 (open, waiting_person), CR-6ae866eb2099302ffb2ddbd8, CR-6ae8675746920244f3d61527, CR-6ae867649594aa458cd537bf; PF Hand-off H-6ae8675946920244f3d61535 (escalate-pod-C08); PF Component C99-TEST (paused)
+Note: handover: Alarm and Escalation 6ae863282099302ffb2cf702 saved at version 5 and not deployed; Run component's C55 branch calls its deployed copy, so a deploy task for Alarm and Escalation must deploy version 5 before Run component reaches 'ran' for C55. The open GTM to-do CR-TODO-6ae867649594aa458cd537bf-C08 (origin test) holds back a new C08 to-do until Reset demo clears it.
+Note: feedback:
+Bug: compile_and_save_workflow cannot turn a loop's Capture Iterations off: each(list, { captureIterations: false }) and each(list) both save back as captureIterations: true, and the save reports success.
+Context: Editing Pipeline Factory · Alarm and Escalation (6ae863282099302ffb2cf702), three for-each loops saved earlier with captureIterations true, to clear best practice CHECK_37.
+Where: mcp-tool
+Evidence: Save at v4 with captureIterations false answered ok, but open_workflow v4 shows captureIterations true on all three loops and CHECK_37 still fails; a save at v5 without options answered 'Nothing changed' yet bumped the version.
+Cause: Unknown — next check: whether the compiler leaves out a false loop option and then keeps the saved node's value when it merges with the live automation.
+Regression: Save each(x, { captureIterations: false }) over a loop saved with true; open_workflow must show false, and CHECK_37 must pass.
 
 ### t2 · Deploy Pipeline Factory · Alarm and Escalation
 
@@ -53,6 +83,13 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Alarm and Escalation deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae863282099302ffb2cf702"}
+Read back: Pipeline Factory · Alarm and Escalation 6ae863282099302ffb2cf702: deploy_workflow ok, 'Deployed version 5 of automation 6ae863282099302ffb2cf702.'; search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 5, deployedAt: 1793615844246, savedAfterDeploy: false}, and definitionVersion 5 equals the saved and tested version 5
+Read back: Pipeline Factory · Alarm and Escalation: best practice 84 (80 of 85 checks) at version 5, read by the build task t1 on this same version, so not read again
+Unverified: Pipeline Factory · Alarm and Escalation: not run through the deployed lane or through Run component's C55 branch; check: a Run component workflow_test with component_id C55 and origin test should answer 'ran'
+Note: Approval: the spec the person accepted names it under Ready when (plan approval), as Answer from the person gives it.
+Note: deploymentNotes 'Demo Studio · Pipeline Factory v1 · G3 round 2 · Pipeline Factory · Alarm and Escalation'
+Note: best practice exception: CHECK_2, CHECK_39, CHECK_86, CHECK_27, CHECK_37 left failing at version 5, as listed under t1 · task does not save
 
 ### t3 · Build Pipeline Factory · Content Handoff
 
@@ -88,6 +125,11 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Content Handoff deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae863d0fbdd550a9a4ffc58"}
+Read back: Pipeline Factory · Content Handoff 6ae863d0fbdd550a9a4ffc58: deploy_workflow ok, 'Deployed version 0 of automation 6ae863d0fbdd550a9a4ffc58.'; search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1793615505874, savedAfterDeploy: false}, and definitionVersion 0 equals the saved version 0
+Unverified: Pipeline Factory · Content Handoff: best practice not re-read; the build task read 97 (82 of 85 checks) at version 0, the version deployed
+Note: Approval: the spec the person accepted names it under Ready when (plan approval), as Answer from the person gives it.
+Note: deploymentNotes 'Demo Studio · Pipeline Factory v1 · G3 round 2 · Pipeline Factory · Content Handoff'
 
 ### t5 · Build Pipeline Factory · Privacy and Consent
 
@@ -126,6 +168,13 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Privacy and Consent deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae86493f38e32761818a2c1"}
+Read back: Pipeline Factory · Privacy and Consent 6ae86493f38e32761818a2c1: deploy_workflow ok, 'Deployed version 1 of automation 6ae86493f38e32761818a2c1.'; search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 1, deployedAt: 1793615507358, savedAfterDeploy: false}, and definitionVersion 1 equals the saved version 1
+Read back: Pipeline Factory · Privacy and Consent: its callee Do-Not-Contact List 6ae864672099302ffb2d3157 is now DEPLOYED (definitionVersion 1, deployedAt 1793615206049)
+Unverified: Pipeline Factory · Privacy and Consent: not re-run against the now-deployed Do-Not-Contact List; check: a workflow_test run with account_id A-1001 should show DNC screens instead of 'not screened'
+Unverified: Pipeline Factory · Privacy and Consent: best practice not re-read; the build task read 90 (81 of 85 checks) at version 1, the version deployed
+Note: Approval: the spec the person accepted names it under Ready when (plan approval), as Answer from the person gives it.
+Note: deploymentNotes 'Demo Studio · Pipeline Factory v1 · G3 round 2 · Pipeline Factory · Privacy and Consent'
 
 ### t7 · Build Pipeline Factory · Run component
 
@@ -168,4 +217,11 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Run component deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae865229ec43c6ee2300d8d"}
+Read back: Pipeline Factory · Run component 6ae865229ec43c6ee2300d8d: deploy_workflow ok, 'Deployed version 2 of automation 6ae865229ec43c6ee2300d8d.'; search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 2, deployedAt: 1793615508520, savedAfterDeploy: false}, and definitionVersion 2 equals the saved version 2
+Unverified: Pipeline Factory · Run component: best practice not re-read; the build task read 83 (82 of 85 checks) at version 2, the version deployed
+Unverified: Pipeline Factory · Run component: its C55 callee Alarm and Escalation 6ae863282099302ffb2cf702 is not deployed (search_workflows deployment null), so component C55 cannot reach 'ran' yet; every other callee (C12, C13, C14, C24, C25, C33, C35, C39, C43, C56, C57) shows DEPLOYED in search_workflows
+Note: Approval: the spec the person accepted names it under Ready when (plan approval), as Answer from the person gives it.
+Note: deploymentNotes 'Demo Studio · Pipeline Factory v1 · G3 round 2 · Pipeline Factory · Run component'
+Note: best practice exception: score 83 at version 2 (from the build task) · task does not save
 

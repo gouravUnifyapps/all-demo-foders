@@ -1176,6 +1176,10 @@ decisions:
     when: 2026-11-02
     text: "Build (R2-P04, Meeting Handoff and Deadlines): the AE deadline rows save as flowed, not waiting_person, because round-1 Save hand-off parks a row only under the receiver's threshold and C43's receivers have none; changing Save hand-off is outside this round (Assumptions: round-1 entities unchanged), so the gap is kept and listed for the G3 pack. Book meeting writes meeting_source 'factory: AE booking link' for calendar pick-ups; the true source (SRC-16) is in the prep-pack hand-off payload."
 
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Build (R2-P06, R2-P07): model card e_6acca2af70b66f5702c8b59f (Claude Sonnet 5, provider anthropic) fails every run with the provider's 401 invalid x-api-key although list_models shows it active; the family-A agents use the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model (a platform choice, not a client one). Save agent output's threshold rule stands for every agent (under threshold waiting_person, else saved; no no_action result): where a line says no_action or not suggested, the agent saves once with changed:false or suggested:false and says no action."
+
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"

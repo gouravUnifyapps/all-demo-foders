@@ -18,20 +18,20 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation | `Pipeline Factory · Book meeting` | 6ae84449f38e327618fcc640 | 2 | no |
 | automation | `Pipeline Factory · Ask the analyst` | 6ae84900fbdd550a9a465807 | 0 | no |
 | automation | `Pipeline Factory · Contact Finder` | 6ae862f3f13e536c52e76ecd | 1 | no |
-| automation | `Pipeline Factory · Alarm and Escalation` | 6ae863282099302ffb2cf702 | 2 | no |
+| automation | `Pipeline Factory · Alarm and Escalation` | 6ae863282099302ffb2cf702 | 5 | no |
 | automation | `Pipeline Factory · Account Ranking` | 6ae8632c9ec43c6ee22f380d | 2 | no |
 | automation | `Pipeline Factory · Read component inputs` | 6ae8635446920244f3d5194b | 2 | no |
 | automation | `Pipeline Factory · Send Rules Check` | 6ae863842099302ffb2d0262 | 1 | no |
 | automation | `Pipeline Factory · Weekly Slot Planner` | 6ae863a5f38e327618183dca | 0 | no |
-| automation |  | 6ae863d0fbdd550a9a4ffc58 |  | yes |
+| automation | `Pipeline Factory · Content Handoff` | 6ae863d0fbdd550a9a4ffc58 | 0 | no |
 | automation | `Pipeline Factory · Reset agent runs` | 6ae863f02099302ffb2d2358 | 0 | no |
 | automation | `Pipeline Factory · Holdout Picker` | 6ae864059ec43c6ee22f8008 | 0 | no |
 | automation | `Pipeline Factory · Email Domain Swapper` | 6ae864342099302ffb2d2a71 | 0 | no |
 | automation | `Pipeline Factory · Do-Not-Contact List` | 6ae864672099302ffb2d3157 | 1 | no |
 | automation | `Pipeline Factory · Save agent output` | 6ae864829594aa458cc1ce69 | 0 | no |
 | automation | `Pipeline Factory · Outreach Launcher` | 6ae864929594aa458cc23de9 | 0 | no |
-| automation |  | 6ae86493f38e32761818a2c1 |  | yes |
-| automation |  | 6ae865229ec43c6ee2300d8d |  | yes |
+| automation | `Pipeline Factory · Privacy and Consent` | 6ae86493f38e32761818a2c1 | 1 | no |
+| automation | `Pipeline Factory · Run component` | 6ae865229ec43c6ee2300d8d | 2 | no |
 | automation | `Pipeline Factory · Meeting Handoff and Deadlines` | 6ae8654d2099302ffb2d9514 | 1 | no |
 | object | `PF Patch` | OBJ_pf_patch | 0 | no |
 | object | `PF Account` | OBJ_pf_account | 0 | no |
@@ -47,20 +47,28 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | object | `PF Inbox` | OBJ_pf_inbox | 0 | no |
 | object | `PF Suppression` | OBJ_pf_suppression | 0 | no |
 | ai-agent | `Pipeline Factory Analyst` | e_6ae846ffd96c5f6ba22b98da | 14 | no |
-| ai-agent |  | e_6ae86666d96c5f6ba243ce26 |  | yes |
-| ai-agent |  | e_6ae8666ad96c5f6ba243ce39 |  | yes |
-| ai-agent |  | e_6ae8666dafe7fc590a4a3d96 |  | yes |
-| ai-agent |  | e_6ae86671d96c5f6ba243ce77 |  | yes |
-| ai-agent |  | e_6ae86673afe7fc590a4a3dda |  | yes |
-| ai-agent |  | e_6ae8667ed96c5f6ba243cf29 |  | yes |
-| ai-agent |  | e_6ae86680afe7fc590a4a3f53 |  | yes |
-| ai-agent |  | e_6ae86682d96c5f6ba243cf48 |  | yes |
-| ai-agent |  | e_6ae86684d96c5f6ba243cf6a |  | yes |
-| ai-agent |  | e_6ae86685f410ab7b2f151b2f |  | yes |
-| ai-agent |  | e_6ae86687d96c5f6ba243cfb8 |  | yes |
-| ai-agent |  | e_6ae86689d96c5f6ba243cfd8 |  | yes |
-| ai-agent |  | e_6ae8668bafe7fc590a4a3fec |  | yes |
-| ai-agent |  | e_6ae8668ef410ab7b2f151c47 |  | yes |
+| ai-agent | `PF · Fit Scorer` | e_6ae86666d96c5f6ba243ce26 | 2 | no |
+| ai-agent | `PF · Patch Suggester` | e_6ae8666ad96c5f6ba243ce39 | 2 | no |
+| ai-agent | `PF · Current Vendor Finder` | e_6ae8666dafe7fc590a4a3d96 | 2 | no |
+| ai-agent | `PF · Renewal Date Finder` | e_6ae86671d96c5f6ba243ce77 | 2 | no |
+| ai-agent | `PF · Battlecard Writer` | e_6ae86673afe7fc590a4a3dda | 2 | no |
+| ai-agent | `PF · Buying Signal Spotter` | e_6ae8667ed96c5f6ba243cf29 | 2 | no |
+| ai-agent | `PF · Duplicate Finder` | e_6ae86680afe7fc590a4a3f53 | 2 | no |
+| ai-agent | `PF · Company Facts Collector` | e_6ae86682d96c5f6ba243cf48 | 2 | no |
+| ai-agent | `PF · Parent Company Linker` | e_6ae86684d96c5f6ba243cf6a | 2 | no |
+| ai-agent | `PF · Use Case Matcher` | e_6ae86685f410ab7b2f151b2f | 2 | no |
+| ai-agent | `PF · Headquarters Finder` | e_6ae86687d96c5f6ba243cfb8 | 2 | no |
+| ai-agent | `PF · Case for Change Drafter` | e_6ae86689d96c5f6ba243cfd8 | 2 | no |
+| ai-agent | `PF · Headquarters Re-checker` | e_6ae8668bafe7fc590a4a3fec | 2 | no |
+| ai-agent | `PF · New Account Finder` | e_6ae8668ef410ab7b2f151c47 | 2 | no |
+| ai-agent | `PF · Buying Team Mapper` | e_6ae867cdafe7fc590a4f8e82 | 1 | no |
+| ai-agent | `PF · Person Notes Writer` | e_6ae867d2f410ab7b2f155861 | 1 | no |
+| ai-agent | `PF · Intro Finder` | e_6ae867d4f410ab7b2f155959 | 1 | no |
+| ai-agent |  | e_6ae86821f410ab7b2f15695c |  | yes |
+| ai-agent |  | e_6ae86825f410ab7b2f156a03 |  | yes |
+| ai-agent |  | e_6ae86828f410ab7b2f156a22 |  | yes |
+| ai-agent |  | e_6ae8682ad96c5f6ba2441a16 |  | yes |
+| ai-agent |  | e_6ae8682ed96c5f6ba2441a5f |  | yes |
 
 ## Wiring
 
@@ -161,7 +169,9 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Alarm and Escalation` | `node Read every component's success rate and status` | object `PF Component` | storage read |  |
 | automation `Pipeline Factory · Alarm and Escalation` | `node Read every patch's slots and intro pace` | object `PF Patch` | storage read |  |
 | automation `Pipeline Factory · Alarm and Escalation` | `node Read the to-do items and escalations this workflow already saved` | object `PF Hand-off` | storage read |  |
+| automation `Pipeline Factory · Alarm and Escalation` | `node Read the GTM-engineer to-do rows still open` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Alarm and Escalation` | `node Pause the component (automatic safety action)` | automation `Pipeline Factory · Pause component` | call node | `held_handoffs`, `reason`, `result` |
+| automation `Pipeline Factory · Alarm and Escalation` | `node Write the GTM-engineer to-dos as PF Component run rows (waiting on a person)` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Alarm and Escalation` | `node Save the to-do item through Save hand-off` | automation `Pipeline Factory · Save hand-off` | call node | `handoff_id`, `reason`, `result` |
 | automation `Pipeline Factory · Alarm and Escalation` | `node Save the escalation through Save hand-off` | automation `Pipeline Factory · Save hand-off` | call node | `handoff_id`, `reason`, `result` |
 | automation `Pipeline Factory · Alarm and Escalation` | `node Read the components again for the after numbers` | object `PF Component` | storage read |  |
@@ -194,6 +204,13 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Weekly Slot Planner` | `node Write the patch's slots and pace boost` | object `PF Patch` | storage write |  |
 | automation `Pipeline Factory · Weekly Slot Planner` | `node Log the allocation as a PF Component run (C13)` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Weekly Slot Planner` | `node Log the call with no allocation as a PF Component run (C13)` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Content Handoff` | `node Read the patch` | object `PF Patch` | storage read |  |
+| automation `Pipeline Factory · Content Handoff` | `node Read the patch's accounts` | object `PF Account` | storage read |  |
+| automation `Pipeline Factory · Content Handoff` | `node Read the people` | object `PF Person` | storage read |  |
+| automation `Pipeline Factory · Content Handoff` | `node Read the drafts` | object `PF Draft` | storage read |  |
+| automation `Pipeline Factory · Content Handoff` | `node Read the replies and content assets` | object `PF Source` | storage read |  |
+| automation `Pipeline Factory · Content Handoff` | `node Set the account marketing-influenced` | object `PF Account` | storage write |  |
+| automation `Pipeline Factory · Content Handoff` | `node Log the weekly results in one PF Component run` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Component run` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Source` | object `PF Source` | storage write |  |
 | automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Inbox` | object `PF Inbox` | storage write |  |
@@ -253,6 +270,31 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Outreach Launcher` | `node Read the account's earlier launches` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Outreach Launcher` | `node Add the scheduled emails to each inbox's count` | object `PF Inbox` | storage write |  |
 | automation `Pipeline Factory · Outreach Launcher` | `node Log the component run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Privacy and Consent` | `node Read the accounts` | object `PF Account` | storage read |  |
+| automation `Pipeline Factory · Privacy and Consent` | `node Read the people` | object `PF Person` | storage read |  |
+| automation `Pipeline Factory · Privacy and Consent` | `node Read the suppression list (consents and erasures)` | object `PF Suppression` | storage read |  |
+| automation `Pipeline Factory · Privacy and Consent` | `node Read the replies of the last 12 months` | object `PF Source` | storage read |  |
+| automation `Pipeline Factory · Privacy and Consent` | `node Read the enrolled drafts` | object `PF Draft` | storage read |  |
+| automation `Pipeline Factory · Privacy and Consent` | `node Screen the person through Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result`, `suppression_id` |
+| automation `Pipeline Factory · Privacy and Consent` | `node Complete the erasure through Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Privacy and Consent` | `node Log the checks in one PF Component run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Run component` | `node Read the component row` | object `PF Component` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Read the newest run the agent saved during this call` | object `PF Component run` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Write latency_ms on the agent's run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Run component` | `node Read the account for its patch` | object `PF Account` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Run Account Ranking` | automation `Pipeline Factory · Account Ranking` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Weekly Slot Planner` | automation `Pipeline Factory · Weekly Slot Planner` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Holdout Picker` | automation `Pipeline Factory · Holdout Picker` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Contact Finder` | automation `Pipeline Factory · Contact Finder` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Run component` | `node Run Send Rules Check` | automation `Pipeline Factory · Send Rules Check` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Run component` | `node Run Outreach Launcher` | automation `Pipeline Factory · Outreach Launcher` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Email Domain Swapper` | automation `Pipeline Factory · Email Domain Swapper` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Meeting Handoff and Deadlines` | automation `Pipeline Factory · Meeting Handoff and Deadlines` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Alarm and Escalation` | automation `Pipeline Factory · Alarm and Escalation` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Content Handoff` | automation `Pipeline Factory · Content Handoff` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Privacy and Consent` | automation `Pipeline Factory · Privacy and Consent` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Read the run the workflow logged during this call` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read the account` | object `PF Account` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read the account's calendar events` | object `PF Source` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read every account` | object `PF Account` | storage read |  |
@@ -263,21 +305,26 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 ## Not checked
 
-- automation `6ae863d0fbdd550a9a4ffc58` (6ae863d0fbdd550a9a4ffc58): entity-write
-- automation `6ae86493f38e32761818a2c1` (6ae86493f38e32761818a2c1): entity-write
-- automation `6ae865229ec43c6ee2300d8d` (6ae865229ec43c6ee2300d8d): entity-write
 - ai-agent `Pipeline Factory Analyst` (e_6ae846ffd96c5f6ba22b98da): its tools are not in the cache (get_agent)
-- ai-agent `e_6ae86666d96c5f6ba243ce26` (e_6ae86666d96c5f6ba243ce26): entity-not-cached
-- ai-agent `e_6ae8666ad96c5f6ba243ce39` (e_6ae8666ad96c5f6ba243ce39): entity-not-cached
-- ai-agent `e_6ae8666dafe7fc590a4a3d96` (e_6ae8666dafe7fc590a4a3d96): entity-not-cached
-- ai-agent `e_6ae86671d96c5f6ba243ce77` (e_6ae86671d96c5f6ba243ce77): entity-not-cached
-- ai-agent `e_6ae86673afe7fc590a4a3dda` (e_6ae86673afe7fc590a4a3dda): entity-not-cached
-- ai-agent `e_6ae8667ed96c5f6ba243cf29` (e_6ae8667ed96c5f6ba243cf29): entity-not-cached
-- ai-agent `e_6ae86680afe7fc590a4a3f53` (e_6ae86680afe7fc590a4a3f53): entity-not-cached
-- ai-agent `e_6ae86682d96c5f6ba243cf48` (e_6ae86682d96c5f6ba243cf48): entity-not-cached
-- ai-agent `e_6ae86684d96c5f6ba243cf6a` (e_6ae86684d96c5f6ba243cf6a): entity-not-cached
-- ai-agent `e_6ae86685f410ab7b2f151b2f` (e_6ae86685f410ab7b2f151b2f): entity-not-cached
-- ai-agent `e_6ae86687d96c5f6ba243cfb8` (e_6ae86687d96c5f6ba243cfb8): entity-not-cached
-- ai-agent `e_6ae86689d96c5f6ba243cfd8` (e_6ae86689d96c5f6ba243cfd8): entity-not-cached
-- ai-agent `e_6ae8668bafe7fc590a4a3fec` (e_6ae8668bafe7fc590a4a3fec): entity-not-cached
-- ai-agent `e_6ae8668ef410ab7b2f151c47` (e_6ae8668ef410ab7b2f151c47): entity-not-cached
+- ai-agent `PF · Fit Scorer` (e_6ae86666d96c5f6ba243ce26): its tools are not in the cache (get_agent)
+- ai-agent `PF · Patch Suggester` (e_6ae8666ad96c5f6ba243ce39): its tools are not in the cache (get_agent)
+- ai-agent `PF · Current Vendor Finder` (e_6ae8666dafe7fc590a4a3d96): its tools are not in the cache (get_agent)
+- ai-agent `PF · Renewal Date Finder` (e_6ae86671d96c5f6ba243ce77): its tools are not in the cache (get_agent)
+- ai-agent `PF · Battlecard Writer` (e_6ae86673afe7fc590a4a3dda): its tools are not in the cache (get_agent)
+- ai-agent `PF · Buying Signal Spotter` (e_6ae8667ed96c5f6ba243cf29): its tools are not in the cache (get_agent)
+- ai-agent `PF · Duplicate Finder` (e_6ae86680afe7fc590a4a3f53): its tools are not in the cache (get_agent)
+- ai-agent `PF · Company Facts Collector` (e_6ae86682d96c5f6ba243cf48): its tools are not in the cache (get_agent)
+- ai-agent `PF · Parent Company Linker` (e_6ae86684d96c5f6ba243cf6a): its tools are not in the cache (get_agent)
+- ai-agent `PF · Use Case Matcher` (e_6ae86685f410ab7b2f151b2f): its tools are not in the cache (get_agent)
+- ai-agent `PF · Headquarters Finder` (e_6ae86687d96c5f6ba243cfb8): its tools are not in the cache (get_agent)
+- ai-agent `PF · Case for Change Drafter` (e_6ae86689d96c5f6ba243cfd8): its tools are not in the cache (get_agent)
+- ai-agent `PF · Headquarters Re-checker` (e_6ae8668bafe7fc590a4a3fec): its tools are not in the cache (get_agent)
+- ai-agent `PF · New Account Finder` (e_6ae8668ef410ab7b2f151c47): its tools are not in the cache (get_agent)
+- ai-agent `PF · Buying Team Mapper` (e_6ae867cdafe7fc590a4f8e82): its tools are not in the cache (get_agent)
+- ai-agent `PF · Person Notes Writer` (e_6ae867d2f410ab7b2f155861): its tools are not in the cache (get_agent)
+- ai-agent `PF · Intro Finder` (e_6ae867d4f410ab7b2f155959): its tools are not in the cache (get_agent)
+- ai-agent `e_6ae86821f410ab7b2f15695c` (e_6ae86821f410ab7b2f15695c): entity-not-cached
+- ai-agent `e_6ae86825f410ab7b2f156a03` (e_6ae86825f410ab7b2f156a03): entity-not-cached
+- ai-agent `e_6ae86828f410ab7b2f156a22` (e_6ae86828f410ab7b2f156a22): entity-not-cached
+- ai-agent `e_6ae8682ad96c5f6ba2441a16` (e_6ae8682ad96c5f6ba2441a16): entity-not-cached
+- ai-agent `e_6ae8682ed96c5f6ba2441a5f` (e_6ae8682ed96c5f6ba2441a5f): entity-not-cached

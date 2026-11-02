@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:10:57.379Z"
 runningAt: "2026-11-02T10:11:00.691Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P02
@@ -29,7 +34,7 @@ Goal: Pipeline Factory · G3 round 2 · P02
 | t5 | automation | Pipeline Factory · Reset agent runs |  | done | 1 |
 | t6 | deploy | Pipeline Factory · Reset agent runs | t5 | done | 1 |
 | t7 | automation | Pipeline Factory · Reset demo | t6 | done | 1 |
-| t8 | deploy | Pipeline Factory · Reset demo | t7 | running | 1 |
+| t8 | deploy | Pipeline Factory · Reset demo | t7 | done | 1 |
 
 ### t1 · Build Pipeline Factory · Read component inputs
 
@@ -221,4 +226,15 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Reset demo deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae8441df38e327618fcc13c"}
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: before deploy version 5 (the version t7 saved), deployment definitionVersion 4, savedAfterDeploy true
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: deploy_workflow ok:true, 'Deployed version 5 of automation 6ae8441df38e327618fcc13c.', storedVersion 5, paused false
+Read back: Pipeline Factory · Reset demo 6ae8441df38e327618fcc13c: search_workflows deployment {status: DEPLOYED, deployedVersion: 3, definitionVersion: 5, deployedAt: 1793615559404, savedAfterDeploy: false}
+Read back: Pipeline Factory · Reset demo: best practice 86 (81 of 85 checks), version 5 (read in t7, version unchanged)
+Unverified: Pipeline Factory · Reset demo run: unverified: run by 4-verify after the build, including whether the deleted count comes back empty (delete_records count output warning)
+Note: Deploy approved by the plan: the spec the person accepted names it under Ready when.
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_vef3p, n_x1ozg, n_8qjjo, n_68wd6, n_02ywm, n_uy95e, n_84g2d, n_2lky6, n_s2smf, n_e4zby) · task does not save
+Note: best practice exception: CHECK_59 Limit multiple variable definitions except for branches · Create variables (n_ny5bx, n_bo9wj) · task does not save
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Update an existing record (n_wchph, n_ce5mv, n_c7giy, n_8mgtn, n_sf8xg, n_smau4, n_gk21e, n_cqfvf) · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · task does not save
 

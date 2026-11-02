@@ -135,7 +135,7 @@
       "kind": "automation",
       "id": "6ae863282099302ffb2cf702",
       "name": "Pipeline Factory · Alarm and Escalation",
-      "version": 2,
+      "version": 5,
       "stale": false
     },
     {
@@ -169,9 +169,9 @@
     {
       "kind": "automation",
       "id": "6ae863d0fbdd550a9a4ffc58",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Content Handoff",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -218,16 +218,16 @@
     {
       "kind": "automation",
       "id": "6ae86493f38e32761818a2c1",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Privacy and Consent",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "automation",
       "id": "6ae865229ec43c6ee2300d8d",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Run component",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -337,97 +337,153 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86666d96c5f6ba243ce26",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Fit Scorer",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8666ad96c5f6ba243ce39",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Patch Suggester",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8666dafe7fc590a4a3d96",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Current Vendor Finder",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86671d96c5f6ba243ce77",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Renewal Date Finder",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86673afe7fc590a4a3dda",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Battlecard Writer",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8667ed96c5f6ba243cf29",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Buying Signal Spotter",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86680afe7fc590a4a3f53",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Duplicate Finder",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86682d96c5f6ba243cf48",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Company Facts Collector",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86684d96c5f6ba243cf6a",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Parent Company Linker",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86685f410ab7b2f151b2f",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Use Case Matcher",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86687d96c5f6ba243cfb8",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Headquarters Finder",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86689d96c5f6ba243cfd8",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Case for Change Drafter",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8668bafe7fc590a4a3fec",
+      "name": "PF · Headquarters Re-checker",
+      "version": 2,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8668ef410ab7b2f151c47",
+      "name": "PF · New Account Finder",
+      "version": 2,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae867cdafe7fc590a4f8e82",
+      "name": "PF · Buying Team Mapper",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae867d2f410ab7b2f155861",
+      "name": "PF · Person Notes Writer",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae867d4f410ab7b2f155959",
+      "name": "PF · Intro Finder",
+      "version": 1,
+      "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86821f410ab7b2f15695c",
       "name": null,
       "version": null,
       "stale": true
     },
     {
       "kind": "ai-agent",
-      "id": "e_6ae8668ef410ab7b2f151c47",
+      "id": "e_6ae86825f410ab7b2f156a03",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86828f410ab7b2f156a22",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8682ad96c5f6ba2441a16",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8682ed96c5f6ba2441a5f",
       "name": null,
       "version": null,
       "stale": true
@@ -1879,6 +1935,21 @@
         "kind": "automation",
         "id": "6ae863282099302ffb2cf702",
         "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Read the GTM-engineer to-do rows still open"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
         "part": "node Pause the component (automatic safety action)"
       },
       "to": {
@@ -1892,6 +1963,21 @@
         "reason",
         "result"
       ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Write the GTM-engineer to-dos as PF Component run rows (waiting on a person)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
     },
     {
       "from": {
@@ -2374,6 +2460,111 @@
         "id": "6ae863a5f38e327618183dca",
         "name": "Pipeline Factory · Weekly Slot Planner",
         "part": "node Log the call with no allocation as a PF Component run (C13)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the patch"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_patch",
+        "name": "PF Patch"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the patch's accounts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the drafts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the replies and content assets"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Set the account marketing-influenced"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Log the weekly results in one PF Component run"
       },
       "to": {
         "kind": "object",
@@ -3275,6 +3466,414 @@
     {
       "from": {
         "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the accounts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the suppression list (consents and erasures)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_suppression",
+        "name": "PF Suppression"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the replies of the last 12 months"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the enrolled drafts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Screen the person through Do-Not-Contact List"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864672099302ffb2d3157",
+        "name": "Pipeline Factory · Do-Not-Contact List"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result",
+        "suppression_id"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Complete the erasure through Do-Not-Contact List"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864672099302ffb2d3157",
+        "name": "Pipeline Factory · Do-Not-Contact List"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Log the checks in one PF Component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the component row"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component",
+        "name": "PF Component"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the newest run the agent saved during this call"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Write latency_ms on the agent's run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the account for its patch"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Account Ranking"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae8632c9ec43c6ee22f380d",
+        "name": "Pipeline Factory · Account Ranking"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Weekly Slot Planner"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863a5f38e327618183dca",
+        "name": "Pipeline Factory · Weekly Slot Planner"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Holdout Picker"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864059ec43c6ee22f8008",
+        "name": "Pipeline Factory · Holdout Picker"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Contact Finder"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Do-Not-Contact List"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864672099302ffb2d3157",
+        "name": "Pipeline Factory · Do-Not-Contact List"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Send Rules Check"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Outreach Launcher"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Email Domain Swapper"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864342099302ffb2d2a71",
+        "name": "Pipeline Factory · Email Domain Swapper"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Meeting Handoff and Deadlines"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Alarm and Escalation"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Content Handoff"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Run Privacy and Consent"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent"
+      },
+      "via": "call node",
+      "fields": [
+        "reason"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component",
+        "part": "node Read the run the workflow logged during this call"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
         "id": "6ae8654d2099302ffb2d9514",
         "name": "Pipeline Factory · Meeting Handoff and Deadlines",
         "part": "node Read the account"
@@ -3384,24 +3983,6 @@
   ],
   "unknown": [
     {
-      "kind": "automation",
-      "id": "6ae863d0fbdd550a9a4ffc58",
-      "name": null,
-      "reason": "entity-write"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae86493f38e32761818a2c1",
-      "name": null,
-      "reason": "entity-write"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae865229ec43c6ee2300d8d",
-      "name": null,
-      "reason": "entity-write"
-    },
-    {
       "kind": "ai-agent",
       "id": "e_6ae846ffd96c5f6ba22b98da",
       "name": "Pipeline Factory Analyst",
@@ -3410,84 +3991,132 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86666d96c5f6ba243ce26",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Fit Scorer",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8666ad96c5f6ba243ce39",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Patch Suggester",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8666dafe7fc590a4a3d96",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Current Vendor Finder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86671d96c5f6ba243ce77",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Renewal Date Finder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86673afe7fc590a4a3dda",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Battlecard Writer",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8667ed96c5f6ba243cf29",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Buying Signal Spotter",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86680afe7fc590a4a3f53",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Duplicate Finder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86682d96c5f6ba243cf48",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Company Facts Collector",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86684d96c5f6ba243cf6a",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Parent Company Linker",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86685f410ab7b2f151b2f",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Use Case Matcher",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86687d96c5f6ba243cfb8",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Headquarters Finder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86689d96c5f6ba243cfd8",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Case for Change Drafter",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae8668bafe7fc590a4a3fec",
+      "name": "PF · Headquarters Re-checker",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8668ef410ab7b2f151c47",
+      "name": "PF · New Account Finder",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae867cdafe7fc590a4f8e82",
+      "name": "PF · Buying Team Mapper",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae867d2f410ab7b2f155861",
+      "name": "PF · Person Notes Writer",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae867d4f410ab7b2f155959",
+      "name": "PF · Intro Finder",
+      "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86821f410ab7b2f15695c",
       "name": null,
       "reason": "entity-not-cached"
     },
     {
       "kind": "ai-agent",
-      "id": "e_6ae8668ef410ab7b2f151c47",
+      "id": "e_6ae86825f410ab7b2f156a03",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86828f410ab7b2f156a22",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8682ad96c5f6ba2441a16",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae8682ed96c5f6ba2441a5f",
       "name": null,
       "reason": "entity-not-cached"
     }

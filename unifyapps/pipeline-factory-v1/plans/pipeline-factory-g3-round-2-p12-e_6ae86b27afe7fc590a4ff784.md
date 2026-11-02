@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:51:18.191Z"
 runningAt: "2026-11-02T10:51:22.880Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P12
@@ -23,15 +28,15 @@ Goal: Pipeline Factory · G3 round 2 · P12
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Reply Sorter |  | done | 1 |
-| t2 | publish | PF · Reply Sorter | t1 | running | 1 |
+| t2 | publish | PF · Reply Sorter | t1 | done | 1 |
 | t3 | ai-agent | PF · Reply Writer |  | done | 1 |
-| t4 | publish | PF · Reply Writer | t3 | running | 1 |
+| t4 | publish | PF · Reply Writer | t3 | done | 1 |
 | t5 | ai-agent | PF · Meeting Prep Writer |  | done | 1 |
-| t6 | publish | PF · Meeting Prep Writer | t5 | running | 1 |
+| t6 | publish | PF · Meeting Prep Writer | t5 | done | 1 |
 | t7 | ai-agent | PF · Meeting Labeler |  | done | 1 |
-| t8 | publish | PF · Meeting Labeler | t7 | running | 1 |
+| t8 | publish | PF · Meeting Labeler | t7 | done | 1 |
 | t9 | ai-agent | PF · Deal Qualifier |  | done | 1 |
-| t10 | publish | PF · Deal Qualifier | t9 | running | 1 |
+| t10 | publish | PF · Deal Qualifier | t9 | done | 1 |
 
 ### t1 · Build AI agent PF · Reply Sorter
 
@@ -71,6 +76,16 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Reply Sorter published.
+Result IDs: {"entity":"e_6ae86bebf410ab7b2f20260c"}
+Read back: PF · Reply Sorter e_6ae86bebf410ab7b2f20260c: before: list_agents version 2, published false, needsPublish true
+Read back: PF · Reply Sorter e_6ae86bebf410ab7b2f20260c: publish_agent {confirmed: true} -&gt; ok true, published true, publishedVersion 2, live true, automationSaid response 'success' (agent.version 6)
+Read back: PF · Reply Sorter e_6ae86bebf410ab7b2f20260c: read back with list_agents ids (the same agent record get_agent reads): version 7, published true, needsPublish false
+Unverified: PF · Reply Sorter: a run of the published version through Pipeline Factory · Run component has not been made here; one Run component call for this component would settle it
+Unverified: Security: PF · Reply Sorter is published with no guardrail and is offered the tenant-wide think, ClarifyFromUser and Environment* tools it was not given — needs an admin to review
+Note: Release approval: 'yes, publish PF · Reply Sorter. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: Not deployed to any app or channel, as the contract says; Pipeline Factory · Run component invokes the agent by id
+Note: Published model card e_6ae835bbafe7fc590a05a045 ('GPT-5.1_without_effort(DNT)', closest active GPT card; the spec's e_6a0dd4e556ffb40e76c2762e answers 401)
+Note: The version climbing past publishedVersion right after publish (as with the earlier batch's agents) is already recorded in feedbacks/records.md; not filed again
 
 ### t3 · Build AI agent PF · Reply Writer
 
@@ -107,6 +122,16 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Reply Writer published.
+Result IDs: {"entity":"e_6ae86beff410ab7b2f20266c"}
+Read back: PF · Reply Writer e_6ae86beff410ab7b2f20266c: before: list_agents version 1, published false, needsPublish true
+Read back: PF · Reply Writer e_6ae86beff410ab7b2f20266c: publish_agent {confirmed: true} -&gt; ok true, published true, publishedVersion 1, live true, automationSaid response 'success' (agent.version 2)
+Read back: PF · Reply Writer e_6ae86beff410ab7b2f20266c: read back with list_agents ids (the same agent record get_agent reads): version 6, published true, needsPublish false
+Unverified: PF · Reply Writer: a run of the published version through Pipeline Factory · Run component has not been made here; one Run component call for this component would settle it
+Unverified: Security: PF · Reply Writer is published with no guardrail and is offered the tenant-wide think, ClarifyFromUser and Environment* tools it was not given — needs an admin to review
+Note: Release approval: 'yes, publish PF · Reply Writer. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: Not deployed to any app or channel, as the contract says; Pipeline Factory · Run component invokes the agent by id
+Note: Published model card e_6ad496812dd4ba5be70afcc1 ('Claude Sonnet 5 (UnifyApps, Vertex, cached)'; the spec's e_6acca2af70b66f5702c8b59f answers 401)
+Note: The version climbing past publishedVersion right after publish (as with the earlier batch's agents) is already recorded in feedbacks/records.md; not filed again
 
 ### t5 · Build AI agent PF · Meeting Prep Writer
 
@@ -143,6 +168,16 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Meeting Prep Writer published.
+Result IDs: {"entity":"e_6ae86bf3f410ab7b2f2026ba"}
+Read back: PF · Meeting Prep Writer e_6ae86bf3f410ab7b2f2026ba: before: list_agents version 1, published false, needsPublish true
+Read back: PF · Meeting Prep Writer e_6ae86bf3f410ab7b2f2026ba: publish_agent {confirmed: true} -&gt; ok true, published true, publishedVersion 1, live true, automationSaid response 'success' (agent.version 1)
+Read back: PF · Meeting Prep Writer e_6ae86bf3f410ab7b2f2026ba: read back with list_agents ids (the same agent record get_agent reads): version 6, published true, needsPublish false
+Unverified: PF · Meeting Prep Writer: a run of the published version through Pipeline Factory · Run component has not been made here; one Run component call for this component would settle it
+Unverified: Security: PF · Meeting Prep Writer is published with no guardrail and is offered the tenant-wide think, ClarifyFromUser and Environment* tools it was not given — needs an admin to review
+Note: Release approval: 'yes, publish PF · Meeting Prep Writer. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: Not deployed to any app or channel, as the contract says; Pipeline Factory · Run component invokes the agent by id
+Note: Published model card e_6ad496812dd4ba5be70afcc1 ('Claude Sonnet 5 (UnifyApps, Vertex, cached)'; the spec's e_6acca2af70b66f5702c8b59f answers 401)
+Note: The version climbing past publishedVersion right after publish (as with the earlier batch's agents) is already recorded in feedbacks/records.md; not filed again
 
 ### t7 · Build AI agent PF · Meeting Labeler
 
@@ -180,6 +215,16 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Meeting Labeler published.
+Result IDs: {"entity":"e_6ae86bf7f410ab7b2f202726"}
+Read back: PF · Meeting Labeler e_6ae86bf7f410ab7b2f202726: before: list_agents version 2, published false, needsPublish true
+Read back: PF · Meeting Labeler e_6ae86bf7f410ab7b2f202726: publish_agent {confirmed: true} -&gt; ok true, published true, publishedVersion 2, live true, automationSaid response 'success' (agent.version 2)
+Read back: PF · Meeting Labeler e_6ae86bf7f410ab7b2f202726: read back with list_agents ids (the same agent record get_agent reads): version 7, published true, needsPublish false
+Unverified: PF · Meeting Labeler: a run of the published version through Pipeline Factory · Run component has not been made here; one Run component call for this component would settle it
+Unverified: Security: PF · Meeting Labeler is published with no guardrail and is offered the tenant-wide think, ClarifyFromUser and Environment* tools it was not given — needs an admin to review
+Note: Release approval: 'yes, publish PF · Meeting Labeler. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: Not deployed to any app or channel, as the contract says; Pipeline Factory · Run component invokes the agent by id
+Note: Published model card e_6ae835bbafe7fc590a05a045 ('GPT-5.1_without_effort(DNT)', closest active GPT card; the spec's e_6a0dd4e556ffb40e76c2762e answers 401)
+Note: The version climbing past publishedVersion right after publish (as with the earlier batch's agents) is already recorded in feedbacks/records.md; not filed again
 
 ### t9 · Build AI agent PF · Deal Qualifier
 
@@ -215,4 +260,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Deal Qualifier published.
+Result IDs: {"entity":"e_6ae86bfbf410ab7b2f202747"}
+Read back: PF · Deal Qualifier e_6ae86bfbf410ab7b2f202747: before: list_agents version 2, published false, needsPublish true
+Read back: PF · Deal Qualifier e_6ae86bfbf410ab7b2f202747: publish_agent {confirmed: true} -&gt; ok true, published true, publishedVersion 2, live true, automationSaid response 'success' (agent.version 2)
+Read back: PF · Deal Qualifier e_6ae86bfbf410ab7b2f202747: read back with list_agents ids (the same agent record get_agent reads): version 7, published true, needsPublish false
+Unverified: PF · Deal Qualifier: a run of the published version through Pipeline Factory · Run component has not been made here; one Run component call for this component would settle it
+Unverified: Security: PF · Deal Qualifier is published with no guardrail and is offered the tenant-wide think, ClarifyFromUser and Environment* tools it was not given — needs an admin to review
+Note: Release approval: 'yes, publish PF · Deal Qualifier. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.' (the plan's approval)
+Note: Not deployed to any app or channel, as the contract says; Pipeline Factory · Run component invokes the agent by id
+Note: Published model card e_6ae835bbafe7fc590a05a045 ('GPT-5.1_without_effort(DNT)', closest active GPT card; the spec's e_6a0dd4e556ffb40e76c2762e answers 401)
+Note: The version climbing past publishedVersion right after publish (as with the earlier batch's agents) is already recorded in feedbacks/records.md; not filed again
 

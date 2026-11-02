@@ -52,13 +52,13 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent | `PF · Current Vendor Finder` | e_6ae8666dafe7fc590a4a3d96 | 7 | no |
 | ai-agent | `PF · Renewal Date Finder` | e_6ae86671d96c5f6ba243ce77 | 7 | no |
 | ai-agent | `PF · Battlecard Writer` | e_6ae86673afe7fc590a4a3dda | 7 | no |
-| ai-agent | `PF · Buying Signal Spotter` | e_6ae8667ed96c5f6ba243cf29 | 5 | no |
+| ai-agent | `PF · Buying Signal Spotter` | e_6ae8667ed96c5f6ba243cf29 | 10 | no |
 | ai-agent | `PF · Duplicate Finder` | e_6ae86680afe7fc590a4a3f53 | 7 | no |
-| ai-agent | `PF · Company Facts Collector` | e_6ae86682d96c5f6ba243cf48 | 5 | no |
+| ai-agent | `PF · Company Facts Collector` | e_6ae86682d96c5f6ba243cf48 | 10 | no |
 | ai-agent | `PF · Parent Company Linker` | e_6ae86684d96c5f6ba243cf6a | 7 | no |
-| ai-agent | `PF · Use Case Matcher` | e_6ae86685f410ab7b2f151b2f | 5 | no |
+| ai-agent | `PF · Use Case Matcher` | e_6ae86685f410ab7b2f151b2f | 10 | no |
 | ai-agent | `PF · Headquarters Finder` | e_6ae86687d96c5f6ba243cfb8 | 7 | no |
-| ai-agent | `PF · Case for Change Drafter` | e_6ae86689d96c5f6ba243cfd8 | 5 | no |
+| ai-agent | `PF · Case for Change Drafter` | e_6ae86689d96c5f6ba243cfd8 | 10 | no |
 | ai-agent | `PF · Headquarters Re-checker` | e_6ae8668bafe7fc590a4a3fec | 7 | no |
 | ai-agent | `PF · New Account Finder` | e_6ae8668ef410ab7b2f151c47 | 7 | no |
 | ai-agent | `PF · Buying Team Mapper` | e_6ae867cdafe7fc590a4f8e82 | 3 | no |
@@ -73,6 +73,11 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent | `PF · Call Script Writer` | e_6ae8687ef410ab7b2f1575c6 | 1 | no |
 | ai-agent | `PF · Follow-up Planner` | e_6ae86881d96c5f6ba244257b | 1 | no |
 | ai-agent | `PF · Inbox Health Checker` | e_6ae86884d96c5f6ba24425cc | 2 | no |
+| ai-agent |  | e_6ae86bd2afe7fc590a500c5f |  | yes |
+| ai-agent |  | e_6ae86bd6afe7fc590a500cfa |  | yes |
+| ai-agent |  | e_6ae86bd8f410ab7b2f202521 |  | yes |
+| ai-agent |  | e_6ae86bdbf410ab7b2f202568 |  | yes |
+| ai-agent |  | e_6ae86bdeafe7fc590a500d57 |  | yes |
 
 ## Wiring
 
@@ -336,3 +341,8 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 - ai-agent `PF · Call Script Writer` (e_6ae8687ef410ab7b2f1575c6): its tools are not in the cache (get_agent)
 - ai-agent `PF · Follow-up Planner` (e_6ae86881d96c5f6ba244257b): its tools are not in the cache (get_agent)
 - ai-agent `PF · Inbox Health Checker` (e_6ae86884d96c5f6ba24425cc): its tools are not in the cache (get_agent)
+- ai-agent `e_6ae86bd2afe7fc590a500c5f` (e_6ae86bd2afe7fc590a500c5f): entity-not-cached
+- ai-agent `e_6ae86bd6afe7fc590a500cfa` (e_6ae86bd6afe7fc590a500cfa): entity-not-cached
+- ai-agent `e_6ae86bd8f410ab7b2f202521` (e_6ae86bd8f410ab7b2f202521): entity-not-cached
+- ai-agent `e_6ae86bdbf410ab7b2f202568` (e_6ae86bdbf410ab7b2f202568): entity-not-cached
+- ai-agent `e_6ae86bdeafe7fc590a500d57` (e_6ae86bdeafe7fc590a500d57): entity-not-cached

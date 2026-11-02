@@ -80,7 +80,12 @@ flowchart LR
   n76["AI agent PF · Call Script Writer · e_6ae8687ef410ab7b2f1575c6"]
   n77["AI agent PF · Follow-up Planner · e_6ae86881d96c5f6ba244257b"]
   n78["AI agent PF · Inbox Health Checker · e_6ae86884d96c5f6ba24425cc"]
-  n79["object object_type · object_type"]
+  n79["AI agent e_6ae86bd2afe7fc590a500c5f · e_6ae86bd2afe7fc590a500c5f"]
+  n80["AI agent e_6ae86bd6afe7fc590a500cfa · e_6ae86bd6afe7fc590a500cfa"]
+  n81["AI agent e_6ae86bd8f410ab7b2f202521 · e_6ae86bd8f410ab7b2f202521"]
+  n82["AI agent e_6ae86bdbf410ab7b2f202568 · e_6ae86bdbf410ab7b2f202568"]
+  n83["AI agent e_6ae86bdeafe7fc590a500d57 · e_6ae86bdeafe7fc590a500d57"]
+  n84["object object_type · object_type"]
   n1 --- n2
   n2 --- n3
   n2 --- n4
@@ -98,11 +103,11 @@ flowchart LR
   n5 -->|data source| n15
   n6 -->|data source| n22
   n7 -->|data source| n19
-  n8 -->|storage read| n79
-  n9 -->|storage read| n79
-  n10 -->|storage read| n79
-  n11 -->|storage read| n79
-  n12 -->|storage read| n79
+  n8 -->|storage read| n84
+  n9 -->|storage read| n84
+  n10 -->|storage read| n84
+  n11 -->|storage read| n84
+  n12 -->|storage read| n84
   n13 -->|data source| n16
   n14 -->|storage read| n46
   n14 -->|storage write| n45

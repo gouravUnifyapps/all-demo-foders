@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:28:49.219Z"
 runningAt: "2026-11-02T10:28:53.562Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P08
@@ -23,13 +28,13 @@ Goal: Pipeline Factory · G3 round 2 · P08
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Buying Signal Spotter |  | done | 1 |
-| t2 | publish | PF · Buying Signal Spotter | t1 | running | 1 |
+| t2 | publish | PF · Buying Signal Spotter | t1 | done | 1 |
 | t3 | ai-agent | PF · Company Facts Collector |  | done | 1 |
-| t4 | publish | PF · Company Facts Collector | t3 | running | 1 |
+| t4 | publish | PF · Company Facts Collector | t3 | done | 1 |
 | t5 | ai-agent | PF · Use Case Matcher |  | done | 1 |
-| t6 | publish | PF · Use Case Matcher | t5 | running | 1 |
+| t6 | publish | PF · Use Case Matcher | t5 | done | 1 |
 | t7 | ai-agent | PF · Case for Change Drafter |  | done | 1 |
-| t8 | publish | PF · Case for Change Drafter | t7 | running | 1 |
+| t8 | publish | PF · Case for Change Drafter | t7 | done | 1 |
 
 ### t1 · Build AI agent PF · Buying Signal Spotter
 
@@ -103,6 +108,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Buying Signal Spotter published.
+Result IDs: {"entity":"e_6ae8667ed96c5f6ba243cf29"}
+Read back: PF · Buying Signal Spotter e_6ae8667ed96c5f6ba243cf29: before publish get_agent version 5, published false, needsPublish true, readiness canRun true, missing [], models runs/picksTask/answerGeneration e_6ad496812dd4ba5be70afcc1, role and goal set
+Read back: PF · Buying Signal Spotter e_6ae8667ed96c5f6ba243cf29: publish_agent confirmed true answered publishedVersion 5, live true, published true, needsPublish false, automationSaid {response: success}
+Read back: PF · Buying Signal Spotter e_6ae8667ed96c5f6ba243cf29: read back after publish (list_agents by id, and get_agent): version 10, published true, needsPublish false
+Read back: PF · Buying Signal Spotter: security — no secret in instructions (rule 5); writes only through Save agent output (rule 4); sharedWith owner Gourav, people [] (unchanged by publish)
+Unverified: PF · Buying Signal Spotter: deployments [] — the agent is published but in no copilot deployment; the task asked only for publish so Pipeline Factory · Run component can invoke it. Check: one invoke from Pipeline Factory · Run component with component_id of this agent.
+Note: Publish approved by the plan: Answer from the person 'yes, publish PF · Buying Signal Spotter. The spec the person accepted names it under Ready when, so it is already approved'.
+Note: The agent runs on model card e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5, UnifyApps, Vertex, cached), set by its build task, not the spec's e_6acca2af70b66f5702c8b59f; published as found.
 
 ### t3 · Build AI agent PF · Company Facts Collector
 
@@ -156,6 +169,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Company Facts Collector published.
+Result IDs: {"entity":"e_6ae86682d96c5f6ba243cf48"}
+Read back: PF · Company Facts Collector e_6ae86682d96c5f6ba243cf48: before publish get_agent version 5, published false, needsPublish true, readiness canRun true, missing [], models runs/picksTask/answerGeneration e_6ad496812dd4ba5be70afcc1, role and goal set
+Read back: PF · Company Facts Collector e_6ae86682d96c5f6ba243cf48: publish_agent confirmed true answered publishedVersion 5, live true, published true, needsPublish false, automationSaid {response: success}
+Read back: PF · Company Facts Collector e_6ae86682d96c5f6ba243cf48: read back after publish (list_agents by id): version 10, published true, needsPublish false
+Read back: PF · Company Facts Collector: security — no secret in instructions (rule 5); writes only through Save agent output (rule 4); sharedWith owner Gourav, people [] (unchanged by publish)
+Unverified: PF · Company Facts Collector: deployments [] — the agent is published but in no copilot deployment; the task asked only for publish so Pipeline Factory · Run component can invoke it. Check: one invoke from Pipeline Factory · Run component with component_id of this agent.
+Note: Publish approved by the plan: Answer from the person 'yes, publish PF · Company Facts Collector. The spec the person accepted names it under Ready when, so it is already approved'.
+Note: The agent runs on model card e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5, UnifyApps, Vertex, cached), set by its build task, not the spec's e_6acca2af70b66f5702c8b59f; published as found.
 
 ### t5 · Build AI agent PF · Use Case Matcher
 
@@ -208,6 +229,14 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Use Case Matcher published.
+Result IDs: {"entity":"e_6ae86685f410ab7b2f151b2f"}
+Read back: PF · Use Case Matcher e_6ae86685f410ab7b2f151b2f: before publish get_agent version 5, published false, needsPublish true, readiness canRun true, missing [], models runs/picksTask/answerGeneration e_6ad496812dd4ba5be70afcc1, role and goal set
+Read back: PF · Use Case Matcher e_6ae86685f410ab7b2f151b2f: publish_agent confirmed true answered publishedVersion 5, live true, published true, needsPublish false, automationSaid {response: success}
+Read back: PF · Use Case Matcher e_6ae86685f410ab7b2f151b2f: read back after publish (list_agents by id): version 10, published true, needsPublish false
+Read back: PF · Use Case Matcher: security — no secret in instructions (rule 5); writes only through Save agent output (rule 4); sharedWith owner Gourav, people [] (unchanged by publish)
+Unverified: PF · Use Case Matcher: deployments [] — the agent is published but in no copilot deployment; the task asked only for publish so Pipeline Factory · Run component can invoke it. Check: one invoke from Pipeline Factory · Run component with component_id of this agent.
+Note: Publish approved by the plan: Answer from the person 'yes, publish PF · Use Case Matcher. The spec the person accepted names it under Ready when, so it is already approved'.
+Note: The agent runs on model card e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5, UnifyApps, Vertex, cached), set by its build task, not the spec's e_6acca2af70b66f5702c8b59f; published as found.
 
 ### t7 · Build AI agent PF · Case for Change Drafter
 
@@ -260,4 +289,12 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Case for Change Drafter published.
+Result IDs: {"entity":"e_6ae86689d96c5f6ba243cfd8"}
+Read back: PF · Case for Change Drafter e_6ae86689d96c5f6ba243cfd8: before publish get_agent version 5, published false, needsPublish true, readiness canRun true, missing [], models runs/picksTask/answerGeneration e_6ad496812dd4ba5be70afcc1, role and goal set
+Read back: PF · Case for Change Drafter e_6ae86689d96c5f6ba243cfd8: publish_agent confirmed true answered publishedVersion 5, live true, published true, needsPublish false, automationSaid {response: success}
+Read back: PF · Case for Change Drafter e_6ae86689d96c5f6ba243cfd8: read back after publish (list_agents by id): version 10, published true, needsPublish false
+Read back: PF · Case for Change Drafter: security — no secret in instructions (rule 5); writes only through Save agent output (rule 4); sharedWith owner Gourav, people [] (unchanged by publish)
+Unverified: PF · Case for Change Drafter: deployments [] — the agent is published but in no copilot deployment; the task asked only for publish so Pipeline Factory · Run component can invoke it. Check: one invoke from Pipeline Factory · Run component with component_id of this agent.
+Note: Publish approved by the plan: Answer from the person 'yes, publish PF · Case for Change Drafter. The spec the person accepted names it under Ready when, so it is already approved'.
+Note: The agent runs on model card e_6ad496812dd4ba5be70afcc1 (Claude Sonnet 5, UnifyApps, Vertex, cached), set by its build task, not the spec's e_6acca2af70b66f5702c8b59f; published as found.
 

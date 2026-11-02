@@ -1184,6 +1184,10 @@ decisions:
     when: 2026-11-02
     text: "Build (R2-P07): Save agent output's single threshold rule differs from three agents' own routing lines: C08 Current Vendor Finder (under 60 should save tagged [HYPOTHESIS], goes waiting_person), C09 Renewal Date Finder (under 60 should be no action, goes waiting_person), C10 Battlecard Writer (every draft should wait for product marketing, saves with a hand-off). Kept as built (one rule for every agent, decided above); listed for the G3 pack. Agents are also offered tenant-injected EnvironmentAccess and RequestEnvironmentDeploy tools they do not have attached (the round-1 dev issue)."
 
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Build (R2-P11): Pipeline Factory · Read component inputs answered about 200,000 characters for A-1001, and the agent runtime keeps only the first 16,000 and last 2,000 of a tool reply, so agents could not see drafts, sources or incoming hand-offs (C32 could not grade; C08, C09 and C37 saw no sources). A short change narrows it to under 12,000 characters with the same inputs and result fields (plan e_6ae86bb6d96c5f6ba24481b4); the agents tested before it are re-run by 4-verify."
+
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"

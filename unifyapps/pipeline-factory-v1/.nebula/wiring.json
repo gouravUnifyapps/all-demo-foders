@@ -373,7 +373,7 @@
       "kind": "ai-agent",
       "id": "e_6ae8667ed96c5f6ba243cf29",
       "name": "PF · Buying Signal Spotter",
-      "version": 5,
+      "version": 10,
       "stale": false
     },
     {
@@ -387,7 +387,7 @@
       "kind": "ai-agent",
       "id": "e_6ae86682d96c5f6ba243cf48",
       "name": "PF · Company Facts Collector",
-      "version": 5,
+      "version": 10,
       "stale": false
     },
     {
@@ -401,7 +401,7 @@
       "kind": "ai-agent",
       "id": "e_6ae86685f410ab7b2f151b2f",
       "name": "PF · Use Case Matcher",
-      "version": 5,
+      "version": 10,
       "stale": false
     },
     {
@@ -415,7 +415,7 @@
       "kind": "ai-agent",
       "id": "e_6ae86689d96c5f6ba243cfd8",
       "name": "PF · Case for Change Drafter",
-      "version": 5,
+      "version": 10,
       "stale": false
     },
     {
@@ -515,6 +515,41 @@
       "name": "PF · Inbox Health Checker",
       "version": 2,
       "stale": false
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bd2afe7fc590a500c5f",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bd6afe7fc590a500cfa",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bd8f410ab7b2f202521",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bdbf410ab7b2f202568",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bdeafe7fc590a500d57",
+      "name": null,
+      "version": null,
+      "stale": true
     }
   ],
   "edges": [
@@ -4171,6 +4206,36 @@
       "id": "e_6ae86884d96c5f6ba24425cc",
       "name": "PF · Inbox Health Checker",
       "reason": "its tools are not in the cache (get_agent)"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bd2afe7fc590a500c5f",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bd6afe7fc590a500cfa",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bd8f410ab7b2f202521",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bdbf410ab7b2f202568",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86bdeafe7fc590a500d57",
+      "name": null,
+      "reason": "entity-not-cached"
     }
   ]
 }

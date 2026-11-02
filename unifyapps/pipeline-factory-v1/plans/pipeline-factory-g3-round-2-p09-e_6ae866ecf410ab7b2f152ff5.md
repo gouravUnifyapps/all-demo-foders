@@ -22,11 +22,11 @@ Goal: Pipeline Factory · G3 round 2 · P09
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | PF · Buying Team Mapper |  | running | 1 |
+| t1 | ai-agent | PF · Buying Team Mapper |  | done | 1 |
 | t2 | publish | PF · Buying Team Mapper | t1 | pending | 0 |
-| t3 | ai-agent | PF · Person Notes Writer |  | running | 1 |
+| t3 | ai-agent | PF · Person Notes Writer |  | done | 1 |
 | t4 | publish | PF · Person Notes Writer | t3 | pending | 0 |
-| t5 | ai-agent | PF · Intro Finder |  | running | 1 |
+| t5 | ai-agent | PF · Intro Finder |  | done | 1 |
 | t6 | publish | PF · Intro Finder | t5 | pending | 0 |
 
 ### t1 · Build AI agent PF · Buying Team Mapper
@@ -39,6 +39,40 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Buying Team Mapper with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae867cdafe7fc590a4f8e82"}
+Read back: PF · Buying Team Mapper e_6ae867cdafe7fc590a4f8e82: get_agent version 3, agentType ai-agent, published false, readiness canRun true, models runs/picksTask/answerGeneration all e_6ad496812dd4ba5be70afcc1 ('Claude Sonnet 5 (UnifyApps, Vertex, cached)', list_models connectionActive true), memory false, capabilities [], deployments [] (not deployed).
+Read back: PF · Buying Team Mapper tools: ReadComponentInputs e_6ae867dbafe7fc590a4f8f9e -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae867dbafe7fc590a4f8fa1 -&gt; 6ae864829594aa458cc1ce69, both enabled true, topicId GLOBAL, descriptions fix component_id "C21".
+Read back: PF · Buying Team Mapper instructions state the one job (3 Tier 1 / 3 Tier 2 / 4 Tier 3 / 2 backups, economic buyer), read ReadComponentInputs first, save exactly once with SaveAgentOutput, output contract (output_type, summary, payload, confidence 0-100, evidence, evidence_tag), origin passed through, scope and refusals, gatekeeper mapped never contacted.
+Read back: PF · Buying Team Mapper job test (trace caseId e_6ae86983fbdd550a9a51d224): ReadComponentInputs {component_id C21, account_id A-1001} then SaveAgentOutput {component_id C21, account_id A-1001, person_id P-1001, output_type buying_team_map, payload role economic_buyer, confidence 55, origin "test"}; Save agent output answered result "duplicate", reason "re-run of RUN-6ae8684f9594aa458cd579e6: already waiting_person, nothing written again". Agent answered: "SaveAgentOutput returned duplicate (run_id RUN-6ae8684f9594aa458cd579e6)". So the first save of this test is run RUN-6ae8684f9594aa458cd579e6 at waiting_person (confidence 55 under 70, BDR checks at Gate 2).
+Read back: PF · Buying Team Mapper refusal test (caseId e_6ae867e69ec43c6ee230ca31, toolCalls []): "I'm not able to send emails — that falls outside my one job here, which is mapping an account's buying team ... Sending a message to Arjun Mehta would be handled by the Message Writer (drafts it) and a BDR (sends it) — not by me."
+Unverified: PF · Buying Team Mapper: the first save's trace (run RUN-6ae8684f9594aa458cd579e6) is not readable because the tool-calling turn returned no caseId; its waiting_person result is known only from the duplicate reason of the re-run. Check: read PF Component run row RUN-6ae8684f9594aa458cd579e6 (status waiting_person, origin test).
+Unverified: PF · Buying Team Mapper: the trace shows the model offered GenerateChartWithBlocks, think, ClarifyFromUser and four Environment* tools that get_agent and list_capabilities report as not attached or off. Check: list_capabilities/describe_entity on the tenant's default standard actions.
+Unverified: Security: guardrails are absent on PF · Buying Team Mapper (get_agent guardrails []) — needs an admin to decide whether the agent needs content filter or PII masking in the agent's settings; the tools write only through Save agent output, which limits writes to C21's registered fields.
+Note: Model card per Answer from the person: e_6ad496812dd4ba5be70afcc1 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' instead of e_6acca2af70b66f5702c8b59f; list_models shows it connectionActive true and the test runs answered on it.
+Note: Round 1 job test was rejected by Save agent output: "schema check failed: person_id missing" (run RUN-6ae8683e9594aa458cd57867). Its decide code maps C21 to target person, fields role and tier, codes role in economic_buyer/champion/technical_evaluator/business_owner/gatekeeper and tier in t1/t2/t3/backup/mapped. Instructions and the SaveAgentOutput description were changed so each save names one person_id (the message's, else the economic buyer) with that person's role and tier at the payload's top level; the whole map stays in payload.people.
+Note: plan_change: absorbed — Save agent output writes role and tier for ONE PF Person per save (the idempotency key includes person_id), so a C21 run writes the named person's (default the economic buyer's) role and tier, and the rest of the team map lives in the run's payload; mapping every person's fields needs one run per person_id.
+Note: Test rows carry origin test (runs RUN-6ae8683e9594aa458cd57867 rejected, RUN-6ae8684f9594aa458cd579e6 waiting_person) and are left for Pipeline Factory · Reset demo; no delete made. Not published.
+Note: feedback:
+Bug: send_test_messages timed out at the MCP client's 60 s limit on a two-question list whose first question calls tools, so no rows came back while the runs (which write) still ran on the server.
+Context: send_test_messages on PF · Person Notes Writer and PF · Intro Finder, two messages each, in parallel with a third call.
+Where: mcp-tool
+Evidence: \`MCP server "plugin:ua:agent-builder" tool "send_test_messages" timed out after 60s\`; the tool's description says to expect several minutes.
+Cause: Suspected: the tool runs longer than the client-side MCP timeout.
+Regression: send_test_messages with two questions, one tool-calling, returns rows without hitting the client timeout.
+Note: feedback:
+Bug: A tool-calling test turn returns no caseId, so the only way to read the trace or run id of an agent that writes is runAgainToFindAnswer, which runs the write a second time.
+Context: Testing three PF agents that save through Pipeline Factory · Save agent output.
+Where: mcp-tool
+Evidence: rows came back with only "The agent called a tool, and the platform did not report which case it created"; send_test_message also said "Read the trace for the caseId above." with no caseId in the reply.
+Cause: Suspected: the platform test invoke does not report the case for a paused tool turn; the warning references a caseId the reply does not carry.
+Regression: send_test_message on a tool-calling agent returns its caseId on the first run.
+Note: feedback:
+Bug: The trace of a new Advanced agent shows the model offered seven tools nobody attached (GenerateChartWithBlocks, think, ClarifyFromUser, EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment, RequestEnvironmentDeploy), while get_agent reports capabilities [] and list_capabilities reports requestClarification and generateChartTool on:false.
+Context: PF · Buying Team Mapper e_6ae867cdafe7fc590a4f8e82 created with create_agent and two add_tools.
+Where: unknown
+Evidence: read_trace caseId e_6ae86983fbdd550a9a51d224 toolsOffered lists them; list_capabilities agentId shows generateChartTool and requestClarification on false.
+Cause: Unknown — next check: whether the runtime adds tenant default tools that no capability record reports.
+Regression: get_agent or list_capabilities names every tool the trace shows offered to the model.
 
 ### t2 · Publish PF · Buying Team Mapper
 
@@ -61,6 +95,19 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Person Notes Writer with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae867d2f410ab7b2f155861"}
+Read back: PF · Person Notes Writer e_6ae867d2f410ab7b2f155861: get_agent version 3, agentType ai-agent, published false, readiness canRun true, models runs/picksTask/answerGeneration all e_6ad496812dd4ba5be70afcc1 ('Claude Sonnet 5 (UnifyApps, Vertex, cached)'), memory false, capabilities [], deployments [] (not deployed).
+Read back: PF · Person Notes Writer tools: ReadComponentInputs e_6ae867dff410ab7b2f1559cb -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae867dff410ab7b2f1559ce -&gt; 6ae864829594aa458cc1ce69, both enabled true, topicId GLOBAL, descriptions fix component_id "C22".
+Read back: PF · Person Notes Writer instructions state the one job (four-line note: role and time in role; past companies and public talks; what they own, [HYPOTHESIS] unless public; matched use case link and nearby event fit), professional information only, read first, save exactly once, output contract, origin passed through, scope and refusals.
+Read back: PF · Person Notes Writer job test (trace caseId e_6ae86ae32099302ffb2ed6f7): ReadComponentInputs {component_id C22, account_id A-1001} then SaveAgentOutput {component_id C22, account_id A-1001, person_id P-1001, output_type person_note, origin "test", confidence 88}; Save agent output answered result "duplicate", reason "re-run of RUN-6ae8690afbdd550a9a51b99e: already saved, nothing written again", handoff_ids H-6ae86940fbdd550a9a51bfcf. Agent answered: "Result: duplicate — run_id RUN-6ae8690afbdd550a9a51b99e ... A hand-off (H-6ae86940fbdd550a9a51bfcf) is associated with the original save for the Message Writer". So the first save is run RUN-6ae8690afbdd550a9a51b99e, saved.
+Read back: PF · Person Notes Writer refusal test (caseId e_6ae868cdf13e536c52ec2cd3, no tool call): "This is outside my one job here. I'm PF · Person Notes Writer (C22) — I only write four-line professional notes ... I don't send emails or contact anyone directly."
+Unverified: PF · Person Notes Writer: the first save's trace (run RUN-6ae8690afbdd550a9a51b99e) is not readable because the tool-calling turn returned no caseId; its saved result is known from the duplicate reason. Check: read PF Component run row RUN-6ae8690afbdd550a9a51b99e and PF Person P-1001.note.
+Unverified: Security: guardrails are absent on PF · Person Notes Writer (get_agent guardrails []) — needs an admin to decide on PII masking in the agent's settings, since the agent writes notes about people; the instructions limit it to professional information.
+Note: Model card per Answer from the person: e_6ad496812dd4ba5be70afcc1 instead of e_6acca2af70b66f5702c8b59f.
+Note: Save agent output maps C22 to target person, field note, and refuses a save with no person_id; instructions and the SaveAgentOutput description name one person_id per save (the message's, else the first Tier 1 / economic buyer) with that person's note at the payload's top level, other notes in payload.notes.
+Note: Round 1 answer misquoted the run id ("RUN-6ae8690afbdd550a9a51be9e (reported as RUN-6ae8690afbdd550a9a51b99e)"); instructions now say to copy run_id character for character, and round 2 quoted RUN-6ae8690afbdd550a9a51b99e exactly.
+Note: plan_change: absorbed — Save agent output writes PF Person.note for ONE person per save, so a C22 run writes the named person's (default the economic buyer's) note and the others' notes ride in the payload; a note on every person needs one run per person_id.
+Note: A send_test_messages call for this agent timed out client-side (60 s) and its job run likely wrote too; together with the runAgainToFindAnswer re-runs, every later save answered duplicate. Test rows carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published.
 
 ### t4 · Publish PF · Person Notes Writer
 
@@ -83,6 +130,19 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Intro Finder with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+Result IDs: {"entity":"e_6ae867d4f410ab7b2f155959"}
+Read back: PF · Intro Finder e_6ae867d4f410ab7b2f155959: get_agent version 2, agentType ai-agent, published false, readiness canRun true, models runs/picksTask/answerGeneration all e_6ad496812dd4ba5be70afcc1 ('Claude Sonnet 5 (UnifyApps, Vertex, cached)'), memory false, capabilities [], deployments [] (not deployed).
+Read back: PF · Intro Finder tools: ReadComponentInputs e_6ae867e3d96c5f6ba2440ee4 -&gt; 6ae8635446920244f3d5194b and SaveAgentOutput e_6ae867e3f410ab7b2f155a3f -&gt; 6ae864829594aa458cc1ce69, both enabled true, topicId GLOBAL, descriptions fix component_id "C23".
+Read back: PF · Intro Finder instructions state the one job (Tier 1 warm intro paths from linkedin_export, partners, SIs, investors; worked together over overlapped over friend of a friend; draft intro request for the patch AE; 7-day cold-touch hold in the payload), never contacts anyone, under 60 or no path saves once with suggested:false and a summary starting "No action:", read first, save exactly once, output contract, origin passed through.
+Read back: PF · Intro Finder job test (trace caseId e_6ae86b189ec43c6ee24512e9): ReadComponentInputs {component_id C23, account_id A-1001} first, then SaveAgentOutput {component_id C23, account_id A-1001, output_type intro_request, summary "No action: no warm-intro path could be found for any Tier 1 person ...", payload suggested false, confidence 0, evidence_tag hypothesis, origin "test"}. Agent answered: "Result: duplicate — run_id RUN-6ae868f346920244f3d68adf. Reason given: this is a re-run of an existing run that is already waiting_person, so nothing new was written." So the first save is run RUN-6ae868f346920244f3d68adf at waiting_person (confidence 0 under 60).
+Read back: PF · Intro Finder refusal test (caseId e_6ae868d3f6f76639f838ed23, no tool call): "I'm not able to send emails — that falls outside my one job here. I'm PF · Intro Finder (C23) ... Intro requests ... are drafted by me, but sent by the patch AE, not by me."
+Unverified: PF · Intro Finder: the first save's trace (run RUN-6ae868f346920244f3d68adf) is not readable because the tool-calling turn returned no caseId; its waiting_person result is known from the duplicate reason. Check: read PF Component run row RUN-6ae868f346920244f3d68adf.
+Unverified: PF · Intro Finder: the A-1001 records hold no linkedin_export source rows, so only the no-path branch (suggested:false) was exercised; a ranked path with a drafted request is untested. Check: run it on an account whose PF Source rows include kind linkedin_export.
+Unverified: Security: guardrails are absent on PF · Intro Finder (get_agent guardrails []) — needs an admin to decide on content filter or PII masking in the agent's settings.
+Note: Model card per Answer from the person: e_6ad496812dd4ba5be70afcc1 instead of e_6acca2af70b66f5702c8b59f.
+Note: Save agent output has no MAP entry for C23, so it writes only the PF Component run row (no field) and needs no person_id; per Answer from the person there is no no_action result: under 60 it answers waiting_person, and the agent saves suggested:false with a 'No action:' summary.
+Note: In the round 2 test the agent called ReadComponentInputs four times (with person_id, patch_id and draft_id "none") looking for linkedin_export rows before saving once; reads only, no extra write.
+Note: A send_test_messages call for this agent timed out client-side (60 s) and its job run likely wrote the first row. Test rows carry origin test and are left for Pipeline Factory · Reset demo; no delete made. Not published.
 
 ### t6 · Publish PF · Intro Finder
 

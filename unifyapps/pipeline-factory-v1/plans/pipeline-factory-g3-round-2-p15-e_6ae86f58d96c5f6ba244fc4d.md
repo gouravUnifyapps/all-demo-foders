@@ -22,9 +22,9 @@ Goal: Pipeline Factory · G3 round 2 · P15
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | record | PF Component |  | running | 1 |
-| t2 | record | PF Seed snapshot | t1 | pending | 0 |
-| t3 | code-app | UnifyApps Pipeline Factory Control Tower | t1 | pending | 0 |
+| t1 | record | PF Component |  | done | 1 |
+| t2 | record | PF Seed snapshot | t1 | running | 1 |
+| t3 | code-app | UnifyApps Pipeline Factory Control Tower | t1 | running | 1 |
 | t4 | code-publish | UnifyApps Pipeline Factory Control Tower | t3 | pending | 0 |
 
 ### t1 · Link the PF Component rows to their built entities
@@ -37,6 +37,20 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_records on PF Component shows 38 rows ai_agent, 14 automation and 5 not_built, each with its entity id.
+Result IDs: {"entity":"OBJ_pf_component","records":["C01","C02","C03","C04","C05","C06","C07","C08","C09","C10","C11","C12","C13","C14","C15","C16","C17","C18","C19","C20","C21","C22","C23","C24","C25","C26","C27","C28","C29","C30","C31","C32","C33","C34","C35","C36","C37","C38","C39","C40","C41","C42","C43","C44","C45","C46","C47","C48","C49","C50","C51","C52","C53","C54","C55","C56","C57"]}
+Read back: OBJ_pf_component: apply_record_edits returned ok:true for all 57 update ops by recordId (C01..C57), each row at a new version, no new rows created
+Read back: OBJ_pf_component: get_records filter origin EQUAL seed returned total 57, sorted by component_id
+Read back: OBJ_pf_component counts per built_kind in that read: ai_agent 38, automation 14, not_built 5
+Read back: OBJ_pf_component ai_agent rows (built_status live, status live): C01 e_6ae86680afe7fc590a4a3f53, C02 e_6ae86684d96c5f6ba243cf6a, C03 e_6ae86687d96c5f6ba243cfb8, C04 e_6ae8668bafe7fc590a4a3fec, C05 e_6ae8668ef410ab7b2f151c47, C06 e_6ae86666d96c5f6ba243ce26, C07 e_6ae8666ad96c5f6ba243ce39, C08 e_6ae8666dafe7fc590a4a3d96, C09 e_6ae86671d96c5f6ba243ce77, C10 e_6ae86673afe7fc590a4a3dda, C11 e_6ae8667ed96c5f6ba243cf29, C16 e_6ae86682d96c5f6ba243cf48, C17 e_6ae86685f410ab7b2f151b2f, C18 e_6ae86689d96c5f6ba243cfd8, C21 e_6ae867cdafe7fc590a4f8e82, C22 e_6ae867d2f410ab7b2f155861, C23 e_6ae867d4f410ab7b2f155959, C27 e_6ae86821f410ab7b2f15695c, C28 e_6ae86825f410ab7b2f156a03, C29 e_6ae86828f410ab7b2f156a22, C30 e_6ae8682ad96c5f6ba2441a16, C31 e_6ae8682ed96c5f6ba2441a5f, C32 e_6ae8687bd96c5f6ba2442526, C36 e_6ae8687ef410ab7b2f1575c6, C37 e_6ae86881d96c5f6ba244257b, C38 e_6ae86884d96c5f6ba24425cc, C41 e_6ae86bebf410ab7b2f20260c, C42 e_6ae86beff410ab7b2f20266c, C44 e_6ae86bf3f410ab7b2f2026ba, C45 e_6ae86bf7f410ab7b2f202726, C46 e_6ae86bfbf410ab7b2f202747, C48 e_6ae86bd2afe7fc590a500c5f, C49 e_6ae86bd6afe7fc590a500cfa, C50 e_6ae86bd8f410ab7b2f202521, C51 e_6ae86bdbf410ab7b2f202568, C52 e_6ae86bdeafe7fc590a500d57, C53 e_6ae86c76f410ab7b2f203900, C54 e_6ae86c7ad96c5f6ba24493ba
+Read back: OBJ_pf_component automation rows (built_status live, status live): C12 6ae8632c9ec43c6ee22f380d, C13 6ae863a5f38e327618183dca, C14 6ae864059ec43c6ee22f8008, C15 6ae8440df13e536c52c5d959, C24 6ae862f3f13e536c52e76ecd, C25 6ae864672099302ffb2d3157, C33 6ae863842099302ffb2d0262, C34 6ae840d7f6f76639f8ceb67d, C35 6ae864929594aa458cc23de9, C39 6ae864342099302ffb2d2a71, C43 6ae8654d2099302ffb2d9514, C55 6ae863282099302ffb2cf702, C56 6ae863d0fbdd550a9a4ffc58, C57 6ae86493f38e32761818a2c1
+Read back: OBJ_pf_component not_built rows: C19, C20, C26, C40, C47 read built_kind not_built, built_status not_built, status live, no built_entity_id
+Read back: OBJ_pf_component C08: success_rate 96.1, built_entity_name "PF · Current Vendor Finder", built_link https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8666dafe7fc590a4a3d96
+Read back: OBJ_pf_component C15: built_entity_name "Pipeline Factory · Decide Gate 1", built_link https://orbit.uat.unifyapps.com/p/0/automations/6ae8440df13e536c52c5d959/builder; every linked row reads built_at 1793618381229
+Read back: OBJ_pf_component: the filter origin EQUAL seed still matched all 57 rows, so origin stayed seed. Merge updates left success_rate and the other seeded fields as they were (spot-checked: C01 99.4, C19 100, C47 98.2)
+Unverified: OBJ_pf_component: no seed row had status paused before the write (all 57 read status live), so the paused-keeps-paused rule was not exercised
+Note: OBJ_pf_component holds 4 non-seed test rows (C97-TEST, C98-TEST, C99-TEST, CT-PAUSED-062f35, origin test) that carry built_kind values. They were left untouched. An unfiltered count per built_kind includes them, so the proof counts (38/14/5) are over origin seed rows.
+Note: built_at uses one write-time epoch, 1793618381229, for every linked row. That is the time of this write, not each agent's publish time or each automation's deploy time.
+Note: Security: no access settings were touched. The write set only the 7 fields the task names (built_kind, built_entity_id, built_entity_name, built_link, built_status, status, built_at) on the rows it names.
 
 ### t2 · Rewrite the PF Component snapshot rows
 

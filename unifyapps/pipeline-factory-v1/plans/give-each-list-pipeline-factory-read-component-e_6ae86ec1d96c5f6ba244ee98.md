@@ -16,6 +16,11 @@ createdAt: "2026-11-02T11:06:40.401Z"
 runningAt: "2026-11-02T11:06:44.473Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Give each list Pipeline Factory · Read component inputs returns its own share of the 12,000-character reply, so drafts a
@@ -23,7 +28,7 @@ Goal: Give each list Pipeline Factory · Read component inputs returns its own s
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Read component inputs |  | done | 1 |
-| t2 | deploy | Pipeline Factory · Read component inputs | t1 | running | 1 |
+| t2 | deploy | Pipeline Factory · Read component inputs | t1 | done | 1 |
 
 ### t1 · Give each list of Pipeline Factory · Read component inputs its own share of the reply
 
@@ -69,4 +74,13 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Read component inputs deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae8635446920244f3d5194b"}
+Read back: Pipeline Factory · Read component inputs 6ae8635446920244f3d5194b: before the deploy, search_workflows showed version 5 (the version t1 saved, tested and scored), deployment definitionVersion 4, savedAfterDeploy true
+Read back: Pipeline Factory · Read component inputs: deploy_workflow returned ok:true, workflowVersion 5, deployedVersion 3, paused false, storedVersion 5, 'Deployed version 5 of automation 6ae8635446920244f3d5194b.'
+Read back: Pipeline Factory · Read component inputs: search_workflows after the deploy shows deployment status DEPLOYED, deployedVersion 3, definitionVersion 5, deployedAt 1793618457017, savedAfterDeploy false. definitionVersion equals saved version 5
+Read back: Pipeline Factory · Read component inputs: best practice 93 (83 of 85 checks) on version 5, read in t1. The version did not change, so it was not read again
+Unverified: Pipeline Factory · Read component inputs: no deployed-lane run was made after the deploy. Check: trigger_workflow_run with runType workflow and component_id C30, account_id A-1001, then expect under 12,000 characters
+Note: Answer from the person: yes, deploy Pipeline Factory · Read component inputs. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Execute Groovy code · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (OBJ_pf_component), Fetch records (OBJ_pf_component_run) · task does not save
 

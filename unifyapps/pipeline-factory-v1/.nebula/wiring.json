@@ -16,6 +16,10 @@
       "appId": "app-2fbe93e8c1f7",
       "dataSources": [
         {
+          "id": "e_6ae8728cf410ab7b2f211dfe",
+          "name": "Run component"
+        },
+        {
           "id": "e_6ae849e0afe7fc590a1c44d8",
           "name": "Pause component"
         },
@@ -602,6 +606,21 @@
     }
   ],
   "edges": [
+    {
+      "from": {
+        "kind": "page",
+        "id": "e_global_app-2fbe93e8c1f7",
+        "name": "global-page-of-app-2fbe93e8c1f7",
+        "part": "data source Run component"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae865229ec43c6ee2300d8d",
+        "name": "Pipeline Factory · Run component"
+      },
+      "via": "data source",
+      "fields": []
+    },
     {
       "from": {
         "kind": "page",

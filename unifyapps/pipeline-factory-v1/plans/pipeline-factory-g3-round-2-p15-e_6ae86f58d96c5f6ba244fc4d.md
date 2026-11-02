@@ -24,8 +24,8 @@ Goal: Pipeline Factory · G3 round 2 · P15
 |---|---|---|---|---|---:|
 | t1 | record | PF Component |  | done | 1 |
 | t2 | record | PF Seed snapshot | t1 | running | 1 |
-| t3 | code-app | UnifyApps Pipeline Factory Control Tower | t1 | running | 1 |
-| t4 | code-publish | UnifyApps Pipeline Factory Control Tower | t3 | pending | 0 |
+| t3 | code-app | UnifyApps Pipeline Factory Control Tower | t1 | done | 1 |
+| t4 | code-publish | UnifyApps Pipeline Factory Control Tower | t3 | running | 1 |
 
 ### t1 · Link the PF Component rows to their built entities
 
@@ -73,6 +73,21 @@ Body:
 5. Report ids (the app id as \`ids.entity\`), readBack, unverified, notes, and a \`handover:\` note with the commit and the preview address.
 
 Proof: The push commit is get_code_app head.sha; callables.ts holds Pipeline Factory · Run component; the previewUrl is quoted.
+Result IDs: {"entity":"app-2fbe93e8c1f7","commit":"14eb159377b5a4c0d764c2da8fca056537cfe825"}
+Read back: UnifyApps Pipeline Factory Control Tower app-2fbe93e8c1f7: push_code_patch answered committed:true, builds:true, commit 14eb159377b5a4c0d764c2da8fca056537cfe825 (parent d6dca64e63484e56c01fe732a8d77b9ba1eca022), files: added app/src/components/tower/ComponentRunPanel.tsx, app/src/data/runComponent.ts; modified app/src/components/tower/Components.tsx, app/src/components/tower/Handoffs.tsx, app/src/data/bindings.ts, app/src/data/callables.ts, app/src/data/factory.ts, app/src/data/labels.ts, app/src/data/types.ts, app/src/routes/Tower.tsx
+Read back: UnifyApps Pipeline Factory Control Tower app-2fbe93e8c1f7: get_code_app answered head.sha 14eb159377b5a4c0d764c2da8fca056537cfe825, message "Components tab: built entity, last runs and Run on account", busy:false; release_code_branch answered released:true, discarded []
+Read back: app-2fbe93e8c1f7 committed app/src/data/bindings.ts: ENTITY line 21 \`componentRun: 'OBJ_pf_component_run'\`, FETCH id e_6ae84846f410ab7b2ffc1ba8 (existing Storage dataSources reused, none created)
+Read back: app-2fbe93e8c1f7 committed app/src/data/callables.ts: block \`// &gt;&gt;&gt; callable 6ae865229ec43c6ee2300d8d\` export RUN_COMPONENT id e_6ae8728cf410ab7b2f211dfe (Pipeline Factory · Run component), overridable component_id, account_id, person_id, draft_id, origin; the wrapper useRunComponent sends origin "user"
+Read back: app-2fbe93e8c1f7 previewUrl: https://orbit.uat.unifyapps.com/agent-api/preview/b/app-2fbe93e8c1f7/main/
+Read back: app-2fbe93e8c1f7 local build: bun install --ignore-scripts, tsc -b, oxlint -A correctness src and vite build all passed before the push
+Unverified: app-2fbe93e8c1f7: the Components tab was not opened (no [visual] proof asked); open the previewUrl, Control tower &gt; Components, filter Built = AI agent and open Case for Change Drafter to see the Built column, model, last five runs and Run on account
+Unverified: app-2fbe93e8c1f7: no live Run was clicked, so the toast, the new hand-off at the top of the feed and the failure banner are untested at run time; one Run on A-1001 from the preview settles it
+Unverified: app-2fbe93e8c1f7: the last-five-runs read filters properties.component_id EQUAL on OBJ_pf_component_run (schema reports filterable:false though idx_component_id exists) and orders by run_at in the browser over up to 500 rows; opening a drawer with seeded runs settles whether the filter applies
+Unverified: app-2fbe93e8c1f7: the new commit is not published (deployed commit is still 057f53d6625c58044c9bd67445a203fc9e30cde3); publishing is a separate code-publish task
+Note: handover: app-2fbe93e8c1f7 Components tab change is commit 14eb159377b5a4c0d764c2da8fca056537cfe825 on main, preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-2fbe93e8c1f7/main/ ; Run component is bound as RUN_COMPONENT (dataSource e_6ae8728cf410ab7b2f211dfe) in app/src/data/callables.ts, and PF Component run is ENTITY.componentRun
+Note: Run handling: result ran, paused and not_runnable show a .toast (component name: result word, confidence of threshold, summary or reason); failed or any other word throws and the drawer shows a .note failure banner with the automation's reason. Run is disabled with a .note when the component is paused or built_kind is not ai_agent/automation. After a run the app refreshes PF Component run and PF Hand-off, and switches the tower to the run account's patch so the new hand-off tops the .feed
+Note: Model shown in the drawer comes from model_family: family_a Claude Sonnet 5, family_b GPT-5.1, otherwise None; declared once as FAMILY_MODEL in app/src/data/labels.ts
+Note: ConfidenceOf in Handoffs.tsx now takes only confidence and threshold (type widened, behaviour unchanged) so the runs table reuses it instead of a second implementation
 
 ### t4 · Publish the code app
 

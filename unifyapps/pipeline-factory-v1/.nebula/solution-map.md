@@ -90,6 +90,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 | From | Part | To | Via | Fields |
 |---|---|---|---|---|
+| page `global-page-of-app-2fbe93e8c1f7` | `data source Run component` | automation `Pipeline Factory · Run component` | data source |  |
 | page `global-page-of-app-2fbe93e8c1f7` | `data source Pause component` | automation `Pipeline Factory · Pause component` | data source |  |
 | page `global-page-of-app-2fbe93e8c1f7` | `data source Book meeting` | automation `Pipeline Factory · Book meeting` | data source |  |
 | page `global-page-of-app-2fbe93e8c1f7` | `data source Clear Gate 2` | automation `Pipeline Factory · Clear Gate 2` | data source |  |

@@ -23,7 +23,7 @@ Goal: Pipeline Factory · G3 round 2 · P15
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | record | PF Component |  | done | 1 |
-| t2 | record | PF Seed snapshot | t1 | running | 1 |
+| t2 | record | PF Seed snapshot | t1 | done | 1 |
 | t3 | code-app | UnifyApps Pipeline Factory Control Tower | t1 | done | 1 |
 | t4 | code-publish | UnifyApps Pipeline Factory Control Tower | t3 | running | 1 |
 
@@ -62,6 +62,22 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_records on PF Seed snapshot shows the PF Component rows with the built fields.
+Result IDs: {"entity":"OBJ_pf_seed_snapshot","records":["OBJ_pf_component:C01 .. OBJ_pf_component:C57 (57 rows)"]}
+Read back: OBJ_pf_seed_snapshot: apply_record_edits returned ok:true for all 57 update ops by recordId OBJ_pf_component:C01..C57, sent in 3 calls (19/19/19). Each row moved from version 0 to version 1. No row was created, and no snapshot row of another object was touched
+Read back: OBJ_pf_seed_snapshot: get_records snapshot_id STARTS_WITH OBJ_pf_component: returned total 57. All 57 row_values are byte-identical to the JSON of the live PF Component rows read after t1, and every row reads origin seed and object_id OBJ_pf_component
+Read back: OBJ_pf_seed_snapshot: built_kind across the 57 stored row_values is ai_agent 38, automation 14, not_built 5
+Read back: OBJ_pf_seed_snapshot OBJ_pf_component:C08 row_values: built_kind ai_agent, built_entity_id e_6ae8666dafe7fc590a4a3d96, built_entity_name "PF · Current Vendor Finder", built_link https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8666dafe7fc590a4a3d96, built_status live, built_at 1793618381229, status live, success_rate 96.1, origin seed
+Read back: OBJ_pf_seed_snapshot OBJ_pf_component:C18 row_values: built_kind ai_agent, built_entity_id e_6ae86689d96c5f6ba243cfd8, built_entity_name "PF · Case for Change Drafter", built_link https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86689d96c5f6ba243cfd8, built_status live, built_at 1793618381229
+Read back: OBJ_pf_seed_snapshot OBJ_pf_component:C55 row_values: built_kind automation, built_entity_id 6ae863282099302ffb2cf702, built_entity_name "Pipeline Factory · Alarm and Escalation", built_link https://orbit.uat.unifyapps.com/p/0/automations/6ae863282099302ffb2cf702/builder, built_status live, built_at 1793618381229
+Unverified: OBJ_pf_seed_snapshot: I did not run Pipeline Factory · Reset demo, so it is unproven that Reset restores the links from these rows. One Reset run, followed by a get_records on OBJ_pf_component showing built_entity_id still set, would settle it. That run is automation work and outside this agent's tools
+Note: row_values keeps the seed key order (component_id .. origin, plus checks where set) and adds built_kind, built_entity_id, built_entity_name, built_link, built_status and built_at after it. The 5 not_built rows carry only built_kind and built_status, matching their live rows.
+Note: taken_at was left at its seed value (1793605950000). The task did not ask to change it.
+Note: feature:
+Feature: A way for apply_record_edits to take its edits from a file in the agent's work folder (an argsFile), or to copy one object's rows into another object's string field.
+Evidence: Rewriting 57 PF Seed snapshot row_values (about 59 KB of JSON text) meant hand-copying the generated edits into three tool calls of roughly 20 KB each. The edits were already built in a work-folder file, but no tool could read that file.
+Benefit: Bulk record rewrites built from a read (snapshots, backfills) become one exact call, with no transcription risk and far fewer output tokens.
+Scope: The object MCP server, apply_record_edits input. This is not a request for a server-side query language.
+Acceptance: apply_record_edits accepts an editsFile path in the work folder, and a 57-row update sent that way reads back byte-identical.
 
 ### t3 · Components tab: built entity, last runs and Run on account
 

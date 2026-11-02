@@ -9,9 +9,9 @@
   "modifiedTime": 1793616824649,
   "ownerUserId": 66770,
   "properties": {
-    "spec_html": "",
     "spec_md": "---\nnebula: 3\nmode: \"sonic\"\nformat: \"spec\"\ntitle: \"Narrow Pipeline Factory · Read component inputs so its reply fits an AI agent's tool reply (the runtime keeps only the f\"\ntouches: [{\"kind\":\"automation\",\"name\":\"Pipeline Factory · Read component inputs\",\"id\":\"6ae8635446920244f3d5194b\"}]\naskBeforeDeploy: true\nreleaseYes: [{\"action\":\"deploy\",\"kind\":\"automation\",\"name\":\"Pipeline Factory · Read component inputs\",\"id\":\"6ae8635446920244f3d5194b\"}]\nacceptedAt: \"2026-11-02T10:53:39.387Z\"\nacceptedBy: {\"clientId\":\"533e7426-6927-42a4-bbcf-657253136df4\"}\nplanIds: [\"e_6ae86bb6d96c5f6ba24481b4\"]\nlatestPlanId: \"e_6ae86bb6d96c5f6ba24481b4\"\nplanId: \"e_6ae86bb6d96c5f6ba24481b4\"\n---\n# Narrow Pipeline Factory · Read component inputs so its reply fits an AI agent's tool reply (the runtime keeps only the f\n\n## Requested outcome\nNarrow Pipeline Factory · Read component inputs so its reply fits an AI agent's tool reply (the runtime keeps only the first 16,000 and last 2,000 characters; A-1001 answers about 200,000), with the same inputs and result fields, and deploy it.\n\n## Touches\n- automation · Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b\n\n## Ready when\n- Read-back: Test runs of Pipeline Factory · Read component inputs answer under 12,000 characters for C32 on A-1001 with D-04 present, and the result fields are unchanged.\n- Read-back: search_workflows shows Pipeline Factory · Read component inputs deployed with definitionVersion equal to the saved version.\n- deploy Pipeline Factory · Read component inputs\n",
-    "solutionId": "e_6ae5bfc3b4f0d14b27962a04"
+    "solutionId": "e_6ae5bfc3b4f0d14b27962a04",
+    "spec_html": ""
   },
   "standard": false,
   "version": 1

@@ -436,21 +436,21 @@
       "kind": "ai-agent",
       "id": "e_6ae867cdafe7fc590a4f8e82",
       "name": "PF · Buying Team Mapper",
-      "version": 3,
+      "version": 8,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae867d2f410ab7b2f155861",
       "name": "PF · Person Notes Writer",
-      "version": 3,
+      "version": 8,
       "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae867d4f410ab7b2f155959",
       "name": "PF · Intro Finder",
-      "version": 2,
+      "version": 7,
       "stale": false
     },
     {
@@ -519,72 +519,72 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bd2afe7fc590a500c5f",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Winning Message Finder",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bd6afe7fc590a500cfa",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Scoring Tuner",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bd8f410ab7b2f202521",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Objection Collector",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bdbf410ab7b2f202568",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · A/B Tester",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bdeafe7fc590a500d57",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Quality Grader",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bebf410ab7b2f20260c",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Reply Sorter",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86beff410ab7b2f20266c",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Reply Writer",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf3f410ab7b2f2026ba",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Meeting Prep Writer",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf7f410ab7b2f202726",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Meeting Labeler",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bfbf410ab7b2f202747",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "PF · Deal Qualifier",
+      "version": 1,
+      "stale": false
     }
   ],
   "edges": [
@@ -4245,62 +4245,62 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bd2afe7fc590a500c5f",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Winning Message Finder",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bd6afe7fc590a500cfa",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Scoring Tuner",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bd8f410ab7b2f202521",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Objection Collector",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bdbf410ab7b2f202568",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · A/B Tester",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bdeafe7fc590a500d57",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Quality Grader",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bebf410ab7b2f20260c",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Reply Sorter",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86beff410ab7b2f20266c",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Reply Writer",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf3f410ab7b2f2026ba",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Meeting Prep Writer",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf7f410ab7b2f202726",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Meeting Labeler",
+      "reason": "its tools are not in the cache (get_agent)"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bfbf410ab7b2f202747",
-      "name": null,
-      "reason": "entity-not-cached"
+      "name": "PF · Deal Qualifier",
+      "reason": "its tools are not in the cache (get_agent)"
     }
   ]
 }

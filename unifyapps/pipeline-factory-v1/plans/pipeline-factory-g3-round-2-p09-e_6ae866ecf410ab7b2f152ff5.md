@@ -23,11 +23,11 @@ Goal: Pipeline Factory · G3 round 2 · P09
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Buying Team Mapper |  | done | 1 |
-| t2 | publish | PF · Buying Team Mapper | t1 | running | 1 |
+| t2 | publish | PF · Buying Team Mapper | t1 | done | 1 |
 | t3 | ai-agent | PF · Person Notes Writer |  | done | 1 |
-| t4 | publish | PF · Person Notes Writer | t3 | running | 1 |
+| t4 | publish | PF · Person Notes Writer | t3 | done | 1 |
 | t5 | ai-agent | PF · Intro Finder |  | done | 1 |
-| t6 | publish | PF · Intro Finder | t5 | running | 1 |
+| t6 | publish | PF · Intro Finder | t5 | done | 1 |
 
 ### t1 · Build AI agent PF · Buying Team Mapper
 
@@ -84,6 +84,12 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Buying Team Mapper published.
+Result IDs: {"entity":"e_6ae867cdafe7fc590a4f8e82"}
+Read back: PF · Buying Team Mapper e_6ae867cdafe7fc590a4f8e82: publish_agent(confirmed true) answered ok true, publishedVersion 3, live true, automationSaid {response: "success"}.
+Read back: PF · Buying Team Mapper e_6ae867cdafe7fc590a4f8e82: live re-read (list_agents ids) shows published true, needsPublish false, version 8.
+Unverified: PF · Buying Team Mapper: no live invoke by Pipeline Factory · Run component was made after the publish. Check: run Run component for C21 and read its result.
+Note: Publish per Answer from the person: "yes, publish PF · Buying Team Mapper. The spec the person accepted names it under Ready when, so it is already approved; do not ask again." (the plan's approval).
+Note: The stored version rose from 3 to 8 during publish while needsPublish reads false; the published content is draft version 3. Not deployed to any app or channel.
 
 ### t3 · Build AI agent PF · Person Notes Writer
 
@@ -119,6 +125,12 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Person Notes Writer published.
+Result IDs: {"entity":"e_6ae867d2f410ab7b2f155861"}
+Read back: PF · Person Notes Writer e_6ae867d2f410ab7b2f155861: publish_agent(confirmed true) answered ok true, publishedVersion 3, live true, automationSaid {response: "success"}.
+Read back: PF · Person Notes Writer e_6ae867d2f410ab7b2f155861: live re-read (list_agents ids) shows published true, needsPublish false, version 8.
+Unverified: PF · Person Notes Writer: no live invoke by Pipeline Factory · Run component was made after the publish. Check: run Run component for C22 and read its result.
+Note: Publish per Answer from the person: "yes, publish PF · Person Notes Writer. The spec the person accepted names it under Ready when, so it is already approved; do not ask again." (the plan's approval).
+Note: The stored version rose from 3 to 8 during publish while needsPublish reads false. Not deployed to any app or channel.
 
 ### t5 · Build AI agent PF · Intro Finder
 
@@ -154,4 +166,10 @@ Body:
 5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_agent shows PF · Intro Finder published.
+Result IDs: {"entity":"e_6ae867d4f410ab7b2f155959"}
+Read back: PF · Intro Finder e_6ae867d4f410ab7b2f155959: publish_agent(confirmed true) answered ok true, publishedVersion 2, live true, automationSaid {response: "success"}.
+Read back: PF · Intro Finder e_6ae867d4f410ab7b2f155959: live re-read (list_agents ids) shows published true, needsPublish false, version 7.
+Unverified: PF · Intro Finder: no live invoke by Pipeline Factory · Run component was made after the publish. Check: run Run component for C23 and read its result.
+Note: Publish per Answer from the person: "yes, publish PF · Intro Finder. The spec the person accepted names it under Ready when, so it is already approved; do not ask again." (the plan's approval).
+Note: The stored version rose from 2 to 7 during publish while needsPublish reads false. Not deployed to any app or channel.
 

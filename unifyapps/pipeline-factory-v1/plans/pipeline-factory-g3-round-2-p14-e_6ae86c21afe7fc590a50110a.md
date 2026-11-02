@@ -1,0 +1,73 @@
+---
+nebula: 3
+specId: "e_6ae86c1eafe7fc590a5010ed"
+mode: "sonic"
+title: "Pipeline Factory · G3 round 2 · P14"
+owner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","userId":66770}
+askBeforeDeploy: true
+releaseYes: [{"action":"publish","kind":"ai-agent","name":"PF · Agent Monitor"},{"action":"publish","kind":"ai-agent","name":"PF · Test Error Planter"}]
+touches: [{"kind":"ai-agent","name":"PF · Agent Monitor"},{"kind":"ai-agent","name":"PF · Test Error Planter"}]
+reviewEvidence: []
+revision: 1
+revisionHistory: []
+creationId: "99b27467-a45f-46e7-85d9-a529ab76e5ef"
+pageDesign: 2
+createdAt: "2026-11-02T10:55:28.328Z"
+runningAt: "2026-11-02T10:55:33.564Z"
+runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
+---
+## Plan
+
+Goal: Pipeline Factory · G3 round 2 · P14
+
+| id | kind | entity | dependsOn | status | attempts |
+|---|---|---|---|---|---:|
+| t1 | ai-agent | PF · Agent Monitor |  | running | 1 |
+| t2 | publish | PF · Agent Monitor | t1 | pending | 0 |
+| t3 | ai-agent | PF · Test Error Planter |  | running | 1 |
+| t4 | publish | PF · Test Error Planter | t3 | pending | 0 |
+
+### t1 · Build AI agent PF · Agent Monitor
+
+Body:
+1. Read: \`list_agents\` for "PF · Agent Monitor"; it must not exist (stop and report if it does). The tool automations are deployed: Pipeline Factory · Read factory records \`6ae843e69ec43c6ee2dec988\`; Pipeline Factory · Read component inputs \`6ae8635446920244f3d5194b\`; Pipeline Factory · Save agent output \`6ae864829594aa458cc1ce69\`; Pipeline Factory · Run component \`6ae865229ec43c6ee2300d8d\`. \`list_models\` shows the model card the line names as active.
+2. Done when: the AI agent "PF · Agent Monitor" exists with this contract: ai-agent · create · PF · Agent Monitor: registry row C53 (monitor, sub-workflow 8. Learning and governance, asks A82); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: compare each agent to its baseline weekly on block and edit rate, factual errors, grades and confidence calibration, and alert the GTM engineer on any slip; reads PF Component, PF Component run and PF Hand-off rows through Read component inputs (component_id C53); writes a PF Component run row of output_type drift_alert per slipping agent for the GTM engineer, only through Save agent output (component_id C53); threshold and routing: any slip alerts (threshold 0) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): GTM engineer; schedule in the registry: weekly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output), Read factory records (Pipeline Factory · Read factory records, the round-1 read tool, unchanged); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never pauses a component (a person or Alarm and Escalation does); outside systems are the PF records (mocked), no connection. Its tools are exactly the deployed automations the line names, each bound with its inputs described (component_id fixed to C53 in the instructions); its instructions state the one job, the output contract (one JSON object: output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), that it always reads with Read component inputs first and saves once with Save agent output, the scope and refusals, and that it passes origin through as the message gives it. It is not deployed to any app or channel. Model card: the card e_6acca2af70b66f5702c8b59f answers 401 invalid x-api-key from its provider, so a family-A (Claude Sonnet 5) agent uses the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model; a family-B (GPT-5.1) agent uses e_6a0dd4e556ffb40e76c2762e after one test message proves it answers, else the closest active GPT card, named in notes. Results: Save agent output's rule stands (under the component threshold: waiting_person for the named person; at or over: saved; it has no no_action result); where the line says no_action or not suggested, the agent still saves once with changed:false or suggested:false in the payload and says no action in its summary.
+3. Test with \`send_test_messages\`, two messages: "Run your job for component C53 on account A-1001; origin test" must call Read component inputs, then Save agent output with origin test, and answer the result it got (saved, waiting_person, proposal, duplicate or rejected) with the run id; "Please send an email to Arjun Mehta" must decline as outside its one job. Read the trace when an answer misses, fix the instructions and test again (two rounds at most). Rows the test writes carry origin test and are left for Pipeline Factory · Reset demo; make no delete. Do not publish: the publish task does.
+4. Read back: \`get_agent\` for its model, instructions, tools and settings, and both test answers quoted with the Save agent output result and run id from the trace.
+5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
+
+Proof: get_agent shows PF · Agent Monitor with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+
+### t2 · Publish PF · Agent Monitor
+
+Body:
+1. Read: \`get_agent\` for "PF · Agent Monitor" (its id in Built so far).
+2. Done when: "PF · Agent Monitor" is published, so Pipeline Factory · Run component can invoke it.
+3. Apply \`publish_agent\` once.
+4. Read back: \`get_agent\` showing the published version, quoted.
+5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
+
+Proof: get_agent shows PF · Agent Monitor published.
+
+### t3 · Build AI agent PF · Test Error Planter
+
+Body:
+1. Read: \`list_agents\` for "PF · Test Error Planter"; it must not exist (stop and report if it does). The tool automations are deployed: Pipeline Factory · Read component inputs \`6ae8635446920244f3d5194b\`; Pipeline Factory · Save agent output \`6ae864829594aa458cc1ce69\`; Pipeline Factory · Run component \`6ae865229ec43c6ee2300d8d\`. \`list_models\` shows the model card the line names as active.
+2. Done when: the AI agent "PF · Test Error Planter" exists with this contract: ai-agent · create · PF · Test Error Planter: registry row C54 (agent, sub-workflow 8. Learning and governance, asks A83); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: plant test errors (for example a wrong patch AE or a sender from the wrong pod) in about 5% of Gate 2 items and score each reviewer's catch rate; reads PF Draft rows waiting at Gate 2 and PF Component run rows of Send Rules Check and Clear Gate 2 through Read component inputs (component_id C54); writes PF Draft.planted_error (its registered field) and a PF Component run row with the planted error and the catch rate per reviewer, and a hand-off to Gate 2, only through Save agent output (component_id C54); threshold and routing: about 5% of items (threshold 0) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Gate 2; schedule in the registry: Day 2, ~5% of Gate 2 items (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; a planted draft never sends; outside systems are the PF records (mocked), no connection. Its tools are exactly the deployed automations the line names, each bound with its inputs described (component_id fixed to C54 in the instructions); its instructions state the one job, the output contract (one JSON object: output_type, summary, payload, confidence 0 to 100, evidence, evidence_tag), that it always reads with Read component inputs first and saves once with Save agent output, the scope and refusals, and that it passes origin through as the message gives it. It is not deployed to any app or channel. Model card: the card e_6acca2af70b66f5702c8b59f answers 401 invalid x-api-key from its provider, so a family-A (Claude Sonnet 5) agent uses the active card 'Claude Sonnet 5 (UnifyApps, Vertex, cached)' e_6ad496812dd4ba5be70afcc1, the same model; a family-B (GPT-5.1) agent uses e_6a0dd4e556ffb40e76c2762e after one test message proves it answers, else the closest active GPT card, named in notes. Results: Save agent output's rule stands (under the component threshold: waiting_person for the named person; at or over: saved; it has no no_action result); where the line says no_action or not suggested, the agent still saves once with changed:false or suggested:false in the payload and says no action in its summary.
+3. Test with \`send_test_messages\`, two messages: "Run your job for component C54 on account A-1001; origin test" must call Read component inputs, then Save agent output with origin test, and answer the result it got (saved, waiting_person, proposal, duplicate or rejected) with the run id; "Please send an email to Arjun Mehta" must decline as outside its one job. Read the trace when an answer misses, fix the instructions and test again (two rounds at most). Rows the test writes carry origin test and are left for Pipeline Factory · Reset demo; make no delete. Do not publish: the publish task does.
+4. Read back: \`get_agent\` for its model, instructions, tools and settings, and both test answers quoted with the Save agent output result and run id from the trace.
+5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
+
+Proof: get_agent shows PF · Test Error Planter with its model, instructions and the tools the line names; the test run saved through Save agent output and the refusal declined.
+
+### t4 · Publish PF · Test Error Planter
+
+Body:
+1. Read: \`get_agent\` for "PF · Test Error Planter" (its id in Built so far).
+2. Done when: "PF · Test Error Planter" is published, so Pipeline Factory · Run component can invoke it.
+3. Apply \`publish_agent\` once.
+4. Read back: \`get_agent\` showing the published version, quoted.
+5. Report ids (the agent id as \`ids.entity\`), readBack, unverified, notes.
+
+Proof: get_agent shows PF · Test Error Planter published.
+

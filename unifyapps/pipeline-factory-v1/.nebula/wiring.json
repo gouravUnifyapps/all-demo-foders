@@ -149,7 +149,7 @@
       "kind": "automation",
       "id": "6ae8635446920244f3d5194b",
       "name": "Pipeline Factory · Read component inputs",
-      "version": 2,
+      "version": 4,
       "stale": false
     },
     {
@@ -554,9 +554,9 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bebf410ab7b2f20260c",
-      "name": "PF · Reply Sorter",
-      "version": 1,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
@@ -575,16 +575,30 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf7f410ab7b2f202726",
-      "name": "PF · Meeting Labeler",
-      "version": 1,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bfbf410ab7b2f202747",
-      "name": "PF · Deal Qualifier",
-      "version": 1,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86c76f410ab7b2f203900",
+      "name": null,
+      "version": null,
+      "stale": true
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86c7ad96c5f6ba24493ba",
+      "name": null,
+      "version": null,
+      "stale": true
     }
   ],
   "edges": [
@@ -4275,8 +4289,8 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bebf410ab7b2f20260c",
-      "name": "PF · Reply Sorter",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
@@ -4293,14 +4307,26 @@
     {
       "kind": "ai-agent",
       "id": "e_6ae86bf7f410ab7b2f202726",
-      "name": "PF · Meeting Labeler",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",
       "id": "e_6ae86bfbf410ab7b2f202747",
-      "name": "PF · Deal Qualifier",
-      "reason": "its tools are not in the cache (get_agent)"
+      "name": null,
+      "reason": "entity-write"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86c76f410ab7b2f203900",
+      "name": null,
+      "reason": "entity-not-cached"
+    },
+    {
+      "kind": "ai-agent",
+      "id": "e_6ae86c7ad96c5f6ba24493ba",
+      "name": null,
+      "reason": "entity-not-cached"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "createdTime": 1793617017068,
+  "deleted": false,
+  "entityType": "solution_linked_assets",
+  "id": "e_6ae86c79afe7fc590a502205",
+  "lastModifiedBy": 66770,
+  "lastPlatformUpdateBy": 66770,
+  "lastPlatformUpdateOn": 1793617017068,
+  "modifiedTime": 1793617017068,
+  "ownerUserId": 66770,
+  "properties": {
+    "asset_id": "e_6ae86c76f410ab7b2f203900",
+    "state": "COMPLETED",
+    "solution_id": "e_6ae5bfc3b4f0d14b27962a04",
+    "asset_class": "ai_agent"
+  },
+  "standard": false,
+  "version": 0
+}

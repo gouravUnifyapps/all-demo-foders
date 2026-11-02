@@ -20,7 +20,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation | `Pipeline Factory · Contact Finder` | 6ae862f3f13e536c52e76ecd | 1 | no |
 | automation | `Pipeline Factory · Alarm and Escalation` | 6ae863282099302ffb2cf702 | 5 | no |
 | automation | `Pipeline Factory · Account Ranking` | 6ae8632c9ec43c6ee22f380d | 2 | no |
-| automation | `Pipeline Factory · Read component inputs` | 6ae8635446920244f3d5194b | 2 | no |
+| automation | `Pipeline Factory · Read component inputs` | 6ae8635446920244f3d5194b | 4 | no |
 | automation | `Pipeline Factory · Send Rules Check` | 6ae863842099302ffb2d0262 | 1 | no |
 | automation | `Pipeline Factory · Weekly Slot Planner` | 6ae863a5f38e327618183dca | 0 | no |
 | automation | `Pipeline Factory · Content Handoff` | 6ae863d0fbdd550a9a4ffc58 | 0 | no |
@@ -78,11 +78,13 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | ai-agent | `PF · Objection Collector` | e_6ae86bd8f410ab7b2f202521 | 1 | no |
 | ai-agent | `PF · A/B Tester` | e_6ae86bdbf410ab7b2f202568 | 1 | no |
 | ai-agent | `PF · Quality Grader` | e_6ae86bdeafe7fc590a500d57 | 1 | no |
-| ai-agent | `PF · Reply Sorter` | e_6ae86bebf410ab7b2f20260c | 1 | no |
+| ai-agent |  | e_6ae86bebf410ab7b2f20260c |  | yes |
 | ai-agent | `PF · Reply Writer` | e_6ae86beff410ab7b2f20266c | 1 | no |
 | ai-agent | `PF · Meeting Prep Writer` | e_6ae86bf3f410ab7b2f2026ba | 1 | no |
-| ai-agent | `PF · Meeting Labeler` | e_6ae86bf7f410ab7b2f202726 | 1 | no |
-| ai-agent | `PF · Deal Qualifier` | e_6ae86bfbf410ab7b2f202747 | 1 | no |
+| ai-agent |  | e_6ae86bf7f410ab7b2f202726 |  | yes |
+| ai-agent |  | e_6ae86bfbf410ab7b2f202747 |  | yes |
+| ai-agent |  | e_6ae86c76f410ab7b2f203900 |  | yes |
+| ai-agent |  | e_6ae86c7ad96c5f6ba24493ba |  | yes |
 
 ## Wiring
 
@@ -351,8 +353,10 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 - ai-agent `PF · Objection Collector` (e_6ae86bd8f410ab7b2f202521): its tools are not in the cache (get_agent)
 - ai-agent `PF · A/B Tester` (e_6ae86bdbf410ab7b2f202568): its tools are not in the cache (get_agent)
 - ai-agent `PF · Quality Grader` (e_6ae86bdeafe7fc590a500d57): its tools are not in the cache (get_agent)
-- ai-agent `PF · Reply Sorter` (e_6ae86bebf410ab7b2f20260c): its tools are not in the cache (get_agent)
+- ai-agent `e_6ae86bebf410ab7b2f20260c` (e_6ae86bebf410ab7b2f20260c): entity-write
 - ai-agent `PF · Reply Writer` (e_6ae86beff410ab7b2f20266c): its tools are not in the cache (get_agent)
 - ai-agent `PF · Meeting Prep Writer` (e_6ae86bf3f410ab7b2f2026ba): its tools are not in the cache (get_agent)
-- ai-agent `PF · Meeting Labeler` (e_6ae86bf7f410ab7b2f202726): its tools are not in the cache (get_agent)
-- ai-agent `PF · Deal Qualifier` (e_6ae86bfbf410ab7b2f202747): its tools are not in the cache (get_agent)
+- ai-agent `e_6ae86bf7f410ab7b2f202726` (e_6ae86bf7f410ab7b2f202726): entity-write
+- ai-agent `e_6ae86bfbf410ab7b2f202747` (e_6ae86bfbf410ab7b2f202747): entity-write
+- ai-agent `e_6ae86c76f410ab7b2f203900` (e_6ae86c76f410ab7b2f203900): entity-not-cached
+- ai-agent `e_6ae86c7ad96c5f6ba24493ba` (e_6ae86c7ad96c5f6ba24493ba): entity-not-cached

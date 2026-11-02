@@ -4,7 +4,7 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: building
+status: verifying
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
@@ -66,6 +66,12 @@ posts:
     by: bot
     version: 1
     round: 2
+  - when: 2026-11-02T11:33:00Z
+    kind: status
+    ts: 1793612592.122889
+    by: bot
+    version: 1
+    round: 2
 runs:
   - started: 2026-10-31T10:16:23Z
     ended: 2026-10-31T10:26:47Z
@@ -91,9 +97,9 @@ runs:
   - started: 2026-11-02T09:55:00Z
     gate: g3
     round: 2
-    stages: [2-plan (scoped: 38 agents, 12 workflows)]
-    spawns: 1
-    tokens: 235070
+    stages: [2-plan (scoped: 38 agents, 12 workflows), 3-build (15 plans and 2 fixes, 140 tasks)]
+    spawns: 38
+    tokens: 7500000
 
 stopped:
 
@@ -118,7 +124,7 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A4
     text: "Why: every hand-off can then be seen in the control towers, checked by the Quality Grader, and stopped by a person."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § How the agents connect · 2026-10-31"
@@ -202,42 +208,42 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A16
     text: "Every 15 min pulls new and changed records, normalises keys (domain, legal name, LinkedIn ID, HubSpot ID, email), merges exact matches and scores near-matches 0–100. ≥95 merge; 80–95 to RevOps; <80 kept separate. Logs its reasoning"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Duplicate Finder”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A17
     text: "Links each company to parent, subsidiaries, divisions; proposes divisions that buy separately (RevOps approves); sets the outreach lock at the top parent. Re-links on HQ change or M&A news. <80 → RevOps"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Parent Company Linker”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A18
     text: "Finds the parent's HQ city, state, country; weighs sources; returns location, confidence, other candidates and evidence. <80 → RevOps picks"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Headquarters Finder”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A19
     text: "Nightly on companies with move or M&A news, quarterly on all. Any change → alert in the patch control tower, then a new Patch Suggester proposal"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Headquarters Re-checker (monitor)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A20
     text: "Weekly closed-won lookalikes; daily checks 7 other sources (ecosystem lists, intent surges, web visitors, business units, champion job changes, event attendees, renewal windows). Drops fit <36, customers, open deals, partners, competitors, DNC. Suggests to RevOps, never adds. <70 not suggested"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “New Account Finder”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A21
     text: "Scores fit out of 60 (up to 15 each: industry, size and complexity, core systems, AI and integration maturity); maps score + ICP V2 quadrant to best / medium / low fit. Floor 36 never moves. Re-scores on change and monthly. <70 → RevOps"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Fit Scorer”, column What it does · 2026-10-31"
@@ -251,28 +257,28 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A23
     text: "Finds integration, automation and agent tools each best/medium-fit account uses, from vendor case studies, job posts, procurement notices. Weekly. <60 tagged [HYPOTHESIS]"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Current Vendor Finder”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A24
     text: "Estimates renewal as 3 years from earliest evidence unless a later contract signal exists; raises a renewal signal 9 months before. <60 no signal"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Renewal Date Finder”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A25
     text: "Drafts battlecard changes per vendor: shortfalls, switch path, proof, objection answers. Product marketing approves each"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 1. Patch accounts › table row “Battlecard Writer”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A26
     text: "Reused, not built: Patch Mapper (Atomic Patch View) stamps patch_id on every account, person and dollar nightly, flags orphans, never moves an account. Gate 1 refuses any account without a Patch ID."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 1. Patch accounts · 2026-10-31"
@@ -398,21 +404,21 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A44
     text: "Sends each person to the Sprouts plugin → verified work email, plus phone for Tier 1 and engaged people. No verified email → LinkedIn only. Saves with source and verify date to graph and HubSpot; re-verifies emails older than 90 days before use"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 4. Buying committee › table row “Contact Finder (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A45
     text: "One suppression list (opt-outs, bounces, complaints, legal holds); copies it to HubSpot, Apollo and Sprouts every 15 min; screens every phone against federal and state DNC before any dialler; records consent per person; completes erasure across all tools within 30 days, keeping only a hashed code so the person is never re-added"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 4. Buying committee › table row “Do-Not-Contact List (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A46
     text: "Best-fit accounts reach the AE's to-do list on Day 1 with account view and buying team (~5/week/patch). Approve, adjust or disqualify by Day 2 12:00; else backup AE, then Geo leader, before Gate 2 closes"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 4. Buying committee › table row “AE checkpoint (human: patch AE, best fit only)”, column What it does · 2026-10-31"
@@ -440,42 +446,42 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A50
     text: "Picks one Content Factory asset per asset touch, matched on role, industry, use case, pattern, outcome, VEP stage, Geo; skips assets >18 months old or retired; ranks by fit and positive-reply history for that role; never the same asset to two people at one account in a week; adds an event only while seats remain. <70 → no asset, use a sourced insight"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Content Picker”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A51
     text: "Writes every email and LinkedIn message in the play. Starts from the Content Factory's best message for category → sub-sector → company → persona and must agree with all four; uses the assigned handbook voice; one sourced fact, the pain this person owns, the likeliest objection for their role. Names the patch AE as session host. Pod-inbox emails in the BDR's name; AE notes from the AE's mailbox, warm plays only. <70 flagged at Gate 2"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Message Writer”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A52
     text: "Traces every claim in drafts and pages: facts to a public source ≤12 months old, numbers to a source or the proof library, use cases to a UC-ID with account evidence. Blocks anything untraceable"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Fact Checker (checker, other model family)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A53
     text: "Scores each draft 0–100 on the message rubric: teaches something, relevant to role and company, actionable, applies to their business, well written in the right voice, follows copy rules. <75 → one automatic rewrite and regrade; <75 again → a person decides at Gate 2. Rubric weights checked monthly against replies"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Message Grader (checker, other model family)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A54
     text: "Blocks any draft that fails: clean text (no empty fields, wrong names incl. the AE's); person still in role (checked within 7 days of first send); not on DNC, held out, a customer or open deal; parent outreach lock owned by this owner; Patch ID, AE, pod present and no AE hold; sender from the account's pod and under their daily limit across all pods; person not in another sequence; state send window, consent, legal footer"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Send Rules Check (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A55
     text: "One screen per account: account view, buying team, page preview, every draft with grade, fact and rule results (~5% carry planted test errors that never send). BDR approves, edits, swaps a person or holds, by 17:00 Day 2"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 5. Outreach drafting › table row “Gate 2 (human: pod BDR)”, column What it does · 2026-10-31"
@@ -496,49 +502,49 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A58
     text: "Sends every approved touch on Day 3 in the prospect's local morning: email and calls through Apollo, LinkedIn through the Sprouts plugin. Re-plans the account as people respond and protects the inboxes."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 6. Outreach · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A59
     text: "Puts each approved person into channels: email steps into an Apollo sequence on the assigned inbox, LinkedIn steps into the sender's Sprouts queue, calls as Apollo call tasks. Schedules in the prospect's local morning and state window, keeping tier spacing. Holds every inbox and LinkedIn sender at 70% of daily limit. Writes owner, Patch ID, BDR of record, sequence status, tasks, notes to HubSpot; sets the parent outreach lock. Every write keyed on person + play (no double enrolment)"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 6. Outreach › table row “Outreach Launcher (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A60
     text: "For each call task (Tier 1 day 6, Hot Visit, anyone engaged): adapts the BDR's best script or builds one from top Gong calls; writes signal-tied opener, permission question, 3–5 discovery questions, top 3 objection answers, 20-second voicemail, follow-up email draft. Orders each BDR's call list by interest inside each patch's time-zone block. <70 → BDR approves the script"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 6. Outreach › table row “Call Script Writer”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A61
     text: "Keeps the account one conversation once anyone responds: a referral becomes the lead thread; a Tier 1 objection pauses Tiers 2–3 and gives the AE an answer note; 2+ people engaging in 7 days switches to Committee Surge. Every rewrite goes back through Fact Checker and Message Grader. <70 → BDR decides"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 6. Outreach › table row “Follow-up Planner”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A62
     text: "Weekly inbox-placement tests per active domain (Gmail, Outlook, Microsoft, Barracuda, Proofpoint); daily blacklist and Gmail reputation checks; reply rate by recipient provider; maintains the email-security-scanner list. Every alert to the BDR and GTM engineer"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 6. Outreach › table row “Inbox Health Checker”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A63
     text: "Rests a domain the same day if placement <70% in two tests or it hits a major blacklist, and swaps in a warmed spare. Blocks a new BDR's first send until their domains pass. Previously blacklisted domains are retired"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 6. Outreach › table row “Email Domain Swapper (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A64
     text: "LinkedIn bans third-party automation, so people send. Each opens their Sprouts queue (messages pre-written and checked), reviews and sends from their own account. AE ~20 requests/day for own patch. A restriction warning → stop and report; tower pauses that sender. Unsent AE messages move to the BDR at day end"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 6. Outreach › table row “LinkedIn senders (human: AEs, BDR, exec sponsor)”, column What it does · 2026-10-31"
@@ -566,42 +572,42 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A68
     text: "Drafts the answer from the thread, account view, objection list and the AE's booking link; puts it with confidence in the BDR's to-do list (and the AE's for positive replies at best-fit accounts). The person sends, edits, adds a booking link, hands to the AE, or snoozes, from one screen; it goes out from the original thread. Reminder at 90 min; Geo leader alerted at 2 business hours. <70 marked for full rewrite"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 7. Engage, Connect and Commit › table row “Reply Writer”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A69
     text: "On booking via the AE's link: creates the deal at Engage owned by the patch AE; picks up meetings booked elsewhere from the AE's Google Calendar within 15 min. Locks Patch ID, BDR of record, meeting source, factory-sourced, factory-influenced (a rejected meeting rebooked within 30 days keeps its source). Books the SC, triggers the prep pack, sends agenda and 24h/1h reminders, runs a 2-touch reschedule on no-show. Runs AE deadlines (below) and escalations"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 7. Engage, Connect and Commit › table row “Meeting Handoff and Deadlines (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A70
     text: "Builds the pack for AE and SC: account view, buying team, thread, Case for Change draft, likely objections, AotP page, questions to confirm economic buyer and timeline. Delivered into the AE's AI Twin, which then tracks promises made on the call"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 7. Engage, Connect and Commit › table row “Meeting Prep Writer”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A71
     text: "Reads transcript, attendees, economic-buyer flag; labels intro / New Buyer Meeting / doesn't count, quoting evidence. Doesn't count if <20 min, no Tier 1–2 attendee, a reschedule, or a second intro at the account within 90 days. Unrecorded meetings labelled from calendar attendees and AE notes and marked unrecorded. <80 → Geo leader checks"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 7. Engage, Connect and Commit › table row “Meeting Labeler (checker)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A72
     text: "After each New Buyer Meeting checks six requirements: fit 36+, a VEP-CFC pain, engaged champion, New Buyer Meeting held, timeline ≤12 months, scheduled mutual next step. Marks each met / partly / missing with transcript quotes; lists gaps with the question that closes each; drafts the recap; recommends Qualified only when all are met. Saves won/lost outcomes and reasons to the graph. <80 → recommended not qualified, with gaps"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 7. Engage, Connect and Commit › table row “Deal Qualifier (checker)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A73
     text: "AE confirms meeting label and stage within 2 business days; deal moves to Commit"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 7. Engage, Connect and Commit › table row “AE confirm (human)”, column What it does · 2026-10-31"
@@ -615,14 +621,14 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A75
     text: "Learns from every outcome, grades every agent, and turns red lines into actions. Learning agents only propose; the Quality Grader checks each proposal and the Friday review approves. Only weight changes within ±20% apply on their own, after 8 weeks without a drop."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 8. Learning and governance · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A76
     text: "Every touch is saved with its result: patch, signal, play, persona, tier, use case, pattern, outcome, subject, asset, sender, send time → reply type, meeting label, qualified, won/lost, deal size."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 8. Learning and governance · 2026-10-31"
@@ -636,70 +642,70 @@ asks:
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A78
     text: "Monthly: re-fits fit and signal weights to meetings and qualified opportunities, learning from Gate 1 rejections, AE-rejected meetings, disqualifications, win/loss reasons. Learns across all patches, reports per patch. Proposals only"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Scoring Tuner”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A79
     text: "Updates the objection list and buyer language from call transcripts. <70 → sales reviews"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Objection Collector”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A80
     text: "Small changes (subject, opener, asset): continuous tests on positive replies, ≥20% traffic per version, 4-week limit. Bold changes: fixed-size tests on people (5%→8% reply needs ~1,060 people per version). Never tests one-point lifts"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “A/B Tester”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A81
     text: "Holds every agent's rubric and test set; runs them on every prompt, model or weight change and blocks a release on any drop. Enforces checker-on-other-model. Computes each gate's rung weekly per pod and AE. Drafts a policy when the same exception is resolved the same way 3 times"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Quality Grader (checker)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A82
     text: "Weekly: compares each agent to its baseline on block/edit rate, factual errors, grades, confidence calibration; alerts the GTM engineer on any slip"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Agent Monitor”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A83
     text: "Plants errors (e.g. wrong patch AE, sender from wrong pod) in ~5% of Gate 2 items, which never send; scores each reviewer's catch rate"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Test Error Planter”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A84
     text: "Every 15 min reads tower metrics; on a red line takes the listed action (pause, throttle, move slots, demote a gate, add a to-do item); escalates unfixed alarms patch → pod (2 business days) → Geo (5) → CRO. Logs before/after numbers. Safety actions are automatic; resuming or moving anyone's work needs a person"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Alarm and Escalation (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A85
     text: "Monday: pushes accounts in play to LinkedIn ad audiences by patch geography for 8 weeks; passes unreached people to the Content Factory (ads and content only, never cold email); moves \"not now\" and engaged prospects to nurture until their date; sets marketing_influenced; sends asset, message and pattern results by patch weekly"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Content Handoff (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A86
     text: "Recording consent per state; DNC checks; state legal checklists (send window, consent, footer); erasure across every tool within 30 days; 12-month clean-up of people who never engaged"
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § 8. Learning and governance › table row “Privacy and Consent (workflow)”, column What it does · 2026-10-31"
     priority: P1
     owner: Gourav Mahunta
     use_case: "this"
-    status: open
+    status: built
   - id: A87
     text: "Reused from the Atomic Patch View: Pipeline Analyst (pipeline signals), Patch Brief Agent (patch briefs, draft only), My 4P Coach (seller next steps, incl. factory replies, approvals and tasks)."
     source: "Pipeline-Factory-Engineering-Build.docx (Slack file F0CDQM8HAVC in #pipeline-factory-v1, posted by Gourav Mahunta; spec dated Oct 28, 2026, by Hardik) § The agents › 8. Learning and governance · 2026-10-31"
@@ -1202,9 +1208,9 @@ frozen:
 
 cost:
   runs: 4
-  agent_spawns: 27
-  tokens_m: 6.5
-  wall_h: 3.2
+  agent_spawns: 64
+  tokens_m: 13.8
+  wall_h: 4.8
 
 open_questions:
   - by: harvest
@@ -1820,6 +1826,23 @@ build.plans:
 - e_6ae851cbf410ab7b2f03bef9 · verify r1 fix: Save hand-off due_at, Log signal passes it · 4 tasks · implemented · 2026-11-02
 - e_6ae853edd96c5f6ba232095f · verify r1 fix: Reset demo clears hand-offs with no snapshot · 2 tasks · implemented · 2026-11-02
 
+- e_6ae86090afe7fc590a34bad5 · R2-P01 objects, PF Component fields, seeds · 9 tasks · implemented · 2026-11-02
+- e_6ae861b1f410ab7b2f062f35 · R2-P02 Read component inputs, Save agent output, Reset agent runs, Reset demo update · 8 tasks · implemented · 2026-11-02
+- e_6ae861bfafe7fc590a34df19 · R2-P03 workflows part 1 · 8 tasks · implemented · 2026-11-02
+- e_6ae861ccd96c5f6ba2341bdc · R2-P04 workflows part 2 · 10 tasks · implemented · 2026-11-02
+- e_6ae861d8afe7fc590a34e163 · R2-P05 workflows part 3 and Run component · 8 tasks · implemented · 2026-11-02
+- e_6ae865bfafe7fc590a4a2377 · R2-P06 agents sw1 part 1 · 10 tasks · implemented · 2026-11-02
+- e_6ae865d5d96c5f6ba243c5e7 · R2-P07 agents sw1 part 2 · 10 tasks · implemented · 2026-11-02
+- e_6ae865e1f410ab7b2f1511cd · R2-P08 agents sw2 and sw3 · 8 tasks · implemented · 2026-11-02
+- e_6ae866ecf410ab7b2f152ff5 · R2-P09 agents sw4 · 6 tasks · implemented · 2026-11-02
+- e_6ae867b3f410ab7b2f1555d6 · R2-P10 agents sw5 part 1 · 10 tasks · implemented · 2026-11-02
+- e_6ae8681cf410ab7b2f1566e9 · R2-P11 agents sw5 part 2 and sw6 · 8 tasks · implemented · 2026-11-02
+- e_6ae86b27afe7fc590a4ff784 · R2-P12 agents sw7 · 10 tasks · implemented · 2026-11-02
+- e_6ae86b5cafe7fc590a4ffb95 · R2-P13 agents sw8 part 1 · 10 tasks · implemented · 2026-11-02
+- e_6ae86c21afe7fc590a50110a · R2-P14 agents sw8 part 2 · 4 tasks · implemented · 2026-11-02
+- e_6ae86bb6d96c5f6ba24481b4 · R2 fix: Read component inputs narrowed under 12,000 characters · 2 tasks · implemented · 2026-11-02
+- e_6ae86ec1d96c5f6ba244ee98 · R2 fix: Read component inputs, a share of the reply per list · 2 tasks · implemented · 2026-11-02
+- e_6ae86f58d96c5f6ba244fc4d · R2-P15 registry links, snapshot rows, Components tab, publish v2 · 4 tasks · implemented · 2026-11-02
 | Kind | Name | Id | Link | Asks |
 |---|---|---|---|---|
 | object | PF Patch | OBJ_pf_patch | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_patch/schema | A27, A29, A30 |
@@ -1843,7 +1866,66 @@ build.plans:
 | ai-agent | Pipeline Factory Analyst | e_6ae846ffd96c5f6ba22b98da | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae846ffd96c5f6ba22b98da | A4, A8, A10 |
 | code-app | UnifyApps Pipeline Factory Control Tower | app-2fbe93e8c1f7 | https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-2fbe93e8c1f7 | A1, A2, A4, A8, A14, A27, A32, A47 |
 
-code-app: app-2fbe93e8c1f7 · branch main · PRIVATE · published v1 from commit 057f53d6625c58044c9bd67445a203fc9e30cde3 (head d6dca64e "publish v1") · preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-2fbe93e8c1f7/main/ · published https://app-2fbe93e8c1f7-orbit.tensor-uat.unifyapps.com (from the shell task's handover; the publish reply named no URL; unverified) · routes /tower, /todo, /accounts/:accountId · storage FETCH e_6ae84846f410ab7b2ffc1ba8
+| object | PF Component run | OBJ_pf_component_run | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_component_run/schema | A1, A13 (R2) |
+| object | PF Source | OBJ_pf_source | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_source/schema | R2 (mocked sources) |
+| object | PF Inbox | OBJ_pf_inbox | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_inbox/schema | R2 (C38, C39) |
+| object | PF Suppression | OBJ_pf_suppression | https://orbit.uat.unifyapps.com/p/0/objects/OBJ_pf_suppression/schema | R2 (C25, C57) |
+| automation | Pipeline Factory · Read component inputs | 6ae8635446920244f3d5194b | https://orbit.uat.unifyapps.com/p/0/automations/6ae8635446920244f3d5194b/builder | R2 |
+| automation | Pipeline Factory · Save agent output | 6ae864829594aa458cc1ce69 | https://orbit.uat.unifyapps.com/p/0/automations/6ae864829594aa458cc1ce69/builder | R2 |
+| automation | Pipeline Factory · Reset agent runs | 6ae863f02099302ffb2d2358 | https://orbit.uat.unifyapps.com/p/0/automations/6ae863f02099302ffb2d2358/builder | R2 |
+| automation | Pipeline Factory · Account Ranking | 6ae8632c9ec43c6ee22f380d | https://orbit.uat.unifyapps.com/p/0/automations/6ae8632c9ec43c6ee22f380d/builder | R2 |
+| automation | Pipeline Factory · Weekly Slot Planner | 6ae863a5f38e327618183dca | https://orbit.uat.unifyapps.com/p/0/automations/6ae863a5f38e327618183dca/builder | R2 |
+| automation | Pipeline Factory · Holdout Picker | 6ae864059ec43c6ee22f8008 | https://orbit.uat.unifyapps.com/p/0/automations/6ae864059ec43c6ee22f8008/builder | R2 |
+| automation | Pipeline Factory · Do-Not-Contact List | 6ae864672099302ffb2d3157 | https://orbit.uat.unifyapps.com/p/0/automations/6ae864672099302ffb2d3157/builder | R2 |
+| automation | Pipeline Factory · Contact Finder | 6ae862f3f13e536c52e76ecd | https://orbit.uat.unifyapps.com/p/0/automations/6ae862f3f13e536c52e76ecd/builder | R2 |
+| automation | Pipeline Factory · Send Rules Check | 6ae863842099302ffb2d0262 | https://orbit.uat.unifyapps.com/p/0/automations/6ae863842099302ffb2d0262/builder | R2 |
+| automation | Pipeline Factory · Outreach Launcher | 6ae864929594aa458cc23de9 | https://orbit.uat.unifyapps.com/p/0/automations/6ae864929594aa458cc23de9/builder | R2 |
+| automation | Pipeline Factory · Email Domain Swapper | 6ae864342099302ffb2d2a71 | https://orbit.uat.unifyapps.com/p/0/automations/6ae864342099302ffb2d2a71/builder | R2 |
+| automation | Pipeline Factory · Meeting Handoff and Deadlines | 6ae8654d2099302ffb2d9514 | https://orbit.uat.unifyapps.com/p/0/automations/6ae8654d2099302ffb2d9514/builder | R2 |
+| automation | Pipeline Factory · Alarm and Escalation | 6ae863282099302ffb2cf702 | https://orbit.uat.unifyapps.com/p/0/automations/6ae863282099302ffb2cf702/builder | R2 |
+| automation | Pipeline Factory · Content Handoff | 6ae863d0fbdd550a9a4ffc58 | https://orbit.uat.unifyapps.com/p/0/automations/6ae863d0fbdd550a9a4ffc58/builder | R2 |
+| automation | Pipeline Factory · Privacy and Consent | 6ae86493f38e32761818a2c1 | https://orbit.uat.unifyapps.com/p/0/automations/6ae86493f38e32761818a2c1/builder | R2 |
+| automation | Pipeline Factory · Run component | 6ae865229ec43c6ee2300d8d | https://orbit.uat.unifyapps.com/p/0/automations/6ae865229ec43c6ee2300d8d/builder | R2 |
+| ai-agent | PF · Duplicate Finder | e_6ae86680afe7fc590a4a3f53 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86680afe7fc590a4a3f53 | R2 C01 |
+| ai-agent | PF · Parent Company Linker | e_6ae86684d96c5f6ba243cf6a | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86684d96c5f6ba243cf6a | R2 C02 |
+| ai-agent | PF · Headquarters Finder | e_6ae86687d96c5f6ba243cfb8 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86687d96c5f6ba243cfb8 | R2 C03 |
+| ai-agent | PF · Headquarters Re-checker | e_6ae8668bafe7fc590a4a3fec | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8668bafe7fc590a4a3fec | R2 C04 |
+| ai-agent | PF · New Account Finder | e_6ae8668ef410ab7b2f151c47 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8668ef410ab7b2f151c47 | R2 C05 |
+| ai-agent | PF · Fit Scorer | e_6ae86666d96c5f6ba243ce26 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86666d96c5f6ba243ce26 | R2 C06 |
+| ai-agent | PF · Patch Suggester | e_6ae8666ad96c5f6ba243ce39 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8666ad96c5f6ba243ce39 | R2 C07 |
+| ai-agent | PF · Current Vendor Finder | e_6ae8666dafe7fc590a4a3d96 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8666dafe7fc590a4a3d96 | R2 C08 |
+| ai-agent | PF · Renewal Date Finder | e_6ae86671d96c5f6ba243ce77 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86671d96c5f6ba243ce77 | R2 C09 |
+| ai-agent | PF · Battlecard Writer | e_6ae86673afe7fc590a4a3dda | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86673afe7fc590a4a3dda | R2 C10 |
+| ai-agent | PF · Buying Signal Spotter | e_6ae8667ed96c5f6ba243cf29 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8667ed96c5f6ba243cf29 | R2 C11 |
+| ai-agent | PF · Company Facts Collector | e_6ae86682d96c5f6ba243cf48 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86682d96c5f6ba243cf48 | R2 C16 |
+| ai-agent | PF · Use Case Matcher | e_6ae86685f410ab7b2f151b2f | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86685f410ab7b2f151b2f | R2 C17 |
+| ai-agent | PF · Case for Change Drafter | e_6ae86689d96c5f6ba243cfd8 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86689d96c5f6ba243cfd8 | R2 C18 |
+| ai-agent | PF · Buying Team Mapper | e_6ae867cdafe7fc590a4f8e82 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae867cdafe7fc590a4f8e82 | R2 C21 |
+| ai-agent | PF · Person Notes Writer | e_6ae867d2f410ab7b2f155861 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae867d2f410ab7b2f155861 | R2 C22 |
+| ai-agent | PF · Intro Finder | e_6ae867d4f410ab7b2f155959 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae867d4f410ab7b2f155959 | R2 C23 |
+| ai-agent | PF · Play Picker | e_6ae86821f410ab7b2f15695c | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86821f410ab7b2f15695c | R2 C27 |
+| ai-agent | PF · Page Builder | e_6ae86825f410ab7b2f156a03 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86825f410ab7b2f156a03 | R2 C28 |
+| ai-agent | PF · Content Picker | e_6ae86828f410ab7b2f156a22 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86828f410ab7b2f156a22 | R2 C29 |
+| ai-agent | PF · Message Writer | e_6ae8682ad96c5f6ba2441a16 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8682ad96c5f6ba2441a16 | R2 C30 |
+| ai-agent | PF · Fact Checker | e_6ae8682ed96c5f6ba2441a5f | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8682ed96c5f6ba2441a5f | R2 C31 |
+| ai-agent | PF · Message Grader | e_6ae8687bd96c5f6ba2442526 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8687bd96c5f6ba2442526 | R2 C32 |
+| ai-agent | PF · Call Script Writer | e_6ae8687ef410ab7b2f1575c6 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae8687ef410ab7b2f1575c6 | R2 C36 |
+| ai-agent | PF · Follow-up Planner | e_6ae86881d96c5f6ba244257b | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86881d96c5f6ba244257b | R2 C37 |
+| ai-agent | PF · Inbox Health Checker | e_6ae86884d96c5f6ba24425cc | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86884d96c5f6ba24425cc | R2 C38 |
+| ai-agent | PF · Reply Sorter | e_6ae86bebf410ab7b2f20260c | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bebf410ab7b2f20260c | R2 C41 |
+| ai-agent | PF · Reply Writer | e_6ae86beff410ab7b2f20266c | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86beff410ab7b2f20266c | R2 C42 |
+| ai-agent | PF · Meeting Prep Writer | e_6ae86bf3f410ab7b2f2026ba | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bf3f410ab7b2f2026ba | R2 C44 |
+| ai-agent | PF · Meeting Labeler | e_6ae86bf7f410ab7b2f202726 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bf7f410ab7b2f202726 | R2 C45 |
+| ai-agent | PF · Deal Qualifier | e_6ae86bfbf410ab7b2f202747 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bfbf410ab7b2f202747 | R2 C46 |
+| ai-agent | PF · Winning Message Finder | e_6ae86bd2afe7fc590a500c5f | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bd2afe7fc590a500c5f | R2 C48 |
+| ai-agent | PF · Scoring Tuner | e_6ae86bd6afe7fc590a500cfa | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bd6afe7fc590a500cfa | R2 C49 |
+| ai-agent | PF · Objection Collector | e_6ae86bd8f410ab7b2f202521 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bd8f410ab7b2f202521 | R2 C50 |
+| ai-agent | PF · A/B Tester | e_6ae86bdbf410ab7b2f202568 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bdbf410ab7b2f202568 | R2 C51 |
+| ai-agent | PF · Quality Grader | e_6ae86bdeafe7fc590a500d57 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86bdeafe7fc590a500d57 | R2 C52 |
+| ai-agent | PF · Agent Monitor | e_6ae86c76f410ab7b2f203900 | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86c76f410ab7b2f203900 | R2 C53 |
+| ai-agent | PF · Test Error Planter | e_6ae86c7ad96c5f6ba24493ba | https://orbit.uat.unifyapps.com/p/0/ai-agents/e_6ae86c7ad96c5f6ba24493ba | R2 C54 |
+code-app: app-2fbe93e8c1f7 · branch main · PRIVATE · published v2 from commit 14eb159377b5a4c0d764c2da8fca056537cfe825 (G3 round 2: Components tab with built entity, last runs, Run on account; restore point v1 commit 057f53d6625c58044c9bd67445a203fc9e30cde3) · earlier published v1 from commit 057f53d6625c58044c9bd67445a203fc9e30cde3 (head d6dca64e "publish v1") · preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-2fbe93e8c1f7/main/ · published https://app-2fbe93e8c1f7-orbit.tensor-uat.unifyapps.com (from the shell task's handover; the publish reply named no URL; unverified) · routes /tower, /todo, /accounts/:accountId · storage FETCH e_6ae84846f410ab7b2ffc1ba8
+R2 models: family A agents on "Claude Sonnet 5 (UnifyApps, Vertex, cached)" e_6ad496812dd4ba5be70afcc1 (the planned card e_6acca2af70b66f5702c8b59f answers 401); family B checkers on "GPT-5.1_without_effort(DNT)" e_6ae835bbafe7fc590a05a045 or "GPT-5.1 (Azure Open AI)" e_696fe072cb3ef82f7e23dc86 (serves gpt-4.1; the planned GPT-5.1 card answers 401)
 analyst model: Claude Sonnet 5 (list_models gives no recommendation; the builder's pick)
 best practice: Save hand-off 84, Log signal 83, Decide Gate 1 67, Clear Gate 2 95, Book meeting 88, Pause component 97, Read factory records 93, Reset demo 88
 

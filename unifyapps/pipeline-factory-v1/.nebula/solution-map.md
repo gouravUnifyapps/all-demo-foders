@@ -6,7 +6,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 
 | Kind | Name | Id | Version | Stale |
 |---|---|---|---|---|
-| app | `UnifyApps Pipeline Factory Control Tower` | app-2fbe93e8c1f7 | 5 | no |
+| app | `UnifyApps Pipeline Factory Control Tower` | app-2fbe93e8c1f7 | 6 | no |
 | page | `global-page-of-app-2fbe93e8c1f7` | e_global_app-2fbe93e8c1f7 | 0 | no |
 | automation | `Pipeline Factory · Save hand-off` | 6ae840a5fbdd550a9a44c524 | 4 | no |
 | automation | `Pipeline Factory · Clear Gate 2` | 6ae840d7f6f76639f8ceb67d | 2 | no |

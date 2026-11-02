@@ -16,6 +16,11 @@ createdAt: "2026-11-02T11:09:11.800Z"
 runningAt: "2026-11-02T11:09:15.128Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P15
@@ -25,7 +30,7 @@ Goal: Pipeline Factory · G3 round 2 · P15
 | t1 | record | PF Component |  | done | 1 |
 | t2 | record | PF Seed snapshot | t1 | done | 1 |
 | t3 | code-app | UnifyApps Pipeline Factory Control Tower | t1 | done | 1 |
-| t4 | code-publish | UnifyApps Pipeline Factory Control Tower | t3 | running | 1 |
+| t4 | code-publish | UnifyApps Pipeline Factory Control Tower | t3 | done | 1 |
 
 ### t1 · Link the PF Component rows to their built entities
 
@@ -115,4 +120,18 @@ Body:
 5. Report ids (the app id as \`ids.entity\`), readBack, unverified, notes, and a \`handover:\` note with the published address and the preview address.
 
 Proof: publish_code_app answers deployed true with the commitHash; the published address is quoted.
+Result IDs: {"entity":"app-2fbe93e8c1f7","commit":"14eb159377b5a4c0d764c2da8fca056537cfe825"}
+Read back: UnifyApps Pipeline Factory Control Tower app-2fbe93e8c1f7: get_code_app before publishing answered head.sha 14eb159377b5a4c0d764c2da8fca056537cfe825, busy:false, interfaceRecord security PRIVATE
+Read back: UnifyApps Pipeline Factory Control Tower app-2fbe93e8c1f7: publish_code_app answered ok:true, version "v2", deployed {deployed:true, commitHash "14eb159377b5a4c0d764c2da8fca056537cfe825", entityVersion 6}, routes /login, /forgot-password, /update-password, /, /tower, /todo
+Read back: app-2fbe93e8c1f7: the deployed commitHash 14eb159377b5a4c0d764c2da8fca056537cfe825 is the commit t3 pushed
+Unverified: app-2fbe93e8c1f7 published address: publish_code_app and get_code_app answer no published URL, so none is quoted; the app's Code Builder page https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-2fbe93e8c1f7 shows its live link
+Unverified: app-2fbe93e8c1f7: the published app was not opened signed in; a load of its /tower route would show the Components tab live
+Note: handover: app-2fbe93e8c1f7 published as v2 (entityVersion 6) from commit 14eb159377b5a4c0d764c2da8fca056537cfe825, PRIVATE; preview https://orbit.uat.unifyapps.com/agent-api/preview/b/app-2fbe93e8c1f7/main/ ; builder page https://orbit.uat.unifyapps.com/p/0/interfaces/code-builder/app-2fbe93e8c1f7 ; published address not answered by any tool
+Note: feedback:
+Bug: publish_code_app does not answer the published app's address, and get_code_app does not either, so a code-publish task that asks to quote the published address cannot.
+Context: code-publish of app-2fbe93e8c1f7 on orbit.uat; the task Proof says the published address is quoted.
+Where: mcp-tool
+Evidence: publish_code_app returned {ok, version v2, commitHash, branch, deployed{deployed, commitHash, entityVersion, routes}} with no url field; get_code_app has no url field.
+Cause: Unknown — next check: whether the engine's deploy response carries a served URL the bridge drops.
+Regression: publish_code_app on any code app answers a published URL that loads the app.
 

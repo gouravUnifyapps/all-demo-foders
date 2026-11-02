@@ -4,7 +4,7 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: awaiting_g3
+status: building
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
@@ -20,7 +20,7 @@ gates:
   g1: {status: approved, round: 1, posted_ts: 1793442419.752669, decided_by: Gourav Mahunta (row), decided_at: 2026-11-01T08:11:55Z}
   g2: {status: approved, round: 1, posted_ts: 1793522055.329009, decided_by: Gourav Mahunta (row; thread reply "Approved, proceed"), decided_at: 2026-11-02T07:40:00Z}
   connections: {status: not_needed, round: 0, posted_ts: , decided_by: , decided_at: , list: []}
-  g3: {status: posted, round: 1, posted_ts: 1793612592.122889, decided_by: , decided_at: }
+  g3: {status: changes_requested, round: 2, posted_ts: 1793612592.122889, decided_by: Gourav Mahunta (thread feedback FB-1793612784906-1, confirmed "yes"), decided_at: 2026-11-02T09:46:24Z}
   g4: {status: not_posted, round: 0, posted_ts: , decided_by: , decided_at: }
 
 posts:
@@ -60,6 +60,12 @@ posts:
     by: bot
     version: 1
     round: 1
+  - when: 2026-11-02T10:12:00Z
+    kind: status
+    ts: 1793612592.122889
+    by: bot
+    version: 1
+    round: 2
 runs:
   - started: 2026-10-31T10:16:23Z
     ended: 2026-10-31T10:26:47Z
@@ -82,6 +88,12 @@ runs:
     spawns: 24
     tokens: 5900000
     outcome: posted G3
+  - started: 2026-11-02T09:55:00Z
+    gate: g3
+    round: 2
+    stages: [2-plan (scoped: 38 agents, 12 workflows)]
+    spawns: 1
+    tokens: 235070
 
 stopped:
 
@@ -817,11 +829,11 @@ asks:
 
 coverage:
   - ask: A1
-    by: beat 1
+    by: beat 1; beat H1 (all 38 agents and 12 workflows built, linked from the Components tab)
   - ask: A2
     by: beat 2
   - ask: A3
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: "control Components tab, facet sub-workflow 8: built AI agents PF · Winning Message Finder, PF · Scoring Tuner, PF · Objection Collector and PF · A/B Tester save proposals that PF · Quality Grader checks, Run on account, on Control tower"
   - ask: A4
     by: beat 1
   - ask: A5
@@ -845,37 +857,37 @@ coverage:
   - ask: A14
     by: beat 6
   - ask: A15
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: "control Components tab, facet sub-workflow 1: ten built AI agents (PF · Duplicate Finder to PF · Battlecard Writer), each with Run on account, on Control tower"
   - ask: A16
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Duplicate Finder (built AI agent PF · Duplicate Finder, Run on account), on Control tower
   - ask: A17
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Parent Company Linker (built AI agent PF · Parent Company Linker, Run on account), on Control tower
   - ask: A18
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Headquarters Finder (built AI agent PF · Headquarters Finder, Run on account), on Control tower
   - ask: A19
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Headquarters Re-checker (built AI agent PF · Headquarters Re-checker, Run on account), on Control tower
   - ask: A20
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row New Account Finder (built AI agent PF · New Account Finder, Run on account), on Control tower
   - ask: A21
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Fit Scorer (built AI agent PF · Fit Scorer, Run on account), on Control tower
   - ask: A22
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Patch Suggester (built AI agent PF · Patch Suggester, Run on account), on Control tower
   - ask: A23
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Current Vendor Finder (built AI agent PF · Current Vendor Finder, Run on account), on Control tower
   - ask: A24
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Renewal Date Finder (built AI agent PF · Renewal Date Finder, Run on account), on Control tower
   - ask: A25
-    by: control Components tab, facet sub-workflow 1, on Control tower
+    by: control Components tab, row Battlecard Writer (built AI agent PF · Battlecard Writer, Run on account), on Control tower
   - ask: A27
     by: beat 1
   - ask: A28
-    by: beat 2
+    by: beat 2; built AI agent PF · Buying Signal Spotter runs from the Components tab (Run on account)
   - ask: A29
-    by: beat 2
+    by: beat 2; built automation Pipeline Factory · Account Ranking runs from the Components tab (Run on account)
   - ask: A30
-    by: beat 3
+    by: beat 3; built automation Pipeline Factory · Weekly Slot Planner runs from the Components tab (Run on account)
   - ask: A31
-    by: beat 3
+    by: beat 3; built automation Pipeline Factory · Holdout Picker runs from the Components tab (Run on account)
   - ask: A32
     by: beat 3
   - ask: A33
@@ -885,61 +897,61 @@ coverage:
   - ask: A35
     by: beat 4
   - ask: A36
-    by: beat 4
+    by: beat 4; built AI agent PF · Company Facts Collector runs from the Components tab (Run on account)
   - ask: A37
-    by: beat 4
+    by: beat 4; built AI agent PF · Use Case Matcher runs from the Components tab (Run on account)
   - ask: A38
-    by: beat 4
+    by: beat 4; built AI agent PF · Case for Change Drafter runs from the Components tab (Run on account)
   - ask: A39
     by: beat 4
   - ask: A40
     by: beat 4
   - ask: A41
-    by: beat 4
+    by: beat 4; built AI agent PF · Buying Team Mapper runs from the Components tab (Run on account)
   - ask: A42
-    by: beat 4
+    by: beat 4; built AI agent PF · Person Notes Writer runs from the Components tab (Run on account)
   - ask: A43
-    by: control Components tab, facet sub-workflow 4, on Control tower
+    by: control Components tab, row Intro Finder (built AI agent PF · Intro Finder, Run on account), on Control tower
   - ask: A44
-    by: control Components tab, facet sub-workflow 4, on Control tower
+    by: control Components tab, row Contact Finder (built automation Pipeline Factory · Contact Finder, Run on account), on Control tower
   - ask: A45
-    by: control Components tab, facet sub-workflow 4, on Control tower
+    by: control Components tab, row Do-Not-Contact List (built automation Pipeline Factory · Do-Not-Contact List, Run on account), on Control tower
   - ask: A46
     by: control Components tab, facet sub-workflow 4, on Control tower
   - ask: A47
     by: beat 5
   - ask: A48
-    by: beat 2
+    by: beat 2; built AI agent PF · Play Picker runs from the Components tab (Run on account)
   - ask: A49
-    by: control Components tab, facet sub-workflow 5, on Control tower
+    by: control Components tab, row Page Builder (built AI agent PF · Page Builder, Run on account), on Control tower
   - ask: A50
-    by: control Components tab, facet sub-workflow 5, on Control tower
+    by: control Components tab, row Content Picker (built AI agent PF · Content Picker, Run on account), on Control tower
   - ask: A51
-    by: beat 5
+    by: beat 5; built AI agent PF · Message Writer runs from the Components tab (Run on account)
   - ask: A52
-    by: beat 5
+    by: beat 5; built AI agent PF · Fact Checker runs from the Components tab (Run on account)
   - ask: A53
-    by: beat 5
+    by: beat 5; built AI agent PF · Message Grader runs from the Components tab (Run on account)
   - ask: A54
-    by: beat 5
+    by: beat 5; built automation Pipeline Factory · Send Rules Check runs from the Components tab (Run on account)
   - ask: A55
     by: beat 5
   - ask: A56
     by: beat 5
   - ask: A57
-    by: control Components tab, row Outreach Launcher (tier spacing), on Control tower
+    by: "control Components tab, row Outreach Launcher (built automation Pipeline Factory · Outreach Launcher: tier spacing, local morning, 70% inbox cap; Run on account), on Control tower"
   - ask: A58
-    by: control Components tab, row Outreach Launcher (tier spacing), on Control tower
+    by: "control Components tab, row Outreach Launcher (built automation Pipeline Factory · Outreach Launcher: tier spacing, local morning, 70% inbox cap; Run on account), on Control tower"
   - ask: A59
-    by: beat 5
+    by: beat 5; built automation Pipeline Factory · Outreach Launcher runs from the Components tab (Run on account)
   - ask: A60
-    by: control Components tab, facet sub-workflow 6, on Control tower
+    by: control Components tab, row Call Script Writer (built AI agent PF · Call Script Writer, Run on account), on Control tower
   - ask: A61
-    by: control Components tab, facet sub-workflow 6, on Control tower
+    by: control Components tab, row Follow-up Planner (built AI agent PF · Follow-up Planner, Run on account), on Control tower
   - ask: A62
-    by: control Components tab, facet sub-workflow 6, on Control tower
+    by: control Components tab, row Inbox Health Checker (built AI agent PF · Inbox Health Checker, Run on account), on Control tower
   - ask: A63
-    by: control Components tab, facet sub-workflow 6, on Control tower
+    by: control Components tab, row Email Domain Swapper (built automation Pipeline Factory · Email Domain Swapper, Run on account), on Control tower
   - ask: A64
     by: control Components tab, facet sub-workflow 6, on Control tower
   - ask: A65
@@ -947,53 +959,53 @@ coverage:
   - ask: A66
     by: beat 6
   - ask: A67
-    by: control Components tab, facet sub-workflow 7, on Control tower
+    by: control Components tab, row Reply Sorter (built AI agent PF · Reply Sorter, Run on account), on Control tower
   - ask: A68
-    by: control Components tab, facet sub-workflow 7, on Control tower
+    by: control Components tab, row Reply Writer (built AI agent PF · Reply Writer, Run on account), on Control tower
   - ask: A69
-    by: beat 6
+    by: beat 6; built automation Pipeline Factory · Meeting Handoff and Deadlines (calls Book meeting) runs from the Components tab (Run on account)
   - ask: A70
-    by: control Components tab, facet sub-workflow 7, on Control tower
+    by: control Components tab, row Meeting Prep Writer (built AI agent PF · Meeting Prep Writer, Run on account), on Control tower
   - ask: A71
-    by: beat 6
+    by: beat 6; built AI agent PF · Meeting Labeler runs from the Components tab (Run on account)
   - ask: A72
-    by: beat 6
+    by: beat 6; built AI agent PF · Deal Qualifier runs from the Components tab (Run on account)
   - ask: A73
     by: beat 6
   - ask: A74
-    by: beat 6
+    by: beat 6; built automation Pipeline Factory · Meeting Handoff and Deadlines runs from the Components tab (Run on account)
   - ask: A75
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: "control Components tab, facet sub-workflow 8: seven built AI agents (proposals only, PF · Quality Grader checks each) and three built automations, on Control tower"
   - ask: A76
     by: control Hand-offs tab, record drawer (payload and evidence), on Control tower
   - ask: A77
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Winning Message Finder (built AI agent PF · Winning Message Finder, Run on account), on Control tower
   - ask: A78
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Scoring Tuner (built AI agent PF · Scoring Tuner, Run on account), on Control tower
   - ask: A79
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Objection Collector (built AI agent PF · Objection Collector, Run on account), on Control tower
   - ask: A80
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row A/B Tester (built AI agent PF · A/B Tester, Run on account), on Control tower
   - ask: A81
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Quality Grader (built AI agent PF · Quality Grader, Run on account), on Control tower
   - ask: A82
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Agent Monitor (built AI agent PF · Agent Monitor, Run on account), on Control tower
   - ask: A83
-    by: beat 5
+    by: beat 5; built AI agent PF · Test Error Planter runs from the Components tab (Run on account)
   - ask: A84
-    by: beat 7
+    by: beat 7; built automation Pipeline Factory · Alarm and Escalation runs from the Components tab (Run on account)
   - ask: A85
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Content Handoff (built automation Pipeline Factory · Content Handoff, Run on account), on Control tower
   - ask: A86
-    by: control Components tab, facet sub-workflow 8 (feeds column), on Control tower
+    by: control Components tab, row Privacy and Consent (built automation Pipeline Factory · Privacy and Consent, Run on account), on Control tower
   - ask: A88
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A89
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A90
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A91
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A92
     by: beat H1
   - ask: A93
@@ -1001,13 +1013,13 @@ coverage:
   - ask: A94
     by: open question 2
   - ask: A95
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A96
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A97
     by: open question 2
   - ask: A98
-    by: control Components tab columns (registered, one job, feeds, threshold, monitor rows, status shadow or live), on Control tower
+    by: "beat H1 (Components tab: 38 built AI agents and 12 built automations, each registered with one job, feeds, threshold, model family and status live, Run on account)"
   - ask: A99
     by: beat 4
   - ask: A100
@@ -1023,9 +1035,9 @@ coverage:
 
 size:
   pages: 3
-  objects: 9
-  automations: 9
-  agents: 1
+  objects: 13
+  automations: 25
+  agents: 39
 
 data:
   source: "assumed, shaped like HubSpot (accounts, contacts, deals) and the factory's context graph; the component registry is given: the spec's sub-workflow tables (Pipeline-Factory-Engineering-Build.docx), written to studio/data/components.csv with seeded run statistics"
@@ -1040,6 +1052,11 @@ data:
     - "PF Hand-off: 18, record · seed"
     - "PF Component: 57, record · seed naming studio/data/components.csv"
     - "PF Seed snapshot: one per seeded row, written by the seed task"
+    - "PF Component run (round 2): 0 seeded; one row per agent or workflow run, written by Save agent output and the 12 workflows"
+    - "PF Source (round 2): 19, record · seed (the mocked outside content for A-1001, one A-1012 transcript, the handbook)"
+    - "PF Inbox (round 2): 6, record · seed (Marcus Ellery 3, Tomas Ilves 2, new BDR Priya Anand 1; invented .example domains)"
+    - "PF Suppression (round 2): 4, record · seed (one erasure hash, one legal hold, two consents)"
+    - "PF Component (round 2): the 57 seeded rows updated with their built entity (38 AI agents, 12 automations, Gate 1 and Gate 2 linked to Decide Gate 1 and Clear Gate 2)"
   expected_answers: eval.csv
 
 verify:
@@ -1136,7 +1153,25 @@ decisions:
   - by: state-check
     when: 2026-11-02
     text: "reverted open_questions: written by verify, outside its fields (schema § Who writes what)"
+  - by: Gourav Mahunta
+    when: 2026-11-02
+    text: "G3 changes requested (feedback FB-1793612784906-1, gate g3, confirmed \"yes\" in G3's thread): \"build all the 38 agents and the 12 workflows\". G3 round 2: a fresh 2-plan adds build_contract lines for every agent and workflow in studio/data/components.csv not yet built live (changing nothing else, as the Connections rework does), then 3-build, 4-verify, 5-handover."
 
+  - by: plan
+    when: 2026-11-02
+    text: "G3 round 2 plan (scoped change, FB-1793612784906-1 \"build all the 38 agents and the 12 workflows\"): build_contract gains 61 Touches and these contract lines, appended after the round-1 lines, none of which change: 4 object · create (PF Component run, PF Source, PF Inbox, PF Suppression), 1 object · update (PF Component: six built-entity fields), 3 record · seed (PF Source 19, PF Inbox 6, PF Suppression 4) and 1 more PF Seed snapshot seed, 16 automation · create (the 12 workflows: Account Ranking, Weekly Slot Planner, Holdout Picker, Contact Finder, Do-Not-Contact List, Send Rules Check, Outreach Launcher, Email Domain Swapper, Meeting Handoff and Deadlines, Alarm and Escalation, Content Handoff, Privacy and Consent; plus Read component inputs, Save agent output, Reset agent runs, Run component), 1 automation · update (Reset demo calls Reset agent runs), 38 ai-agent · create (PF · <component>), 2 record · update (PF Component links, PF Seed snapshot rows), 1 code-app · update (Components tab: Built column and facet, drawer with the entity link, last runs and Run on account); Ready when gains 16 deploy and 38 publish lines and 5 observable lines (Reset demo and the code app reuse their round-1 deploy and publish lines). Grouping for 3-build, each plan at most 10 tasks (about 127 tasks, 15 plans), marked [R2-Pnn] under each heading: R2-P01 objects, field change and seeds (9); R2-P02 Read component inputs, Save agent output, Reset agent runs, Reset demo update (10); R2-P03 Account Ranking, Weekly Slot Planner, Holdout Picker, Do-Not-Contact List (9); R2-P04 Contact Finder, Send Rules Check, Outreach Launcher, Email Domain Swapper, Meeting Handoff and Deadlines (10); R2-P05 Alarm and Escalation, Content Handoff, Privacy and Consent, Run component (9); then the agents, an ai-agent task and a publish each: R2-P06 sw1 C01 to C05 (10); R2-P07 sw1 C06 to C10 (10); R2-P08 sw2 C11 and sw3 C16 to C18 (8); R2-P09 sw4 C21 to C23 (6); R2-P10 sw5 C27 to C31 (10); R2-P11 sw5 C32 and sw6 C36 to C38 (8); R2-P12 sw7 C41, C42, C44, C45, C46 (10); R2-P13 sw8 C48 to C52 (10); R2-P14 sw8 C53, C54 (4); R2-P15 the registry link (PF Component and its snapshot rows), the code-app update and the app's publish (4). R2-P02 goes before every agent plan (their two tools); R2-P15 goes last (it reads every id). Size: 3 pages, 13 objects (incl. PF Seed snapshot), 25 automations (incl. Reset demo and Reset agent runs), 39 AI agents."
+  - by: plan
+    when: 2026-11-02
+    text: "Round 2 modes: the 38 agents are live AI agents run on demand (Pipeline Factory · Run component from the Components tab, or verify's test messages); the 12 workflows are live deterministic automations with no model call, never presented as AI; the outside systems stay mocked by PF objects (three new: PF Source, PF Inbox, PF Suppression), so no connection is added and the Connections step stays not_needed. The round-1 seeded AI surfaces (facts, Case for Change, notes, drafts, grades, labels) stay seeded so the storyline does not move; beat H1 now shows one agent run live (PF · Case for Change Drafter on Carrow & Vale Logistics)."
+  - by: plan
+    when: 2026-11-02
+    text: "Round 2 reuse: Clear Gate 2 keeps its inline Send Rules Check and mocked enrolment, Log signal its single-signal timing score, Decide Gate 1 its hard blocks, Book meeting its booking and locks, all unchanged; the dedicated Send Rules Check is read-only on PF Draft (one writer of rules_check stays Clear Gate 2), Account Ranking re-ranks with Log signal's weights, Outreach Launcher schedules what Clear Gate 2 enrolled, Meeting Handoff and Deadlines calls Book meeting for calendar pick-ups, Alarm and Escalation calls Pause component (only under 95%), Privacy and Consent calls Do-Not-Contact List. Every agent hand-off goes through Save agent output, which calls the round-1 Save hand-off unchanged."
+  - by: plan
+    when: 2026-11-02
+    text: "Round 2 models: family A (drafters, monitors) Claude Sonnet 5, model card e_6acca2af70b66f5702c8b59f, the analyst's model; family B (the six checkers) GPT-5.1, model card e_6a0dd4e556ffb40e76c2762e, a different provider; both active with tool calling in list_models on orbit.uat.unifyapps.com (read 2026-11-02). The spec names no models, only two families."
+  - by: state-check
+    when: 2026-11-02
+    text: "reverted stage_flag: written by plan, outside its fields (schema § Who writes what)"
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"
@@ -1146,10 +1181,10 @@ dev_issues:
 frozen:
 
 cost:
-  runs: 3
-  agent_spawns: 26
-  tokens_m: 6.3
-  wall_h: 2.9
+  runs: 4
+  agent_spawns: 27
+  tokens_m: 6.5
+  wall_h: 3.2
 
 open_questions:
   - by: harvest
@@ -1185,6 +1220,12 @@ open_questions:
   - by: verify
     for: owner
     text: "Round 1 could not open the app: the published address and the preview both land on a sign-in page in the walk browser, so none of the 32 built asks (A1, A2, A4 to A14, A21, A27 to A42, A47, A48) was seen on a screen, and no control or on-page check ran. What was built for them (the Control tower, To-do and Account screens over the PF objects and eight automations) was proven only from records and deployed runs. Options: (recommended) sign in once to orbit.uat.unifyapps.com and the published app in the walk browser before round 2, so verify walks every beat; accept round 1's backend evidence and walk the screens yourself before the demo."
+  - by: plan
+    for: owner
+    text: "Round 2: the spec gives the parent outreach lock two writers: the Parent Company Linker \"sets the outreach lock at the top parent\" (its registered field) and the Outreach Launcher \"sets the parent outreach lock\". One writer per field (A6) allows one. Options: (recommended) the Parent Company Linker writes ultimate_parent_lock and the Outreach Launcher only checks it (built this way); the Outreach Launcher writes it at enrolment and the Linker only proposes it."
+  - by: plan
+    for: owner
+    text: "Round 2: the 38 agents and 12 workflows are built to run on demand; the spec's schedules (every 15 min, nightly, Monday 06:00, daily 07:00, weekly, monthly) are shown in the registry but not switched on, so the demo records never change by themselves. Options: (recommended) on demand for the demo, schedules switched on in a later version; switch the schedules on now (the records will move between rehearsals and each run costs model calls)."
 ---
 
 ## build_contract
@@ -1215,6 +1256,67 @@ The pod BDR and the patch AE watch one account, Carrow & Vale Logistics, move th
 - automation · Pipeline Factory · Reset demo · new
 - ai-agent · Pipeline Factory Analyst · new
 - code-app · UnifyApps Pipeline Factory Control Tower · new
+- object · PF Component · OBJ_pf_component
+- object · PF Component run · new
+- object · PF Source · new
+- object · PF Inbox · new
+- object · PF Suppression · new
+- automation · Pipeline Factory · Read component inputs · new
+- automation · Pipeline Factory · Save agent output · new
+- automation · Pipeline Factory · Reset agent runs · new
+- automation · Pipeline Factory · Account Ranking · new
+- automation · Pipeline Factory · Weekly Slot Planner · new
+- automation · Pipeline Factory · Holdout Picker · new
+- automation · Pipeline Factory · Do-Not-Contact List · new
+- automation · Pipeline Factory · Contact Finder · new
+- automation · Pipeline Factory · Send Rules Check · new
+- automation · Pipeline Factory · Outreach Launcher · new
+- automation · Pipeline Factory · Email Domain Swapper · new
+- automation · Pipeline Factory · Meeting Handoff and Deadlines · new
+- automation · Pipeline Factory · Alarm and Escalation · new
+- automation · Pipeline Factory · Content Handoff · new
+- automation · Pipeline Factory · Privacy and Consent · new
+- automation · Pipeline Factory · Run component · new
+- automation · Pipeline Factory · Reset demo · 6ae8441df38e327618fcc13c
+- ai-agent · PF · Duplicate Finder · new
+- ai-agent · PF · Parent Company Linker · new
+- ai-agent · PF · Headquarters Finder · new
+- ai-agent · PF · Headquarters Re-checker · new
+- ai-agent · PF · New Account Finder · new
+- ai-agent · PF · Fit Scorer · new
+- ai-agent · PF · Patch Suggester · new
+- ai-agent · PF · Current Vendor Finder · new
+- ai-agent · PF · Renewal Date Finder · new
+- ai-agent · PF · Battlecard Writer · new
+- ai-agent · PF · Buying Signal Spotter · new
+- ai-agent · PF · Company Facts Collector · new
+- ai-agent · PF · Use Case Matcher · new
+- ai-agent · PF · Case for Change Drafter · new
+- ai-agent · PF · Buying Team Mapper · new
+- ai-agent · PF · Person Notes Writer · new
+- ai-agent · PF · Intro Finder · new
+- ai-agent · PF · Play Picker · new
+- ai-agent · PF · Page Builder · new
+- ai-agent · PF · Content Picker · new
+- ai-agent · PF · Message Writer · new
+- ai-agent · PF · Fact Checker · new
+- ai-agent · PF · Message Grader · new
+- ai-agent · PF · Call Script Writer · new
+- ai-agent · PF · Follow-up Planner · new
+- ai-agent · PF · Inbox Health Checker · new
+- ai-agent · PF · Reply Sorter · new
+- ai-agent · PF · Reply Writer · new
+- ai-agent · PF · Meeting Prep Writer · new
+- ai-agent · PF · Meeting Labeler · new
+- ai-agent · PF · Deal Qualifier · new
+- ai-agent · PF · Winning Message Finder · new
+- ai-agent · PF · Scoring Tuner · new
+- ai-agent · PF · Objection Collector · new
+- ai-agent · PF · A/B Tester · new
+- ai-agent · PF · Quality Grader · new
+- ai-agent · PF · Agent Monitor · new
+- ai-agent · PF · Test Error Planter · new
+- code-app · UnifyApps Pipeline Factory Control Tower · app-2fbe93e8c1f7
 
 ### Contract
 #### object · PF Patch
@@ -1309,6 +1411,257 @@ The code app: Control tower, To-do and Account.
 - code-app · update · UnifyApps Pipeline Factory Control Tower: screen To-do: the Gate 1 batch as .toolbar above .tbl of PF Account where gate1_status is pending or queued (fit band .tag, timing of 40, top 3 signals as .cell-chips, Patch ID, AE, last touch, slots left), Accept as the row's .btn-p and Reject with a .menu of four reasons; a hard block as .tag.negative with a .note; a Waiting on you .feed of PF Hand-off rows assigned to the BDR; .toast on each result · reads PF Account, PF Patch, PF Hand-off · calls Pipeline Factory · Decide Gate 1 on Accept and Reject
 - code-app · update · UnifyApps Pipeline Factory Control Tower: screen Account: .crumb; the account head as .g1 with .dl (patch, AE, BDR, fit of 60, timing of 40, the locked fields with a lock mark); .tabs Research, Buying team, Gate 2, Meeting; Research: .tbl of PF Fact with [PUBLIC] or [HYPOTHESIS] .tag, and the Case for Change in an AI Insight card (.ai:not(.msg)) marked AI-drafted; Buying team: .pc cards by tier with .faces, the gatekeeper marked mapped only; Gate 2: .tbl of PF Draft with grade, fact check and rules .tag, Approve as .btn-p and Hold, the refusal as .tag.negative with a .note; Meeting: .stages Engage, Connect, Commit, Book meeting as .btn-p, the Deal Qualifier's six requirements as .tbl, the deadlines as .agenda, the locked-field correction as a .modal; the agent drawer (.agent-launch, .agent-drawer) on every screen with the answer in an AI Insight card (.ai:not(.msg)) with its grounding line and one action, Pause and the component name · reads PF Account, PF Person, PF Fact, PF Draft, PF Hand-off, PF Component · calls Pipeline Factory · Clear Gate 2 on Approve and Hold, Pipeline Factory · Book meeting on Book meeting and the correction, Pipeline Factory · Ask the analyst on Ask, Pipeline Factory · Pause component on Pause
 
+<!-- G3 round 2 (2-plan, 2026-11-02): every line below this mark is new; the round-1 lines above are unchanged. Plan groups R2-P01 to R2-P15 are named in each sub-section heading. -->
+
+#### object · PF Component
+[R2-P01 · objects and field changes] The registry learns which built entity runs each component.
+- object · update · PF Component: add fields built_kind (picklist: ai_agent "AI agent", automation "Automation", not_built "Not built"; default not_built), built_entity_id (text), built_entity_name (text), built_link (text), built_status (picklist: live "Live", not_built "Not built"; default not_built), built_at (date, epoch ms). Nothing else on the object changes; the round-1 fields, picklists and the 57 seeded rows stay as they are.
+
+#### object · PF Component run
+[R2-P01] Every agent and workflow run, traced: input, output, model, confidence, cost and latency, keyed by patch.
+- object · create · PF Component run: id OBJ_pf_component_run; primaryKey run_id (text, required); fields component_id (text), component_name (text), kind (picklist: agent "Agent", checker "Checker", monitor "Monitor", workflow "Workflow"), patch_id (text), account_id (text), person_id (text), play_id (text), draft_id (text), output_type (text), summary (text), payload (text, JSON), confidence (number), evidence (text), evidence_tag (picklist: public "[PUBLIC]", hypothesis "[HYPOTHESIS]", none "None"), status (picklist: saved "Saved, flowed on", waiting_person "Waiting on a person", rejected "Rejected: schema", proposal "Proposal only", blocked "Blocked", no_action "No action", paused "Not run: component paused"), assigned_to (text), reason (text), model (text), cost_usd (number), latency_ms (number), idempotency_key (text, component_id + account_id + person_id + play_id + output_type), handoff_ids (text), run_at (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Source
+[R2-P01] The outside systems' content, mocked: filings, press, job posts, vendor case studies, LinkedIn exports, contact data, Content Factory assets, Gong calls, replies, calendar events, meeting transcripts, the handbook.
+- object · create · PF Source: id OBJ_pf_source; primaryKey source_id (text, required); fields account_id (text), person_id (text), source_kind (picklist: annual_report "Annual report", investor_deck "Investor deck", earnings_call "Earnings call", press "Press", job_post "Job post", vendor_case_study "Vendor case study", procurement_notice "Procurement notice", linkedin_export "LinkedIn connection export", contact_record "Contact record", content_asset "Content Factory asset", call_transcript "Call transcript", meeting_transcript "Meeting transcript", calendar_event "Calendar event", reply "Reply", web_visit "Web visit", handbook "Handbook section"), title (text), body (text), url (text), source_date (date, epoch ms), mocked_system (text), status (text), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Inbox
+[R2-P01] The sending inboxes and domains, mocked (Apollo).
+- object · create · PF Inbox: id OBJ_pf_inbox; primaryKey inbox_id (text, required); fields sender (text), pod (text), domain (text), daily_limit (number), sent_today (number), ramp_week (number), placement_pct_last (number), placement_pct_prev (number), blacklisted (boolean), previously_blacklisted (boolean), status (picklist: active "Active", resting "Resting", warm_spare "Warm spare", retired "Retired", blocked_new "Blocked: new sender"), checked_at (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+
+#### object · PF Suppression
+[R2-P01] The one suppression list and consent records (copied to HubSpot, Apollo and Sprouts, mocked).
+- object · create · PF Suppression: id OBJ_pf_suppression; primaryKey suppression_id (text, required); fields person_id (text), account_id (text), email_hash (text), kind (picklist: opt_out "Opt-out", bounce "Bounce", complaint "Complaint", legal_hold "Legal hold", consent "Consent", erasure "Erasure"), reason (text), state (text), consent_given (boolean), copied_to (text), copied_at (date, epoch ms), erase_due (date, epoch ms), origin (picklist: user "User", seed "Seed", test "Test"; default user)
+- record · seed · PF Source: origin seed on every row; dates epoch ms in the 12 months before the demo unless said; links invented under carrowvale.example; all A-1001 unless named. SRC-01 annual_report "Annual report 2025", page 14: "Order exceptions are still handled by hand across our three ERPs". SRC-02 earnings_call "Q2 2026 call" 00:18:40: "We plan to automate order-to-cash end to end by 2027". SRC-03 job_post "Integration Engineer, AI Platform team (3 roles)". SRC-04 investor_deck slide 9: "Cost-to-serve is a board priority". SRC-05 press "Carrow & Vale names Colette Baines Head of AI" (6 weeks before the demo). SRC-06 vendor_case_study "Carrow & Vale on Corvane Integrate" dated 28 months before the demo (earliest evidence; renewal estimate 8 months out). SRC-07 linkedin_export, person P-1002: "Dana Okafor and Arjun Mehta worked together at Northgate Freight 2017 to 2020" (opt-in export, mocked_system "LinkedIn export (opt-in)"). SRC-08 contact_record P-1002 "arjun.mehta@carrowvale.example, verified" (mocked_system "Sprouts (mocked)"). SRC-09 contact_record P-1006 "no verified email" (Sprouts, mocked). SRC-10 content_asset "Order exception triage playbook for logistics" (UC-LOG-014, role operations, 5 months old). SRC-11 content_asset "Carrier invoice reconciliation case study" (UC-LOG-022, 22 months old: too old). SRC-12 call_transcript "Top call: logistics VP, objection: we already have an integration vendor" (Gong, mocked). SRC-13 reply P-1002 "Happy to talk next week, Tuesday works" (Apollo, mocked). SRC-14 reply P-1007 "Out of office until" a date 10 days after the demo (Apollo, mocked). SRC-15 reply P-1009 "Please remove me from your list" (Apollo, mocked). SRC-16 calendar_event "Intro: Carrow & Vale and UnifyApps", 45 min, attendees Arjun Mehta, Colette Baines, Dana Okafor, booked in the AE's Google Calendar (mocked), 3 days after the demo. SRC-17 meeting_transcript, account A-1012 Harrowgate Mutual, "New Buyer Meeting, 48 min": quotes for fit, a VEP-CFC pain (claims intake), an engaged champion, timeline "this fiscal year", a mutual next step booked. SRC-18 web_visit A-1001 "/pricing, 65 s with scroll". SRC-19 handbook (no account) "Message handbook: voice and copy rules" (the copy rules of A56).
+- record · seed · PF Inbox: origin seed on every row; invented UnifyApps-branded secondary domains under .example. IN-01 Marcus Ellery, POD-NAE-1, getunifyapps.example, daily_limit 40, sent_today 22, ramp_week 4, placement 92 then 90, active. IN-02 Marcus Ellery, POD-NAE-1, unifyapps-team.example, 40, 18, ramp 4, placement 64 then 68 (two tests under 70), active. IN-03 Marcus Ellery, POD-NAE-1, tryunifyapps.example, 40, 0, ramp 4, placement 88, warm_spare. IN-04 Tomas Ilves, POD-NAE-2, meetunifyapps.example, 20, 9, ramp 2, placement 85, active. IN-05 Tomas Ilves, POD-NAE-2, unifyappsmail.example, 40, 0, placement 81, previously_blacklisted true, resting. IN-06 Priya Anand (new BDR), POD-NAE-2, hellounifyapps.example, 10, 0, ramp 1, no placement test yet, blocked_new.
+- record · seed · PF Suppression: origin seed on every row. SUP-01 erasure, email_hash "sha256:9f2c…e41a" (an erased person, no person_id), reason "erasure completed", copied_to "HubSpot, Apollo, Sprouts (mocked)". SUP-02 legal_hold, account A-1004, reason "legal hold: procurement dispute". SUP-03 consent P-1001, state OH, consent_given true, reason "call recording consent". SUP-04 consent P-1002, state OH, consent_given true.
+- record · seed · PF Seed snapshot: one more row per row the three seed lines above write (snapshot_id `object_id:record_id`, row_values the row as seeded, JSON), origin seed, written once after those seeds.
+
+#### automation · Pipeline Factory · Read component inputs
+[R2-P02 · automations: the agents' tools] The agents' one read tool.
+- automation · create · Pipeline Factory · Read component inputs: callable from the AI agents; inputs component_id (text, required), account_id (text), person_id (text), draft_id (text), patch_id (text); result component (text, JSON: the PF Component row with threshold, below_threshold_goes_to, feeds, writes, model_family, status), account (text, JSON), people (text, JSON), signals (text, JSON), facts (text, JSON), drafts (text, JSON), sources (text, JSON: PF Source rows of the account or person, plus rows with no account such as content assets and the handbook), handoffs_in (text, JSON: PF Hand-off rows whose to_component is this component's name, for the account when given), inboxes (text, JSON), suppression (text, JSON), recent_runs (text, JSON: the last 50 PF Component run rows, for the sw8 agents), reason (text). Read-only, deterministic, no model call; an account_id given as a name resolves to its account_id as Read factory records does; an unknown component_id answers reason "unknown component" and empty lists.
+
+#### automation · Pipeline Factory · Save agent output
+[R2-P02] The agents' one write tool: the hand-off contract applied to every agent output.
+- automation · create · Pipeline Factory · Save agent output: callable from the AI agents; inputs component_id (text, required), account_id (text), person_id (text), play_id (text), draft_id (text), patch_id (text), output_type (text), summary (text), payload (text, JSON), confidence (number), evidence (text), evidence_tag (text: public | hypothesis), model (text), origin (text); result result (text: saved | waiting_person | rejected | duplicate | paused), run_id (text), handoff_ids (text), reason (text). Deterministic, no model call. Reads the PF Component row: a paused component answers paused and writes nothing. Schema check: confidence 0 to 100, evidence and output_type present, patch_id taken from the account when not given; a failure saves a PF Component run with status rejected, assigned_to GTM engineer, reason "schema check failed: `field` missing", and nothing else. Idempotent on component_id + account_id + person_id + play_id + output_type: a re-run updates the same PF Component run row and answers duplicate, never a second row or a second hand-off. Under the component's threshold: the run is saved waiting_person, assigned_to its below_threshold_goes_to, and no field is written. At or over it: writes only the component's registered fields (one writer per field, from a fixed map: C02 PF Account.ultimate_parent_lock; C03 PF Account.hq_city; C06 PF Account.fit_score and fit_band; C11 PF Signal rows; C16, C17, C18 PF Fact rows of kind fact, use_case, case_for_change; C21 PF Person.role and tier; C22 PF Person.note; C30 PF Draft rows (status waiting_gate2, enrolment_key empty); C31 PF Draft.fact_check; C32 PF Draft.grade; C38 PF Inbox.placement_pct_last and blacklisted; C45 PF Account.meeting_label; C46 PF Account.qualified_status; C54 PF Draft.planted_error; every other component writes only its PF Component run row), never a locked field of a booked account (locked_at set), then calls Pipeline Factory · Save hand-off once per name in the component's feeds that is a component (from_component the component's name, to_component the feed, writes_field the field written, the same keys, confidence, payload and evidence), and saves the PF Component run with status saved (or proposal for the sw8 learning agents), model, run_at and the hand-off ids. Every write carries the origin given (default user).
+
+#### automation · Pipeline Factory · Reset agent runs
+[R2-P02] The reset for the round-2 objects.
+- automation · create · Pipeline Factory · Reset agent runs: callable from Pipeline Factory · Reset demo, mode deterministic, no model call; no inputs; result deleted (number), restored (number). Deletes every row whose origin is test in PF Component run, PF Source, PF Inbox and PF Suppression, puts every seed row of those four objects back from PF Seed snapshot, never touches a user row.
+- automation · update · Pipeline Factory · Reset demo: after its round-1 steps, unchanged, it calls Pipeline Factory · Reset agent runs and adds its deleted and restored counts to its own; the PF Component rows are restored from their snapshot rows, which the registry line below rewrites to hold the built-entity fields, so a reset keeps the links.
+
+#### automation · Pipeline Factory · Account Ranking
+[R2-P03 · automations: the 12 workflows, part 1] C12. Ranks each patch and tops up the Gate 1 batch.
+- automation · create · Pipeline Factory · Account Ranking: callable from Pipeline Factory · Run component and other automations; mode deterministic, no model call; inputs patch_id (text, required), mode (text: rank | top_up), origin (text); result ranked (number), queued_to_gate1 (number), reason (text). rank (the Monday 06:00 job): recomputes each account's timing_score as the sum of its counted PF Signal weights in the last 30 days, capped at 40 (the same starting weights and checked-visit rule Pipeline Factory · Log signal applies; Log signal is unchanged and keeps scoring a single new signal), writes rank_in_patch by fit_score + timing_score and top_signals (the top 3) on PF Account; top_up (the daily 07:00 job): moves the highest-ranked queued accounts of the patch to gate1_status pending until the patch's slots left (slots_allocated minus slots_used) are filled, after fast-lane plays, skipping held-out and not_eligible accounts; saves an Account Ranking to Gate 1 hand-off per account queued through Save hand-off and one PF Component run (component_id C12, kind workflow, model none).
+
+#### automation · Pipeline Factory · Weekly Slot Planner
+[R2-P03] C13. The Monday slot allocation.
+- automation · create · Pipeline Factory · Weekly Slot Planner: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs patch_id (text, empty for all), origin (text); result allocations (text, JSON per patch: base, cap, boost, allocated), reason (text). Base 25 slots per patch; a pace boost of up to 50% (25% by default) only to a patch whose AE has under 6 intros booked in 7 days and is behind on intro meetings (intros_booked_7d under 4, the assumed weekly target, since no diagnosis field exists); then never more than eligible_accounts ÷ 13 (rounded down), floor 15, cap 40. Writes PF Patch.slots_allocated and pace_boost_pct and one PF Component run per patch (C13) logging every allocation; PATCH-NAE-03 gets 24 (312 ÷ 13), PATCH-NAE-04 gets 20 (260 ÷ 13) with its 25% boost logged.
+
+#### automation · Pipeline Factory · Holdout Picker
+[R2-P03] C14. The randomised holdout after allocation.
+- automation · create · Pipeline Factory · Holdout Picker: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs patch_id (text, required), week_seed (number; default the ISO week number of the run), origin (text); result held (text, JSON account ids), std_diff_fit (number), std_diff_timing (number), redraws (number), reason (text). From the patch's medium and low fit accounts that are pending or queued and not yet held, draws 10% (at least 1) with a seeded pseudo-random order from week_seed; checks the standardised difference of fit_score and timing_score between held and treated under 0.1, else redraws with week_seed + 1, at most 5 times, then answers the best draw with reason "balance not reached after 5 redraws"; sets factory_holdout true and factory_holdout_until 90 days after the run on each held account (HubSpot flag mocked as the PF Account fields) and logs the seed in one PF Component run (C14). Decide Gate 1, unchanged, refuses a held account. The 90- and 180-day reports are the PF Component run rows (assumption).
+
+#### automation · Pipeline Factory · Do-Not-Contact List
+[R2-P03] C25. One suppression list, consent and erasure.
+- automation · create · Pipeline Factory · Do-Not-Contact List: callable from the AI agents (PF · Reply Sorter), Pipeline Factory · Run component and other automations; mode deterministic, no model call; inputs action (text: add | erase | sync | screen), person_id (text), kind (text: opt_out | bounce | complaint | legal_hold), reason (text), origin (text); result result (text: added | already_listed | erased | synced | clear | listed), suppression_id (text), reason (text). add: one PF Suppression row per person and kind (no second row), PF Person.dnc true, copied_to "HubSpot, Apollo, Sprouts (mocked)" with copied_at now; erase: sets the PF Person's name to "Erased person" and its note empty, keeps only a hashed code (email_hash) on a PF Suppression erasure row with erase_due 30 days out, so the person is never re-added; sync: stamps copied_at on every row (the 15-minute copy, mocked); screen: answers listed or clear for a person (the phone DNC screen before any dialler, mocked as the list). One PF Component run per call (C25).
+
+#### automation · Pipeline Factory · Contact Finder
+[R2-P04 · automations: the 12 workflows, part 2] C24. Verified contact details, mocked through Sprouts.
+- automation · create · Pipeline Factory · Contact Finder: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs account_id (text, required), origin (text); result verified (number), linkedin_only (number), reason (text). For each PF Person of the account that is not a gatekeeper and not on the suppression list: a PF Source contact_record with a verified email sets email_status verified (phone noted for Tier 1 and engaged people in the run), none sets linkedin_only; a verification older than 90 days is re-checked before use; one PF Component run (C24) with source and verify date per person (graph and HubSpot writes mocked as the PF records).
+
+#### automation · Pipeline Factory · Send Rules Check
+[R2-P04] C33. The full Send Rules Check as its own automation; Clear Gate 2 keeps its own check, unchanged.
+- automation · create · Pipeline Factory · Send Rules Check: callable from Pipeline Factory · Run component and other automations; mode deterministic, no model call; inputs draft_id (text, required), origin (text); result result (text: passed | blocked), rule (text), reason (text), checks (text, JSON: every rule with passed or failed). Read-only on PF Draft (Clear Gate 2 stays the only writer of rules_check): checks clean text (no empty subject or body, no unfilled placeholder, the AE's name right); person still in role (not erased); not on DNC (PF Person.dnc or a PF Suppression row), not held out, not a customer or open deal (deal_stage none); parent outreach lock owned by this owner (ultimate_parent_lock equals owner_ae or is empty); Patch ID, AE and pod present; sender from the account's pod and under its inbox daily limit (PF Inbox sent_today under 70% of daily_limit); person not in another sequence; consent recorded for the person's state when a PF Suppression consent row exists; a planted_error draft is always blocked. Answers the first failed rule in a fixed order (pod, DNC, other sequence, held out, Patch ID/AE/pod, parent lock, inbox limit, clean text, planted error) so it names the same rule Clear Gate 2 names for D-04 (pod) and for D-06 (other sequence). One PF Component run (C33).
+
+#### automation · Pipeline Factory · Outreach Launcher
+[R2-P04] C35. Puts each enrolled person into channels, mocked (Apollo, Sprouts, HubSpot).
+- automation · create · Pipeline Factory · Outreach Launcher: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs account_id (text, required), origin (text); result scheduled (number), already_scheduled (number), schedule (text, JSON), reason (text). For every PF Draft of the account with status enrolled (Clear Gate 2 enrols; it is unchanged): schedules email steps into the assigned inbox's sequence, LinkedIn steps into the sender's Sprouts queue and calls as call tasks, in the prospect's local morning (09:00 to 11:00 in the account's state) and state window, Tier 2 two days after Tier 1 and Tier 3 two days after that, no two people at one account emailed the same day; holds every inbox at 70% of its daily limit (adds to PF Inbox.sent_today, never past 70%); keyed on enrolment_key (person + play): a draft already scheduled answers already_scheduled and writes nothing; owner, Patch ID, BDR of record, sequence status and tasks to HubSpot are mocked as the PF Component run payload (C35). It never writes ultimate_parent_lock (Parent Company Linker is that field's one writer; open question).
+
+#### automation · Pipeline Factory · Email Domain Swapper
+[R2-P04] C39. Rests a failing domain and swaps in a warm spare.
+- automation · create · Pipeline Factory · Email Domain Swapper: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs sender (text, empty for all), origin (text); result rested (text, JSON inbox ids), swapped_in (text, JSON), retired (text, JSON), blocked_new (text, JSON), reason (text). An active inbox with placement under 70% in its last two tests, or blacklisted, goes to resting the same day and the sender's first warm_spare goes active; a previously blacklisted inbox goes to retired; a new sender's (blocked_new) inbox stays blocked until a placement test of 70 or more exists. Writes PF Inbox.status (its one writer) and one PF Component run (C39). On the seeds: IN-02 rests, IN-03 goes active, IN-05 retires, IN-06 stays blocked.
+
+#### automation · Pipeline Factory · Meeting Handoff and Deadlines
+[R2-P04] C43. Picks up meetings, triggers the prep pack and runs the AE deadlines; Book meeting stays the booking and lock step, unchanged.
+- automation · create · Pipeline Factory · Meeting Handoff and Deadlines: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs account_id (text, empty for all), origin (text); result picked_up (number), deadlines (text, JSON), escalations (text, JSON), reason (text). Picks up meetings booked outside the AE's link from PF Source calendar_event rows (the AE's Google Calendar, mocked) and calls Pipeline Factory · Book meeting (action book, the same origin) for an account not yet booked (a rejected meeting rebooked within 30 days keeps its source); saves a Meeting Handoff and Deadlines to Meeting Prep Writer hand-off through Save hand-off (the prep pack trigger; SC booking, agenda and 24h/1h reminders and the 2-touch no-show reschedule are mocked as the run payload); computes the AE deadlines in business hours: accept or reject within 1 business day (else Geo leader in 4h or the backup AE), decide within 2 business days of a held meeting, stale after 5 idle business days at Engage, alert at 30 days in Connect and 45 in Commit without a next step, reminder at half-window and escalation on a miss, as PF Hand-off rows waiting_person through Save hand-off; one PF Component run (C43).
+
+#### automation · Pipeline Factory · Alarm and Escalation
+[R2-P05 · automations: the 12 workflows, part 3, and the registry's run action] C55. Reads the tower and acts on a red line.
+- automation · create · Pipeline Factory · Alarm and Escalation: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs origin (text); result actions (text, JSON: component or patch, red line, action, before and after), escalations (text, JSON), reason (text). Reads PF Component success_rate and PF Patch; a component under 95% is paused automatically through Pipeline Factory · Pause component (a safety action; resuming needs a person); a component from 95% to under 97% gets a to-do item for the GTM engineer (a PF Hand-off waiting_person through Save hand-off) and is never paused by it, so beat 7's person still pauses Current Vendor Finder (96.1%); a patch under its intro pace gets a throttle or move-slots proposal as a to-do item; unfixed alarms escalate patch to pod after 2 business days, to Geo after 5, then to CRO (by the age of the open to-do item); logs before and after numbers in one PF Component run (C55).
+
+#### automation · Pipeline Factory · Content Handoff
+[R2-P05] C56. Monday hand-off to marketing, mocked (LinkedIn ad audiences, Content Factory).
+- automation · create · Pipeline Factory · Content Handoff: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs patch_id (text, required), origin (text); result audiences (number), to_content_factory (number), to_nurture (number), marketing_influenced_set (number), reason (text). Accounts in play in the patch go to a LinkedIn ad audience by patch geography for 8 weeks; people never reached go to the Content Factory (ads and content only, never cold email); people whose reply was sorted "not now" or who engaged go to nurture until their date; sets PF Account.marketing_influenced true on accounts in play that are not yet booked (never on a locked account); the weekly asset, message and pattern results by patch are the run payload; one PF Component run (C56).
+
+#### automation · Pipeline Factory · Privacy and Consent
+[R2-P05] C57. Consent, legal checklists, erasure and the 12-month clean-up.
+- automation · create · Pipeline Factory · Privacy and Consent: callable from Pipeline Factory · Run component; mode deterministic, no model call; inputs account_id (text, empty for all), origin (text); result checklist (text, JSON per person: recording consent, DNC, send window, consent, footer), erasures_due (number), cleanup_flagged (number), reason (text). Per person: recording consent per state from PF Suppression consent rows, the DNC screen through Pipeline Factory · Do-Not-Contact List (action screen), the state legal checklist (send window, consent, footer); erasure rows past erase_due are completed through Do-Not-Contact List (action erase); people never engaged in 12 months are flagged for clean-up in the run (never deleted by the demo); one PF Component run (C57).
+
+#### automation · Pipeline Factory · Run component
+[R2-P05] The registry's Run action: one call runs any built agent or workflow on an account.
+- automation · create · Pipeline Factory · Run component: callable from the app; inputs component_id (text, required), account_id (text), person_id (text), draft_id (text), origin (text); result result (text: ran | paused | not_runnable | failed), run_id (text), handoff_ids (text), confidence (number), summary (text), reason (text). Reads the PF Component row: status paused answers paused and runs nothing; built_kind not_built (human gates C26, C40, C47 and the two rule steps) answers not_runnable "a person or a rule step, not a built entity"; built_kind ai_agent invokes the agent whose id is built_entity_id (the same invoke operation Pipeline Factory · Ask the analyst uses) with the message "Run your job for component `component_id` on account `account_id` (person, draft when given); origin `origin`", then reads the newest PF Component run of that component and account and writes latency_ms on it; built_kind automation calls the matching workflow automation above (one branch per component id, C12, C13, C14, C24, C25, C33, C35, C39, C43, C55, C56, C57, passing account_id or its patch_id and origin; C15 and C34 answer not_runnable "run from To-do or Gate 2"). If the invoke operation takes only a fixed agent, it branches per component id for the 38 agents instead. Deterministic itself; the model call is the invoked agent's.
+
+#### ai-agent · PF · Duplicate Finder
+[R2-P06 · agents, sub-workflow 1 (part 1)] C01, one job, built live.
+- ai-agent · create · PF · Duplicate Finder: registry row C01 (agent, sub-workflow 1. Patch accounts, asks A16); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: find duplicate patch accounts: normalise keys (domain, legal name, LinkedIn ID, HubSpot ID, email), match exactly, score near-matches 0 to 100 and log the reasoning; reads PF Account rows of the patch through Read component inputs (component_id C01); writes a PF Component run of output_type merge_proposal per pair (pair, score, keys compared, reasoning); it never merges or deletes a row (a merge is a proposal in this demo), only through Save agent output (component_id C01); threshold and routing: 95 or more: proposal marked merge; 80 to 95: waiting_person for RevOps; under 80: kept separate, no hand-off (Save agent output applies the threshold 95 and routes below it to RevOps); feeds (the register): Parent Company Linker; schedule in the registry: every 15 min (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never deletes or merges an account itself; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Parent Company Linker
+[R2-P06 · agents, sub-workflow 1 (part 1)] C02, one job, built live.
+- ai-agent · create · PF · Parent Company Linker: registry row C02 (agent, sub-workflow 1. Patch accounts, asks A17); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: link each company to its parent, subsidiaries and divisions, propose divisions that buy separately, and set the outreach lock at the top parent; reads PF Account rows and PF Source rows (press, filings) through Read component inputs (component_id C02); writes PF Account.ultimate_parent_lock (its registered field) and a PF Component run row with parent_id, children and division proposals, only through Save agent output (component_id C02); threshold and routing: under 80: waiting_person for RevOps, the lock is not written (Save agent output applies the threshold 80 and routes below it to RevOps); feeds (the register): Headquarters Finder; Patch Suggester; schedule in the registry: on new account, HQ change or M&A news (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; a division proposal is never applied without RevOps; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Headquarters Finder
+[R2-P06 · agents, sub-workflow 1 (part 1)] C03, one job, built live.
+- ai-agent · create · PF · Headquarters Finder: registry row C03 (agent, sub-workflow 1. Patch accounts, asks A18); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: find the parent's headquarters city, state and country by weighing sources; reads PF Account and PF Source rows (filings, press) through Read component inputs (component_id C03); writes PF Account.hq_city (its registered field) and a PF Component run row with state, country, other candidates and evidence, only through Save agent output (component_id C03); threshold and routing: under 80: waiting_person, RevOps picks from the candidates (Save agent output applies the threshold 80 and routes below it to RevOps); feeds (the register): Patch Suggester; schedule in the registry: on new account (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never guesses a city without a source; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Headquarters Re-checker
+[R2-P06 · agents, sub-workflow 1 (part 1)] C04, one job, built live.
+- ai-agent · create · PF · Headquarters Re-checker: registry row C04 (monitor, sub-workflow 1. Patch accounts, asks A19); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: re-check headquarters of companies with move or M&A news and raise an alert on any change; reads PF Account.hq_city and PF Source press rows through Read component inputs (component_id C04); writes a PF Component run row of output_type hq_change_alert (old and new HQ, source) and a hand-off to Patch Suggester, only through Save agent output (component_id C04); threshold and routing: under 80: waiting_person for RevOps; no change: result no_action (Save agent output applies the threshold 80 and routes below it to RevOps); feeds (the register): Patch Suggester; patch control tower; schedule in the registry: nightly on move or M&A news; quarterly on all (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never writes hq_city itself (Headquarters Finder owns it); outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · New Account Finder
+[R2-P06 · agents, sub-workflow 1 (part 1)] C05, one job, built live.
+- ai-agent · create · PF · New Account Finder: registry row C05 (agent, sub-workflow 1. Patch accounts, asks A20); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: find new candidate accounts from closed-won lookalikes and the seven other sources, dropping fit under 36, customers, open deals, partners, competitors and DNC; reads PF Account, PF Source (web visits, events, job changes) and PF Suppression through Read component inputs (component_id C05); writes a PF Component run row of output_type account_suggestion per candidate (name, source, why, estimated fit), only through Save agent output (component_id C05); threshold and routing: under 70: not suggested (result no_action); 70 and over: waiting_person for RevOps (Save agent output applies the threshold 70 and routes below it to RevOps); feeds (the register): Fit Scorer; schedule in the registry: weekly lookalikes; daily 7 sources (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; suggests to RevOps, never adds an account; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Fit Scorer
+[R2-P07 · agents, sub-workflow 1 (part 2)] C06, one job, built live.
+- ai-agent · create · PF · Fit Scorer: registry row C06 (agent, sub-workflow 1. Patch accounts, asks A21); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: score fit out of 60 (up to 15 each: industry, size and complexity, core systems, AI and integration maturity) and map score plus ICP V2 quadrant to best, medium or low fit; the floor of 36 never moves; reads PF Account and PF Source rows through Read component inputs (component_id C06); writes PF Account.fit_score and fit_band (its registered fields) with the four sub-scores in its PF Component run row, only through Save agent output (component_id C06); threshold and routing: under 70 confidence: waiting_person for RevOps, fields not written (Save agent output applies the threshold 70 and routes below it to RevOps); feeds (the register): Account Ranking; schedule in the registry: on change and monthly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never moves the floor of 36; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Patch Suggester
+[R2-P07 · agents, sub-workflow 1 (part 2)] C07, one job, built live.
+- ai-agent · create · PF · Patch Suggester: registry row C07 (agent, sub-workflow 1. Patch accounts, asks A22); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: propose a patch for a new account or an HQ change: geography first, then industry, with confidence and reason; reads PF Account, PF Patch and hand-offs from Headquarters Finder and Headquarters Re-checker through Read component inputs (component_id C07); writes a PF Component run row of output_type patch_proposal (proposed patch, reason), only through Save agent output (component_id C07); threshold and routing: under 80: waiting_person, RevOps decides from evidence (Save agent output applies the threshold 80 and routes below it to RevOps); feeds (the register): RevOps (patch decision); schedule in the registry: on new account or HQ change (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never writes a Patch ID; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Current Vendor Finder
+[R2-P07 · agents, sub-workflow 1 (part 2)] C08, one job, built live.
+- ai-agent · create · PF · Current Vendor Finder: registry row C08 (agent, sub-workflow 1. Patch accounts, asks A23); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: find the integration, automation and agent tools a best or medium fit account uses, from vendor case studies, job posts and procurement notices; reads PF Account and PF Source rows (vendor_case_study, job_post, procurement_notice) through Read component inputs (component_id C08); writes a PF Component run row of output_type current_vendors (vendor, product, evidence, first seen date) and hand-offs to Renewal Date Finder and Battlecard Writer, only through Save agent output (component_id C08); threshold and routing: under 60: saved tagged [HYPOTHESIS] (Save agent output applies the threshold 60 and routes below it to tag [HYPOTHESIS]); feeds (the register): Renewal Date Finder; Battlecard Writer; schedule in the registry: weekly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never states a vendor without a source link; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Renewal Date Finder
+[R2-P07 · agents, sub-workflow 1 (part 2)] C09, one job, built live.
+- ai-agent · create · PF · Renewal Date Finder: registry row C09 (agent, sub-workflow 1. Patch accounts, asks A24); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: estimate each vendor's renewal as 3 years from the earliest evidence unless a later contract signal exists, and raise a renewal signal 9 months before; reads hand-offs from Current Vendor Finder and PF Source rows through Read component inputs (component_id C09); writes a PF Component run row of output_type renewal_estimate and, inside 9 months, a hand-off to Buying Signal Spotter, only through Save agent output (component_id C09); threshold and routing: under 60: no signal (result no_action) (Save agent output applies the threshold 60 and routes below it to no signal); feeds (the register): Buying Signal Spotter; schedule in the registry: weekly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never writes a PF Signal itself (Buying Signal Spotter owns it); outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Battlecard Writer
+[R2-P07 · agents, sub-workflow 1 (part 2)] C10, one job, built live.
+- ai-agent · create · PF · Battlecard Writer: registry row C10 (agent, sub-workflow 1. Patch accounts, asks A25); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: draft battlecard changes per vendor: shortfalls, switch path, proof and objection answers; reads hand-offs from Current Vendor Finder and PF Source rows through Read component inputs (component_id C10); writes a PF Component run row of output_type battlecard_draft, always waiting_person for product marketing, only through Save agent output (component_id C10); threshold and routing: every draft waits for product marketing's approval (threshold 0, routed to Product marketing) (Save agent output applies the threshold 0 and routes below it to Product marketing approves each); feeds (the register): Message Writer; schedule in the registry: on vendor change (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never publishes a battlecard; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Buying Signal Spotter
+[R2-P08 · agents, sub-workflows 2 and 3] C11, one job, built live.
+- ai-agent · create · PF · Buying Signal Spotter: registry row C11 (agent, sub-workflow 2. Account selection, asks A28); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: watch the signal sources, record each signal (company, type, date, source link, strength), verify company match and date, score confidence, and send strong signals (champion job move, checked visit, new leader, renewal, event, several people engaging) to the Play Picker; reads PF Source rows (web_visit, press, job_post, events), PF Signal and hand-offs from Renewal Date Finder through Read component inputs (component_id C11); writes PF Signal rows (its registered records, weights from the starting signal weights, the checked-visit rule) and hand-offs to Account Ranking, and to Play Picker for a strong signal, only through Save agent output (component_id C11); threshold and routing: under 70: logged, not scored (counted false); signals fade over 30 days (Save agent output applies the threshold 70 and routes below it to logged, not scored); feeds (the register): Account Ranking; Play Picker (fast lane); schedule in the registry: continuous (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never counts a visit that fails the checked-visit rule; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Company Facts Collector
+[R2-P08 · agents, sub-workflows 2 and 3] C16, one job, built live.
+- ai-agent · create · PF · Company Facts Collector: registry row C16 (agent, sub-workflow 3. Account research, asks A36); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: extract sourced company facts on AI, automation, integration, modernisation, cost, CX and risk from the annual report, investor deck, two earnings calls, 12 months of press and current job posts; reads PF Source rows of the account (annual_report, investor_deck, earnings_call, press, job_post) through Read component inputs (component_id C16); writes PF Fact rows of kind fact (statement, exact quote, page or timestamp, date, link, [PUBLIC]) and hand-offs to Use Case Matcher and Case for Change Drafter, only through Save agent output (component_id C16); threshold and routing: a fact without quote and link is rejected; anything over 12 months old is dropped (except the latest annual report) (Save agent output applies the threshold 0 and routes below it to facts without quote and link rejected); feeds (the register): Use Case Matcher; Case for Change Drafter; schedule in the registry: Day 1; best fit every 30 days, others 90 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never writes a fact without its quote and link; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Use Case Matcher
+[R2-P08 · agents, sub-workflows 2 and 3] C17, one job, built live.
+- ai-agent · create · PF · Use Case Matcher: registry row C17 (agent, sub-workflow 3. Account research, asks A37); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: match VEP-CFC use cases to the account's industry and core systems, score the evidence and keep the top 3 with two supporting facts (or one fact plus engagement), tagged with pattern and outcome; reads PF Fact rows of kind fact and PF Source rows through Read component inputs (component_id C17); writes PF Fact rows of kind use_case (UC-ID, pattern, outcome, supporting facts) and a hand-off to Case for Change Drafter, only through Save agent output (component_id C17); threshold and routing: under 70: saved as a question only, tagged [HYPOTHESIS], never a claim (Save agent output applies the threshold 70 and routes below it to shown only as a question); feeds (the register): Case for Change Drafter; schedule in the registry: Day 1 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; uses only VEP-CFC use cases (a UC-ID); outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Case for Change Drafter
+[R2-P08 · agents, sub-workflows 2 and 3] C18, one job, built live.
+- ai-agent · create · PF · Case for Change Drafter: registry row C18 (agent, sub-workflow 3. Account research, asks A38); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: write the Case for Change: business problem in the company's own words, impact with no dollar figures, why now from the top signals, why UnifyApps, closest proof, main and backup angle, and risks; reads PF Fact rows (facts and use cases), PF Signal rows and the account's PF Person rows through Read component inputs (component_id C18); writes PF Fact rows of kind case_for_change, each citing a fact_id or tagged [HYPOTHESIS], and hand-offs to Play Picker, Message Writer and Meeting Prep Writer, only through Save agent output (component_id C18); threshold and routing: under 70: waiting_person, the BDR reviews it at Gate 2 (Save agent output applies the threshold 70 and routes below it to BDR reviews at Gate 2); feeds (the register): Play Picker; Message Writer; Meeting Prep Writer; schedule in the registry: Day 1 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never writes a sentence without a cited fact or a [HYPOTHESIS] tag, and never writes emails; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Buying Team Mapper
+[R2-P09 · agents, sub-workflow 4] C21, one job, built live.
+- ai-agent · create · PF · Buying Team Mapper: registry row C21 (agent, sub-workflow 4. Buying committee, asks A41); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: map the buying team: load the industry's default titles, assign each person a role, check the champions library, pick 3 Tier 1, 3 Tier 2, 4 Tier 3 and 2 backups, and flag the economic buyer; reads PF Person rows of the account and PF Source rows through Read component inputs (component_id C21); writes PF Person.role and tier (its registered fields; gatekeepers tier mapped) and hand-offs to Person Notes Writer, Contact Finder and Intro Finder, only through Save agent output (component_id C21); threshold and routing: under 70 on a role: waiting_person, the BDR checks at Gate 2 (Save agent output applies the threshold 70 and routes below it to BDR checks at Gate 2); feeds (the register): Person Notes Writer; Contact Finder; Intro Finder; schedule in the registry: Day 1 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; a gatekeeper is mapped, never contacted; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Person Notes Writer
+[R2-P09 · agents, sub-workflow 4] C22, one job, built live.
+- ai-agent · create · PF · Person Notes Writer: registry row C22 (agent, sub-workflow 4. Buying committee, asks A42); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: write a four-line note per person: role and time in role, past companies and public talks, what they own ([HYPOTHESIS] unless public), the link to the matched use case and nearby event fit; reads PF Person, PF Fact (use cases) and PF Source rows through Read component inputs (component_id C22); writes PF Person.note (its registered field) and a hand-off to Message Writer, only through Save agent output (component_id C22); threshold and routing: under 70: saved and flagged at Gate 2 (waiting_person for the BDR) (Save agent output applies the threshold 70 and routes below it to flagged at Gate 2); feeds (the register): Message Writer; schedule in the registry: Day 1; every 90 days; on job change (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; professional information only; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Intro Finder
+[R2-P09 · agents, sub-workflow 4] C23, one job, built live.
+- ai-agent · create · PF · Intro Finder: registry row C23 (agent, sub-workflow 4. Buying committee, asks A43); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: find a warm intro for Tier 1 people at best fit accounts from shared work history (opt-in LinkedIn exports, partners, SIs, investors), ranked worked together over overlapped over friend of a friend; reads PF Person rows (Tier 1) and PF Source rows of kind linkedin_export through Read component inputs (component_id C23); writes a PF Component run row of output_type intro_request (draft request, path, rank) into the patch AE's to-do list, and a 7-day hold on cold touches to that person in the payload, only through Save agent output (component_id C23); threshold and routing: under 60: not suggested (result no_action) (Save agent output applies the threshold 60 and routes below it to not suggested); feeds (the register): AE to-do list; schedule in the registry: Day 1, Tier 1 at best fit (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never contacts anyone; the AE sends the intro request; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Play Picker
+[R2-P10 · agents, sub-workflow 5 (part 1)] C27, one job, built live.
+- ai-agent · create · PF · Play Picker: registry row C27 (agent, sub-workflow 5. Outreach drafting, asks A48); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: pick the play for the signal (or the 13-week cycle) and set people, channels, start days and senders, spacing tiers so no two people at one account get email the same day; reads PF Account, PF Person, PF Signal, PF Patch and hand-offs from Buying Signal Spotter (fast lane) and Case for Change Drafter through Read component inputs (component_id C27); writes a PF Component run row of output_type play (play_id, people, channels, start days, senders) and hand-offs to Page Builder, Content Picker and Message Writer, only through Save agent output (component_id C27); threshold and routing: under 70: waiting_person, the BDR picks at Gate 2 (Save agent output applies the threshold 70 and routes below it to BDR picks at Gate 2); feeds (the register): Page Builder; Content Picker; Message Writer; schedule in the registry: Day 2; fast lane within the hour (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; picks senders only from the account's patch and pod; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Page Builder
+[R2-P10 · agents, sub-workflow 5 (part 1)] C28, one job, built live.
+- ai-agent · create · PF · Page Builder: registry row C28 (agent, sub-workflow 5. Outreach drafting, asks A49); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: build one Art of the Possible page per account from public facts only: 2 to 3 workflows reimagined before and after for the matched use cases, proof, how UnifyApps connects their core systems and a patch event; reads PF Fact rows and hand-offs from Play Picker through Read component inputs (component_id C28); writes a PF Component run row of output_type aotp_page (the page content in marketing's locked template sections, noindex, a tracked link per prospect, mocked) and hand-offs to Fact Checker and Gate 2, only through Save agent output (component_id C28); threshold and routing: under 75: waiting_person, marketing ops checks (Save agent output applies the threshold 75 and routes below it to marketing ops checks); feeds (the register): Fact Checker; Gate 2; schedule in the registry: Day 2 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never publishes a page; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Content Picker
+[R2-P10 · agents, sub-workflow 5 (part 1)] C29, one job, built live.
+- ai-agent · create · PF · Content Picker: registry row C29 (agent, sub-workflow 5. Outreach drafting, asks A50); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: pick one Content Factory asset per asset touch, matched on role, industry, use case, pattern, outcome, VEP stage and Geo; reads PF Source rows of kind content_asset and hand-offs from Play Picker through Read component inputs (component_id C29); writes a PF Component run row of output_type asset_pick per touch and a hand-off to Message Writer, only through Save agent output (component_id C29); threshold and routing: under 70: no asset, a sourced insight instead; skips assets over 18 months old or retired; never the same asset to two people at one account in a week (Save agent output applies the threshold 70 and routes below it to no asset, a sourced insight); feeds (the register): Message Writer; schedule in the registry: Day 2 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never invents an asset; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Message Writer
+[R2-P10 · agents, sub-workflow 5 (part 1)] C30, one job, built live.
+- ai-agent · create · PF · Message Writer: registry row C30 (agent, sub-workflow 5. Outreach drafting, asks A51); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: write every email and LinkedIn message in the play, from the Content Factory's best message for category, sub-sector, company and persona, in the assigned handbook voice, with one sourced fact, the pain this person owns and the likeliest objection for their role; reads PF Fact, PF Person, PF Source (handbook, content_asset) and hand-offs from Play Picker, Content Picker, Person Notes Writer and Battlecard Writer through Read component inputs (component_id C30); writes PF Draft rows (status waiting_gate2, its registered records) keyed account_id + person_id + play_id, and hand-offs to Fact Checker and Message Grader, only through Save agent output (component_id C30); threshold and routing: under 70: saved and flagged at Gate 2 (waiting_person for the BDR); copy rules: subject 3 to 6 words on the trigger, emails 90 to 120 words, connection notes under 250 characters, open on the business problem, one insight and one question, no em dashes, placeholders or invented statistics (Save agent output applies the threshold 70 and routes below it to flagged at Gate 2); feeds (the register): Fact Checker; Message Grader; schedule in the registry: Day 2 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; names the patch AE as session host and never sends; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Fact Checker
+[R2-P10 · agents, sub-workflow 5 (part 1)] C31, one job, built live.
+- ai-agent · create · PF · Fact Checker: registry row C31 (checker, sub-workflow 5. Outreach drafting, asks A52); model GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e, family B, the checkers' family); one job: trace every claim in drafts and pages: facts to a public source no older than 12 months, numbers to a source or the proof library, use cases to a UC-ID with account evidence; reads PF Draft rows, PF Fact rows and hand-offs from Message Writer and Page Builder through Read component inputs (component_id C31); writes PF Draft.fact_check (its registered field: passed or blocked, with the untraceable claim in its PF Component run row) and a hand-off to Send Rules Check, only through Save agent output (component_id C31); threshold and routing: blocks anything untraceable (no threshold) (Save agent output applies the threshold 0 and routes below it to blocks anything untraceable); feeds (the register): Send Rules Check; schedule in the registry: Day 2 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; checks only; never rewrites a draft. Runs on the other model family from Message Writer and Page Builder; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Message Grader
+[R2-P11 · agents, sub-workflow 5 (part 2) and 6] C32, one job, built live.
+- ai-agent · create · PF · Message Grader: registry row C32 (checker, sub-workflow 5. Outreach drafting, asks A53); model GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e, family B, the checkers' family); one job: grade each draft 0 to 100 on the message rubric: teaches something, relevant to role and company, actionable, applies to their business, well written in the right voice, follows the copy rules; reads PF Draft rows and PF Source handbook rows through Read component inputs (component_id C32); writes PF Draft.grade (its registered field) with the rubric scores in its PF Component run row, and a hand-off to Send Rules Check, only through Save agent output (component_id C32); threshold and routing: under 75: one automatic rewrite is requested (the run says rewrite_requested); under 75 again: waiting_person, a person decides at Gate 2 (Save agent output applies the threshold 75 and routes below it to one rewrite, then a person at Gate 2); feeds (the register): Send Rules Check; schedule in the registry: Day 2 (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; grades only; never rewrites. Runs on the other model family from Message Writer; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Call Script Writer
+[R2-P11 · agents, sub-workflow 5 (part 2) and 6] C36, one job, built live.
+- ai-agent · create · PF · Call Script Writer: registry row C36 (agent, sub-workflow 6. Outreach, asks A60); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: write the call script for a call task: a signal-tied opener, a permission question, 3 to 5 discovery questions, the top 3 objection answers, a 20-second voicemail and a follow-up email draft, and order the BDR's call list by interest; reads PF Person, PF Signal, PF Fact and PF Source call_transcript rows (Gong, mocked) through Read component inputs (component_id C36); writes a PF Component run row of output_type call_script into the BDR's call list, only through Save agent output (component_id C36); threshold and routing: under 70: waiting_person, the BDR approves the script (Save agent output applies the threshold 70 and routes below it to BDR approves the script); feeds (the register): BDR call list; schedule in the registry: per call task (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never dials; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Follow-up Planner
+[R2-P11 · agents, sub-workflow 5 (part 2) and 6] C37, one job, built live.
+- ai-agent · create · PF · Follow-up Planner: registry row C37 (agent, sub-workflow 6. Outreach, asks A61); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: keep the account one conversation once anyone responds: a referral becomes the lead thread, a Tier 1 objection pauses Tiers 2 and 3 with an answer note for the AE, 2 or more people engaging in 7 days switches to Committee Surge; reads PF Source reply rows and hand-offs from Reply Sorter through Read component inputs (component_id C37); writes a PF Component run row of output_type replan and hand-offs to Fact Checker and Message Grader for every rewrite, only through Save agent output (component_id C37); threshold and routing: under 70: waiting_person, the BDR decides (Save agent output applies the threshold 70 and routes below it to BDR decides); feeds (the register): Fact Checker; Message Grader; schedule in the registry: on any response (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never sends; every rewrite goes back through Fact Checker and Message Grader; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Inbox Health Checker
+[R2-P11 · agents, sub-workflow 5 (part 2) and 6] C38, one job, built live.
+- ai-agent · create · PF · Inbox Health Checker: registry row C38 (agent, sub-workflow 6. Outreach, asks A62); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: check inbox health: placement per active domain, blacklists and reputation, reply rate by recipient provider, and the email-security-scanner list; reads PF Inbox rows through Read component inputs (component_id C38); writes PF Inbox.placement_pct_last and blacklisted (its registered fields), an alert PF Component run row for the BDR and the GTM engineer, and a hand-off to Email Domain Swapper, only through Save agent output (component_id C38); threshold and routing: every alert goes to the BDR and the GTM engineer (threshold 0) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Email Domain Swapper; schedule in the registry: weekly placement; daily blacklist (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never rests or swaps a domain itself (Email Domain Swapper owns it); outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Reply Sorter
+[R2-P12 · agents, sub-workflow 7] C41, one job, built live.
+- ai-agent · create · PF · Reply Sorter: registry row C41 (checker, sub-workflow 7. Engage, Connect and Commit, asks A67); model GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e, family B, the checkers' family); one job: sort every reply into one of nine types (positive, referral, not now with date, objection, wrong person, out of office, unsubscribe, bounce, auto-reply), stop all channels for that person, and handle the mechanical types; reads PF Source rows of kind reply (Apollo and Sprouts, mocked) through Read component inputs (component_id C41); writes a PF Component run row of output_type reply_type (type, date if any, channels stopped) and hand-offs to Reply Writer, Follow-up Planner and Do-Not-Contact List; out of office moves the next touch to the return date in the payload; unsubscribe calls Do-Not-Contact List within the run, only through Save agent output (component_id C41); threshold and routing: under 90 on unsubscribe: treated as unsubscribe; under 80 on anything else: waiting_person, a person sorts it (Save agent output applies the threshold 80 and routes below it to a person sorts it (unsubscribe under 90 treated as unsubscribe)); feeds (the register): Reply Writer; Follow-up Planner; Do-Not-Contact List; schedule in the registry: on every reply (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output), Do-Not-Contact List (Pipeline Factory · Do-Not-Contact List); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; checks only; runs on the other model family from Reply Writer; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Reply Writer
+[R2-P12 · agents, sub-workflow 7] C42, one job, built live.
+- ai-agent · create · PF · Reply Writer: registry row C42 (agent, sub-workflow 7. Engage, Connect and Commit, asks A68); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: draft the answer to a reply from the thread, the account view, the objection list and the AE's booking link; reads PF Source reply rows, PF Account, PF Fact and hand-offs from Reply Sorter through Read component inputs (component_id C42); writes a PF Component run row of output_type reply_draft into the BDR's to-do list (and the AE's for a positive reply at a best fit account), with the 90-minute reminder and 2-business-hour Geo alert as due times, only through Save agent output (component_id C42); threshold and routing: under 70: marked for full rewrite (waiting_person) (Save agent output applies the threshold 70 and routes below it to marked for full rewrite); feeds (the register): BDR to-do list; schedule in the registry: on every reply (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never sends; the person sends from the original thread; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Meeting Prep Writer
+[R2-P12 · agents, sub-workflow 7] C44, one job, built live.
+- ai-agent · create · PF · Meeting Prep Writer: registry row C44 (agent, sub-workflow 7. Engage, Connect and Commit, asks A70); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: build the meeting prep pack for the AE and SC: account view, buying team, thread, Case for Change, likely objections, Art of the Possible page, and questions to confirm the economic buyer and timeline; reads PF Account, PF Person, PF Fact, PF Source and hand-offs from Meeting Handoff and Deadlines and Case for Change Drafter through Read component inputs (component_id C44); writes a PF Component run row of output_type prep_pack and a hand-off to the AE AI Twin (mocked as the run), only through Save agent output (component_id C44); threshold and routing: no threshold (0) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): AE AI Twin; schedule in the registry: on booking (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never invents a promise the AE made; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Meeting Labeler
+[R2-P12 · agents, sub-workflow 7] C45, one job, built live.
+- ai-agent · create · PF · Meeting Labeler: registry row C45 (checker, sub-workflow 7. Engage, Connect and Commit, asks A71); model GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e, family B, the checkers' family); one job: label each meeting intro, New Buyer Meeting or doesn't count, quoting evidence from the transcript, attendees and the economic-buyer flag; reads PF Source rows of kind meeting_transcript and calendar_event, PF Person through Read component inputs (component_id C45); writes PF Account.meeting_label (its registered field) with the quoted evidence in its PF Component run row, and hand-offs to Deal Qualifier and AE confirm, only through Save agent output (component_id C45); threshold and routing: doesn't count if under 20 minutes, no Tier 1 or 2 attendee, a reschedule, or a second intro within 90 days; unrecorded meetings labelled from attendees and AE notes and marked unrecorded; under 80: waiting_person, the Geo leader checks (Save agent output applies the threshold 80 and routes below it to Geo leader checks); feeds (the register): Deal Qualifier; AE confirm; schedule in the registry: after each meeting (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; checks only; runs on the other model family from the drafters; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Deal Qualifier
+[R2-P12 · agents, sub-workflow 7] C46, one job, built live.
+- ai-agent · create · PF · Deal Qualifier: registry row C46 (checker, sub-workflow 7. Engage, Connect and Commit, asks A72); model GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e, family B, the checkers' family); one job: check the six qualification requirements after each New Buyer Meeting (fit 36+, a VEP-CFC pain, engaged champion, New Buyer Meeting held, timeline 12 months or less, a scheduled mutual next step), each met, partly or missing with transcript quotes; reads PF Account, PF Fact, PF Person and PF Source meeting_transcript rows through Read component inputs (component_id C46); writes PF Account.qualified_status (its registered field), the six results, the gaps with the question that closes each and the recap draft in its PF Component run row, and a hand-off to AE confirm, only through Save agent output (component_id C46); threshold and routing: recommends qualified only when all six are met; under 80: recommended not qualified, with gaps (Save agent output applies the threshold 80 and routes below it to recommended not qualified, with gaps); feeds (the register): AE confirm; graph; schedule in the registry: after each New Buyer Meeting (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; checks only; never moves a deal stage (the AE confirms). Runs on the other model family from the drafters; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Winning Message Finder
+[R2-P13 · agents, sub-workflow 8 (part 1)] C48, one job, built live.
+- ai-agent · create · PF · Winning Message Finder: registry row C48 (agent, sub-workflow 8. Learning and governance, asks A77); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: find winning messages: promote messages with 3 or more positive replies into the Message Writer's examples for that role and industry; reads PF Draft rows, PF Source reply rows and PF Component run rows of Reply Sorter through Read component inputs (component_id C48); writes a PF Component run row of output_type example_proposal (status proposal) and a hand-off to Message Writer after the Quality Grader and the Friday review, only through Save agent output (component_id C48); threshold and routing: under 3 positives: not promoted (no_action) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Message Writer (after Quality Grader and Friday review); schedule in the registry: weekly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; proposes only; nothing applies without the Quality Grader and the Friday review; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Scoring Tuner
+[R2-P13 · agents, sub-workflow 8 (part 1)] C49, one job, built live.
+- ai-agent · create · PF · Scoring Tuner: registry row C49 (agent, sub-workflow 8. Learning and governance, asks A78); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: re-fit fit and signal weights to meetings and qualified opportunities, learning from Gate 1 rejections, AE-rejected meetings, disqualifications and win/loss reasons, across all patches, reported per patch; reads PF Account, PF Signal, PF Patch and PF Component run rows through Read component inputs (component_id C49); writes a PF Component run row of output_type weight_proposal (status proposal, old and new weight per signal, per patch) and hand-offs to Fit Scorer and Account Ranking after the Quality Grader and the Friday review, only through Save agent output (component_id C49); threshold and routing: proposals only; only a change within plus or minus 20% may later apply on its own after 8 weeks without a drop (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Fit Scorer; Account Ranking (after Quality Grader and Friday review); schedule in the registry: monthly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never changes a weight itself; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Objection Collector
+[R2-P13 · agents, sub-workflow 8 (part 1)] C50, one job, built live.
+- ai-agent · create · PF · Objection Collector: registry row C50 (agent, sub-workflow 8. Learning and governance, asks A79); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: update the objection list and buyer language from call transcripts; reads PF Source rows of kind call_transcript and meeting_transcript through Read component inputs (component_id C50); writes a PF Component run row of output_type objection_list (status proposal) and a hand-off to Follow-up Planner after the Quality Grader and the Friday review, only through Save agent output (component_id C50); threshold and routing: under 70: waiting_person, sales reviews (Save agent output applies the threshold 70 and routes below it to sales reviews); feeds (the register): Follow-up Planner (after Quality Grader and Friday review); schedule in the registry: weekly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; proposes only; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · A/B Tester
+[R2-P13 · agents, sub-workflow 8 (part 1)] C51, one job, built live.
+- ai-agent · create · PF · A/B Tester: registry row C51 (agent, sub-workflow 8. Learning and governance, asks A80); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: design A/B tests: small changes (subject, opener, asset) as continuous tests on positive replies with at least 20% traffic per version and a 4-week limit; bold changes as fixed-size tests on people; reads PF Draft rows and PF Component run rows through Read component inputs (component_id C51); writes a PF Component run row of output_type test_variant (status proposal, the variants, traffic split, sample size) and a hand-off to Message Writer after the Quality Grader and the Friday review, only through Save agent output (component_id C51); threshold and routing: never tests a one-point lift (no_action) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Message Writer (after Quality Grader and Friday review); schedule in the registry: continuous; fixed-size tests (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; proposes only; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Quality Grader
+[R2-P13 · agents, sub-workflow 8 (part 1)] C52, one job, built live.
+- ai-agent · create · PF · Quality Grader: registry row C52 (checker, sub-workflow 8. Learning and governance, asks A81); model GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e, family B, the checkers' family); one job: hold every agent's rubric and test set, grade every proposal and every prompt, model or weight change, and block a release on any drop; enforce checker-on-other-model; compute each gate's rung weekly per pod and AE; draft a policy when the same exception is resolved the same way 3 times; reads PF Component, PF Component run and PF Hand-off rows through Read component inputs (component_id C52); writes a PF Component run row of output_type release_check (pass or block with the drop), rung or policy_draft, and a hand-off to the Friday review, only through Save agent output (component_id C52); threshold and routing: blocks on any drop (no threshold) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Friday review; schedule in the registry: on every prompt, model or weight change; weekly rungs (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output), Read factory records (Pipeline Factory · Read factory records, the round-1 read tool, unchanged); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; checks only; runs on family B, a different family from every drafter it grades; outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Agent Monitor
+[R2-P14 · agents, sub-workflow 8 (part 2)] C53, one job, built live.
+- ai-agent · create · PF · Agent Monitor: registry row C53 (monitor, sub-workflow 8. Learning and governance, asks A82); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: compare each agent to its baseline weekly on block and edit rate, factual errors, grades and confidence calibration, and alert the GTM engineer on any slip; reads PF Component, PF Component run and PF Hand-off rows through Read component inputs (component_id C53); writes a PF Component run row of output_type drift_alert per slipping agent for the GTM engineer, only through Save agent output (component_id C53); threshold and routing: any slip alerts (threshold 0) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): GTM engineer; schedule in the registry: weekly (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output), Read factory records (Pipeline Factory · Read factory records, the round-1 read tool, unchanged); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; never pauses a component (a person or Alarm and Escalation does); outside systems are the PF records (mocked), no connection.
+
+#### ai-agent · PF · Test Error Planter
+[R2-P14 · agents, sub-workflow 8 (part 2)] C54, one job, built live.
+- ai-agent · create · PF · Test Error Planter: registry row C54 (agent, sub-workflow 8. Learning and governance, asks A83); model Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, family A, the drafters' family); one job: plant test errors (for example a wrong patch AE or a sender from the wrong pod) in about 5% of Gate 2 items and score each reviewer's catch rate; reads PF Draft rows waiting at Gate 2 and PF Component run rows of Send Rules Check and Clear Gate 2 through Read component inputs (component_id C54); writes PF Draft.planted_error (its registered field) and a PF Component run row with the planted error and the catch rate per reviewer, and a hand-off to Gate 2, only through Save agent output (component_id C54); threshold and routing: about 5% of items (threshold 0) (Save agent output applies the threshold 0 and routes below it to the named person); feeds (the register): Gate 2; schedule in the registry: Day 2, ~5% of Gate 2 items (run on demand by Pipeline Factory · Run component in this demo); output contract: one JSON object with output_type, summary, payload, confidence 0 to 100, evidence and evidence_tag [PUBLIC] or [HYPOTHESIS], saved once per run, origin passed through as given; tools Read component inputs (Pipeline Factory · Read component inputs), Save agent output (Pipeline Factory · Save agent output); scope: this one job only, it declines anything else (another component's job, sending, booking, editing other fields) and says a field is absent when no record holds it; a planted draft never sends; outside systems are the PF records (mocked), no connection.
+
+#### record · PF Component
+[R2-P15 · the registry link and the registry view] Each registry row points at the entity that runs it, so the control tower shows it as a real built agent or workflow.
+- record · update · PF Component: after every deploy and publish of R2-P02 to R2-P14 (it reads the ids they report), on the seeded rows, origin stays seed: the 38 agent rows (C01 to C11, C16 to C18, C21 to C23, C27 to C32, C36 to C38, C41, C42, C44 to C46, C48 to C54) get built_kind ai_agent, built_entity_id the agent's id, built_entity_name "PF · `name`", built_link https://orbit.uat.unifyapps.com/p/0/ai-agents/`id`, built_status live, status live, built_at the publish time; the 12 workflow rows (C12, C13, C14, C24, C25, C33, C35, C39, C43, C55, C56, C57) get built_kind automation, the automation's id, name "Pipeline Factory · `name`", built_link https://orbit.uat.unifyapps.com/p/0/automations/`id`/builder, built_status live, status live, built_at the deploy time; C15 Gate 1 gets built_kind automation, Pipeline Factory · Decide Gate 1 (6ae8440df13e536c52c5d959) and C34 Gate 2 gets Pipeline Factory · Clear Gate 2 (6ae840d7f6f76639f8ceb67d), the round-1 automations behind those gates; C26, C40, C47 (human gates) and C19, C20 (rule steps) stay not_built. C08 Current Vendor Finder keeps success_rate 96.1. Every other field stays as seeded.
+- record · update · PF Seed snapshot: the 57 PF Component snapshot rows' row_values are rewritten to the rows as the line above leaves them (with the built-entity fields), so Pipeline Factory · Reset demo restores the links, never blanks them.
+
+#### code-app · UnifyApps Pipeline Factory Control Tower (registry view)
+[R2-P15] - code-app · update · UnifyApps Pipeline Factory Control Tower: screen Control tower, Components tab only (no new page, no other screen changes): the PF Component .tbl gains a Built column (.tag "AI agent" or "Automation" with the entity name as a link to built_link, opening in a new tab; a muted .tag "Not built" for human gates and rule steps) and a built kind facet in its .toolbar (AI agent, Automation, Not built); the component .drawer gains the built entity's name and link, its model (Claude Sonnet 5 for family A, GPT-5.1 for family B, none for a workflow), its last five PF Component run rows (output type, status .tag, confidence of threshold, model, latency) and a Run on account control: a .ctl select of PF Account (default A-1001 Carrow & Vale Logistics) and .btn-s Run, disabled with a .note when the component is paused or not built; the result as a .toast (result, confidence, summary) and the new hand-off at the top of the .feed · reads PF Component, PF Component run, PF Account · calls Pipeline Factory · Run component on Run with origin user
+
 ### Business rules
 - Every agent hands off through the context graph, never directly: a hand-off is a PF Hand-off row written only by Pipeline Factory · Save hand-off.
 - A hand-off not in the register (PF Component feeds) is refused; only the component named as a field's writer writes it.
@@ -1322,6 +1675,13 @@ The code app: Control tower, To-do and Account.
 - Safety actions are automatic; resuming a paused component needs a person.
 - Every row carries origin: seed on seeded rows, test on rows a check or recording writes, user on rows a person makes in the demo.
 
+- Round 2: each of the 38 agents is one UnifyApps AI agent with one job; it reads only through Pipeline Factory · Read component inputs and writes only through Pipeline Factory · Save agent output, which applies the hand-off contract (schema, threshold, one writer per field, idempotency) and saves every hand-off through Pipeline Factory · Save hand-off.
+- Every checker (Fact Checker, Message Grader, Reply Sorter, Meeting Labeler, Deal Qualifier, Quality Grader) runs on family B (GPT-5.1); every drafter and monitor on family A (Claude Sonnet 5).
+- Each of the 12 workflows is a deterministic automation with no model call; it logs one PF Component run per call.
+- A paused component runs nothing: Save agent output and Run component answer paused.
+- Learning agents (sub-workflow 8) only propose: their runs are saved as proposal and apply only after the Quality Grader and the Friday review.
+- No round-2 entity writes a field locked at booking on a booked account.
+- Every round-2 row carries origin; Pipeline Factory · Reset demo also resets the four round-2 objects through Pipeline Factory · Reset agent runs.
 ### Ready when
 - The BDR logs a new Head of AI signal on Carrow & Vale Logistics and a fast-lane hand-off to the Play Picker appears in the control tower.
 - Gate 1 accepts Carrow & Vale Logistics, refuses Kestrel Ridge Utilities as held out, and refills a rejected slot from the same patch.
@@ -1340,6 +1700,65 @@ The code app: Control tower, To-do and Account.
 - publish Pipeline Factory Analyst
 - publish UnifyApps Pipeline Factory Control Tower
 
+- The Components tab shows 38 rows Built · AI agent and 12 rows Built · Automation, each linking to its live entity; Gate 1 and Gate 2 link to Decide Gate 1 and Clear Gate 2; the other three human gates and the two rule steps show Not built.
+- Run on PF · Case for Change Drafter for Carrow & Vale Logistics saves a PF Component run citing F-01 and F-03 and hand-offs Case for Change Drafter to Play Picker, Message Writer and Meeting Prep Writer with confidence and model; a line under 70 waits on Marcus Ellery.
+- Run on a paused component answers paused and runs nothing.
+- Send Rules Check answers blocked, rule pod, for D-04 and blocked, other sequence, for D-06; Email Domain Swapper rests IN-02, activates IN-03, retires IN-05 and keeps IN-06 blocked; Weekly Slot Planner allocates 24 to PATCH-NAE-03 and 20 to PATCH-NAE-04; PF · Reply Sorter sorts SRC-15 as unsubscribe and P-1009 lands on the suppression list.
+- Pipeline Factory · Reset demo leaves PF Component run empty of test rows and PF Source, PF Inbox and PF Suppression at their seeds, with the registry links kept.
+- deploy Pipeline Factory · Read component inputs
+- deploy Pipeline Factory · Save agent output
+- deploy Pipeline Factory · Reset agent runs
+- deploy Pipeline Factory · Account Ranking
+- deploy Pipeline Factory · Weekly Slot Planner
+- deploy Pipeline Factory · Holdout Picker
+- deploy Pipeline Factory · Do-Not-Contact List
+- deploy Pipeline Factory · Contact Finder
+- deploy Pipeline Factory · Send Rules Check
+- deploy Pipeline Factory · Outreach Launcher
+- deploy Pipeline Factory · Email Domain Swapper
+- deploy Pipeline Factory · Meeting Handoff and Deadlines
+- deploy Pipeline Factory · Alarm and Escalation
+- deploy Pipeline Factory · Content Handoff
+- deploy Pipeline Factory · Privacy and Consent
+- deploy Pipeline Factory · Run component
+- publish PF · Duplicate Finder
+- publish PF · Parent Company Linker
+- publish PF · Headquarters Finder
+- publish PF · Headquarters Re-checker
+- publish PF · New Account Finder
+- publish PF · Fit Scorer
+- publish PF · Patch Suggester
+- publish PF · Current Vendor Finder
+- publish PF · Renewal Date Finder
+- publish PF · Battlecard Writer
+- publish PF · Buying Signal Spotter
+- publish PF · Company Facts Collector
+- publish PF · Use Case Matcher
+- publish PF · Case for Change Drafter
+- publish PF · Buying Team Mapper
+- publish PF · Person Notes Writer
+- publish PF · Intro Finder
+- publish PF · Play Picker
+- publish PF · Page Builder
+- publish PF · Content Picker
+- publish PF · Message Writer
+- publish PF · Fact Checker
+- publish PF · Message Grader
+- publish PF · Call Script Writer
+- publish PF · Follow-up Planner
+- publish PF · Inbox Health Checker
+- publish PF · Reply Sorter
+- publish PF · Reply Writer
+- publish PF · Meeting Prep Writer
+- publish PF · Meeting Labeler
+- publish PF · Deal Qualifier
+- publish PF · Winning Message Finder
+- publish PF · Scoring Tuner
+- publish PF · Objection Collector
+- publish PF · A/B Tester
+- publish PF · Quality Grader
+- publish PF · Agent Monitor
+- publish PF · Test Error Planter
 ### Rules
 - client.css: /home/user/all-demo-foders/unifyapps/pipeline-factory-v1/studio/design-system/unifyapps/client.css
 - logo: /home/user/all-demo-foders/unifyapps/pipeline-factory-v1/studio/design-system/unifyapps/logo.svg
@@ -1356,6 +1775,17 @@ The code app: Control tower, To-do and Account.
 - Check this: seed rows are fictional (invented companies and people, links under carrowvale.example), dates in the 90 days before the demo.
 - Check this: Pipeline Factory · Reset demo and PF Seed snapshot are the one automation and object no beat shows; 4-verify and 6-collaterals run the reset.
 - Check this: app visibility PRIVATE; publish and deploy without asking (profile release line).
+- Check this (round 2): all 38 agents and 12 workflows are built live, as the manager asked (FB-1793612784906-1); the round-1 entities and their behaviour are unchanged, except Pipeline Factory · Reset demo, which also calls Pipeline Factory · Reset agent runs, and PF Component, which gains six built-entity fields.
+- Check this: family A is Claude Sonnet 5 (model card e_6acca2af70b66f5702c8b59f, the analyst's model) for the 30 agents and 2 monitors; family B is GPT-5.1 (model card e_6a0dd4e556ffb40e76c2762e) for the 6 checkers; both cards are active and can call tools on the tenant (list_models, 2026-11-02); the builder runs one test message per card before relying on it.
+- Check this: the spec's schedules (every 15 min, nightly, Monday 06:00, daily 07:00, weekly, monthly) are written into the registry but no schedule trigger is switched on: every new agent and workflow runs on demand (Pipeline Factory · Run component, or another automation), so the demo's records never drift by themselves.
+- Check this: the agents' outside sources (filings, press, job posts, vendor case studies, LinkedIn exports, Sprouts contact data, Content Factory assets, Gong calls, Apollo and Sprouts replies, the AE's Google Calendar) are mocked as PF Source rows; inbox placement and blacklists as PF Inbox rows; the suppression list copies to HubSpot, Apollo and Sprouts as a copied_to stamp. No connection; the Connections step stays not_needed.
+- Check this: outputs with no field on a round-1 object (merge proposals, parent ids, vendors, renewal estimates, battlecards, intro requests, plays, Art of the Possible pages, assets, scripts, re-plans, reply types and drafts, prep packs, learning proposals, rungs, drift alerts) live in PF Component run rows; outputs with a field (fit, HQ city, parent lock, signals, facts, roles and tiers, notes, drafts, fact checks, grades, inbox health, meeting label, qualification, planted errors) are written there by their one registered writer.
+- Check this: Duplicate Finder logs merge proposals and never merges or deletes an account; Art of the Possible pages are content in a run row, never a published page.
+- Check this: Clear Gate 2 keeps its own inline Send Rules Check and mocked enrolment; the dedicated Send Rules Check is read-only on PF Draft and answers the same rule for D-04 and D-06; Log signal keeps its single-signal scoring and Account Ranking re-ranks the patch with the same weights; Book meeting stays the booking and lock step, which Meeting Handoff and Deadlines calls for calendar pick-ups.
+- Check this: Alarm and Escalation pauses a component automatically only under 95% success; from 95% to under 97% it adds a to-do item, so Current Vendor Finder (96.1%) is still paused by a person in beat 7.
+- Check this: Weekly Slot Planner reads "behind on intro meetings" as under 4 intros in 7 days, since no diagnosis field exists; the pace boost is 25% by default.
+- Check this: the per-run and daily cost caps (A13), the rubrics (A93), handbook sections (A94), the 50-item evaluations (A97) and the shadow week (A98) are not built for the 38 agents; the handbook is one PF Source row, and every agent goes straight to status live (round-1 open question 2 still holds for A93, A94, A97).
+- Check this: Pipeline Factory · Run component invokes an agent by the id in PF Component.built_entity_id with the operation Ask the analyst uses; if that operation takes only a fixed agent, it branches per component id.
 
 ## entities
 
@@ -1412,11 +1842,12 @@ Story row: PF Account A-1001 Carrow & Vale Logistics · PATCH-NAE-03 (NA East ·
 7. **The lean-forward moment: ask the factory, then stop it.** The presenter opens the assistant and types "What is waiting on a person in patch PATCH-NAE-03 right now, and why?": the AI Insight card names H-07 (RevOps), H-12 and H-15 (Marcus Ellery) with their confidence against threshold, H-10 rejected on its schema, and Current Vendor Finder red at 96.1%; its one action, Pause Current Vendor Finder, holds that component's hand-offs and the tile turns paused; resuming is left to a person. Route /tower (agent drawer). Asks A4, A8, A10, A84. mode: live (Pipeline Factory Analyst through Pipeline Factory · Ask the analyst; Pipeline Factory · Pause component).
    Alternatives considered: B, the learning loop: a Scoring Tuner weight proposal passing the Quality Grader and the Friday review (A3, A75), weaker because it is seeded end to end. C, the stop alone: a person pauses a component from its drawer (A4), weaker without the question that finds it. This one wins because the audience asks the factory in their own words and a person stops it from the answer.
 H1. **Under the hood.** After beat 7 the presenter opens Pipeline Factory · Save hand-off in the automation builder: the register check, one writer per field, the schema check that rejected H-10, the confidence gate, the idempotency key account_id + person_id + play_id, all in one deterministic automation every other automation calls. Asks A5, A6, A7, A9, A92. mode: live (the deployed automation).
+   Round 2 addition to H1 (no new beat): back on Control tower, the presenter opens the Components tab and filters built kind AI agent: 38 rows, each Built · AI agent linking to its UnifyApps agent, and 12 rows Built · Automation; the drawer of Case for Change Drafter shows its one job, threshold 70 and where below goes (the BDR at Gate 2), model Claude Sonnet 5 (family A; the checkers run GPT-5.1), its two tools, and its last runs; Run on Carrow & Vale Logistics runs PF · Case for Change Drafter live: the toast shows the result and confidence, and new hand-offs Case for Change Drafter to Play Picker, Message Writer and Meeting Prep Writer top the feed, citing F-01 and F-03, with the vendor-contract risk tagged [HYPOTHESIS]. Asks A1, A88, A89, A90, A91, A95, A96, A98. mode: live (PF · Case for Change Drafter through Pipeline Factory · Run component and Save agent output).
 
-AI surfaces: Pipeline Factory Analyst answer · live. Case for Change card · seeded. Company facts and use case matches · seeded. Person notes · seeded. Drafts, Message Grader grades, Fact Checker results · seeded. Meeting label and Deal Qualifier recap · seeded. Timing score · deterministic. Send Rules Check result · deterministic. Component success rates · seeded. Outside systems (HubSpot, Apollo, Sprouts, Gong, Bombora, Google Calendar) · mocked.
+AI surfaces: Pipeline Factory Analyst answer · live. The 38 PF · agents (round 2) · live, run on demand from the Components tab; PF · Case for Change Drafter run in H1 · live. The 12 workflow automations (round 2) · deterministic. Case for Change card · seeded. Company facts and use case matches · seeded. Person notes · seeded. Drafts, Message Grader grades, Fact Checker results · seeded. Meeting label and Deal Qualifier recap · seeded. Timing score · deterministic. Send Rules Check result · deterministic. Component success rates · seeded. Outside systems (HubSpot, Apollo, Sprouts, Gong, Bombora, Google Calendar) · mocked.
 
 ## views
 
-- Control tower (/tower) · beats 1, 2, 7, H1 start · .app shell with .app-rail (logo, .nav-i), .app-top · four .tile (slots, intros, success rate with .delta, waiting) · .tabs Hand-offs / Components · Hand-offs: .toolbar (.field search "n of m", .chipsel status, from component, patch) above .tblwrap .tbl, status as .tag, a .drawer for one record · Components: .toolbar (.chipsel sub-workflow, kind, status) above .tbl with .pg, a .drawer (.dl) for one component · .feed newest hand-offs · Log signal .modal (.fld .ctl .seg) · .agent-launch and .agent-drawer, the answer in .ai:not(.msg) with grounding line and one .btn-p action · .toast
+- Control tower (/tower) · beats 1, 2, 7, H1 start · .app shell with .app-rail (logo, .nav-i), .app-top · four .tile (slots, intros, success rate with .delta, waiting) · .tabs Hand-offs / Components · Hand-offs: .toolbar (.field search "n of m", .chipsel status, from component, patch) above .tblwrap .tbl, status as .tag, a .drawer for one record · Components: .toolbar (.chipsel sub-workflow, kind, status) above .tbl with .pg, a .drawer (.dl) for one component · .feed newest hand-offs · Log signal .modal (.fld .ctl .seg) · .agent-launch and .agent-drawer, the answer in .ai:not(.msg) with grounding line and one .btn-p action · .toast · round 2, Components tab only: .tbl gains a Built column (.tag AI agent / Automation with the entity link, muted .tag Not built) and a built kind .chipsel in its .toolbar; the component .drawer gains the entity link, its model, a small .tbl of its last five runs (status .tag, confidence of threshold, model, latency) and Run on account (.ctl select, .btn-s Run, .note when paused or not built), the result as .toast and the new hand-off at the top of the .feed (beat H1)
 - To-do (/todo) · beat 3 · .toolbar above .tbl of the Gate 1 batch (.tag fit band, .cell-chips top 3 signals), row .btn-p Accept and Reject with a .menu of four reasons · .tag.negative and .note for a hard block · .feed Waiting on you · .toast · .empty states
 - Account (/accounts/:accountId) · beats 4, 5, 6 · .crumb · .g1 head with .dl and lock marks · .tabs Research / Buying team / Gate 2 / Meeting · Research: .tbl facts with .tag [PUBLIC] / [HYPOTHESIS], Case for Change in .ai:not(.msg) · Buying team: .pc cards by tier, .faces, .av · Gate 2: .tbl drafts with grade, .tag fact check and rules, .btn-p Approve, .btn-s Hold, .tag.negative and .note for the refusal · Meeting: .stages Engage / Connect / Commit, .btn-p Book meeting, .tbl six requirements, .agenda deadlines, correction .modal

@@ -4,7 +4,7 @@ client: UnifyApps
 poc_row: POC-unifyapps-pipeline-factory-v1-20261031
 owner: Gourav Mahunta · U09EK0B6NKD
 manager: Gourav Mahunta · U09EK0B6NKD
-status: building
+status: verifying
 version: 1 · since 2026-10-31T10:16:23Z
 channel: C0CDB92FALX
 threads:
@@ -1244,9 +1244,9 @@ frozen:
 
 cost:
   runs: 4
-  agent_spawns: 64
-  tokens_m: 13.8
-  wall_h: 4.8
+  agent_spawns: 67
+  tokens_m: 14.5
+  wall_h: 5.2
 
 open_questions:
   - by: harvest
@@ -1878,6 +1878,7 @@ build.plans:
 - e_6ae86c21afe7fc590a50110a · R2-P14 agents sw8 part 2 · 4 tasks · implemented · 2026-11-02
 - e_6ae86bb6d96c5f6ba24481b4 · R2 fix: Read component inputs narrowed under 12,000 characters · 2 tasks · implemented · 2026-11-02
 - e_6ae86ec1d96c5f6ba244ee98 · R2 fix: Read component inputs, a share of the reply per list · 2 tasks · implemented · 2026-11-02
+- e_6ae875efafe7fc590a571f16 · R2 verify r1 fixes: Run component with no account, hand-off model and threshold, analyst dates, Reply Sorter publish · 7 tasks · implemented · 2026-11-02
 - e_6ae86f58d96c5f6ba244fc4d · R2-P15 registry links, snapshot rows, Components tab, publish v2 · 4 tasks · implemented · 2026-11-02
 | Kind | Name | Id | Link | Asks |
 |---|---|---|---|---|

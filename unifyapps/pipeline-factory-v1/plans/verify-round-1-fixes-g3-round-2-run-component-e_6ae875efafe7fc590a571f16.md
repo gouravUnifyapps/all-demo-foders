@@ -16,6 +16,11 @@ createdAt: "2026-11-02T11:37:18.142Z"
 runningAt: "2026-11-02T11:37:21.994Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Verify round 1 fixes (G3 round 2): Run component runs a component with no account; Save agent output passes the model an
@@ -23,9 +28,9 @@ Goal: Verify round 1 fixes (G3 round 2): Run component runs a component with no 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Run component |  | done | 1 |
-| t2 | deploy | Pipeline Factory · Run component | t1 | running | 1 |
+| t2 | deploy | Pipeline Factory · Run component | t1 | done | 1 |
 | t3 | automation | Pipeline Factory · Save agent output |  | done | 1 |
-| t4 | deploy | Pipeline Factory · Save agent output | t3 | running | 1 |
+| t4 | deploy | Pipeline Factory · Save agent output | t3 | done | 1 |
 | t5 | ai-agent | Pipeline Factory Analyst |  | done | 1 |
 | t6 | publish | Pipeline Factory Analyst | t5 | done | 1 |
 | t7 | publish | PF · Reply Sorter |  | done | 1 |
@@ -67,6 +72,16 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Run component deployed at the saved version.
+Result IDs: {"entity":"6ae865229ec43c6ee2300d8d"}
+Read back: Pipeline Factory · Run component 6ae865229ec43c6ee2300d8d: deploy_workflow ok:true 'Deployed version 3 of automation 6ae865229ec43c6ee2300d8d.', workflowVersion 3, deployedVersion 2, paused false
+Read back: Pipeline Factory · Run component: search_workflows deployment {status: DEPLOYED, deployedVersion: 2, definitionVersion: 3, deployedAt: 1793619932674, savedAfterDeploy: false}; definitionVersion 3 is the version t1 saved and tested
+Read back: Pipeline Factory · Run component: best practice 83 (82 of 85 checks), version 3, as read in t1 (same version, so not read again)
+Unverified: Pipeline Factory · Run component: the deploy note tag '[nebula plan e_6ae875efafe7fc590a571f16]' the bridge adds was not read back. Check: the tenant's deployment history for this automation.
+Note: Answer from the person: yes, deploy Pipeline Factory · Run component. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.
+Note: Before deploying, search_workflows showed version 3, the version t1 tested, so the deploy shipped that version
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Call workflow nodes · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records nodes · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields · task does not save
 
 ### t3 · Save agent output: pass the model and the receiver's threshold to Save hand-off
 
@@ -117,6 +132,14 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Save agent output deployed at the saved version.
+Result IDs: {"entity":"6ae864829594aa458cc1ce69"}
+Read back: Pipeline Factory · Save agent output 6ae864829594aa458cc1ce69: deploy_workflow ok:true 'Deployed version 1 of automation 6ae864829594aa458cc1ce69.', workflowVersion 1, deployedVersion 2, paused false
+Read back: Pipeline Factory · Save agent output: search_workflows deployment {status: DEPLOYED, deployedVersion: 2, definitionVersion: 1, deployedAt: 1793619934391, savedAfterDeploy: false}; definitionVersion 1 is the version t3 saved and tested
+Unverified: Best Practice score not read: get_workflow_best_practice_report answered HTTP 500 twice for version 1 during t3, and this version is unchanged. Check: the builder's score chip for Save agent output.
+Unverified: Pipeline Factory · Save agent output: the deploy note tag '[nebula plan e_6ae875efafe7fc590a571f16]' the bridge adds was not read back. Check: the tenant's deployment history for this automation.
+Note: Answer from the person: yes, deploy Pipeline Factory · Save agent output. The spec the person accepted names it under Ready when, so it is already approved; do not ask again.
+Note: Before deploying, search_workflows showed version 1, the version t3 tested, so the deploy shipped that version
+Note: handover: AI agents calling Save agent output now run version 1, which writes the run's model and each receiver's threshold onto new PF Hand-off rows
 
 ### t5 · Analyst: give stored dates as they are
 

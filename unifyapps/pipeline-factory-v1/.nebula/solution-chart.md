@@ -84,7 +84,7 @@ flowchart LR
   n80["AI agent PF · Scoring Tuner · e_6ae86bd6afe7fc590a500cfa"]
   n81["AI agent PF · Objection Collector · e_6ae86bd8f410ab7b2f202521"]
   n82["AI agent PF · A/B Tester · e_6ae86bdbf410ab7b2f202568"]
-  n83["AI agent PF · Quality Grader · e_6ae86bdeafe7fc590a500d57"]
+  n83["AI agent e_6ae86bdeafe7fc590a500d57 · e_6ae86bdeafe7fc590a500d57"]
   n84["AI agent e_6ae86bebf410ab7b2f20260c · e_6ae86bebf410ab7b2f20260c"]
   n85["AI agent PF · Reply Writer · e_6ae86beff410ab7b2f20266c"]
   n86["AI agent PF · Meeting Prep Writer · e_6ae86bf3f410ab7b2f2026ba"]

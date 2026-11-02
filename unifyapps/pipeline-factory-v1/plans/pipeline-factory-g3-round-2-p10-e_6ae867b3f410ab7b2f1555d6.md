@@ -23,15 +23,15 @@ Goal: Pipeline Factory · G3 round 2 · P10
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | ai-agent | PF · Play Picker |  | done | 1 |
-| t2 | publish | PF · Play Picker | t1 | pending | 0 |
+| t2 | publish | PF · Play Picker | t1 | running | 1 |
 | t3 | ai-agent | PF · Page Builder |  | done | 1 |
-| t4 | publish | PF · Page Builder | t3 | pending | 0 |
+| t4 | publish | PF · Page Builder | t3 | running | 1 |
 | t5 | ai-agent | PF · Content Picker |  | done | 1 |
-| t6 | publish | PF · Content Picker | t5 | pending | 0 |
-| t7 | ai-agent | PF · Message Writer |  | pending | 1 |
+| t6 | publish | PF · Content Picker | t5 | running | 1 |
+| t7 | ai-agent | PF · Message Writer |  | running | 2 |
 | t8 | publish | PF · Message Writer | t7 | pending | 0 |
 | t9 | ai-agent | PF · Fact Checker |  | done | 1 |
-| t10 | publish | PF · Fact Checker | t9 | pending | 0 |
+| t10 | publish | PF · Fact Checker | t9 | running | 1 |
 
 ### t1 · Build AI agent PF · Play Picker
 

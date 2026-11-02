@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:53:42.498Z"
 runningAt: "2026-11-02T10:53:46.147Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Narrow Pipeline Factory · Read component inputs so its reply fits an AI agent's tool reply (the runtime keeps only the f
@@ -23,7 +28,7 @@ Goal: Narrow Pipeline Factory · Read component inputs so its reply fits an AI a
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Read component inputs |  | done | 1 |
-| t2 | deploy | Pipeline Factory · Read component inputs | t1 | running | 1 |
+| t2 | deploy | Pipeline Factory · Read component inputs | t1 | done | 1 |
 
 ### t1 · Narrow Pipeline Factory · Read component inputs to fit an agent's tool reply
 
@@ -74,4 +79,11 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Read component inputs deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae8635446920244f3d5194b"}
+Read back: Pipeline Factory · Read component inputs 6ae8635446920244f3d5194b: before the deploy, search_workflows showed version 4 (the version t1 saved, tested and scored) with definitionVersion 2 and savedAfterDeploy true.
+Read back: Pipeline Factory · Read component inputs: deploy_workflow returned ok:true, workflowVersion 4, deployedVersion 2, paused false, message 'Deployed version 4 of automation 6ae8635446920244f3d5194b.'
+Read back: Pipeline Factory · Read component inputs: search_workflows after the deploy shows deployment status DEPLOYED, deployedVersion 2, definitionVersion 4, deployedAt 1793617114336, savedAfterDeploy false. definitionVersion equals saved version 4.
+Unverified: Pipeline Factory · Read component inputs: no run of the deployed copy was made. Check: one trigger_workflow_run with runType workflow and C32/A-1001/D-04, reading the response length.
+Note: Pipeline Factory · Read component inputs: best practice score not read again, because the deployed version 4 is the version scored in t1 (93, 83 of 85 checks).
+Note: Deployment notes sent: 'Demo Studio · Pipeline Factory v1 · G3 round 2 · Read component inputs narrowed for the agents' tool reply' (the bridge adds the plan tag).
 

@@ -22,14 +22,14 @@ Goal: Pipeline Factory · G3 round 2 · P11
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | ai-agent | PF · Message Grader |  | pending | 1 |
+| t1 | ai-agent | PF · Message Grader |  | running | 2 |
 | t2 | publish | PF · Message Grader | t1 | pending | 0 |
 | t3 | ai-agent | PF · Call Script Writer |  | done | 1 |
-| t4 | publish | PF · Call Script Writer | t3 | pending | 0 |
+| t4 | publish | PF · Call Script Writer | t3 | running | 1 |
 | t5 | ai-agent | PF · Follow-up Planner |  | done | 1 |
-| t6 | publish | PF · Follow-up Planner | t5 | pending | 0 |
+| t6 | publish | PF · Follow-up Planner | t5 | running | 1 |
 | t7 | ai-agent | PF · Inbox Health Checker |  | done | 1 |
-| t8 | publish | PF · Inbox Health Checker | t7 | pending | 0 |
+| t8 | publish | PF · Inbox Health Checker | t7 | running | 1 |
 
 ### t1 · Build AI agent PF · Message Grader
 

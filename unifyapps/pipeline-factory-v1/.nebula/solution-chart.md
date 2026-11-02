@@ -24,21 +24,37 @@ flowchart LR
   n20["automation Pipeline Factory · Reset demo · 6ae8441df38e327618fcc13c"]
   n21["automation Pipeline Factory · Book meeting · 6ae84449f38e327618fcc640"]
   n22["automation Pipeline Factory · Ask the analyst · 6ae84900fbdd550a9a465807"]
-  n23["object PF Patch · OBJ_pf_patch"]
-  n24["object PF Account · OBJ_pf_account"]
-  n25["object PF Person · OBJ_pf_person"]
-  n26["object PF Signal · OBJ_pf_signal"]
-  n27["object PF Fact · OBJ_pf_fact"]
-  n28["object PF Draft · OBJ_pf_draft"]
-  n29["object PF Hand-off · OBJ_pf_handoff"]
-  n30["object PF Component · OBJ_pf_component"]
-  n31["object PF Seed snapshot · OBJ_pf_seed_snapshot"]
-  n32["object PF Component run · OBJ_pf_component_run"]
-  n33["object PF Source · OBJ_pf_source"]
-  n34["object PF Inbox · OBJ_pf_inbox"]
-  n35["object PF Suppression · OBJ_pf_suppression"]
-  n36["AI agent Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da"]
-  n37["object object_type · object_type"]
+  n23["automation 6ae862f3f13e536c52e76ecd · 6ae862f3f13e536c52e76ecd"]
+  n24["automation 6ae863282099302ffb2cf702 · 6ae863282099302ffb2cf702"]
+  n25["automation Pipeline Factory · Account Ranking · 6ae8632c9ec43c6ee22f380d"]
+  n26["automation Pipeline Factory · Read component inputs · 6ae8635446920244f3d5194b"]
+  n27["automation 6ae863842099302ffb2d0262 · 6ae863842099302ffb2d0262"]
+  n28["automation Pipeline Factory · Weekly Slot Planner · 6ae863a5f38e327618183dca"]
+  n29["automation 6ae863d0fbdd550a9a4ffc58 · 6ae863d0fbdd550a9a4ffc58"]
+  n30["automation 6ae863f02099302ffb2d2358 · 6ae863f02099302ffb2d2358"]
+  n31["automation Pipeline Factory · Holdout Picker · 6ae864059ec43c6ee22f8008"]
+  n32["automation 6ae864342099302ffb2d2a71 · 6ae864342099302ffb2d2a71"]
+  n33["automation Pipeline Factory · Do-Not-Contact List · 6ae864672099302ffb2d3157"]
+  n34["automation Pipeline Factory · Save agent output · 6ae864829594aa458cc1ce69"]
+  n35["automation 6ae864929594aa458cc23de9 · 6ae864929594aa458cc23de9"]
+  n36["automation 6ae86493f38e32761818a2c1 · 6ae86493f38e32761818a2c1"]
+  n37["automation 6ae865229ec43c6ee2300d8d · 6ae865229ec43c6ee2300d8d"]
+  n38["automation 6ae8654d2099302ffb2d9514 · 6ae8654d2099302ffb2d9514"]
+  n39["object PF Patch · OBJ_pf_patch"]
+  n40["object PF Account · OBJ_pf_account"]
+  n41["object PF Person · OBJ_pf_person"]
+  n42["object PF Signal · OBJ_pf_signal"]
+  n43["object PF Fact · OBJ_pf_fact"]
+  n44["object PF Draft · OBJ_pf_draft"]
+  n45["object PF Hand-off · OBJ_pf_handoff"]
+  n46["object PF Component · OBJ_pf_component"]
+  n47["object PF Seed snapshot · OBJ_pf_seed_snapshot"]
+  n48["object PF Component run · OBJ_pf_component_run"]
+  n49["object PF Source · OBJ_pf_source"]
+  n50["object PF Inbox · OBJ_pf_inbox"]
+  n51["object PF Suppression · OBJ_pf_suppression"]
+  n52["AI agent Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da"]
+  n53["object object_type · object_type"]
   n1 --- n2
   n2 --- n3
   n2 --- n4
@@ -56,56 +72,98 @@ flowchart LR
   n5 -->|data source| n15
   n6 -->|data source| n22
   n7 -->|data source| n19
-  n8 -->|storage read| n37
-  n9 -->|storage read| n37
-  n10 -->|storage read| n37
-  n11 -->|storage read| n37
-  n12 -->|storage read| n37
+  n8 -->|storage read| n53
+  n9 -->|storage read| n53
+  n10 -->|storage read| n53
+  n11 -->|storage read| n53
+  n12 -->|storage read| n53
   n13 -->|data source| n16
-  n14 -->|storage read| n30
-  n14 -->|storage write| n29
-  n14 -->|storage read| n29
-  n15 -->|storage read| n28
-  n15 -->|storage write| n28
-  n15 -->|storage read| n24
-  n15 -->|storage read| n25
-  n16 -->|storage read| n24
-  n16 -->|storage read| n26
-  n16 -->|storage write| n26
-  n16 -->|storage write| n24
+  n14 -->|storage read| n46
+  n14 -->|storage write| n45
+  n14 -->|storage read| n45
+  n15 -->|storage read| n44
+  n15 -->|storage write| n44
+  n15 -->|storage read| n40
+  n15 -->|storage read| n41
+  n16 -->|storage read| n40
+  n16 -->|storage read| n42
+  n16 -->|storage write| n42
+  n16 -->|storage write| n40
   n16 -->|call node| n14
-  n17 -->|storage read| n30
-  n17 -->|storage write| n30
-  n17 -->|storage write| n29
-  n18 -->|storage read| n23
-  n18 -->|storage read| n24
-  n18 -->|storage read| n29
-  n18 -->|storage read| n30
-  n18 -->|storage read| n25
-  n19 -->|storage read| n24
-  n19 -->|storage write| n24
+  n17 -->|storage read| n46
+  n17 -->|storage write| n46
+  n17 -->|storage write| n45
+  n18 -->|storage read| n39
+  n18 -->|storage read| n40
+  n18 -->|storage read| n45
+  n18 -->|storage read| n46
+  n18 -->|storage read| n41
+  n19 -->|storage read| n40
+  n19 -->|storage write| n40
   n19 -->|call node| n14
-  n19 -->|storage read| n23
-  n19 -->|storage write| n23
-  n20 -->|storage write| n23
-  n20 -->|storage write| n24
-  n20 -->|storage write| n25
-  n20 -->|storage write| n26
-  n20 -->|storage write| n27
-  n20 -->|storage write| n28
-  n20 -->|storage write| n29
-  n20 -->|storage write| n30
-  n20 -->|storage write| n31
-  n20 -->|storage read| n31
-  n20 -->|storage read| n23
-  n20 -->|storage read| n24
-  n20 -->|storage read| n25
-  n20 -->|storage read| n26
-  n20 -->|storage read| n27
-  n20 -->|storage read| n28
-  n20 -->|storage read| n29
-  n20 -->|storage read| n30
-  n21 -->|storage read| n24
-  n21 -->|storage write| n24
+  n19 -->|storage read| n39
+  n19 -->|storage write| n39
+  n20 -->|storage write| n39
+  n20 -->|storage write| n40
+  n20 -->|storage write| n41
+  n20 -->|storage write| n42
+  n20 -->|storage write| n43
+  n20 -->|storage write| n44
+  n20 -->|storage write| n45
+  n20 -->|storage write| n46
+  n20 -->|storage write| n47
+  n20 -->|storage read| n47
+  n20 -->|storage read| n39
+  n20 -->|storage read| n40
+  n20 -->|storage read| n41
+  n20 -->|storage read| n42
+  n20 -->|storage read| n43
+  n20 -->|storage read| n44
+  n20 -->|storage read| n45
+  n20 -->|storage read| n46
+  n21 -->|storage read| n40
+  n21 -->|storage write| n40
   n21 -->|call node| n14
+  n25 -->|storage read| n39
+  n25 -->|storage read| n40
+  n25 -->|storage read| n42
+  n25 -->|storage write| n40
+  n25 -->|call node| n14
+  n25 -->|storage write| n48
+  n26 -->|storage read| n46
+  n26 -->|storage read| n40
+  n26 -->|storage read| n41
+  n26 -->|storage read| n42
+  n26 -->|storage read| n43
+  n26 -->|storage read| n44
+  n26 -->|storage read| n49
+  n26 -->|storage read| n45
+  n26 -->|storage read| n50
+  n26 -->|storage read| n51
+  n26 -->|storage read| n48
+  n28 -->|storage read| n39
+  n28 -->|storage write| n39
+  n28 -->|storage write| n48
+  n31 -->|storage write| n48
+  n31 -->|storage read| n40
+  n31 -->|storage write| n40
+  n33 -->|storage read| n41
+  n33 -->|storage read| n51
+  n33 -->|storage write| n51
+  n33 -->|storage write| n41
+  n33 -->|storage write| n48
+  n34 -->|storage read| n46
+  n34 -->|storage read| n40
+  n34 -->|storage read| n41
+  n34 -->|storage read| n44
+  n34 -->|storage read| n50
+  n34 -->|storage read| n48
+  n34 -->|storage write| n40
+  n34 -->|storage write| n41
+  n34 -->|storage write| n44
+  n34 -->|storage write| n50
+  n34 -->|storage write| n42
+  n34 -->|storage write| n43
+  n34 -->|call node| n14
+  n34 -->|storage write| n48
 ```

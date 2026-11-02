@@ -22,10 +22,10 @@ Goal: Pipeline Factory · G3 round 2 · P02
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Pipeline Factory · Read component inputs |  | running | 1 |
-| t2 | deploy | Pipeline Factory · Read component inputs | t1 | pending | 0 |
-| t3 | automation | Pipeline Factory · Save agent output |  | running | 1 |
-| t4 | deploy | Pipeline Factory · Save agent output | t3 | pending | 0 |
+| t1 | automation | Pipeline Factory · Read component inputs |  | done | 1 |
+| t2 | deploy | Pipeline Factory · Read component inputs | t1 | running | 1 |
+| t3 | automation | Pipeline Factory · Save agent output |  | done | 1 |
+| t4 | deploy | Pipeline Factory · Save agent output | t3 | running | 1 |
 | t5 | automation | Pipeline Factory · Reset agent runs |  | running | 1 |
 | t6 | deploy | Pipeline Factory · Reset agent runs | t5 | pending | 0 |
 | t7 | automation | Pipeline Factory · Reset demo | t6 | pending | 0 |
@@ -41,6 +41,22 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Read component inputs; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae8635446920244f3d5194b"}
+Read back: Pipeline Factory · Read component inputs 6ae8635446920244f3d5194b: open_workflow version 2, deployment null (not deployed, as the task says), trigger CALLABLE callables_from_automation, 18 nodes, 11 fetch_records + 1 groovy, 3 return terminals, no model node
+Read back: Pipeline Factory · Read component inputs: describe_callable_workflow inputs component_id (string, required), account_id, person_id, draft_id, patch_id (string); result schema component, account, people, signals, facts, drafts, sources, handoffs_in, inboxes, suppression, recent_runs, reason (all string, all required)
+Read back: Pipeline Factory · Read component inputs run 6ae863b2fbdd550a9a4fed3b (C31, A-1001, P-1002, D-04): COMPLETED, reason '', component C31 row, account A-1001, signals 4, handoffs_in [H-13 to Fact Checker], suppression SUP-03/SUP-04, recent_runs 50 rows
+Read back: Pipeline Factory · Read component inputs run 6ae863a39594aa458cbf7d89 (C47, account_id 'Vexmoor Telecom'): COMPLETED, account resolved by name to A-1013, handoffs_in [H-17 Deal Qualifier to AE confirm], sources include the handbook row SRC-19 with no account
+Read back: Pipeline Factory · Read component inputs run 6ae863a546920244f3d521c5 (C99): COMPLETED, reason 'unknown component', every list '[]', component and account '{}'
+Read back: Pipeline Factory · Read component inputs run 6ae863a646920244f3d521e1 (all inputs blank): COMPLETED, reason 'unknown component', empty lists
+Read back: Pipeline Factory · Read component inputs: best practice 93 (83 of 85 checks) after 2 fix rounds, first read 80, version 2
+Read back: Pipeline Factory · Read component inputs security: read-only, no secret, every fetch has a field projection, suppression email_hash left out (rule 4); no per-user ownership on these demo objects (rule 2 not applicable)
+Note: Test runs on version 2 came after the last fix round; first run 6ae8635b9594aa458cbf78b4 (C08, A-1001, P-1002) on version 0 also COMPLETED with the same shape, so the rounds changed no outcome.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Execute Groovy code · fix would change behaviour (the checker names no field, and hiding the trigger and code I/O would hide the agent tool's contract and outputs; Read factory records fails the same check)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (PF Component component_id/name, PF Component run run_at) · needs object indexes on OBJ_pf_component and OBJ_pf_component_run outside the task
+Note: assumed: a blank component_id answers reason 'unknown component' like an unknown one; an account given but not found answers reason 'account not found' with account-scoped lists empty; account is resolved from the draft or person when account_id is not given.
+Note: assumed: inboxes returns every PF Inbox row; suppression returns the account's and its people's rows (all rows when no account or person is given); recent_runs is returned to every component, not only sw8.
+Note: Each list read is capped at 500 rows (recent_runs at 50); the rows are sorted in the Groovy node rather than by the store, to clear the index check.
+Note: No rows written by this automation's tests (read-only).
 
 ### t2 · Deploy Pipeline Factory · Read component inputs
 
@@ -63,6 +79,35 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Save agent output; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae864829594aa458cc1ce69"}
+Read back: Pipeline Factory · Save agent output 6ae864829594aa458cc1ce69: open_workflow version 0, deployment null (not deployed), CALLABLE callables_from_automation, 49 nodes: 7 fetch, 2 groovy, 4 create_record, 5 update_record_fields_by_id, 1 callables_call_automation to 6ae840a5fbdd550a9a44c524 (Save hand-off, version -1), no model node
+Read back: Pipeline Factory · Save agent output: describe_callable_workflow 14 inputs component_id (required), account_id, person_id, play_id, draft_id, patch_id, output_type, summary, payload, confidence (number), evidence, evidence_tag, model, origin; result result (enum saved\|waiting_person\|rejected\|duplicate\|paused), run_id, handoff_ids, reason, all required
+Read back: Pipeline Factory · Save agent output saved: run 6ae86492f13e536c52e9329d (C11, A-1001, origin test) answered saved, run_id RUN-6ae86492f13e536c52e9329d, handoff_ids H-6ae86493f13e536c52e93382,H-6ae86493f13e536c52e933c0; get_records: PF Signal SIG-6ae86492f13e536c52e9329d (ai_hiring, weight 15, origin test), hand-offs Buying Signal Spotter to Account Ranking and to Play Picker both flowed, origin test
+Read back: Pipeline Factory · Save agent output duplicate: run 6ae864af46920244f3d57d76 (same C11 key) answered duplicate with the same run_id and hand-off ids; get_records: RUN-6ae86492f13e536c52e9329d version 1 (updated in place), no second run row, no new hand-off
+Read back: Pipeline Factory · Save agent output waiting_person: run 6ae864959594aa458cc25810 (C06, confidence 50) answered waiting_person 'confidence 50 under threshold 70'; run row status waiting_person, assigned_to RevOps, no hand-off, no field write
+Read back: Pipeline Factory · Save agent output rejected: run 6ae86498fbdd550a9a505f99 (C08, evidence blank) answered rejected 'schema check failed: evidence missing'; run row status rejected, assigned_to GTM engineer, nothing else written
+Read back: Pipeline Factory · Save agent output field write: run 6ae864b2f38e32761818a527 (C06, account given by name 'Carrow &amp; Vale Logistics', confidence 80) answered saved 'wrote fit_score, fit_band', hand-off H-6ae864b4f38e32761818a53b to Account Ranking; get_records A-1001 fit_score 49 (number), fit_band best, origin seed unchanged (written the seeded values, so no seed value changed)
+Read back: Pipeline Factory · Save agent output paused: run 6ae864cd9ec43c6ee22fdc23 (test component CT-PAUSED-062f35, status paused) answered paused 'component paused: nothing run or written'; get_records finds no PF Component run row for it
+Read back: Pipeline Factory · Save agent output: unknown component run 6ae864ce2099302ffb2d71dc answered rejected 'unknown component'; all-blank run 6ae864b69ec43c6ee22fda0d answered rejected 'schema check failed: component_id missing', no row written
+Read back: Pipeline Factory · Save agent output security: no secret; writes only the fixed field map's fields by plain name, origin only on created rows, never a field locked at booking on an account with locked_at
+Unverified: Best Practice score not read: get_workflow_best_practice_report answered HTTP 500 'Workflow execution failed' twice for 6ae864829594aa458cc1ce69 version 0 — settle by reading it once more before the deploy task
+Unverified: The person, draft, inbox, fact and new-draft write arms (C21/C22, C31/C32/C54, C38, C16-C18, C30) and the locked-field skip were not run; only the account update (C06) and signal create (C11) arms were — settle with one origin test run per arm
+Note: test rows left for Reset demo: PF Component run RUN-6ae86492f13e536c52e9329d, RUN-6ae864959594aa458cc25810, RUN-6ae86498fbdd550a9a505f99, RUN-6ae864b2f38e32761818a527; PF Signal SIG-6ae86492f13e536c52e9329d; PF Hand-off H-6ae86493f13e536c52e93382, H-6ae86493f13e536c52e933c0, H-6ae864b4f38e32761818a53b; PF Component CT-PAUSED-062f35 (paused fixture created with apply_record_edits, origin test)
+Note: Seed row touched: PF Account A-1001 fit_score/fit_band rewritten with its own seeded values (49, best); no value changed and origin stays seed.
+Note: assumed: origin is written only on rows this automation creates; updates to existing PF Account/Person/Draft/Inbox rows leave their origin alone, because setting origin test on a seed row would make Reset demo delete it.
+Note: assumed: the duplicate check runs before the schema check and only matches an earlier run row that is not rejected; a re-run after a rejected run updates that same row instead of creating a second one. A duplicate updates only reason, run_at and model on the row and keeps its status and hand-off ids.
+Note: assumed: confidence outside 0 to 100 answers 'schema check failed: confidence missing (must be 0 to 100)'; a map component also needs its target id (account_id, person_id, draft_id, or inbox_id in the payload) and at least one registered field in the payload, with picklist codes checked.
+Note: assumed: an unknown component_id answers rejected 'unknown component' and writes no run row (there is no component to log it against).
+Note: assumed: proposal status applies to sw8 components of kind agent with no field map entry (C48-C51); C54 writes planted_error and saves as saved.
+Note: Feeds are matched to components by name with any '(...)' suffix stripped; non-component feeds (RevOps, HubSpot, GTM engineer, Friday review) get no hand-off. Each hand-off passes to_component as the stripped name so Save hand-off's register check passes.
+Note: handover: Save agent output reads the registered fields from payload JSON keys named as the PF object fields (e.g. {"fit_score":82,"fit_band":"best"}); C38 needs inbox_id in the payload; C30 needs body (and channel email\|linkedin\|call).
+Note: feedback:
+Bug: get_workflow_best_practice_report fails with HTTP 500 'Workflow execution failed' for Pipeline Factory · Save agent output.
+Context: workflowIds [6ae864829594aa458cc1ce69], version 0, 49 nodes, orbit UAT; the tool answered for three other automations in the same session.
+Where: platform
+Evidence: Two calls minutes apart both returned POST /api/workflow/execute/node HTTP 500 Workflow execution failed; the automation saved clean and its test runs completed.
+Cause: Unknown — next check: build the best-practice report for that version directly and read the server log for the 500.
+Regression: get_workflow_best_practice_report on 6ae864829594aa458cc1ce69 returns a score.
 
 ### t4 · Deploy Pipeline Factory · Save agent output
 
@@ -85,6 +130,7 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Reset agent runs; test runs with origin test answer each result path.
+Error: Asked the person: Testing Pipeline Factory · Reset agent runs means running it, and every run deletes all origin test rows in PF Component run, PF Source, PF Inbox and PF Suppression (including other builders' test rows), then restores seed rows from PF Seed snapshot. This unattended task says to make no delete. May I run one test run of the saved draft now? Yes / No (leave it untested until the Reset demo deploy). Made so far: ids {"entity":"6ae863f02099302ffb2d2358"}.
 
 ### t6 · Deploy Pipeline Factory · Reset agent runs
 

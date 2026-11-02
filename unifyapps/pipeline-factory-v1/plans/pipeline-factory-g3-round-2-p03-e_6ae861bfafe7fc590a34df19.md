@@ -22,14 +22,14 @@ Goal: Pipeline Factory · G3 round 2 · P03
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Pipeline Factory · Account Ranking |  | running | 1 |
-| t2 | deploy | Pipeline Factory · Account Ranking | t1 | pending | 0 |
-| t3 | automation | Pipeline Factory · Weekly Slot Planner |  | running | 1 |
-| t4 | deploy | Pipeline Factory · Weekly Slot Planner | t3 | pending | 0 |
-| t5 | automation | Pipeline Factory · Holdout Picker |  | running | 1 |
-| t6 | deploy | Pipeline Factory · Holdout Picker | t5 | pending | 0 |
-| t7 | automation | Pipeline Factory · Do-Not-Contact List |  | running | 1 |
-| t8 | deploy | Pipeline Factory · Do-Not-Contact List | t7 | pending | 0 |
+| t1 | automation | Pipeline Factory · Account Ranking |  | done | 1 |
+| t2 | deploy | Pipeline Factory · Account Ranking | t1 | running | 1 |
+| t3 | automation | Pipeline Factory · Weekly Slot Planner |  | done | 1 |
+| t4 | deploy | Pipeline Factory · Weekly Slot Planner | t3 | running | 1 |
+| t5 | automation | Pipeline Factory · Holdout Picker |  | done | 1 |
+| t6 | deploy | Pipeline Factory · Holdout Picker | t5 | running | 1 |
+| t7 | automation | Pipeline Factory · Do-Not-Contact List |  | done | 1 |
+| t8 | deploy | Pipeline Factory · Do-Not-Contact List | t7 | running | 1 |
 
 ### t1 · Build Pipeline Factory · Account Ranking
 
@@ -41,6 +41,43 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Account Ranking; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae8632c9ec43c6ee22f380d"}
+Read back: Pipeline Factory · Account Ranking 6ae8632c9ec43c6ee22f380d: search_workflows found no automation of that name before create; compile_and_save_workflow created it (created: true), open_workflow now answers version 2, deployment null (not deployed, as the task says)
+Read back: Pipeline Factory · Account Ranking: open_workflow trigger CALLABLE callables/callables_from_automation; setup {patch_id string required, mode string enum [rank, top_up], origin string}; result {ranked number, queued_to_gate1 number, reason string} all required; describe_callable_workflow: patch_id required, mode and origin optional
+Read back: Pipeline Factory · Account Ranking run 6ae8633cf13e536c52e78deb (blank {}): COMPLETED, response {ranked 0, queued_to_gate1 0, reason 'patch_id is required'}
+Read back: Pipeline Factory · Account Ranking run 6ae8633efbdd550a9a4f925d (mode bogus, origin test): COMPLETED, {ranked 0, queued_to_gate1 0, reason 'mode must be rank or top_up'}
+Read back: Pipeline Factory · Account Ranking run 6ae8633e46920244f3d516bc (PATCH-ZZ-99): COMPLETED, {ranked 0, queued_to_gate1 0, reason 'patch PATCH-ZZ-99 not found'}
+Read back: Pipeline Factory · Account Ranking run 6ae8633ffbdd550a9a4f9288 (rank PATCH-NAE-03, origin test): COMPLETED, {ranked 8, queued_to_gate1 0}; get_records PF Account: A-1001 timing 40 rank 1 top_signals 'Checked pricing/product visit (25); AI platform hiring (15); Vendor renewal within 9 months (15)', A-1002 timing 35 rank 2, A-1003 timing 15 rank 3, A-1007 rank 4, A-1009 rank 5, A-1005 rank 6, A-1004 rank 7, A-1008 rank 8
+Read back: Pipeline Factory · Account Ranking run 6ae86344f13e536c52e790c7 (top_up PATCH-NAE-03, origin test): COMPLETED, {ranked 0, queued_to_gate1 1, reason 'moved 1 queued account(s) to Gate 1 pending: A-1009 (1 open of 5 slots left)'}; get_records: A-1009 gate1_status pending; PF Hand-off H-6ae86344f13e536c52e790f5 from_component C12, to_component Gate 1, account A-1009, status flowed, schema_status passed, origin test
+Read back: Pipeline Factory · Account Ranking runs after the fix round on version 2: 6ae8638046920244f3d51c90 (top_up PATCH-NAE-03) COMPLETED 'Gate 1 batch already full: 5 pending account(s) fill the 5 slot(s) left'; 6ae86382f38e32761818382c (rank PATCH-NAE-04) COMPLETED {ranked 6}; A-1010 timing 20 rank 1
+Read back: Pipeline Factory · Account Ranking: get_records PF Component run CR-C12-* rows carry component_id C12, kind workflow, model none (e.g. CR-C12-6ae86344f13e536c52e790c7 handoff_ids 'H-6ae86344f13e536c52e790f5;', origin test)
+Read back: Pipeline Factory · Account Ranking: best practice 87 (79 of 85 checks), under 90 after 2 fix rounds, first read 87, version 2
+Read back: Pipeline Factory · Account Ranking security: no secret, token or URL in any node; identity is not caller-driven (patch_id only selects which patch); writes set only timing_score, rank_in_patch, top_signals and gate1_status
+Unverified: Pipeline Factory · Account Ranking: the 'no slots left' and 'no queued accounts to move' reasons were not run (seed patches always had slots left); settle with a top_up run on a patch whose slots_used equals slots_allocated
+Unverified: Pipeline Factory · Account Ranking: deployed behaviour unverified (not deployed by this task); settle with the deploy task's run on the deployed copy
+Note: assumed: timing_score = sum of the starting weights of counted PF Signal rows (counted true, signal_date in the last 30 days) using Log signal's weights pricing_visit 25, new_leader/event 20, vendor_renewal/ai_hiring/earnings/bombora/vendor_interest 15, funding/exec_posts 10; the checked-visit rule is honoured through the counted flag Log signal writes
+Note: assumed: top_up open slots = (slots_allocated - slots_used) minus accounts already pending and not held out; candidates are queued, not held-out, not not_eligible accounts, ordered fast-lane (a counted fast_lane signal in 30 days) first, then rank_in_patch
+Note: assumed: rank ranks every account of the patch (not_eligible included) by fit_score + timing_score, ties by fit then account_id; accounts with no counted signals get top_signals 'No counted signals in the last 30 days'
+Note: assumed: the Gate 1 hand-off uses from_component C12, to_component 'Gate 1' (the name Save hand-off matches to C15 and C12.feeds), record_type gate1_candidate, confidence 100, due_at run time + 3 h
+Note: handover: Pipeline Factory · Account Ranking workflowId 6ae8632c9ec43c6ee22f380d, saved version 2, not deployed; inputs patch_id (required), mode, origin
+Note: Pipeline Factory · Account Ranking: best-practice round 1 (version 1) added a field projection on the patch fetch and asked for captureIterations false; score stayed 87 (passed 78 -&gt; 79); round 2 (version 2) re-saved with captureIterations false and the compiler answered 'Nothing changed'. The projection is kept because it changes no outcome (re-tested on version 2).
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Execute Javascript, Call automation (Save hand-off) · no DSL option sets node input/output visibility; left after two fix rounds
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (PF Patch patch_id, PF Account patch_id, PF Signal counted) · needs object index changes outside the task
+Note: best practice exception: CHECK_22 Instead of using nested Conditions, prefer using a single branch node · Condition (patch found?), Condition (rank mode?) · the guards are the contract's refusal paths; left after two fix rounds
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields (x2), Create record · write nodes whose output nothing needs; fix would change behaviour
+Note: best practice exception: CHECK_35 Migrate to Groovy code action for better performance · Execute Javascript · left after two fix rounds
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (x2) · the compiler drops captureIterations false (see feedback)
+Note: Mistake: the blank-payload run 6ae8633cf13e536c52e78deb was sent with no origin, so it created PF Component run CR-C12-6ae8633cf13e536c52e78deb with origin user (the automation's documented default). No delete was made; it needs a person's cleanup.
+Note: Seed rows changed by tests (Reset demo restores PF Account seed rows): PF Account A-1001..A-1015 timing_score/rank_in_patch/top_signals recomputed for PATCH-NAE-03 and PATCH-NAE-04; A-1009 gate1_status queued -&gt; pending
+Note: test rows left for Reset demo: PF Hand-off H-6ae86344f13e536c52e790f5; PF Component run CR-C12-6ae8633efbdd550a9a4f925d, CR-C12-6ae8633e46920244f3d516bc, CR-C12-6ae8633ffbdd550a9a4f9288, CR-C12-6ae86344f13e536c52e790c7, CR-C12-6ae8638046920244f3d51c90, CR-C12-6ae86382f38e32761818382c (origin test) and CR-C12-6ae8633cf13e536c52e78deb (origin user)
+Note: Task body says Account Ranking calls Log signal; it does not call it (it reuses Log signal's weights and counted flag) and it calls Save hand-off 6ae840a5fbdd550a9a44c524, which search_workflows shows DEPLOYED definitionVersion 4
+Note: feedback:
+Bug: compile_and_save_workflow drops \`captureIterations: false\` on a for-each loop; the loop saves with captureIterations true, so best practice CHECK_37 cannot be cleared from the DSL.
+Context: Pipeline Factory · Account Ranking 6ae8632c9ec43c6ee22f380d; each(list, { captureIterations: false }) and an edit of the open_workflow code from true to false, saved via codeFile. Surface: automation-code compiler, each() options.
+Where: mcp-tool
+Evidence: first save reported only an unrelated fetch changed; open_workflow returned captureIterations: true; editing it to false answered 'Nothing changed: this compiles to exactly the automation that is already saved.'; report v2 still lists CHECK_37 on n_te83w and n_70im0.
+Cause: Suspected: the compiler omits false as a default while the platform defaults the loop to true.
+Regression: save each(xs, { captureIterations: false }), open_workflow it, expect captureIterations: false and no CHECK_37 row.
 
 ### t2 · Deploy Pipeline Factory · Account Ranking
 
@@ -63,6 +100,24 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Weekly Slot Planner; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae863a5f38e327618183dca"}
+Read back: Pipeline Factory · Weekly Slot Planner 6ae863a5f38e327618183dca: search_workflows found no automation of that name before create; created (created: true); open_workflow version 0, deployment null
+Read back: Pipeline Factory · Weekly Slot Planner: trigger CALLABLE callables/callables_from_automation; setup {patch_id string 'empty for all', origin string}, no required inputs; result {allocations string, reason string} both required; describe_callable_workflow agrees
+Read back: Pipeline Factory · Weekly Slot Planner run 6ae863affbdd550a9a4fe421 (patch_id '', origin test): COMPLETED, reason 'allocated 2 patch(es): PATCH-NAE-04 20 (boost 25%); PATCH-NAE-03 24', allocations {PATCH-NAE-04: base 25, boost 25, boosted 31, cap 20, allocated 20; PATCH-NAE-03: base 25, boost 0, cap 24, allocated 24}
+Read back: Pipeline Factory · Weekly Slot Planner run 6ae863ab46920244f3d522aa (PATCH-ZZ-99, origin test): COMPLETED, allocations '{}', reason 'patch PATCH-ZZ-99 not found'
+Read back: Pipeline Factory · Weekly Slot Planner: get_records PF Patch PATCH-NAE-03 slots_allocated 24 pace_boost_pct 0; PATCH-NAE-04 slots_allocated 20 pace_boost_pct 25
+Read back: Pipeline Factory · Weekly Slot Planner: get_records PF Component run CR-C13-6ae863affbdd550a9a4fe421-PATCH-NAE-03 and -PATCH-NAE-04 (C13, workflow, model none, status saved, origin test, reason logs base/boost/cap/allocated) and CR-C13-6ae863ab46920244f3d522aa (no_action)
+Read back: Pipeline Factory · Weekly Slot Planner: best practice 97 (81 of 85 checks), no fix round needed, version 0
+Unverified: Pipeline Factory · Weekly Slot Planner: a single named patch that exists (e.g. PATCH-NAE-04) was not run on its own; settle with a run patch_id PATCH-NAE-04, origin test, expecting only that patch in allocations
+Note: assumed: base is the fixed 25 the spec names (slots_base not read); a boost applies when intros_booked_7d &lt; 4 (which is also under 6), keeping the patch's existing pace_boost_pct when it is 1..50, else 25%; allocated = min(40, max(15, min(floor(25 x (1 + boost)), floor(eligible_accounts / 13)))) - the floor of 15 wins over eligible/13 when they conflict
+Note: assumed: a call that allocates nothing (unknown patch) still logs one C13 PF Component run with status no_action
+Note: handover: Pipeline Factory · Weekly Slot Planner workflowId 6ae863a5f38e327618183dca, saved version 0, not deployed; inputs patch_id (empty for all), origin
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields, Create record (x2) · score already 90 or more
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Create record · score already 90 or more
+Note: best practice exception: CHECK_35 Migrate to Groovy code action for better performance · Execute Javascript · score already 90 or more
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · score already 90 or more (the compiler also drops captureIterations false)
+Note: Seed rows written by tests: PF Patch PATCH-NAE-03 and PATCH-NAE-04 slots_allocated / pace_boost_pct rewritten with the same values they held (24/0 and 20/25)
+Note: test rows left for Reset demo: PF Component run CR-C13-6ae863ab46920244f3d522aa, CR-C13-6ae863affbdd550a9a4fe421-PATCH-NAE-03, CR-C13-6ae863affbdd550a9a4fe421-PATCH-NAE-04
 
 ### t4 · Deploy Pipeline Factory · Weekly Slot Planner
 
@@ -85,6 +140,28 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Holdout Picker; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae864059ec43c6ee22f8008"}
+Read back: Pipeline Factory · Holdout Picker 6ae864059ec43c6ee22f8008: search_workflows found no automation of that name before create; created (created: true); open_workflow version 0, deployment null
+Read back: Pipeline Factory · Holdout Picker: trigger CALLABLE callables/callables_from_automation; setup {patch_id string required, week_seed number, origin string}; result {held string, std_diff_fit number, std_diff_timing number, redraws number, reason string} all required; describe_callable_workflow: patch_id required
+Read back: Pipeline Factory · Holdout Picker run 6ae8640b46920244f3d53ca9 (no patch_id, origin test): COMPLETED, {held '[]', std_diff_fit 0, std_diff_timing 0, redraws 0, reason 'patch_id is required'}
+Read back: Pipeline Factory · Holdout Picker run 6ae864102099302ffb2d25d1 (PATCH-NAE-03, default seed = ISO week 45): COMPLETED, {held '["A-1009"]', std_diff_fit 1.0328, std_diff_timing 1.2309, redraws 5, reason 'balance not reached after 5 redraws'}
+Read back: Pipeline Factory · Holdout Picker run 6ae864149594aa458cbfa05a (PATCH-NAE-04, week_seed 7): COMPLETED, {held '["A-1015"]', std_diff_fit 2, std_diff_timing 0, redraws 5, reason 'balance not reached after 5 redraws'}
+Read back: Pipeline Factory · Holdout Picker run 6ae864179ec43c6ee22f81cd (PATCH-NAE-04, week_seed 7, one account left): COMPLETED, {held '["A-1011"]', std_diff_fit 0, std_diff_timing 0, redraws 0, reason 'held 1 of 1 (10%) with seed 7; balanced: ... (no treated accounts to compare)'}
+Read back: Pipeline Factory · Holdout Picker: get_records PF Account A-1009 factory_holdout true until 1801390864501, A-1015 true until 1801390869250, A-1011 true until 1801390872203 (run time + 90 days)
+Read back: Pipeline Factory · Holdout Picker: get_records PF Component run CR-C14-6ae864102099302ffb2d25d1 payload logs week_seed 45, seed_used 46, pool 5, held [A-1009], reports_due at +90 and +180 days; C14, workflow, model none, origin test
+Read back: Pipeline Factory · Holdout Picker: best practice 93 (80 of 85 checks), no fix round needed, version 0
+Unverified: Pipeline Factory · Holdout Picker: a balanced draw with treated accounts to compare (both std diffs under 0.1 against a non-empty treated group) was not reachable with the seed data (pools of 5 and 2 hold 1 account); settle with a test patch of 20+ medium/low pending accounts with origin test
+Note: assumed: pool = accounts of the patch with fit_band medium or low, gate1_status pending or queued, factory_holdout not true; held count = max(1, floor(pool/10)); order = Fisher-Yates shuffle with mulberry32(seed) over account_id order; seeds tried week_seed .. week_seed+5 (initial draw plus 5 redraws)
+Note: assumed: standardised difference = \|mean held - mean treated\| / sqrt((var held + var treated)/2) with population variances, falling back to the pool's SD when both group variances are 0, and 0 when there is no treated group
+Note: assumed: the best draw when balance fails is the one with the smallest larger-of-the-two differences, answered with redraws 5
+Note: handover: Pipeline Factory · Holdout Picker workflowId 6ae864059ec43c6ee22f8008, saved version 0, not deployed; inputs patch_id (required), week_seed, origin
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Execute Javascript · score already 90 or more
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Create record (x2), Update an existing record's fields · score already 90 or more
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (PF Account patch_id) · score already 90 or more
+Note: best practice exception: CHECK_35 Migrate to Groovy code action for better performance · Execute Javascript · score already 90 or more
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · score already 90 or more
+Note: Seed rows changed by tests (Reset demo restores PF Account seed rows): A-1009, A-1015, A-1011 factory_holdout true with factory_holdout_until set
+Note: test rows left for Reset demo: PF Component run CR-C14-6ae8640b46920244f3d53ca9, CR-C14-6ae864102099302ffb2d25d1, CR-C14-6ae864149594aa458cbfa05a, CR-C14-6ae864179ec43c6ee22f81cd
 
 ### t6 · Deploy Pipeline Factory · Holdout Picker
 
@@ -107,6 +184,34 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Do-Not-Contact List; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae864672099302ffb2d3157"}
+Read back: Pipeline Factory · Do-Not-Contact List 6ae864672099302ffb2d3157: search_workflows found no automation of that name before create; created (created: true); open_workflow version 1, deployment null
+Read back: Pipeline Factory · Do-Not-Contact List: trigger CALLABLE callables/callables_from_automation; setup {action enum add\|erase\|sync\|screen, person_id, kind enum opt_out\|bounce\|complaint\|legal_hold, reason, origin} all string, none required; result {result string, suppression_id string, reason string} all required; describe_callable_workflow agrees
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae86493f38e32761818a2cb (no action, origin test): COMPLETED, {result '', suppression_id '', reason 'action must be add, erase, sync or screen'}
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae86495f13e536c52e934e5 (add P-1013 opt_out): COMPLETED, {result added, suppression_id SUP-6ae86495f13e536c52e934e5}; get_records PF Suppression row person P-1013, kind opt_out, copied_to 'HubSpot, Apollo, Sprouts (mocked)', copied_at set, origin test; PF Person P-1013 dnc true
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae8649ffbdd550a9a506023 (add P-1013 opt_out again): COMPLETED, {result already_listed, suppression_id SUP-6ae86495f13e536c52e934e5}; no second row (PF Suppression has one opt_out row for P-1013)
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae86496f13e536c52e9354e (erase P-1012): COMPLETED, {result erased, suppression_id SUP-E-6ae86496f13e536c52e9354e}; get_records PF Person P-1012 name 'Erased person', note '', dnc true; PF Suppression SUP-E-... kind erasure, no person_id, email_hash sha256:d06b80c2..., erase_due 1796206999024 (run + 30 days), origin test
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae864a19594aa458cc2c0c2 (add P-1012 bounce after erase): COMPLETED, {result already_listed, suppression_id SUP-E-6ae86496f13e536c52e9354e, reason 'person was erased: never re-added'}
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae864a6f38e32761818a454 (screen P-1013): COMPLETED, {result listed, suppression_id SUP-6ae86495f13e536c52e934e5}; run 6ae86474f6f76639f822166c (screen P-1001, version 0): COMPLETED, {result clear}
+Read back: Pipeline Factory · Do-Not-Contact List run 6ae864a79ec43c6ee22fd848 (sync): COMPLETED, {result synced}; get_records: all 7 PF Suppression rows (origin seed or test, none user) carry copied_at 1793615016897..1793615019107
+Read back: Pipeline Factory · Do-Not-Contact List: get_records PF Component run CR-C25-* one row per call (8 rows), C25, workflow, model none, origin test
+Read back: Pipeline Factory · Do-Not-Contact List: best practice 82 (80 of 85 checks), under 90 after 1 fix round, first read 75, version 1
+Read back: Pipeline Factory · Do-Not-Contact List security: the erasure row keeps only a SHA-2 hash of 'pf-person:&lt;person_id&gt;' and no person_id or name; no secret in any node
+Unverified: Pipeline Factory · Do-Not-Contact List: the 'clear' screen answer was run on version 0 only (run 6ae86474f6f76639f822166c); version 1 changed the action switch from a branch to if/else; settle with a screen P-1001 origin test run on version 1
+Unverified: Pipeline Factory · Do-Not-Contact List: email_hash is a hash of the person id, since PF Person has no email field; confirm with the person that a person-id hash is the intended erasure code
+Note: assumed: the hashed code is SHA-2 of 'pf-person:&lt;person_id&gt;' stored as 'sha256:&lt;hex&gt;' because PF Person holds no email; add, erase and screen all check the erasure row by that hash
+Note: assumed: erase also sets PF Person dnc true and is idempotent (a second erase answers erased with the earlier row); add requires person_id and one of the four kinds; screen ignores consent rows and counts an erasure row as listed
+Note: assumed: an unknown or blank action answers result '' with the reason, so every result field is set on every path
+Note: handover: Pipeline Factory · Do-Not-Contact List workflowId 6ae864672099302ffb2d3157, saved version 1, not deployed; inputs action, person_id, kind, reason, origin
+Note: Pipeline Factory · Do-Not-Contact List fix round 1: replaced the multi-way branch on action with an if/else chain; the platform scored the branch arms as parallel (CHECK_69/72/73 high race conditions); score 75 -&gt; 82; outcomes re-tested on version 1
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Create record (PF Suppression add) · no DSL option sets node input/output visibility; the node holds no secret
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (PF Person person_id; PF Suppression kind+email_hash, person_id+kind) · needs object index changes outside the task
+Note: best practice exception: CHECK_22 Instead of using nested Conditions, prefer using a single branch node · Condition (x10) · a branch node reintroduced the high race-condition checks (CHECK_69/72/73) that lowered the score to 75
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields (x3), Create record · write nodes whose output nothing needs
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · the compiler drops captureIterations false
+Note: Seed rows changed by tests (Reset demo restores PF Person seed rows): P-1013 dnc true; P-1012 name 'Erased person', note '', dnc true. PF Suppression seed rows SUP-01..SUP-04 got copied_at stamped by the sync test (PF Suppression seed rows are not in Reset demo's restore list)
+Note: Sync stamped copied_at on SUP-TEST-ERASE too, a test row another builder created (origin test)
+Note: test rows left for Reset demo: PF Suppression SUP-6ae86495f13e536c52e934e5, SUP-E-6ae86496f13e536c52e9354e; PF Component run CR-C25-6ae86474f6f76639f822166c, CR-C25-6ae86493f38e32761818a2cb, CR-C25-6ae86495f13e536c52e934e5, CR-C25-6ae86496f13e536c52e9354e, CR-C25-6ae8649ffbdd550a9a506023, CR-C25-6ae864a19594aa458cc2c0c2, CR-C25-6ae864a6f38e32761818a454, CR-C25-6ae864a79ec43c6ee22fd848
 
 ### t8 · Deploy Pipeline Factory · Do-Not-Contact List
 

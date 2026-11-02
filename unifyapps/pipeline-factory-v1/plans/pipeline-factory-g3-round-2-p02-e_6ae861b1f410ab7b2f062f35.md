@@ -27,7 +27,7 @@ Goal: Pipeline Factory · G3 round 2 · P02
 | t3 | automation | Pipeline Factory · Save agent output |  | done | 1 |
 | t4 | deploy | Pipeline Factory · Save agent output | t3 | done | 1 |
 | t5 | automation | Pipeline Factory · Reset agent runs |  | done | 1 |
-| t6 | deploy | Pipeline Factory · Reset agent runs | t5 | running | 1 |
+| t6 | deploy | Pipeline Factory · Reset agent runs | t5 | done | 1 |
 | t7 | automation | Pipeline Factory · Reset demo | t6 | running | 1 |
 | t8 | deploy | Pipeline Factory · Reset demo | t7 | pending | 0 |
 
@@ -173,6 +173,16 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Reset agent runs deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae863f02099302ffb2d2358"}
+Read back: Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358: version 0 before deploy (matches t5's saved version 0)
+Read back: Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358: deploy_workflow ok:true, 'Deployed version 0 of automation 6ae863f02099302ffb2d2358.', storedVersion 0, paused false
+Read back: Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1793615358253, savedAfterDeploy: false}
+Read back: Pipeline Factory · Reset agent runs: best practice 93 (82 of 85 checks), version 0 (read in t5, version unchanged)
+Unverified: Pipeline Factory · Reset agent runs run: never test-run (person's answer in t5); its delete_records nodes are read as \`.count\`, which the compiler flags in the same pattern on Reset demo as pill.unknownOutput (delete_records emits objects, hasMore), so \`deleted\` may come back empty or 0 — check: inspect the first Reset demo run's Reset agent runs call output
+Note: Deploy approved by the plan: the spec the person accepted names it under Ready when.
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_98o1l, n_muy6e, n_o8r2c, n_wsgce, n_epbqx) · task does not save
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Update an existing record (n_nq6rj, n_bc6ln, n_d117g, n_5qnle) · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · task does not save
 
 ### t7 · Change Pipeline Factory · Reset demo
 
@@ -184,6 +194,7 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Reset demo; test runs with origin test answer each result path.
+Error: Asked the person: Testing Pipeline Factory · Reset demo (saved version 5) means running it, and every run deletes all origin test rows in the nine PF objects and, through Pipeline Factory · Reset agent runs, in PF Component run, PF Source, PF Inbox and PF Suppression (other builders' parallel test rows included), then restores seed rows. This unattended task says to make no delete. May I run one test run of the saved draft now? Yes / No (leave it untested; 4-verify runs it after the build, as for Reset agent runs). Made so far: ids {"entity":"6ae8441df38e327618fcc13c"}.
 
 ### t8 · Deploy Pipeline Factory · Reset demo
 

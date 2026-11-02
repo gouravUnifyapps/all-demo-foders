@@ -1172,6 +1172,10 @@ decisions:
   - by: state-check
     when: 2026-11-02
     text: "reverted stage_flag: written by plan, outside its fields (schema § Who writes what)"
+  - by: orchestrator
+    when: 2026-11-02
+    text: "Build (R2-P04, Meeting Handoff and Deadlines): the AE deadline rows save as flowed, not waiting_person, because round-1 Save hand-off parks a row only under the receiver's threshold and C43's receivers have none; changing Save hand-off is outside this round (Assumptions: round-1 entities unchanged), so the gap is kept and listed for the G3 pack. Book meeting writes meeting_source 'factory: AE booking link' for calendar pick-ups; the true source (SRC-16) is in the prep-pack hand-off payload."
+
 dev_issues:
   - what: "The Pipeline Factory Analyst's model is offered EnvironmentAccess, EnvironmentStatus, ReleaseEnvironment and RequestEnvironmentDeploy beside think, ClarifyFromUser and ReadFactoryRecords; they are not attached to the agent and no agent tool removes them (tenant-injected)"
     beat: "7 Ask the factory"

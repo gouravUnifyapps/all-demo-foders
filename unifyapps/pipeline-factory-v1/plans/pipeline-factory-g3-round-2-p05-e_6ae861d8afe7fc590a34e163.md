@@ -24,12 +24,12 @@ Goal: Pipeline Factory · G3 round 2 · P05
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Alarm and Escalation |  | running | 1 |
 | t2 | deploy | Pipeline Factory · Alarm and Escalation | t1 | pending | 0 |
-| t3 | automation | Pipeline Factory · Content Handoff |  | running | 1 |
-| t4 | deploy | Pipeline Factory · Content Handoff | t3 | pending | 0 |
-| t5 | automation | Pipeline Factory · Privacy and Consent |  | running | 1 |
-| t6 | deploy | Pipeline Factory · Privacy and Consent | t5 | pending | 0 |
-| t7 | automation | Pipeline Factory · Run component |  | running | 1 |
-| t8 | deploy | Pipeline Factory · Run component | t7 | pending | 0 |
+| t3 | automation | Pipeline Factory · Content Handoff |  | done | 1 |
+| t4 | deploy | Pipeline Factory · Content Handoff | t3 | running | 1 |
+| t5 | automation | Pipeline Factory · Privacy and Consent |  | done | 1 |
+| t6 | deploy | Pipeline Factory · Privacy and Consent | t5 | running | 1 |
+| t7 | automation | Pipeline Factory · Run component |  | done | 1 |
+| t8 | deploy | Pipeline Factory · Run component | t7 | running | 1 |
 
 ### t1 · Build Pipeline Factory · Alarm and Escalation
 
@@ -41,6 +41,7 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Alarm and Escalation; test runs with origin test answer each result path.
+Error: Asked the person: Question for the person: the GTM-engineer to-do for a component at 95% to under 97% (C08 Current Vendor Finder) is refused by Save hand-off as 'not registered', because C55's register row feeds only 'patch, pod, Geo, CRO', and no C55 hand-off can be waiting_person (no receiving register row with a threshold). Options: (a) add 'GTM engineer' to C55 feeds in PF Component and a register entry for the GTM engineer with a threshold above 0 (fde/data task, also in the seed snapshot), then re-test; (b) send the component to-do to 'pod' (registered) and accept status flowed; (c) change Save hand-off to accept a person target. The automation is built and saved at version 2; only this step waits. Made so far: ids {"entity":"6ae863282099302ffb2cf702"}.
 
 ### t2 · Deploy Pipeline Factory · Alarm and Escalation
 
@@ -63,6 +64,19 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Content Handoff; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae863d0fbdd550a9a4ffc58"}
+Read back: Pipeline Factory · Content Handoff 6ae863d0fbdd550a9a4ffc58: open_workflow version 0, trigger CALLABLE callables/callables_from_automation, 15 nodes; setup {patch_id string required, origin enum user\|seed\|test}; result {audiences, to_content_factory, to_nurture, marketing_influenced_set: number; reason: string}, all required; describe_callable_workflow lists patch_id (required) and origin
+Read back: Pipeline Factory · Content Handoff: run 6ae863d82099302ffb2d213a (PATCH-NAE-03, origin test) COMPLETED: audiences 6, to_content_factory 10, to_nurture 2, marketing_influenced_set 5, reason '6 accounts in play to the NA East LinkedIn audience, 10 people to the Content Factory, 2 to nurture, 5 accounts set marketing-influenced; logged in PF Component run CR-6ae863d82099302ffb2d213a'
+Read back: Pipeline Factory · Content Handoff: get_records PF Account PATCH-NAE-03: A-1001, A-1002, A-1003, A-1004, A-1009 marketing_influenced true (boolean); A-1007 (locked_at set) stays false; A-1005 (held out) and A-1008 (queued) untouched
+Read back: Pipeline Factory · Content Handoff: PF Component run CR-6ae863d82099302ffb2d213a component_id C56, status saved, origin test; payload holds audience (NA East, 8 weeks), content_factory, nurture (P-1007 not_now until 1794441600000 = 12 Nov 2026; P-1002 engaged), locked_skipped [A-1007], weekly_results assets/messages/patterns
+Read back: Pipeline Factory · Content Handoff: run 6ae863dc46920244f3d5388d (patch_id '') COMPLETED -&gt; all counts 0, reason 'patch_id is required'; run 6ae863dd46920244f3d5389e (PATCH-NOPE-99) -&gt; reason 'patch PATCH-NOPE-99 not found'
+Read back: Pipeline Factory · Content Handoff: best practice 97 (82 of 85 checks), no fix round needed, version 0
+Note: assumed: accounts in play = gate1_status pending or accepted and not factory_holdout; booked/locked = locked_at set; people reached = a PF Source reply or an enrolled PF Draft; replies sorted by text (opt-out, not now, engaged); not-now nurture runs to the date in the reply, else 90 days; engaged nurture runs 30 days from the reply; audiences counts accounts added to the patch-geography audience
+Note: Security (rule 4): writes only PF Account.marketing_influenced via update_record_fields_by_id; never on a locked account; in a test run, user-origin accounts are skipped (payload user_rows_skipped_in_test)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_b473t PF Patch patch_id, n_pvlri PF Account patch_id, n_qg21b PF Source source_kind) · score already 90 or more
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields (n_pbnpo) · score already 90 or more
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (n_w7qt4) · score already 90 or more
+Note: test rows left for Reset demo: PF Component run CR-6ae863d82099302ffb2d213a; seed rows PF Account A-1001, A-1002, A-1003, A-1004, A-1009 changed marketing_influenced to true (Reset demo puts seed rows back)
 
 ### t4 · Deploy Pipeline Factory · Content Handoff
 
@@ -85,6 +99,22 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Privacy and Consent; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae86493f38e32761818a2c1"}
+Read back: Pipeline Factory · Privacy and Consent 6ae86493f38e32761818a2c1: open_workflow version 1, trigger CALLABLE callables/callables_from_automation, 19 nodes; setup {account_id string (empty for all), origin enum user\|seed\|test}; result {checklist string, erasures_due number, cleanup_flagged number, reason string}, all required; describe_callable_workflow lists account_id and origin, both optional
+Read back: Pipeline Factory · Privacy and Consent: run 6ae864e046920244f3d582ef (A-1001, origin test, version 1) COMPLETED_WITH_FAILURE: erasures_due 1 (SUP-TEST-ERASE), cleanup_flagged 7, checklist JSON per person (recording_consent, dnc, send_window, consent, footer, cleanup); reason '13 people checked, 0 clear to contact, 13 not screened, 1 erasures due (0 completed), 7 flagged for clean-up'; same outcome as run 6ae864a3f38e32761818a423 on version 0
+Read back: Pipeline Factory · Privacy and Consent: the Do-Not-Contact List calls failed with 'DEPLOYED_WORKFLOW_DEFINITION_MAPPING with id 6ae864672099302ffb2d3157 not found' (DNC not deployed yet); onError CONTINUE kept the run going and the checklist says 'not screened'
+Read back: Pipeline Factory · Privacy and Consent: run 6ae864d49594aa458cc4db7c (account_id 'A 1001;') -&gt; reason 'account_id must be an account id such as A-1001'; run 6ae864a99ec43c6ee22fd869 (A-9999) -&gt; reason 'account A-9999 not found'
+Read back: Pipeline Factory · Privacy and Consent: get_records PF Component run CR-6ae864e046920244f3d582ef component_id C57, account_id A-1001, status saved, origin test
+Read back: Pipeline Factory · Privacy and Consent: best practice 90 (81 of 85 checks) after 1 fix round, first read 88, version 1
+Unverified: DNC screen and erase through Pipeline Factory · Do-Not-Contact List (6ae864672099302ffb2d3157): not deployed when tested, so 'clear/listed' per person and the erase of SUP-TEST-ERASE are unproven; check: after DNC is deployed, run Privacy and Consent with {account_id: A-1001, origin: test} and read checklist dnc values, erasures completed, and PF Person P-TEST-ERASE name
+Unverified: All-blank payload (account_id empty = all accounts) not run separately; check: trigger with {origin: test} and read the checklist count
+Note: handover: Privacy and Consent calls Do-Not-Contact List 6ae864672099302ffb2d3157 (action screen per person, action erase per erasure past erase_due); deploy DNC before Privacy and Consent's deploy test, then re-run with A-1001
+Note: assumed: state from PF Account hq_city's last two letters; two-party recording-consent states CA, CT, DE, FL, IL, MD, MA, MI, MT, NV, NH, OR, PA, WA; send window calls 08:00-21:00 local, email 09:00-11:00 local; footer unsubscribe link + postal address (CCPA notice for CA); engaged in 12 months = a reply in 365 days or an enrolled draft
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation (n_1u6l2), Create record (n_avytp) · fix would change behaviour (the flagged field is the account_id contract input and the run row's account_id)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_ngttl PF Source source_kind, n_6lwjx PF Draft status) · score already 90 or more
+Note: best practice exception: CHECK_27 Manual list aggregation detected · Add item to list (n_at3de, n_9bnxh) · score already 90 or more
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (n_whh4o, n_jcaef) · score already 90 or more
+Note: test rows left for Reset demo: PF Person P-TEST-ERASE (fixture); PF Suppression SUP-TEST-ERASE (fixture); PF Component run CR-6ae864a3f38e32761818a423, CR-6ae864e046920244f3d582ef
 
 ### t6 · Deploy Pipeline Factory · Privacy and Consent
 
@@ -107,6 +137,26 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Run component; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae865229ec43c6ee2300d8d"}
+Read back: Pipeline Factory · Run component 6ae865229ec43c6ee2300d8d: open_workflow version 2, trigger CALLABLE callables/callables_from_automation, 68 nodes, 12 callables_call_automation (C12 6ae8632c9ec43c6ee22f380d, C13 6ae863a5f38e327618183dca, C14 6ae864059ec43c6ee22f8008, C24 6ae862f3f13e536c52e76ecd, C25 6ae864672099302ffb2d3157, C33 6ae863842099302ffb2d0262, C35 6ae864929594aa458cc23de9, C39 6ae864342099302ffb2d2a71, C43 6ae8654d2099302ffb2d9514, C55 6ae863282099302ffb2cf702, C56 6ae863d0fbdd550a9a4ffc58, C57 6ae86493f38e32761818a2c1) and 1 invoke_agent
+Read back: Pipeline Factory · Run component: setup {component_id required, account_id, person_id, draft_id, origin}; result {result enum ran\|paused\|not_runnable\|failed, run_id, handoff_ids, confidence number, summary, reason}, all required; describe_callable_workflow confirms the five inputs
+Read back: Pipeline Factory · Run component: run 6ae865349ec43c6ee2301263 (all blank) -&gt; failed 'component_id is required'; 6ae8659246920244f3d5b105 (account 'A 1001') -&gt; failed 'account_id must be an id ...'; 6ae865a546920244f3d5b2bd (C404) -&gt; failed 'component C404 is not in the register'
+Read back: Pipeline Factory · Run component: run 6ae8653546920244f3d5a034 (C99-TEST, paused) -&gt; paused '... is paused; a person must resume it before it runs'; 6ae86536f13e536c52e9c14f (C15) -&gt; not_runnable 'run from To-do or Gate 2'; 6ae865382099302ffb2d9349 (C26) -&gt; not_runnable 'a person or a rule step, not a built entity'
+Read back: Pipeline Factory · Run component: run 6ae8659a2099302ffb2d9dba (C98-TEST, built_kind ai_agent -&gt; Pipeline Factory Analyst e_6ae846ffd96c5f6ba22b98da) invoked the agent with 'Run your job for component C98-TEST on account A-1001 (draft D-04); origin test', agent answered, no PF Component run saved -&gt; failed 'the agent answered but saved no PF Component run for this account'
+Read back: Pipeline Factory · Run component: run 6ae865e62099302ffb2db08a (version 2, C97-TEST built_kind automation, no branch) -&gt; not_runnable 'Run component workflow fixture (test row) has no workflow automation to run'
+Read back: Pipeline Factory · Run component: best practice 83 (82 of 85 checks) at version 2 after 1 fix round, first read 75
+Unverified: result 'ran' through a workflow branch: the 12 callees were undeployed or the PF Component rows have no built_kind yet, so no branch ran; check: once the registry sets C55 built_kind automation and Alarm and Escalation is deployed, run {component_id: C55, origin: test} and read run_id and reason
+Unverified: result 'ran' with latency_ms write on an agent's run: no built agent saves a PF Component run yet; check: run a component whose built_entity_id is a deployed round-2 agent and read latency_ms on its newest PF Component run
+Unverified: Version 2 (C43 arm added after the fix round) was retested only on the C97-TEST automation path; the agent path was last run on version 1
+Note: PF Component seed rows have no built_kind or built_entity_id today (fields added after seeding); until the registry is filled, every component except the test fixtures answers not_runnable 'a person or a rule step, not a built entity'
+Note: handover: Run component dispatches workflow components by component_id branch with these callee ids: C12 6ae8632c9ec43c6ee22f380d, C13 6ae863a5f38e327618183dca, C14 6ae864059ec43c6ee22f8008, C24 6ae862f3f13e536c52e76ecd, C25 6ae864672099302ffb2d3157, C33 6ae863842099302ffb2d0262, C35 6ae864929594aa458cc23de9, C39 6ae864342099302ffb2d2a71, C43 6ae8654d2099302ffb2d9514, C55 6ae863282099302ffb2cf702, C56 6ae863d0fbdd550a9a4ffc58, C57 6ae86493f38e32761818a2c1; all must be deployed before Run component reaches 'ran'
+Note: The invoke operation takes the agent id as a parameter, so Run component invokes built_entity_id dynamically (no per-agent branch)
+Note: assumed: C25 is run with action screen on person_id; C12 with mode rank on the account's patch; C13, C14, C56 with the account's patch_id; C39 with sender empty (all)
+Note: Security (rule 2): component, account, person and draft ids are format-checked and only select which record runs; the agent call carries USER.contactDetails.email from the platform
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation (n_cglr3), Call automation (n_xtvtn, n_wl78k, n_tepgt, n_d6i2g) · fix would change behaviour (flagged field is the account_id contract input passed to callees whose input is named account_id)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_cr23d, n_lsmyd, n_khd03, n_anshr) · needs object index outside the task
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields (n_87wnj, latency_ms write) · fix would change behaviour
+Note: test rows left for Reset demo: PF Component C97-TEST and C98-TEST (fixtures); no other rows written by Run component tests
 
 ### t8 · Deploy Pipeline Factory · Run component
 

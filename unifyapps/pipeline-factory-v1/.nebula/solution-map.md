@@ -24,14 +24,14 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation | `Pipeline Factory · Send Rules Check` | 6ae863842099302ffb2d0262 | 1 | no |
 | automation | `Pipeline Factory · Weekly Slot Planner` | 6ae863a5f38e327618183dca | 0 | no |
 | automation | `Pipeline Factory · Content Handoff` | 6ae863d0fbdd550a9a4ffc58 | 0 | no |
-| automation |  | 6ae863f02099302ffb2d2358 |  | yes |
+| automation | `Pipeline Factory · Reset agent runs` | 6ae863f02099302ffb2d2358 | 0 | no |
 | automation | `Pipeline Factory · Holdout Picker` | 6ae864059ec43c6ee22f8008 | 0 | no |
 | automation | `Pipeline Factory · Email Domain Swapper` | 6ae864342099302ffb2d2a71 | 0 | no |
 | automation | `Pipeline Factory · Do-Not-Contact List` | 6ae864672099302ffb2d3157 | 1 | no |
 | automation | `Pipeline Factory · Save agent output` | 6ae864829594aa458cc1ce69 | 0 | no |
 | automation | `Pipeline Factory · Outreach Launcher` | 6ae864929594aa458cc23de9 | 0 | no |
 | automation | `Pipeline Factory · Privacy and Consent` | 6ae86493f38e32761818a2c1 | 1 | no |
-| automation |  | 6ae865229ec43c6ee2300d8d |  | yes |
+| automation | `Pipeline Factory · Run component` | 6ae865229ec43c6ee2300d8d | 2 | no |
 | automation | `Pipeline Factory · Meeting Handoff and Deadlines` | 6ae8654d2099302ffb2d9514 | 1 | no |
 | object | `PF Patch` | OBJ_pf_patch | 0 | no |
 | object | `PF Account` | OBJ_pf_account | 0 | no |
@@ -47,6 +47,9 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | object | `PF Inbox` | OBJ_pf_inbox | 0 | no |
 | object | `PF Suppression` | OBJ_pf_suppression | 0 | no |
 | ai-agent | `Pipeline Factory Analyst` | e_6ae846ffd96c5f6ba22b98da | 14 | no |
+| ai-agent |  | e_6ae86666d96c5f6ba243ce26 |  | yes |
+| ai-agent |  | e_6ae8666ad96c5f6ba243ce39 |  | yes |
+| ai-agent |  | e_6ae8666dafe7fc590a4a3d96 |  | yes |
 
 ## Wiring
 
@@ -158,6 +161,19 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Content Handoff` | `node Read the replies and content assets` | object `PF Source` | storage read |  |
 | automation `Pipeline Factory · Content Handoff` | `node Set the account marketing-influenced` | object `PF Account` | storage write |  |
 | automation `Pipeline Factory · Content Handoff` | `node Log the weekly results in one PF Component run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Component run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Source` | object `PF Source` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Inbox` | object `PF Inbox` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Delete origin test rows in PF Suppression` | object `PF Suppression` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Read the seed snapshot rows of the four objects` | object `PF Seed snapshot` | storage read |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Read the current PF Component run rows that have a seed snapshot` | object `PF Component run` | storage read |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Read the current PF Source rows that have a seed snapshot` | object `PF Source` | storage read |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Read the current PF Inbox rows that have a seed snapshot` | object `PF Inbox` | storage read |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Read the current PF Suppression rows that have a seed snapshot` | object `PF Suppression` | storage read |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Put the PF Component run seed row back` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Put the PF Source seed row back` | object `PF Source` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Put the PF Inbox seed row back` | object `PF Inbox` | storage write |  |
+| automation `Pipeline Factory · Reset agent runs` | `node Put the PF Suppression seed row back` | object `PF Suppression` | storage write |  |
 | automation `Pipeline Factory · Holdout Picker` | `node Log the refused call as a PF Component run (C14)` | object `PF Component run` | storage write |  |
 | automation `Pipeline Factory · Holdout Picker` | `node Read the patch's accounts` | object `PF Account` | storage read |  |
 | automation `Pipeline Factory · Holdout Picker` | `node Flag the account as held out for 90 days (HubSpot flag mocked on PF Account)` | object `PF Account` | storage write |  |
@@ -212,6 +228,23 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | automation `Pipeline Factory · Privacy and Consent` | `node Screen the person through Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result`, `suppression_id` |
 | automation `Pipeline Factory · Privacy and Consent` | `node Complete the erasure through Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result` |
 | automation `Pipeline Factory · Privacy and Consent` | `node Log the checks in one PF Component run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Run component` | `node Read the component row` | object `PF Component` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Read the newest run the agent saved during this call` | object `PF Component run` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Write latency_ms on the agent's run` | object `PF Component run` | storage write |  |
+| automation `Pipeline Factory · Run component` | `node Read the account for its patch` | object `PF Account` | storage read |  |
+| automation `Pipeline Factory · Run component` | `node Run Account Ranking` | automation `Pipeline Factory · Account Ranking` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Weekly Slot Planner` | automation `Pipeline Factory · Weekly Slot Planner` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Holdout Picker` | automation `Pipeline Factory · Holdout Picker` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Contact Finder` | automation `Pipeline Factory · Contact Finder` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Do-Not-Contact List` | automation `Pipeline Factory · Do-Not-Contact List` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Run component` | `node Run Send Rules Check` | automation `Pipeline Factory · Send Rules Check` | call node | `reason`, `result` |
+| automation `Pipeline Factory · Run component` | `node Run Outreach Launcher` | automation `Pipeline Factory · Outreach Launcher` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Email Domain Swapper` | automation `Pipeline Factory · Email Domain Swapper` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Meeting Handoff and Deadlines` | automation `Pipeline Factory · Meeting Handoff and Deadlines` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Alarm and Escalation` | automation `Pipeline Factory · Alarm and Escalation` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Content Handoff` | automation `Pipeline Factory · Content Handoff` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Run Privacy and Consent` | automation `Pipeline Factory · Privacy and Consent` | call node | `reason` |
+| automation `Pipeline Factory · Run component` | `node Read the run the workflow logged during this call` | object `PF Component run` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read the account` | object `PF Account` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read the account's calendar events` | object `PF Source` | storage read |  |
 | automation `Pipeline Factory · Meeting Handoff and Deadlines` | `node Read every account` | object `PF Account` | storage read |  |
@@ -223,6 +256,7 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 ## Not checked
 
 - automation `6ae8441df38e327618fcc13c` (6ae8441df38e327618fcc13c): entity-write
-- automation `6ae863f02099302ffb2d2358` (6ae863f02099302ffb2d2358): entity-write
-- automation `6ae865229ec43c6ee2300d8d` (6ae865229ec43c6ee2300d8d): entity-write
 - ai-agent `Pipeline Factory Analyst` (e_6ae846ffd96c5f6ba22b98da): its tools are not in the cache (get_agent)
+- ai-agent `e_6ae86666d96c5f6ba243ce26` (e_6ae86666d96c5f6ba243ce26): entity-not-cached
+- ai-agent `e_6ae8666ad96c5f6ba243ce39` (e_6ae8666ad96c5f6ba243ce39): entity-not-cached
+- ai-agent `e_6ae8666dafe7fc590a4a3d96` (e_6ae8666dafe7fc590a4a3d96): entity-not-cached

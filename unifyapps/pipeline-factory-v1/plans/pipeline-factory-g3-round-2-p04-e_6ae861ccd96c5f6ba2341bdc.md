@@ -22,16 +22,16 @@ Goal: Pipeline Factory · G3 round 2 · P04
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | automation | Pipeline Factory · Contact Finder |  | running | 1 |
-| t2 | deploy | Pipeline Factory · Contact Finder | t1 | pending | 0 |
-| t3 | automation | Pipeline Factory · Send Rules Check |  | running | 1 |
-| t4 | deploy | Pipeline Factory · Send Rules Check | t3 | pending | 0 |
-| t5 | automation | Pipeline Factory · Outreach Launcher |  | running | 1 |
-| t6 | deploy | Pipeline Factory · Outreach Launcher | t5 | pending | 0 |
-| t7 | automation | Pipeline Factory · Email Domain Swapper |  | running | 1 |
-| t8 | deploy | Pipeline Factory · Email Domain Swapper | t7 | pending | 0 |
-| t9 | automation | Pipeline Factory · Meeting Handoff and Deadlines |  | running | 1 |
-| t10 | deploy | Pipeline Factory · Meeting Handoff and Deadlines | t9 | pending | 0 |
+| t1 | automation | Pipeline Factory · Contact Finder |  | done | 1 |
+| t2 | deploy | Pipeline Factory · Contact Finder | t1 | running | 1 |
+| t3 | automation | Pipeline Factory · Send Rules Check |  | done | 1 |
+| t4 | deploy | Pipeline Factory · Send Rules Check | t3 | running | 1 |
+| t5 | automation | Pipeline Factory · Outreach Launcher |  | done | 1 |
+| t6 | deploy | Pipeline Factory · Outreach Launcher | t5 | running | 1 |
+| t7 | automation | Pipeline Factory · Email Domain Swapper |  | done | 1 |
+| t8 | deploy | Pipeline Factory · Email Domain Swapper | t7 | running | 1 |
+| t9 | automation | Pipeline Factory · Meeting Handoff and Deadlines |  | done | 1 |
+| t10 | deploy | Pipeline Factory · Meeting Handoff and Deadlines | t9 | running | 1 |
 
 ### t1 · Build Pipeline Factory · Contact Finder
 
@@ -43,6 +43,38 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Contact Finder; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae862f3f13e536c52e76ecd"}
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: search_workflows shows version 1, deployment null (not deployed, as the task says); trigger CALLABLE callables/callables_from_automation.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: describe_callable_workflow -&gt; account_id string required, origin string optional; result schema verified number, linkedin_only number, reason string (all required) as read in the run trigger definition.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: run 6ae863ec46920244f3d53a40 (v1, A-1001, origin test) COMPLETED -&gt; {verified:1, linkedin_only:11, reason:'1 verified, 11 LinkedIn only, 1 skipped (gatekeeper or suppressed), 0 re-checked'}; 12 C24 runs CR-C24-6ae863ec46920244f3d53a40-1..12 inserted, P-1002 payload source SRC-08 verified_at 1792540800000 phone_noted true.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: run 6ae863f8f13e536c52e85c06 (v1, no account_id key) COMPLETED -&gt; {verified:0, linkedin_only:0, reason:'account_id is required'}; run 6ae86324f13e536c52e78974 (v0, A-9999) -&gt; reason 'unknown account A-9999'; run 6ae862fa9ec43c6ee22f11c0 (v0, account_id '') -&gt; 'account_id is required'.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: get_records PF Person A-1001 -&gt; P-1002 email_status verified, P-1001/1003/1004/1005/1007..1011 linkedin_only; gatekeeper P-1013 untouched (verified). get_records PF Component run C24 -&gt; 28 rows origin test.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: best practice 86 (82 of 85 checks) after 1 fix round, first read 84, version 1.
+Read back: Pipeline Factory · Contact Finder 6ae862f3f13e536c52e76ecd: Security rules — rule 5 no secret in any node; rule 4 writes only email_status on PF Person and the run fields; rule 2: account_id is caller-supplied and selects shared PF demo data (no per-user ownership on PF objects).
+Unverified: Contact Finder: the 90-day re-check path (creates a PF Source contact_record re-check row) did not run — no seeded contact_record is older than 90 days (SRC-08 dated 1792540800000). Check: a test contact_record with source_date older than 90 days, then a run on its account.
+Unverified: Contact Finder: the v1 re-run of A-1001 changed nothing (bulk update skipped, persons already set); the email_status write itself was shown on v0 run 6ae863152099302ffb2cf30c (updated:10).
+Note: assumed: 'engaged' = the person has a PF Source reply, call_transcript, meeting_transcript or web_visit row; phone noted is recorded in the C24 run payload (PF Person has no phone field).
+Note: assumed: suppression = any PF Suppression row of kind opt_out, bounce, complaint, legal_hold or erasure for the person, or an account-level row; PF Person.dnc also skips the person.
+Note: assumed: a re-check of a verification older than 90 days is mocked as a new PF Source contact_record row (origin of the call, status re-verified) rather than editing the seeded source row.
+Note: Test effect on seed rows: the A-1001 run set email_status linkedin_only on seed persons P-1001, P-1003, P-1004, P-1005, P-1007, P-1008, P-1009, P-1010, P-1011, P-1012 (were verified; none has a contact_record) — Reset demo must restore them.
+Note: test rows left for Reset demo: PF Component run CR-C24-6ae862fa9ec43c6ee22f11c0-1, CR-C24-6ae863152099302ffb2cf30c-1..12, CR-C24-6ae86324f13e536c52e78974-1, CR-C24-6ae863ec46920244f3d53a40-1..12, CR-C24-6ae863f8f13e536c52e85c06-1 (all origin test).
+Note: Fix round 1: rewrote the JavaScript node in Groovy (CHECK_35) and guarded the fetches behind 'account_id given' (a missing key would otherwise fail the fetch); outcome unchanged (1 verified, 11 LinkedIn only).
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Create or update records in bulk (x2) · fix would change behaviour (flags the contract input and object field account_id; no DSL switch hides node I/O)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (x4) · needs object indexes on OBJ_pf_account, OBJ_pf_person, OBJ_pf_source, OBJ_pf_suppression outside the task
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Bulk update records via primary key, Create or update records in bulk (x2) · fix would change behaviour (the node is the write the automation exists to make; its output is not needed downstream)
+Note: feedback:
+Bug: CHECK_2 'Disable Input/Output Visibility for Sensitive Fields' (critical) fires on nodes whose only plausible secret is a field named account_id, and its row names no field.
+Context: get_workflow_best_practice_report on Contact Finder 6ae862f3f13e536c52e76ecd, Outreach Launcher 6ae864929594aa458cc23de9, Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514.
+Where: platform
+Evidence: Send Rules Check (draft_id input) has no CHECK_2 row on its trigger; the automations with an account_id input do; Email Domain Swapper (no account_id) scores security 100. The DSL has no per-node input/output visibility switch.
+Cause: Suspected: a name-pattern match on 'account' treats account_id as a credential.
+Regression: the report on 6ae862f3f13e536c52e76ecd shows no CHECK_2 row for trigger n_eoc3a, or names the field it flags.
+Note: feature:
+Feature: A slim mode on trigger_workflow_run (response, status, node statuses and errors only).
+Evidence: each test run of a ~10-node automation returned 40-100 KB, so many runs overflowed to files and the rest filled the context; 20+ runs were needed across five automations.
+Benefit: testing every outcome path costs a fraction of the context.
+Scope: automation-code trigger_workflow_run / inspect_workflow_run output shaping; non-goal: changing what the platform records.
+Acceptance: a slim run of a 10-node automation answers runId, status, response and per-node status/error in under 3 KB.
 
 ### t2 · Deploy Pipeline Factory · Contact Finder
 
@@ -65,6 +97,31 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Send Rules Check; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae863842099302ffb2d0262"}
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: search_workflows shows version 1, deployment null; trigger CALLABLE callables/callables_from_automation.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: describe_callable_workflow -&gt; draft_id string required, origin string optional; result result (enum passed\|blocked), rule, reason, checks (JSON text), all required.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: run 6ae8659ef38e32761818d2ce (v1, D-04) COMPLETED -&gt; result blocked, rule pod, reason 'Blocked: sender Rhea Castillo is not in the account pod (POD-NAE-1)' — same rule Clear Gate 2 names.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: run 6ae865a02099302ffb2d9e89 (v1, D-06) COMPLETED -&gt; result blocked, rule other_sequence, reason 'Blocked: person is in another sequence'.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: run 6ae86389f38e32761818399a (v0, D-01) COMPLETED -&gt; result passed, rule '', every one of 12 checks passed; run 6ae863b8fbdd550a9a4ff748 (v1, draft_id '') -&gt; blocked/input 'draft_id is required'; run 6ae863b946920244f3d5343f (v1, D-99) -&gt; blocked/draft_not_found.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: read-only on PF Draft — no draft write node exists (operations: 5 fetch, 1 groovy, 1 bulk create on OBJ_pf_component_run); get_records PF Component run C33 shows one row per call.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: best practice 92 (82 of 85 checks), no fix round needed, version 1.
+Read back: Pipeline Factory · Send Rules Check 6ae863842099302ffb2d0262: Security rule 3 — every rule reads its state live (PF Person, PF Suppression, PF Inbox, PF Account) in the same run; nothing trusts a caller flag.
+Unverified: Send Rules Check: the passed path was shown on v0 (run 6ae86389f38e32761818399a); on v1 D-01 now answers blocked/open_deal (run 6ae865a1fbdd550a9a509e4e) because the Meeting Handoff and Deadlines test booked A-1001 (deal_stage engage). Check: after Reset demo, run v1 with D-01 and origin test, expect passed.
+Note: assumed: rule order pod, dnc, person_in_role (erasure row / person missing), other_sequence, held_out, open_deal (deal_stage not none), patch_ae_pod, parent_lock, inbox_limit (email only: an active inbox of the sender in the account pod under 70% of daily_limit), consent (when consent rows exist: one with consent_given true for the state at the end of hq_city), clean_text (subject for email, body, no {{x}}/[X]/&lt;X&gt;/{x} placeholder, owner AE named in the body or is the sender), planted_error. The spec's nine are in its order; the three extra rules sit next to their kin.
+Note: Fix (not a best practice round): v1 guards the dependent fetches; v0 run 6ae863909594aa458cbf7b85 FAILED on draft_id '' with 'No Value found in filter with field: properties.account_id'.
+Note: Test rows with origin user (blank-origin payload defaults to user, as the contract says): CR-C33-6ae863b8fbdd550a9a4ff748 — Reset demo's origin-test sweep will not clear it.
+Note: test rows left for Reset demo: PF Component run CR-C33-6ae86389f38e32761818399a, CR-C33-6ae8638e9594aa458cbf7b3c, CR-C33-6ae8638f46920244f3d51e47, CR-C33-6ae863b946920244f3d5343f, CR-C33-6ae8659ef38e32761818d2ce, CR-C33-6ae865a02099302ffb2d9e89, CR-C33-6ae865a1fbdd550a9a509e4e (origin test).
+Note: Observed during tests: PF Suppression rows SUP-TEST-ERASE and SUP-6ae86495f13e536c52e934e5 (opt_out for P-1013) and PF Person P-TEST-ERASE appeared on A-1001 from another builder's tests; they did not change the D-01/D-04/D-06 answers.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Create or update records in bulk · fix would change behaviour (flags the PF Component run field account_id; no DSL switch hides node I/O)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (x5) · score already 90 or more
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Create or update records in bulk · score already 90 or more
+Note: feedback:
+Bug: A storage filter whose value pill points at a field of an empty fetch result saves clean but fails at run time with 'No Value found in filter'.
+Context: Send Rules Check v0, fetch OBJ_pf_account with eq(properties_account_id, draft.objects[0].properties.account_id) when the draft fetch matched nothing.
+Where: platform
+Evidence: run 6ae863909594aa458cbf7b85 FAILED at the account fetch: 'Validation failed with 1 violations ... No Value found in filter with field: properties.account_id, operator: EQUAL'; compile_and_save_workflow gave no warning. Worked around with if (exists(...)) guards.
+Cause: Confirmed: an unresolved pill drops the filter's value key and the storage action rejects a filter without a value.
+Regression: the compiler warns on an unguarded objects[0] filter value, or the run treats it as no match.
 
 ### t4 · Deploy Pipeline Factory · Send Rules Check
 
@@ -87,6 +144,24 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Outreach Launcher; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae864929594aa458cc23de9"}
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: search_workflows shows version 0, deployment null; trigger CALLABLE callables/callables_from_automation.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: describe_callable_workflow -&gt; account_id string required, origin string optional; result scheduled number, already_scheduled number, schedule string (JSON), reason string, all required.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: run 6ae864a62099302ffb2d6b15 (A-1001, origin test) COMPLETED -&gt; scheduled 4, already_scheduled 0: D-T01 email IN-03 2026-11-03T09:00 America/New_York, D-T02 linkedin sprouts_queue 09:20, D-T03 email IN-03 2026-11-04T09:00 (next day: one email per account per day), D-T04 Tier 2 call_task 2026-11-05T09:00 (two business days after Tier 1).
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: run 6ae864b5f13e536c52e94e0b (same input) COMPLETED -&gt; scheduled 0, already_scheduled 4, no inbox write (bulk update node not run).
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: run 6ae864bef13e536c52e95524 (account_id '') COMPLETED -&gt; scheduled 0, already_scheduled 0, schedule '[]', reason 'account_id is required'.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: get_records PF Inbox IN-03 sent_today 2 (was 0; cap floor(0.7*40)=28); PF Account A-1001 ultimate_parent_lock unchanged 'Dana Okafor' (no write node on PF Account); PF Component run CR-C35-6ae864a62099302ffb2d6b15 status saved.
+Read back: Pipeline Factory · Outreach Launcher 6ae864929594aa458cc23de9: best practice 89 (82 of 85 checks), under 90 with no fixable check (0 fix rounds), version 0.
+Unverified: Outreach Launcher: the 'inbox at 70%' hold path (a draft held when every sender inbox is at 70%) did not run on seeds. Check: an enrolled email draft whose sender's active inboxes have sent_today &gt;= 0.7*daily_limit.
+Note: No seeded PF Draft has status enrolled, so test fixtures were created with apply_record_edits (origin test): PF Draft D-T01, D-T02, D-T03, D-T04 for A-1001, status enrolled, enrolment keys P-100x+PLAY-TEST-LAUNCH.
+Note: assumed: 'already scheduled' is read from the enrolment_keys in the payload of earlier saved C35 runs of the account (one C35 run per call); the state window is business days only; the account's state comes from the last two letters of hq_city mapped to a US time zone (default America/New_York); slots step 20 minutes from 09:00 inside 09:00-11:00.
+Note: assumed: sent_today is raised by the number of email steps scheduled per inbox, as the spec says, even though the steps land on later days.
+Note: Test effect on seed rows: PF Inbox IN-03 sent_today 0 -&gt; 2.
+Note: Test rows with origin user (blank-origin payload): CR-C35-6ae864bef13e536c52e95524 — not cleared by an origin-test sweep.
+Note: test rows left for Reset demo: PF Draft D-T01, D-T02, D-T03, D-T04; PF Component run CR-C35-6ae864a62099302ffb2d6b15, CR-C35-6ae864b5f13e536c52e94e0b (origin test).
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Create or update records in bulk · fix would change behaviour (flags the contract input and object field account_id; no DSL switch hides node I/O)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (x5) · needs object indexes on OBJ_pf_account, OBJ_pf_draft, OBJ_pf_person, OBJ_pf_inbox, OBJ_pf_component_run outside the task
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Bulk update records via primary key, Create or update records in bulk · fix would change behaviour (the node is the write the automation exists to make; its output is not needed downstream)
 
 ### t6 · Deploy Pipeline Factory · Outreach Launcher
 
@@ -109,6 +184,18 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Email Domain Swapper; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae864342099302ffb2d2a71"}
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: search_workflows shows version 0, deployment null; trigger CALLABLE callables/callables_from_automation.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: describe_callable_workflow -&gt; sender string optional (empty for all), origin string optional; result rested, swapped_in, retired, blocked_new (JSON text), reason, all required.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: run 6ae8643a9594aa458cbfa603 (sender '', origin test) COMPLETED -&gt; rested ["IN-02"], swapped_in ["IN-03"], retired ["IN-05"], blocked_new ["IN-06"] — the four seed outcomes the spec names.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: run 6ae8643f9ec43c6ee22f8669 (sender 'Marcus Ellery') COMPLETED -&gt; all lists [], reason 'every inbox healthy; nothing to change' (no inbox write).
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: get_records PF Inbox -&gt; IN-02 resting, IN-03 active, IN-05 retired, IN-06 blocked_new, IN-01/IN-04 active; PF Component run CR-C39-6ae8643a9594aa458cbfa603 status saved.
+Read back: Pipeline Factory · Email Domain Swapper 6ae864342099302ffb2d2a71: best practice 98 (83 of 85 checks), no fix round needed, version 0.
+Note: assumed: a blocked_new inbox whose placement_pct_last is 70 or more goes active; a previously blacklisted inbox that was active also swaps in the sender's first warm spare.
+Note: Test effect on seed rows: PF Inbox IN-02 active -&gt; resting, IN-03 warm_spare -&gt; active, IN-05 resting -&gt; retired.
+Note: test rows left for Reset demo: PF Component run CR-C39-6ae8643a9594aa458cbfa603, CR-C39-6ae8643f9ec43c6ee22f8669 (origin test).
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records · score already 90 or more
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Bulk update records via primary key, Create or update records in bulk · score already 90 or more
 
 ### t8 · Deploy Pipeline Factory · Email Domain Swapper
 
@@ -131,6 +218,34 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Meeting Handoff and Deadlines; test runs with origin test answer each result path.
+Result IDs: {"entity":"6ae8654d2099302ffb2d9514"}
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: search_workflows shows version 1, deployment null; trigger CALLABLE callables/callables_from_automation; calls Book meeting 6ae84449f38e327618fcc640 and Save hand-off 6ae840a5fbdd550a9a44c524 (both deployed).
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: describe_callable_workflow -&gt; account_id string optional (empty for all), origin string optional; result picked_up number, deadlines string (JSON), escalations string (JSON), reason string, all required.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: run 6ae86556f38e32761818cb81 (v0, A-1001, origin test) COMPLETED -&gt; picked_up 1 (Book meeting answered booked from SRC-16), 2 deadlines (accept_reject, decide_after_meeting), prep-pack hand-off H-6ae86558f38e32761818cbc1 to Meeting Prep Writer saved.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: run 6ae8656a46920244f3d5adf8 (v0, account_id '') COMPLETED -&gt; picked_up 0, 7 deadlines, 3 escalations (A-1001 stale_engage -&gt; Geo leader (POD-NAE-1); A-1007 accept_reject -&gt; backup AE Luis Brennan; A-1013 commit_45d -&gt; backup AE Omar Haddad), 8 hand-offs saved, 2 duplicate.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: run 6ae86592f38e32761818d15a (v1, A-1001) COMPLETED -&gt; picked_up 0, 3 deadlines, 1 escalation, 4 already saved (Save hand-off answered duplicate); run 6ae8657dfbdd550a9a509b2d (v0, A-9999) -&gt; reason ends 'unknown account A-9999'.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: get_records PF Hand-off from C43 -&gt; 11 rows origin test (prep_pack, deadline:* and escalation:* plays); PF Account A-1001 meeting_source 'factory: AE booking link', deal_stage engage, locked_at 1793615191550.
+Read back: Pipeline Factory · Meeting Handoff and Deadlines 6ae8654d2099302ffb2d9514: best practice 86 (82 of 85 checks) after 1 fix round, first read 83, version 1.
+Unverified: Meeting Handoff and Deadlines: the picked_up&gt;0 path ran on v0 only; v1 changed only distributeWorkflowLoad on the two batch calls (the Save hand-off batch with it was shown working in run 6ae86592f38e32761818d15a). Check: after Reset demo, run v1 with A-1001 and origin test, expect picked_up 1.
+Unverified: Meeting Handoff and Deadlines: deadline and escalation hand-offs land with status flowed, not waiting_person (see plan_change note). Check: get_records PF Hand-off play_id deadline:* status.
+Note: plan_change: requirement — the spec wants the AE deadlines saved 'as PF Hand-off rows waiting_person through Save hand-off', but Save hand-off (deployed v4) sets waiting_person only when confidence is under the receiving component's threshold; C43's registered receivers are Meeting Prep Writer (threshold 0) and HubSpot (not in the register, so no threshold), so every deadline row is saved as flowed. Making them waiting_person needs a Save hand-off change (e.g. a caller-set status or a registered AE to-do receiver with a threshold) — outside this task.
+Note: plan_change: absorbed — Book meeting (action book) writes meeting_source 'factory: AE booking link' even for a meeting picked up from the AE Google Calendar; this automation records the true source (calendar event SRC-16) in the prep-pack hand-off payload and does not override the locked field.
+Note: handover: Meeting Handoff and Deadlines books an account through Book meeting, which sets deal_stage engage; Send Rules Check then blocks that account's drafts as open_deal (seen on D-01 after the A-1001 test booking).
+Note: assumed: business hours are 09:00-17:00 Monday-Friday in the account's state time zone; 1 business day = 8 business hours; accept_reject applies to booked accounts with meeting_label empty or none; decide_after_meeting runs from the latest calendar event of the account; stale_engage counts from last_touch; Connect 30 and Commit 45 days count from locked_at; reminder at half-window; on a miss escalate to the Geo leader of the pod within 4 business hours, after that to the backup AE.
+Note: assumed: hand-offs go from_component C43 to Meeting Prep Writer (prep_pack) and to HubSpot (deadline:&lt;kind&gt;, escalation:&lt;kind&gt;), keyed account_id\|\|play_id so a re-run answers duplicate.
+Note: Test effect on seed rows: PF Account A-1001 booked by Book meeting (deal_stage engage, meeting_type intro, meeting_source 'factory: AE booking link', factory_sourced and factory_influenced true, locked_at 1793615191550); Book meeting also saved hand-off H-6ae86557f38e32761818cbb1 (meeting_intro, origin test).
+Note: test rows left for Reset demo: PF Component run CR-C43-6ae86556f38e32761818cb81, CR-C43-6ae8656a46920244f3d5adf8, CR-C43-6ae8657dfbdd550a9a509b2d, CR-C43-6ae86592f38e32761818d15a; PF Hand-off H-6ae86557f38e32761818cbb1, H-6ae86558f38e32761818cbc1, H-6ae86558f38e32761818cbc2, H-6ae86558f38e32761818cbc3, H-6ae8656a46920244f3d5ae3b, H-6ae8656a46920244f3d5ae3c, H-6ae8656a46920244f3d5ae3d, H-6ae8656a46920244f3d5ae3e, H-6ae8656a46920244f3d5ae4d, H-6ae8656a46920244f3d5ae50, H-6ae8656a46920244f3d5ae51, H-6ae8656a46920244f3d5ae52 (origin test).
+Note: Fix round 1: set distributeWorkflowLoad true on both Call automation (batch) nodes (CHECK_23); score 83 -&gt; 86; re-run 6ae86592f38e32761818d15a COMPLETED with the same idempotent outcome.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Call automation (batch) x2, Create or update records in bulk · fix would change behaviour (flags the contract input and parameter/field account_id; no DSL switch hides node I/O)
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (x3) · needs object indexes on OBJ_pf_account and OBJ_pf_source outside the task
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Create or update records in bulk · fix would change behaviour (the node is the write the automation exists to make; its output is not needed downstream)
+Note: feedback:
+Bug: get_workflow_best_practice_report answered HTTP 500 'Workflow execution failed' for a freshly saved automation, then ok on the next call.
+Context: [6ae8654d2099302ffb2d9514] version 0, right after compile_and_save_workflow.
+Where: platform
+Evidence: first call 500 'POST /api/workflow/execute/node failed ... Workflow execution failed'; identical call ~40 s later ok, score 83.
+Cause: Unknown — next check: whether the first report build for an unscored version times out.
+Regression: the first call right after a save answers ok.
 
 ### t10 · Deploy Pipeline Factory · Meeting Handoff and Deadlines
 

@@ -1,12 +1,12 @@
 {
   "status": "ok",
-  "startedAt": "2026-11-02T10:10:49.587Z",
-  "pid": 10081,
+  "startedAt": "2026-11-02T10:28:03.590Z",
+  "pid": 846,
   "solutionId": "e_6ae5bfc3b4f0d14b27962a04",
   "tenant": "orbit.uat.unifyapps.com",
   "solutionName": "UnifyApps · Pipeline Factory v1",
-  "endedAt": "2026-11-02T10:10:54.210Z",
-  "changed": 0,
+  "endedAt": "2026-11-02T10:28:11.933Z",
+  "changed": 9,
   "failed": 0,
   "error": null,
   "reason": null

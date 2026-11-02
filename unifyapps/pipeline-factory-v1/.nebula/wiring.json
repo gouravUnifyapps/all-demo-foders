@@ -106,9 +106,9 @@
     {
       "kind": "automation",
       "id": "6ae8441df38e327618fcc13c",
-      "name": "Pipeline Factory · Reset demo",
-      "version": 4,
-      "stale": false
+      "name": null,
+      "version": null,
+      "stale": true
     },
     {
       "kind": "automation",
@@ -127,16 +127,16 @@
     {
       "kind": "automation",
       "id": "6ae862f3f13e536c52e76ecd",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Contact Finder",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "automation",
       "id": "6ae863282099302ffb2cf702",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Alarm and Escalation",
+      "version": 2,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -155,9 +155,9 @@
     {
       "kind": "automation",
       "id": "6ae863842099302ffb2d0262",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Send Rules Check",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -169,9 +169,9 @@
     {
       "kind": "automation",
       "id": "6ae863d0fbdd550a9a4ffc58",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Content Handoff",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -190,9 +190,9 @@
     {
       "kind": "automation",
       "id": "6ae864342099302ffb2d2a71",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Email Domain Swapper",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -211,16 +211,16 @@
     {
       "kind": "automation",
       "id": "6ae864929594aa458cc23de9",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Outreach Launcher",
+      "version": 0,
+      "stale": false
     },
     {
       "kind": "automation",
       "id": "6ae86493f38e32761818a2c1",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Privacy and Consent",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "automation",
@@ -232,9 +232,9 @@
     {
       "kind": "automation",
       "id": "6ae8654d2099302ffb2d9514",
-      "name": null,
-      "version": null,
-      "stale": true
+      "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+      "version": 1,
+      "stale": false
     },
     {
       "kind": "object",
@@ -1081,426 +1081,6 @@
     {
       "from": {
         "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Patch"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_patch",
-        "name": "PF Patch"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Account"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_account",
-        "name": "PF Account"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Person"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_person",
-        "name": "PF Person"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Signal"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_signal",
-        "name": "PF Signal"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Fact"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_fact",
-        "name": "PF Fact"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Draft"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_draft",
-        "name": "PF Draft"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Hand-off"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_handoff",
-        "name": "PF Hand-off"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Component"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_component",
-        "name": "PF Component"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete origin test rows in PF Seed snapshot"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_seed_snapshot",
-        "name": "PF Seed snapshot"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the seed snapshot"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_seed_snapshot",
-        "name": "PF Seed snapshot"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the PF Hand-off ids that have a seed snapshot"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_seed_snapshot",
-        "name": "PF Seed snapshot"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Delete every PF Hand-off with no seed snapshot"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_handoff",
-        "name": "PF Hand-off"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Patch"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_patch",
-        "name": "PF Patch"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Account"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_account",
-        "name": "PF Account"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Person"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_person",
-        "name": "PF Person"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Signal"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_signal",
-        "name": "PF Signal"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Fact"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_fact",
-        "name": "PF Fact"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Draft"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_draft",
-        "name": "PF Draft"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Hand-off"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_handoff",
-        "name": "PF Hand-off"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Read the current seed rows of PF Component"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_component",
-        "name": "PF Component"
-      },
-      "via": "storage read",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Patch seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_patch",
-        "name": "PF Patch"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Account seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_account",
-        "name": "PF Account"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Person seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_person",
-        "name": "PF Person"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Signal seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_signal",
-        "name": "PF Signal"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Fact seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_fact",
-        "name": "PF Fact"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Draft seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_draft",
-        "name": "PF Draft"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Hand-off seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_handoff",
-        "name": "PF Hand-off"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
-        "id": "6ae8441df38e327618fcc13c",
-        "name": "Pipeline Factory · Reset demo",
-        "part": "node Put the PF Component seed row back"
-      },
-      "to": {
-        "kind": "object",
-        "id": "OBJ_pf_component",
-        "name": "PF Component"
-      },
-      "via": "storage write",
-      "fields": []
-    },
-    {
-      "from": {
-        "kind": "automation",
         "id": "6ae84449f38e327618fcc640",
         "name": "Pipeline Factory · Book meeting",
         "part": "node Read the account"
@@ -1607,6 +1187,243 @@
       "fields": [
         "handoff_id"
       ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Read the account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Read the account's people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Read the contact records and engagement sources of the account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Read the suppression rows of the account and its people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_suppression",
+        "name": "PF Suppression"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Set each person's email status"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Save the re-checked contact records"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae862f3f13e536c52e76ecd",
+        "name": "Pipeline Factory · Contact Finder",
+        "part": "node Log one component run per person"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Read every component's success rate and status"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component",
+        "name": "PF Component"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Read every patch's slots and intro pace"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_patch",
+        "name": "PF Patch"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Read the to-do items and escalations this workflow already saved"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_handoff",
+        "name": "PF Hand-off"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Pause the component (automatic safety action)"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae843d1f6f76639f8cf2d55",
+        "name": "Pipeline Factory · Pause component"
+      },
+      "via": "call node",
+      "fields": [
+        "held_handoffs",
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Save the to-do item through Save hand-off"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae840a5fbdd550a9a44c524",
+        "name": "Pipeline Factory · Save hand-off"
+      },
+      "via": "call node",
+      "fields": [
+        "handoff_id",
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Save the escalation through Save hand-off"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae840a5fbdd550a9a44c524",
+        "name": "Pipeline Factory · Save hand-off"
+      },
+      "via": "call node",
+      "fields": [
+        "handoff_id",
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Read the components again for the after numbers"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component",
+        "name": "PF Component"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863282099302ffb2cf702",
+        "name": "Pipeline Factory · Alarm and Escalation",
+        "part": "node Log the before and after numbers in one PF Component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
     },
     {
       "from": {
@@ -1883,6 +1700,96 @@
     {
       "from": {
         "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check",
+        "part": "node Read the draft"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check",
+        "part": "node Read the draft's account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check",
+        "part": "node Read the draft's person"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check",
+        "part": "node Read the suppression rows of the person and the account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_suppression",
+        "name": "PF Suppression"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check",
+        "part": "node Read the sender's inboxes"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863842099302ffb2d0262",
+        "name": "Pipeline Factory · Send Rules Check",
+        "part": "node Log the component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
         "id": "6ae863a5f38e327618183dca",
         "name": "Pipeline Factory · Weekly Slot Planner",
         "part": "node Read the patches"
@@ -1943,6 +1850,111 @@
     {
       "from": {
         "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the patch"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_patch",
+        "name": "PF Patch"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the patch's accounts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the drafts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Read the replies and content assets"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Set the account marketing-influenced"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae863d0fbdd550a9a4ffc58",
+        "name": "Pipeline Factory · Content Handoff",
+        "part": "node Log the weekly results in one PF Component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
         "id": "6ae864059ec43c6ee22f8008",
         "name": "Pipeline Factory · Holdout Picker",
         "part": "node Log the refused call as a PF Component run (C14)"
@@ -1991,6 +2003,66 @@
         "id": "6ae864059ec43c6ee22f8008",
         "name": "Pipeline Factory · Holdout Picker",
         "part": "node Log the seed and the draw as a PF Component run (C14)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864342099302ffb2d2a71",
+        "name": "Pipeline Factory · Email Domain Swapper",
+        "part": "node Read the sender's inboxes"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864342099302ffb2d2a71",
+        "name": "Pipeline Factory · Email Domain Swapper",
+        "part": "node Read every inbox"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864342099302ffb2d2a71",
+        "name": "Pipeline Factory · Email Domain Swapper",
+        "part": "node Set each inbox's status"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864342099302ffb2d2a71",
+        "name": "Pipeline Factory · Email Domain Swapper",
+        "part": "node Log the component run"
       },
       "to": {
         "kind": "object",
@@ -2468,68 +2540,367 @@
       },
       "via": "storage write",
       "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Read the account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Read the account's enrolled drafts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Read the account's people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Read the pod's inboxes"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Read the account's earlier launches"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Add the scheduled emails to each inbox's count"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_inbox",
+        "name": "PF Inbox"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae864929594aa458cc23de9",
+        "name": "Pipeline Factory · Outreach Launcher",
+        "part": "node Log the component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the accounts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the people"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_person",
+        "name": "PF Person"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the suppression list (consents and erasures)"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_suppression",
+        "name": "PF Suppression"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the replies of the last 12 months"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Read the enrolled drafts"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_draft",
+        "name": "PF Draft"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Screen the person through Do-Not-Contact List"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864672099302ffb2d3157",
+        "name": "Pipeline Factory · Do-Not-Contact List"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result",
+        "suppression_id"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Complete the erasure through Do-Not-Contact List"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae864672099302ffb2d3157",
+        "name": "Pipeline Factory · Do-Not-Contact List"
+      },
+      "via": "call node",
+      "fields": [
+        "reason",
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae86493f38e32761818a2c1",
+        "name": "Pipeline Factory · Privacy and Consent",
+        "part": "node Log the checks in one PF Component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Read the account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Read the account's calendar events"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Read every account"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_account",
+        "name": "PF Account"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Read every calendar event"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_source",
+        "name": "PF Source"
+      },
+      "via": "storage read",
+      "fields": []
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Book each picked-up meeting"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae84449f38e327618fcc640",
+        "name": "Pipeline Factory · Book meeting"
+      },
+      "via": "call node",
+      "fields": [
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Save each hand-off"
+      },
+      "to": {
+        "kind": "automation",
+        "id": "6ae840a5fbdd550a9a44c524",
+        "name": "Pipeline Factory · Save hand-off"
+      },
+      "via": "call node",
+      "fields": [
+        "result"
+      ]
+    },
+    {
+      "from": {
+        "kind": "automation",
+        "id": "6ae8654d2099302ffb2d9514",
+        "name": "Pipeline Factory · Meeting Handoff and Deadlines",
+        "part": "node Log the component run"
+      },
+      "to": {
+        "kind": "object",
+        "id": "OBJ_pf_component_run",
+        "name": "PF Component run"
+      },
+      "via": "storage write",
+      "fields": []
     }
   ],
   "unknown": [
     {
       "kind": "automation",
-      "id": "6ae862f3f13e536c52e76ecd",
+      "id": "6ae8441df38e327618fcc13c",
       "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae863282099302ffb2cf702",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae863842099302ffb2d0262",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae863d0fbdd550a9a4ffc58",
-      "name": null,
-      "reason": "entity-not-cached"
+      "reason": "entity-write"
     },
     {
       "kind": "automation",
       "id": "6ae863f02099302ffb2d2358",
       "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae864342099302ffb2d2a71",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae864929594aa458cc23de9",
-      "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae86493f38e32761818a2c1",
-      "name": null,
-      "reason": "entity-not-cached"
+      "reason": "entity-write"
     },
     {
       "kind": "automation",
       "id": "6ae865229ec43c6ee2300d8d",
       "name": null,
-      "reason": "entity-not-cached"
-    },
-    {
-      "kind": "automation",
-      "id": "6ae8654d2099302ffb2d9514",
-      "name": null,
-      "reason": "entity-not-cached"
+      "reason": "entity-write"
     },
     {
       "kind": "ai-agent",

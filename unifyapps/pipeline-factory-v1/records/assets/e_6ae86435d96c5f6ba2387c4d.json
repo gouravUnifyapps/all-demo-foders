@@ -9,10 +9,10 @@
   "modifiedTime": 1793614901788,
   "ownerUserId": 66770,
   "properties": {
+    "asset_class": "WORKFLOW_DEFINITION",
     "asset_id": "6ae864342099302ffb2d2a71",
     "state": "COMPLETED",
-    "solution_id": "e_6ae5bfc3b4f0d14b27962a04",
-    "asset_class": "WORKFLOW_DEFINITION"
+    "solution_id": "e_6ae5bfc3b4f0d14b27962a04"
   },
   "standard": false,
   "version": 0

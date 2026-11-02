@@ -16,6 +16,11 @@ createdAt: "2026-11-02T10:11:11.238Z"
 runningAt: "2026-11-02T10:11:14.874Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P03
@@ -23,13 +28,13 @@ Goal: Pipeline Factory · G3 round 2 · P03
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Account Ranking |  | done | 1 |
-| t2 | deploy | Pipeline Factory · Account Ranking | t1 | running | 1 |
+| t2 | deploy | Pipeline Factory · Account Ranking | t1 | done | 1 |
 | t3 | automation | Pipeline Factory · Weekly Slot Planner |  | done | 1 |
-| t4 | deploy | Pipeline Factory · Weekly Slot Planner | t3 | running | 1 |
+| t4 | deploy | Pipeline Factory · Weekly Slot Planner | t3 | done | 1 |
 | t5 | automation | Pipeline Factory · Holdout Picker |  | done | 1 |
-| t6 | deploy | Pipeline Factory · Holdout Picker | t5 | running | 1 |
+| t6 | deploy | Pipeline Factory · Holdout Picker | t5 | done | 1 |
 | t7 | automation | Pipeline Factory · Do-Not-Contact List |  | done | 1 |
-| t8 | deploy | Pipeline Factory · Do-Not-Contact List | t7 | running | 1 |
+| t8 | deploy | Pipeline Factory · Do-Not-Contact List | t7 | done | 1 |
 
 ### t1 · Build Pipeline Factory · Account Ranking
 
@@ -89,6 +94,18 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Account Ranking deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae8632c9ec43c6ee22f380d"}
+Read back: Pipeline Factory · Account Ranking 6ae8632c9ec43c6ee22f380d: search_workflows before deploy version 2, deployment null (saved version 2 per Built so far)
+Read back: Pipeline Factory · Account Ranking 6ae8632c9ec43c6ee22f380d: deploy_workflow ok:true, 'Deployed version 2 of automation 6ae8632c9ec43c6ee22f380d.', storedVersion 2, paused false
+Read back: Pipeline Factory · Account Ranking 6ae8632c9ec43c6ee22f380d: search_workflows deployment {status DEPLOYED, deployedVersion 1, definitionVersion 2, deployedAt 1793615202555, savedAfterDeploy false}
+Read back: Pipeline Factory · Account Ranking: best practice 87 (79 of 85 checks), read once, no fix round (deploy-only task), version 2
+Note: Deploy approval: the spec the person accepted names it under Ready when (plan approval).
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Execute Javascript, Call automation (n_42t8i) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_twwkm, n_hqxgy, n_lftct) · task does not save
+Note: best practice exception: CHECK_22 Instead of using nested Conditions, prefer using a single branch node · Condition (n_3qrju, n_hpvqi) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields, Create record · task does not save
+Note: best practice exception: CHECK_35 Migrate to Groovy code action for better performance · Execute Javascript · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (n_te83w, n_70im0) · task does not save
 
 ### t3 · Build Pipeline Factory · Weekly Slot Planner
 
@@ -129,6 +146,16 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Weekly Slot Planner deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae863a5f38e327618183dca"}
+Read back: Pipeline Factory · Weekly Slot Planner 6ae863a5f38e327618183dca: search_workflows before deploy version 0, deployment null (saved version 0 per Built so far)
+Read back: Pipeline Factory · Weekly Slot Planner 6ae863a5f38e327618183dca: deploy_workflow ok:true, 'Deployed version 0 of automation 6ae863a5f38e327618183dca.', storedVersion 0, paused false
+Read back: Pipeline Factory · Weekly Slot Planner 6ae863a5f38e327618183dca: search_workflows deployment {status DEPLOYED, deployedVersion 1, definitionVersion 0, deployedAt 1793615204091, savedAfterDeploy false}
+Read back: Pipeline Factory · Weekly Slot Planner: best practice 97 (81 of 85 checks), no fix round needed, version 0
+Note: Deploy approval: the spec the person accepted names it under Ready when (plan approval).
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields, Create record (n_bbbmg, n_87tqt) · task does not save
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Create record (n_bbbmg) · task does not save
+Note: best practice exception: CHECK_35 Migrate to Groovy code action for better performance · Execute Javascript · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · task does not save
 
 ### t5 · Build Pipeline Factory · Holdout Picker
 
@@ -173,6 +200,17 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Holdout Picker deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae864059ec43c6ee22f8008"}
+Read back: Pipeline Factory · Holdout Picker 6ae864059ec43c6ee22f8008: search_workflows before deploy version 0, deployment null (saved version 0 per Built so far)
+Read back: Pipeline Factory · Holdout Picker 6ae864059ec43c6ee22f8008: deploy_workflow ok:true, 'Deployed version 0 of automation 6ae864059ec43c6ee22f8008.', storedVersion 0, paused false
+Read back: Pipeline Factory · Holdout Picker 6ae864059ec43c6ee22f8008: search_workflows deployment {status DEPLOYED, deployedVersion 1, definitionVersion 0, deployedAt 1793615204933, savedAfterDeploy false}
+Read back: Pipeline Factory · Holdout Picker: best practice 93 (80 of 85 checks), no fix round needed, version 0
+Note: Deploy approval: the spec the person accepted names it under Ready when (plan approval).
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Execute Javascript · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Create record (n_7et3d, n_0xh9n), Update an existing record's fields · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_dhjsw) · task does not save
+Note: best practice exception: CHECK_35 Migrate to Groovy code action for better performance · Execute Javascript · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · task does not save
 
 ### t7 · Build Pipeline Factory · Do-Not-Contact List
 
@@ -223,4 +261,15 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Do-Not-Contact List deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae864672099302ffb2d3157"}
+Read back: Pipeline Factory · Do-Not-Contact List 6ae864672099302ffb2d3157: search_workflows before deploy version 1, deployment null (saved version 1 per Built so far)
+Read back: Pipeline Factory · Do-Not-Contact List 6ae864672099302ffb2d3157: deploy_workflow ok:true, 'Deployed version 1 of automation 6ae864672099302ffb2d3157.', storedVersion 1, paused false
+Read back: Pipeline Factory · Do-Not-Contact List 6ae864672099302ffb2d3157: search_workflows deployment {status DEPLOYED, deployedVersion 1, definitionVersion 1, deployedAt 1793615206049, savedAfterDeploy false}
+Read back: Pipeline Factory · Do-Not-Contact List: best practice 82 (80 of 85 checks), read once, no fix round (deploy-only task), version 1
+Note: Deploy approval: the spec the person accepted names it under Ready when (plan approval).
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Create record (n_2pdw5) · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_fuqbg, n_vfng3, n_bldxo, n_zwb1o, n_sknjp, n_rbgfj, n_6xmhj) · task does not save
+Note: best practice exception: CHECK_22 Instead of using nested Conditions, prefer using a single branch node · Condition (n_1c4g7, n_istca, n_4qupt, n_sicgb, n_u7zu7, n_t2h8s, n_mmiq8, n_ppp1v, n_qd7p1, n_kfzv9, n_nuaxh) · task does not save
+Note: best practice exception: CHECK_1 Remove unused node outputs to prevent unnecessary delays · Update an existing record's fields (n_uy2a4, n_osv8c, n_aja6z), Create record (n_erxvk) · task does not save
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop (n_99zge) · task does not save
 

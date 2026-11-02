@@ -23,12 +23,12 @@ Goal: Pipeline Factory · G3 round 2 · P02
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
 | t1 | automation | Pipeline Factory · Read component inputs |  | done | 1 |
-| t2 | deploy | Pipeline Factory · Read component inputs | t1 | running | 1 |
+| t2 | deploy | Pipeline Factory · Read component inputs | t1 | done | 1 |
 | t3 | automation | Pipeline Factory · Save agent output |  | done | 1 |
-| t4 | deploy | Pipeline Factory · Save agent output | t3 | running | 1 |
-| t5 | automation | Pipeline Factory · Reset agent runs |  | running | 1 |
-| t6 | deploy | Pipeline Factory · Reset agent runs | t5 | pending | 0 |
-| t7 | automation | Pipeline Factory · Reset demo | t6 | pending | 0 |
+| t4 | deploy | Pipeline Factory · Save agent output | t3 | done | 1 |
+| t5 | automation | Pipeline Factory · Reset agent runs |  | done | 1 |
+| t6 | deploy | Pipeline Factory · Reset agent runs | t5 | running | 1 |
+| t7 | automation | Pipeline Factory · Reset demo | t6 | running | 1 |
 | t8 | deploy | Pipeline Factory · Reset demo | t7 | pending | 0 |
 
 ### t1 · Build Pipeline Factory · Read component inputs
@@ -68,6 +68,14 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Read component inputs deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae8635446920244f3d5194b"}
+Read back: Pipeline Factory · Read component inputs 6ae8635446920244f3d5194b: search_workflows before deploy version 2, deployment null (matches t1's saved version 2)
+Read back: Pipeline Factory · Read component inputs 6ae8635446920244f3d5194b: deploy_workflow ok:true, 'Deployed version 2 of automation 6ae8635446920244f3d5194b.', storedVersion 2, paused false
+Read back: Pipeline Factory · Read component inputs 6ae8635446920244f3d5194b: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 2, deployedAt: 1793615194065, savedAfterDeploy: false}
+Read back: Pipeline Factory · Read component inputs: best practice 93 (83 of 85 checks), no fix round needed, version 2
+Note: Deploy approved by the plan: the spec the person accepted names it under Ready when.
+Note: best practice exception: CHECK_2 Disable Input/Output Visibility for Sensitive Fields · Trigger from automation, Execute Groovy code · task does not save
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_65588, n_hjm4e) · task does not save
 
 ### t3 · Build Pipeline Factory · Save agent output
 
@@ -119,6 +127,19 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: search_workflows shows Pipeline Factory · Save agent output deployed with definitionVersion equal to the saved version.
+Result IDs: {"entity":"6ae864829594aa458cc1ce69"}
+Read back: Pipeline Factory · Save agent output 6ae864829594aa458cc1ce69: search_workflows before deploy version 0, deployment null (matches t3's saved version 0)
+Read back: Pipeline Factory · Save agent output 6ae864829594aa458cc1ce69: deploy_workflow ok:true, 'Deployed version 0 of automation 6ae864829594aa458cc1ce69.', storedVersion 0, paused false
+Read back: Pipeline Factory · Save agent output 6ae864829594aa458cc1ce69: search_workflows deployment {status: DEPLOYED, deployedVersion: 1, definitionVersion: 0, deployedAt: 1793615195895, savedAfterDeploy: false}
+Unverified: Best Practice score not read: get_workflow_best_practice_report answered HTTP 500 'Workflow execution failed' for 6ae864829594aa458cc1ce69 on 3 calls (twice in a batch, once alone); check: call it again for this id later
+Note: Deploy approved by the plan: the spec the person accepted names it under Ready when.
+Note: feedback:
+Bug: get_workflow_best_practice_report fails the whole call with HTTP 500 when one listed automation cannot be scored, so the other ids get no score either.
+Context: workflowIds [6ae8635446920244f3d5194b, 6ae864829594aa458cc1ce69, 6ae863f02099302ffb2d2358] on orbit UAT; the 49-node Pipeline Factory · Save agent output (6ae864829594aa458cc1ce69, version 0) is the failing id.
+Where: platform
+Evidence: batch answered '\`POST /api/workflow/execute/node\` failed with HTTP 500 Internal Server Error: Workflow execution failed'; the other two ids alone answered ok (93 each); 6ae864829594aa458cc1ce69 alone failed with the same 500.
+Cause: Unknown — next check: the platform's best practice report execution log for workflow 6ae864829594aa458cc1ce69 version 0.
+Regression: get_workflow_best_practice_report with workflowIds [6ae864829594aa458cc1ce69] answers ok with a score.
 
 ### t5 · Build Pipeline Factory · Reset agent runs
 
@@ -130,7 +151,17 @@ Body:
 5. Report ids (the workflowId as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: open_workflow shows the contract of Pipeline Factory · Reset agent runs; test runs with origin test answer each result path.
-Error: Asked the person: Testing Pipeline Factory · Reset agent runs means running it, and every run deletes all origin test rows in PF Component run, PF Source, PF Inbox and PF Suppression (including other builders' test rows), then restores seed rows from PF Seed snapshot. This unattended task says to make no delete. May I run one test run of the saved draft now? Yes / No (leave it untested until the Reset demo deploy). Made so far: ids {"entity":"6ae863f02099302ffb2d2358"}.
+Result IDs: {"entity":"6ae863f02099302ffb2d2358"}
+Read back: Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358: search_workflows version 0, deployment null (not deployed, as the task says), 29 nodes
+Read back: Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358: open_workflow version 0, trigger CALLABLE callables/callables_from_automation, setup {type: object, properties: {}}, result {deleted: number, restored: number, required [deleted, restored]}; return { deleted: =SUM of the 4 delete counts, restored: countRestoredSeedRows.restored }; operations 4 delete_records, 5 fetch_records, 4 update_record_by_id, 2 groovy, variables; no model node
+Read back: Pipeline Factory · Reset agent runs 6ae863f02099302ffb2d2358: describe_callable_workflow parameters [], count 0, schema {type: object, properties: {}}
+Read back: Pipeline Factory · Reset agent runs: best practice 93 (82 of 85 checks), no fix round needed, version 0
+Unverified: Pipeline Factory · Reset agent runs run: unverified: run by 4-verify through Reset demo after the build (the person's answer: do not run it now, other builders write origin test rows in parallel)
+Note: Not test-run, per the person's answer: 'Do not run it now: other builders are writing origin test rows in parallel and this run is unattended. Leave Pipeline Factory · Reset agent runs saved and untested'.
+Note: No test rows written by this task, so none left for Reset demo.
+Note: best practice exception: CHECK_86 Object queries in workflow running against unindexed fields · Fetch records (n_98o1l, n_muy6e, n_o8r2c, n_wsgce, n_epbqx) · score already 90 or more
+Note: best practice exception: CHECK_26 Use bulk storage operations instead of looping · Update an existing record (n_nq6rj, n_bc6ln, n_d117g, n_5qnle) · score already 90 or more
+Note: best practice exception: CHECK_37 Capture Iterations enabled · For each loop · score already 90 or more
 
 ### t6 · Deploy Pipeline Factory · Reset agent runs
 

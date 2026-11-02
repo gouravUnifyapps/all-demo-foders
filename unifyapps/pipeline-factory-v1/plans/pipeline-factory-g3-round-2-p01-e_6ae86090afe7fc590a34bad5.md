@@ -16,21 +16,26 @@ createdAt: "2026-11-02T10:06:08.192Z"
 runningAt: "2026-11-02T10:06:11.463Z"
 runner: {"clientId":"533e7426-6927-42a4-bbcf-657253136df4","email":"gourav.mahunta@unifyapps.com","claudeSessionId":"ac6dc8fd-1e9e-54b2-abbf-69b907d4f5c1"}
 ---
+<!-- nebula:status -->
+## Status
+Finished. All tasks completed.
+<!-- /nebula:status -->
+
 ## Plan
 
 Goal: Pipeline Factory · G3 round 2 · P01
 
 | id | kind | entity | dependsOn | status | attempts |
 |---|---|---|---|---|---:|
-| t1 | object | PF Component |  | running | 1 |
-| t2 | object | PF Component run |  | running | 1 |
-| t3 | object | PF Source |  | running | 1 |
-| t4 | object | PF Inbox |  | running | 1 |
-| t5 | object | PF Suppression |  | running | 1 |
-| t6 | record | PF Source | t3 | running | 1 |
-| t7 | record | PF Inbox | t4 | running | 1 |
-| t8 | record | PF Suppression | t5 | running | 1 |
-| t9 | record | PF Seed snapshot | t6, t7, t8 | running | 1 |
+| t1 | object | PF Component |  | done | 1 |
+| t2 | object | PF Component run |  | done | 1 |
+| t3 | object | PF Source |  | done | 1 |
+| t4 | object | PF Inbox |  | done | 1 |
+| t5 | object | PF Suppression |  | done | 1 |
+| t6 | record | PF Source | t3 | done | 1 |
+| t7 | record | PF Inbox | t4 | done | 1 |
+| t8 | record | PF Suppression | t5 | done | 1 |
+| t9 | record | PF Seed snapshot | t6, t7, t8 | done | 1 |
 
 ### t1 · Change object PF Component
 
@@ -42,6 +47,13 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_objects shows PF Component with every field the line names.
+Result IDs: {"entity":"OBJ_pf_component"}
+Read back: OBJ_pf_component: get_objects fields now end ... origin, built_kind, built_entity_id, built_entity_name, built_link, built_status, built_at; required [component_id]; unmirroredFields: []
+Read back: OBJ_pf_component: picklists built_kind [ai_agent, automation, not_built], built_status [live, not_built]; batch wrote both with default not_built
+Read back: OBJ_pf_component: types built_entity_id/built_entity_name/built_link string, built_at integer format date dateFormat epoch (apply_object_batch changes)
+Read back: OBJ_pf_component: existing picklists unchanged (sub_workflow sw1..sw8, kind agent..rule_step, model_family, status live/shadow/paused, origin); get_records total 57
+Unverified: The earlier (round-1) contract was not in the message, so existing fields were not compared to it field by field; they were left untouched.
+Note: Security: no access settings changed; object keeps the platform permission filter.
 
 ### t2 · Create object PF Component run
 
@@ -53,6 +65,21 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_objects shows PF Component run with every field the line names.
+Result IDs: {"entity":"OBJ_pf_component_run"}
+Read back: OBJ_pf_component_run: get_objects fields run_id, component_id, component_name, kind, patch_id, account_id, person_id, play_id, draft_id, output_type, summary, payload, confidence, evidence, evidence_tag, status, assigned_to, reason, model, cost_usd, latency_ms, idempotency_key, handoff_ids, run_at, origin; required [run_id]; unmirroredFields: []
+Read back: OBJ_pf_component_run: picklists kind [agent, checker, monitor, workflow], evidence_tag [public, hypothesis, none], status [saved, waiting_person, rejected, proposal, blocked, no_action, paused], origin [user, seed, test] default user
+Read back: OBJ_pf_component_run: run_id string primaryKey; payload string (JSON as text); confidence/cost_usd/latency_ms number; run_at integer date epoch
+Read back: OBJ_pf_component_run: indexes idx_component_id, idx_patch_id, idx_account_person (account_id+person_id), idx_play_id, idx_draft_id, all status SUCCESS
+Note: Design: six non-key *_id fields but the platform allows 5 custom indexes, so account_id and person_id share one composite index (account_id, person_id); a query on person_id alone is not served by an index.
+Note: Design: idempotency_key is not marked unique because the contract does not say so; a writer must check it before insert.
+Note: Security: no access settings changed.
+Note: feedback:
+Bug: The plan's object-create task body asks for an index on each \`*_id\` field, which cannot be met past five such fields (platform cap of 5 custom indexes).
+Context: Task t2, OBJ_pf_component_run, six non-key \`*_id\` fields.
+Where: nebula
+Evidence: Task asked for six indexes; object-storage-manager says a 6th index is refused. Built five with a composite account_id+person_id.
+Cause: Suspected: the planner's generic body does not count against the five-index cap.
+Regression: Plan an object with six \`*_id\` fields; the task body names at most five indexes.
 
 ### t3 · Create object PF Source
 
@@ -64,6 +91,11 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_objects shows PF Source with every field the line names.
+Result IDs: {"entity":"OBJ_pf_source"}
+Read back: OBJ_pf_source: get_objects fields source_id, account_id, person_id, source_kind, title, body, url, source_date, mocked_system, status, origin; required [source_id]; unmirroredFields: []
+Read back: OBJ_pf_source: picklist source_kind [annual_report, investor_deck, earnings_call, press, job_post, vendor_case_study, procurement_notice, linkedin_export, contact_record, content_asset, call_transcript, meeting_transcript, calendar_event, reply, web_visit, handbook]; origin [user, seed, test] default user
+Read back: OBJ_pf_source: source_id string primaryKey; source_date integer date epoch; indexes idx_account_id, idx_person_id status SUCCESS
+Note: Security: no access settings changed.
 
 ### t4 · Create object PF Inbox
 
@@ -75,6 +107,11 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_objects shows PF Inbox with every field the line names.
+Result IDs: {"entity":"OBJ_pf_inbox"}
+Read back: OBJ_pf_inbox: get_objects fields inbox_id, sender, pod, domain, daily_limit, sent_today, ramp_week, placement_pct_last, placement_pct_prev, blacklisted, previously_blacklisted, status, checked_at, origin; required [inbox_id]; unmirroredFields: []
+Read back: OBJ_pf_inbox: picklists status [active, resting, warm_spare, retired, blocked_new], origin [user, seed, test] default user; numbers number, blacklisted/previously_blacklisted boolean, checked_at integer date epoch
+Read back: OBJ_pf_inbox: no *_id field besides the primary key inbox_id, so no custom index
+Note: Security: no access settings changed.
 
 ### t5 · Create object PF Suppression
 
@@ -86,6 +123,12 @@ Body:
 5. Report ids (the object id as \`ids.entity\`), readBack, unverified, notes.
 
 Proof: get_objects shows PF Suppression with every field the line names.
+Result IDs: {"entity":"OBJ_pf_suppression"}
+Read back: OBJ_pf_suppression: get_objects fields suppression_id, person_id, account_id, email_hash, kind, reason, state, consent_given, copied_to, copied_at, erase_due, origin; required [suppression_id]; unmirroredFields: []
+Read back: OBJ_pf_suppression: picklists kind [opt_out, bounce, complaint, legal_hold, consent, erasure], origin [user, seed, test] default user; consent_given boolean; copied_at, erase_due integer date epoch
+Read back: OBJ_pf_suppression: indexes idx_person_id, idx_account_id status SUCCESS
+Note: email_hash is a plain string, not format hash, so a send check can filter on it.
+Note: Security: no access settings changed.
 
 ### t6 · Seed PF Source rows
 
@@ -97,6 +140,13 @@ Body:
 5. Report ids (the object id as \`ids.entity\`, the row ids as \`ids.rows\`), readBack, unverified, notes.
 
 Proof: get_records on PF Source shows every row the line names with origin seed.
+Result IDs: {"entity":"OBJ_pf_source","records":["SRC-01","SRC-02","SRC-03","SRC-04","SRC-05","SRC-06","SRC-07","SRC-08","SRC-09","SRC-10","SRC-11","SRC-12","SRC-13","SRC-14","SRC-15","SRC-16","SRC-17","SRC-18","SRC-19"],"rows":["SRC-01","SRC-02","SRC-03","SRC-04","SRC-05","SRC-06","SRC-07","SRC-08","SRC-09","SRC-10","SRC-11","SRC-12","SRC-13","SRC-14","SRC-15","SRC-16","SRC-17","SRC-18","SRC-19"]}
+Read back: OBJ_pf_source: get_records origin EQUAL seed total 19, ids SRC-01..SRC-19
+Read back: OBJ_pf_source: SRC-01 annual_report A-1001 ... SRC-17 meeting_transcript A-1012, SRC-18 web_visit A-1001, SRC-19 handbook (no account_id)
+Read back: OBJ_pf_source: SRC-07 linkedin_export person P-1002 mocked_system LinkedIn export (opt-in); SRC-08/09 contact_record Sprouts (mocked); SRC-12 Gong (mocked); SRC-13/14/15 Apollo (mocked)
+Note: Dates from 2026-11-02 (demo day = today): SRC-05 2026-09-21 (6 weeks before), SRC-06 2024-07-02 (28 months), SRC-10 2026-06-02 (5 months), SRC-11 2025-01-02 (22 months), SRC-14 body 'Out of office until 12 November 2026' (10 days after), SRC-16 source_date 2026-11-05 (3 days after); others picked inside the prior 12 months.
+Note: status left empty on every row: the seed line gives no status value.
+Note: Rows created by primary key source_id; the object was new, so none existed before.
 
 ### t7 · Seed PF Inbox rows
 
@@ -108,6 +158,10 @@ Body:
 5. Report ids (the object id as \`ids.entity\`, the row ids as \`ids.rows\`), readBack, unverified, notes.
 
 Proof: get_records on PF Inbox shows every row the line names with origin seed.
+Result IDs: {"entity":"OBJ_pf_inbox","records":["IN-01","IN-02","IN-03","IN-04","IN-05","IN-06"],"rows":["IN-01","IN-02","IN-03","IN-04","IN-05","IN-06"]}
+Read back: OBJ_pf_inbox: get_records origin EQUAL seed total 6: IN-01 active getunifyapps.example, IN-02 active unifyapps-team.example, IN-03 warm_spare tryunifyapps.example, IN-04 active meetunifyapps.example, IN-05 resting unifyappsmail.example, IN-06 blocked_new hellounifyapps.example
+Read back: OBJ_pf_inbox: write result IN-02 placement_pct_prev 64, placement_pct_last 68; IN-05 previously_blacklisted true; IN-06 no placement fields
+Note: 'placement X then Y' read as prev X, last Y. IN-05 ramp_week left empty (not given). blacklisted false on every row; checked_at 2026-11-02 00:00 UTC.
 
 ### t8 · Seed PF Suppression rows
 
@@ -119,6 +173,9 @@ Body:
 5. Report ids (the object id as \`ids.entity\`, the row ids as \`ids.rows\`), readBack, unverified, notes.
 
 Proof: get_records on PF Suppression shows every row the line names with origin seed.
+Result IDs: {"entity":"OBJ_pf_suppression","records":["SUP-01","SUP-02","SUP-03","SUP-04"],"rows":["SUP-01","SUP-02","SUP-03","SUP-04"]}
+Read back: OBJ_pf_suppression: get_records origin EQUAL seed total 4: SUP-01 erasure, SUP-02 legal_hold, SUP-03 consent, SUP-04 consent
+Read back: OBJ_pf_suppression: write result SUP-01 no person_id, copied_to 'HubSpot, Apollo, Sprouts (mocked)'; SUP-02 account_id A-1004; SUP-03 P-1001 OH consent_given true; SUP-04 P-1002 OH consent_given true
 
 ### t9 · Seed PF Seed snapshot rows
 
@@ -130,4 +187,8 @@ Body:
 5. Report ids (the object id as \`ids.entity\`, the row ids as \`ids.rows\`), readBack, unverified, notes.
 
 Proof: get_records on PF Seed snapshot shows every row the line names with origin seed.
+Result IDs: {"entity":"OBJ_pf_seed_snapshot","records":["OBJ_pf_source:SRC-01..SRC-19","OBJ_pf_inbox:IN-01..IN-06","OBJ_pf_suppression:SUP-01..SUP-04"],"rows":["OBJ_pf_source:SRC-01..SRC-19","OBJ_pf_inbox:IN-01..IN-06","OBJ_pf_suppression:SUP-01..SUP-04"]}
+Read back: OBJ_pf_seed_snapshot: get_records object_id IN [OBJ_pf_source, OBJ_pf_inbox, OBJ_pf_suppression] and origin EQUAL seed total 29 (19 + 6 + 4)
+Read back: OBJ_pf_seed_snapshot: write results ok for ids OBJ_pf_source:SRC-01 .. OBJ_pf_suppression:SUP-04, each origin seed
+Note: Before the write, no snapshot row existed for these three objects (filtered read total 0). row_values is each row exactly as sent in t6-t8, JSON text; taken_at 1793614080000.
 

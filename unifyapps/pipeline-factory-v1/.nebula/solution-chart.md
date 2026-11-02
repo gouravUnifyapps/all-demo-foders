@@ -33,8 +33,12 @@ flowchart LR
   n29["object PF Hand-off · OBJ_pf_handoff"]
   n30["object PF Component · OBJ_pf_component"]
   n31["object PF Seed snapshot · OBJ_pf_seed_snapshot"]
-  n32["AI agent Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da"]
-  n33["object object_type · object_type"]
+  n32["object PF Component run · OBJ_pf_component_run"]
+  n33["object PF Source · OBJ_pf_source"]
+  n34["object PF Inbox · OBJ_pf_inbox"]
+  n35["object PF Suppression · OBJ_pf_suppression"]
+  n36["AI agent Pipeline Factory Analyst · e_6ae846ffd96c5f6ba22b98da"]
+  n37["object object_type · object_type"]
   n1 --- n2
   n2 --- n3
   n2 --- n4
@@ -52,11 +56,11 @@ flowchart LR
   n5 -->|data source| n15
   n6 -->|data source| n22
   n7 -->|data source| n19
-  n8 -->|storage read| n33
-  n9 -->|storage read| n33
-  n10 -->|storage read| n33
-  n11 -->|storage read| n33
-  n12 -->|storage read| n33
+  n8 -->|storage read| n37
+  n9 -->|storage read| n37
+  n10 -->|storage read| n37
+  n11 -->|storage read| n37
+  n12 -->|storage read| n37
   n13 -->|data source| n16
   n14 -->|storage read| n30
   n14 -->|storage write| n29

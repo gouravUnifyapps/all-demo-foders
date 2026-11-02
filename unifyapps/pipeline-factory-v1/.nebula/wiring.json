@@ -177,13 +177,41 @@
       "kind": "object",
       "id": "OBJ_pf_component",
       "name": "PF Component",
-      "version": 0,
+      "version": 1,
       "stale": false
     },
     {
       "kind": "object",
       "id": "OBJ_pf_seed_snapshot",
       "name": "PF Seed snapshot",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_pf_component_run",
+      "name": "PF Component run",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_pf_source",
+      "name": "PF Source",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_pf_inbox",
+      "name": "PF Inbox",
+      "version": 0,
+      "stale": false
+    },
+    {
+      "kind": "object",
+      "id": "OBJ_pf_suppression",
+      "name": "PF Suppression",
       "version": 0,
       "stale": false
     },

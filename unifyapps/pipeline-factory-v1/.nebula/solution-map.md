@@ -24,8 +24,12 @@ Solution: `UnifyApps · Pipeline Factory v1` (e_6ae5bfc3b4f0d14b27962a04) · ten
 | object | `PF Fact` | OBJ_pf_fact | 0 | no |
 | object | `PF Draft` | OBJ_pf_draft | 0 | no |
 | object | `PF Hand-off` | OBJ_pf_handoff | 0 | no |
-| object | `PF Component` | OBJ_pf_component | 0 | no |
+| object | `PF Component` | OBJ_pf_component | 1 | no |
 | object | `PF Seed snapshot` | OBJ_pf_seed_snapshot | 0 | no |
+| object | `PF Component run` | OBJ_pf_component_run | 0 | no |
+| object | `PF Source` | OBJ_pf_source | 0 | no |
+| object | `PF Inbox` | OBJ_pf_inbox | 0 | no |
+| object | `PF Suppression` | OBJ_pf_suppression | 0 | no |
 | ai-agent | `Pipeline Factory Analyst` | e_6ae846ffd96c5f6ba22b98da | 14 | no |
 
 ## Wiring
